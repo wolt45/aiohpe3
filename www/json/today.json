@@ -1,0 +1,26 @@
+[
+  {
+    "PxRID": 123,
+    "pxname": "CRUZ, JUAN dela",
+    "Address": "#23 B. Gallo St., Brgy. 1, Manapla, Neg. Occ.",
+    "foto": "images/Angela_Martin.jpg",
+    "pxmarstatus": "married",
+    "pxagesex": "F/24,  Student"
+  },
+  {
+    "pxrid": 345,
+    "pxname": "GUSTILO, JOE MARS",
+    "pxaddress": "Address of Joemars Gustilo",
+    "foto": "images/Andy_Bernard.jpg",
+    "pxmarstatus": "married",
+    "pxagesex": "F/42. Student of University of St. La Salle"
+  },
+  {
+    "pxrid": 567,
+    "pxname": "JO, ALEXIS",
+    "pxaddress": "#189-B Gonzaga St., Bacolod City, Negros Occidental",
+    "foto": "images/walter.jpg",
+    "pxmarstatus": "single",
+    "pxagesex": "M/34"
+  }
+]

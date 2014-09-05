@@ -1,0 +1,79 @@
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<script type="text/javascript" src="http://localhost/atoday/lib/jquery-1.11.1.min.js"></script>
+
+	<script type="text/javascript">
+		
+		var person = "";
+
+		db = window.openDatabase("WFS_WebSQL", "1.0", "iPadMR", 2*1024*1024);
+			
+		db.transaction(function (tx) {
+			// here be the transaction
+			// do SQL magic here using the tx object
+
+			tx.executeSql('SELECT * FROM px_data ORDER BY pxname', [], renderList, errorCB);
+		});
+
+		function renderList(tx, results) {
+			var len = results.rows.length;
+
+			person = "[";
+			for (var i=0; i<len; i++) {
+				person += '{ "PxRID" : "' + results.rows.item(i).PxRID + '", "pxname" : "' + results.rows.item(i).pxname + '", "Address" : "' + results.rows.item(i).Address + '", "pxstatus" : "' + results.rows.item(i).pxstatus + '", "pxregdate" : "' + results.rows.item(i).pxregdate + '", "Foto" : "' + results.rows.item(i).Foto + '"},';
+			}
+			person = person.substring(',', person.length - 1);
+			person += "]";
+
+			
+ 			//writeToDom(JSON.stringify(person));
+			//$("#results").html(JSON.stringify(person)); 
+ 			$("#results").html(person); 
+        };
+
+		function errorCB(err) {
+            alert("REST EXTRACT Error!" + err.code);
+        }
+
+		function writeToDom(content) {
+		    //$("#results").append("<div><pre>" + content + "</pre></div>");
+		    //$("#results").append("<div>" + content + "</div>");
+		    $("#results").html(JSON.stringify(content)); 
+		}
+
+		function showResults(evnt) {
+		    writeToDom('Plain', JSON.stringify(person));
+		};
+	</script>
+</head>
+
+<body>
+<div id="results"></div>
+</body>
+
+
+
+<!-- 
+
+<div ng-controller="FetchController">
+<select ng-model="method">
+  <option>GET</option>
+  <option>JSONP</option>
+</select>
+<input type="text" ng-model="url" size="80"/>
+<button id="fetchbtn" ng-click="fetch()">fetch</button><br>
+<button id="samplegetbtn" ng-click="updateModel('GET', 'http-hello.html')">Sample GET</button>
+<button id="samplejsonpbtn"
+  ng-click="updateModel('JSONP',
+                'https://angularjs.org/greet.php?callback=JSON_CALLBACK&name=Super%20Hero')">
+  Sample JSONP
+</button>
+<button id="invalidjsonpbtn"
+  ng-click="updateModel('JSONP', 'https://angularjs.org/doesntexist&callback=JSON_CALLBACK')">
+    Invalid JSONP
+  </button>
+<pre>http status code: {{status}}</pre>
+<pre>http response data: {{data}}</pre>
+</div>     -->

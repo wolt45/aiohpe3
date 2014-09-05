@@ -1,0 +1,18 @@
+
+# llllll
+
+https://developer.appcelerator.com/question/134161/returning-json-array-of-objects-from-a-function
+
+var myObj=[]; declaring an array that will hold your JSON Array data
+ 
+ myObj = myJson(); // calling your function
+ Ti.API.info(myObj);
+ 
+ function myJson() // function that will return your JSON data
+ {
+     var jsonParse = [];
+     var jsonData = '[{"PlayerID":"117","name":"Abriel Neal"},{"PlayerID":"118","name":"Roman Walter"}]';
+     jsonParse = JSON.parse(jsonData);
+     return jsonParse;
+ }
+ #

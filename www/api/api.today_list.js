@@ -35,7 +35,7 @@
 		var db;
 
 		function onDeviceReady() {
-			db = window.openDatabase("ipadrbg", "1.0", "ipadrbg", 2*1024*1024);
+			db = window.openDatabase("WFS_WebSQL", "1.0", "iPadMR", 2*1024*1024);
 			
 			db.transaction(function (tx) {
   				// here be the transaction

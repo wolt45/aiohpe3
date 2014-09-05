@@ -1,0 +1,62 @@
+<html >
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+
+	<script type="text/javascript">
+	var person = {
+	    name: "Jim Cowart",
+	    location: {
+	        city: {
+	            name: "Chattanooga",
+	            population: 167674
+	        },
+	        state: {
+	            name: "Tennessee",
+	            abbreviation: "TN",
+	            population: 6403000
+	        }
+	    },
+	    company: "appendTo",
+	};
+
+	// the values aren't used, just the keys
+	var doNotStringify = {
+	    currentTarget: true,
+	    delegateTarget: true,
+	    originalEvent: true,
+	    target: true,
+	    toElement: true,
+	    view : true
+	}
+
+	function writeToDom(title, content) {
+	    $("#results").append("<div class='header'>" + title + ":</div><div><pre>" + content + "</pre></div>");
+	}
+
+	function showResults(evnt) {
+	    writeToDom('Plain', JSON.stringify(person));
+
+	    
+	    writeToDom('Formatted', JSON.stringify(person, null, 4));
+	    writeToDom('Plucked From Event via Replacer Array', JSON.stringify(evnt, [ "clientX", "clientY", "offsetX", "offsetY" ], 4));
+	    writeToDom('Plucked From Event via Replacer Fn', JSON.stringify(evnt, function(key, value) {
+	        var result = value;
+	        if(doNotStringify.hasOwnProperty(key)) {
+	            result = undefined;
+	        }
+	        return result;
+	    }, 4));
+	}
+
+	$(function() {
+	   $(document).on("click", "#clickme", showResults); 
+	});
+</script>
+</head>
+
+<body>
+<p>http://jsfiddle.net/ifandelse/6Yj5h/</p>	
+
+<input type="button" id="clickme" value="Show Results">
+<div id="results"></div>

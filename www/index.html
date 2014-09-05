@@ -1,43 +1,46 @@
-<!DOCTYPE html>
-<head lang="en">
+<html ng-app="RBGIOHPEApp">
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The LOCALDB-SQLiteDB App</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-    
-    <link rel="stylesheet" type="text/css" href="lib/jquery.mobile-1.4.3.min.css"/>
-    
+    <title>GUSTILO CLINIC and AMBULATORY SURGERY CENTER</title>
+
+    <link href="css/all.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/tablex.css" rel="stylesheet"  type="text/css" />
+    <!-- link href="css/sticky-footer.css" rel="stylesheet"  type="text/css" / -->
+
     <script src="lib/jquery-1.7.1.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <script src="lib/jquery.min.js" type="text/javascript"></script>
     <script src="lib/jquery.main.js" type="text/javascript"></script>
-	<script src="lib/jquery.mobile-1.4.3.js" type="text/javascript"></script>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-		    // are we running in native app or in a browser?
-		    window.isphone = false;
-		    if(document.URL.indexOf("http://") === -1 
-		        && document.URL.indexOf("https://") === -1) {
-		        window.isphone = true;
-		    }
+    <script src="lib/angular-1.2.18.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/angular-resource.min.js" type="text/javascript"></script>
 
-		    if( window.isphone ) {
-		        document.addEventListener("deviceready", onDeviceReady, false);
-		    } else {
-		        onDeviceReady();
-		    }
-		});
+    <script src="js/app.js"></script>
+    <script src="js/txControllers.js"></script>
+    <!-- script src="js/services.js" type="text/javascript"></script -->
+  </head>
+  <body>
+    
+    <div class="row">
 
-		//document.addEventListener("deviceready", onDeviceReady, false);
+      <div class="col-xs-12 col-sm-2 bs-docs-container" id="topLeft">
+          <ng:include src="'tpl/today_nav.html'"></ng:include>
+      </div>
 
-		var db;
+      <div class="col-xs-12 col-sm-10" id="mainContent">
+          
+        <ng:view>       </ng:view>
 
-		function onDeviceReady() {
-			db = window.openDatabase("ipadrbg", "1.0", "ipadrbg", 2*1024*1024);
-			
-			db.transaction(function (tx) {
+      </div>
+
+      <!-- footers -->
+
+
+  </div>
+  </body>
+</html>tion (tx) {
   				// here be the transaction
   				// do SQL magic here using the tx object
 
