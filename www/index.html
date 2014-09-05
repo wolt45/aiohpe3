@@ -1,77 +1,47 @@
-<html ng-app="RBGIOHPEApp">
-  <head>
-    <meta charset="utf-8">
-    <title>GUSTILO CLINIC and AMBULATORY SURGERY CENTER</title>
-
-    <link href="css/all.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/tablex.css" rel="stylesheet"  type="text/css" />
-    <!-- link href="css/sticky-footer.css" rel="stylesheet"  type="text/css" / -->
-
-    <script src="lib/jquery-1.7.1.min.js"></script>
-    <script src="lib/bootstrap.min.js"></script>
-    <script src="lib/jquery.min.js" type="text/javascript"></script>
-    <script src="lib/jquery.main.js" type="text/javascript"></script>
-
-    <script src="lib/angular-1.2.18.min.js"></script>
-    <script src="lib/angular-route.min.js"></script>
-    <script src="lib/angular-resource.min.js" type="text/javascript"></script>
-
-    <script src="js/app.js"></script>
-    <script src="js/txControllers.js"></script>
-    <!-- script src="js/services.js" type="text/javascript"></script -->
-  </head>
-  <body>
-    
-    <div class="row">
-
-      <div class="col-xs-12 col-sm-2 bs-docs-container" id="topLeft">
-          <ng:include src="'tpl/today_nav.html'"></ng:include>
-      </div>
-
-      <div class="col-xs-12 col-sm-10" id="mainContent">
-          
-        <ng:view>       </ng:view>
-
-      </div>
-
-      <!-- footers -->
-
-
-  </div>
-  </body>
-</html>tion (tx) {
-  				// here be the transaction
-  				// do SQL magic here using the tx object
-
-  				tx.executeSql('SELECT * FROM px_data', [], renderList, errorCB);
-			});
-		};	
-
-		function renderList(tx, results) {
-			var htmlstring = '';
-			var len = results.rows.length;
-
-			htmlstring += "	<table border='1' id='products'><tr><th>No.</th><th>Foto</th><th>PxRID</th><th>Name</th><th>Address</th><th>Status</th></tr>";
-			$x = 1;
-			for (var i=0; i<len; i++) {
-				htmlstring += '<tr><td>'+ $x++ +'</td><td><img src="images/'+ results.rows.item(i).Foto + '" width="120px" /> </td><td>' + results.rows.item(i).PxRID + '</td><td>' + results.rows.item(i).pxname + '</td><td> ' + results.rows.item(i).Address + '</td><td>' + results.rows.item(i).pxstatus  +  '</td></tr>';
-			}
-
-			$('#resultList').html(htmlstring);
-			$('#resultList').listview('refresh');
-        };
-
-		function errorCB(err) {
-            alert("REST EXTRACT Error!" + err.code);
-        }
-	</script>
+<html>
+<head>
+<script src="css/source-sans-pro.js"></script>
+<link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-	<h1>px_data iPad view</h1>
-	<div id="resultList" data-role='listview'>
 
+<script id="home-tpl" type="text/x-handlebars-template">
+    <div class='header'><h1>Home</h1></div>
+    <div class='search-bar'><input class='search-key' type="search"/></div>
+    <div class="scroll"><ul class='employee-list'></ul></div>
+</script>
 
-   	</div>
+<script id="employee-li-tpl" type="text/x-handlebars-template">
+    {{#.}}
+    <li><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
+    {{/.}}
+</script>
+
+<script id="employee-tpl" type="text/x-handlebars-template">
+    <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
+    <div class='details'>
+    <img id='image' src='img/{{firstName}}_{{lastName}}.jpg' style="float:left;margin:10px;"/>
+    <h1>{{firstName}} {{lastName}}</h1>
+    <h2>{{title}}</h2>
+    <span class="location"></span>
+    <ul>
+    <li><a href="tel:{{officePhone}}">Call Office<br/>{{officePhone}}</a></li>
+    <li><a href="tel:{{cellPhone}}">Call Cell<br/>{{cellPhone}}</a></li>
+    <li><a href="sms:{{cellPhone}}">SMS<br/>{{cellPhone}}</a></li>
+    <li><a href="#" class="add-location-btn">Add Location</a></li>
+    <li><a href="#" class="add-contact-btn">Add to Contacts</a></li>
+    <li><a href="#" class="change-pic-btn">Change Picture</a></li>
+    </ul>
+    </div>
+</script>
+
+<script src="phonegap.js"></script>
+<script src="lib/jquery-1.8.2.min.js"></script>
+<script src="lib/handlebars.js"></script>
+<script src="js/storage/memory-store.js"></script>
+<script src="js/HomeView.js"></script>
+<script src="js/EmployeeView.js"></script>
+<script src="js/main.js"></script>
+
 </body>
 </html>
