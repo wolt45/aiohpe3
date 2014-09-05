@@ -1,43 +1,20 @@
-<html ng-app="RBGIOHPEApp">
-  <head>
-    <meta charset="utf-8">
-    <title>GUSTILO CLINIC and AMBULATORY SURGERY CENTER</title>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Directory</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
 
-    <link href="css/all.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/tablex.css" rel="stylesheet"  type="text/css" />
-    <!-- link href="css/sticky-footer.css" rel="stylesheet"  type="text/css" / -->
+<body>
 
-    <script src="lib/jquery-1.7.1.min.js"></script>
-    <script src="lib/bootstrap.min.js"></script>
-    <script src="lib/jquery.min.js" type="text/javascript"></script>
-    <script src="lib/jquery.main.js" type="text/javascript"></script>
+<div id="content"></div>
 
-    <script src="lib/angular-1.2.18.min.js"></script>
-    <script src="lib/angular-route.min.js"></script>
-    <script src="lib/angular-resource.min.js" type="text/javascript"></script>
+<!-- Scripts -->
+<script type="text/javascript" src="libs/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="libs/underscore-min.js"></script>
+<script type="text/javascript" src="libs/backbone-min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 
-    <script src="js/app.js"></script>
-    <script src="js/txControllers.js"></script>
-    <!-- script src="js/services.js" type="text/javascript"></script -->
-  </head>
-  <body>
-    
-    <div class="row">
-
-      <div class="col-xs-12 col-sm-2 bs-docs-container" id="topLeft">
-          <ng:include src="'tpl/today_nav.html'"></ng:include>
-      </div>
-
-      <div class="col-xs-12 col-sm-10" id="mainContent">
-          
-        <ng:view>       </ng:view>
-
-      </div>
-
-      <!-- footers -->
-
-
-  </div>
-  </body>
+</body>
 </html>
