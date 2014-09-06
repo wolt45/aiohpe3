@@ -1,0 +1,31 @@
+<div scroll-bookmark="ChartData">
+	<div class="panel panel-danger">
+
+		<table class="table-border table-condensed">
+			<tr>
+				<td rowspan=3 width="1%"><img ng-src="images/{{px_APIitem.Foto}}" width="120"></td>
+				<td rowspan=3 width="1%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="1%" nowrap>file: {{px_APIitem.ClinixRID}}</td>
+
+				<td width="1%" nowrap>
+					chart: {{px_APIitem.PxRID}}, <span style="font-size:12px">{{px_APIitem.pxregdate}}</span>
+				</th>
+
+				<th width="1%" nowrap>{{px_APIitem.pxname}}</th>
+				<td colspan=4 nowrap>
+					999,999.99
+				</td>
+			</tr>
+			<tr>
+				<td colspan=4 nowrap>
+					{{px_APIitem.pxstatus}}, 
+					{{px_APIitem.Address}}
+				</td>
+				
+			</tr>
+		</table>
+
+	</div>
+</div>

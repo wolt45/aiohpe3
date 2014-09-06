@@ -1,0 +1,21 @@
+<form class="form-horizontal" role="form" name="IOHPEform" ng-submit="submitTheForm()">
+
+ <div ng-controller="PXDetailCtrl">
+
+	<ng:include src="'tpl/px_head.html'"></ng:include>
+
+	<div>
+		<input type="submit" class="btn btn-large btn-primary" type="submit" value="SAVE"/>
+
+	</div>
+
+	<ng:include src="'tpl/px_chiefcomp.html'"></ng:include>
+	<ng:include src="'tpl/px_etiology.html'"></ng:include>
+
+	<ng:include src="'tpl/px_treatment.html'"></ng:include>
+	<ng:include src="'tpl/px_prevsurgeries.html'"></ng:include>
+	<ng:include src="'tpl/px_labs.html'"></ng:include>
+	<ng:include src="'tpl/px_medhist.html'"></ng:include>
+</div>
+
+</form>
