@@ -1,0 +1,79 @@
+<html >
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+<h1>RESTFUL API, wfseballos, Aug 29, 2014</h1>
+<p>Extract px_data REST from server and store to Web SQL</p>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // are we running in native app or in a browser?
+        window.isphone = false;
+        if(document.URL.indexOf("http://") === -1 
+            && document.URL.indexOf("https://") === -1) {
+            window.isphone = true;
+        }
+
+        if( window.isphone ) {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        } else {
+            onDeviceReady();
+        }
+    });
+
+    var db;
+
+    function onDeviceReady() {
+        //alert("device IS ready");
+
+        db = window.openDatabase("WFS_WebSQL", "1.0", "iPadMR", 10*1024*1024);
+        db.transaction(createDB, errorCB, successCB);
+    }
+
+    function createDB(tx) {
+        tx.executeSql('DROP TABLE IF EXISTS px_data;');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS px_data (PxRID, pxname, Address, pxstatus, pxregdate, Foto)');
+    }
+
+    function errorCB(err) {
+        alert("Error processing SQL: " + err.code);
+    }
+
+    function successCB(tx) {
+        //alert("RBG Medical Records created successfully!");
+    
+        $.ajax({
+            type: "GET",
+            url: 'http://192.168.0.100/myservices/get_server_px.php', data: "{}",
+
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+
+            success: function (data) {
+                //alert('success');
+                var sql = 'INSERT INTO px_data (PxRID, pxname, Address, pxstatus, pxregdate, Foto) VALUES (?, ?, ?, ?, ?, ?)';
+
+                $.each(data, function (i, theItem) {
+                    db.transaction(function(tx) {
+                        tx.executeSql(sql, [theItem.PxRID, theItem.pxname, theItem.Address, theItem.pxstatus, theItem.pxregdate, theItem.Foto], successQueryDB, errorCB);
+                    });
+                });
+                alert("Synch to SQLite successful!");
+            },
+
+            error: function (xhr) {
+                //alert(xhr.responseText);
+                alert("API: Pproblem Connecting to server!!!");
+            }
+        });
+
+        function successQueryDB() {
+            //alert("REST EXTRACT px_data SUCCESSFUL!");
+        };
+    }
+</script>
+</body>
+</html>
