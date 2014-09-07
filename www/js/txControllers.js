@@ -1,23 +1,46 @@
 //var IOHPControllers = angular.module('txControllers', []);
+/*
+IOHPEApp.controller('PXListCtrl', function ($scope){
+
+  // request for transactions from the server via REST
+
+  // let say we have this sample transactions
+  $scope.px_data = [];
+
+  // $scope.ShowData = function(){
+    // alert("hey");
+    var promise = $ipadrbg.context.px_data.filter(function (px) { return px.ClinixRID > 0}).toArray();
+    
+    promise.then(renderResultCallback);
+
+    function renderResultCallback(pxresult) {
+      $scope.px_data = pxresult;
+      $scope.$digest();
+    }
+  // };
+});*/
+
 
 IOHPEApp.controller('PXListCtrl', function ($scope, $http){
   //$http.get('http://192.168.0.100/atoday/api/apiSQLi.px_data.html').success(function(data) {
   $http.get('http://192.168.0.100/RBGsrvr_todayset/srvr_clinix.php').success(function(data) {  
-    $scope.px_APIlist = data;
+    $scope.px_data = data;
   });
 });
 
 
-IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
-  $scope.PxRID = $routeParams.p_pxrid;
 
-	//alert ($scope.PxRID);
+IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
+  $scope.ClinixRID = $routeParams.p_clinixrid;
+
+	//  alert ($scope.ClinixRID);
+
   $scope.CHIEFCformData = {};
 
   $http.get('http://192.168.0.100/RBGsrvr_todayset/srvr_clinix.php').success(function(data) {
-    $scope.px_APIitem = data.filter(function(entry){
+    $scope.px_data = data.filter(function(entry){
     	//return entry.pxname === $scope.pxname;
-    	return Number(entry.PxRID) === Number($scope.PxRID);  
+    	return  Number($scope.ClinixRID) === Number(entry.ClinixRID);  
     })[0];
   });
 

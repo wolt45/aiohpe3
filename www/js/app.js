@@ -8,7 +8,7 @@ IOHPEApp.config(function($routeProvider) {
       templateUrl: 'tpl/today_list.html',
       controller: 'PXListCtrl'
     }).
-    when('/:p_pxrid', {
+    when('/:p_clinixrid', {
       templateUrl: 'tpl/px_iohpe.html',
       controller: 'PXDetailCtrl'
     }).

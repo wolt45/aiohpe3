@@ -1,37 +1,24 @@
-<!-- <ul class="list-group">
-	<li class="list-group-item" ng-repeat="px_APIitem in px_APIlist">
-		<a href="#/{{px_APIitem.PxRID}}" style="text-decoration:none; display:block">  
 
-			<div style="width:120px; position: absolute; display: inline-block">  
-				<img ng-src="images/{{px_APIitem.Foto}}" width="75" style="padding: 0 15 0 0">      
-			</div>
-
-			<div style="display:inline-block;">
-		    	<h4 class="list-group-item-heading">{{px_APIitem.pxname}}</h4>
-		    	{{px_APIitem.Address}}
-				<br>{{px_APIitem.pxstatus}}
-			</div>
-		</a>
-  	</li>
-<ul> -->
 
 <table class="table table-bordered table-hover">
 
-	<tr ng-repeat="px_APIitem in px_APIlist">
+	<tr ng-repeat="px_Item in px_data">
 		
 		<td width="1%">
-			<a href="#/{{px_APIitem.PxRID}}" style="text-decoration:none; display:block">  
-				<img ng-src="images/{{px_APIitem.Foto}}" width="75" style="padding: 0 0 0 0">  
+			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">  
+				<img ng-src="images/{{px_Item.Foto}}" width="75" style="padding: 0 0 0 0">  
 			</a>   
 		</td>
-		<td width="1%">{{px_APIitem.ClinixRID}} </td>
-		<td>		
-			<a href="#/{{px_APIitem.PxRID}}" style="text-decoration:none; display:block">
+		<td width="1%" nowrap>Appt : {{px_Item.ClinixRID}} </td>
+		<td width="1%" nowrap>Chart : {{px_Item.PxRID}} </td>
+		<td nowrap>		
+			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">
 				
-		    	{{px_APIitem.pxname}}
-		    	<br>{{px_APIitem.pxstatus}}
-		    	<span style="font-size:10px">{{px_APIitem.Address}}</span>
+		    	{{px_Item.pxname}}
+		    	<br>{{px_Item.pxstatus}}
+		    	<span style="font-size:10px">{{px_Item.Address}}</span>
 			</a>
 	  	</td>
   	</td>
 </table>
+
