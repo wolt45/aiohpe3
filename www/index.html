@@ -1,28 +1,44 @@
 <html ng-app>
 <head>
     <meta charset="utf-8">
+    <link href="css/all.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
     <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
     <script src="lib/jaydata-1.3.6/jaydata.min.js"></script>
     <script src="lib/jaydata-1.3.6/jaydataproviders/SqLiteProvider.min.js"></script>
     <script src="lib/angular-1.2.18.min.js"></script>
-
     <script src="model.js"></script>
-    <script src="app.js"></script>
+    <script src="appj.js"></script>
 </head>
 
 <body ng-controller="DataController">
-<h1>WALTER'S TEST</h1>
-<h1>RESTFUL API, wfseballos, Aug 29, 2014</h1>
-<br/>
-<p>Extract px_data REST from server and store to Web SQL</p>
-<button ng-click="pullData()">Pull Data From Server</button>
+<h1>LOCAL DB VIEWER - clinix</h1>
 
-<br/>
-<p>Show Data</p>
-<div ng-repeat="row in px_data">
-	<p>{{row.ClinixRID}} - {{row.PxRID}} - {{row.pxname}} - {{row.Address}} - {{row.pxstatus}} - {{row.pxregdate}} - {{row.Foto}}</p>
-	<hr>
-</div>
+<!-- <br/ >
+<button ng-click="ShowData()">Show Data Directly From Local DB</button>
+<br/> -->
+
+<table class="table-bordered table-striped">
+	<tr>
+		<th>ClinixRID</th>
+		<th>PxRID</th>
+		<th>name</th>
+		<th>Address</th>
+		<th>Status</th>
+		<th>Reg Date</th>
+		<th>Foto</th>
+	</tr>
+	<tr ng-repeat="row in px_data">	
+		<td>{{row.ClinixRID}} </td>
+		<td><img ng-src="images/{{row.Foto}}" width="50px" /></td>
+		<td>{{row.PxRID}} </td>
+		<td>{{row.pxname}} </td>
+		<td>{{row.Address}} </td>
+		<td>{{row.pxstatus}} </td>
+		<td>{{row.pxregdate}} </td>
+	</tr>
+</table>
 
 </body>
 </html>
