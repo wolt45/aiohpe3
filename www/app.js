@@ -11,7 +11,7 @@ function DataController($rootScope,$scope,$http) {
     	// check for data version
     	// if local data is outdated then pull data from server
     	// if local data is latest then push to server 
-		$http({method: 'GET', url: 'http://localhost/RBGsrvr_todayset/srvr_clinix.php'}).
+		$http({method: 'GET', url: 'http://192.168.0.100/RBGsrvr_todayset/srvr_clinix.php'}).
 	    success(function(data, status, headers, config) {
 	      	// this callback will be called asynchronously
 	      	// when the response is available
