@@ -1,0 +1,284 @@
+<!-- CHIEF COMPLAINT -->
+<div scroll-bookmark="IOPEChiefComp">
+	<div class="panel panel-default">
+
+		<div class="panel-heading btn btn-warning btn-block">
+			CHIEF COMPLAINT
+		    <table width="100%"><tr><td>{{CHIEFCformData}}</td></tr></table>
+		</div>
+
+		<div class="panel-body">
+
+			<form>
+
+			<table class="table">	
+				<!-- tr class="active">
+					<td colspan=6 nowrap> -->
+
+						<!-- complaints -->
+						<!-- table class="table">	
+							<tr class="active">
+								<td width="20%" nowrap>	
+									<input type="checkbox" ng-model="" value="Pain">&nbsp;&nbsp;Pain	
+								</td>
+					
+								<td width="20%" nowrap>
+									<input type="checkbox" id="ChiefStiffness" value="Swelling">&nbsp;&nbsp;Swelling
+								</td>
+					
+								<td width="20%" nowrap>
+									<input type="checkbox" id="ChiefStiffness" value="Stiffness">&nbsp;&nbsp;Stiffness
+								</td>
+								<td width="20%" nowrap>
+									<input type="checkbox" id="ChiefShoulderArm" value="Limited Motion">&nbsp;&nbsp;Limited Motion
+								</td>
+								<td width="20%" nowrap> 
+									<input type="checkbox" id="ChiefSpine" value="Deformity">&nbsp;&nbsp;Deformity
+								</td>
+							</tr>
+						</table>
+
+					</td>
+				</tr -->
+				
+				<tr class="active">
+					<td>Hips</td>
+					<td nowrap>
+						<input type="radio" name="Hips" value="left" ng-model="CHIEFCformData.Hips">Left
+						<input type="radio" name="Hips" value="right" ng-model="CHIEFCformData.Hips">Right
+						<input type="radio" name="Hips" value="both" ng-model="CHIEFCformData.Hips">Both
+					</td>
+
+					<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+					<td nowrap>
+						<input type="radio" name="HipsComplaint" value="Pain" ng-model="CHIEFCformData.HipsComplaint">Pain
+						<input type="radio" name="HipsComplaint" value="Swelling" ng-model="CHIEFCformData.HipsComplaint">Swelling
+						<input type="radio" name="HipsComplaint" value="Stiffness" ng-model="CHIEFCformData.HipsComplaint">Stiffness
+						<input type="radio" name="HipsComplaint" value="Limited Motion" ng-model="CHIEFCformData.HipsComplaint">Limited Motion
+						<input type="radio" name="HipsComplaint" value="Deformity" ng-model="CHIEFCformData.HipsComplaint">Deformity
+					 </td>
+				</tr>
+
+				<tr class="active">
+					<td nowrap>Knee</td>
+					<td nowrap>
+						<input type="radio" name="Knee" value="left" ng-model="CHIEFCformData.Knee">Left
+						<input type="radio" name="Knee" value="right" ng-model="CHIEFCformData.Knee">Right
+						<input type="radio" name="Knee" value="both" ng-model="CHIEFCformData.Knee">Both
+					</td>
+
+					<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+					<td nowrap>
+						<input type="radio" name="KneeComplaint" value="Pain" ng-model="CHIEFCformData.KneeComplaint">Pain
+						<input type="radio" name="KneeComplaint" value="Swelling" ng-model="CHIEFCformData.KneeComplaint">Swelling
+						<input type="radio" name="KneeComplaint" value="Stiffness" ng-model="CHIEFCformData.KneeComplaint">Stiffness
+						<input type="radio" name="KneeComplaint" value="Limited Motion" ng-model="CHIEFCformData.KneeComplaint">Limited Motion
+						<input type="radio" name="KneeComplaint" value="Deformity" ng-model="CHIEFCformData.KneeComplaint">Deformity
+					</td>
+				</tr>
+
+				<tr class="active">
+					<td nowrap width="5%">Leg</td>
+
+					<td width="5%" nowrap>
+						<input type="radio" name="Leg" value="left" ng-model="CHIEFCformData.leg">Left
+						<input type="radio" name="Leg" value="right" ng-model="CHIEFCformData.leg">Right
+						<input type="radio" name="Leg" value="both" ng-model="CHIEFCformData.leg">Both
+					</td>
+
+					<td width="5%" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+					<td nowrap>
+						<input type="radio" name="LegComplaint" value="Pain" ng-model="CHIEFCformData.LegComplaint">Pain
+						<input type="radio" name="LegComplaint" value="Swelling" ng-model="CHIEFCformData.LegComplaint">Swelling
+						<input type="radio" name="LegComplaint" value="Stiffness" ng-model="CHIEFCformData.LegComplaint">Stiffness
+						<input type="radio" name="LegComplaint" value="Limited Motion" ng-model="CHIEFCformData.LegComplaint">Limited Motion
+						<input type="radio" name="LegComplaint" value="Deformity" ng-model="CHIEFCformData.LegComplaint">Deformity
+					 </td>
+				</tr>	 
+				<tr class="active">
+					<td nowrap>Ankle And Foot</td>
+					
+					<td nowrap>
+						<input type="radio" name="AnkFoot" value="left" ng-model="CHIEFCformData.AnkFoot">Left
+						<input type="radio" name="AnkFoot" value="right" ng-model="CHIEFCformData.AnkFoot">Right
+						<input type="radio" name="AnkFoot" value="both" ng-model="CHIEFCformData.AnkFoot">Both
+					</td>
+
+					<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+					<td nowrap>
+						<input type="radio" name="AnkFootComplaint" value="Pain" ng-model="CHIEFCformData.AnkFootComplaint">Pain
+						<input type="radio" name="AnkFootComplaint" value="Swelling" ng-model="CHIEFCformData.AnkFootComplaint">Swelling
+						<input type="radio" name="AnkFootComplaint" value="Stiffness" ng-model="CHIEFCformData.AnkFootComplaint">Stiffness
+						<input type="radio" name="AnkFootComplaint" value="Limited Motion" ng-model="CHIEFCformData.AnkFootComplaint">Limited Motion
+						<input type="radio" name="AnkFootComplaint" value="Deformity" ng-model="CHIEFCformData.AnkFootComplaint">Deformity
+					 </td>
+				</tr>
+
+				<tr class="active">
+					<td nowrap>Shoulder - Arm</td>
+					<td nowrap>
+						<input type="radio" name="ShoulderArm" value="left" ng-model="CHIEFCformData.ShoulderArm">Left
+						<input type="radio" name="ShoulderArm" value="right" ng-model="CHIEFCformData.ShoulderArm">Right
+						<input type="radio" name="ShoulderArm" value="both" ng-model="CHIEFCformData.ShoulderArm">Both
+					</td>
+
+					<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+					<td nowrap>
+						<input type="radio" name="ShoulderArmComplaint" value="Pain" ng-model="CHIEFCformData.ShoulderArmComplaint">Pain
+						<input type="radio" name="ShoulderArmComplaint" value="Swelling" ng-model="CHIEFCformData.ShoulderArmComplaint">Swelling
+						<input type="radio" name="ShoulderArmComplaint" value="Stiffness" ng-model="CHIEFCformData.ShoulderArmComplaint">Stiffness
+						<input type="radio" name="ShoulderArmComplaint" value="Limited Motion" ng-model="CHIEFCformData.ShoulderArmComplaint">Limited Motion
+						<input type="radio" name="ShoulderArmComplaint" value="Deformity" ng-model="CHIEFCformData.ShoulderArmComplaint">Deformity
+					 </td>
+				</tr>
+
+				<tr class="active">
+					<td>Elbow</td>
+					<td nowrap>
+						<input type="radio" name="Elbow" value="left" ng-model="CHIEFCformData.Elbow">Left
+						<input type="radio" name="Elbow" value="right" ng-model="CHIEFCformData.Elbow">Right
+						<input type="radio" name="Elbow" value="both" ng-model="CHIEFCformData.Elbow">Both
+					</td>
+
+					<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+					<td nowrap>
+						<input type="radio" name="ElbowComplaint" value="Pain" ng-model="CHIEFCformData.ElbowComplaint">Pain
+						<input type="radio" name="ElbowComplaint" value="Swelling" ng-model="CHIEFCformData.ElbowComplaint">Swelling
+						<input type="radio" name="ElbowComplaint" value="Stiffness" ng-model="CHIEFCformData.ElbowComplaint">Stiffness
+						<input type="radio" name="ElbowComplaint" value="Limited Motion" ng-model="CHIEFCformData.ElbowComplaint">Limited Motion
+						<input type="radio" name="ElbowComplaint" value="Deformity" ng-model="CHIEFCformData.ElbowComplaint">Deformity
+					 </td>
+				</tr>
+
+				<tr class="active">
+					<td nowrap>Wrist and Hands</td>
+					<td nowrap>
+						<input type="radio" name="WristHands" value="left" ng-model="CHIEFCformData.WristHands">Left
+						<input type="radio" name="WristHands" value="right" ng-model="CHIEFCformData.WristHands">Right
+						<input type="radio" name="WristHands" value="both" ng-model="CHIEFCformData.WristHands">Both
+					</td>
+
+					<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+					<td nowrap>
+						<input type="radio" name="WristHandsComplaint" value="Pain" ng-model="CHIEFCformData.WristHandsComplaint">Pain
+						<input type="radio" name="WristHandsComplaint" value="Swelling" ng-model="CHIEFCformData.WristHandsComplaint">Swelling
+						<input type="radio" name="WristHandsComplaint" value="Stiffness" ng-model="CHIEFCformData.WristHandsComplaint">Stiffness
+						<input type="radio" name="WristHandsComplaint" value="Limited Motion" ng-model="CHIEFCformData.WristHandsComplaint">Limited Motion
+						<input type="radio" name="WristHandsComplaint" value="Deformity" ng-model="CHIEFCformData.WristHandsComplaint">Deformity
+					 </td>
+				</tr>
+
+				
+
+				<tr class="active">
+					<td nowrap>Thigh</td>
+					<td nowrap>
+						<input type="radio" name="Thigh" value="left" ng-model="CHIEFCformData.Thigh">Left
+						<input type="radio" name="Thigh" value="right" ng-model="CHIEFCformData.Thigh">Right
+						<input type="radio" name="Thigh" value="both" ng-model="CHIEFCformData.Thigh">Both
+					</td>
+
+					<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+					<td nowrap>
+						<input type="radio" name="ThighComplaint" value="Pain" ng-model="CHIEFCformData.ThighComplaint">Pain
+						<input type="radio" name="ThighComplaint" value="Swelling" ng-model="CHIEFCformData.ThighComplaint">Swelling
+						<input type="radio" name="ThighComplaint" value="Stiffness" ng-model="CHIEFCformData.ThighComplaint">Stiffness
+						<input type="radio" name="ThighComplaint" value="Limited Motion" ng-model="CHIEFCformData.ThighComplaint">Limited Motion
+						<input type="radio" name="ThighComplaint" value="Deformity" ng-model="CHIEFCformData.ThighComplaint">Deformity
+					</td>
+				</tr>
+
+
+
+				<!-- SPINE -->
+
+				<tr class="success">
+					<td colspan="4">Spine</td>
+				</tr>
+
+				<tr class="active">
+					<td>Neck</td>
+					<td colspan=2>
+						<input type="text" class="form-control" ng-model="CHIEFCformData.Neck" placeholder="Neck">
+					</td>
+
+					<td align="center" rowspan=4>
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width:50%;">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+							</ol>
+
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner" >
+								<div class="item active">
+									<img src="images/001.jpg" alt="First slide" style="width:250px;">
+									
+									<div class="carousel-caption">
+										jkb,jbjiuhiuh
+									</div>
+								</div>
+								<div class="item">
+									<img src="images/002.jpg" style="width:250px;">
+									<div class="carousel-caption">
+										.ergergfdg
+									</div>
+								</div>
+								<div class="item">
+								<img src="images/003.jpg" style="width:250px;">
+									<div class="carousel-caption">
+										.ergergfdg
+									</div>
+								</div>
+							</div>
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="px_detail.html/#carousel-example-generic" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="px_detail.html/#carousel-example-generic" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
+					</td>		
+				</tr>
+							
+				<tr class="active">
+					<td>Upper Back</td>
+					<td colspan=2>
+						<input type="text" class="form-control" ng-model="CHIEFCformData.UpperBack" placeholder="Upper Back">
+					</td>
+				</tr>
+							
+				<tr class="active">
+					<td>Lower Back</td>
+					<td colspan=2>
+						<input type="text" class="form-control" ng-model="CHIEFCformData.LowerBack" placeholder="Lower Back">
+					</td>
+				</tr>
+							
+				<tr class="active">
+					
+					<td colspan="3">Others
+						<textarea rows="3" ng-model="CHIEFCformData.Others" value="" class = "form-control" placeholder="Others">
+						</textarea>
+					</td>									
+				</tr>		
+			</table>
+
+		 	</form>
+		
+
+		</div>
+	</div>
+</div>
