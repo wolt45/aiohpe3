@@ -50,9 +50,9 @@
 			var len = results.rows.length;
 
 			htmlstring += "	<table border='1' id='products'><tr><th>No.</th><th>Foto</th><th>PxRID</th><th>Name</th><th>Address</th><th>Status</th></tr>";
-			$x = 1;
+			
 			for (var i=0; i<len; i++) {
-				htmlstring += '<tr><td>'+ $x++ +'</td><td><img src="images/'+ results.rows.item(i).Foto + '" width="120px" /> </td><td>' + results.rows.item(i).PxRID + '</td><td>' + results.rows.item(i).pxname + '</td><td> ' + results.rows.item(i).Address + '</td><td>' + results.rows.item(i).pxstatus  +  '</td></tr>';
+				htmlstring += '<tr><td>'+ i +'</td><td><img src="images/'+ results.rows.item(i).Foto + '" width="120px" /> </td><td>' + results.rows.item(i).PxRID + '</td><td>' + results.rows.item(i).pxname + '</td><td> ' + results.rows.item(i).Address + '</td><td>' + results.rows.item(i).pxstatus  +  '</td></tr>';
 			}
 
 			$('#resultList').html(htmlstring);

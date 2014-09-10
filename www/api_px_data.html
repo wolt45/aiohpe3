@@ -29,7 +29,7 @@
     function onDeviceReady() {
         //alert("device IS ready");
 
-        db = window.openDatabase("WFS_WebSQL", "1.0", "iPadMR", 10*1024*1024);
+        db = window.openDatabase("ipadrbg", "1.0", "iPadMR", 10*1024*1024);
         db.transaction(createDB, errorCB, successCB);
     }
 
@@ -47,18 +47,18 @@
     
         $.ajax({
             type: "GET",
-            url: 'http://192.168.0.100/myservices/get_server_px.php', data: "{}",
+            url: 'http://192.168.0.100/RBGsrvr_todayset/srvr_clinix.php', data: "{}",
 
             contentType: "application/json; charset=utf-8",
             dataType: "json",
 
             success: function (data) {
                 //alert('success');
-                var sql = 'INSERT INTO px_data (PxRID, pxname, Address, pxstatus, pxregdate, Foto) VALUES (?, ?, ?, ?, ?, ?)';
+                var sql = 'INSERT INTO px_data (ClinixRID, PxRID, pxname, Address, pxstatus, pxregdate, Foto) VALUES (?, ?, ?, ?, ?, ?, ?)';
 
                 $.each(data, function (i, theItem) {
                     db.transaction(function(tx) {
-                        tx.executeSql(sql, [theItem.PxRID, theItem.pxname, theItem.Address, theItem.pxstatus, theItem.pxregdate, theItem.Foto], successQueryDB, errorCB);
+                        tx.executeSql(sql, [theItem.ClinixRID, theItem.PxRID, theItem.pxname, theItem.Address, theItem.pxstatus, theItem.pxregdate, theItem.Foto], successQueryDB, errorCB);
                     });
                 });
                 alert("Synch to SQLite successful!");
