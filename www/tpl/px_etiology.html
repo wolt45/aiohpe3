@@ -2,39 +2,77 @@
 <div scroll-bookmark="IOPEEtio">
 	<div class="panel panel-default">
 		<div class="panel-heading btn btn-warning btn-block">
-			<a href="#">ETHIOLOGY</a>
+
+			 <table class="table table-striped table-bordered">
+				<tr>
+					<th colspan=19><span style="font-size: 30px">ETHIOLOGY</span><br>{{CHIEFCformData}}</th>
+				</tr>
+				  <tr>
+	                <th width="1%" nowrap>INJURY</th>
+	                <th width="1%" nowrap>Date</th>
+	                <th width="1%">WorkRelated</th>
+	                <th width="1%">Details</th>
+	                <th width="1%">Onset</th> 
+	                <th width="1%">Duration</th> 
+	                <th width="1%">Unit</th> 
+	                <th width="1%">Severity</th> 
+	                <th></th>
+	                <th></th>
+	            </tr>
+	            <tr ng-repeat="etiology in clinix_etiology">
+	                <!-- td>
+	                	<input type="text" name="hidChiefRID" value="{{etiology.EtiologyRID}}" width="5" READONLY>
+	                	<input type="text" name="hidChiefClinixRID" value="{{etiology.ClinixRID}}" width="5" READONLY>
+	                	<input type="text" name="hidChiefPxRID" value="{{etiology.PxRID}}" width="5" READONLY>
+	                </td -->
+	                <td width="1%" nowrap>{{etiology.Injury}}</td>
+	                <td width="1%" nowrap>{{etiology.DateEtio}}</td>
+	                <td width="1%">{{etiology.WorkRelated}}</td>
+	                <td width="1%">{{etiology.WorkRelatedDetails}}</td>
+	                <td width="1%">{{etiology.OnsetAccuteGradual}}</td> 
+	                <td width="1%">{{etiology.Duration}}</td> 
+	                <td width="1%">{{etiology.DurationUnit}}</td> 
+	                <td width="1%">{{etiology.Severity}}</td> 
+	                <td width="1%">
+	                	<a class="btn btn-large btn-danger" href="#/{{etiology.ClinixRID}}" ng-click="remove(etiology)" tyle="text-decoration: none">DELETE</a>
+	                </td>
+	                <td></td>
+	            </tr>
+        	</table>
 		</div>
 		<div class="panel-body">
 
-
 			<table class="table table-bordered ">
 				<tr class="active">
-					<td width="5%"><input type="checkbox" name="InjuryYN" value="1">Injury</td>
+					<td width="5%"><input type="checkbox" ng-model="CHIEFCformData.Injury">Injury</td>
 					<td width="25%">
 						<div class="form-inline">
-							<input type="date" id="etio_injury_date" value=""class="form-control " tabindex="42">
+							<input type="date" ng-model="CHIEFCformData.DateEtio" class="form-control ">
 						</div>
 					</td>
 				
 					<td width="5%" nowrap>
-						<input type="checkbox" name="Onset" value="1"> Work Related
+						<input type="checkbox" ng-model="CHIEFCformData.WorkRelated"> Work Related
 					</td>
 					<td width="25%">
-						<textarea rows="3" class="form-control" id=" etio_work_related_details " value="" placeholder="Work Related"></textarea>
+						<textarea rows="3" class="form-control" ng-model="CHIEFCformData.WorkRelatedDetails" placeholder="Work Related"></textarea>
 					</td>
 				</tr>
 				
 				<tr class="active">
 					<td>Onset</td>
 					<td>
-						<input type="radio" name="WorkChoice" value="Sudden"checked> Accute <input type="radio" name="WorkChoice" value="Gradual"> Gradual
+
+						<input type="radio" name="onset" value="Accute" ng-model="CHIEFCformData.onset">Accute
+						<input type="radio" name="onset" value="Gradual" ng-model="CHIEFCformData.onset">Gradual
 					</td>
 				
 					<td>Duration</td>
 					<td>
 						<div class="form-inline">
-							<input type="text" class="form-control" id="etio_Onset_duration" value=""style=" width:80px;"placeholder="Duration" tabindex="48">
-							<select name="" style=" width:110px;" class="form-control">
+							<input type="text" class="form-control" ng-model="CHIEFCformData.Duration" style=" width:80px;" placeholder="Duration">
+
+							<select ng-model="CHIEFCformData.DurationUnit" class="form-control">
 								<option value="Days">DAYS</option>
 								<option value="Weeks">WEEKS</option>
 								<option value="Months">MONTHS</option>
@@ -46,14 +84,19 @@
 				
 				<tr class="active">
 					<td>Sevirity</td>
-					<td colspan="3">
-						<select name="Sevirity" style=" width:30%;"class="form-control">
+					<td colspan="1">
+						<select ng-model="CHIEFCformData.Severity" style=" width:110px;" class="form-control">
 							<option value="MILD">MILD</option>
 							<option value="MODERATE">MODERATE</option>
 							<option value="SEVERE">SEVERE</option>
 							<option value="INCREASING">INCREASING</option>
 						</select> 
 					</td>
+
+					<td>
+						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addEtiology(CHIEFCformData)" style="text-decoration: none">ADD</a>
+					</td>
+					<td></td>
 				</tr>
 			</table>
 

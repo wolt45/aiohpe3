@@ -4,26 +4,26 @@
 		<table class="table-border table-condensed">
 			<tr>
 				<td rowspan=3 width="1%">
-					<img ng-src="images/{{px_data.Foto}}" width="120">
+					<img ng-src="images/{{clinix.Foto}}" width="120">
 				</td>
 				<td rowspan=3 width="1%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
 			<tr>
-				<td width="1%" nowrap>Appt: {{px_data.ClinixRID}}</td>
+				<td width="1%" nowrap>Appt: {{clinix.ClinixRID}}</td>
 
 				<td width="1%" nowrap>
-					chart: {{px_data.PxRID}}, <span style="font-size:12px">{{px_data.pxregdate}}</span>
+					chart: {{clinix.PxRID}}, <span style="font-size:12px">{{clinix.pxregdate}}</span>
 				</th>
 
-				<th width="1%" nowrap>{{px_data.pxname}}</th>
+				<th width="1%" nowrap>{{clinix.pxname}}</th>
 				<td colspan=4 nowrap>
 					999,999.99
 				</td>
 			</tr>
 			<tr>
 				<td colspan=4 nowrap>
-					{{px_data.pxstatus}}, 
-					{{px_data.Address}}
+					{{clinix.pxstatus}}, 
+					{{clinix.Address}}
 				</td>
 				
 			</tr>

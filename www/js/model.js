@@ -1,15 +1,8 @@
-$data.Entity.extend("$ipadrbg.types.px_data", {
-	ClinixRID: { type: "string"},
-	PxRID: { type: "string"},
-	pxname: { type: "string" },
-	Address: { type: "string" },
-	pxstatus: { type: "string" },
-	pxregdate: {type:"string"},
-	Foto: {type:"string"}
-});
-
 $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
-	px_data: { type: $data.EntitySet, elementType: $ipadrbg.types.px_data }
+	clinix: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix }
+	, clinix_chiefcomp: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_chiefcomp }
+	, clinix_spineIntl: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_spineIntl }
+	, clinix_etiology: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_etiology }
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });
@@ -17,3 +10,4 @@ $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName
 $ipadrbg.context.onReady(function(){
 	angular.element('#view').scope().ShowData();
 });
+// end of DB context definitions
