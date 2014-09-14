@@ -7,10 +7,10 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>iPad MEDICAL RECORD</name>
+    <name>iPad MR API</name>
 
     <description>
-       INITIAL ORTHOPEDIC HISTORY AND PHYSICAL EXAMINATION
+       iPad MR API
     </description>
 
     <author href="http://wfseballos.org" email="wolt45@yahoo.com.com">
