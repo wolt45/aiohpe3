@@ -33,10 +33,7 @@ IOHPEApp.controller('EtiologyCtrl', function ($scope, $routeParams, $http){
       $scope.LoadEtiology();
   }
 
-
-
-
-  $scope.remove = function (grpEtiology) {
+  $scope.removeEtiology = function (grpEtiology) {
     grpEtiology.remove()
     .then(function() {
       $scope.$apply(function() {
@@ -48,7 +45,6 @@ IOHPEApp.controller('EtiologyCtrl', function ($scope, $routeParams, $http){
        alert("Error deleting item!");
    });
   }
-
 
 });
 

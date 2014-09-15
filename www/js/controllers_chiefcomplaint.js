@@ -49,7 +49,7 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
       $scope.LoadComplaints();
   }
 
-  $scope.remove = function (complaint) {
+  $scope.removeChiefComp = function (complaint) {
     complaint.remove()
     .then(function() {
       $scope.$apply(function() {
@@ -84,7 +84,7 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
       $scope.LoadComplaints();
   }
 
-  $scope.remove = function (spineIntl) {
+  $scope.removeSpineIntl = function (spineIntl) {
     spineIntl.remove()
     .then(function() {
       $scope.$apply(function() {

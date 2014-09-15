@@ -1,3 +1,9 @@
+
+
+not used, repeat in time
+
+
+
 IOHPEApp.controller('SpineInitialCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_spineIntl = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;

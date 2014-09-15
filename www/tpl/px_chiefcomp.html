@@ -14,13 +14,13 @@
 	    	
 				<tr class="active">
 					<td width="1%" nowrap>Concern: <br>
-						<select ng-model="CHIEFCformData.MyBone">
+						<select ng-model="CHIEFCformData.MyBone" style="background-color: white; color: #000">
 	              			<option ng-repeat="bone in myBone" value="{{bone.name}}">{{bone.name}}</option>
 						</select>
 					</td>
 
 					<td width="1%" nowrap>Affected: <br>
-						<select ng-model="CHIEFCformData.MyBoneLRB">
+						<select ng-model="CHIEFCformData.MyBoneLRB" style="background-color: white; color: #000">
 							<option value="left">Left</option>
 							<option value="Right">Right</option>
 							<option value="Both">Both</option>
@@ -28,7 +28,7 @@
 					</td>
 
 					<td width="1%" nowrap>Complaint: <br>
-						<select ng-model="CHIEFCformData.MyBoneComplaint">
+						<select ng-model="CHIEFCformData.MyBoneComplaint" style="background-color: white; color: #000">
 							<option value="Pain">Pain</option>
 							<option value="Swelling">Swelling</option>
 							<option value="Stiffness">Stiffness</option>
@@ -39,23 +39,21 @@
 
 					 <td width="1%" nowrap>
 						<!-- input type="text" ng-model="CHIEFCformData.Remarks" placeholder="remarks" -->
-						<textarea ng-model="CHIEFCformData.Remarks" placeholder="remarks" rows=2 cols=25></textarea>
+						<textarea ng-model="CHIEFCformData.Remarks" placeholder="remarks" rows=2 cols=20></textarea>
 					 </td>
-					 <td width="1%" nowrap>
-						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(CHIEFCformData)" style="text-decoration: none">
-							ADD
-						</a>
+					 <td class="text-center" width="1%" nowrap>
+						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(CHIEFCformData)" style="text-decoration: none; color: #000">ADD</a>
 					 </td>
 					 <td></td>
 				</tr>
 
 	            <tr class="info" ng-repeat="complaint in clinix_chiefcomp">
-	            	<td width="1%" nowrap>{{complaint.MyBone}}</td>
-	            	<td width="1%" nowrap>{{complaint.MyBoneLRB}}</td>
-	                <td width="1%" nowrap>{{complaint.MyBoneComplaint}}</td>
-	                <td width="35%">{{complaint.Remarks}}</td> 
+	            	<td width="1%" style="color:black" nowrap>{{complaint.MyBone}}</td>
+	            	<td width="1%" style="color:black" nowrap>{{complaint.MyBoneLRB}}</td>
+	                <td width="1%" style="color:black">{{complaint.MyBoneComplaint}}</td>
+	                <td width="15%" style="color:black">{{complaint.Remarks}}</td> 
 	                <td width="1%">
-	                	<a class="btn btn-large btn-danger" href="#/{{complaint.ClinixRID}}" ng-click="remove(complaint)" tyle="text-decoration: none">
+	                	<a class="btn btn-large btn-danger" href="#/{{complaint.ClinixRID}}" ng-click="remove(complaint)" style="text-decoration: none">
 	                		DELETE
 	                	</a>
 	            	</td>
@@ -107,8 +105,8 @@
 
 					<td></td>
 
-					<td nowrap>
-						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="saveSpineIntl(CHIEFCformData)" style="text-decoration: none">
+					<td class="text-center" nowrap>
+						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="saveSpineIntl(CHIEFCformData)" style="text-decoration: none; color: #000">
 							SAVE
 						</a>
 					</td>
@@ -117,13 +115,22 @@
 			
 
 			<table class="table table-condensed table-bordered">
+				<tr class="info">
+	            	<th class="text-center" width="1%" style="color:#888" nowrap>NECK</th>
+	            	<th class="text-center" width="1%" style="color:#888" nowrap>UPPER BACK</th>
+	                <th class="text-center" width="1%" style="color:#888" nowrap>LOWER BACK</th>
+	                <th class="text-center" width="35%" style="color:#888" >OTHERS</th> 
+	                <th width="1%"></th>
+	            	<th></th>
+	            </tr>
+
 				<tr class="info" ng-repeat="rollSpineIntl in clinix_spineIntl">
-	            	<td width="1%" nowrap>{{rollSpineIntl.MySpineNeck}}</td>
-	            	<td width="1%" nowrap>{{rollSpineIntl.MySpineUpperBack}}</td>
-	                <td width="1%" nowrap>{{rollSpineIntl.MySpineLowerBack}}</td>
-	                <td width="35%">{{rollSpineIntl.MySpineOthers}}</td> 
-	                <td width="1%">
-	                	<a class="btn btn-large btn-danger" href="#/{{rollSpineIntl.ClinixRID}}" ng-click="remove(rollSpineIntl)" tyle="text-decoration: none">
+	            	<td style="color:black" nowrap>{{rollSpineIntl.MySpineNeck}}</td>
+	            	<td style="color:black" nowrap>{{rollSpineIntl.MySpineUpperBack}}</td>
+	                <td style="color:black" nowrap>{{rollSpineIntl.MySpineLowerBack}}</td>
+	                <td style="color:black" >{{rollSpineIntl.MySpineOthers}}</td> 
+	                <td class="text-center">
+	                	<a class="btn btn-large btn-danger" href="#/{{rollSpineIntl.ClinixRID}}" ng-click="remove(rollSpineIntl)" style="text-decoration: none">
 	                		DELETE
 	                	</a>
 	            	</td>
