@@ -62,6 +62,23 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
    });
   }
 
+  // $scope.editChiefComp = function (cheifcompdetailID) {
+  //   complaint.remove()
+  //   .then(function() {
+  //     $scope.$apply(function() {
+  //        var comps = $scope.clinix_chiefcomp;
+  //        comps.splice(comps.indexOf(complaint), 1);
+  //     });
+  //   })
+  //  .fail(function(err) {
+  //      alert("Error deleting item!");
+  //  });
+  // }
+
+
+
+
+
   // Spine Initial
   $scope.saveSpineIntl = function (spineIntl) {
     newrecord = {
@@ -76,10 +93,10 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
       $ipadrbg.context.clinix_spineIntl.add(newrecord);
       $ipadrbg.context.clinix_spineIntl.saveChanges();
 
-      spineIntl.Neck = null;
-      spineIntl.UpperBack = null;
-      spineIntl.LowerBack = null;
-      spineIntl.SpineOthers = null;
+      spineIntl.Neck = "";
+      spineIntl.UpperBack = "";
+      spineIntl.LowerBack = "";
+      spineIntl.SpineOthers = "";
 
       $scope.LoadComplaints();
   }

@@ -1,48 +1,108 @@
-
 <!-- LAB EXAMS -->
-<div scroll-bookmark="IOPELabs">
-	<div class="panel panel-default">
-		<div class="panel-heading btn btn-warning btn-block">
-			<a href="#">
-				LABORATORY EXAMINATION
-			</a>
-		</div>
-		<div class="panel-body">
+<div ng-controller="LABSCtrl">
+	<div scroll-bookmark="IOPELabs">
+		<div class="panel panel-default">
+
 			<table class="table table-bordered">
+				<tr class="warning">
+					<th colspan=9>
+						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+			    			Laboratory Examinations
+			    		</span>
+					</th>
+				</tr>
+
 				<tr class="active">
-					<td>A. X-Rays</td>
-					<td><input type="date" class="form-control" id="lab_xrays" value=""></td>
-					<td>Report</td>
-					<td colspan="2"><textarea rows="3" id="lab_xrays_report" value="" placeholder="Report" class = "form-control"></textarea></td>
+					<td width="1%">A. X-Rays</td>
+					<td width="1%"><input type="date" class="form-control" ng-model="CHIEFCformData.labXRayDate" ></td>
+					<td width="1%">Report</td>
+					<td width="20%" colspan="2"><textarea rows="3" ng-model="CHIEFCformData.labXRayReport" placeholder="Report" class = "form-control"></textarea></td>
+
+					<td class="text-center" rowspan=7>
+						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addLABS(CHIEFCformData)" style="text-decoration: none">ADD</a>
+					</td>
 				</tr>
 				<tr class="active">
 					<td>B. MRI</td>
-					<td><input type="date" class="form-control" id="lab_MRI" value=""></td>
+					<td><input type="date" class="form-control" ng-model="CHIEFCformData.MRIDate"></td>
 					<td>Report</td>
-					<td colspan="2"><textarea rows="3" id="lab_MRI_report" value="" class = "form-control" placeholder="Report"></textarea></td>
+					<td colspan="2"><textarea rows="3" ng-model="CHIEFCformData.MRIReport" class = "form-control" placeholder="Report"></textarea></td>
 				</tr>
 				<tr class="active">
 					<td>C. CT-SCAN</td>
-					<td><input type="date" class="form-control" id="lab_CT_Scan" value=""></td>
+					<td><input type="date" class="form-control" ng-model="CHIEFCformData.CTSCanDate"></td>
 					<td>Report</td>
-					<td colspan="2"><textarea rows="3" id="lab_CT_Scan_report" value=""class = "form-control" placeholder="Report"></textarea></td>
+					<td colspan="2"><textarea rows="3" ng-model="CHIEFCformData.CTScanReport"  class = "form-control" placeholder="Report"></textarea></td>
 				</tr>
 				<tr class="active">
 					<td>D. Blood Exams</td>
+
 					<td colspan="2">
-							<input type="radio" name="BloodSel" id="BloodSel" value="0" checked> CBC 
-							<input type="radio" name="BloodSel" id="BloodSel" value="1"> ESR
-							<input type="radio" name="BloodSel" id="BloodSel" value="2"> CRP</td>
-					<td><center>Where</center></td>
-					<td><input type="text" class="form-control" id="lab_blood_exams_where" value="" placeholder="Where"></td>
+						<select ng-model="CHIEFCformData.BloodTest" style="background-color: white; color: #000">
+              				<option value=""></option>
+              				<option value="CBC">CBC</option>
+              				<option value="ESR">ESR</option>
+              				<option value="CRP">CRP</option>
+						</select>
+					</td>
+
+					<td>Where</td>
+
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.BloodTestWhere" placeholder="Where"></td>
 
 				</tr>
 				<tr class="active">
 					<td>&nbsp;</td>
 					<td><center>Reports</center></td>
-					<td colspan="3"><Textarea rows="3" id="lab_blood_exams_reports" value="" class = "form-control" placeholder="Reports"></textarea></td>
+					<td colspan="3"><Textarea rows="3" ng-model="CHIEFCformData.BloodTestReport" class = "form-control" placeholder="Reports"></textarea></td>
 
 				</tr>
+			</table>
+
+
+			<table class="table table-condensed table-bordered">
+				<tr class="info">
+	            	<th width="1%" class="text-center" style="color:#888" nowrap>XRay Date</th>
+	            	<th width="1%" class="text-center" style="color:#888" nowrap>XRay Report</th>
+	            	<th width="1%" class="text-center" style="color:#888" nowrap>MRI</th>
+	                <th width="1%" class="text-center" style="color:#888">MRI Report</th>
+	                <th width="1%" class="text-center" style="color:#888">CT Scan</th> 
+	                <th width="1%" class="text-center" class="text-center" style="color:#888" >CT Scan Report</th> 
+
+	                <th width="1%" class="text-center" class="text-center" style="color:#888" >Blood Test</th> 
+	                <th width="1%" class="text-center" class="text-center" style="color:#888" >Blood Test Source</th> 
+	                <th width="1%" class="text-center" class="text-center" style="color:#888" >Blood Test Report</th> 
+					<td></td>
+					<td></td>
+					<td></td>
+	            </tr>
+
+				<tr class="info" ng-repeat="rolLabs in clinix_LABS">
+	            	<td style="color:black" nowrap>{{rolLabs.labXRayDate}}</td>
+	            	<td style="color:black">{{rolLabs.labXRayReport}}</td>
+	            	<td style="color:black" nowrap>{{rolLabs.MRIDate}}</td>
+	                <td style="color:black">{{rolLabs.MRIReport}}</td>
+	                <td style="color:black" nowrap>{{rolLabs.CTSCanDate}}</td> 
+	                <td style="color:black">{{rolLabs.CTScanReport}}</td> 
+	                <td style="color:black">{{rolLabs.BloodTest}}</td>
+
+	                <td style="color:black">{{rolLabs.BloodTestWhere}}</td> 
+	                <td style="color:black">{{rolLabs.BloodTestReport}}</td> 
+	                <td width="1%">
+	                	<a class="btn btn-large btn-danger" href="#/{{rolLabs.ClinixRID}}" ng-click="removeLABS(rolLabs)" style="text-decoration: none">
+	                		DELETE
+	                	</a>
+	            	</td>
+	                <td width="1%">
+	                	<a class="btn btn-large btn-warning" href="#/{{rolLabs.ChiefRID}}/edit" ng-click="editChiefComp(rolLabs)" style="text-decoration: none">
+	                		EDIT
+	                	</a>
+	            	</td>
+
+	            	<td></td>
+	            	
+	            </tr>
+				
 			</table>
 		</div>
 	</div>

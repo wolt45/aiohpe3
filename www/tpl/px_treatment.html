@@ -15,28 +15,25 @@
 
 				<tr class="active">
 					<th width="1%">Medications</th>
-					<th width="1%" nowrap>Analgesics (pain meds)</th>
+					<th width="1%">Analgesics (pain meds)</th>
 					<td width="20%">
 						<input type="text" class="form-control" ng-model="CHIEFCformData.medAnalgesic" placeholder="Pain-meds">
 					</td>
-					<td width="1%" nowrap>Doze: 
+					<td width="1%" nowrap>Dose: 
 						<select ng-model="CHIEFCformData.drugDozageAnalgesic" style="background-color: white; color: #000">
 	              			<option ng-repeat="doze in drugDozage" value="{{doze.doze}}">{{doze.dropname}}</option>
 						</select>
 					</td>
 
-
-					<td width="20%">
+					<td class="text-center" rowspan=7>
 						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addTreatment(CHIEFCformData)" style="text-decoration: none">ADD</a>
 					</td>
-
-					<td></td>
 				</tr>
 				<tr class="active">
 					<th>&nbsp;</th>
-					<th nowrap>Anti-inflammatory meds</th>
+					<th>Anti-inflammatory meds</th>
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.medAntiInflamatory" placeholder="Anti-inflammatory"></td>
-					<td width="1%" nowrap>Doze: 
+					<td width="1%" nowrap>Dose: 
 						<select ng-model="CHIEFCformData.drugDozageAntiInflame" style="background-color: white; color: #000">
 	              			<option ng-repeat="doze in drugDozage" value="{{doze.doze}}">{{doze.dropname}}</option>
 						</select>
@@ -46,15 +43,15 @@
 					<th>&nbsp;</th>
 					<th>Others</th>
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.medOthers" placeholder="Other meds" ></td>
-					<td width="1%" nowrap>Doze: 
+					<td width="1%" nowrap>Dose: 
 						<select ng-model="CHIEFCformData.drugDozageOthers" style="background-color: white; color: #000">
 	              			<option ng-repeat="doze in drugDozage" value="{{doze.doze}}">{{doze.dropname}}</option>
 						</select>
 					</td>
 				</tr>
 				<tr class="active">
-					<td nowrap>Joint Injection</b></td>
-					<td nowrap>1. Steroids, how many</td>
+					<td>Joint Injection</b></td>
+					<td>1. Steroids, how many</td>
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.injSteroidsVolume" placeholder="How many Steroids" ></td>
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.injSteroidsWhen" placeholder="When" ></td>
 				</tr>
@@ -107,36 +104,36 @@
 
 	            <tr class="info" ng-repeat="treatment in clinix_treatment">
 	                <td class="text-center" style="color:black" width="1%">
-	                	{{treatment.medAnalgesic}}
+             			<span>{{treatment.medAnalgesic ? treatment.medAnalgesic : " "}}</span>
 	                </td>
 	                <td class="text-center" style="color:black" width="1%">
-	                	{{treatment.medAntiInflamatory}}
+	                	<span>{{treatment.medAntiInflamatory ? treatment.medAntiInflamatory : " "}}</span>
 	                </td>
 	                <td class="text-center" style="color:black" width="1%">
-	                	{{treatment.medOthers}}
+	                	<span>{{treatment.medOthers ? treatment.medOthers : " "}}</span>
 	                </td>
 					<td class="text-center" style="color:black" width="1%">
-	                	{{treatment.injSteroidsVolume}}
+	                	<span>{{treatment.injSteroidsVolume ? treatment.injSteroidsVolume : " "}}</span>
 	                </td>
 	                <td class="text-center" style="color:black" width="1%">
-	                	{{treatment.injSteroidsWhen}}
+	                	<span>{{treatment.injSteroidsWhen ? treatment.injSteroidsWhen : " "}}</span>
 	                </td>
 
 					<td class="text-center" style="color:black" width="1%">
-	                	{{treatment.injSteroidsResult}}
+	                	<span>{{treatment.injSteroidsResult ? treatment.injSteroidsResult : " "}}</span>
 	                </td>
 	                <td class="text-center" style="color:black" width="1%">
-	                	{{treatment.injSteroidsDetails}}
+	                	<span>{{treatment.injSteroidsDetails ? treatment.injSteroidsDetails : " "}}</span>
 	                </td>
 
 					<td class="text-center" style="color:black" width="1%">
-	                	{{treatment.injHyaluronicAcid}}
+	                	<span>{{treatment.injHyaluronicAcid ? treatment.injHyaluronicAcid : " "}}</span>
 	                </td>
 	                <td class="text-center" style="color:black" width="1%">
-	                	{{treatment.injHyaluronicResult}}
+	                	<span>{{treatment.injHyaluronicResult ? treatment.injHyaluronicResult : " "}}</span>
 	                </td>
 	                <td class="text-center" style="color:black" width="1%">
-	                	{{treatment.injHyaluronicDetails}}
+	                	<span>{{treatment.injHyaluronicDetails ? treatment.injHyaluronicDetails : " "}}</span>
 	                </td>
 
 	                <td width="1%">

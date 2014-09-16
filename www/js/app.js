@@ -1,21 +1,14 @@
-var IOHPEApp = angular.module('RBGIOHPEApp', [
+var IOHPEApp = angular.module('IOHPEApp', [
     'ngRoute'
 ]);
 
 IOHPEApp.config(function($routeProvider) {
-  $routeProvider.
-    when('/', {
-      templateUrl: 'tpl/today_list.html',
-      controller: 'PXListCtrl'
-    }).
-    when('/:p_clinixrid', {
-      templateUrl: 'tpl/px_iohpe.html',
-      controller: 'PXDetailCtrl'
-    }).
+  $routeProvider
+    .when('/', {templateUrl: 'tpl/today_list.html',controller: 'PXListCtrl'})
+    .when('/:p_clinixrid', {templateUrl: 'tpl/px_iohpe.html',controller: 'PXDetailCtrl'})
+    .when('/:p_chiefcomp/edit', {templateUrl: 'tpl/px_iohpe.html',controller: 'ChiefComplaintCtrl'})
 
-    otherwise({
-      redirectTo: '/'
-    });
+    .otherwise({redirectTo: '/'});
 });
 
 // don't touch the bookmarks

@@ -13,6 +13,7 @@
 				</tr>
 	    	
 				<tr class="active">
+					<td width="1%"></td>
 					<td width="1%" nowrap>Concern: <br>
 						<select ng-model="CHIEFCformData.MyBone" style="background-color: white; color: #000">
 	              			<option ng-repeat="bone in myBone" value="{{bone.name}}">{{bone.name}}</option>
@@ -48,15 +49,21 @@
 				</tr>
 
 	            <tr class="info" ng-repeat="complaint in clinix_chiefcomp">
+	            	<td width="1%" style="color:black" nowrap>{{complaint.ChiefRID}}</td>
 	            	<td width="1%" style="color:black" nowrap>{{complaint.MyBone}}</td>
 	            	<td width="1%" style="color:black" nowrap>{{complaint.MyBoneLRB}}</td>
 	                <td width="1%" style="color:black">{{complaint.MyBoneComplaint}}</td>
 	                <td width="15%" style="color:black">{{complaint.Remarks}}</td> 
 	                <td width="1%">
-	                	<a class="btn btn-large btn-danger" href="#/{{complaint.ClinixRID}}" ng-click="remove(complaint)" style="text-decoration: none">
+	                	<a class="btn btn-large btn-danger" href="#/{{complaint.ClinixRID}}" ng-click="removeChiefComp(complaint)" style="text-decoration: none">
 	                		DELETE
 	                	</a>
 	            	</td>
+	                <!-- td width="1%">
+	                	<a class="btn btn-large btn-warning" href="#/{{complaint.ChiefRID}}/edit" ng-click="editChiefComp(complaint)" style="text-decoration: none">
+	                		EDIT
+	                	</a>
+	            	</td -->
 	            	<td></td>
 	            </tr>
 
