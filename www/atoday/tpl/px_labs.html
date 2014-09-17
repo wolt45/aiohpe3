@@ -1,0 +1,80 @@
+<!-- LAB EXAMS -->
+<div ng-controller="LABSCtrl">
+	<div scroll-bookmark="IOPELabs">
+		<div class="panel panel-default">
+
+			<table class="table table-bordered">
+				<tr class="warning">
+					<th colspan=9>
+						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+			    			Laboratory Examinations
+			    		</span>
+					</th>
+				</tr>
+
+				<tr class="active">
+					<th width="1%" class="text-center">Labs</th>
+					<th width="1%" class="text-center">Date</th>
+					<th width="15%" class="text-center">Where</th>
+					<th width="15%" class="text-center">Report</th>
+					<td width="1%"></td>
+					<td width="1%"></td>
+					<td></td>
+				</tr>
+
+				<tr class="active">
+					<td>
+						<select ng-model="CHIEFCformData.labCategory" style="background-color: white; color: #000">
+	              			<option ng-repeat="rolLabCat in labCategories" value="{{rolLabCat.dropname}}">{{rolLabCat.dropname}}</option>
+						</select>
+					</td>
+					<td width="1%"><input type="date" class="form-control" ng-model="CHIEFCformData.labDate" ></td>
+
+					<td width="1%"><input type="text" class="form-control" ng-model="CHIEFCformData.labSource" ></td>
+					
+					<td width="1%"><input type="text" class="form-control" ng-model="CHIEFCformData.labReport" ></td>
+
+					<td class="text-center">
+						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addLABS(CHIEFCformData)" style="text-decoration: none">ADD</a>
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+				
+				<!-- tr class="info">
+	            	<th class="text-center" style="color:#888" nowrap>XRay Date</th>
+	            	<th class="text-center" style="color:#888" nowrap>XRay Report</th>
+	            	<th class="text-center" style="color:#888" nowrap>MRI</th>
+	                <th class="text-center" style="color:#888">MRI Report</th>
+	                <th class="text-center" style="color:#888">CT Scan</th> 
+	                <th class="text-center" class="text-center" style="color:#888" >CT Scan Report</th> 
+
+					<td></td>
+					<td></td>
+	            </tr -->
+
+				<tr class="info" ng-repeat="rolLabs in clinix_LABS">
+	            	<td style="color:black" nowrap>{{rolLabs.labCategory}}</td>
+	            	<td style="color:black">{{rolLabs.labDate}}</td>
+	            	<td style="color:black" nowrap>{{rolLabs.labSource}}</td>
+	                <td style="color:black">{{rolLabs.labReport}}</td>
+
+	                <td width="1%">
+	                	<a class="btn btn-large btn-danger" href="#/{{rolLabs.ClinixRID}}" ng-click="removeLABS(rolLabs)" style="text-decoration: none">
+	                		DELETE
+	                	</a>
+	            	</td>
+	                <td width="1%">
+	                	<a class="btn btn-large btn-warning" href="#/{{rolLabs.ChiefRID}}/edit" ng-click="editChiefComp(rolLabs)" style="text-decoration: none">
+	                		EDIT
+	                	</a>
+	            	</td>
+
+	            	<td></td>
+	            	
+	            </tr>
+				
+			</table>
+		</div>
+	</div>
+</div>

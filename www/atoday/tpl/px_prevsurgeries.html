@@ -1,0 +1,90 @@
+<!-- SURGERY -->
+<div ng-controller="PrevSurgeriesCtrl">
+	<div scroll-bookmark="IOPESurgery">
+		<div class="panel panel-default">
+		
+			<table class="table table-condensed table-bordered">
+				<tr class="warning">
+					<th colspan=9>
+						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+			    			Previous Surgeries
+			    		</span>
+					</th>
+				</tr>
+
+				<tr class="active">
+					<td>A. Type</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryType" placeholder="Type" ></td>
+					
+					<td>B. When</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryWhen" placeholder="When" ></td>
+				</tr>
+				<tr class="active">
+					<td>C. Where</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryWhere" placeholder="Where"></td>
+				
+					<td>D. Who</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryWho" placeholder="Who" ></td>
+				</tr>
+				
+
+				<tr class="active">
+					<td>E. </td>
+					<td> <input type="checkbox" ng-model="CHIEFCformData.SurgeryHelped"> Did it help</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryHowMany" placeholder="for how long "></td>
+					<td nowrap>
+						<select ng-model="CHIEFCformData.SurgeryHowManyUnit" class="form-control">
+							<option value="Days">DAYS</option>
+							<option value="Weeks">WEEKS</option>
+							<option value="Months">MONTHS</option>
+							<option value="Years">YEARS</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr class="active">
+					<td></td>
+					<td colspan="9" class="text-center">
+						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addPrevSurgeries(CHIEFCformData)" style="text-decoration: none">ADD</a>
+					</td>
+				</tr>
+			</table>
+
+			<table class="table table-condensed table-bordered">
+				<tr class="info">
+	            	<th width="1%" class="text-center" style="color:#888" nowrap>Type</th>
+	            	<th width="1%" class="text-center" style="color:#888" nowrap>Date</th>
+	            	<th width="1%" class="text-center" style="color:#888" nowrap>Location</th>
+	                <th width="1%" class="text-center" style="color:#888">By Who</th>
+	                <th width="1%" class="text-center" style="color:#888">Result</th> 
+	                <th width="1%" class="text-center" class="text-center" style="color:#888" colspan=2>Duration</th> 
+	                <th width="1%">	</th>
+					<td></td>
+	            </tr>
+
+				<tr class="info" ng-repeat="prevSurgery in clinix_previousSurgeries">
+	            	<td style="color:black" nowrap>{{prevSurgery.SurgeryType}}</td>
+	            	<td style="color:black" nowrap>{{prevSurgery.SurgeryWhen}}</td>
+	            	<td style="color:black" nowrap>{{prevSurgery.SurgeryWhere}}</td>
+	                <td style="color:black">{{prevSurgery.SurgeryWho}}</td>
+	                <td style="color:black">{{prevSurgery.SurgeryHelped}}</td> 
+	                <td style="color:black">{{prevSurgery.SurgeryHowMany}}</td> 
+	                <td style="color:black">{{prevSurgery.SurgeryHowManyUnit}}</td> 
+	                <td>
+	                	<a class="btn btn-large btn-danger" href="#/{{prevSurgery.ClinixRID}}" ng-click="removePrevSurg(prevSurgery)" style="text-decoration: none">
+	                		DELETE
+	                	</a>
+	            	</td>
+	                <!-- td width="1%">
+	                	<a class="btn btn-large btn-warning" href="#/{{prevSurgery.ChiefRID}}/edit" ng-click="editChiefComp(prevSurgery)" style="text-decoration: none">
+	                		EDIT
+	                	</a>
+	            	</td -->
+	            	<td></td>
+	            </tr>
+				
+			</table>
+			
+		</div>
+	</div>
+</div>

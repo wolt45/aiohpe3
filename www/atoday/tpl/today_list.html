@@ -1,0 +1,24 @@
+
+
+<table class="table table-bordered table-hover">
+
+	<tr ng-repeat="px_Item in clinix | orderBy:'ClinixRID'">
+		
+		<td width="1%">
+			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">  
+				<img ng-src="images/{{px_Item.Foto}}" width="75" style="padding: 0 0 0 0">  
+			</a>   
+		</td>
+		<td width="1%" nowrap>Appt : {{px_Item.ClinixRID}} </td>
+		<td width="1%" nowrap>Chart : {{px_Item.PxRID}} </td>
+		<td nowrap>		
+			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">
+				
+		    	{{px_Item.pxname}}
+		    	<br>{{px_Item.pxstatus}}
+		    	<span style="font-size:10px">{{px_Item.Address}}</span>
+			</a>
+	  	</td>
+  	</td>
+</table>
+

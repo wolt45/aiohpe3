@@ -1,0 +1,44 @@
+<div scroll-bookmark="ChartData">
+	<div class="panel panel-danger">
+
+		<table class="table table-bordered table-condensed">
+			<tr class="success">
+				<td rowspan=3 width="1%">
+					<img ng-src="images/{{clinix.Foto}}" width="120">
+				</td>
+				<!-- td rowspan=3 width="1%">&nbsp;</td -->
+			</tr>
+			<tr class="success">
+				<td width="1%" style="color: #000" nowrap>Appt: {{clinix.ClinixRID}}</td>
+
+				<td width="1%" style="color: #000" nowrap>
+					chart: {{clinix.PxRID}} <br> <span style="font-size:12px">{{clinix.pxregdate}}</span>
+				</th>
+
+				<th width="1%" style="color: #000" nowrap>{{clinix.pxname}}</th>
+				<td class="text-right" style="color: #000">
+					999,999.99
+				</td>
+			</tr>
+			<tr class="success" style="color: #000">
+				<td colspan=4 nowrap>
+					{{clinix.pxstatus}}, 
+					{{clinix.Address}}
+				</td>
+				
+			</tr>
+		</table>
+
+	</div>
+</div>
+<!-- 
+Chart
+RegDate
+pxname
+address
+DOB /age /sex /marital /status
+race
+contact number
+occupation
+insurance
+-->
