@@ -30,7 +30,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         // nested list with custom controller
         .state('today', {
             url: '/today',
-            templateUrl: 'atoday/'
+            templateUrl: 'atoday/today.html'
             }
         )
 
