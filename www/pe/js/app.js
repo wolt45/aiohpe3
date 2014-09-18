@@ -6,6 +6,11 @@ AppPXPE.config(function($routeProvider) {
   $routeProvider.
     when('/', { templateUrl: 'tplpe/today_list_pe.html', controller: 'PXListCtrl' }).
     when('/:p_pxrid', { templateUrl: 'tplpe/px_pe.html', controller: 'PXDetailCtrl' }).
+
+
+    when('/knee/:p_pxrid', { templateUrl: 'tplpe/px_pe.html', controller: 'PXDetailCtrl' }).
+
+    
     otherwise({ redirectTo: '/' });
 });
 

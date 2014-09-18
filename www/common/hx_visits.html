@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- CSS (load bootstrap) -->
+        <link href="..//css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar { border-radius:0; }
+    </style>
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="..//lib/angular-1.2.18.min.js"></script>
+    <script src="..//lib/angular-ui-router.min.js"></script>
+
+</head>
+
+<div class="panel-heading btn btn-active btn-block">
+	<a ng-href="..//index.html"
+		style="display:block; text-decoration:none">
+		M A I N
+	</a> 
+</div>
+
+<!-- div ng-controller="CtrlBACKER" -->
+    <siteHeader back="back" forward="forward"></siteHeader>
+<!-- /div -->
+
+<!-- p>http://stackoverflow.com/questions/14070285/how-to-implement-history-back-in-angular-js</p -->
+
+<table class="table table-condensed table-striped table-bordered" style="width: 100%">
+	<caption>PREVIOUS VISITS</caption>
+	<thead>
+	  	<tr>
+	     	<th>DATE</th>
+	     	<th>COMPLAIN</th>
+	     	<th>DIAGNOSIS</th>
+	     	<th>FOLLOW-UP</th>
+	     	<th>MEDICATION</th>
+	     	<th>IMAGES</th>
+	  	</tr>
+	</thead>
+  	<tfoot>
+	  	<tr>
+	      	<td>Sum</td>
+	      	<td>$180</td>
+	  	</tr>
+  	</tfoot>
+  	<tbody>
+		<tr class="warning">
+			<td colspan="9">
+				<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+    				Spine
+    			</span>
+	 		</td>
+		</tr>
+	</tbody>
+</table>
