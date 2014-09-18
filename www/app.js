@@ -9,13 +9,13 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url: '/home',
-            templateUrl: 'partial-home.html'
+            templateUrl: 'roottpl/partial-home.html'
         })
         
         // nested list with custom controller
         .state('home.list', {
             url: '/list',
-            templateUrl: 'partial-home-list.html',
+            templateUrl: 'roottpl/partial-home-list.html',
             controller: function($scope) {
                 $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
             }
@@ -27,7 +27,6 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             template: 'I could sure use a drink right now.'
         })
 
-        // nested list with custom controller
         .state('today', {
             url: '/today',
             templateUrl: 'atoday/today.html'
@@ -38,10 +37,10 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         .state('about', {
             url: '/about',
             views: {
-                '': { templateUrl: 'partial-about.html' },
-                'columnOne@about': { template: 'Look I am a column!' },
+                '': { templateUrl: 'roottpl/partial-about.html' },
+                'columnOne@about': { template: '<h3>The People behind The Project</h3>' },
                 'columnTwo@about': { 
-                    templateUrl: 'table-data.html',
+                    templateUrl: 'roottpl/table-data.html',
                     controller: 'scotchController'
                 }
             }
@@ -51,20 +50,26 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 
 routerApp.controller('scotchController', function($scope) {
     
-    $scope.message = 'test';
-   
-    $scope.scotches = [
+    $scope.rbgTeam = [
         {
-            name: 'Macallan 12',
-            price: 50
+            name: "Ramon B. Gustilo, MD",
+            foto: "r",
+            describe: ''
         },
         {
-            name: 'Chivas Regal Royal Salute',
-            price: 10000
+            name: 'Walter Frederick S. Seballos',
+            foto: '',
+            describe: ''
         },
         {
-            name: 'Glenfiddich 1937',
-            price: 20000
+            name: 'Ene Bauden',
+            foto: '',
+            describe: 'Gustilo Clinic and Ambulatory Surgery Center'
+        },
+        {
+            name: 'Ara',
+            foto: '',
+            describe: 'Gustilo Clinic and Ambulatory Surgery Center'
         }
     ];
     

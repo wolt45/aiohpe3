@@ -4,12 +4,15 @@ var IOHPEApp = angular.module('IOHPEApp', [
 
 IOHPEApp.config(function($routeProvider) {
   $routeProvider
-    .when('/', {templateUrl: 'tpl/today_list.html',controller: 'PXListCtrl'})
-    .when('/:p_clinixrid', {templateUrl: 'tpl/px_iohpe.html',controller: 'PXDetailCtrl'})
-    .when('/:p_chiefcomp/edit', {templateUrl: 'tpl/px_iohpe.html',controller: 'ChiefComplaintCtrl'})
+    .when('/', { templateUrl: 'tpl/today_list.html', controller: 'PXListCtrl' })
+    .when('/main', { templateUrl: '..//index.html'})
+    .when('/:p_clinixrid', { templateUrl: 'tpl/px_iohpe.html', controller: 'PXDetailCtrl' })
 
-    .otherwise({redirectTo: '/'});
+    .when('/:p_chiefcomp/edit', { templateUrl: 'tpl/px_iohpe.html', controller: 'ChiefComplaintCtrl' })
+
+    .otherwise({ redirectTo: '/' });
 });
+
 
 // don't touch the bookmarks
 IOHPEApp.directive('scrollToBookmark', function() {
