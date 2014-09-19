@@ -1,0 +1,80 @@
+<table class="table table-hover">
+					<tr class="warning">
+							<td class="text-center" colspan="4">MANAGEMENT</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td colspan="2"><input type="radio" name="ManagementOk" value="Closed" checked>Closed</td>
+							<td colspan="2"><input type="radio" name="ManagementOk" value="Open">Open</td>
+						</tr>
+						<tr>
+							<td>Medications</td>
+							<td><textarea class="form-control" name="MediManage" rows="3"placeholder="Medications" ></textarea></td>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td>Physical Therapy</td>
+							<td><input type="text" class="form-control input-mysize" name="PhysiThera" placeholder="Physical Theraphy" ></td>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td>Exercise program for hips/knees</td>
+							<td>
+								
+								<input type="checkbox" name="FootAnkle" value="1" > Foot and Ankle     
+								<input type="checkbox" name="HamString" value="1" > Quads and Hamstrings      
+								<input type="checkbox" name="SLR" value="1" > SLR
+								
+							</td>
+						</tr>
+						<tr>
+							<td>Ambulatory Trainings</td>
+							<td>
+								
+								<input type="radio" name="AmbuTraining" value="1" > Cruches     
+								<input type="radio" name="AmbuTraining" value="2" > Walker      
+								<input type="radio" name="AmbuTraining" value="3" > Cane
+								
+							</td>
+						</tr>
+							<tr class="warning">
+								<td class="text-center" colspan="4">SCHEDULE FOR SURGERY</td>
+							</tr>
+							<tr>
+								<td>Type</td>
+								<td><input type="text" class="form-control" name="Type" placeholder="Type" ></td>
+						
+								<td>When</td>
+								<td colspan="2"><input type="date" class="form-control" name="When" ></td>
+							</tr>
+							<tr>
+								<td>Surgeon</td>
+								<td><input type="text" class="form-control" name="Surgeon" placeholder="Surgeon" ></td>
+						
+								<td>Assistant Surgeon</td>
+								<td><input type="text" class="form-control" name="AsisSurg" placeholder="Assistant Surgeon" ></td>
+							</tr>
+							<tr>
+								<td>Internist or Cardiologist</td>
+								<td><input type="text" class="form-control" name="InterCardio" placeholder="Internist or Cardiologist" ></td>
+						
+								<td>Anesthesiologist</td>
+								<td><input type="text" class="form-control" name="Anesthesio" placeholder="Anesthesiologist" ></td>
+							</tr>
+							<tr>
+								<td>Hospital</td>
+								<td><input type="text" class="form-control" name="Hospital" placeholder="Hospital" ></td>
+								<td colspan="2"></td>
+							</tr>
+							<tr>
+								<td class="text-center">
+									<input type="Submit" name="preoperative" class="btn btn-warning" value="PREOPERATIVE">
+								</td>
+								<td colspan="2"class="text-center">
+									<input type="Submit" name="Operative" class="btn btn-warning" value="OPERATIVE">
+								</td>
+								<td class="text-center">
+									<input type="Submit" name="Operative" class="btn btn-warning" value="POSTOPERATIVE">
+								</td>
+							</tr>
+						</table>

@@ -9,9 +9,6 @@
 
 	<div class="panel-group" id="accordion">
 		<div class="panel panel-default">
-
-
-
 			<div class="panel-heading btn btn-success btn-block" >
 				<a data-parent="#accordion" 
 				    href="#/"
@@ -19,10 +16,6 @@
 					TODAY P E</a>
 			</div>
 
-
-			<div class="panel-heading btn btn-success btn-block">
-				<a  scroll-to-bookmark="PEChart"> CHART DATA </a>
-			</div>
 
 
 			<div class="panel-heading btn btn-success btn-block">
@@ -32,9 +25,6 @@
 					H I P
 				</a>
 			</div>
-
-			
-
 			<div id="HIP" scroll-bookmark="IOHPE" class="panel-collapse">
 				<div class="panel-body">
 					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipPE"> HIP PE </a>
@@ -42,11 +32,11 @@
 
 					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipMeasures"> MEASUREMENTS </a>
 
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipStanding"> STANDING </a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipMeasures"> STANDING </a>
 
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipMotionRange"> RANGE OF MOTION </a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipMeasures"> RANGE OF MOTION </a>
 
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipXRAYS"> HIP X-Rays </a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipMeasures"> HIP X-Rays </a>
 
 					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipDiags"> DIAGNOSIS </a>
 				</div>
@@ -62,9 +52,9 @@
 				<div class="panel-body">
 					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneePE"> KNEE P E </a> 
 
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneeAmbuStat"> Ambulatory Status </a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="AmbuStat"> Ambulatory Status </a>
 
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneeMeasures"> KNEE Measurements </a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="AmbuStat"> KNEE Measurements </a>
 
 					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneeXRAY">KNEE X-Rays </a>
 
@@ -82,16 +72,9 @@
 			</div>
 			<div id="GENORTHO" class="panel-collapse collapse">
 				<div class="panel-body">
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="GENOrthoPE"> Gen Ortho PE </a> 
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="GENOrthoXRAY">Appropriate X_Rays </a>
-
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="GENOrthoXRAY2">X_Ray Findings </a>
-	
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="GenOrthoDIAGS">DIAGNOSIS </a>
-
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="GenOrthoLABS">LAB Exams </a>
-
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="GenOrthoLABS">Previous Surgeries </a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneePE"> PHYSICAL EXAMINATION </a> 
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneeXRAY">RADIOGRAPHIC FINDINGS </a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneeDIAGS">DIAGNOSIS </a>
 				</div>
 			</div>
 
@@ -113,20 +96,14 @@
 
 			<div class="panel-heading btn btn-active btn-block">
 				<a ng-href="#"
-					class="btn btn-primary btn-lg"
-					style="display:block;">
+					style="display:block; text-decoration:none">
 					VISITS
 				</a> 
-			</div>
-
-			<div class="panel-heading btn btn-active btn-block">
-				<a href ng-click="AmbiNav = ! AmbiNav" class="btn btn-primary btn-lg" style="display:block;">ambi-nav</a>
 			</div>
 			
 			<div class="panel-heading btn btn-active btn-block">
 				<a href="..//index.html"
-					class="btn btn-primary btn-lg"
-					style="display:block;">
+					style="display:block; text-decoration:none">
 					Main
 				</a> 
 			</div>

@@ -1,0 +1,405 @@
+<div scroll-bookmark="GENOrthoPE">
+
+	<table class="table table-condensed table-bordered">
+					<tr class="success">
+						<th colspan=9>
+							<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+				    			General Orthopedic Module
+				    		</span>
+						</th>
+					</tr>
+				</table>
+</div>
+
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel panel-default">
+
+				
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading btn btn-warning btn-block">
+				<a data-toggle="collapse" href="#colphy">PHYSICAL EXAMINATION</a>
+			</div>
+
+			<div id="colphy" class="panel-collapse       ">
+				<div class="panel-body">
+					<div class="panel panel-default">
+
+						<table class="table">					
+							<?php
+								include "pe.ambu.stats.php";
+							?>
+							
+							<tr class="active">
+								<td colspan="5">APPEARANCE</td>
+							</tr>
+							<tr>
+								<td class="spacing">
+									<input type="radio" name="App" value="Normal" checked> Normal
+								</td>
+								<td>
+									<input type="radio" name="App" value="Deformity"> Deformity
+								</td>
+								<td>
+									<input type="text" name="TypeApperance" class="form-control" placeholder="Appearance">
+								</td>
+							</tr>
+							<tr class="active">
+								<td colspan="5">SKIN</td>
+							</tr>
+							<tr>
+								<td class="spacing"><input type="radio" name="Skin" value="0"  checked> Closed</td>
+								<td><input type="radio" name="Skin" value="1"> Open</td>
+								<td><input type="radio" name="Skin" value="2"> G1</td>
+								<td><input type="radio" name="Skin" value="3"> G2</td>
+								<td><input type="radio" name="Skin" value="4"> G3</td>
+								</td>
+							</tr>
+							<tr class="active">
+								<td colspan="5">PAIN</td>
+							</tr>
+							<tr>
+								<td class="text-center">A. Active Motion:</td>
+								<td >
+									<select name="ActiveMotion" class="form-control">
+										<option value="0">MILD</option>
+										<option value="1">MODERATE</option>
+										<option value="2">SEVERE</option>
+										<option value="3">INCREASING</option>
+									</select>
+								</td>
+								
+								<td class="text-center">B. Passive Motion:</td>
+								<td>
+									<select name="PassiveMotion" class="form-control">
+										<option value="0">MILD</option>
+										<option value="1">MODERATE</option>
+										<option value="2">SEVERE</option>
+										<option value="3">INCREASING</option>
+									</select>
+								</td>
+							</tr>
+							<tr class="active">
+								<td colspan="5">NEUROLOGIC STATUS</td>
+							</tr>
+							<tr>
+								<td class="spacing">
+									<input type="radio" name="Neurologic" value="2" checked> Normal
+								</td>
+								<td>
+									<input type="radio" name="Neurologic" value="3"> Poor
+								</td>
+							</tr>
+							<tr class="active">
+								<td colspan="5">VASCULAR STATUS</td>
+							</tr>
+							<tr>
+								<td class="spacing" nowrap/>
+									<input type="radio" name="Vascular" value="2" checked> Normal
+								</td>
+								<td>
+									<input type="radio" name="Vascular" value="3"> Poor
+								</td>
+							</tr>
+							<tr class="active">
+								<td colspan="5">DESCRIBE IN DETAILS IF NEUROLOGIC AND VASCULAR ARE POOR</td>
+							</tr>
+							
+							<tr>
+								<td colspan="5"><textarea rows="3" class="form-control"name="PoorDetails" placeholder="Explaination"></textarea></td>
+							</tr>
+
+							</table>
+
+<div scroll-bookmark="GENOrthoXRAY">
+
+							<table class="table">
+							<tr class="success">
+								<td colspan="5">APPROPRIATE X-RAYS ORDERED</td>
+							</tr>
+							<tr class="active">
+								<td>
+									Hip
+								</td>
+								<td>
+									<input type="radio" name="Hip" value="0"  checked> AP Pelvis to include both hips
+								</td>
+							</tr>
+							<tr>
+								<td>
+								</td>
+								<td>
+									<input type="radio" name="Hip" value="1" > Frog Leg, BOTH Hips
+								</td>	
+							</tr>
+							<tr class="active">
+								<td>
+									Knee
+								</td>
+								<td>
+									<input type="radio" name="Knee" value="0"  checked> AP Standing at 0 and 20 Degrees flexion
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<input type="radio" name="Knee" value="1" > Lateral at 30 degrees flexion
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<input type="radio" name="Knee" value="2" > Patellar Views(LAURIN VIEW)
+								</td>
+								
+							</tr>
+						</table>
+
+						<table class="table">
+							<tr class="active">
+								<td></td><td class="text-center">LEFT</td><td class="text-center">RIGHT</td>
+							</tr>
+							<tr>
+								<td width="20%">
+									Hand
+								</td>
+								<td class="text-center" width="40%">
+									<input type="checkbox" name="LeftHand" value="1" >
+								</td>
+								<td class="text-center" width="40%">
+									<input type="checkbox" name="RightHand" value="1" >
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									Shoulder
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="ShoulLeft" value="1" >
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="ShoulRight" value="1" >
+								</td>									
+							</tr>
+							<tr>
+								<td>
+									Elbows
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="ElbowLeft" value="1" >
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="ElbowRight" value="1" >
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Ankle 
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="AnkleLeft" value="1" >
+								</td class="text-center">
+								<td class="text-center">
+									<input type="checkbox" name="AnkleRight" value="1" >
+								</td>
+							</tr>
+							<TR>
+								<td>
+									Wrist 
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="WristLeft" value="1" >
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="WristRight" value="1" >
+								</td>
+							</TR>
+							<tr>
+								<td>
+									Foot 
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="FootLeft" value="1" >
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="FootRight" value="1" >
+								</td>
+							</tr>
+							<TR>
+								<td class="active" colspan="4">&nbsp;</td>
+							</TR>
+							<tr>
+								<td>
+									<input type="checkbox" name="Spine" value="1" > Spine
+								</td>
+								<td colspan="2">
+									<input type="checkbox" name="Pelvis" value="1" > Pelvis
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="Humerus" value="1" > Humerus
+								</td>
+								<td colspan="2">
+									<input type="checkbox" name="RadiusUlna" value="1" > Radius-Ulna
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="Tibia" value="1" > Tibia
+								</td>
+								<td colspan="2">
+									<input type="checkbox" name="Ferum" value="1" > Ferum
+								</td>
+							</tr>
+							</table>
+</div>
+<div scroll-bookmark="GENOrthoXRAY2">
+							<table class="table">
+							<tr class="success">
+								<td colspan="5">X-RAYS FINDINGS</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="xfindings" value="1" > Normal</td>
+								<td class="active" colspan="4">ABNORMAL DESCRIBE:
+									<textarea class="form-control" name="AbnormalDes" rows="3" placeholder="Describe why"></textarea></td>
+							</tr>
+							
+						</table>		
+					</div>
+				</div>
+			</div>
+</div>
+
+		</div>
+
+
+<div scroll-bookmark="GenOrthoDIAGS">		
+		<div class="panel panel-default">
+			<div class="panel-heading btn btn-warning btn-block">
+				<a data-toggle="collapse" href="#collapseThree">GENERAL ORTHOPEDIC DIAGNOSIS</a>
+			</div>
+</div>
+			<div id="collapseThree" class="panel-collapse      ">
+				<div class="panel-body">
+					<div class="panel panel-default">
+						<table class="table table-hover">
+							<tr class="success">
+								<td class="text-center" colspan="4">MANAGEMENT</td>
+							</tr>
+							<tr>
+								<td>Medications</td>
+								<td><textarea class="form-control" name="MediManage" rows="3"placeholder="Medications" ></textarea></td>
+								<td colspan="2">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Injections</td>
+								<td><input type="text" class="form-control input-mysize" name="InjecManage" placeholder="Injections" ></td>
+								<td colspan="2">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Physical Therapy</td>
+								<td><input type="text" class="form-control input-mysize" name="PhysiThera" placeholder="Physical Theraphy" ></td>
+								<td colspan="2">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Others</td>
+								<td><input type="text" class="form-control input-mysize" name="OtherManage" placeholder="Others" ></td>
+								<td colspan="2">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Disposition:</td>
+								<td>
+									<input type="radio" name="Dispo" value="1"  checked> Home 
+									<input type="radio" name="Dispo" value="1" > Hospital
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<div scroll-bookmark="GenOrthoLABS">
+		<div class="panel panel-default">
+			<div class="panel-heading btn btn-warning btn-block">
+				<a data-toggle="collapse" href="#collapseFive">LABORATORY EXAMINATION</a>
+			</div>
+</div>
+			<div id="collapseFive" class="panel-collapse     ">
+				<div class="panel-body">
+					<div class="panel panel-default">
+
+						<table class="table">
+							<tr>
+								<td>A. X-Rays</td>
+								<td><center>Date</center></td>
+								<td><input type="date" class="form-control" name="XDate" ></td>
+								<td>Report</td>
+								<td><textarea rows="3" name="Xresult" placeholder="Result" class = "form-control" ></textarea></td>
+							</tr>
+							<tr>
+								<td>B. MRI</td>
+								<td><center>Date</center></td>
+								<td><input type="date" class="form-control" name="MRIDate" ></td>
+								<td>Report</td>
+								<td><textarea rows="3" name="MRIResult" class = "form-control" placeholder="Result" ></textarea></td>
+							</tr>
+
+							<tr>
+								<td>C. CT-SCAN</td>
+								<td><center>Date</center></td>
+								<td><input type="date" class="form-control" name="CTScan" ></td>
+								<td>Report</td>
+								<td><textarea rows="3" name="CTResult" class = "form-control" placeholder="Result" ></textarea></td>
+							</tr>
+
+							<tr>
+								<td>D. Blood Exams</td>
+								<td colspan="2">
+									<input type="radio" name="BloodSel" value="0"  checked> CBC 
+									<input type="radio" name="BloodSel" value="1"> ESR
+									<input type="radio" name="BloodSel" value="2"> CRP
+								</td>
+								<td class="text-center">where</td>
+								<td><input type="text" class="form-control" name="BloodWhere" placeholder="Where" ></td>
+							</tr>
+
+							<tr>
+								<td>&nbsp;</td>
+								<td><center>Reports</center></td>
+								<td colspan="3"><Textarea rows="3" name="BloodReports" class = "form-control" placeholder="Reports" ></textarea></td>
+
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading btn btn-warning btn-block">
+				<a data-toggle="collapse" href="#prevsurg">PREVIOUS SURGERY</a>
+			</div>
+	
+			<div id="prevsurg" class="panel-collapse     ">
+				<div class="panel-body">
+					<div class="panel panel-default">
+
+						<table class="table">					
+							<tr class="active">
+								<td>
+									<textarea rows="3" name="PrevSurg" class="form-control" placeholder="Previous Surgery"></textarea>
+								</td>
+							</tr>
+						</table>		
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -59,3 +59,4 @@ IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
 //   { 6 : "WRIST and HAND"},
 //   { 7 : "THIGH"}
 // ]}
+

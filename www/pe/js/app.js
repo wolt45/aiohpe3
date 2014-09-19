@@ -14,7 +14,6 @@ AppPXPE.config(function($routeProvider) {
     otherwise({ redirectTo: '/' });
 });
 
-
 AppPXPE.directive('scrollToBookmark', function() {
     return {
       link: function(scope, element, attrs) {
@@ -30,3 +29,4 @@ AppPXPE.directive('scrollToBookmark', function() {
       }
     };
 });
+
