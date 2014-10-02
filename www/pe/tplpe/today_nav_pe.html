@@ -11,7 +11,6 @@
 		<div class="panel panel-default">
 
 
-
 			<div class="panel-heading btn btn-success btn-block" >
 				<a data-parent="#accordion" 
 				    href="#/"
@@ -19,14 +18,15 @@
 					TODAY P E</a>
 			</div>
 
-
 			<div class="panel-heading btn btn-success btn-block">
-				<a  scroll-to-bookmark="PEChart"> CHART DATA </a>
+				<a scroll-to-bookmark="PEChart"
+					style="display:block; text-decoration:none">	 
+					CHART DATA 
+				</a>
 			</div>
 
-
 			<div class="panel-heading btn btn-success btn-block">
-				<a data-toggle="collapse" data-parent="#accordion" 	
+				<a  data-toggle="collapse" data-parent="#accordion" 	
 					href="today_nav_pe.html/#HIP"			
 					style="display:block; text-decoration:none">
 					H I P
@@ -35,7 +35,7 @@
 
 			
 
-			<div id="HIP" scroll-bookmark="IOHPE" class="panel-collapse">
+			<div id="HIP" scroll-bookmark="IOHPE" class="panel-collapse collapse">
 				<div class="panel-body">
 					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipPE"> HIP PE </a>
 					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="AmbuStat"> Ambulatory Status </a>
@@ -105,8 +105,13 @@
 			</div>
 			<div id="SPINE" class="panel-collapse collapse">
 				<div class="panel-body">
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="SPINE">PHYSICAL EXAMINATION</a>
-					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="TraumaDIAGS">Diagnosis</a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="SPINE">SPINE P E</a>
+					
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="SPINEOnsetSpine">Onset Spine Problem</a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="SPINEPainSeverity">Pain Sevirity</a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="SPINECheckApplyToYou">Check All Applies to you</a>
 				</div>
 			</div>
 

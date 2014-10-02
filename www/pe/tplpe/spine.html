@@ -14,13 +14,18 @@
 <body>
 
 
-	<div class="panel panel-primary">
+	<div scroll-bookmark="SPINE">
 
-		<div scroll-bookmark="SPINE">
-			<div class="panel-heading text-center">
-				SPINE EVALUATION FORM
-			</div>
-		</div>
+			<table class="table table-condensed table-bordered">
+					<tr class="success">
+						<th colspan=9>
+							<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+				    			SPINE EVALUATION FORM
+				    		</span>
+						</th>
+					</tr>
+				</table>
+</div>
 
 		<table class="table table-bordered">					
 			<tr>
@@ -39,7 +44,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="5" class="success"><b>Onset of spine problem:</b></td>
+				
+				<td colspan="5" class="warning">
+					
+<div scroll-bookmark="SPINEOnsetSpine">
+					<b>Onset of spine problem:</b>
+</div>						
+				</td>
+			
 			</tr>
 			<tr>
 				<td>When did your current problem/symptoms begin?</td>
@@ -66,11 +78,19 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="success" colspan="3"><b>Pain Sevirity</b></td>
+				
+				<td class="warning" colspan="3">
+<div scroll-bookmark="SPINEPainSeverity">
+					<b>Pain Sevirity</b>
+</div>
+				</td>
+
 			</tr>
+
 			<tr>
 				<td colspan="3">If 10 is the worst pain imaginable and 0 is no pain at all, please note your pain over the last <b>TWO WEEKS</b></td>
 			</tr>
+
 			<tr>
 				<Td class="text-center">A</td>
 				<td>
@@ -93,9 +113,9 @@
 		</table>
 		<table class="table table-bordered">
 			<tr>
-				<td colspan="5" class="success">If 10 is the worst pain imaginable and 0 is no pain at all, please note your pain over the last <b>TWO WEEKS</b></td>
+				<td colspan="5">If 10 is the worst pain imaginable and 0 is no pain at all, please note your pain over the last <b>TWO WEEKS</b></td>
 			</tr>
-			<tr class="info">
+			<tr class="warning">
 				<td width="15%"></td>
 				<td class="text-center">NO CHANGE</td>
 				<Td class="text-center">RELIEVES PAIN</td>
@@ -181,7 +201,11 @@
 				<td colspan="3"><textarea class="form-control" placeholder="What you always do to remove the pain."></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="5" class="success"><b>Check all those that apply to you:</b></td>
+				<td colspan="5" class="warning">
+<div scroll-bookmark="SPINECheckApplyToYou">
+					<b>Check all those that apply to you:</b>
+</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Bladder Function</td>

@@ -5,7 +5,8 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
   $scope.clinix = [];
 
   $scope.ShowData = function(){
-    var promise = $ipadrbg.context.clinix.filter(function (px) { return px.ClinixRID > this.id},{id:0}).toLiveArray();
+
+    var promise = $ipadrbg.context.clinix.filter(function (px) { return px.ClinixRID > this.id},{id:0}).order('TranStatus', 'AppDateSet', 'ClinixRID').toLiveArray();
     
     promise.then(function(pxresult) {
       // for(key in pxresult){
