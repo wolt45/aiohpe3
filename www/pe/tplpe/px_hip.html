@@ -1,0 +1,20 @@
+<!-- div ng-controller="ChiefComplaintCtrl" -->
+<div scroll-bookmark="HipPE">
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+	    			HIP Pysical Examination
+	    		</span>
+			</th>
+		</tr>
+	</table>
+					
+	<ng:include src="'tplpe/px_hip_measurements.html'"></ng:include>
+	<ng:include src="'tplpe/px_hip_standing.html'"></ng:include>
+	<ng:include src="'tplpe/px_hip_rangeofmotion.html'"></ng:include>
+	<ng:include src="'tplpe/px_hip_xrayfindings.html'"></ng:include>
+
+	<!-- common ni sya -->
+	<!-- ng:include src="'tplpe/px_common_diagnosis.html'"></ng:include -->
+</div>

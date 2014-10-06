@@ -1,0 +1,112 @@
+<div id="wnavtopLeft" style="border: 0px solid RED; width:16%">
+
+    <div style="background: #000" >
+    	<img ng-src="..//images/glogo.jpg" width="40px" />
+	  	<span style="font-family: Helvetiker; font-size:18px; color: #fff; font-style: italic;">
+			iPad Medical Records
+		</span>
+	</div>
+
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading btn btn-success btn-block" >
+				<a data-parent="#accordion" 
+				    href="#/"
+					style="display:block; text-decoration:none">
+					TODAY P E</a>
+			</div>
+
+
+
+			<div class="panel-heading btn btn-success btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 	
+					href="today_nav_pe.html/#HIP"			
+					style="display:block; text-decoration:none">
+					H I P
+				</a>
+			</div>
+			<div id="HIP" scroll-bookmark="IOHPE" class="panel-collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipPE"> HIP PE </a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="AmbuStat"> Ambulatory Status </a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipMeasures"> MEASUREMENTS </a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipMeasures"> STANDING </a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipMeasures"> RANGE OF MOTION </a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipMeasures"> HIP X-Rays </a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="HipDiags"> DIAGNOSIS </a>
+				</div>
+			</div>
+			
+			<div class="panel-heading btn btn-success btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav_pe.html/#KNEE"  
+					style="display:block; text-decoration:none">
+					K N E E</a>
+			</div>
+			<div id="KNEE" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneePE"> KNEE P E </a> 
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="AmbuStat"> Ambulatory Status </a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="AmbuStat"> KNEE Measurements </a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneeXRAY">KNEE X-Rays </a>
+
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneeDIAGS">DIAGNOSIS </a>
+				</div>
+			</div>
+
+
+			<div class="panel-heading btn btn-success btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav_pe.html/#GENORTHO"  
+					style="display:block; text-decoration:none">
+					GENERAL ORTHOPEDIC
+				</a>
+			</div>
+			<div id="GENORTHO" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneePE"> PHYSICAL EXAMINATION </a> 
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneeXRAY">RADIOGRAPHIC FINDINGS </a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="KneeDIAGS">DIAGNOSIS </a>
+				</div>
+			</div>
+
+
+			<!-- TRAUMA -->
+			<div class="panel-heading btn btn-danger btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#TRAUMA"  
+					style="display:block; text-decoration:none">
+					TRAUMA
+				</a>
+			</div>
+			<div id="TRAUMA" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="TraumaPE">PHYSICAL EXAMINATION</a>
+					<a class="btn-warning btn-block btn-lg text-center" scroll-to-bookmark="TraumaDIAGS">DIAGNOSIS</a>
+				</div>
+			</div>
+
+			<div class="panel-heading btn btn-active btn-block">
+				<a ng-href="#"
+					style="display:block; text-decoration:none">
+					VISITS
+				</a> 
+			</div>
+			
+			<div class="panel-heading btn btn-active btn-block">
+				<a href="..//index.html"
+					style="display:block; text-decoration:none">
+					Main
+				</a> 
+			</div>
+		</div>
+	</div>
+</div>
