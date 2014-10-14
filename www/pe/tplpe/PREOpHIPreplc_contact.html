@@ -1,0 +1,70 @@
+<div ng-controller="PREOpHIP_contactCtrl">
+
+	<div scroll-bookmark="PreOpHIPcontact">
+		
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td width="1%" colspan="9" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+			    		CONTACT
+			    	</span>
+			    </td>
+			</tr>
+
+			<tr ng-repeat="conTact in conTacts">
+				<td class="text-center active" width="1%">
+					<input type="checkbox" checklist-model="hipContact.conTacts" checklist-value="conTact">
+				</td>
+				<td> {{conTact}} </td>
+			</tr>
+
+			<tr>
+				<td> </td>
+				<td nowrap> Others <input type="text" ng-model="hipContact.conTacts.otHers" class="form-control" placeholder="Others"></td>
+			</tr>
+
+			<tr>
+				<td></td>
+
+				<td class="text-center">
+					<table width="100%">
+						<tr class="success">
+							<td width="15%" class="text-center" nowrap>
+								<button class="form-control btn-danger" ng-click="checkAll()" style="margin-right: 10px">Check all</button>
+							</td>
+							<td width="5%"></td>
+							<td width="15%" class="text-center" nowrap>
+								<button class="form-control btn-warning" ng-click="uncheckAll()" style="margin-right: 10px">Uncheck all</button>
+							</td>
+							<td width="5%"></td>
+							<td width="15%" class="text-center">
+								<a class="btn btn-large btn-info" ng-click="addNew(hipContact.conTacts)" style="text-decoration: none">Save</a>
+							</td>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+		<table class="table table-condensed table-bordered">
+
+			<tr class="info" ng-repeat="conTactRow in clinix_PREOp_HIP_contact" >
+
+	        	<td style="color:black" width="75%">
+	        		{{conTactRow.Contact}}
+	        	</td>
+	        	
+	            <td width="1%">
+	            	<a class="btn btn-large btn-danger" href="#/{{conTactRow.ClinixRID}}" ng-click="removeItem(conTactRow)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+
+            	<td></td>
+	        </tr>
+		</table>
+
+
+	</div>	
+</div>

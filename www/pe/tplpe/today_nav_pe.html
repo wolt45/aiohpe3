@@ -82,8 +82,10 @@
 			<div id="KNEE" class="panel-collapse collapse">
 				<div class="panel-body">
 					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneePE"> KNEE P E </a> 
-					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeAmbuStat"> Ambulatory Status </a>
-					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeMeasures">Measurements</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeMeasurements">Measurements</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeAppearance">Appearance</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeAlignment">Alignment</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeMotionRange">Range of Motion</a>
 					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeXRAY">KNEE X-Rays </a>
 					<!-- a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeDIAGS">Diagnosis </a -->
 				</div>
@@ -150,17 +152,80 @@
 					DIAGNOSIS
 				</a>
 			</div>
-
 			<div id="COMMONDiagnosis" class="panel-collapse collapse">
 				<div class="panel-body">
-					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="COMMONDiagnosis">Management</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="COMMONDiagnosis">Diagnosis</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsMANAGEMENT">Management</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsMedication">Medication</a>
 					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsSURGSCHED">Schedule for Surgery</a>
-					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsPreOp">P R E - Op</a>
-					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsPostOp">P O S T - Op</a>
-					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsDISPO">DISPOSITIION</a>
+					
+					<!-- a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIP">HIP PRE - Op</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PostOpHIP">HIP POST - Op</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEE">KNEE PRE - Op</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PostOpKNEE">KNEE POST - Op</a -->
+
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsDISPO">Disposition</a>
 				</div>
 			</div>
 
+
+			<!-- OPERATIVE ORDERS -->
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#PRE-OPHIP"  
+					style="display:block; text-decoration:none">
+					HIP PRE-OPERATIVE
+				</a>
+			</div>
+			<div id="PRE-OPHIP" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIP">PRE-OP Form</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIPcontact">Contact</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIPantibiotics">Antibiotics</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIPrepeatBilateral">Repeat Bilateral</a>
+				</div>
+			</div>
+
+
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#PRE-OPKNEE"  
+					style="display:block; text-decoration:none">
+					KNEE PRE-OPERATIVE
+				</a>
+			</div>
+			<div id="PRE-OPKNEE" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEE">PRE-OP Form</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEEcontact">Contact</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEEantibiotics">Antibiotics</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsSURGSCHED">Repeat Bilateral</a>
+					
+					<!-- a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIP">HIP PRE - Op</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PostOpHIP">HIP POST - Op</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEE">KNEE PRE - Op</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PostOpKNEE">KNEE POST - Op</a -->
+
+				</div>
+			</div>
+
+
+
+
+
+			<!-- STRUCTURED DISCHARGE -->
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#STRUCTDischarge"  
+					style="display:block; text-decoration:none">
+					Structured Discharge
+				</a>
+			</div>
+			<div id="STRUCTDischarge" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="StructuredDiagnosis">Structured Diagnosis</a>
+				</div>
+			</div>
 			
 
 			<div class="panel-heading btn btn-active btn-sm btn-block">

@@ -40,13 +40,27 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
 
 IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
   $scope.clinix = [];
-  $scope.ClinixRID = $routeParams.p_clinixrid;
+  
+  if ( Number($routeParams.p_clinixrid) <= 0 ) {
+    // get the localstorage value
+    $scope.CurrentClinixRID = localStorage.getItem('CurrentClinixRID');
+  }
+  else
+    $scope.CurrentClinixRID = $routeParams.p_clinixrid;
+
+
+  $scope.ClinixRID =  parseInt($scope.CurrentClinixRID);
+
 
   var promise = $ipadrbg.context.clinix.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-    promise.then(function(pxresult) {
-      $scope.clinix = pxresult[0];
-      $scope.$apply();
-    });
+  promise.then(function(pxresult) {
+
+    localStorage.setItem('CurrentClinixRID' , $scope.ClinixRID);
+    //$scope.CurrentClinixRID = $routeParams.p_clinixrid;
+
+    $scope.clinix = pxresult[0];
+    $scope.$apply();
+  });
 });
 
 // IOHPEApp.controller('myBone', function ($scope) {
@@ -60,4 +74,3 @@ IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
 //   { 6 : "WRIST and HAND"},
 //   { 7 : "THIGH"}
 // ]}
-
