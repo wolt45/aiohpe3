@@ -1,21 +1,18 @@
 <div scroll-bookmark="StuctDischargeSummary">
-<div class="container">
-	<div class="panel panel-success">
-		<div class="panel-heading">
-			<center>
-			STRUCTURED DISCHARGE SUMMARY
-			</center>
-		</div>
-	</div>
-	
-	<div class="panel-group" id="accordion">
-		<div class="panel panel-default">
-			<ng:include src="'structured_diagnosis.html'"></ng:include>
-			<!-- 
-			include "structured_Surgery.html";
-			include "structured_Hospit.html";
-			include "structured_Others.html";
-			include "structured_TreatFollow.html"; -->
-		</div>
-	</div>						
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+	    			Structure Discharge Summary
+	    		</span>
+			</th>
+		</tr>
+	</table>
+
+	<ng:include src="'tplpe/structured_Diagnosis.html'"></ng:include>
+	<ng:include src="'tplpe/structured_SurgerySched.html'"></ng:include>
+	<ng:include src="'tplpe/structured_Hospital.html'"></ng:include>
+	<ng:include src="'tplpe/structured_Disposition.html'"></ng:include>
+	<ng:include src="'tplpe/structured_Management.html'"></ng:include>
+	<ng:include src="'tplpe/structured_Medication.html'"></ng:include>
 </div>
