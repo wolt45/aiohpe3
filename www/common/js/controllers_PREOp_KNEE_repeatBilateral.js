@@ -1,5 +1,5 @@
-IOHPEApp.controller('PREOpHIP_repeatbiCtrl', function ($scope, $routeParams, $http){
-  	$scope.clinix_PREOp_HIP_repeatBilateral = [];
+IOHPEApp.controller('PREOpKNEE_repeatbiCtrl', function ($scope, $routeParams, $http){
+  	$scope.clinix_PREOp_KNEE_repeatBilateral = [];
 
   	//http://vitalets.github.io/checklist-model/
 	$scope.repeatBils = [
@@ -10,16 +10,16 @@ IOHPEApp.controller('PREOpHIP_repeatbiCtrl', function ($scope, $routeParams, $ht
 	$scope.ClinixRID = $routeParams.p_clinixrid;
 	// $scope.ClinixRID =  parseInt($scope.CurrentClinixRID);
 
-	$scope.LoadHipRepBilateral = function(){
-	    var promise = $ipadrbg.context.clinix_PREOp_HIP_repeatBilateral.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+	$scope.LoadKneeRepBilateral = function(){
+	    var promise = $ipadrbg.context.clinix_PREOp_KNEE_repeatBilateral.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
 	    promise.then(function(pxresult) {
 	      $scope.$apply(function () {
-	        $scope.clinix_PREOp_HIP_repeatBilateral = pxresult;
+	        $scope.clinix_PREOp_KNEE_repeatBilateral = pxresult;
 	      });
 	    });
 	  };
 
- 	$scope.LoadHipRepBilateral();
+ 	$scope.LoadKneeRepBilateral();
 
 	$scope.addNew = function (OpObj) {
 		for (i = 0; i < OpObj.length; i++) {
@@ -29,7 +29,7 @@ IOHPEApp.controller('PREOpHIP_repeatbiCtrl', function ($scope, $routeParams, $ht
 
 				,RepeatBilateral : OpObj[i]
 			}
-			$ipadrbg.context.clinix_PREOp_HIP_repeatBilateral.add(newrecord);
+			$ipadrbg.context.clinix_PREOp_KNEE_repeatBilateral.add(newrecord);
 	    }
 
 		if (OpObj.repeatBilOthers) {
@@ -39,23 +39,23 @@ IOHPEApp.controller('PREOpHIP_repeatbiCtrl', function ($scope, $routeParams, $ht
 
 				,RepeatBilateral : OpObj.repeatBilOthers
 			}
-			$ipadrbg.context.clinix_PREOp_HIP_repeatBilateral.add(newrecord);
+			$ipadrbg.context.clinix_PREOp_KNEE_repeatBilateral.add(newrecord);
 		}
 
-		$ipadrbg.context.clinix_PREOp_HIP_repeatBilateral.saveChanges();
+		$ipadrbg.context.clinix_PREOp_KNEE_repeatBilateral.saveChanges();
 
 		OpObj.repeatBilOthers="";
 
 		alert("Entries Saved successfully!");
 
-		$scope.LoadHipRepBilateral();
+		$scope.LoadKneeRepBilateral();
 	};
 
   	$scope.removeItem = function (OpObj) {
     	OpObj.remove()
     		.then(function() {
       		$scope.$apply(function() {
-       			var diagol = $scope.clinix_PREOp_HIP_repeatBilateral;
+       			var diagol = $scope.clinix_PREOp_KNEE_repeatBilateral;
          		diagol.splice(diagol.indexOf(OpObj), 1);
       		});
     	})

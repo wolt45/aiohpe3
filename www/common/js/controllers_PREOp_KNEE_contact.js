@@ -1,5 +1,5 @@
-IOHPEApp.controller('PREOpHIP_contactCtrl', function ($scope, $routeParams, $http){
-  	$scope.clinix_PREOp_HIP_contact = [];
+IOHPEApp.controller('PREOpKNEE_contactCtrl', function ($scope, $routeParams, $http){
+  	$scope.clinix_PREOp_KNEE_contact = [];
 
   	//http://vitalets.github.io/checklist-model/
 	$scope.conTacts = [
@@ -10,18 +10,18 @@ IOHPEApp.controller('PREOpHIP_contactCtrl', function ($scope, $routeParams, $htt
   	];
 
 	$scope.ClinixRID = $routeParams.p_clinixrid;
-	// $scope.ClinixRID =  parseInt($scope.CurrentClinixRID);
+	//$scope.ClinixRID =  parseInt($scope.CurrentClinixRID);
 
-	$scope.LoadHipContact = function(){
-	    var promise = $ipadrbg.context.clinix_PREOp_HIP_contact.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+	$scope.LoadKneeContact = function(){
+	    var promise = $ipadrbg.context.clinix_PREOp_KNEE_contact.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
 	    promise.then(function(pxresult) {
 	      $scope.$apply(function () {
-	        $scope.clinix_PREOp_HIP_contact = pxresult;
+	        $scope.clinix_PREOp_KNEE_contact = pxresult;
 	      });
 	    });
 	  };
 
- 	$scope.LoadHipContact();
+ 	$scope.LoadKneeContact();
 
 	$scope.addNew = function (OpObj) {
 		for (i = 0; i < OpObj.length; i++) {
@@ -31,7 +31,7 @@ IOHPEApp.controller('PREOpHIP_contactCtrl', function ($scope, $routeParams, $htt
 
 				,Contact : OpObj[i]
 			}
-			$ipadrbg.context.clinix_PREOp_HIP_contact.add(newrecord);
+			$ipadrbg.context.clinix_PREOp_KNEE_contact.add(newrecord);
 	    }
 
 		if (OpObj.otHers) {
@@ -41,23 +41,23 @@ IOHPEApp.controller('PREOpHIP_contactCtrl', function ($scope, $routeParams, $htt
 
        			,Contact  : OpObj.otHers
      		}
-      		$ipadrbg.context.clinix_PREOp_HIP_contact.add(newrecord);
+      		$ipadrbg.context.clinix_PREOp_KNEE_contact.add(newrecord);
     	}
 
-		$ipadrbg.context.clinix_PREOp_HIP_contact.saveChanges();
+		$ipadrbg.context.clinix_PREOp_KNEE_contact.saveChanges();
 
 		OpObj.otHers = "";
 
 		alert("Entries Saved successfully!");
 
-		$scope.LoadHipContact();
+		$scope.LoadKneeContact();
 	};
 
   	$scope.removeItem = function (OpObj) {
     	OpObj.remove()
     		.then(function() {
       		$scope.$apply(function() {
-       			var diagol = $scope.clinix_PREOp_HIP_contact;
+       			var diagol = $scope.clinix_PREOp_KNEE_contact;
          		diagol.splice(diagol.indexOf(OpObj), 1);
       		});
     	})
@@ -67,14 +67,14 @@ IOHPEApp.controller('PREOpHIP_contactCtrl', function ($scope, $routeParams, $htt
   	}
 
 
-	$scope.hipContact = {
-	    //conTacts: ['hipContact']
+	$scope.kneeContact = {
+	    //conTacts: ['kneeContact']
 	};
 	$scope.checkAll = function() {
 		// alert("Hit!");
-    	$scope.hipContact.conTacts = angular.copy($scope.conTacts);
+    	$scope.kneeContact.conTacts = angular.copy($scope.conTacts);
   	};
   	$scope.uncheckAll = function() {
-    	$scope.hipContact.conTacts = [];
+    	$scope.kneeContact.conTacts = [];
   	};
 });

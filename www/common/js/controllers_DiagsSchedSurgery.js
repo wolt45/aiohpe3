@@ -31,7 +31,7 @@ IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http)
     $ipadrbg.context.clinix_DiagSchedSurgery.saveChanges();
 
     daignosisObj.SurgeryType = "";
-    daignosisObj.SurgeryDate = "";
+    daignosisObj.SurgeryDate = null;
     daignosisObj.Surgeon = "";
     daignosisObj.Assistant = "";
     daignosisObj.Anesthesio = "";

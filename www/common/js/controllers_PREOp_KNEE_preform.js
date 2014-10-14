@@ -1,5 +1,5 @@
-IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $http){
-  	$scope.clinix_PREOp_HIP_preform = [];
+IOHPEApp.controller('PREOpKNEE_preformCtrl', function ($scope, $routeParams, $http){
+  	$scope.clinix_PREOp_KNEE_preform = [];
 
   	//http://vitalets.github.io/checklist-model/
 	$scope.preForms = [
@@ -25,16 +25,16 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
 	// $scope.ClinixRID =  parseInt($scope.CurrentClinixRID);
 
 
-	$scope.LoadHipPreForm = function(){
-	    var promise = $ipadrbg.context.clinix_PREOp_HIP_preform.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+	$scope.LoadKneePreForm = function(){
+	    var promise = $ipadrbg.context.clinix_PREOp_KNEE_preform.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
 	    promise.then(function(pxresult) {
 	      $scope.$apply(function () {
-	        $scope.clinix_PREOp_HIP_preform = pxresult;
+	        $scope.clinix_PREOp_KNEE_preform = pxresult;
 	      });
 	    });
 	  };
 
- 	$scope.LoadHipPreForm();
+ 	$scope.LoadKneePreForm();
 
 	$scope.addNew = function (OpObj) {
 		for (i = 0; i < OpObj.length; i++) {
@@ -44,20 +44,20 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
 
 				,PreOp : OpObj[i]
 			}
-			$ipadrbg.context.clinix_PREOp_HIP_preform.add(newrecord);
+			$ipadrbg.context.clinix_PREOp_KNEE_preform.add(newrecord);
 	    }
-		$ipadrbg.context.clinix_PREOp_HIP_preform.saveChanges();
+		$ipadrbg.context.clinix_PREOp_KNEE_preform.saveChanges();
 
 		alert("Entries Saved successfully!");
 
-		$scope.LoadHipPreForm();
+		$scope.LoadKneePreForm();
 	};
 
   	$scope.removeItem = function (OpObj) {
     	OpObj.remove()
     		.then(function() {
       		$scope.$apply(function() {
-       			var diagol = $scope.clinix_PREOp_HIP_preform;
+       			var diagol = $scope.clinix_PREOp_KNEE_preform;
          		diagol.splice(diagol.indexOf(OpObj), 1);
       		});
     	})
@@ -67,15 +67,15 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
   	}
 
 
-	$scope.hipPreform = {
-	    //preForms: ['hipPreform']
+	$scope.kneePreform = {
+	    //preForms: ['kneePreform']
 	};
 	$scope.checkAll = function() {
 		// alert("Hit!");
-    	$scope.hipPreform.preForms = angular.copy($scope.preForms);
+    	$scope.kneePreform.preForms = angular.copy($scope.preForms);
   	};
   	$scope.uncheckAll = function() {
-    	$scope.hipPreform.preForms = [];
+    	$scope.kneePreform.preForms = [];
   	};
 
 });
