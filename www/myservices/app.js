@@ -13,7 +13,7 @@ function DataController($rootScope,$scope,$http) {
     	// if local data is outdated then pull data from server
     	// if local data is latest then push to server 
 
-		$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix.php'}).
+		$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix.php'}).
 		//$http({method: 'GET', url: 'http://localhost/RBGsrvr_todayset/srvr_clinix.php'}).
 	    success(function(data, status, headers, config) {
 	      	// this callback will be called asynchronously
@@ -79,7 +79,7 @@ function DataController($rootScope,$scope,$http) {
 					//var clinixJson = JSON.stringify(ClinixPulled);
 					$http({
 						method: 'POST'
-						, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
+						, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
 						, contentType : 'application/json'
 						, data : ClinixPulled
 						, cache : false

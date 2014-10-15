@@ -37,7 +37,7 @@ function PushController($rootScope,$scope,$http) {
 
 		$http({
 			method: 'POST'
-			, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_clinix.php?clinixJson=' + clinixJson
+			, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_clinix.php?clinixJson=' + clinixJson
 			, contentType : 'application/json'
 			, data : clinixJson
 			, cache : false
@@ -59,7 +59,7 @@ function PushController($rootScope,$scope,$http) {
 		//function post_data(url,encodedata, success){
 		$.ajax({
 			type : "POST",
-			url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_clinix.php',
+			url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_clinix.php',
 			data : clinixJson,
 			dataType : "json",
 			restful : true,
