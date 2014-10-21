@@ -1,0 +1,254 @@
+<div id="wnavtopLeft" style="border: 0px solid RED; width:16%;" >
+    <div style="background: #000" >
+    	<img ng-src="..//images/glogo.jpg" width="40px" />
+	  	<span style="font-family: Helvetiker; font-size:18px; color: #fff; font-style: italic;">
+			iPad Medical Records
+		</span>
+	</div>
+
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+
+
+			<div class="panel-heading btn btn-success btn-sm btn-block" >
+				<a data-parent="#accordion" 
+				    href="#/"
+					style="display:block; text-decoration:none">
+					TODAY P E</a>
+			</div>
+
+			<div class="panel-heading btn btn-success btn-sm btn-block">
+				<a scroll-to-bookmark="PEChart"
+					style="display:block; text-decoration:none">	 
+					CHART DATA 
+				</a>
+			</div>
+
+			<div class="panel-heading btn btn-success btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					style="display:block; text-decoration:none" 
+					href="today_nav_pe.html/#IOHPE" 
+					scroll-to-bookmark="IOHPE">
+					INITIAL INTERVIEW
+				</a> <!-- href="today_nav.html/#IOHPE"	 -->
+			</div>
+
+			<div id="IOHPE" scroll-bookmark="IOHPE" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="ChartData"> Chief Complaint </a> 
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="IOPESpineIntl"> Spine </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="IOPEEtio"> Etiology </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="IOPETreat"> Past Treatment </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="IOPESurgery"> Previous Surgeries</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="IOPELabs"> Lab Exams</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="IOPEMedHist"> Medical History </a>
+				</div>
+			</div>
+
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					scroll-to-bookmark="AmbuStat"  
+					style="display:block; text-decoration:none">
+					AMBULATORY STATUS
+				</a>
+			</div>
+
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a  data-toggle="collapse" data-parent="#accordion" 	
+					href="today_nav_pe.html/#HIP"			
+					style="display:block; text-decoration:none">
+					H I P
+				</a>
+			</div>
+			<div id="HIP" scroll-bookmark="IOHPE" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="HipPE"> HIP PE </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="HipMeasures"> Measurements </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="HipStanding"> Standing </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="HipMotionRange">Range of Motion</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="HipXRAYS"> HIP X-Rays </a>
+
+					<!-- common ni sya -->
+					<!--a class="btn-warning btn-block btn text-center" scroll-to-bookmark="HipDiags"> Diagnosis </a-->
+				</div>
+			</div>
+			
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav_pe.html/#KNEE"  
+					style="display:block; text-decoration:none">
+					K N E E</a>
+			</div>
+			<div id="KNEE" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneePE"> KNEE P E </a> 
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeMeasurements">Measurements</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeAppearance">Appearance</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeAlignment">Alignment</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeMotionRange">Range of Motion</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeXRAY">KNEE X-Rays </a>
+					<!-- a class="btn-warning btn-block btn text-center" scroll-to-bookmark="KneeDIAGS">Diagnosis </a -->
+				</div>
+			</div>
+
+			<!-- GENERAL ORTHOPEDIC
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav_pe.html/#GENORTHO"  
+					style="display:block; text-decoration:none">
+					General Orthopedic
+				</a>
+			</div>
+			<div id="GENORTHO" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="GENOrthoPE"> Gen Ortho PE </a> 
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="GENOrthoXRAY">Appropriate X_Rays </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="GENOrthoXRAY2">X_Ray Findings </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="GenOrthoDIAGS">Diagnosis </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="GenOrthoLABS">LAB Exams </a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="GenOrthoLABS">Previous Surgeries </a>
+				</div>
+			</div>   -->
+
+			<!-- SPINE 
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#SPINE"  
+					style="display:block; text-decoration:none">
+					SPINE
+				</a>
+			</div>
+			<div id="SPINE" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="SPINE">SPINE P E</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="SPINEOnsetSpine">Onset Spine Problem</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="SPINEPainSeverity">Pain Sevirity</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="SPINECheckApplyToYou">Check All Applies to you</a>
+				</div>
+			</div>-->
+
+
+			<!-- TRAUMA 
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#TRAUMA"  
+					style="display:block; text-decoration:none">
+					TRAUMA
+				</a>
+			</div>
+			<div id="TRAUMA" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="TraumaPE">PHYSICAL EXAMINATION</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="TraumaDIAGS">Diagnosis</a>
+				</div>
+			</div>-->
+
+
+			<!-- DIAGNOSIS Common to all modules -->
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#COMMONDiagnosis"  
+					style="display:block; text-decoration:none">
+					DIAGNOSIS
+				</a>
+			</div>
+			<div id="COMMONDiagnosis" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="COMMONDiagnosis">Diagnosis</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsMANAGEMENT">Management</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsMedication">Medication</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsSURGSCHED">Schedule for Surgery</a>
+					
+					<!-- a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIP">HIP PRE - Op</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PostOpHIP">HIP POST - Op</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEE">KNEE PRE - Op</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PostOpKNEE">KNEE POST - Op</a -->
+
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="CommDiagsDISPO">Disposition</a>
+				</div>
+			</div>
+
+
+			<!-- OPERATIVE ORDERS -->
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#PRE-OPHIP"  
+					style="display:block; text-decoration:none">
+					HIP PRE-OPERATIVE
+				</a>
+			</div>
+			<div id="PRE-OPHIP" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIP">HIP PRE-OP Form</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIPcontact">Contact</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIPantibiotics">Antibiotics</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpHIPrepeatBilateral">Repeat Bilateral</a>
+				</div>
+			</div>
+
+
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#PRE-OPKNEE"  
+					style="display:block; text-decoration:none">
+					KNEE PRE-OPERATIVE
+				</a>
+			</div>
+			<div id="PRE-OPKNEE" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEE">KNEE PRE-OP Form</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEEcontact">Contact</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEEantibiotics">Antibiotics</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="PreOpKNEErepeatBilateral">Repeat Bilateral</a>
+				</div>
+			</div>
+
+			<!-- STRUCTURED DISCHARGE -->
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					href="today_nav.html/#STRUCTDischarge"  
+					style="display:block; text-decoration:none">
+					Structured Discharge
+				</a>
+			</div>
+			<div id="STRUCTDischarge" class="panel-collapse collapse">
+				<div class="panel-body">
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="StuctDischargeSummary">Structured Diagnosis</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="StructuredDischarge_SURGSCHED">Surgery</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="StructuredDischarge_HOSPITAL">Hospitalization</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="StructuredDischarge_DISPO">Disposition</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="StructuredDischarge_MANAGEMENT">Management</a>
+					<a class="btn-warning btn-block btn text-center" scroll-to-bookmark="StructuredDischarge_MEDICATION">Medication</a>
+				</div>
+			</div>
+			
+			<div class="panel-heading btn btn-danger btn-sm btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 
+					scroll-to-bookmark="ClosePE"  
+					style="display:block; text-decoration:none">
+					CLOSE PE
+				</a>
+			</div>
+
+			<div class="panel-heading btn btn-active btn-sm btn-block">
+				<a ng-href="#"
+					class="btn btn-primary btn-sm"
+					style="display:block;">
+					VISITS
+				</a> 
+			</div>
+
+			<div class="panel-heading btn btn-active btn-sm btn-block">
+				<a href ng-click="AmbiNav = ! AmbiNav" class="btn btn-primary btn-sm" style="display:block;">ambi-nav</a>
+			</div>
+			
+			<div class="panel-heading btn btn-active btn-sm btn-block">
+				<a href="..//index.html"
+					class="btn btn-primary btn-sm"
+					style="display:block;">
+					Main
+				</a> 
+			</div>
+		</div>
+	</div>
+</div>

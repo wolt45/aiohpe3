@@ -68,7 +68,7 @@ routerApp.controller('scotchController', function($scope) {
             describe: 'Gustilo Clinic and Ambulatory Surgery Center'
         },
         {
-            name: 'Ara',
+            name: 'Ara Ditchon',
             foto: '',
             describe: 'Gustilo Clinic and Ambulatory Surgery Center'
         }

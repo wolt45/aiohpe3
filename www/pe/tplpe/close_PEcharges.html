@@ -1,0 +1,124 @@
+<div ng-controller="PEchargesCtrl">
+
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<td width="1%" colspan="9" nowrap>
+				<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+		    		Charges
+		    	</span>
+		    </td>
+		</tr>
+
+		<tr class="active">
+			<td class="text-center" width="1%" nowrap>&nbsp;</td>
+			<td class="text-center" width="25%" nowrap> Charges</td>
+			<td class="text-center" width="15%" nowrap> Tariff </td>
+			<td class="text-center" width="15%"> Bill </td>
+			<td class="text-center" width="15%"> Discount </td>
+			<th class="text-center" width="15%"> NET </th>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td nowrap> 
+				<select class="form-control" ng-model="selectedCharges" ng-options="PECharge.chargeItem for PECharge in PECharges | orderBy: 'id'" name="PECharge"></select>
+			 </td>
+
+			<td class="text-center" nowrap> 
+				<input type="text" class="form-control" ng-model="selectedCharges.chargeAmount" style="text-align: right" READONLY> 
+			</td>
+
+			<td class="text-center" nowrap> 
+				<input type="text" class="form-control" ng-model="selectedCharges.chargeAmount" style="text-align: right"> 
+			</td>
+
+			<td> 
+				<input type="text" class="form-control" ng-model="selectedCharges.Discount" style="text-align: right"> 
+			</td>
+
+			<td class="text-right"> 
+				<label>{{ (selectedCharges.chargeAmount|number) - (selectedCharges.Discount|number) | number:2 }}</label> 
+			</td>
+
+			<td>
+				<a class="btn btn-large btn-info" ng-click="addNew(selectedCharges)" style="text-decoration: none">add</a>
+			</td>
+		</tr>
+
+
+		<tr class="info" ng-repeat="peCharge in clinix_PEcharges" >
+
+        	<td style="color:black" class="text-center" nowrap>
+        		{{peCharge.ChargeRID}}
+        	</td>
+
+        	<td style="color:black">
+        		{{peCharge.ChargeItem}}
+        	</td>
+
+           	<td style="color:black" class="text-right" nowrap>
+        		{{peCharge.Tariff | number : 2 }}
+        	</td>
+        	
+           	<td style="color:black" class="text-right" nowrap>
+        		{{peCharge.ChargeAmount | number : 2 }}
+        	</td>
+
+        	<td style="color:black" class="text-right" nowrap>
+        		{{peCharge.Discount | number : 2 }}
+        	</td>
+
+        	<th style="color:black" class="text-right" nowrap>
+        		{{ peCharge.NetAmount | number : 2 }}
+        	</th>
+
+
+            <td width="1%">
+            	<a class="btn btn-large btn-danger" href="#/{{peCharge.ClinixRID}}" ng-click="removeItem(peCharge)" style="text-decoration: none">
+            		DELETE
+            	</a>
+        	</td>
+        	<td></td>
+        </tr>
+
+        <tr class="info">
+        	<td></td>
+        	<th class="text-right">Total</th>
+        	<th class="text-right" style="color:black">{{CALC_Tariff() | number : 2 }}</th>
+        	<th class="text-right" style="color:black">{{CALC_ChargeAmount() | number : 2 }}</th>
+        	<th class="text-right" style="color:black">{{CALC_Discount() | number : 2 }}</th>
+        	<th class="text-right" style="color:black">{{CALC_NetAmount() | number : 2 }}</th>
+        	<td></td>
+        	<td></td>
+		</tr>	
+
+		<tr><td class="active" colspan="9">&nbsp;</td></tr>	
+		<tr><td class="active" colspan="9">&nbsp;</td></tr>	
+
+		<tr class="info">
+			<th class="text-center" style="color: #000" nowrap>Appt: 
+				{{clinix.ClinixRID}} <br> {{clinix.AppDateSet | date}} <br>
+				<span style="font-weight: bold; font-size: 24px"> {{clinix.TranStatus}} </span>
+			</th>
+
+			<th class="text-center" width="1%" style="color: #000" nowrap>
+				chart: {{clinix.PxRID}} <br> <span style="font-size:16px">{{clinix.pxregdate | date}}</span>
+				<br>
+				{{clinix.pxname}}
+			</th>
+
+			<td class="text-center" colspan="9">
+            	<a class="btn btn-large btn-danger" ng-click="ClosePE(clinix)" style="text-decoration: none">
+            		CLOSE PE
+            	</a>
+
+            	<a class="btn btn-large btn-warning" ng-click="CancelPE(clinix)" style="text-decoration: none">
+            		CANCEL PE
+            	</a>
+        	</td>
+		</tr>	 
+
+	</table>
+
+</div>

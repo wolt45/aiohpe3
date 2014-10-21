@@ -1,0 +1,95 @@
+<div ng-controller="KneeAppearanceCtrl">
+	<div scroll-bookmark="KneeAppearance">	
+		<table class="table table-condensed table-bordered">
+			
+			<tr class="warning">
+				<td class="text-left" colspan="19" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+			    		Appearance (knee)
+			    	</span>
+				</td>
+				<!-- td width="15%" class="text-center">LEFT</td>
+				<td width="15%" class="text-center">RIGHT</td -->
+			</tr>
+			
+			<tr>
+				<td width="20%">
+					<input type="text" ng-model="KneeAppearance.AppearanceItem1" class="form-control" ng-init="KneeAppearance.AppearanceItem1='Appearance'" value="Appearance" READONLY>
+				</td>
+				<td width="20%">
+					<select ng-model="KneeAppearance.NatureOfAppearance1" class="form-control"> 
+						<option value="">(select one)</option>
+						<option value="Normal"> Normal </option>
+						<option value="Black/Blue"> Black/Blue </option>
+						<option value="Swelling"> Swelling </option>
+						<option value="Red"> Red </option>
+					</select>
+				</td>
+				<td width="15%">
+					<select ng-model="KneeAppearance.AppearanceSeverity1" style=" width:110px;" class="form-control">
+						<option value="MILD">MILD</option>
+						<option value="MODERATE">MODERATE</option>
+						<option value="SEVERE">SEVERE</option>
+						<option value="INCREASING">INCREASING</option>
+					</select> 
+				</td>
+				<td>
+				</td>
+			</tr>
+									
+			<tr>
+				<td>
+					<select ng-model="KneeAppearance.AppearanceItem2" class="form-control"> 
+						<option value="">(select one)</option>
+						<option value="Synovitis"> Synovitis </option>
+						<option value="Effusion"> Effusion </option>
+						<option value="Pain, active ROM"> Pain, active ROM </option>
+						<option value="Pain, passive ROM"> Pain, passive ROM </option>
+					</select>
+				</td>
+
+				<td> </td>
+
+				<td>
+					<select ng-model="KneeAppearance.AppearanceSeverity2" style=" width:110px;" class="form-control">
+						<option value="MILD">MILD</option>
+						<option value="MODERATE">MODERATE</option>
+						<option value="SEVERE">SEVERE</option>
+						<option value="INCREASING">INCREASING</option>
+					</select> 
+				</td>
+				
+				<td>
+					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(KneeAppearance)" style="text-decoration: none; color: #000">ADD</a>
+				</td>
+			</tr>
+
+
+			<tr class="info">
+	        	<th width="1%" class="text-center" style="color:#888" nowrap>Appearance</th>
+	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Describe</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Severity</th>
+	            <th width="1%"> </th>
+	            <th width="1%"> </th>
+	            <th width=> </th>
+			</tr>
+
+			<tr class="info" ng-repeat="KneeAppearance in clinix_KneeAppearance">
+	        	<td style="color:black" nowrap>{{KneeAppearance.AppearanceItem}}</td>
+	        	<td style="color:black" nowrap>{{KneeAppearance.NatureOfAppearance}}</td>
+	            <td style="color:black">{{KneeAppearance.AppearanceSeverity}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" href="#/{{KneeAppearance.ClinixRID}}" ng-click="removeKneeAppearance(KneeAppearance)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td>
+                	<a class="btn btn-large btn-warning" href="#/{{KneeAppearance.ChiefRID}}/edit" ng-click="editChiefComp(KneeAppearance)" style="text-decoration: none">
+                		EDIT
+                	</a>
+            	</td>
+            	<td></td>
+	        </tr>
+		</table>
+	</div>
+</div>
