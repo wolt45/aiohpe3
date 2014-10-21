@@ -4,7 +4,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
 
   $scope.PECharges= [
       { id :1000, procedural : 0, Discount : 0, chargeAmount :    0 , chargeItem : "CLINICAL CHARGES"}
-      { id :1001, procedural : 0, Discount : 0, chargeAmount : 1000 , chargeItem : "Initial consultation"}
+    , { id :1001, procedural : 0, Discount : 0, chargeAmount : 1000 , chargeItem : "Initial consultation"}
     , { id :1002, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "Follow up Visit"}
     , { id :1003, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "Ankle Taping"}
     , { id :1004, procedural : 0, Discount : 0, chargeAmount : 3000 , chargeItem : "Cast Brace"}
