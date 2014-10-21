@@ -3,6 +3,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
   $scope.PECharges= [
+      { id :1000, procedural : 0, Discount : 0, chargeAmount :    0 , chargeItem : "CLINICAL CHARGES"}
       { id :1001, procedural : 0, Discount : 0, chargeAmount : 1000 , chargeItem : "Initial consultation"}
     , { id :1002, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "Follow up Visit"}
     , { id :1003, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "Ankle Taping"}
@@ -41,7 +42,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     , { id : 1028, procedural : 0, Discount : 0, chargeAmount : 1000 , chargeItem : "Injection Fee(SupaRTZ)"}
     , { id : 1029, procedural : 0, Discount : 0, chargeAmount : 1500 , chargeItem : "Soft tissue injection"}
 
-    , { id : 100, procedural : 1, Discount : 1, chargeAmount : 0 , chargeItem : "PROCEDURES"}
+    , { id : 2000, procedural : 1, Discount : 1, chargeAmount : 0 , chargeItem : "PROCEDURES"}
 
     , { id : 2001, procedural : 1, Discount : 0, chargeAmount : 100000 , chargeItem : "Total hip/knee replacement unilateral"}
     , { id : 2002, procedural : 1, Discount : 0, chargeAmount : 150000 , chargeItem : "Total hip/knee replacement bilateral"}
