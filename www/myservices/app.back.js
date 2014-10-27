@@ -75,9 +75,9 @@ function PushController($rootScope,$scope,$http) {
 			$scope.PushIOH_PastTreatments();
 			$scope.PushIOH_PrevSurge();
 			$scope.PushIOH_LABS();
-	        $scope.PushIOH_MedHist();
+      $scope.PushIOH_MedHist();
 	        
-		    alert("EXPORT IOHPE to Server Successful!");
+	    alert("EXPORT IOHPE to Server Successful!");
 		}
 	}
 
@@ -237,14 +237,14 @@ function PushController($rootScope,$scope,$http) {
         });
 
         $scope.clinix_chiefcomp_JSON = JSON.stringify($scope.clinix_chiefcomp);
-	//$sJSONized = "[" + $scope.clinix_chiefcomp_JSON + "]";
+	      //$sJSONized = "[" + $scope.clinix_chiefcomp_JSON + "]";
 
       	$http({
-      	  	method: 'POST'
-      	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_IOH_ChiefComp.php?clinixJsonIzed=' + $scope.clinix_chiefcomp_JSON
-      	  	, contentType : 'application/json'
-      	  	, data : $scope.clinix_chiefcomp_JSON
-      	  	, cache : false
+    	  	method: 'POST'
+    	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_IOH_ChiefComp.php?clinixJsonIzed=' + $scope.clinix_chiefcomp_JSON
+    	  	, contentType : 'application/json'
+    	  	, data : $scope.clinix_chiefcomp_JSON
+    	  	, cache : false
       	});
     });
   }

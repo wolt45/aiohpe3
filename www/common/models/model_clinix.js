@@ -1,14 +1,14 @@
 $data.Entity.extend("$ipadrbg.types.clinix", {
 	ClinixRID: { type: "int", key: true, computed: true },
 
-	AppDateSet: { type: "date"},
+	AppDateSet: { type: "string"},
 	TranStatus: { type: "int"},
 
 	PxRID: { type: "int"},
 	pxname: { type: "string" },
 	pxAddress: { type: "string" },
 	pxstatus: { type: "string" },
-	pxregdate: {type:"date"},
+	pxregdate: {type:"string"},
 	pxFoto: {type:"string"}
 });
 
