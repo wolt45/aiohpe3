@@ -22,23 +22,25 @@
 		<tr>
 			<td></td>
 			<td nowrap> 
-				<select class="form-control" ng-model="selectedCharges" ng-options="PECharge.chargeItem for PECharge in PECharges | orderBy: 'id'" name="PECharge"></select>
+				<select class="form-control" ng-model="selectedCharges" ng-options="PECharge.Description for PECharge in LkUpPECharges | orderBy: 'SortOrder'" name="PECharge"></select>
 			 </td>
 
 			<td class="text-center" nowrap> 
-				<input type="text" class="form-control" ng-model="selectedCharges.chargeAmount" style="text-align: right" READONLY> 
+				<input type="text" class="form-control" ng-model="selectedCharges.Tariff" style="text-align: right" READONLY> 
 			</td>
 
 			<td class="text-center" nowrap> 
-				<input type="text" class="form-control" ng-model="selectedCharges.chargeAmount" style="text-align: right"> 
+				<input type="text" class="form-control" ng-model="selectedCharges.ChargeAmount" style="text-align: right"> 
 			</td>
 
 			<td> 
-				<input type="text" class="form-control" ng-model="selectedCharges.Discount" style="text-align: right"> 
+				<input type="text" class="form-control" ng-model="selectedCharges.Discount" 
+					ng-init="selectedCharges.Discount=0" value="0"
+					style="text-align: right"> 
 			</td>
 
 			<td class="text-right"> 
-				<label>{{ (selectedCharges.chargeAmount|number) - (selectedCharges.Discount|number) | number:2 }}</label> 
+				<label>{{ (selectedCharges.ChargeAmount|number) - (selectedCharges.Discount|number) | number:2 }}</label> 
 			</td>
 
 			<td>
@@ -47,6 +49,7 @@
 		</tr>
 
 
+		<!-- Entries from clinic Charges -->
 		<tr class="info" ng-repeat="peCharge in clinix_PEcharges" >
 
         	<td style="color:black" class="text-center" nowrap>
@@ -88,7 +91,7 @@
         	<th class="text-right" style="color:black">{{CALC_Tariff() | number : 2 }}</th>
         	<th class="text-right" style="color:black">{{CALC_ChargeAmount() | number : 2 }}</th>
         	<th class="text-right" style="color:black">{{CALC_Discount() | number : 2 }}</th>
-        	<th class="text-right" style="color:black">{{CALC_NetAmount() | number : 2 }}</th>
+        	<th class="text-right warning" style="color:black">{{CALC_NetAmount() | number : 2 }}</th>
         	<td></td>
         	<td></td>
 		</tr>	

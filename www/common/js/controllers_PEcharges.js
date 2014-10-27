@@ -2,60 +2,18 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_PEcharges = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
-  $scope.PECharges= [
-      { id :1000, procedural : 0, Discount : 0, chargeAmount :    0 , chargeItem : "CLINICAL CHARGES"}
-    , { id :1001, procedural : 0, Discount : 0, chargeAmount : 1000 , chargeItem : "Initial consultation"}
-    , { id :1002, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "Follow up Visit"}
-    , { id :1003, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "Ankle Taping"}
-    , { id :1004, procedural : 0, Discount : 0, chargeAmount : 3000 , chargeItem : "Cast Brace"}
-
-    , { id : 1005, procedural : 0, Discount : 0, chargeAmount :  250 , chargeItem : "Cast Trimming"}
-    , { id : 1006, procedural : 0, Discount : 0, chargeAmount :  800 , chargeItem : "Clubfoot Cast"}
-    , { id : 1007, procedural : 0, Discount : 0, chargeAmount : 2000 , chargeItem : "Knee aspiration/cortizone injection"}
-
-    , { id : 1008, procedural : 0, Discount : 0, chargeAmount : 1200 , chargeItem : "Lac-Long Arm Cast"}
-    , { id : 1009, procedural : 0, Discount : 0, chargeAmount :  800 , chargeItem : "Las-long arm Splint"}
-    , { id : 1010, procedural : 0, Discount : 0, chargeAmount : 2000 , chargeItem : "LLC-Long Leg Cast"}
-
-    , { id : 1011, procedural : 0, Discount : 0, chargeAmount : 1000 , chargeItem : "LLS-Last Long Splint"}
-    , { id : 1012, procedural : 0, Discount : 0, chargeAmount : 2000 , chargeItem : "LLC-Long Leg Cast"}
-    , { id : 1013, procedural : 0, Discount : 0, chargeAmount : 2500 , chargeItem : "LLWC-Long Leg Walking Cast"}
-
-    , { id : 1014, procedural : 0, Discount : 0, chargeAmount :  800 , chargeItem : "Posterior Splint"}
-    , { id : 1015, procedural : 0, Discount : 0, chargeAmount : 2500 , chargeItem : "PTB Cast"}
-    , { id : 1016, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "ROC- Removal of Cast"}
-
-    , { id : 1017, procedural : 0, Discount : 0, chargeAmount :  800 , chargeItem : "SAC- Short Arm Cast"}
-    , { id : 1018, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "SAS- Short Arm Splint"}
-    , { id : 1019, procedural : 0, Discount : 0, chargeAmount : 1000 , chargeItem : "SLC-Short Leg Cast"}
-
-    , { id : 1020, procedural : 0, Discount : 0, chargeAmount :  800 , chargeItem : "SLS-Short Leg Splint"}
-    , { id : 1021, procedural : 0, Discount : 0, chargeAmount : 1500 , chargeItem : "SLWC- Short Leg Wlaking Cast"}
-    , { id : 1022, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "Serial Casting/Foot"}
-
-    , { id : 1023, procedural : 0, Discount : 0, chargeAmount :  800 , chargeItem : "Thumb Spica Cast"}
-    , { id : 1024, procedural : 0, Discount : 0, chargeAmount :  500 , chargeItem : "Ulnar Gutter Splint"}
-    , { id : 1025, procedural : 0, Discount : 0, chargeAmount :  200 , chargeItem : "Windowing of Cast"}
-
-    , { id : 1026, procedural : 0, Discount : 0, chargeAmount : 2500 , chargeItem : "Hip Injection (Kenacort)"}
-    , { id : 1027, procedural : 0, Discount : 0, chargeAmount :  600 , chargeItem : "Injection Fee(KL)"}
-    , { id : 1028, procedural : 0, Discount : 0, chargeAmount : 1000 , chargeItem : "Injection Fee(SupaRTZ)"}
-    , { id : 1029, procedural : 0, Discount : 0, chargeAmount : 1500 , chargeItem : "Soft tissue injection"}
-
-    , { id : 2000, procedural : 1, Discount : 1, chargeAmount : 0 , chargeItem : "PROCEDURES"}
-
-    , { id : 2001, procedural : 1, Discount : 0, chargeAmount : 100000 , chargeItem : "Total hip/knee replacement unilateral"}
-    , { id : 2002, procedural : 1, Discount : 0, chargeAmount : 150000 , chargeItem : "Total hip/knee replacement bilateral"}
-    , { id : 2003, procedural : 1, Discount : 0, chargeAmount :  40000 , chargeItem : "Anesthesiologist"}
-
-    , { id : 2004, procedural : 1, Discount : 0, chargeAmount :  35000 , chargeItem : "Assistant Surgeon"}
-    , { id : 2005, procedural : 1, Discount : 0, chargeAmount :  75000 , chargeItem : "Indroprosthesis replacement"}
-    , { id : 2006, procedural : 1, Discount : 0, chargeAmount :  75000 , chargeItem : "Close reduction and plating"}
-    , { id : 2007, procedural : 1, Discount : 0, chargeAmount :  50000 , chargeItem : "Open reduction"}
-      ];
-
-  $scope.disabled={id:100};  
-
+  // populate Tariff Object
+  $scope.LkUpPECharges= [];
+  var promise = $ipadrbg.context.lkup_PEChargesTariff.filter(function (px) { 
+    return px.FeeRID > this.id }  
+    , {id : 0}).order('SortOrder').toLiveArray();
+  promise.then(function(pxresult) {
+    $scope.$apply( function () {
+      $scope.LkUpPECharges = pxresult;
+    });
+  });
+  // populate Tariff Object - end
+  
   $scope.LoadPECharges = function(){
     var promise = $ipadrbg.context.clinix_PEcharges.filter(function (px) { 
       return px.ClinixRID == this.id}
@@ -73,17 +31,19 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   $scope.LoadPECharges();
 
   $scope.addNew = function (pcCharge) {
-
-    var netDiscnt = parseFloat(pcCharge.chargeAmount) - parseFloat(pcCharge.Discount);
+    var netDiscnt = parseFloat(pcCharge.ChargeAmount) - parseFloat(pcCharge.Discount);
+    //cannot save blank, so
+    pcCharge.ChargeAmount = parseFloat(pcCharge.ChargeAmount);
+    pcCharge.Discount = parseFloat(pcCharge.Discount);
     
     newrecord = {
       ClinixRID         : $scope.clinix.ClinixRID
       ,PxRID            : $scope.clinix.PxRID
 
-      ,ChargeRID        : pcCharge.id
-      ,ChargeItem       : pcCharge.chargeItem
-      ,Tariff           : pcCharge.chargeAmount
-      ,ChargeAmount     : pcCharge.chargeAmount
+      ,ChargeRID        : pcCharge.FeeRID
+      ,ChargeItem       : pcCharge.Description
+      ,Tariff           : pcCharge.Tariff
+      ,ChargeAmount     : pcCharge.ChargeAmount
       ,Discount         : pcCharge.Discount
       ,NetAmount        : netDiscnt
       ,SynchStatus      : 111
@@ -92,18 +52,21 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
       $ipadrbg.context.clinix_PEcharges.add(newrecord);
       $ipadrbg.context.clinix_PEcharges.saveChanges();
 
-      pcCharge.chargeItem = null;
-      pcCharge.chargeAmount = null;
-      pcCharge.Discount = null;
+      //pcCharge.Description = null;
+      pcCharge.ChargeAmount = "0";
+      pcCharge.Discount = "0";
 
       $scope.LoadPECharges();
   }
+
+  // column totals
+  // column totals
 
   $scope.CALC_Tariff = function(){
     var total = 0;
     for(var i = 0; i < $scope.clinix_PEcharges.length; i++){
         var chargeRow = $scope.clinix_PEcharges[i];
-        total += (chargeRow.Tariff);
+        total += parseFloat(chargeRow.Tariff);
     }
     return total;
   }
@@ -112,7 +75,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     var total = 0;
     for(var i = 0; i < $scope.clinix_PEcharges.length; i++){
         var chargeRow = $scope.clinix_PEcharges[i];
-        total += (chargeRow.ChargeAmount);
+        total += parseFloat(chargeRow.ChargeAmount);
     }
     return total;
   }
@@ -121,7 +84,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     var total = 0;
     for(var i = 0; i < $scope.clinix_PEcharges.length; i++){
         var chargeRow = $scope.clinix_PEcharges[i];
-        total += (chargeRow.Discount);
+        total += parseFloat(chargeRow.Discount);
     }
     return total;
   }
@@ -130,10 +93,11 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     var total = 0;
     for(var i = 0; i < $scope.clinix_PEcharges.length; i++){
         var chargeRow = $scope.clinix_PEcharges[i];
-        total += (chargeRow.NetAmount);
+        total += parseFloat(chargeRow.NetAmount);
     }
     return total;
   }
+  // column totals - end
 
   $scope.removeItem = function (pcCharge) {
     pcCharge.remove()
@@ -162,13 +126,14 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
       clinix.pxAddress = null;
       $ipadrbg.context.clinix.saveChanges();
 
-      //TranStatus changed, reconsutruct JSON
+      //TranStatus changed, reconsutruct JSON, preparation for Synch
       $scope.clinix_JSON = JSON.stringify(clinix);
       $scope.clinix_JSON = "[" + $scope.clinix_JSON + "]";
 
-      //Push
+      //Push Ambulatory Status, this Clinix PE only
       $scope.clinix_AmbuStatus = [];
-      var promise = $ipadrbg.context.clinix_AmbuStatus.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      var promise = $ipadrbg.context.clinix_AmbuStatus.filter(function (px) { 
+        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
       promise.then(function(pxresult) {
         $scope.$apply(function () {
           $scope.clinix_AmbuStatus = pxresult;
@@ -184,8 +149,11 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
       });
 
 
+      // Push Diagnosis, this Clinix.PE onlye
       $scope.clinix_Diagnosis = [];
-      var promise = $ipadrbg.context.clinix_Diagnosis.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      var promise = $ipadrbg.context.clinix_Diagnosis.filter(function (px) { 
+        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+
       promise.then(function(pxresult) {
         $scope.$apply(function () {
           $scope.clinix_Diagnosis = pxresult;
@@ -200,8 +168,11 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         });
       });
 
+
+      // PUSH DiagsManagement
       $scope.clinix_DiagsManagement = [];
-      var promise = $ipadrbg.context.clinix_DiagsManagement.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      var promise = $ipadrbg.context.clinix_DiagsManagement.filter(function (px) { 
+        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
       promise.then(function(pxresult) {
         $scope.$apply(function () {
           $scope.clinix_DiagsManagement = pxresult;
@@ -217,8 +188,10 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
       });
 
 
+      // PUSH DiagsMedication = [];
       $scope.clinix_DiagsMedication = [];
-      var promise = $ipadrbg.context.clinix_DiagsMedication.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      var promise = $ipadrbg.context.clinix_DiagsMedication.filter(function (px) { 
+        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
       promise.then(function(pxresult) {
         $scope.$apply(function () {
           $scope.clinix_DiagsMedication = pxresult;
@@ -233,8 +206,11 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         });
       });
 
+
+      // PUSH DiagSchedSurgery = [];
       $scope.clinix_DiagSchedSurgery = [];
-      var promise = $ipadrbg.context.clinix_DiagSchedSurgery.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      var promise = $ipadrbg.context.clinix_DiagSchedSurgery.filter(function (px) { 
+        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
       promise.then(function(pxresult) {
         $scope.$apply(function () {
           $scope.clinix_DiagSchedSurgery = pxresult;
@@ -249,8 +225,11 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         });
       });
 
+
+      // PUSH DiagsDisposition = [];
       $scope.clinix_DiagsDisposition = [];
-      var promise = $ipadrbg.context.clinix_DiagsDisposition.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      var promise = $ipadrbg.context.clinix_DiagsDisposition.filter(function (px) { 
+        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
       promise.then(function(pxresult) {
         $scope.$apply(function () {
           $scope.clinix_DiagsDisposition = pxresult;
@@ -266,7 +245,25 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
       });
 
 
-      // Push - end
+      // PUSH Diags NOTES  
+      $scope.clinix_DiagsNotes = [];
+      var promise = $ipadrbg.context.clinix_DiagsNotes.filter(function (px) { 
+        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.clinix_DiagsNotes = pxresult;
+        });
+        $scope.clinix_DiagsNotes_JSON = JSON.stringify($scope.clinix_DiagsNotes);
+        $http({
+          method: 'POST'
+          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsNotes.php?clinixJsonIzed=' + $scope.clinix_DiagsNotes_JSON
+          , contentType : 'application/json'
+          , data : $scope.clinix_DiagsNotes_JSON
+          , cache : false
+        });
+      });
+
+      // PUSH BACK - FLOOR
 
       //notify server
       $scope.notifyServer();
@@ -275,6 +272,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     }
   }
 
+  // cancel PE button 
   $scope.CancelPE = function (clinix) {
     if (confirm('Are you sure to CANCEL this Appoinment: ' + $scope.ClinixRID + ' ?')) {
       $ipadrbg.context.clinix.attach(clinix);
@@ -305,7 +303,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   //       });
   // }
 
-  //update server TranStatus
+  //update server TranStatus after, PE close pushback  
   $scope.notifyServer = function () {
     // Set TranStatus
     $http({
@@ -316,7 +314,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
       , cache : false
     });
 
-    // Charges
+    // PUASH BACk PE Charges
     $http({
       method: 'POST'
       , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_PEcharges.php?clinixJsonIzed=' + $scope.clinix_PEcharges_JSON

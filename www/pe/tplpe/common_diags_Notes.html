@@ -1,6 +1,6 @@
-<div scroll-bookmark="COMMONDiagnosis">
+<div ng-controller="DiagsNotesCtrl">	
 
-	<div ng-controller="DiagnosisCtrl">
+	<div scroll-bookmark="CommDiagsNOTES">
 
 		<table class="table table-condensed table-bordered">
 			<!-- tr class="active">
@@ -14,7 +14,7 @@
 			<tr class="success">
 				<th colspan=9>
 					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
-		    			Diagnosis
+		    			Notes
 		    		</span>
 				</th>
 			</tr>	
@@ -28,18 +28,18 @@
 				</td>
 			</tr>
 
-			<tr class="info" ng-repeat="diagnosed in clinix_Diagnosis">
+			<tr class="info" ng-repeat="noted in clinix_DiagsNotes">
 	        	
-	        	<td style="color:black">{{diagnosed.Diagnosis}}</td>
+	        	<td style="color:black">{{noted.Notes}}</td>
 
 	            <td width="1%">
-	            	<a class="btn btn-large btn-danger" href="#/{{diagnosed.ClinixRID}}" ng-click="removeDiagnosis(diagnosed)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger" href="#/{{noted.ClinixRID}}" ng-click="removeItem(noted)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
 	        	
                 <td width="1%">
-                	<a class="btn btn-large btn-warning" href="#/{{diagnosed.ChiefRID}}/edit" ng-click="editChiefComp(diagnosed)" style="text-decoration: none">
+                	<a class="btn btn-large btn-warning" href="#/{{noted.ChiefRID}}/edit" ng-click="editChiefComp(noted)" style="text-decoration: none">
                 		EDIT
                 	</a>
             	</td>
@@ -47,9 +47,3 @@
 		</table>
 	</div>
 </div>
-<ng:include src="'tplpe/common_diags_Management.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Medication.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_SurgerySched.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Disposition.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Notes.html'"></ng:include>
-	

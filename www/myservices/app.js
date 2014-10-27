@@ -42,6 +42,7 @@ function DataController($rootScope,$scope,$http) {
 						clinix.pxregdate = data[idx].pxregdate;
 						clinix.pxFoto = data[idx].pxFoto;
 						clinix.TranStatus = data[idx].TranStatus;
+						//clinix.TranStatus = data[idx].TranStatusDisp;
 
 						//clinix_chiefcomp.ChiefRID = idx;
 						// clinix_chiefcomp.ClinixRID = data[idx].ClinixRID;
@@ -100,6 +101,17 @@ function DataController($rootScope,$scope,$http) {
 
     // PULL Tran Status
 	$scope.pullTranStatus = function(){
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='lkup_TranStatus'");
+            tx.executeSql("delete from 'lkup_TranStatus'");
+
+            // tx.executeSql("delete from 'tbl_TranStatus'");
+            // tx.executeSql("drop table 'tbl_TranStatus'");
+        });
+        //db.close();
+        // after truncate
 
 		$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/pull_TranStatus.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -108,14 +120,16 @@ function DataController($rootScope,$scope,$http) {
 		      	// save to websql
 			    for(idx in data){
 			    	if (data[idx].TrnSttsRID > 0) {
-			    		var tbl_TranStatus = new $ipadrbg.types.tbl_TranStatus();
-						tbl_TranStatus.TrnSttsRID = data[idx].TrnSttsRID;
-						tbl_TranStatus.TrnStts = data[idx].TrnStts;
+			    		var lkup_TranStatus = new $ipadrbg.types.lkup_TranStatus();
 
-						$ipadrbg.context.tbl_TranStatus.add(tbl_TranStatus);
+						lkup_TranStatus.TrnSttsRID = data[idx].TrnSttsRID;
+						lkup_TranStatus.TrnStts = data[idx].TrnStts;
+						lkup_TranStatus.Deleted = data[idx].Deleted;
+
+						$ipadrbg.context.lkup_TranStatus.add(lkup_TranStatus);
 					}
 			    }
-				$ipadrbg.context.tbl_TranStatus.saveChanges();
+				$ipadrbg.context.lkup_TranStatus.saveChanges();
 
 				// notify iPad User
 				alert("Import TranStatus from Server Successful!");
@@ -133,6 +147,17 @@ function DataController($rootScope,$scope,$http) {
 	 // PULL Tariff
 	$scope.pullTariff = function(){
 
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='lkup_PEChargesTariff'");
+            tx.executeSql("delete from 'lkup_PEChargesTariff'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
 		$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/pull_ChargesTariff.php'}).
 	    success ( function ( data, status, headers, config ) {
 
@@ -140,19 +165,22 @@ function DataController($rootScope,$scope,$http) {
 		      	// save to websql
 			    for(idx in data){
 			    	if (data[idx].FeeRID > 0) {
-			    		var tbl_Tariff = new $ipadrbg.types.tbl_Tariff();
-						tbl_Tariff.FeeRID = data[idx].FeeRID;
-						tbl_Tariff.Parent = data[idx].Parent;
-						tbl_Tariff.ParentFeeRID = data[idx].ParentFeeRID;
-						tbl_Tariff.Description = data[idx].Description;
-						tbl_Tariff.SortOrder = data[idx].SortOrder;
-						tbl_Tariff.DefaultAmount = data[idx].DefaultAmount;
-						tbl_Tariff.Deleted = data[idx].Deleted;
+			    		var lkup_PEChargesTariff = new $ipadrbg.types.lkup_PEChargesTariff();
+
+						lkup_PEChargesTariff.FeeRID 		= data[idx].FeeRID;
+						lkup_PEChargesTariff.Parent 		= data[idx].Parent;
+						lkup_PEChargesTariff.ParentFeeRID 	= data[idx].ParentFeeRID;
+						lkup_PEChargesTariff.Description	= data[idx].Description;
+						lkup_PEChargesTariff.SortOrder 		= data[idx].SortOrder;
+						lkup_PEChargesTariff.Tariff 		= data[idx].Tariff;
+						lkup_PEChargesTariff.ChargeAmount 	= data[idx].ChargeAmount;
+						lkup_PEChargesTariff.Discount 		= data[idx].Discount;
+						lkup_PEChargesTariff.Deleted 		= data[idx].Deleted;
 						
-						$ipadrbg.context.tbl_Tariff.add(tbl_Tariff);
+						$ipadrbg.context.lkup_PEChargesTariff.add(lkup_PEChargesTariff);
 					}
 			    }
-				$ipadrbg.context.tbl_Tariff.saveChanges();
+				$ipadrbg.context.lkup_PEChargesTariff.saveChanges();
 
 				// notify iPad User
 				alert("Import Charges Tariff from Server Successful!");

@@ -9,9 +9,38 @@
     <script src="..//lib/angular-1.2.18.min.js"></script>
 
     <script src="..//common/models/model_clinix.js"></script>
-    <!-- script src="model_chiefcomplaint.js"></script>
-    <script src="model_spineIntl.js"></script>
-    <script src="model_etiology.js"></script -->
+    <script src="..//common/models/model_chiefcomplaint.js"></script>
+    <script src="..//common/models/model_spineIntl.js"></script>
+    <script src="..//common/models/model_etiology.js"></script>
+    <script src="..//common/models/model_treatment.js"></script>
+    <script src="..//common/models/model_prevsurgeries.js"></script>
+    <script src="..//common/models/model_labs.js"></script>
+    <script src="..//common/models/model_medhist.js"></script>
+
+    <script src="..//common/models/model_xpe_ambustatus.js"></script>
+
+    <!-- HIP models -->
+    <script src="..//common/models/model_xpe_hipmeasures.js"></script>
+    <script src="..//common/models/model_xpe_hipstanding.js"></script>
+    <script src="..//common/models/model_xpe_hipmotionrange.js"></script>
+    <script src="..//common/models/model_xpe_hipxrays.js"></script>
+    
+
+    <!-- KNEE models -->
+    <script src="..//common/models/model_xpe_kneemeasures.js"></script>
+    <script src="..//common/models/model_xpe_kneeAppearance.js"></script>
+    <script src="..//common/models/model_xpe_kneeAlignment.js"></script>
+    <script src="..//common/models/model_xpe_kneeMotionRange.js"></script>
+    <script src="..//common/models/model_xpe_kneeXRays.js"></script>
+
+    <script src="..//common/models/model_diagnosis.js"></script>
+    <script src="..//common/models/model_diags_Management.js"></script>
+    <script src="..//common/models/model_diags_Meds.js"></script>
+    <script src="..//common/models/model_diags_SchedSurgery.js"></script>
+    <script src="..//common/models/model_diags_Disposition.js"></script>
+    <script src="..//common/models/model_diagsNotes.js"></script>
+
+    <!--  TOP Models Loader -->
     <script src="model_myservices_back.js"></script>
     
     <script src="app.back.js"></script>
@@ -19,54 +48,68 @@
 
 <body ng-controller="PushController">
 
-<div class="jumbotron text-center">
+<div class="container">
+    <div class="jumbotron text-center">
 
-    <h2>iPad Medical Records</h2>
-    <h3>RESTFUL API, Synch Services</h3>
-    <h3>wfSeballos, version 1.31, Aug 29, 2014</h3>
-    <p>Export clinix REST from iPad-WebSQL to SERVER</p>
-    
-    <table width="100%">
-        <tr>
-            <td></td>
-
-            <td width="10%">
-                <a class="btn-warning btn-block btn-lg text-center" ng-click="pushData(ClinixPush)">
-                    Push Data To Server
-                </a>
-            </td>
-
-            <td width="10%">
-                <a class="btn btn-success btn-lg btn-block"
-                    href="..//index.html"
-                    style="display:block; text-decoration:none">
-                    Back to Admin Page
-                </a>        
-            </td>
-
-            <td></td>
-        </tr>
-    </table>
-
-    <div id="view" ng-view>
-        <table class="table table-bordered">
+        <h2>SYNCH BACK FACILITIES</h2>
+        <h3>RESTFUL API, Synch Services</h3>
+        
+        <table class="table" width="100%"> 
             <tr>
-               <th class="text-center" width="1%" nowrap>App #</th>
-               <th class="text-center" width="1%" nowrap>Date Set</th>
-               <th class="text-center" width="1%" nowrap>Chart #</th>
-               <th class="text-center" width="1%">TranStatus</th>
-               <th></th>
+                <td width="1%"><span class="glyphicon glyphicon-home btn-lg"></span></td>
+                <td width="40%">
+                    <a href="..//index.html" class="btn btn-info btn-block btn-lg text-center" style="text-decoration : none">   
+                        Back to Main Options
+                    </a>
+                </td>
+
+                <td></td>
             </tr>
 
-            <tr ng-repeat="row in ClinixPush">
-               <td class="text-center">{{row.ClinixRID}}</td>
-    	       <td class="text-center" nowrap>{{row.AppDateSet | date}}</td>
-               <td class="text-center">{{row.PxRID}}</td>
-               <td class="text-center" nowrap>{{row.TranStatus}}</td>
-               <td></td>
-            </tr>
+            <tr>
+                <td><span class="glyphicon glyphicon-hand-down btn-lg"></span></td>
+                <td>
+                    <a class="btn btn-success btn-block btn-lg text-center" style="text-decoration : none" ng-click="pushIOHPE()">
+                        Push INITIAL INTERVIEW Data To Server
+                    </a>
+                </td>
 
-    	</table>
+                <td></td>
+            </tr> 
+
+            <tr>
+                <td><span class="glyphicon glyphicon-hand-down btn-lg"></span></td>
+                <td>
+                    <a class="btn btn-warning btn-block btn-lg text-center" style="text-decoration : none" ng-click="pushData()">
+                        Push Physical Examination Data To Server
+                    </a>
+                </td>
+
+                <td></td>
+            </tr>    
+
+        </table>
+
+        <div id="view" ng-view>
+            <table class="table table-bordered">
+                <tr>
+                   <th class="text-center" width="1%" nowrap>App #</th>
+                   <th class="text-center" width="1%" nowrap>Date Set</th>
+                   <th class="text-center" width="1%" nowrap>Chart #</th>
+                   <th class="text-center" width="1%">TranStatus</th>
+                   <th></th>
+                </tr>
+
+                <tr ng-repeat="row in ClinixPush">
+                   <td class="text-center">{{row.ClinixRID}}</td>
+        	       <td class="text-center" nowrap>{{row.AppDateSet | date}}</td>
+                   <td class="text-center">{{row.PxRID}}</td>
+                   <td class="text-center" nowrap>{{row.TranStatus}}</td>
+                   <td></td>
+                </tr>
+
+        	</table>
+        </div>
     </div>
 </div>
 

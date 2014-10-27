@@ -54,18 +54,17 @@
 
     <script src="..//common/models/model_xpe_ambustatus.js"></script>
 
-    <!-- KNEE models -->
+    <!-- HIP models -->
     <script src="..//common/models/model_xpe_hipmeasures.js"></script>
     <script src="..//common/models/model_xpe_hipstanding.js"></script>
     <script src="..//common/models/model_xpe_hipmotionrange.js"></script>
     <script src="..//common/models/model_xpe_hipxrays.js"></script>
 
-    <!-- PE models -->
+    <!-- knee models -->
     <script src="..//common/models/model_xpe_kneemeasures.js"></script>
     <script src="..//common/models/model_xpe_kneeAppearance.js"></script>
     <script src="..//common/models/model_xpe_kneeAlignment.js"></script>
     <script src="..//common/models/model_xpe_kneeMotionRange.js"></script>
-    <script src="..//common/models/model_xpe_kneeXRays.js"></script>
     <script src="..//common/models/model_xpe_kneeXRays.js"></script>
 
     <script src="..//common/models/model_diagnosis.js"></script>
@@ -73,6 +72,7 @@
     <script src="..//common/models/model_diags_Meds.js"></script>
     <script src="..//common/models/model_diags_SchedSurgery.js"></script>
     <script src="..//common/models/model_diags_Disposition.js"></script>
+    <script src="..//common/models/model_diagsNotes.js"></script>
 
     <script src="..//common/models/model_PREOp_HIP_preform.js"></script>
     <script src="..//common/models/model_PREOp_HIP_contact.js"></script>
@@ -86,8 +86,13 @@
 
     <script src="..//common/models/model_pe_charges.js"></script>
 
-    <script src="js/model_pe.js"></script>
+    <!-- MODELS for look-up tables -->
+    <script src="..//common/models/model_lkupTranStatus.js"></script>
+    <script src="..//common/models/model_lkupPEChargesTariff.js"></script>
 
+    <!-- script src="..//common/models/model_PEChargesTariff.js"></script -->
+
+    <script src="js/model_pe.js"></script>
 
     <!-- IOHPE CONTROLLERS -->
     <script src="..//common/js/controllers.js"></script>
@@ -118,6 +123,7 @@
     <script src="..//common/js/controllers_DiagsMeds.js"></script>
     <script src="..//common/js/controllers_DiagsSchedSurgery.js"></script>
     <script src="..//common/js/controllers_DiagsDisposition.js"></script>
+    <script src="..//common/js/controllers_DiagsNotes.js"></script>
 
     <script src="..//common/js/controllers_PREOp_HIP_preform.js"></script>
     <script src="..//common/js/controllers_PREOp_HIP_contact.js"></script>

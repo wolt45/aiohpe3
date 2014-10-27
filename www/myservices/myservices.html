@@ -12,8 +12,8 @@
     <!-- script src="model_chiefcomplaint.js"></script>
     <script src="model_spineIntl.js"></script>
     <script src="model_etiology.js"></script -->
-    <script src="..//common/models/model_TranStatus.js"></script>
-    <script src="..//common/models/model_PEChargesTariff.js"></script>
+    <script src="..//common/models/model_lkupTranStatus.js"></script>
+    <script src="..//common/models/model_lkupPEChargesTariff.js"></script>
 
     <script src="model_myservices.js"></script>
     
@@ -21,91 +21,86 @@
 </head>
 
 <body ng-controller="DataController">
+<div class="container">
+  <div class="jumbotron text-center">
 
-<div class="jumbotron text-center">
-
-    <h2>iPad Medical Records</h2>
-    <h3>RESTFUL API, Synch Services</h3>
-    <h3>wfSeballos, version 1.31, Aug 29, 2014</h3>
-    <br/>
-    <p>Extract px_data REST from server and store to Web SQL on the iPad</p>
-    
-    <table class="table" width="100%"> 
-      <tr>
-          <td width="1%"><span class="glyphicon glyphicon-user btn-lg"></span></td>
-          <td>
-              <button class="btn-success btn-block btn-lg text-center" ng-click="pullData()">
-                Pull APPOINMENTs From Server
-              </button>
-          </td>
-      </tr> 
+      <h2>SYHCN Updates and Processes</h2>
+      <h3>RESTFUL API, Synch Services, wfSeballos, version 1.31</h3>
       
-      <tr>
-          <td width="1%"><span class="glyphicon glyphicon-cutlery btn-lg"></span></td>
-          <td>
-              <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTranStatus()">
-                Upload TranStatus
-              </button>
-          </td>
-      </tr> 
-      <tr>
-          <td width="1%"><span class="glyphicon glyphicon-cutlery btn-lg"></span></td>
-          <td>
-              <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTariff()">
-                Upload PE Charges Tariff 
-              </button>
-          </td>
-      </tr>
-      <tr>
-          <td width="1%"><span class="glyphicon glyphicon-folder-close btn-lg"></span></td>
-          <td>
-              <a href="..//index.html" class="btn btn-info btn-block btn-lg text-center" style="text-decoration : none">   
-                  Back to Admin Page
-              </a>
-          </td>
-      </tr> 
-    </table>
+      <table class="table" width="100%"> 
+        <tr>
+            <td width="1%"><span class="glyphicon glyphicon-home btn-lg"></span></td>
+            <td>
+                <a href="..//index.html" class="btn btn-info btn-block btn-lg text-center" style="text-decoration : none">   
+                    Back to Main Options
+                </a>
+            </td>
+        </tr> 
 
+        <tr>
+            <td width="1%"><span class="glyphicon glyphicon-user btn-lg"></span></td>
+            <td>
+                <button class="btn-success btn-block btn-lg text-center" ng-click="pullData()">
+                  Pull APPOINMENTs From Server
+                </button>
+            </td>
+        </tr> 
+        
+        <tr>
+            <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
+            <td>
+                <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTranStatus()">
+                  Upload TranStatus
+                </button>
+            </td>
+        </tr> 
 
+         <tr>
+            <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
+            <td>
+                <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTariff()">
+                  Upload PE Charges Tariff 
+                </button>
+            </td>
+        </tr>
+      </table>
 
-    <br/>
-    <p>Show Data</p>
+      <div >
+          <table class="table table-bordered">
+              <tr>
+                 <td width="1%" nowrap>App #</td>
 
-    <div >
-        <table class="table table-bordered">
-            <tr>
-               <td width="1%" nowrap>App #</td>
+                 <td width="1%" nowrap>Date Set</td>
 
-               <td width="1%" nowrap>Date Set</td>
+                 <td width="1%" nowrap>Chart #</td>
+                 <td width="1%" nowrap>Patient</td>
 
-               <td width="1%" nowrap>Chart #</td>
-               <td width="1%" nowrap>Patient</td>
+                 <td width="1%" nowrap>Address</td>
+                 <td width="1%" nowrap>Status</td>
+                 <td width="1%" nowrap>Reg Date</td>
+                 <td>Profile</td>
+                 <td width="1%">TranStatus</td>
+              </tr>
 
-               <td width="1%" nowrap>Address</td>
-               <td width="1%" nowrap>Status</td>
-               <td width="1%" nowrap>Reg Date</td>
-               <td>Profile</td>
-               <td width="1%">TranStatus</td>
-            </tr>
+              <tr ng-repeat="row in clinix">
 
-            <tr ng-repeat="row in clinix">
+                 <td>{{row.ClinixRID}}</td>
 
-               <td>{{row.ClinixRID}}</td>
+      	         <td nowrap>{{row.AppDateSet | date}}</td>
 
-    	         <td nowrap>{{row.AppDateSet | date}}</td>
+                 <td>{{row.PxRID}}</td>
+                 <td nowrap>{{row.pxname}}</td>
 
-               <td>{{row.PxRID}}</td>
-               <td nowrap>{{row.pxname}}</td>
+                 <td nowrap>{{row.pxAddress}}</td>
+                 <td nowrap>{{row.pxstatus}}</td>
+                 <td nowrap>{{row.pxregdate | date}}</td>
+                 <td>{{row.pxFoto}}</td>
+                 <td>{{row.TranStatus}}</td>
+              </tr>
 
-               <td nowrap>{{row.pxAddress}}</td>
-               <td nowrap>{{row.pxstatus}}</td>
-               <td nowrap>{{row.pxregdate | date}}</td>
-               <td>{{row.pxFoto}}</td>
-               <td>{{row.TranStatus}}</td>
-            </tr>
-
-    	</table>
-    </div>
+      	</table>
+      </div>
+  </div>
 </div>
 
 </body>

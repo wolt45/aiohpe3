@@ -1,7 +1,7 @@
 $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	  clinix: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix }
-	, tbl_TranStatus: { type: $data.EntitySet, elementType: $ipadrbg.types.tbl_TranStatus }
-	, tbl_Tariff: { type: $data.EntitySet, elementType: $ipadrbg.types.tbl_Tariff }
+	, lkup_TranStatus: { type: $data.EntitySet, elementType: $ipadrbg.types.lkup_TranStatus }
+	, lkup_PEChargesTariff: { type: $data.EntitySet, elementType: $ipadrbg.types.lkup_PEChargesTariff }
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });
