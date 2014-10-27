@@ -2,6 +2,12 @@ function DataController($rootScope,$scope,$http) {
 
 	// Pull clinix
     $scope.pullData = function(){
+    	// var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+     //    db.transaction(function (tx) {
+     //        tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix'");
+     //        tx.executeSql("delete from 'clinix'");
+     //    });
+
     	// request for transactions from the server via REST
     	// let say we have this sample transactions
 	    $scope.clinix = [];
@@ -14,7 +20,6 @@ function DataController($rootScope,$scope,$http) {
     	// if local data is latest then push to server 
 
 		$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix.php'}).
-		//$http({method: 'GET', url: 'http://localhost/RBGsrvr_todayset/srvr_clinix.php'}).
 	    success(function(data, status, headers, config) {
 	      	// this callback will be called asynchronously
 	      	// when the response is available
@@ -32,16 +37,15 @@ function DataController($rootScope,$scope,$http) {
 					
 						ClinixPulled += '{"ClinixRID":' + data[idx].ClinixRID + '},';  // for Pulled Notification at REST 
 
-						clinix.ClinixRID = data[idx].ClinixRID;
-						clinix.AppDateSet = data[idx].AppDateSet;
-						
-				    	clinix.PxRID = data[idx].PxRID;
-						clinix.pxname = data[idx].pxname;
-						clinix.pxAddress = data[idx].pxAddress;
-						clinix.pxstatus = data[idx].pxstatus;
-						clinix.pxregdate = data[idx].pxregdate;
-						clinix.pxFoto = data[idx].pxFoto;
-						clinix.TranStatus = data[idx].TranStatus;
+						clinix.ClinixRID 	= data[idx].ClinixRID;
+						clinix.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
+				    	clinix.PxRID 		= data[idx].PxRID;
+						clinix.pxname 		= data[idx].pxname;
+						clinix.pxAddress 	= data[idx].pxAddress;
+						clinix.pxstatus 	= data[idx].pxstatus;
+						clinix.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
+						clinix.pxFoto 		= data[idx].pxFoto;
+						clinix.TranStatus 	= data[idx].TranStatus;
 						//clinix.TranStatus = data[idx].TranStatusDisp;
 
 						//clinix_chiefcomp.ChiefRID = idx;
