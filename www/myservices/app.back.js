@@ -46,7 +46,7 @@ function PushController($rootScope,$scope,$http) {
 		//function post_data(url,encodedata, success){
 		$.ajax({
 			type : "POST",
-			url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_clinix.php',
+			url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_clinix.php',
 			data : clinixJson,
 			dataType : "json",
 			restful : true,
@@ -97,7 +97,7 @@ function PushController($rootScope,$scope,$http) {
 
       	$http({
       	  	method: 'POST'
-      	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_IOH_MedHist.php?clinixJsonIzed=' + $scope.clinix_MedHist_JSON
+      	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_IOH_MedHist.php?clinixJsonIzed=' + $scope.clinix_MedHist_JSON
       	  	, contentType : 'application/json'
       	  	, data : $scope.clinix_MedHist_JSON
       	  	, cache : false
@@ -121,7 +121,7 @@ function PushController($rootScope,$scope,$http) {
 
         	$http({
         	  	method: 'POST'
-        	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_IOH_Labs.php?clinixJsonIzed=' + $scope.clinix_LABS_JSON
+        	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_IOH_Labs.php?clinixJsonIzed=' + $scope.clinix_LABS_JSON
         	  	, contentType : 'application/json'
         	  	, data : $scope.clinix_LABS_JSON
         	  	, cache : false
@@ -145,7 +145,7 @@ function PushController($rootScope,$scope,$http) {
 
         	$http({
         	  	method: 'POST'
-        	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_IOH_PrevSurgeries.php?clinixJsonIzed=' + $scope.clinix_previousSurgeries_JSON
+        	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_IOH_PrevSurgeries.php?clinixJsonIzed=' + $scope.clinix_previousSurgeries_JSON
         	  	, contentType : 'application/json'
         	  	, data : $scope.clinix_previousSurgeries_JSON
         	  	, cache : false
@@ -169,7 +169,7 @@ function PushController($rootScope,$scope,$http) {
 
         	$http({
         	  	method: 'POST'
-        	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_IOH_PastTreatment.php?clinixJsonIzed=' + $scope.clinix_treatment_JSON
+        	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_IOH_PastTreatment.php?clinixJsonIzed=' + $scope.clinix_treatment_JSON
         	  	, contentType : 'application/json'
         	  	, data : $scope.clinix_treatment_JSON
         	  	, cache : false
@@ -193,7 +193,7 @@ function PushController($rootScope,$scope,$http) {
 
       	$http({
       	  	method: 'POST'
-      	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_IOH_Ethiology.php?clinixJsonIzed=' + $scope.clinix_etiology_JSON
+      	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_IOH_Ethiology.php?clinixJsonIzed=' + $scope.clinix_etiology_JSON
       	  	, contentType : 'application/json'
       	  	, data : $scope.clinix_etiology_JSON
       	  	, cache : false
@@ -217,7 +217,7 @@ function PushController($rootScope,$scope,$http) {
 
       	$http({
       	  	method: 'POST'
-      	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_IOH_SpineIntl.php?clinixJsonIzed=' + $scope.clinix_spineIntl_JSON
+      	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_IOH_SpineIntl.php?clinixJsonIzed=' + $scope.clinix_spineIntl_JSON
       	  	, contentType : 'application/json'
       	  	, data : $scope.clinix_spineIntl_JSON
       	  	, cache : false
@@ -241,7 +241,7 @@ function PushController($rootScope,$scope,$http) {
 
       	$http({
     	  	method: 'POST'
-    	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_IOH_ChiefComp.php?clinixJsonIzed=' + $scope.clinix_chiefcomp_JSON
+    	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_IOH_ChiefComp.php?clinixJsonIzed=' + $scope.clinix_chiefcomp_JSON
     	  	, contentType : 'application/json'
     	  	, data : $scope.clinix_chiefcomp_JSON
     	  	, cache : false
@@ -271,7 +271,7 @@ function PushController($rootScope,$scope,$http) {
     	  	$scope.clinix_JSON = JSON.stringify($scope.clinix);
     	  	$http({
     	  	  	method: 'POST'
-    	  	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_clinix.php?clinixJsonIzed=' + $scope.clinix_JSON
+    	  	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_clinix.php?clinixJsonIzed=' + $scope.clinix_JSON
     	  	  	, contentType : 'application/json'
     	  	  	, data : $scope.clinix_JSON
     	  	  	, cache : false
@@ -316,7 +316,7 @@ function PushController($rootScope,$scope,$http) {
   	  	$scope.clinix_AmbuStatus_JSON = JSON.stringify($scope.clinix_AmbuStatus);
   	  	$http({
   	  	  	method: 'POST'
-  	  	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_AmbuStatus.php?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+  	  	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_AmbuStatus.php?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
   	  	  	, contentType : 'application/json'
   	  	  	, data : $scope.clinix_AmbuStatus_JSON
   	  	  	, cache : false
@@ -341,7 +341,7 @@ function PushController($rootScope,$scope,$http) {
   	  	$scope.clinix_HipMeasures_JSON = JSON.stringify($scope.clinix_HipMeasures);
   	  	$http({
   	  	  	method: 'POST'
-  	  	  	, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_HIPmeasures.php?clinixJsonIzed=' + $scope.clinix_HipMeasures_JSON
+  	  	  	, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_HIPmeasures.php?clinixJsonIzed=' + $scope.clinix_HipMeasures_JSON
   	  	  	, contentType : 'application/json'
   	  	  	, data : $scope.clinix_HipMeasures_JSON
   	  	  	, cache : false
@@ -363,7 +363,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_HipStanding_JSON = JSON.stringify($scope.clinix_HipStanding);
       $http({
           method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_HIPstanding.php?clinixJsonIzed=' + $scope.clinix_HipStanding_JSON
+          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_HIPstanding.php?clinixJsonIzed=' + $scope.clinix_HipStanding_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_HipStanding_JSON
           , cache : false
@@ -384,7 +384,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_HipMotionRange_JSON = JSON.stringify($scope.clinix_HipMotionRange);
       $http({
           method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_HIPmotionrange.php?clinixJsonIzed=' + $scope.clinix_HipMotionRange_JSON
+          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_HIPmotionrange.php?clinixJsonIzed=' + $scope.clinix_HipMotionRange_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_HipMotionRange_JSON
           , cache : false
@@ -404,7 +404,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_HipXRays_JSON = JSON.stringify($scope.clinix_HipXRays);
       $http({
           method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_HIPxrays.php?clinixJsonIzed=' + $scope.clinix_HipXRays_JSON
+          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_HIPxrays.php?clinixJsonIzed=' + $scope.clinix_HipXRays_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_HipXRays_JSON
           , cache : false
@@ -428,7 +428,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_KneeMeasures_JSON = JSON.stringify($scope.clinix_KneeMeasures);
       $http({
           method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_KNEEMeasures.php?clinixJsonIzed=' + $scope.clinix_KneeMeasures_JSON
+          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_KNEEMeasures.php?clinixJsonIzed=' + $scope.clinix_KneeMeasures_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_KneeMeasures_JSON
           , cache : false
@@ -449,7 +449,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_KneeAppearance_JSON = JSON.stringify($scope.clinix_KneeAppearance);
       $http({
           method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_KNEEappearance.php?clinixJsonIzed=' + $scope.clinix_KneeAppearance_JSON
+          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_KNEEappearance.php?clinixJsonIzed=' + $scope.clinix_KneeAppearance_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_KneeAppearance_JSON
           , cache : false
@@ -470,7 +470,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_KneeAlignment_JSON = JSON.stringify($scope.clinix_KneeAlignment);
       $http({
           method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_KNEEalignment.php?clinixJsonIzed=' + $scope.clinix_KneeAlignment_JSON
+          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_KNEEalignment.php?clinixJsonIzed=' + $scope.clinix_KneeAlignment_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_KneeAlignment_JSON
           , cache : false
@@ -491,7 +491,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_KneeMotionRange_JSON = JSON.stringify($scope.clinix_KneeMotionRange);
       $http({
           method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_KNEEmotionrange.php?clinixJsonIzed=' + $scope.clinix_KneeMotionRange_JSON
+          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_KNEEmotionrange.php?clinixJsonIzed=' + $scope.clinix_KneeMotionRange_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_KneeMotionRange_JSON
           , cache : false
@@ -512,7 +512,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_KneeXRays_JSON = JSON.stringify($scope.clinix_KneeXRays);
       $http({
           method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_KNEExrays.php?clinixJsonIzed=' + $scope.clinix_KneeXRays_JSON
+          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_KNEExrays.php?clinixJsonIzed=' + $scope.clinix_KneeXRays_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_KneeXRays_JSON
           , cache : false
@@ -535,7 +535,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_Diagnosis_JSON = JSON.stringify($scope.clinix_Diagnosis);
       $http({
         method: 'POST'
-        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_Diagnosis.php?clinixJsonIzed=' + $scope.clinix_Diagnosis_JSON
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_Diagnosis.php?clinixJsonIzed=' + $scope.clinix_Diagnosis_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_Diagnosis_JSON
         , cache : false
@@ -554,7 +554,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_DiagsManagement_JSON = JSON.stringify($scope.clinix_DiagsManagement);
       $http({
         method: 'POST'
-        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsManagement.php?clinixJsonIzed=' + $scope.clinix_DiagsManagement_JSON
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsManagement.php?clinixJsonIzed=' + $scope.clinix_DiagsManagement_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_DiagsManagement_JSON
         , cache : false
@@ -574,7 +574,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_DiagsMedication_JSON = JSON.stringify($scope.clinix_DiagsMedication);
       $http({
         method: 'POST'
-        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsMedication.php?clinixJsonIzed=' + $scope.clinix_DiagsMedication_JSON
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsMedication.php?clinixJsonIzed=' + $scope.clinix_DiagsMedication_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_DiagsMedication_JSON
         , cache : false
@@ -594,7 +594,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_DiagSchedSurgery_JSON = JSON.stringify($scope.clinix_DiagSchedSurgery);
       $http({
         method: 'POST'
-        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsSchedSurgery.php?clinixJsonIzed=' + $scope.clinix_DiagSchedSurgery_JSON
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsSchedSurgery.php?clinixJsonIzed=' + $scope.clinix_DiagSchedSurgery_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_DiagSchedSurgery_JSON
         , cache : false
@@ -614,7 +614,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_DiagsDisposition_JSON = JSON.stringify($scope.clinix_DiagsDisposition);
       $http({
         method: 'POST'
-        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsDisposition.php?clinixJsonIzed=' + $scope.clinix_DiagsDisposition_JSON
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsDisposition.php?clinixJsonIzed=' + $scope.clinix_DiagsDisposition_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_DiagsDisposition_JSON
         , cache : false
@@ -634,7 +634,7 @@ function PushController($rootScope,$scope,$http) {
       $scope.clinix_DiagsNotes_JSON = JSON.stringify($scope.clinix_DiagsNotes);
       $http({
         method: 'POST'
-        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsNotes.php?clinixJsonIzed=' + $scope.clinix_DiagsNotes_JSON
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsNotes.php?clinixJsonIzed=' + $scope.clinix_DiagsNotes_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_DiagsNotes_JSON
         , cache : false

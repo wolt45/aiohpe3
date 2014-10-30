@@ -3,8 +3,7 @@ IOHPEApp.controller('PREOpKNEE_repeatbiCtrl', function ($scope, $routeParams, $h
 
   	//http://vitalets.github.io/checklist-model/
 	$scope.repeatBils = [
-	    'Cefazolin 2 Grms in OR before induction repeat 8 hrs. After surgery.', 
-	    'Please inform relatives to wait outside of the operating room to talk to surgeon after surgery is finished.', 
+	    'Please inform relatives to wait outside of the operating room to talk to surgeon after surgery is finished.'
   	];
 
 	$scope.ClinixRID = $routeParams.p_clinixrid;
@@ -46,7 +45,7 @@ IOHPEApp.controller('PREOpKNEE_repeatbiCtrl', function ($scope, $routeParams, $h
 
 		OpObj.repeatBilOthers="";
 
-		alert("Entries Saved successfully!");
+		//alert("Entries Saved successfully!");
 
 		$scope.LoadKneeRepBilateral();
 	};

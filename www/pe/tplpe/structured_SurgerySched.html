@@ -1,11 +1,12 @@
-<!--div ng-controller="DiagsSchedSurgCtrl" -->
+<div ng-controller="StructuredSchedSurgCtrl">
+
 	<div scroll-bookmark="StructuredDischarge_SURGSCHED">
 		
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td class="text-left" colspan="9">
 					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
-			    		Schedule for Surgery
+			    		Schedule for Surgery (Structured Discharge)
 			    	</span>
 				</td>
 			</tr>
@@ -63,9 +64,9 @@
 	            <th width=> </th>
 			</tr>
 
-			<tr class="info" ng-repeat="schedSurgery in clinix_DiagSchedSurgery">
+			<tr class="info" ng-repeat="schedSurgery in clinix_StructuredSchedSurgery">
 	        	<td style="color:black">{{schedSurgery.SurgeryType}}</td>
-	        	<td style="color:black">{{schedSurgery.SurgeryDate | date}}</td>
+	        	<td style="color:black" nowrap>{{schedSurgery.SurgeryDate | date}}</td>
 	        	<td style="color:black">{{schedSurgery.Surgeon}}</td>
 	        	<td style="color:black">{{schedSurgery.Assistant}}</td>
 	        	<td style="color:black">{{schedSurgery.Cardio}}</td>
@@ -73,7 +74,7 @@
 	        	<td style="color:black">{{schedSurgery.Hospital}}</td>
 	        	<td style="color:black">{{schedSurgery.Others}}</td>
 	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{schedSurgery.ClinixRID}}" ng-click="removeDiagnosis(schedSurgery)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger" href="#/{{schedSurgery.ClinixRID}}" ng-click="removeItem(schedSurgery)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
@@ -85,4 +86,4 @@
 	        </tr>
 	    </table>
 	</div>
-<!-- /div -->
+</div>

@@ -5,8 +5,7 @@ IOHPEApp.controller('PREOpHIP_contactCtrl', function ($scope, $routeParams, $htt
 	$scope.conTacts = [
 	    'Admitting Surgeon', 
 	    'Anesthesiologist', 
-    	'Internist or Cardiologist', 
-    	'Preoperative sedation per Anesthesiologist'
+    	'Internist or Cardiologist'
   	];
 
 	$scope.ClinixRID = $routeParams.p_clinixrid;
@@ -48,7 +47,7 @@ IOHPEApp.controller('PREOpHIP_contactCtrl', function ($scope, $routeParams, $htt
 
 		OpObj.otHers = "";
 
-		alert("Entries Saved successfully!");
+		//alert("Entries Saved successfully!");
 
 		$scope.LoadHipContact();
 	};

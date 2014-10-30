@@ -4,6 +4,11 @@ IOHPEApp.controller('PREOpKNEE_antibioCtrl', function ($scope, $routeParams, $ht
 	$scope.ClinixRID = $routeParams.p_clinixrid;
 	// $scope.ClinixRID =  parseInt($scope.CurrentClinixRID);
 
+	$scope.antiBiotics = [
+	    'Cefuroxime 1.5grms in the OR before induction. Repeat 12 hrs. after surgery.'
+	    , 'Cefazolin 2grms in OR before induction repeat 8 hrs. After surgery.'
+  	];
+
 	$scope.LoadKNEEAntibio = function(){
 	    var promise = $ipadrbg.context.clinix_PREOp_KNEE_antibio.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
 	    promise.then(function(pxresult) {
@@ -16,29 +21,29 @@ IOHPEApp.controller('PREOpKNEE_antibioCtrl', function ($scope, $routeParams, $ht
  	$scope.LoadKNEEAntibio();
 
 	$scope.addNew = function (OpObj) {
-		if (OpObj.Antibiotic1) {
+		for (i = 0; i < OpObj.length; i++) {
 			newrecord = {
 		        ClinixRID : $scope.clinix.ClinixRID
 		        ,PxRID    : $scope.clinix.PxRID
 
-				,Antibiotic : OpObj.Antibiotic1
+				,Antibiotic : OpObj[i]
 			}
 			$ipadrbg.context.clinix_PREOp_KNEE_antibio.add(newrecord);
 		}
-		if (OpObj.Antibiotic2) {
+
+		if (OpObj.KneeOthers) {
 			newrecord = {
 		        ClinixRID : $scope.clinix.ClinixRID
 		        ,PxRID    : $scope.clinix.PxRID
 
-				,Antibiotic : OpObj.Antibiotic2
+				,Antibiotic : OpObj.KneeOthers
 			}
 			$ipadrbg.context.clinix_PREOp_KNEE_antibio.add(newrecord);
 		}
 
 		$ipadrbg.context.clinix_PREOp_KNEE_antibio.saveChanges();
 
-		OpObj.Antibiotic1="";
-		OpObj.Antibiotic2="";
+		OpObj.KneeOthers="";
 
 		$scope.LoadKNEEAntibio();
 	};
@@ -55,4 +60,15 @@ IOHPEApp.controller('PREOpKNEE_antibioCtrl', function ($scope, $routeParams, $ht
     		alert("Error deleting item!");
    		});
   	}
+
+  	$scope.kneeAntibio = {
+	    //antiBiotics: ['kneeAntibio']
+	};
+	$scope.checkAll = function() {
+		// alert("Hit!");
+    	$scope.kneeAntibio.antiBiotics = angular.copy($scope.antiBiotics);
+  	};
+  	$scope.uncheckAll = function() {
+    	$scope.kneeAntibio.antiBiotics = [];
+  	};
 });

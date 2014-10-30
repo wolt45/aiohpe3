@@ -4,6 +4,11 @@ IOHPEApp.controller('PREOpHIP_antibioCtrl', function ($scope, $routeParams, $htt
 	$scope.ClinixRID = $routeParams.p_clinixrid;
 	// $scope.ClinixRID =  parseInt($scope.CurrentClinixRID);
 
+	$scope.antiBiotics = [
+	    'Cefuroxime 1.5grms in the OR before induction. Repeat 12 hrs. after surgery.'
+	    , 'Cefazolin 2grms in OR before induction repeat 8 hrs. After surgery.'
+  	];
+
 	$scope.LoadHipAntibio = function(){
 	    var promise = $ipadrbg.context.clinix_PREOp_HIP_antibio.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
 	    promise.then(function(pxresult) {
@@ -11,34 +16,34 @@ IOHPEApp.controller('PREOpHIP_antibioCtrl', function ($scope, $routeParams, $htt
 	        $scope.clinix_PREOp_HIP_antibio = pxresult;
 	      });
 	    });
-	  };
+	};
 
  	$scope.LoadHipAntibio();
 
 	$scope.addNew = function (OpObj) {
-		if (OpObj.Antibiotic1) {
+		for (i = 0; i < OpObj.length; i++) {
 			newrecord = {
 		        ClinixRID : $scope.clinix.ClinixRID
 		        ,PxRID    : $scope.clinix.PxRID
 
-				,Antibiotic : OpObj.Antibiotic1
+				,Antibiotic : OpObj[i]
 			}
 			$ipadrbg.context.clinix_PREOp_HIP_antibio.add(newrecord);
-		}
-		if (OpObj.Antibiotic2) {
+	    }
+
+		if (OpObj.others) {
 			newrecord = {
 		        ClinixRID : $scope.clinix.ClinixRID
 		        ,PxRID    : $scope.clinix.PxRID
 
-				,Antibiotic : OpObj.Antibiotic2
+				,Antibiotic : OpObj.others
 			}
 			$ipadrbg.context.clinix_PREOp_HIP_antibio.add(newrecord);
 		}
 
 		$ipadrbg.context.clinix_PREOp_HIP_antibio.saveChanges();
 
-		OpObj.Antibiotic1="";
-		OpObj.Antibiotic2="";
+		OpObj.others = "";
 
 		$scope.LoadHipAntibio();
 	};
@@ -55,4 +60,16 @@ IOHPEApp.controller('PREOpHIP_antibioCtrl', function ($scope, $routeParams, $htt
     		alert("Error deleting item!");
    		});
   	}
+
+
+	$scope.hipAntibio = {
+	    //antiBiotics: ['hipAntibio']
+	};
+	$scope.checkAll = function() {
+		// alert("Hit!");
+    	$scope.hipAntibio.antiBiotics = angular.copy($scope.antiBiotics);
+  	};
+  	$scope.uncheckAll = function() {
+    	$scope.hipAntibio.antiBiotics = [];
+  	};
 });

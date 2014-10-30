@@ -10,22 +10,21 @@
 			    </td>
 			</tr>
 
-			<tr>
-				<td width="1%" class="text-center active">
-					<input type="checkbox" ng-model="hipAntiobio.Antibiotic1" ng-true-value="Cefuroxime 1.5 gms in the OR before induction.Repeat 12 hrs. after surgery.">  
+			<tr ng-repeat="antiBiotic in antiBiotics">
+				<td class="text-center active" width="1%">
+					<input type="checkbox" checklist-model="hipAntibio.antiBiotics" checklist-value="antiBiotic">
 				</td>
-				<td width="50%">
-					Cefuroxime 1.5 gms in the OR before induction.Repeat 12 hrs. after surgery.
-				</td>
-				<td></td>
+				<td> {{antiBiotic}} </td>
 			</tr>
+
 			<tr>
 				<td class="active">Others</td>
 				<td>
-					<input type="textbox" ng-model="hipAntiobio.Antibiotic2" class="form-control" placeholder="Others">
+					<input type="textbox" ng-model="hipAntibio.antiBiotics.others" class="form-control" placeholder="Others">
 				</td>
+				
 				<td width="15%" class="text-center">
-					<a class="btn btn-large btn-info" ng-click="addNew(hipAntiobio)" style="text-decoration: none">Save</a>	
+					<a class="btn btn-large btn-info" ng-click="addNew(hipAntibio.antiBiotics)" style="text-decoration: none">Save</a>	
 				</td>
 			</tr>
 		</table>

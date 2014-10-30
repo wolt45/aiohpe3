@@ -5,8 +5,7 @@ IOHPEApp.controller('PREOpKNEE_contactCtrl', function ($scope, $routeParams, $ht
 	$scope.conTacts = [
 	    'Admitting Surgeon', 
 	    'Anesthesiologist', 
-    	'Internist or Cardiologist', 
-    	'Preoperative sedation per Anesthesiologist'
+    	'Internist or Cardiologist'
   	];
 
 	$scope.ClinixRID = $routeParams.p_clinixrid;

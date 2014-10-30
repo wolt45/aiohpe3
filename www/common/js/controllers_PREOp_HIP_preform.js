@@ -3,15 +3,19 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
 
   	//http://vitalets.github.io/checklist-model/
 	$scope.preForms = [
-	    'Orthopedic bed with trapeze', 
-	    'Regular diet or unless otherwise specified', 
-    	'Get patient consent for Surgery', 
-    	'Nothing by mouth after midnight (NPO)', 
-    	'Shower the night before surgery and wash with soap and water from umbilicus to knee of the schedule extremity wrap with clean towel.',
-    	'Have BM the night before and empty bladder before going to surgery',
-    	'Type and x-match of packed red blood cells-units',
-    	'CBC (Hgb, Hct.) Hematocrit, Sed. Rate',
-    	'EKG'
+	    'Regular hospital bed.'
+	    , 'Orthopedic bed with trapeeze.'
+	    , 'Regular diet or unless otherwise specified.'
+	    , 'Get patient consent for Surgery.'
+    	, 'Nothing by mouth after midnight (NPO).'
+    	, 'Shower the night before surgery and wash with soap and water from umbilicus to knee of the schedule extremity wrap with clean towel.'
+    	, 'Have BM the night before and empty bladder before going to surgery.'
+    	, 'Type and x-match of packed red blood cells-units - PRBC.'
+    	, 'Type and x-match of packed red blood cells-units - Fresh whole blood.'
+    	, 'CBC (Hgb, Hct.) Hematocrit, Sed. Rate.'
+    	, 'EKG'
+    	, 'Hemostan 1gm in OR and repeat 1/2gm in about 6-12 hrs.'
+    	, 'Preoperative sedation per Anesthesiologist'
   	];
 
   	//$scope.ClinixRID = $routeParams.p_clinixrid;
@@ -48,7 +52,7 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
 	    }
 		$ipadrbg.context.clinix_PREOp_HIP_preform.saveChanges();
 
-		alert("Entries Saved successfully!");
+		//alert("Entries Saved successfully!");
 
 		$scope.LoadHipPreForm();
 	};
