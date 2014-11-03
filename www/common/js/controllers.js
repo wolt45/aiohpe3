@@ -7,8 +7,9 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
   $scope.ShowData = function(){
 
     var promise = $ipadrbg.context.clinix.filter(function (px) { 
-      return px.ClinixRID > this.id}
-      , {id:0}).order('TranStatus', 'AppDateSet', 'ClinixRID').toLiveArray();
+      
+      return px.ClinixRID > this.id }
+      , { id : 0 }).order('TranStatus', 'AppDateSet', 'ClinixRID').toLiveArray();
     
     promise.then(function(pxresult) {
       // for(key in pxresult){
@@ -54,11 +55,9 @@ IOHPEApp.controller('PXListPECtrl', function ($scope){
   $scope.clinix = [];
   $scope.ShowData = function(){
     var promise = $ipadrbg.context.clinix.filter(function (px) { 
-      // return px.ClinixRID > this.id && px.TranStatus >= this.trnSts }  
-      // , {id : 0, trnSts : 0 }).order('TranStatus' , 'AppDateSet', 'ClinixRID').toLiveArray();
-
-      return px.ClinixRID > this.id }  
-        , {id : 0}).order('TranStatus' , 'AppDateSet', 'ClinixRID').toLiveArray();
+      // NOTE: Extract list that have completed Initial Interview status
+      return px.ClinixRID > this.id && px.TranStatus >= this.trnSts }
+      , {id : 0, trnSts : 20 }).order('TranStatus' , 'AppDateSet', 'ClinixRID').toLiveArray();
 
     // Tasks.filter(" it.Completed == p1 && it.Priority > p2 ",{p1: true, p2: 100}).toArray(…) from http://jaydata.org/blog/simplified-filter-syntax-for-simple-tasks
     promise.then(function(pxresult) {
@@ -71,8 +70,6 @@ IOHPEApp.controller('PXListPECtrl', function ($scope){
     $scope.ShowData();
   }
 });
-
-
 
 
 IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){

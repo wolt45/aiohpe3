@@ -45,6 +45,9 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, clinix_StructuredSchedSurgery: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredSchedSurgery }
 	, clinix_StructuredHospitalization: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredHospitalization }
 	, clinix_StructuredLABS: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredLABS }
+	, clinix_StructuredDisposition: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredDisposition }
+	, clinix_StructuredManagement: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredManagement }
+	, clinix_StructuredMedication: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredMedication }
 	
 	, clinix_PEcharges: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PEcharges }
 	, lkup_PEChargesTariff: { type: $data.EntitySet, elementType: $ipadrbg.types.lkup_PEChargesTariff }

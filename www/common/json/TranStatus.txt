@@ -24,8 +24,11 @@ TranStatus
 
 
 SERVER SIDE
-97		No-Show patient, appoinemtn was set
-98		Called by Clerk/Doctor
+
+91 		No-Show patient, appoinemtn was set
+
+96		Initial Interview Cancelled
+98		Cancelled by Clerk/Doctor
 99		Transaction Completed
 			Paid in Full
 			Paid in Part, Charged in Part

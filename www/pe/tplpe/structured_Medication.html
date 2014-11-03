@@ -1,4 +1,4 @@
-<!-- div ng-controller="DiagsMedsCtrl" -->	
+<div ng-controller="StructuredMedsCtrl">	
 	
 	<div scroll-bookmark="StructuredDischarge_MEDICATION">
 		
@@ -46,13 +46,13 @@
 				<td></td>
 			</tr>
 
-			<tr class="info" ng-repeat="xMed in clinix_DiagsMedication">
+			<tr class="info" ng-repeat="xMed in clinix_StructuredMedication">
 	        	<td class="text-center" style="color:black" nowrap>{{xMed.GenericName}}</td>
 	        	<td class="text-center" style="color:black" nowrap>{{xMed.Brand}}</td>
 	            <td class="text-center" style="color:black">{{xMed.Qty}}</td>
 	            <td class="text-center" style="color:black">{{xMed.Dose}}</td>
 	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{xMed.ClinixRID}}" ng-click="removeDiagnosis(xMed)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger" href="#/{{xMed.ClinixRID}}" ng-click="removeItem(xMed)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>

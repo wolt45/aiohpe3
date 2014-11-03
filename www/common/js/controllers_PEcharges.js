@@ -121,8 +121,10 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
 
   $scope.ClosePE = function (clinix) {
     if (confirm('Are you sure to Close this Appoinment: ' + $scope.ClinixRID + ' ?')) {
+      
+      clinix.TranStatus = 2; // UNPAID
       $ipadrbg.context.clinix.attach(clinix);
-      clinix.TranStatus = 30;
+      
       clinix.pxAddress = null;
       $ipadrbg.context.clinix.saveChanges();
 

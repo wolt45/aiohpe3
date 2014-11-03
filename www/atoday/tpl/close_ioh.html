@@ -1,0 +1,62 @@
+<div ng-controller="CloseIOHCtrl">
+
+	<div scroll-bookmark="CloseIOH">	
+
+		<table class="table table-condensed table-bordered">
+			<tr class="success">
+				<th colspan=9>
+					<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+		    			Closing Initial Interview
+		    		</span>
+				</th>
+			</tr>
+
+
+			<tr>
+				<td class="text-left" colspan="5" nowrap>
+	            	Physical Examination Priority:
+	        	</td>
+	        </tr>
+	        <tr>	
+	        	<td></td>
+	        	<td class="text-center active" width="1%">
+					<input type="checkbox" checklist-model="hipPostform.preForms" checklist-value="preForm">
+				</td>
+
+				<td> H I P </td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+	        	<td class="text-center active">
+					<input type="checkbox" checklist-model="hipPostform.preForms" checklist-value="preForm">
+				</td>
+
+				<td> KNEE </td>
+				<td></td>
+				<td></td>
+			</tr>
+
+
+			<tr>
+				<td></td>
+				<td class="text-left" colspan="2">
+	            	<a class="btn btn-large btn-danger" ng-click="CloseIOH(clinix)" style="text-decoration: none">
+	            		CLOSE Interview
+	            	</a>
+	            </td>
+
+	            <td></td>
+
+	            <td>
+	            	<a class="btn btn-large btn-warning" ng-click="CancelIOH(clinix)" style="text-decoration: none">
+	            		CANCEL Interview
+	            	</a>
+	        	</td>
+			</tr>
+
+
+		</table>
+	</div>
+</div>
