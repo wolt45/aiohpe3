@@ -14,15 +14,28 @@ IOHPEApp.controller('DiagsDispositionCtrl', function ($scope, $routeParams, $htt
   $scope.LoadDiagsDisposition(); 
 
   $scope.addNew = function (daignosisObj) {
-    newrecord = {
-      ClinixRID : $scope.clinix.ClinixRID
-      ,PxRID    : $scope.clinix.PxRID
+    if (daignosisObj.Disposition) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
 
-      ,Disposition : daignosisObj.Disposition
-      ,DispoValue  : daignosisObj.DispoValue
-      ,FollowUpDate: daignosisObj.FollowUpDate
+        ,Disposition : daignosisObj.Disposition
+        ,DispoValue  : daignosisObj.DispoValue
+      }
+      $ipadrbg.context.clinix_DiagsDisposition.add(newrecord);
     }
-    $ipadrbg.context.clinix_DiagsDisposition.add(newrecord);
+    
+    if (daignosisObj.FollowUp) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Disposition : daignosisObj.FollowUp
+        ,FollowUpDate: daignosisObj.FollowUpDate
+      }
+      $ipadrbg.context.clinix_DiagsDisposition.add(newrecord);
+    }
+
     $ipadrbg.context.clinix_DiagsDisposition.saveChanges();
 
     daignosisObj.Disposition = "Follow Up Date";

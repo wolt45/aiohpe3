@@ -123,6 +123,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     if (confirm('Are you sure to Close this Appoinment: ' + $scope.ClinixRID + ' ?')) {
       
       clinix.TranStatus = 2; // UNPAID
+      clinix.TranStatusDisp = "UNPAID"; // UNPAID
       $ipadrbg.context.clinix.attach(clinix);
       
       clinix.pxAddress = null;
@@ -143,7 +144,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         $scope.clinix_AmbuStatus_JSON = JSON.stringify($scope.clinix_AmbuStatus);
         $http({
           method: 'POST'
-          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_AmbuStatus.php?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_AmbuStatus.php?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_AmbuStatus_JSON
           , cache : false
@@ -163,7 +164,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         $scope.clinix_Diagnosis_JSON = JSON.stringify($scope.clinix_Diagnosis);
         $http({
           method: 'POST'
-          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_Diagnosis.php?clinixJsonIzed=' + $scope.clinix_Diagnosis_JSON
+          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_Diagnosis.php?clinixJsonIzed=' + $scope.clinix_Diagnosis_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_Diagnosis_JSON
           , cache : false
@@ -182,7 +183,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         $scope.clinix_DiagsManagement_JSON = JSON.stringify($scope.clinix_DiagsManagement);
         $http({
           method: 'POST'
-          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsManagement.php?clinixJsonIzed=' + $scope.clinix_DiagsManagement_JSON
+          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsManagement.php?clinixJsonIzed=' + $scope.clinix_DiagsManagement_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_DiagsManagement_JSON
           , cache : false
@@ -201,7 +202,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         $scope.clinix_DiagsMedication_JSON = JSON.stringify($scope.clinix_DiagsMedication);
         $http({
           method: 'POST'
-          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsMedication.php?clinixJsonIzed=' + $scope.clinix_DiagsMedication_JSON
+          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsMedication.php?clinixJsonIzed=' + $scope.clinix_DiagsMedication_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_DiagsMedication_JSON
           , cache : false
@@ -220,7 +221,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         $scope.clinix_DiagSchedSurgery_JSON = JSON.stringify($scope.clinix_DiagSchedSurgery);
         $http({
           method: 'POST'
-          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsSchedSurgery.php?clinixJsonIzed=' + $scope.clinix_DiagSchedSurgery_JSON
+          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsSchedSurgery.php?clinixJsonIzed=' + $scope.clinix_DiagSchedSurgery_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_DiagSchedSurgery_JSON
           , cache : false
@@ -239,7 +240,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         $scope.clinix_DiagsDisposition_JSON = JSON.stringify($scope.clinix_DiagsDisposition);
         $http({
           method: 'POST'
-          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsDisposition.php?clinixJsonIzed=' + $scope.clinix_DiagsDisposition_JSON
+          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsDisposition.php?clinixJsonIzed=' + $scope.clinix_DiagsDisposition_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_DiagsDisposition_JSON
           , cache : false
@@ -258,7 +259,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         $scope.clinix_DiagsNotes_JSON = JSON.stringify($scope.clinix_DiagsNotes);
         $http({
           method: 'POST'
-          , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_DiagsNotes.php?clinixJsonIzed=' + $scope.clinix_DiagsNotes_JSON
+          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsNotes.php?clinixJsonIzed=' + $scope.clinix_DiagsNotes_JSON
           , contentType : 'application/json'
           , data : $scope.clinix_DiagsNotes_JSON
           , cache : false
@@ -310,7 +311,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     // Set TranStatus
     $http({
       method: 'POST'
-      , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_clinixTrnStts.php?clinixJsonIzed=' + $scope.clinix_JSON
+      , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_clinixTrnStts.php?clinixJsonIzed=' + $scope.clinix_JSON
       , contentType : 'application/json'
       , data : $scope.clinix_JSON
       , cache : false
@@ -319,7 +320,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     // PUASH BACk PE Charges
     $http({
       method: 'POST'
-      , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PEcharges.php?clinixJsonIzed=' + $scope.clinix_PEcharges_JSON
+      , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_PEcharges.php?clinixJsonIzed=' + $scope.clinix_PEcharges_JSON
       , contentType : 'application/json'
       , data : $scope.clinix_PEcharges_JSON
       , cache : false

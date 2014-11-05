@@ -66,24 +66,30 @@
 				</div>
 				<div id="SpicificMODULES" class="panel-collapse collapse" style="border: 1px solid #cfc ">
 					<div class="panel-body">
-						<div class="panel-heading btn btn-info btn-sm btn-block" style="border: 1px solid #cfc ">
-							<a  data-toggle="collapse" data-parent="#accordionSpecificModules" 	
-								href="today_nav_pe.html/#HIP"			
-								style="display:block; text-decoration:none; color: #000">
-								H I P
-							</a>
-						</div>
-						<div id="HIP" class="panel-collapse collapse" style="border: 1px solid #cfc ">
-							<div class="panel-body">
-								<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipPE"> HIP PE </a>
-								<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipMeasures"> Measurements </a>
-								<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipStanding"> Standing </a>
-								<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipMotionRange">Range of Motion</a>
-								<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipXRAYS"> HIP X-Rays </a>
-							</div>
-						</div>
 
-						<div ng-show="peprio == 'knee'">  	
+						<!-- div ng-show="peHIP == true" --> 
+
+							<div class="panel-heading btn btn-info btn-sm btn-block" style="border: 1px solid #cfc ">
+								<a  data-toggle="collapse" data-parent="#accordionSpecificModules" 	
+									href="today_nav_pe.html/#HIP"			
+									style="display:block; text-decoration:none; color: #000">
+									H I P
+								</a>
+							</div>
+							<div id="HIP" class="panel-collapse collapse" style="border: 1px solid #cfc ">
+								<div class="panel-body">
+									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipPE"> HIP PE </a>
+									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipMeasures"> Measurements </a>
+									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipStanding"> Standing </a>
+									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipMotionRange">Range of Motion</a>
+									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipXRAYS"> HIP X-Rays </a>
+								</div>
+							</div>
+
+						<!-- /div -->
+
+
+						<!-- div ng-show="peKNEE == true" -->  	
 
 							<div class="panel-heading btn btn-info btn-sm btn-block" style="border: 1px solid #cfc ">
 								<a data-toggle="collapse" data-parent="#accordionSpecificModules" 
@@ -103,7 +109,7 @@
 								</div>
 							</div>
 
-						</div>
+						<!-- /div -->
 
 					</div>
 				</div>
