@@ -1,0 +1,41 @@
+<!-- ETILOGY -->
+<div ng-controller="EtiologyCtrl">
+	<div scroll-bookmark="IOPEEtio">
+		<div class="panel panel-default">
+
+			<table class="table table-condensed table-bordered">
+				<tr class="info">
+					<th colspan=19>
+						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+			    			Ethiology
+			    		</span>
+					</th>
+				</tr>
+
+			  	<tr class="info" >
+	                <th class="text-center" style="color:#888" width="1%" nowrap>INJURY</th>
+	                <th class="text-center" style="color:#888" width="1%" nowrap>Date</th>
+	                <th class="text-center" style="color:#888" width="1%">WorkRelated</th>
+	                <th class="text-center" style="color:#888" width="1%">Details</th>
+	                <th class="text-center" style="color:#888" width="1%">Onset</th> 
+	                <th class="text-center" style="color:#888" width="1%">Duration</th> 
+	                <th class="text-center" style="color:#888" width="1%">Unit</th> 
+	                <th class="text-center" style="color:#888" width="1%">Severity</th> 
+	                <th></th>
+	            </tr>
+
+	            <tr class="info" ng-repeat="etiology in clinix_etiology">
+	                <td class="text-center" style="color:black" width="1%" nowrap>{{etiology.Injury}}</td>
+	                <td style="color:black" width="1%" nowrap>{{etiology.DateEtio}}</td>
+	                <td class="text-center" style="color:black" width="1%">{{etiology.WorkRelated}}</td>
+	                <td style="color:black" width="1%">{{etiology.WorkRelatedDetails}}</td>
+	                <td style="color:black" width="1%">{{etiology.OnsetAccuteGradual}}</td> 
+	                <td class="text-center" style="color:black" width="1%">{{etiology.Duration}}</td> 
+	                <td style="color:black" width="1%">{{etiology.DurationUnit}}</td> 
+	                <td style="color:black" width="1%">{{etiology.Severity}}</td> 
+	                <td></td>
+	            </tr>
+        	</table>
+		</div>
+	</div>
+</div>

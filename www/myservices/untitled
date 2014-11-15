@@ -1,0 +1,43 @@
+	// Pull All Clinix
+    $scope.pullAllClinix = function(){
+	    $scope.clinix = [];
+
+		$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
+	    success(function(data, status, headers, config) {
+			if (data !== null ) {
+
+		      	// save to websql
+			    for(idx in data){
+			    	if (data[idx].ClinixRID	> 0) {
+			    		var clinix = new $ipadrbg.types.clinix();
+					
+						ClinixPulled += '{"ClinixRID":' + data[idx].ClinixRID + '},';  // for Pulled Notification at REST 
+
+						clinix.ClinixRID 	= data[idx].ClinixRID;
+						clinix.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
+				    	clinix.PxRID 		= data[idx].PxRID;
+						clinix.pxname 		= data[idx].pxname;
+						clinix.pxAddress 	= data[idx].pxAddress;
+						clinix.pxstatus 	= data[idx].pxstatus;
+						clinix.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
+						clinix.pxFoto 		= data[idx].pxFoto;
+						clinix.TranStatus 	= data[idx].TranStatus;
+						clinix.TranStatusDisp = data[idx].TranStatusDisp;
+
+						$ipadrbg.context.clinix.add(clinix);
+					}
+			    }
+			    $ipadrbg.context.clinix.saveChanges();
+
+				// bind data to scope
+				$scope.clinix = data;
+				
+				// notify iPad User
+				alert("Import from Server Successful!");
+			}
+			else
+				alert("Nothing to Import from Server!");
+	    }).
+	    	error(function(data, status, headers, config) {
+	    });
+    }

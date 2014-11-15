@@ -1,0 +1,99 @@
+<div ng-controller="HipXRaysCtrl">
+	<div scroll-bookmark="HipXRAYS">
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td colspan="5">
+					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+			    		HIP Radiographic Findings
+			    	</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="1%" nowrap>AP Pelvis including both Hips</td>
+				<td width="20%">
+					<input type="Date" ng-model="HipXRays.APPelvisBothHipsDate" class="form-control" width="20px">
+				</td>
+				
+				<td class="text-right">Pelvis</td>
+				<td nowrap>
+					<select ng-model="HipXRays.Pelvis" class="form-control"> 
+						<option value="">(select pelvis)</option>
+						<option value="Normal">Normal</option>
+						<option value="Asymmetrical">Asymmetrical</option>
+						<!-- option value="Others">Others</option -->
+					</select>	
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<select ng-model="HipXRays.XRayArea" class="form-control"> 
+						<option value="">(select area)</option>
+						<option value="Hip Joint"> Hip Joint </option>
+						<option value="Avascular necrosis head"> Avascular necrosis head </option>
+						<option value="Narrowing of Hip Joint"> Narrowing of Hip Joint </option>
+						<option value="Subluxation"> Subluxation </option>
+						<option value="Osteoporosis"> Osteoporosis </option>
+						<option value="Fractures: Neck"> Fractures: Neck </option>
+						<option value="Intertrouch.UD"> Intertrouch.UD </option>
+					</select>
+				</td>
+
+				<td class="text-center">
+					<select ng-model="HipXRays.XRayAreaSeverity" class="form-control">
+						<option value="Mild">Mild</option>
+						<option value="Moderate">Moderate</option>
+						<option value="Severe">Severe</option>
+						<option value="Increasing">Increasing</option>
+						<option value="Progressive">Progressive</option>
+					</select> 
+				</td>
+			
+				<td class="text-right">Others</td>
+				<td>
+					<input type="text" class="form-control" ng-model="HipXRays.XRayOthers" placeholder="Others">
+				</td>
+			</tr>	
+
+			<tr>	
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(HipXRays)" style="text-decoration: none; color: #000">ADD</a>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+
+
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+				<th width="1%" class="text-center" style="color:#888">AP Pelvis DATE</th>  <!-- OnsetAccuteGradual -->
+	        	<th width="1%" class="text-center" style="color:#888" nowrap>PELVIS</th>
+	        	<th width="1%" class="text-center" style="color:#888" nowwrap>ITEM</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>SEVERITY</th>
+	            <th width="1%" class="text-center" style="color:#888">Others</th>
+	            <th width="1%"> </th>
+	            <th width=> </th>
+			</tr>
+
+			<tr class="info" ng-repeat="xrayRow in clinix_HipXRays">
+	        	<td style="color:black" nowrap>{{xrayRow.APPelvisBothHipsDate | date}}</td>
+	        	<td style="color:black" nowrap>{{xrayRow.Pelvis}}</td>
+	            <td style="color:black">{{xrayRow.XRayArea}}</td>
+	            <td style="color:black">{{xrayRow.XRayAreaSeverity}}</td>
+	            <td style="color:black">{{xrayRow.XRayOthers}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" href="#/{{xrayRow.ClinixRID}}" ng-click="removeHipXRays(xrayRow)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td>
+                	<a class="btn btn-large btn-warning" href="#/{{xrayRow.ChiefRID}}/edit" ng-click="editChiefComp(xrayRow)" style="text-decoration: none">
+                		EDIT
+                	</a>
+            	</td>
+	        </tr>
+		</table>
+	</div>
+</div>

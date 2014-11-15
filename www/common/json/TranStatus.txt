@@ -1,0 +1,50 @@
+TranStatus
+
+0 		Registered
+
+2 UNPAID
+
+10		Pulled by iPad, OPEN
+
+20		iPad PE Done, Next Patient Button Pushed
+		Notify Server Here
+	21	Push / Status Update - server.clinix
+	22	Push IOHPE 
+	23	Push PE
+	24	Push Media files	
+
+30	CLOSED PE
+
+	31  server notified, status changed 
+
+50 Pushed to Server, 
+	Upon Server Received, change status to
+90	UNPAID
+
+
+
+SERVER SIDE
+
+91 		No-Show patient, appoinemtn was set
+
+96		Initial Interview Cancelled
+98		Cancelled by Clerk/Doctor
+99		Transaction Completed
+			Paid in Full
+			Paid in Part, Charged in Part
+			Charged Full (A/R)
+
+
+USE CASES
+	Patient NO SHOW
+	iPad, Doctor Cancelled the Appoinment
+	Server, Clerk cancelled the Appointment
+
+
+
+  $scope.clinixTranStts = [
+      { id :  0, TrnStts : "APPT SET"				, purpose : "server registered"}
+    , { id : 10, TrnStts : "IOHPE"					, purpose : "pulled by iPad successfully, for initial interview"}
+    , { id : 20, TrnStts : "ON PE"					, purpose : "server registered"}
+    , { id : 30, TrnStts : "CLOSED PE"				, purpose : "server registered"}
+  ];

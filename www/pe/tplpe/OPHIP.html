@@ -1,0 +1,163 @@
+<div scroll-bookmark="OPHIP">
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+	    			Hip Replacement Operative Report
+	    		</span>
+			</th>
+		</tr>
+
+		<tr class="warning">
+			<td width="1%" colspan="9" nowrap>
+				<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+		    		PREOPERATIVE DIAGNOSIS
+		    	</span>
+		    </td>
+		</tr>
+	</table>
+
+	<table class="table table-condensed table-bordered">
+		<tr class="active">
+			<td>Surgeon: Ramon B. Gustilo,M.D</td>
+			<td colspan="3">Assistant/s: <input type="text" id="SugAssistant" class="form-control" placeholder="Name of Assistant/s"></td>
+		</tr>
+
+		<tr class="active">
+			<td>Anaesthesiologist: <input type="text" class="form-control" id="Anaesthesiologist" placeholder=" Name of Anaesthesiologist"></td>
+			<td>Type of Anesthesia: 
+				<input type="radio" name="AnesThesia" value="1" checked> Spinal
+				<input type="radio" name="AnesThesia" value="2"> Epidural
+				<input type="radio" name="AnesThesia" value="3"> Nerve Blocks
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td colspan="2">Type of Surgery: Total hip replacement,
+				<input type="radio" name="TypeSurg" value="1" checked> Cemented
+				<input type="radio" name="TypeSurg" value="2"> Hybrid
+				<input type="radio" name="TypeSurg" value="3"> Cement Less
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td>Implants Used: <input type="text" class="form-control" placeholder="Implants Used"></td>
+		</tr>
+
+		<tr class="active">
+			<td>Sizes: <input type="text" class="form-control" id="sizes"placeholder="Sizes of Cements"></td>
+			<td>Size: <input type="text" class="form-control" id="size" placeholder="Size"></td>
+		</tr>
+
+		<tr>
+			<td>Head Size: <input type="text" class="form-control" id="HeadSize" placeholder="Head Size"></td>
+			<td>Neck Length: <input type="text" class="form-control" id="HeadSize" placeholder="Neck Length"></td>
+		</tr>
+
+		<tr class="active">
+			<td>Sizes: <input type="text" class="form-control" id="sizes"placeholder="Sizes of Cements"></td>
+			<td>Size: <input type="text" class="form-control" id="size" placeholder="Size"></td>
+		</tr>
+
+		<tr>
+			<td>Acetabular component: <input type="text" class="form-control" id="AceComponent" placeholder="Acetabular Component"></td>
+			<td>Size: <input type="text" class="form-control" id="AceSize" placeholder="Size of Acetabular Component"></td>
+			<td>Screws: <input type="text" class="form-control" id="Screw" placeholder="Screws"></td>
+		</tr>
+
+		<tr>
+			<td>Acetabular preperation: <input type="text" class="form-control" id="AcePreperation" placeholder="Acetabular Preperation"></td>
+			<td>Cemented: <input type="text" class="form-control" id="Cemented" placeholder="Cemented"></td>
+		</tr>
+
+		<tr>
+			<td colspan="2">Femoral preperation: 
+				<input type="radio" name="FemPrep" value="1" checked> Cemented
+				<input type="radio" name="FemPrep" value="2"> Hybrid
+				<input type="radio" name="FemPrep" value="3"> Cement Less
+			</td>
+		</tr>
+
+		<tr>
+			<td>Surgical Technique:</td>
+		</tr>
+
+		<tr>
+			<td>Surgical approach:
+				<input type="radio" name="SurgApp" value="1" checked> Anterior
+				<input type="radio" name="SurgApp" value="2"> Transtrochanteric
+			</td>
+		</tr>
+
+		<tr>
+			<td>Stability:</td>
+		</tr>
+
+		<tr>
+			<td>Posterior:
+				<input type="radio" name="Posterior" value="1" checked> Yes
+				<input type="radio" name="Posterior" value="2"> No
+			</td>
+			<td>Anterior:
+				<input type="radio" name="Anterior" value="1" checked> Yes
+				<input type="radio" name="Anterior" value="2"> No
+			</td>
+		</tr>
+
+		<tr>
+			<td>Hemovac used:
+				<input type="radio" name="Hemovac" value="1" checked> None
+				<input type="radio" name="Hemovac" value="2"> Yes
+			</td>
+		</tr>
+
+		<tr>
+			<td>Operative Blood Loss:
+				<input type="radio" name="OpBlodLos" value="1" checked> CC
+				<input type="radio" name="OpBlodLos" value="2"> Closure/routine
+			</td>
+			<td>
+				Others <input type="text" id="othersopblod" class="form-control">
+			</td>
+		</tr>
+
+		<tr>
+			<td>Operative Course:
+				<input type="radio" name="OpCourse" value="1" checked> uneventful
+				<input type="radio" name="OpCourse" value="2"> Complications
+			</td>
+		</tr>
+
+		<tr>
+			<td>Operative Findings:</td>
+			<td><textarea class="form-control" id="OpFindings"></textarea></td>
+		</tr>
+
+		<tr>
+			<td>Postoperative Diagnosis:</td>
+			<td><textarea class="form-control" id="PostDiag"></textarea></td>
+		</tr>
+
+		<tr>
+			<td>
+				Duration of Operation: <input type="time" class="form-control" id="timecontrol" placeholder="Duration Operation">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				X - rays: <input type="text" class="form-control" id="xrays" placeholder="X-rays">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Recovery Room:
+			</td>
+			<td>
+				<textarea class="form-control" id="RecovRom" id="RecovRoom" placeholder="RecoveryRoom"></textarea>
+			</td>
+		</tr>
+		
+	</table>
+</div>

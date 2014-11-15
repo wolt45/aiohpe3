@@ -1,0 +1,67 @@
+<div ng-controller="PXDetailCtrl">
+
+	<div scroll-bookmark="ChartData">
+		<div class="panel panel-danger">
+
+			<table class="table table-bordered table-condensed">
+				<tr class="success">
+					<td rowspan=3 width="1%">
+						<img ng-src="..//images/{{clinix.pxFoto}}" width="120">
+					</td>
+					<!-- td rowspan=3 width="1%">&nbsp;</td -->
+				</tr>
+				<tr class="success">
+					<td class="text-center" width="1%" style="color: #000" nowrap>Appt: 
+						<span style="font-weight: bold; font-size: 24px"> {{clinix.ClinixRID}} </span>
+						<br>
+						{{clinix.AppDateSet | date}}
+						<br>
+						<span style="font-weight: bold; font-size: 24px"> 
+							<span style="color:{{clinix.preForeColor}}; background-color:{{clinix.preBackColor}}">
+								&nbsp; {{clinix.TranStatusDisp}} &nbsp;
+							</span>
+						</span>
+					</td>
+
+					<th class="text-center" width="1%" style="color: #000" nowrap>
+						chart: {{clinix.PxRID}} <br> <span style="font-size:16px">{{clinix.pxregdate | date}}</span>
+					</th>
+
+					<th width="1%" style="color: #000" nowrap>{{clinix.pxname}}</th>
+					<td class="text-right" style="color: #000">
+						0.00
+					</td>
+				</tr>
+				<tr class="success" style="color: #000">
+					<td colspan=4 nowrap>
+						{{clinix.pxstatus}}, 
+						{{clinix.pxAddress}}
+					</td>
+				</tr>
+			</table>
+
+
+			<!-- table class="table table-bordered table-condensed">
+				<tr class="info">
+					<th class="text-center" style="color: #000" colspan=9>
+						<h3><i>(results of Initial Interview here)</i></h3>
+					</th>
+				</tr>
+			</table -->
+
+		</div>
+	</div>
+
+</div>
+
+<!-- 
+Chart
+RegDate
+pxname
+address
+DOB /age /sex /marital /status
+race
+contact number
+occupation
+insurance
+-->
