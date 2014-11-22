@@ -846,6 +846,8 @@ function PushController($rootScope, $scope, $http) {
       $scope.Push_HIP_PREop_ANTIBIOTICS();
       $scope.Push_HIP_PREop_REPEAT();
 
+      $scope.Push_HIP_POSTop_FORM();
+
       alert("EXPORT HIP Ops to Server Successful!");
     }
   }
@@ -934,35 +936,148 @@ function PushController($rootScope, $scope, $http) {
   }
 
 
+  $scope.Push_HIP_POSTop_FORM = function(){
+    $scope.clinix_POSTOp_HIP_preform = [];
+    var promise = $ipadrbg.context.clinix_POSTOp_HIP_preform.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
 
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.clinix_POSTOp_HIP_preform = pxresult;
+      });
+      $scope.clinix_POSTOp_HIP_preform_JSON = JSON.stringify($scope.clinix_POSTOp_HIP_preform);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_POSTop_HIP_Preform.php'
+        , contentType : 'application/json'
+        , data : $scope.clinix_POSTOp_HIP_preform_JSON
+        , cache : true
+      });
+    });
+  }
+  //?clinixJsonIzed=' + $scope.clinix_POSTOp_HIP_preform_JSON
 
-
-
-
-
-
-
-
-  // KNEE section
-  // KNEE section
-  // KNEE section
+  // KNEE PRE-OPERATIVE section
+  // KNEE PRE-OPERATIVE section
+  // KNEE PRE-OPERATIVE section
 
   $scope.pushKNEEops = function() {
     if (confirm('PROCEED with K N E E Operative Reports Synch-Push BACK Process?')) {
-      // $scope.PushIOH_ChiefComp();
-      // $scope.PushIOH_spineIntl();
-      // $scope.PushIOH_Ethiology();
-      // $scope.PushIOH_PastTreatments();
-      // $scope.PushIOH_PrevSurge();
-      // $scope.PushIOH_LABS();
-      // $scope.PushIOH_MedHist();
+      $scope.Push_KNEE_PREop_FORM();
+      $scope.Push_KNEE_PREop_CONTACT();
+      $scope.Push_KNEE_PREop_ANTIBIOTICS();
+      $scope.Push_KNEE_PREop_REPEAT();
 
-
+      $scope.Push_KNEE_POSTop_FORM();
       alert("EXPORT KNEE Ops to Server Successful!");
     }
   }
 
 
+  $scope.Push_KNEE_PREop_FORM = function(){
+    $scope.clinix_PREOp_KNEE_preform = [];
+    var promise = $ipadrbg.context.clinix_PREOp_KNEE_preform.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.clinix_PREOp_KNEE_preform = pxresult;
+      });
+      $scope.clinix_PREOp_KNEE_preform_JSON = JSON.stringify($scope.clinix_PREOp_KNEE_preform);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PREop_KNEE_Preform.php?clinixJsonIzed=' + $scope.clinix_PREOp_KNEE_preform_JSON
+        , contentType : 'application/json'
+        , data : $scope.clinix_PREOp_KNEE_preform_JSON
+        , cache : false
+      });
+    });
+  }
+
+
+  $scope.Push_KNEE_PREop_CONTACT = function(){
+    $scope.clinix_PREOp_KNEE_contact = [];
+    var promise = $ipadrbg.context.clinix_PREOp_KNEE_contact.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.clinix_PREOp_KNEE_contact = pxresult;
+      });
+      $scope.clinix_PREOp_KNEE_contact_JSON = JSON.stringify($scope.clinix_PREOp_KNEE_contact);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PREop_KNEE_Contact.php?clinixJsonIzed=' + $scope.clinix_PREOp_KNEE_contact_JSON
+        , contentType : 'application/json'
+        , data : $scope.clinix_PREOp_KNEE_contact_JSON
+        , cache : false
+      });
+    });
+  }
+
+
+  $scope.Push_KNEE_PREop_ANTIBIOTICS = function(){
+    $scope.clinix_PREOp_KNEE_antibio = [];
+    var promise = $ipadrbg.context.clinix_PREOp_KNEE_antibio.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.clinix_PREOp_KNEE_antibio = pxresult;
+      });
+      $scope.clinix_PREOp_KNEE_antibio_JSON = JSON.stringify($scope.clinix_PREOp_KNEE_antibio);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PREop_KNEE_AntiBio.php?clinixJsonIzed=' + $scope.clinix_PREOp_KNEE_antibio_JSON
+        , contentType : 'application/json'
+        , data : $scope.clinix_PREOp_KNEE_antibio_JSON
+        , cache : false
+      });
+    });
+  }
+
+
+  $scope.Push_KNEE_PREop_REPEAT = function(){
+    $scope.clinix_PREOp_KNEE_repeatBilateral = [];
+    var promise = $ipadrbg.context.clinix_PREOp_KNEE_repeatBilateral.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.clinix_PREOp_KNEE_repeatBilateral = pxresult;
+      });
+      $scope.clinix_PREOp_KNEE_repeatBilateral_JSON = JSON.stringify($scope.clinix_PREOp_KNEE_repeatBilateral);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PREop_KNEE_repeatB.php?clinixJsonIzed=' + $scope.clinix_PREOp_KNEE_repeatBilateral_JSON
+        , contentType : 'application/json'
+        , data : $scope.clinix_PREOp_KNEE_repeatBilateral_JSON
+        , cache : false
+      });
+    });
+  }
+
+
+  $scope.Push_KNEE_POSTop_FORM = function(){
+    $scope.clinix_POSTOp_KNEE_preform = [];
+    var promise = $ipadrbg.context.clinix_POSTOp_KNEE_preform.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.clinix_POSTOp_KNEE_preform = pxresult;
+      });
+      $scope.clinix_POSTOp_KNEE_preform_JSON = JSON.stringify($scope.clinix_POSTOp_KNEE_preform);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_POSTop_KNEE_Preform.php'
+        , contentType : 'application/json'
+        , data : $scope.clinix_POSTOp_KNEE_preform_JSON
+        , cache : true
+      });
+    });
+  }
+  // ?clinixJsonIzed=' + $scope.clinix_POSTOp_KNEE_preform_JSON
 
   // floor of PUSHES 
 }

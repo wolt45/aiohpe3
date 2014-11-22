@@ -42,7 +42,13 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 
 	, clinix_POSTOp_HIP_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_POSTOp_HIP_preform }
 
+	, clinix_PREOp_KNEE_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_preform }
+	, clinix_PREOp_KNEE_contact: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_contact }
+	, clinix_PREOp_KNEE_antibio: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_antibio }
+	, clinix_PREOp_KNEE_repeatBilateral: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_repeatBilateral }
 
+	, clinix_POSTOp_KNEE_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_POSTOp_KNEE_preform }
+	
 
 
 	

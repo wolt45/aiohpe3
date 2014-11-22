@@ -13,9 +13,9 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
     	, 'Type and x-match of packed red blood cells-units - PRBC.'
     	, 'Type and x-match of packed red blood cells-units - Fresh whole blood.'
     	, 'CBC (Hgb, Hct.) Hematocrit, Sed. Rate.'
-    	, 'EKG'
+    	, 'EKG.'
     	, 'Hemostan 1gm in OR and repeat 1/2gm in about 6-12 hrs.'
-    	, 'Preoperative sedation per Anesthesiologist'
+    	, 'Preoperative sedation per Anesthesiologist.'
   	];
 
   	//$scope.ClinixRID = $routeParams.p_clinixrid;

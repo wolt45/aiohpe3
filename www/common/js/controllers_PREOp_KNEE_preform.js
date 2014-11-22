@@ -4,15 +4,15 @@ IOHPEApp.controller('PREOpKNEE_preformCtrl', function ($scope, $routeParams, $ht
   	//http://vitalets.github.io/checklist-model/
 	$scope.preForms = [
 		'Regular hospital bed.'
-	    , 'Orthopedic bed with trapeeze'
-	    , 'Regular diet or unless otherwise specified'
-    	, 'Get patient consent for Surgery'
-    	, 'Nothing by mouth after midnight (NPO)'
+	    , 'Orthopedic bed with trapeeze.'
+	    , 'Regular diet or unless otherwise specified.'
+    	, 'Get patient consent for Surgery.'
+    	, 'Nothing by mouth after midnight (NPO).'
     	, 'Shower the night before surgery and wash with soap and water from umbilicus to knee of the schedule extremity wrap with clean towel.'
-    	, 'Have BM the night before and empty bladder before going to surgery'
-    	, 'Type and x-match of packed red blood cells-units'
+    	, 'Have BM the night before and empty bladder before going to surgery.'
+    	, 'Type and x-match of packed red blood cells-units.'
     	, 'CBC, Hematocrit, hemoglobin, Sed. Rate.'
-    	, 'EKG'
+    	, 'EKG.'
     	, 'Hemostan 1gm in OR and repeat 1/2gm in about 6-12 hrs.'
     	, 'Preoperative sedation per Anesthesiologist.'
   	];
