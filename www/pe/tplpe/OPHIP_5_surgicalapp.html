@@ -1,0 +1,60 @@
+<!--div ng-controller="PREOpHIP_preformCtrl" -->
+	
+	<div scroll-bookmark="OPHIP_5">
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td width="1%" colspan="9" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+			    		Surgical Approach
+			    	</span>
+			    </td>
+			</tr>
+
+			<tr class="active">
+				<td nowrap>
+					Surgical Approach
+					<br>
+					<select class="form-control">
+						<option value=""> (select one) </option>
+						<option value="Anterior"> Posterior </option>
+						<option value="Anterior"> Anterior </option>
+						<option value="Transtrochanteric"> Transtrochanteric </option>
+					</select>
+				</td>
+				<td></td>
+			</tr>
+
+			<tr class="active">
+				<td nowrap>
+					STABILITY
+					<br>
+					Posterior: &nbsp;&nbsp;
+					<input type="radio" value="1" checked> Yes &nbsp;&nbsp;
+					<input type="radio" value="2"> No
+				</td>
+				<td nowrap>
+					<br>
+					Anterior: &nbsp;&nbsp;
+					<input type="radio" value="1"> Yes &nbsp;&nbsp;
+					<input type="radio" value="2"> No
+				</td>
+			</tr>
+
+			<tr class="active">
+				<td nowrap>
+					Hemovac used: &nbsp;&nbsp;
+					<input type="radio" value="No Hemovac used" checked> No &nbsp;&nbsp;
+					<input type="radio" value="Hemovac used"> Yes
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="text-center" nowrap>
+					<a class="btn btn-large btn-info" ng-click="addNew2(xxx)" style="text-decoration: none; color: #000">Save</a>
+				</td>
+			</tr>
+		</table>
+	</div>		
+<!-- /div -->		

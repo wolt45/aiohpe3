@@ -5,7 +5,7 @@ function DataController($rootScope, $scope, $http) {
     	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed?')) {
 		    $scope.clinix = [];
 
-			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
+			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
 		    success(function(data, status, headers, config) {
 				if (data !== null ) {
 
@@ -64,7 +64,7 @@ function DataController($rootScope, $scope, $http) {
 	    	// if local data is outdated then pull data from server
 	    	// if local data is latest then push to server 
 
-			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix.php'}).
+			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix.php'}).
 		    success(function(data, status, headers, config) {
 		      	// this callback will be called asynchronously
 		      	// when the response is available
@@ -128,7 +128,7 @@ function DataController($rootScope, $scope, $http) {
 						//var clinixJson = JSON.stringify(ClinixPulled);
 						$http({
 							method: 'POST'
-							, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
+							, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
 							, contentType : 'application/json'
 							, data : ClinixPulled
 							, cache : false
@@ -164,7 +164,7 @@ function DataController($rootScope, $scope, $http) {
 	        //db.close();
 	        // after truncate
 
-			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/pull_TranStatus.php'}).
+			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/pull_TranStatus.php'}).
 		    success ( function ( data, status, headers, config ) {
 
 				if (data !== null ) {
@@ -211,7 +211,7 @@ function DataController($rootScope, $scope, $http) {
 	        //db.close();
 	        // after truncate
 
-			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/pull_ChargesTariff.php'}).
+			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/pull_ChargesTariff.php'}).
 		    success ( function ( data, status, headers, config ) {
 
 				if (data !== null ) {

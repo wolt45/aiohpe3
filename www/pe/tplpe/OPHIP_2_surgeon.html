@@ -1,0 +1,97 @@
+<div ng-controller="OPHIP_2Ctrl">
+	
+	<div scroll-bookmark="OPHIP_2">
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td width="1%" colspan="9" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+			    		Surgery
+			    	</span>
+			    </td>
+			</tr>
+
+			<tr class="active">
+				<td nowrap>
+					Surgeon
+					<br>
+					<input type="text" class="form-control" ng-model="schedSurgeGrp.Surgeon">
+				</td>
+		
+				<td nowrap>
+					Assistant/s
+					<br>
+					<input type="text" class="form-control" ng-model="schedSurgeGrp.Assistant">
+				</td>
+			</tr>
+
+			<tr class="active">
+				<td nowrap>
+					Internist/Cardio
+					<br>
+					<input type="text" class="form-control" ng-model="schedSurgeGrp.Cardio">
+				</td>
+			</tr>
+
+			<tr class="active">			
+				<td nowrap>
+					Anaesthesiologist
+					<br>
+					<input type="text" class="form-control" ng-model="schedSurgeGrp.Anesthesio">
+				</td>
+			
+				<td nowrap>
+					Type of Anesthesia<br>
+					<select class="form-control" ng-model="schedSurgeGrp.AnesthesiaType">
+						<option value=""> (select one) </option>
+						<option value="Spinal"> Spinal </option>
+						<option value="Epidural"> Epidural </option>
+						<option value="Nerve Blocks"> Nerve Blocks </option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="text-center" nowrap>
+					<a class="btn btn-large btn-info" 
+						ng-click="addNew(schedSurgeGrp)" 
+						style="text-decoration: none; color: #000">
+						Save
+					</a>
+				</td>
+			</tr>
+		</table>
+
+
+
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Surgeon</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Assisting</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Internist</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Anesthesiologist</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Anesthesia</th>
+	            <th width="1%"> </th>
+	            <th width=> </th>
+			</tr>
+
+			<tr class="info" ng-repeat="schedSurgery in jdata_OPHIP_2">
+	        	<td style="color:black">{{schedSurgery.Surgeon}}</td>
+	        	<td style="color:black">{{schedSurgery.Assistant}}</td>
+	        	<td style="color:black">{{schedSurgery.Cardio}}</td>
+	        	<td style="color:black">{{schedSurgery.Anesthesio}}</td>
+	        	<td style="color:black">{{schedSurgery.AnesthesiaType}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" ng-click="removeItem(schedSurgery)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td>
+            	</td>
+	        </tr>
+	    </table>
+
+
+
+	</div>		
+</div>
