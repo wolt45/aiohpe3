@@ -1,4 +1,4 @@
-<!--div ng-controller="PREOpHIP_preformCtrl" -->
+<div ng-controller="OPHIP_3Ctrl">
 	
 	<div scroll-bookmark="OPHIP_3">
 
@@ -14,7 +14,7 @@
 			<tr class="active">
 				<td nowrap>
 					Type of HIP replacement<br>
-					<select class="form-control">
+					<select class="form-control" ng-model="ophip3.TypeOfHIPRep">
 						<option value=""> (select one) </option>
 						<option value="Cemented"> Cemented </option>
 						<option value="Hybrid"> Hybrid </option>
@@ -25,7 +25,7 @@
 				<td nowrap>
 					Implants Used
 					<br>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" ng-model="ophip3.ImplantUsed">
 				</td>
 			</tr>
 
@@ -33,7 +33,7 @@
 				<td nowrap>
 					Name
 					<br>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" ng-model="ophip3.ImpName">
 				</td>
 			</tr>
 
@@ -43,21 +43,52 @@
 					<br>
 					Head Size
 					<br>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" ng-model="ophip3.HeadSize">
 				</td>
 				<td nowrap>
 					<br>
 					Neck Length
 					<br>
-					<input type="text" class="form-control"
+					<input type="text" class="form-control" ng-model="ophip3.NeckLength">
 				</td>
 			</tr>
 
 			<tr>
 				<td colspan="2" class="text-center" nowrap>
-					<a class="btn btn-large btn-info" ng-click="addNew2(xxx)" style="text-decoration: none; color: #000">Save</a>
+					<a class="btn btn-large btn-info" ng-click="addNew(ophip3)" style="text-decoration: none; color: #000">Save</a>
 				</td>
 			</tr>
 		</table>
+
+
+
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+	        	<th width="1%" class="text-center" style="color:#888" nowwrap>TYPE</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>IMPLANT USED</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>NAME</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>HEAD SIZE</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>NECK LENGTH</th>
+	            <th width="1%"> </th>
+	            <th width=> </th>
+			</tr>
+
+			<tr class="info" ng-repeat="ophip3Row in jdata_OPHIP_3">
+	        	<td style="color:black">{{ophip3Row.TypeOfHIPRep}}</td>
+	        	<td style="color:black">{{ophip3Row.ImplantUsed}}</td>
+	        	<td style="color:black">{{ophip3Row.ImpName}}</td>
+	        	<td style="color:black">{{ophip3Row.HeadSize}}</td>
+	        	<td style="color:black">{{ophip3Row.NeckLength}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" ng-click="removeItem(ophip3Row)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td>
+            	</td>
+	        </tr>
+	    </table>
+
+
 	</div>		
-<!-- /div -->		
+</div>

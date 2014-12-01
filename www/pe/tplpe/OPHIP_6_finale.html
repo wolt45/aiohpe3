@@ -1,4 +1,4 @@
-<!--div ng-controller="PREOpHIP_preformCtrl" -->
+<div ng-controller="OPHIP_6Ctrl">
 	
 	<div scroll-bookmark="OPHIP_6">
 
@@ -15,7 +15,7 @@
 				<td colspan="2" nowrap>
 					Operative Blood Loss
 					<br>
-					<input type="text" class="form-control" placeholder="cc">
+					<input type="text" class="form-control" placeholder="cc" ng-model="ophip6.BloodLoss">
 				</td>
 			</tr>
 
@@ -23,7 +23,7 @@
 				<td colspan="2" nowrap>
 					Closure/routine
 					<br>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" ng-model="ophip6.Closure">
 				</td>
 			</tr>
 
@@ -31,7 +31,7 @@
 				<td colspan="2" nowrap>
 					Operative Course
 					<br>
-					<textarea class="form-control" rows="3"></textarea>
+					<textarea class="form-control" rows="3" ng-model="ophip6.OperativeCourse"></textarea>
 				</td>
 			</tr>
 
@@ -39,7 +39,7 @@
 				<td colspan="2" nowrap>
 					Operative Findings:
 					<br>
-					<textarea class="form-control" rows="3"></textarea>
+					<textarea class="form-control" rows="3" ng-model="ophip6.Findings"></textarea>
 				</td>
 			</tr>
 
@@ -47,7 +47,7 @@
 				<td colspan="2" nowrap>
 					POST Operative Diagnosis
 					<br>
-					<textarea class="form-control" rows="3"></textarea>
+					<textarea class="form-control" rows="3" ng-model="ophip6.Diagnosis"></textarea>
 				</td>
 			</tr>
 
@@ -55,7 +55,7 @@
 				<td colspan="2" nowrap>
 					Duration of Operation
 					<br>
-					<textarea class="form-control" rows="3"></textarea>
+					<textarea class="form-control" rows="3" ng-model="ophip6.OpDuratiion"></textarea>
 				</td>
 			</tr>
 
@@ -63,7 +63,7 @@
 				<td colspan="2" nowrap>
 					X-Rays
 					<br>
-					<textarea class="form-control" rows="3"></textarea>
+					<textarea class="form-control" rows="3" ng-model="ophip6.XRays"></textarea>
 				</td>
 			</tr>
 
@@ -71,15 +71,30 @@
 				<td colspan="2" nowrap>
 					Others
 					<br>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" ng-model="ophip6.Others">
 				</td>
 			</tr>
 
 			<tr>
 				<td colspan="2" class="text-center" nowrap>
-					<a class="btn btn-large btn-info" ng-click="addNew2(xxx)" style="text-decoration: none; color: #000">Save</a>
+					<a class="btn btn-large btn-info" ng-click="addNew(ophip6)" style="text-decoration: none; color: #000">Save</a>
 				</td>
 			</tr>
 		</table>
+
+
+		<table class="table table-condensed table-bordered">
+			<tr class="info" ng-repeat="ophip6Row in jdata_OPHIP_6">
+	        	<td style="color:black">{{ophip6Row.Operative}}</td>
+	        	<td style="color:black">{{ophip6Row.OperValue}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" ng-click="removeItem(ophip6Row)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td></td>
+	        </tr>
+	    </table>
+
 	</div>		
-<!-- /div -->		
+</div>

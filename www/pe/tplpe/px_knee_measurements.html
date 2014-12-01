@@ -14,15 +14,40 @@
 
 			<tr>
 				<td nowrap>
-					<select ng-model="KneeMeasures.Supine" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="Leg length: ASIS / mm"> Leg length: ASIS / mm </option>
-						<option value="Thigh"> Thigh </option>
-						<option value="LEG Circumference"> LEG Circumference </option>
-					</select>
+					Leg length: ASIS
 				</td>
-				<td><input type="text" class="form-control" ng-model="KneeMeasures.Left" placeholder="Left" ></td>
-				<td><input type="text" class="form-control" ng-model="KneeMeasures.Right" placeholder="Right" ></td>
+				<td>
+					<input type="text" class="form-control" ng-model="KneeMeasures.LegAsisLeft" placeholder="Left" >
+				</td>
+				<td>
+					<input type="text" class="form-control" ng-model="KneeMeasures.LegAsisRight" placeholder="Right" >
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td nowrap>
+					Thigh
+				</td>
+				<td>
+					<input type="text" class="form-control" ng-model="KneeMeasures.ThighLeft" placeholder="Left" >
+				</td>
+				<td>
+					<input type="text" class="form-control" ng-model="KneeMeasures.ThighRight" placeholder="Right" >
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td nowrap>
+					LEG Circumference
+				</td>
+				<td>
+					<input type="text" class="form-control" ng-model="KneeMeasures.LegCircLeft" placeholder="Left" >
+				</td>
+				<td>
+					<input type="text" class="form-control" ng-model="KneeMeasures.LegCircRight" placeholder="Right" >
+				</td>
 				<td></td>
 			</tr>
 

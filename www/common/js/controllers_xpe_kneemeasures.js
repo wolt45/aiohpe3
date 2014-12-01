@@ -14,21 +14,47 @@ IOHPEApp.controller('KneeMeasuresCtrl', function ($scope, $routeParams, $http){
   $scope.LoadKneeMeasures();
 
   $scope.addNew = function (kneeMeasure) {
-    newrecord = {
-      ClinixRID : $scope.clinix.ClinixRID
-      ,PxRID    : $scope.clinix.PxRID
+    if (kneeMeasure.LegAsisLeft || kneeMeasure.LegAsisRight) {    
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
 
-      ,Supine   : kneeMeasure.Supine
-      ,Left     : kneeMeasure.Left
-      ,Right    : kneeMeasure.Right
+        ,Supine   : "Leg length: ASIS"
+        ,Left     : kneeMeasure.LegAsisLeft
+        ,Right    : kneeMeasure.LegAsisRight
+      }
+      $ipadrbg.context.clinix_KneeMeasures.add(newrecord);
     }
+
+    if (kneeMeasure.ThighLeft || kneeMeasure.ThighRight) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Supine   : "Thigh"
+        ,Left     : kneeMeasure.ThighLeft
+        ,Right    : kneeMeasure.ThighRight
+      }
+      $ipadrbg.context.clinix_KneeMeasures.add(newrecord);
+    }
+
+    if (kneeMeasure.LegCircLeft || kneeMeasure.LegCircRight) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Supine   : "LEG Circumference"
+        ,Left     : kneeMeasure.LegCircLeft
+        ,Right    : kneeMeasure.LegCircRight
+      }
+      $ipadrbg.context.clinix_KneeMeasures.add(newrecord);
+    }
+
+    $ipadrbg.context.clinix_KneeMeasures.saveChanges();
 
     kneeMeasure.Supine = "Dorsalis Pedis Pulse";
     kneeMeasure.Left = "";
     kneeMeasure.Right = "";
-
-    $ipadrbg.context.clinix_KneeMeasures.add(newrecord);
-    $ipadrbg.context.clinix_KneeMeasures.saveChanges();
 
     $scope.LoadKneeMeasures();
   }

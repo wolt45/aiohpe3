@@ -16,7 +16,7 @@
 						style="display:block; text-decoration:none">
 						TODAY P E</a>
 				</div>
-
+	
 				<div class="panel-heading btn btn-success btn-sm btn-block">
 					<a scroll-to-bookmark="PEChart"
 						style="display:block; text-decoration:none">	 
@@ -30,7 +30,8 @@
 						href="today_nav_pe.html/#IOHPE" 
 						scroll-to-bookmark="IOHPE">
 						INITIAL INTERVIEW
-					</a> <!-- href="today_nav.html/#IOHPE"	 -->
+					</a> 
+	
 				</div>
 				<div id="IOHPE" scroll-bookmark="IOHPE" class="panel-collapse collapse" style="border: 1px solid #cfc ">
 					<div class="panel-body">
@@ -43,7 +44,8 @@
 						<a class="btn-info btn-block btn text-center" scroll-to-bookmark="IOPEMedHist"> Medical History </a>
 					</div>
 				</div>
-
+	
+	
 				<div class="panel-heading btn btn-danger btn-sm btn-block">
 					<a data-toggle="collapse" data-parent="#accordionMAIN" 
 						scroll-to-bookmark="AmbuStat"  
@@ -51,12 +53,13 @@
 						AMBULATORY STATUS
 					</a>
 				</div>
+	
 				<!-- #################################### -->
-
 
 
 				<!-- SPECIFIC MODULES END -->
 				<div class="panel-heading btn btn-danger btn-sm btn-block" id="accordionSpecificModules">
+	
 					<!-- This section collapses with the Main -->
 					<a data-toggle="collapse" data-parent="#accordionMAIN" 
 						href="today_nav.html/#SpicificMODULES"  
@@ -66,9 +69,9 @@
 				</div>
 				<div id="SpicificMODULES" class="panel-collapse collapse" style="border: 1px solid #cfc ">
 					<div class="panel-body">
-
+	
 						<!-- div ng-show="peHIP == true" --> 
-
+	
 							<div class="panel-heading btn btn-info btn-sm btn-block" style="border: 1px solid #cfc ">
 								<a  data-toggle="collapse" data-parent="#accordionSpecificModules" 	
 									href="today_nav_pe.html/#HIP"			
@@ -85,12 +88,12 @@
 									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="HipXRAYS"> HIP X-Rays </a>
 								</div>
 							</div>
-
+	
 						<!-- /div -->
 
 
 						<!-- div ng-show="peKNEE == true" -->  	
-
+	
 							<div class="panel-heading btn btn-info btn-sm btn-block" style="border: 1px solid #cfc ">
 								<a data-toggle="collapse" data-parent="#accordionSpecificModules" 
 									href="today_nav_pe.html/#KNEE"  
@@ -101,16 +104,21 @@
 							<div id="KNEE" class="panel-collapse collapse" style="border: 1px solid #cfc ">
 								<div class="panel-body">
 									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="KneePE"> KNEE P E </a> 
+									
 									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="KneeMeasurements">Measurements</a>
+									
 									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="KneeAppearance">Appearance</a>
+									
 									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="KneeAlignment">Alignment</a>
+									
 									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="KneeMotionRange">Range of Motion</a>
+									
 									<a class="btn-info btn-block btn text-center" scroll-to-bookmark="KneeXRAY">KNEE X-Rays </a>
 								</div>
 							</div>
-
+	
 						<!-- /div -->
-
+	
 					</div>
 				</div>
 				<!-- SPECIFIC MODULES END -->
@@ -264,21 +272,21 @@
 					</a>
 				</div>
 
-				<div class="panel-heading btn btn-active btn-sm btn-block">
+				<!-- div class="panel-heading btn btn-active btn-sm btn-block">
 					<a ng-href="#"
 						class="btn btn-primary btn-sm"
 						style="display:block;">
 						VISITS
 					</a> 
-				</div>
+				</div -->
 
-				<div class="panel-heading btn btn-active btn-sm btn-block">
+				<!-- div class="panel-heading btn btn-active btn-sm btn-block">
 					<a href ng-click="AmbiNav = ! AmbiNav" class="btn btn-primary btn-sm" style="display:block;">ambi-nav</a>
-				</div>
+				</div -->
 				
 				<div class="panel-heading btn btn-active btn-sm btn-block">
 					<a href="..//index.html"
-						class="btn btn-primary btn-sm"
+						class="btn btn-primary btn-lg"
 						style="display:block;">
 						Main
 					</a> 
