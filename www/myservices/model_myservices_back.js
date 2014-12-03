@@ -40,7 +40,19 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, clinix_PREOp_HIP_antibio: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_HIP_antibio }
 	, clinix_PREOp_HIP_repeatBilateral: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_HIP_repeatBilateral }
 
+	, clinix_PREOp_HIP_repeatBilateral: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_HIP_repeatBilateral }
+
+	, jdata_OPHIP_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_1 }
+	, jdata_OPHIP_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_2 }
+	, jdata_OPHIP_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_3 }
+	, jdata_OPHIP_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_4 }
+	, jdata_OPHIP_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_5 }
+	, jdata_OPHIP_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_6 }
+
 	, clinix_POSTOp_HIP_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_POSTOp_HIP_preform }
+
+
+
 
 	, clinix_PREOp_KNEE_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_preform }
 	, clinix_PREOp_KNEE_contact: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_contact }

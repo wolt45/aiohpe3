@@ -1,21 +1,21 @@
-IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
-  $scope.jdata_OPHIP_6 = [];
+IOHPEApp.controller('OPKNEE_5Ctrl', function ($scope, $routeParams, $http){
+  $scope.jdata_OPKNEE_5 = [];
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
   // $scope.ClinixRID =  parseInt($scope.CurrentClinixRID);
 
-  $scope.LoadOPHHIP_6 = function(){
-    var promise = $ipadrbg.context.jdata_OPHIP_6.filter(function (px) { 
+  $scope.LoadOPKNEE_5 = function(){
+    var promise = $ipadrbg.context.jdata_OPKNEE_5.filter(function (px) { 
       return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
-        $scope.jdata_OPHIP_6 = pxresult;
+        $scope.jdata_OPKNEE_5 = pxresult;
       });
     });
   };
 
-  $scope.LoadOPHHIP_6();
+  $scope.LoadOPKNEE_5();
 
   $scope.addNew = function (frmObj) {
     if (frmObj.BloodLoss) {
@@ -26,7 +26,7 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
         ,Operative : "Operative Blood Loass"
         ,OperValue  : frmObj.BloodLoss
       }
-      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+      $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);
     }
 
     if (frmObj.Closure) {
@@ -37,7 +37,18 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
         ,Operative : "Closure"
         ,OperValue  : frmObj.Closure
       }
-      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+      $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);
+    }
+
+    if (frmObj.CompressionDressings) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Operative : "Compression Dressings Applpied"
+        ,OperValue  : frmObj.CompressionDressings
+      }
+      $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);
     }
 
     if (frmObj.OperativeCourse) {
@@ -48,7 +59,7 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
         ,Operative : "Operative Course"
         ,OperValue  : frmObj.OperativeCourse
       }
-      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+      $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);
     }
 
     if (frmObj.Findings) {
@@ -59,7 +70,7 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
         ,Operative : "Operative Findings"
         ,OperValue  : frmObj.Findings
       }
-      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+      $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);
     }
 
     if (frmObj.Diagnosis) {
@@ -70,7 +81,7 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
         ,Operative : "POST Operative Diagnosis"
         ,OperValue  : frmObj.Diagnosis
       }
-      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+      $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);
     }
 
     if (frmObj.OpDuratiion) {
@@ -81,7 +92,7 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
         ,Operative : "Duration of Operation"
         ,OperValue  : frmObj.OpDuratiion
       }
-      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+      $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);
     }
 
     if (frmObj.XRays) {
@@ -92,7 +103,7 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
         ,Operative : "X-Rays"
         ,OperValue  : frmObj.XRays
       }
-      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+      $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);
     }
 
     if (frmObj.Others) {
@@ -103,13 +114,14 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
         ,Operative : "Others"
         ,OperValue  : frmObj.Others
       }
-      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+      $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);
     }
 
-    $ipadrbg.context.jdata_OPHIP_6.saveChanges();
+    $ipadrbg.context.jdata_OPKNEE_5.saveChanges();
 
     frmObj.BloodLoss = "";
     frmObj.Closure = "";
+    frmObj.CompressionDressings = "";
     frmObj.OperativeCourse = "";
     frmObj.Findings = "";
     frmObj.Diagnosis = "";
@@ -117,14 +129,14 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
     frmObj.XRays = "";
     frmObj.Others = "";
 
-    $scope.LoadOPHHIP_6();
+    $scope.LoadOPKNEE_5();
   }
 
   $scope.removeItem = function (frmObj) {
     frmObj.remove()
     .then(function() {
       $scope.$apply(function() {
-         var diagol = $scope.jdata_OPHIP_6;
+         var diagol = $scope.jdata_OPKNEE_5;
          diagol.splice(diagol.indexOf(frmObj), 1);
       });
     })
