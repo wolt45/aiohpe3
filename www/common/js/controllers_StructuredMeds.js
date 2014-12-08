@@ -102,13 +102,13 @@ IOHPEApp.controller('StructuredMedsCtrl', function ($scope, $routeParams, $http)
       $scope.clinix_StructuredDiagnosis_JSON = JSON.stringify($scope.clinix_StructuredDiagnosis);
       $http({
         method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_StructuredDiagnosis.php?clinixJsonIzed=' + $scope.clinix_StructuredDiagnosis_JSON
+        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_StructuredDiagnosis.php?clinixJsonIzed=' + $scope.clinix_StructuredDiagnosis_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_StructuredDiagnosis_JSON
         , cache : false
       });
     });
-  }
+  } // 0.99
 
 
   $scope.Push_StructuredSchedSurgery = function() {
@@ -122,7 +122,7 @@ IOHPEApp.controller('StructuredMedsCtrl', function ($scope, $routeParams, $http)
       $scope.clinix_StructuredSchedSurgery_JSON = JSON.stringify($scope.clinix_StructuredSchedSurgery);
       $http({
         method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_StructuredSchedSurgery.php?clinixJsonIzed=' + $scope.clinix_StructuredSchedSurgery_JSON
+        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_StructuredSchedSurgery.php?clinixJsonIzed=' + $scope.clinix_StructuredSchedSurgery_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_StructuredSchedSurgery_JSON
         , cache : false
@@ -142,7 +142,7 @@ IOHPEApp.controller('StructuredMedsCtrl', function ($scope, $routeParams, $http)
       $scope.clinix_StructuredHospitalization_JSON = JSON.stringify($scope.clinix_StructuredHospitalization);
       $http({
         method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_StructuredHospitalization.php?clinixJsonIzed=' + $scope.clinix_StructuredHospitalization_JSON
+        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_StructuredHospitalization.php?clinixJsonIzed=' + $scope.clinix_StructuredHospitalization_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_StructuredHospitalization_JSON
         , cache : false
@@ -162,7 +162,7 @@ IOHPEApp.controller('StructuredMedsCtrl', function ($scope, $routeParams, $http)
       $scope.clinix_StructuredLABS_JSON = JSON.stringify($scope.clinix_StructuredLABS);
       $http({
         method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_StructuredDischargeLabs.php?clinixJsonIzed=' + $scope.clinix_StructuredLABS_JSON
+        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_StructuredDischargeLabs.php?clinixJsonIzed=' + $scope.clinix_StructuredLABS_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_StructuredLABS_JSON
         , cache : false
@@ -182,7 +182,7 @@ IOHPEApp.controller('StructuredMedsCtrl', function ($scope, $routeParams, $http)
       $scope.clinix_StructuredDisposition_JSON = JSON.stringify($scope.clinix_StructuredDisposition);
       $http({
         method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_StructuredDisposition.php?clinixJsonIzed=' + $scope.clinix_StructuredDisposition_JSON
+        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_StructuredDisposition.php?clinixJsonIzed=' + $scope.clinix_StructuredDisposition_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_StructuredDisposition_JSON
         , cache : false
@@ -202,7 +202,7 @@ IOHPEApp.controller('StructuredMedsCtrl', function ($scope, $routeParams, $http)
       $scope.clinix_StructuredManagement_JSON = JSON.stringify($scope.clinix_StructuredManagement);
       $http({
         method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_StructuredManagement.php?clinixJsonIzed=' + $scope.clinix_StructuredManagement_JSON
+        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_StructuredManagement.php?clinixJsonIzed=' + $scope.clinix_StructuredManagement_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_StructuredManagement_JSON
         , cache : false
@@ -221,7 +221,7 @@ IOHPEApp.controller('StructuredMedsCtrl', function ($scope, $routeParams, $http)
       $scope.clinix_StructuredMedication_JSON = JSON.stringify($scope.clinix_StructuredMedication);
       $http({
         method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_StructuredMedication.php?clinixJsonIzed=' + $scope.clinix_StructuredMedication_JSON
+        , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_StructuredMedication.php?clinixJsonIzed=' + $scope.clinix_StructuredMedication_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_StructuredMedication_JSON
         , cache : false
