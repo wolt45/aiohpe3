@@ -6,7 +6,7 @@ IOHPEApp.controller('PREOpHIP_antibioCtrl', function ($scope, $routeParams, $htt
 
 	$scope.antiBiotics = [
 	    'Cefuroxime 1.5grms in the OR before induction. Repeat 12 hrs. after surgery.'
-	    , 'Cefazolin 2grms in OR before induction repeat 8 hrs. After surgery.'
+	    , 'Cefazolin 2grms in OR before induction repeat 8 hrs. after surgery.'
   	];
 
 	$scope.LoadHipAntibio = function(){

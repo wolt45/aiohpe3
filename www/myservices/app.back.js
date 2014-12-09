@@ -205,7 +205,7 @@ function PushController($rootScope, $scope, $http) {
           });
 
           $scope.clinix_previousSurgeries_JSON = JSON.stringify($scope.clinix_previousSurgeries);
-		//$sJSONized = "[" + $scope.clinix_previousSurgeries_JSON + "]";
+		      //$sJSONized = "[" + $scope.clinix_previousSurgeries_JSON + "]";
 
         	$http({
         	  	method: 'POST'

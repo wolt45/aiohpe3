@@ -3,8 +3,7 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
 
   	//http://vitalets.github.io/checklist-model/
 	$scope.preForms = [
-	    'Regular hospital bed.'
-	    , 'Orthopedic bed with trapeeze.'
+	    'Regular Orthopedic bed with trapeeze.'
 	    , 'Regular diet or unless otherwise specified.'
 	    , 'Get patient consent for Surgery.'
     	, 'Nothing by mouth after midnight (NPO).'

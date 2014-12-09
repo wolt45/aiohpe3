@@ -21,18 +21,17 @@ IOHPEApp.controller('POSTOpHIP_preformCtrl', function ($scope, $routeParams, $ht
 		, 'HgB and Hematocrit in 48 hrs'
 		, 'Keep legs apart with two pillows or abduction pillow'
 
-		, 'PT 2 times daily, Foot and ankle pump 10 times every hour when awake.'
-		, 'PT 2 times daily, Quadriceps and hamstring sitting exercise 10 times every hour when awake.'
-		, 'PT 2 times daily, Active hip flexion not more than 90⁰.'
-		, 'PT 2 times daily, Isometric abduction 1ox every hour when awake.'
-		, 'PT 2 times daily, Ambulation with crutches or walker, weight bearing as tolerated.'
-
 		, 'Do not cross legs for at least 3 months.'
 		, 'May dangle on bed with assistance the post–operative day.'
 		, 'When sitting, keep feet turned out. Do not internally rotate leg in flexion.'
 		, 'Keep knee High TEDS stocking when up or awake. Use TEDS stockings for the next 6 weeks.'
 		, 'Ambulate on the second or third day with PT supervision or nurses assistance.'
 
+		, 'PT 2 times daily, Foot and ankle pump 10 times every hour when awake.'
+		, 'PT 2 times daily, Quadriceps and hamstring sitting exercise 10 times every hour when awake.'
+		, 'PT 2 times daily, Active hip flexion not more than 90⁰.'
+		, 'PT 2 times daily, Isometric abduction 1ox every hour when awake.'
+		, 'PT 2 times daily, Ambulation with crutches or walker, weight bearing as tolerated.'
   	];
 
   	$scope.ClinixRID = $routeParams.p_clinixrid;

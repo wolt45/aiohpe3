@@ -2,9 +2,9 @@ IOHPEApp.controller('PREOpHIP_repeatbiCtrl', function ($scope, $routeParams, $ht
   	$scope.clinix_PREOp_HIP_repeatBilateral = [];
 
   	//http://vitalets.github.io/checklist-model/
+  	// 'Trenacemic acid 1gm 30 minutes in OR before induction.' ,
 	$scope.repeatBils = [
-	    'Trenacemic acid 1gm 30 minutes in OR before induction.'
-	    , 'Please inform relatives to wait outside of the operating room to talk to surgeon after surgery is finished.'
+	     'Please inform relatives to wait outside of the operating room to talk to surgeon after surgery is finished.'
   	];
 
 	$scope.ClinixRID = $routeParams.p_clinixrid;
