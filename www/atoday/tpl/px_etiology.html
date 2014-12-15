@@ -86,7 +86,7 @@
 
 	            <tr class="info" ng-repeat="etiology in clinix_etiology">
 	                <td class="text-center" style="color:black" width="1%" nowrap>{{etiology.Injury}}</td>
-	                <td style="color:black" width="1%" nowrap>{{etiology.DateEtio}}</td>
+	                <td style="color:black" width="1%" nowrap>{{etiology.DateEtio | date}}</td>
 	                <td class="text-center" style="color:black" width="1%">{{etiology.WorkRelated}}</td>
 	                <td style="color:black" width="1%">{{etiology.WorkRelatedDetails}}</td>
 	                <td style="color:black" width="1%">{{etiology.OnsetAccuteGradual}}</td> 

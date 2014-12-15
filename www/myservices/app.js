@@ -5,22 +5,30 @@ function DataController($rootScope, $scope, $http) {
     	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed?')) {
 		    $scope.clinix = [];
 
-			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
+			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
 		    success(function(data, status, headers, config) {
 				if (data !== null ) {
 
-			      	// save to websql    0.99
+			      	// save to websql    254.99
 				    for(idx in data){
 				    	if (data[idx].ClinixRID	> 0) {
 				    		var clinix = new $ipadrbg.types.clinix();
 						
 							clinix.ClinixRID 	= data[idx].ClinixRID;
-							clinix.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
+							
+							//clinix.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
+							clinix.AppDateSet 	= data[idx].AppDateSet;
+
+							clinix.AppDateAge  	= data[idx].AppDateAge;
+
 					    	clinix.PxRID 		= data[idx].PxRID;
 							clinix.pxname 		= data[idx].pxname;
 							clinix.pxAddress 	= data[idx].pxAddress;
 							clinix.pxstatus 	= data[idx].pxstatus;
-							clinix.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
+
+							//clinix.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
+							clinix.pxregdate 	= data[idx].pxregdate;
+
 							clinix.pxFoto 		= data[idx].pxFoto;
 							clinix.TranStatus 	= data[idx].TranStatus;
 							clinix.TranStatusDisp = data[idx].TranStatusDisp;
@@ -64,7 +72,7 @@ function DataController($rootScope, $scope, $http) {
 	    	// if local data is outdated then pull data from server
 	    	// if local data is latest then push to server 
 
-			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix.php'}).
+			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix.php'}).
 		    success(function(data, status, headers, config) {
 		      	// this callback will be called asynchronously
 		      	// when the response is available
@@ -83,12 +91,20 @@ function DataController($rootScope, $scope, $http) {
 							ClinixPulled += '{"ClinixRID":' + data[idx].ClinixRID + '},';  // for Pulled Notification at REST 
 
 							clinix.ClinixRID 	= data[idx].ClinixRID;
-							clinix.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
+
+							// clinix.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
+							clinix.AppDateSet 	= data[idx].AppDateSet;
+
+							clinix.AppDateAge 	= data[idx].AppDateAge;
+
 					    	clinix.PxRID 		= data[idx].PxRID;
 							clinix.pxname 		= data[idx].pxname;
 							clinix.pxAddress 	= data[idx].pxAddress;
 							clinix.pxstatus 	= data[idx].pxstatus;
-							clinix.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
+
+							//clinix.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
+							clinix.pxregdate 	= data[idx].pxregdate;
+
 							clinix.pxFoto 		= data[idx].pxFoto;
 							clinix.TranStatus 	= data[idx].TranStatus;
 							clinix.TranStatusDisp = data[idx].TranStatusDisp;
@@ -128,7 +144,7 @@ function DataController($rootScope, $scope, $http) {
 						//var clinixJson = JSON.stringify(ClinixPulled);
 						$http({
 							method: 'POST'
-							, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
+							, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
 							, contentType : 'application/json'
 							, data : ClinixPulled
 							, cache : false
@@ -164,7 +180,7 @@ function DataController($rootScope, $scope, $http) {
 	        //db.close();
 	        // after truncate
 
-			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/pull_TranStatus.php'}).
+			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/pull_TranStatus.php'}).
 		    success ( function ( data, status, headers, config ) {
 
 				if (data !== null ) {
@@ -211,7 +227,7 @@ function DataController($rootScope, $scope, $http) {
 	        //db.close();
 	        // after truncate
 
-			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/pull_ChargesTariff.php'}).
+			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/pull_ChargesTariff.php'}).
 		    success ( function ( data, status, headers, config ) {
 
 				if (data !== null ) {

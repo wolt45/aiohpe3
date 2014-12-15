@@ -10,7 +10,7 @@
 
 		<td class="text-center" width="1%" nowrap>Appt </td>
 
-		<td class="text-center" width="1%" nowrap>Chart # </td>
+		<!-- td class="text-center" width="1%" nowrap>Chart # </td -->
 		<td class="text-center" nowrap>	Patient </td>
 		<td class="text-center" width="1%" nowrap>	Trn Code </td>
 	</tr>
@@ -22,15 +22,20 @@
 				<img ng-src="..//images/{{px_Item.pxFoto}}" width="75" style="padding: 0 0 0 0">  
 			</a>   
 		</td>
-		<td class="text-center" nowrap>{{px_Item.ClinixRID}} <br> {{px_Item.AppDateSet | date}} </td>
+		<td class="text-center" nowrap>{{px_Item.ClinixRID}} <br> {{px_Item.AppDateSet | date }} </td>
 
-		<td class="text-center" nowrap>{{px_Item.PxRID}} </td>
+		<!-- td class="text-center" nowrap>{{px_Item.PxRID}} </td -->
+
 		<td nowrap>		
 			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">
-				
+				<span style='font-size:12px; font-weight:bold'>
+					{{px_Item.PxRID}} 
+				</span>
+				&nbsp;
+				&nbsp;
 		    	{{px_Item.pxname}}
-		    	<br>{{px_Item.pxstatus}}
-		    	<br><span style="font-size:10px">{{px_Item.pxAddress}}</span>
+		    	<br>{{px_Item.pxstatus}}  {{px_Item.AppDateAge ? ", Age @ appoinment: " + px_Item.AppDateAge : "" }}
+		    	<br><span style="font-size:12px">{{px_Item.pxAddress}}</span>
 			</a>
 	  	</td>
 	  	<td class="text-center"> 

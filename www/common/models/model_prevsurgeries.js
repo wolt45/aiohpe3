@@ -8,7 +8,7 @@ $data.Entity.extend("$ipadrbg.types.clinix_previousSurgeries", {
 	, SurgeryWhere	: { type: "text"}
 
 	, SurgeryWho: { type: "text"}
-	, SurgeryHelped: { type: "boolean"}
+	, SurgeryHelped: { type: "text"}
 	, SurgeryHowMany: { type: "text"}
 	
 	, SurgeryHowManyUnit: { type: "text"}

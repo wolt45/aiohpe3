@@ -30,6 +30,9 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
             ClinixRID       : pxresult[key].ClinixRID,
             PxRID           : pxresult[key].PxRID,
             AppDateSet      : pxresult[key].AppDateSet,
+
+            AppDateAge      : pxresult[key].AppDateAge,
+
             TranStatus      : pxresult[key].TranStatus,
 
             TranStatusDisp  : pxresult[key].TranStatusDisp,
@@ -127,6 +130,9 @@ IOHPEApp.controller('PXListPECtrl', function ($scope){
             ClinixRID       : pxresult[key].ClinixRID,
             PxRID           : pxresult[key].PxRID,
             AppDateSet      : pxresult[key].AppDateSet,
+
+            AppDateAge      : pxresult[key].AppDateAge,
+            
             TranStatus      : pxresult[key].TranStatus,
 
             TranStatusDisp  : pxresult[key].TranStatusDisp,

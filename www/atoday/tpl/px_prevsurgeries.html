@@ -34,7 +34,10 @@
 
 				<tr class="active">
 					<td nowrap>E. </td>
-					<td> <input type="checkbox" ng-model="CHIEFCformData.SurgeryHelped"> Did it help</td>
+					<td> 
+						<input type="checkbox" ng-model="CHIEFCformData.SurgeryHelped" ng-true-value="YES" ng-false-value=""> Did it help
+					</td>
+					
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryHowMany" placeholder="for how long" size="10"></td>
 					<td nowrap>
 						<select ng-model="CHIEFCformData.SurgeryHowManyUnit" class="form-control">
@@ -68,9 +71,9 @@
 	            </tr>
 
 				<tr class="info" ng-repeat="prevSurgery in clinix_previousSurgeries">
-	            	<td style="color:black" nowrap>{{prevSurgery.SurgeryType}}</td>
-	            	<td style="color:black" nowrap>{{prevSurgery.SurgeryWhen}}</td>
-	            	<td style="color:black" nowrap>{{prevSurgery.SurgeryWhere}}</td>
+	            	<td style="color:black" >{{prevSurgery.SurgeryType}}</td>
+	            	<td style="color:black" >{{prevSurgery.SurgeryWhen}}</td>
+	            	<td style="color:black" >{{prevSurgery.SurgeryWhere}}</td>
 	                <td style="color:black">{{prevSurgery.SurgeryWho}}</td>
 	                <td style="color:black">{{prevSurgery.SurgeryHelped}}</td> 
 	                <td style="color:black">{{prevSurgery.SurgeryHowMany}}</td> 
