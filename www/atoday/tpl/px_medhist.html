@@ -12,28 +12,150 @@
 					</th>
 				</tr>
 
-				<tr class="active">
+				<tr>
+					<td colspna="9" nowrap>1. Heart</td>
+				</tr>
+
+				<tr>
+					<td class="text-right" width="1%">Medication</td>
+
 					<td width="1%" nowrap>
-						<select ng-model="CHIEFCformData.MedHist" class="form-control" style="background-color: white; color: #000">
-	              			<option ng-repeat="rolMedHist in MedHistList" value="{{rolMedHist.dropname}}">{{rolMedHist.dropname}}</option>
-						</select>
+						<input type="radio" ng-model="CHIEFCformData.HeartMedYN" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.HeartMedYN" value="NO"> No
 					</td>
 
-					<td width="20%">
-						<input type="text" class="form-control" ng-model="CHIEFCformData.MedHistDetails" placeholder="Details">
-					</td>
+					<td class="text-right" width="1%" nowrap>&nbsp;&nbsp;&nbsp;Specify:</td>
+					<td nowrap><input type="text" ng-model="CHIEFCformData.HeartMedDetails" placeholder="NONE"></td>
+				</tr>
 
-					<td width="1%" class="text-center" rowspan=1>
-						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addMedHist(CHIEFCformData)" style="text-decoration: none">ADD</a>
+				<tr>		
+					<td class="text-right">Surgery</td>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.HeartSurgeryYN" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.HeartSurgeryYN" value="NO"> No
 					</td>
+					<td class="text-right" nowrap>Date: </td>
+					<td nowrap><input type="text" ng-model="CHIEFCformData.HeartSurgeryDetails" placeholder="NONE"></td>
+				</tr>
 
+				<tr>
+					<td nowrap>2. Hypertension</td>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.Hypertension" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.Hypertension" value="NO"> No
+					</td>
+					<td nowrap>Meds: </td>
+					<td nowrap><input type="text" ng-model="CHIEFCformData.HypertensionDetails" placeholder="NONE"></td>
+				</tr>
+				
+				<tr>
+					<td nowrap>3. Diabetes</td>
+						<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.Diabetes" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.Diabetes" value="NO"> No
+					</td>
+					<td nowrap>Meds: </td>
+					<td nowrap><input type="text" ng-model="CHIEFCformData.DiabetesDetails" placeholder="NONE"></td>
+				</tr>
+					
+
+				<tr>
+					<td nowrap>4. Kidney</td>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.Kidney" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.Kidney" value="NO"> No
+					</td>
+					<td nowrap>Meds: </td>
+					<td nowrap><input type="text" ng-model="CHIEFCformData.KidneyDetails" placeholder="NONE"></td>
+				</tr>
+									
+				<tr>
+					<td nowrap>5. GI (ulcer, etc.)</td>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.GI" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.GI" value="NO"> No
+					</td>
+					<td nowrap>Meds: </td>
+					<td nowrap><input type="text" ng-model="CHIEFCformData.GIDetails" placeholder="NONE"></td>		
+				</tr>
+									
+				<tr>
+					<td nowrap>6. Allergies</td>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.Allergies" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.Allergies" value="NO"> No
+					</td>
+					<td nowrap>Meds: </td>
+					<td nowrap><input type="text" ng-model="CHIEFCformData.AllergiesDetails" placeholder="NONE"></td>				
+				</tr>
+														
+				<tr>
+					<td nowrap>7. History of Infection</td>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.Infection" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.Infection" value="NO"> No
+					</td>
+					<td nowrap>Meds: </td>
+					<td nowrap><input type="text" ng-model="CHIEFCformData.InfectionDetails" placeholder="NONE"></td>
+				</tr>
+														
+				<tr>
+					<td nowrap>8. Lungs</td>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.Lungs" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.Lungs" value="NO"> No
+					</td>
+					<td nowrap></td>
+					<td nowrap></td>					
 				</tr>
 			
+				<tr>
+					<td nowrap>9. Trauma</td>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.Trauma" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.Trauma" value="NO"> No
+					</td>
+					<td nowrap></td>
+					<td nowrap></td>						
+				</tr>
+							
 
-
-
+				<tr>
+					<td nowrap>10. CNS</td>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.CNS" value="YES"> Yes
+						&nbsp;&nbsp;&nbsp;
+						<input type="radio" ng-model="CHIEFCformData.CNS" value="NO"> No
+					</td>
+					<td nowrap></td>
+					<td nowrap></td>						
+				</tr>
+																			
+				<tr>
+					<td nowrap>11. Others</td>
+					<td nowrap><input type="text" ng-model="CHIEFCformData.Others"></td>	
+				</tr>
+					
+				<tr>
+					<td class="text-center" colspan="9">
+						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" 
+						ng-click="addMedHist(CHIEFCformData)" style="text-decoration: none">ADD</a>
+					</td>
+				</tr>
+			
 				<tr class="info">
 	            	<th width="1%" class="text-center" style="color:#888" nowrap>Item</th>
+	            	<th width="1%" class="text-center" style="color:#888" nowrap>Yes/No</th>
 	            	<th width="1%" class="text-center" style="color:#888" nowrap>Details</th>
 
 					<td></td>
@@ -42,8 +164,10 @@
 
 
 
+
 				<tr class="info" ng-repeat="rolHist in clinix_MedHist">
 	            	<td class="text-center" style="color:black">{{rolHist.MedHist}}</td>
+	            	<td class="text-center" style="color:black">{{rolHist.MedHistYN}}</td>
 	            	<td class="text-center" style="color:black">{{rolHist.MedHistDetails}}</td>
 
 	                <td class="text-center" width="1%">
@@ -51,15 +175,6 @@
 	                		DELETE
 	                	</a>
 	            	</td>
-
-	                <td class="text-center" width="1%">
-	                	<a class="btn btn-large btn-warning" href="#/{{rolHist.ChiefRID}}/edit" ng-click="editMedHist(rolHist)" style="text-decoration: none">
-	                		EDIT 
-	                	</a>
-	            	</td>
-
-
-
 	            </tr>
 				
 			</table>

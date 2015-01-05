@@ -13,55 +13,24 @@
 					</th>
 				</tr>
 
-			  	<tr class="info" >
-	                <th class="text-center" style="color:#888" width="1%">Analgesics</th>
-	                <th class="text-center" style="color:#888" width="1%">Anti-Inflamatory</th>
-	                <th class="text-center" style="color:#888" width="1%">Others</th>
-	                <th class="text-center" style="color:#888" width="1%">Steriods</th>
-	                <th class="text-center" style="color:#888" width="1%">When</th>
+				<tr class="info" ng-repeat="treatment in clinix_treatment">
+					<td width="5%"></td>
 
-	                <th class="text-center" style="color:#888" width="1%">Result</th>
-	                <th class="text-center" style="color:#888" width="1%">Details</th>
+					<td class="text-left" style="float:left; color:black">
+						{{treatment.medAnalgesic ? "Analgesic: " + treatment.medAnalgesic : ""}}
+						{{treatment.medAntiInflamatory ? ", AntiInflamatory: " +  treatment.medAntiInflamatory : ""}}
+						{{treatment.medOthers ? ", Others: " + treatment.medOthers : ""}}
 
-	                <th class="text-center" style="color:#888" width="1%">HyaluronicAcid</th>
-	                <th class="text-center" style="color:#888" width="1%">Result</th>
-	                <th class="text-center" style="color:#888" width="1%">Details</th>
-	            </tr>
+						{{treatment.injSteroidsVolume ? ", Steroids: " + treatment.injSteroidsVolume : ""}}
+						{{treatment.injSteroidsWhen ? ", " + treatment.injSteroidsWhen : ""}}
+						{{treatment.injSteroidsResult==1 ? 'result: YES' : ''}}
+						{{treatment.injSteroidsDetails ? ", " + treatment.injSteroidsDetails : ""}}
 
-	            <tr class="info" ng-repeat="treatment in clinix_treatment">
-	                <td class="text-center" style="color:black" width="1%">
-             			<span>{{treatment.medAnalgesic ? treatment.medAnalgesic : " "}}</span>
-	                </td>
-	                <td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.medAntiInflamatory ? treatment.medAntiInflamatory : " "}}</span>
-	                </td>
-	                <td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.medOthers ? treatment.medOthers : " "}}</span>
-	                </td>
-					<td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.injSteroidsVolume ? treatment.injSteroidsVolume : " "}}</span>
-	                </td>
-	                <td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.injSteroidsWhen ? treatment.injSteroidsWhen : " "}}</span>
-	                </td>
-
-					<td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.injSteroidsResult ? treatment.injSteroidsResult : " "}}</span>
-	                </td>
-	                <td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.injSteroidsDetails ? treatment.injSteroidsDetails : " "}}</span>
-	                </td>
-
-					<td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.injHyaluronicAcid ? treatment.injHyaluronicAcid : " "}}</span>
-	                </td>
-	                <td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.injHyaluronicResult ? treatment.injHyaluronicResult : " "}}</span>
-	                </td>
-	                <td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.injHyaluronicDetails ? treatment.injHyaluronicDetails : " "}}</span>
-	                </td>
-	            </tr>
+						{{treatment.injHyaluronicAcid ? " Hyaluronic Acid: " + treatment.injHyaluronicAcid : ""}}
+						{{treatment.injHyaluronicResult==1 ? ", result: YES" : ''}}
+						{{treatment.injHyaluronicDetails ? ", " + treatment.injHyaluronicDetails : "" }}
+					</td> 
+				</tr>
 			</table>
 
 		</div>

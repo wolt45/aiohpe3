@@ -82,13 +82,10 @@
 					<th>&nbsp;</th>
 					<td nowrap>2. Hyaluronic acid</td>
 					<td colspan="1">
-						<select ng-model="CHIEFCformData.injHyaluronicAcid" class="form-control" style="background-color: white; color: #000">
-              				<option value=""></option>
-              				<option value="Supartz">Supartz</option>
-              				<option value="Synvisc">Synvisc</option>
-              				<option value="Go On">Go On</option>
-              				<option value="Others">Others</option>
-						</select>
+						<input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Supartz">Supartz
+						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Synvisc">Synvisc
+						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Go On">Go On
+						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Others">Others
 					</td>
 				</tr>
 

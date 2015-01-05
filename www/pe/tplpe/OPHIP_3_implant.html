@@ -14,12 +14,11 @@
 			<tr class="active">
 				<td nowrap>
 					Type of HIP replacement<br>
-					<select class="form-control" ng-model="ophip3.TypeOfHIPRep">
-						<option value=""> (select one) </option>
-						<option value="Cemented"> Cemented </option>
-						<option value="Hybrid"> Hybrid </option>
-						<option value="Cement Less"> Cement Less </option>
-					</select>
+					<input type="radio" ng-model="ophip3.TypeOfHIPRep" value="Cemented">Cemented
+					<br>
+					<input type="radio" ng-model="ophip3.TypeOfHIPRep" value="Hybrid">Hybrid
+					<br>
+					<input type="radio" ng-model="ophip3.TypeOfHIPRep" value="Cement Less">Cement Less
 				</td>
 			
 				<td nowrap>
@@ -30,23 +29,71 @@
 			</tr>
 
 			<tr class="active">
+				<td colspan="9" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; letter-spacing: 3px; font-style: italic;">
+			    		Acetabular Component
+			    	</span>
+				</td>
+			</tr>
+
+
+
+			<tr class="active">
 				<td nowrap>
-					Name
+					<input type="text" class="form-control" ng-model="ophip3.AcetabularComponent">
+				</td>
+				<td></td>
+			</tr>
+
+
+			<tr class="active">
+				<td>
+					Size
 					<br>
-					<input type="text" class="form-control" ng-model="ophip3.ImpName">
+					<input type="text" class="form-control" ng-model="ophip3.AcetSize">
+				</td>
+
+				<td>
+					Screws
+					<br>
+					<input type="text" class="form-control" ng-model="ophip3.AcetScrews">
+				</td>
+			</tr>
+
+			<!-- tr class="active">
+				<td nowrap>
+					Acetabular preperation
+				</td>
+
+				<td nowrap>
+					<input type="radio" ng-model="ophip3.AcetPrep" value="Cemented">Cemented
+					<br>
+					<input type="radio" ng-model="ophip3.AcetPrep" value="Regular">Regular
+				</td>
+			</tr -->
+
+			<tr class="active">
+				<td colspan="9" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; letter-spacing: 3px; font-style: italic;">
+			    		Femoral Component
+			    	</span>
 				</td>
 			</tr>
 
 			<tr class="active">
 				<td nowrap>
-					SIZES
-					<br>
+					<input type="text" class="form-control" ng-model="ophip3.FemoralComponent">
+				</td>
+				<td></td>
+			</tr>
+
+			<tr class="active">
+				<td nowrap>
 					Head Size
 					<br>
 					<input type="text" class="form-control" ng-model="ophip3.HeadSize">
 				</td>
 				<td nowrap>
-					<br>
 					Neck Length
 					<br>
 					<input type="text" class="form-control" ng-model="ophip3.NeckLength">
@@ -61,32 +108,35 @@
 		</table>
 
 
-
 		<table class="table table-condensed table-bordered">
-			<tr class="info">
-	        	<th width="1%" class="text-center" style="color:#888" nowwrap>TYPE</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>IMPLANT USED</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>NAME</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>HEAD SIZE</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>NECK LENGTH</th>
-	            <th width="1%"> </th>
-	            <th width=> </th>
-			</tr>
-
 			<tr class="info" ng-repeat="ophip3Row in jdata_OPHIP_3">
-	        	<td style="color:black">{{ophip3Row.TypeOfHIPRep}}</td>
-	        	<td style="color:black">{{ophip3Row.ImplantUsed}}</td>
-	        	<td style="color:black">{{ophip3Row.ImpName}}</td>
-	        	<td style="color:black">{{ophip3Row.HeadSize}}</td>
-	        	<td style="color:black">{{ophip3Row.NeckLength}}</td>
-	            <td>
+			
+				<th width="1%" class="text-right" style="color:#888" nowrap>
+					TYPE:
+					<br>IMPLANT USED
+					<br>ACETABULAR
+					<br>Size
+					<br>Screws
+					<br>FEMORAL
+					<br>Head Size
+					<br>Neck Length
+				</th>
+	        	<td style="color:black">
+	        		{{ophip3Row.TypeOfHIPRep}}
+	        		<br>{{ophip3Row.ImplantUsed}}
+	        		<br>{{ophip3Row.AcetabularComponent}}
+	        		<br>{{ophip3Row.AcetSize}}
+	        		<br>{{ophip3Row.AcetScrews}}
+	        		<br>{{ophip3Row.FemoralComponent}}
+	        		<br>{{ophip3Row.HeadSize}}
+	        		<br>{{ophip3Row.NeckLength}}
+	        	</td>
+	        	<td width="1%" class="text-center">
 	            	<a class="btn btn-large btn-danger" ng-click="removeItem(ophip3Row)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
-                <td>
-            	</td>
-	        </tr>
+	        </tr>	
 	    </table>
 
 

@@ -12,50 +12,52 @@
 
 			<tr>
 				<td width="1%">Alignment</td>
-				<td width="15%" class="text-right">
-					<input type="text" ng-model="KneeAlignment.Alignment1" class="form-control" ng-init="KneeAlignment.Alignment1='Supine'" value="Supine" READONLY>
-				</td>
+				<td width="15%" class="text-right">Supine</td>
 				<td width="15%">
-					<input type="text" ng-model="KneeAlignment.Degrees11" class="form-control" placeholder="Supine">
-				</td>
-				<td width="1%" class="text-right">Degrees</td>
-				<td width="15%">
-					<input type="text" ng-model="KneeAlignment.Degrees12" class="form-control" placeholder="Degrees" >
-				</td>
-				<td width="1%">
-					
+					<input type="text" ng-model="KneeAlignment.SupineDegrees" class="form-control" placeholder="degrees (none)" >
 				</td>
 				<td></td>
 			</tr>
 
 
 			<tr>
-				<td>&nbsp;</td>
-				<td>
-					<select ng-model="KneeAlignment.Alignment2" class="form-control"> 
-						<option value="">(select one)</option> 
-						<option value="Normal">Normal</option> 
-						<option value="Varus">Varus</option> 
-						<option value="Valgus">Valgus</option> 
-					</select>
-
-				</td>
-				<td>
-					<input type="text" ng-model="KneeAlignment.Degrees21" class="form-control">
-				</td>
-				
 				<td></td>
-				<td class="text-center">
+				<td class="text-right">Normal</td>
+				<td>
+					<input type="text" ng-model="KneeAlignment.Normal" class="form-control" placeholder="normal (none)" >
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td class="text-right">Varus</td>
+				<td>
+					<input type="text" ng-model="KneeAlignment.Varus" class="form-control" placeholder="Varus (none)" >
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td class="text-right">Valgus</td>
+				<td>
+					<input type="text" ng-model="KneeAlignment.Valgus" class="form-control" placeholder="Valgus (none)" >
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+
+				<td colspan="9" class="text-center">
 					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(KneeAlignment)" style="text-decoration: none; color: #000">ADD</a>
 				</td>
-				<td></td>
 			</tr>
 
 
 			<tr class="info">
 				<th width="1%" class="text-center" style="color:#888" nowrap></th>
 	        	<th width="1%" class="text-center" style="color:#888" nowrap>Alignment</th>
-	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Value</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Degrees</th>
 	            <th width="1%"> </th>
 	            <th width="1%"> </th>
@@ -65,17 +67,16 @@
 			<tr class="info" ng-repeat="KneeAlignment in clinix_KneeAlignment">
 	        	<td style="color:black" nowrap></td>
 	        	<td style="color:black" nowrap>{{KneeAlignment.Alignment}}</td>
-	        	<td style="color:black" nowrap>{{KneeAlignment.Degrees1}}</td>
-	            <td style="color:black">{{KneeAlignment.Degrees2}}</td>
+	        	<td style="color:black" nowrap>{{KneeAlignment.Degrees}}</td>
 	            <td>
 	            	<a class="btn btn-large btn-danger" href="#/{{KneeAlignment.ClinixRID}}" ng-click="removeKneeAlignment(KneeAlignment)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
                 <td>
-                	<a class="btn btn-large btn-warning" href="#/{{KneeAlignment.ChiefRID}}/edit" ng-click="editChiefComp(KneeAlignment)" style="text-decoration: none">
+                	<!--a class="btn btn-large btn-warning" href="#/{{KneeAlignment.ChiefRID}}/edit" ng-click="editChiefComp(KneeAlignment)" style="text-decoration: none">
                 		EDIT
-                	</a>
+                	</a -->
             	</td>
             	<td></td>
 	        </tr>

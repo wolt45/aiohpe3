@@ -22,6 +22,7 @@ IOHPEApp.controller('OPHIP_2Ctrl', function ($scope, $routeParams, $http){
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
 
+      ,SurgeryType : frmObj.SurgeryType
       ,Surgeon     : frmObj.Surgeon
       ,Assistant   : frmObj.Assistant
       ,Cardio      : frmObj.Cardio

@@ -24,17 +24,26 @@ IOHPEApp.controller('OPHIP_3Ctrl', function ($scope, $routeParams, $http){
 
       ,TypeOfHIPRep     : frmObj.TypeOfHIPRep
       ,ImplantUsed   : frmObj.ImplantUsed
-      ,ImpName      : frmObj.ImpName
+      
+      ,AcetabularComponent : frmObj.AcetabularComponent
+      ,AcetSize  : frmObj.AcetSize
+      ,AcetScrews : frmObj.AcetScrews
+
+      ,FemoralComponent  : frmObj.FemoralComponent
       ,HeadSize  : frmObj.HeadSize
       ,NeckLength : frmObj.NeckLength
     }
     $ipadrbg.context.jdata_OPHIP_3.add(newrecord);
     $ipadrbg.context.jdata_OPHIP_3.saveChanges();
 
-
     frmObj.TypeOfHIPRep = "";
     frmObj.ImplantUsed = "";
-    frmObj.ImpName = "";
+
+    frmObj.AcetabularComponent = "";
+    frmObj.AcetSize = "";
+    frmObj.AcetScrews = "";
+
+    frmObj.FemoralComponent = "";
     frmObj.HeadSize = "";
     frmObj.NeckLength = "";
 
@@ -53,5 +62,4 @@ IOHPEApp.controller('OPHIP_3Ctrl', function ($scope, $routeParams, $http){
        alert("Error deleting item!");
    });
   }
-
 });

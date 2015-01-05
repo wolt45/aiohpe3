@@ -77,7 +77,8 @@ function PushController($rootScope, $scope, $http) {
 			$scope.PushIOH_LABS();
       $scope.PushIOH_MedHist();
 
-	    $scope.Push_Clinix();
+      $scope.Push_Clinix();
+	    $scope.Push_ZClinix();
 
 	    alert("EXPORT IOHPE to Server Successful!");
 		}
@@ -121,6 +122,40 @@ function PushController($rootScope, $scope, $http) {
     });
   }
 
+
+  //Push back Clinix
+  $scope.Push_ZClinix = function() {
+    $scope.clinix = [];
+    var promise = $ipadrbg.context.zclinix.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.zclinix = pxresult;
+      });
+
+      // Note: Shorten the Array to limit the size
+      var temp = "[";
+      for(var i = 0; i < $scope.zclinix.length; i++){
+          temp += '{"ClinixRID" : ' + $scope.zclinix[i]['ClinixRID'];
+          temp += ', "HIP" : ' + $scope.zclinix[i]['HIP'];
+          temp += ', "KNEE" : '+ $scope.zclinix[i]['KNEE'] 
+          temp += '},';
+      }
+      var newTemp = temp.substring(0, temp.length-1);
+      newTemp += ']';
+
+      $scope.clinix_JSON = newTemp;
+
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_Zclinix.php?clinixJsonIzed=' + $scope.clinix_JSON
+        , contentType : 'application/json'
+        , data : $scope.clinix_JSON
+        , cache : false
+      });
+    });
+  }
 
   //Push Chief Complaint, filter id=0 means all
   $scope.PushIOH_ChiefComp = function() {
@@ -850,10 +885,8 @@ function PushController($rootScope, $scope, $http) {
       $scope.Push_HIP_OP_Diagnosis();
       $scope.Push_HIP_OP_Surgery();
       $scope.Push_HIP_OP_Implant();
-      $scope.Push_HIP_OP_Acetabular();
+      //$scope.Push_HIP_OP_Acetabular(); 
       $scope.Push_HIP_OP_Operative();
-
-
 
       $scope.Push_HIP_POSTop_FORM();
 
@@ -1120,6 +1153,12 @@ function PushController($rootScope, $scope, $http) {
       $scope.Push_KNEE_PREop_ANTIBIOTICS();
       $scope.Push_KNEE_PREop_REPEAT();
 
+      $scope.Push_KNEE_OP_Diagnosis();
+      $scope.Push_KNEE_OP_Surgery();
+      $scope.Push_KNEE_OP_Implant();
+      $scope.Push_KNEE_OP_Surgical(); 
+      $scope.Push_KNEE_OP_Operative();
+
       $scope.Push_KNEE_POSTop_FORM();
       alert("EXPORT KNEE Ops to Server Successful!");
     }
@@ -1146,7 +1185,6 @@ function PushController($rootScope, $scope, $http) {
     });
   }
 
-
   $scope.Push_KNEE_PREop_CONTACT = function(){
     $scope.clinix_PREOp_KNEE_contact = [];
     var promise = $ipadrbg.context.clinix_PREOp_KNEE_contact.filter(function (px) { 
@@ -1166,7 +1204,6 @@ function PushController($rootScope, $scope, $http) {
       });
     });
   }
-
 
   $scope.Push_KNEE_PREop_ANTIBIOTICS = function(){
     $scope.clinix_PREOp_KNEE_antibio = [];
@@ -1188,7 +1225,6 @@ function PushController($rootScope, $scope, $http) {
     });
   }
 
-
   $scope.Push_KNEE_PREop_REPEAT = function(){
     $scope.clinix_PREOp_KNEE_repeatBilateral = [];
     var promise = $ipadrbg.context.clinix_PREOp_KNEE_repeatBilateral.filter(function (px) { 
@@ -1208,6 +1244,116 @@ function PushController($rootScope, $scope, $http) {
       });
     });
   }
+
+  // ZZZZZZZZZZZZZZZZZZZ  -  start
+  // KNEE    OPERATIVE section
+  // KNEE    OPERATIVE section
+  // KNEE    OPERATIVE section
+  // 1
+  $scope.Push_KNEE_OP_Diagnosis = function(){
+    $scope.jdata_OPKNEE_1 = [];
+    var promise = $ipadrbg.context.jdata_OPKNEE_1.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.jdata_OPKNEE_1 = pxresult;
+      });
+      $scope.jdata_OPKNEE_1_JSON = JSON.stringify($scope.jdata_OPKNEE_1);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_OPKNEE_1.php?clinixJsonIzed=' + $scope.jdata_OPKNEE_1_JSON
+        , contentType : 'application/json'
+        , data : $scope.jdata_OPKNEE_1_JSON
+        , cache : false
+      });
+    });
+  }
+
+  // 2
+  $scope.Push_KNEE_OP_Surgery = function(){
+    $scope.jdata_OPKNEE_2 = [];
+    var promise = $ipadrbg.context.jdata_OPKNEE_2.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.jdata_OPKNEE_2 = pxresult;
+      });
+      $scope.jdata_OPKNEE_2_JSON = JSON.stringify($scope.jdata_OPKNEE_2);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_OPKNEE_2.php?clinixJsonIzed=' + $scope.jdata_OPKNEE_2_JSON
+        , contentType : 'application/json'
+        , data : $scope.jdata_OPKNEE_2_JSON
+        , cache : false
+      });
+    });
+  }
+
+  // 3
+  $scope.Push_KNEE_OP_Implant = function(){
+    $scope.jdata_OPKNEE_3 = [];
+    var promise = $ipadrbg.context.jdata_OPKNEE_3.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.jdata_OPKNEE_3 = pxresult;
+      });
+      $scope.jdata_OPKNEE_3_JSON = JSON.stringify($scope.jdata_OPKNEE_3);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_OPKNEE_3.php?clinixJsonIzed=' + $scope.jdata_OPKNEE_3_JSON
+        , contentType : 'application/json'
+        , data : $scope.jdata_OPKNEE_3_JSON
+        , cache : false
+      });
+    });
+  }
+
+  // 4
+  $scope.Push_KNEE_OP_Surgical = function(){
+    $scope.jdata_OPKNEE_4 = [];
+    var promise = $ipadrbg.context.jdata_OPKNEE_4.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.jdata_OPKNEE_4 = pxresult;
+      });
+      $scope.jdata_OPKNEE_4_JSON = JSON.stringify($scope.jdata_OPKNEE_4);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_OPKNEE_4.php?clinixJsonIzed=' + $scope.jdata_OPKNEE_4_JSON
+        , contentType : 'application/json'
+        , data : $scope.jdata_OPKNEE_4_JSON
+        , cache : false
+      });
+    });
+  }
+
+  // 5
+  $scope.Push_KNEE_OP_Operative = function(){
+    $scope.jdata_OPKNEE_5 = [];
+    var promise = $ipadrbg.context.jdata_OPKNEE_5.filter(function (px) { 
+      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
+
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.jdata_OPKNEE_5 = pxresult;
+      });
+      $scope.jdata_OPKNEE_5_JSON = JSON.stringify($scope.jdata_OPKNEE_5);
+      $http({
+        method: 'POST'
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_OPKNEE_5.php?clinixJsonIzed=' + $scope.jdata_OPKNEE_5_JSON
+        , contentType : 'application/json'
+        , data : $scope.jdata_OPKNEE_5_JSON
+        , cache : false
+      });
+    });
+  }
+  // ZZZZZZZZZZZZZZZZZ  END
 
 
   $scope.Push_KNEE_POSTop_FORM = function(){

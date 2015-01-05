@@ -12,25 +12,23 @@
 					</th>
 				</tr>
 
-				<tr class="info">
-	            	<th width="1%" class="text-center" style="color:#888" nowrap>Type</th>
-	            	<th width="1%" class="text-center" style="color:#888" nowrap>Date</th>
-	            	<th width="1%" class="text-center" style="color:#888" nowrap>Location</th>
-	                <th width="1%" class="text-center" style="color:#888">By Who</th>
-	                <th width="1%" class="text-center" style="color:#888">Result</th> 
-	                <th width="1%" class="text-center" class="text-center" style="color:#888" colspan=2>Duration</th> 
-	            </tr>
-
 				<tr class="info" ng-repeat="prevSurgery in clinix_previousSurgeries">
-	            	<td style="color:black" nowrap>{{prevSurgery.SurgeryType}}</td>
-	            	<td style="color:black" nowrap>{{prevSurgery.SurgeryWhen}}</td>
-	            	<td style="color:black" nowrap>{{prevSurgery.SurgeryWhere}}</td>
-	                <td style="color:black">{{prevSurgery.SurgeryWho}}</td>
-	                <td style="color:black">{{prevSurgery.SurgeryHelped}}</td> 
-	                <td style="color:black">{{prevSurgery.SurgeryHowMany}}</td> 
-	                <td style="color:black">{{prevSurgery.SurgeryHowManyUnit}}</td> 
-	            </tr>
-				
+					<td width="5%"></td>
+
+					<td class="text-left" style="float:left; color:black">
+
+						&nbsp; {{prevSurgery.SurgeryType ? prevSurgery.SurgeryType : ""}}
+						&nbsp; {{prevSurgery.SurgeryWhen == "0000-00-00" ? "" : (prevSurgery.SurgeryWhen) }}
+						&nbsp; {{prevSurgery.SurgeryWhere ? prevSurgery.SurgeryWhere : ""}}
+						<br>
+						&nbsp; {{prevSurgery.SurgeryWho ? prevSurgery.SurgeryWho : ""}}
+						
+						&nbsp; {{prevSurgery.SurgeryHelped==1 ? ' surgery helped ' : ''}}
+
+						&nbsp; {{prevSurgery.SurgeryHowMany ? prevSurgery.SurgeryHowMany : ""}}
+						&nbsp; {{prevSurgery.SurgeryHowManyUnit ? prevSurgery.SurgeryHowManyUnit : ""}}
+					</td> 
+				</tr>
 			</table>
 			
 		</div>

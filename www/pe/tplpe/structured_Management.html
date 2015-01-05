@@ -28,7 +28,7 @@
 				<td nowrap>Physical Therapy
 					<input type="hidden" ng-model="StructMgmt.Management2" class="form-control" ng-init="StructMgmt.Management2='Physical Therapy'" value="Physical Therapy" READONLY>
 				</td>
-				<td colspan="2">
+				<td colspan="3">
 					<input type="text" class="form-control" ng-model="StructMgmt.ManagementDetail2" placeholder="Physical Theraphy" >
 				</td>
 				<td></td>
@@ -46,6 +46,7 @@
 					</select>
 				</td>
 			</tr>
+
 			<tr>
 				<td nowrap>Ambulatory Trainings
 					<input type="hidden" ng-model="StructMgmt.Management4" class="form-control" ng-init="StructMgmt.Management4='Ambulatory Trainings'" value="Ambulatory Trainings" READONLY>
@@ -58,11 +59,45 @@
 						<option value="Cane"> Cane </option>
 					</select>
 				</td>
-				<td class="text-center" nowrap>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td nowrap>Shower</td>
+				<td nowrap>
+					<input type="radio" value="YES" ng-model="StructMgmt.Shower"> Yes &nbsp;&nbsp;
+					<input type="radio" value="NO" ng-model="StructMgmt.Shower"> No
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td nowrap>Instructions/Notes</td>
+				<td colspan="3" nowrap>
+					<textarea class="form-control" ng-model="StructMgmt.Notes" placeholder="instructions/notes" rows="2"> </textarea> 
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td nowrap>Follow-up</td>
+				<td nowrap>
+					<input type="text" ng-model="StructMgmt.Follow" class="form-control" plpaceholder="follow-up" >
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td class="text-center" colspan="9" nowrap>
 					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(StructMgmt)" style="text-decoration: none; color: #000">Save</a>
 				</td>
 				<td></td>
 			</tr>
+
 
 
 			<tr class="info" ng-repeat="StructMgmt in clinix_StructuredManagement">

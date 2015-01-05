@@ -15,14 +15,38 @@ IOHPEApp.controller('HipMeasuresCtrl', function ($scope, $routeParams, $http){
 
   $scope.addNew = function (hipMeasures) {
 
-    if (hipMeasures.SupineLeft || hipMeasures.SupineRight) {
+    if (hipMeasures.ASISLeft || hipMeasures.ASISRight) {
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Supine   : hipMeasures.Supine
-        ,Left     : hipMeasures.SupineLeft
-        ,Right    : hipMeasures.SupineRight
+        ,Supine   : "Leg length: ASIS / mm"
+        ,Left     : hipMeasures.ASISLeft
+        ,Right    : hipMeasures.ASISRight
+      }
+      $ipadrbg.context.clinix_HipMeasures.add(newrecord);
+    }
+
+    if (hipMeasures.ThighLeft || hipMeasures.ThighRight) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Supine   : "Thigh"
+        ,Left     : hipMeasures.ThighLeft
+        ,Right    : hipMeasures.ThighRight
+      }
+      $ipadrbg.context.clinix_HipMeasures.add(newrecord);
+    }
+
+    if (hipMeasures.LEGLeft || hipMeasures.LEGRight) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Supine   : "LEG Circumference"
+        ,Left     : hipMeasures.LEGLeft
+        ,Right    : hipMeasures.LEGRight
       }
       $ipadrbg.context.clinix_HipMeasures.add(newrecord);
     }
@@ -32,19 +56,19 @@ IOHPEApp.controller('HipMeasuresCtrl', function ($scope, $routeParams, $http){
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Supine   : hipMeasures.Dorsalis
+        ,Supine   : "Dorsalis Pedis Pulse"
         ,Left     : hipMeasures.DorsalisLeft
         ,Right    : hipMeasures.DorsalisRight
       }
         $ipadrbg.context.clinix_HipMeasures.add(newrecord);
     }
 
-    if (hipMeasures.Others) {
+    if (hipMeasures.OthersLeft || hipMeasures.OthersRight) {
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Supine   : hipMeasures.Others
+        ,Supine   : "Others"
         ,Left     : hipMeasures.OthersLeft
         ,Right    : hipMeasures.OthersRight
       }
@@ -52,8 +76,14 @@ IOHPEApp.controller('HipMeasuresCtrl', function ($scope, $routeParams, $http){
     }
     $ipadrbg.context.clinix_HipMeasures.saveChanges();
 
-    hipMeasures.SupineLeft = "";
-    hipMeasures.SupineRight = "";
+    hipMeasures.ASISLeft = "";
+    hipMeasures.ASISRight = "";
+    hipMeasures.ThighLeft = "";
+    hipMeasures.ThighRight = "";
+    hipMeasures.LEGLeft = "";
+    hipMeasures.LEGRight = "";
+    hipMeasures.LEGLeft = "";
+    hipMeasures.LEGRight = "";
 
     hipMeasures.DorsalisLeft = "";
     hipMeasures.DorsalisRight = "";

@@ -3,7 +3,7 @@
 		<table class="table table-condensed table-bordered">
 			
 			<tr class="warning">
-				<td class="text-left" colspan="19" nowrap>
+				<td class="text-left" colspan="9" nowrap>
 					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
 			    		Appearance (knee)
 			    	</span>
@@ -13,63 +13,100 @@
 			</tr>
 			
 			<tr>
-				<td width="20%">
-					<input type="text" ng-model="KneeAppearance.AppearanceItem1" class="form-control" ng-init="KneeAppearance.AppearanceItem1='Appearance'" value="Appearance" READONLY>
-				</td>
-				<td width="20%">
-					<select ng-model="KneeAppearance.NatureOfAppearance1" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="Normal"> Normal </option>
-						<option value="Black/Blue"> Black/Blue </option>
-						<option value="Swelling"> Swelling </option>
-						<option value="Red"> Red </option>
-					</select>
-				</td>
-				<td width="15%">
-					<select ng-model="KneeAppearance.AppearanceSeverity1" style=" width:110px;" class="form-control">
-						<option value="Mild">Mild</option>
-						<option value="Moderate">Moderate</option>
-						<option value="Severe">Severe</option>
-						<option value="Increasing">Increasing</option>
-						<option value="Progressive">Progressive</option>
-					</select> 
-				</td>
-				<td>
-				</td>
-			</tr>
-									
+				<td class="text-center" width="1%"> </td>
+				<td class="text-center" width="1%" nowrap> </td>
+				<td class="text-center" width="1%" nowrap>Mild</td>
+				<td class="text-center" width="1%">Moderate</td>
+				<td class="text-center" width="1%">Severe</td>
+				<td class="text-center" width="1%">Increasing</td>
+				<td></td>
+			</tr>	
+			
 			<tr>
-				<td>
-					<select ng-model="KneeAppearance.AppearanceItem2" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="Synovitis"> Synovitis </option>
-						<option value="Effusion"> Effusion </option>
-						<option value="Pain, active ROM"> Pain, active ROM </option>
-						<option value="Pain, passive ROM"> Pain, passive ROM </option>
-					</select>
-				</td>
+				<td><input type="radio" ng-model="KneeForm.Appearance" value="NORMAL" ></td>
+				<td nowrap> Normal </td>
+				<td class="text-center" rowspan="4"><input type="radio" ng-model="KneeForm.AppearanceSeverity" value="MILD" ></td>
+				<td class="text-center" rowspan="4"><input type="radio" ng-model="KneeForm.AppearanceSeverity" value="MODERATE" ></td>
+				<td class="text-center" rowspan="4"><input type="radio" ng-model="KneeForm.AppearanceSeverity" value="SEVERE" ></td>
+				<td class="text-center" rowspan="4"><input type="radio" ng-model="KneeForm.AppearanceSeverity" value="INCREASING" ></td>
+				<td class="text-center"></td>
+			</tr>	
 
-				<td> </td>
+			<tr>
+				<td><input type="radio" ng-model="KneeForm.Appearance" value="BlackBlue" ></td>
+				<td nowrap> Black/Blue </td>
+				<td class="text-center"></td>				
+			</tr>	
+			
+			<tr>
+				<td><input type="radio" ng-model="KneeForm.Appearance" value="Swelling" ></td>
+				<td nowrap> Swelling </td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td><input type="radio" ng-model="KneeForm.Appearance" value="Red" ></td>
+				<td nowrap> Red </td>
+				<td class="text-center"></td>
+			</tr>	
 
-				<td>
-					<select ng-model="KneeAppearance.AppearanceSeverity2" style=" width:110px;" class="form-control">
-						<option value="Mild">Mild</option>
-						<option value="Moderate">Moderate</option>
-						<option value="Severe">Severe</option>
-						<option value="Increasing">Increasing</option>
-						<option value="Progressive">Progressive</option>
-					</select> 
-				</td>
-				
-				<td>
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(KneeAppearance)" style="text-decoration: none; color: #000">ADD</a>
+			<tr class="active>">
+				<td colspan="9">&nbsp;</td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td nowrap> Synovitis </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.Synovitis" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.Synovitis" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.Synovitis" value="SEVERE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.Synovitis" value="INCREASING" ></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td></td>
+				<td nowrap> Effusion </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.Effusion" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.Effusion" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.Effusion" value="SEVERE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.Effusion" value="INCREASING" ></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+
+			<tr>
+				<td></td>
+				<td nowrap> Pain, Active ROM </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROM" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROM" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROM" value="SEVERE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROM" value="INCREASING" ></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td></td>
+				<td nowrap> Pain, Passive ROM </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROM" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROM" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROM" value="SEVERE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROM" value="INCREASING" ></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" ng-click="addNew(KneeForm)" style="text-decoration: none; color: #000">
+						ADD
+					</a>
 				</td>
 			</tr>
+		</table>
 
-
+		<table class="table table-condensed table-bordered">
 			<tr class="info">
-	        	<th width="1%" class="text-center" style="color:#888" nowrap>Appearance</th>
-	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Describe</th>
+	        	<th width="1%" class="text-center" style="color:#888" nowrap>Item</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Severity</th>
 	            <th width="1%"> </th>
 	            <th width="1%"> </th>
@@ -77,18 +114,17 @@
 			</tr>
 
 			<tr class="info" ng-repeat="KneeAppearance in clinix_KneeAppearance">
-	        	<td style="color:black" nowrap>{{KneeAppearance.AppearanceItem}}</td>
-	        	<td style="color:black" nowrap>{{KneeAppearance.NatureOfAppearance}}</td>
-	            <td style="color:black">{{KneeAppearance.AppearanceSeverity}}</td>
+	        	<td style="color:black" nowrap>{{KneeAppearance.Appearance}}</td>
+	            <td style="color:black">{{KneeAppearance.Severity}}</td>
 	            <td>
 	            	<a class="btn btn-large btn-danger" href="#/{{KneeAppearance.ClinixRID}}" ng-click="removeKneeAppearance(KneeAppearance)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
                 <td>
-                	<a class="btn btn-large btn-warning" href="#/{{KneeAppearance.ChiefRID}}/edit" ng-click="editChiefComp(KneeAppearance)" style="text-decoration: none">
+                	<!-- a class="btn btn-large btn-warning" href="#/{{KneeAppearance.ChiefRID}}/edit" ng-click="editChiefComp(KneeAppearance)" style="text-decoration: none">
                 		EDIT
-                	</a>
+                	</a -->
             	</td>
             	<td></td>
 	        </tr>

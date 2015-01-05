@@ -11,51 +11,57 @@
 				</th>
 			</tr>
 
-
 			<tr>
-				<td class="text-left" colspan="5" nowrap>
+				<td class="text-left" colspan="9" nowrap>
 	            	Physical Examination Priority:
 	        	</td>
 	        </tr>
+
 	        <tr>	
-	        	<td></td>
-	        	<td class="text-center active" width="1%">
-					<input type="checkbox" checklist-model="hipPostform.preForms" checklist-value="preForm">
+	        	<td width="7%"></td>
+	        	<td width="1%" class="text-center active">
+	        		<!-- div class="form-group" ng-repeat="frmzclinix in zclinix" -->
+						<input type="checkbox" ng-model="frmzclinix.HIP" ng-checked="frmzclinix.HIP == 'true'" ng-true-value="true" ng-false-value="false">
+					<!-- /div -->
 				</td>
 
-				<td> H I P </td>
-				<td></td>
+				<td width="1%"> H I P </td>
+				
+	        	<td width="1%" colspan="1" rowspan="2" class="text-center">
+					<a class="btn btn-large btn-info" ng-click="PEPrioritize(frmzclinix)" 
+						style="text-decoration: none">save</a>
+				</td>
+
 				<td></td>
 			</tr>
+
 			<tr>
 				<td></td>
 	        	<td class="text-center active">
-					<input type="checkbox" checklist-model="hipPostform.preForms" checklist-value="preForm">
+					<input type="checkbox" ng-model="frmzclinix.KNEE" ng-checked="frmzclinix.KNEE == 'true'" ng-true-value="true" ng-false-value="false">
 				</td>
 
 				<td> KNEE </td>
 				<td></td>
-				<td></td>
 			</tr>
-
 
 			<tr>
 				<td></td>
-				<td class="text-left" colspan="2">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="text-center" width="1%">
 	            	<a class="btn btn-large btn-danger" ng-click="CloseIOH(clinix)" style="text-decoration: none">
-	            		CLOSE Interview
+	            		Proceed to PE
 	            	</a>
 	            </td>
 
-	            <td></td>
-
-	            <td>
+	            <td class="text-center" width="1%">
 	            	<a class="btn btn-large btn-warning" ng-click="CancelIOH(clinix)" style="text-decoration: none">
 	            		CANCEL Interview
 	            	</a>
 	        	</td>
 			</tr>
-
 
 		</table>
 	</div>

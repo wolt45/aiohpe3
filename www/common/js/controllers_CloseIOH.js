@@ -1,16 +1,46 @@
 IOHPEApp.controller('CloseIOHCtrl', function ($scope, $routeParams, $http){
   $scope.clinix = [];
+  $scope.zclinix = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
   $scope.LoadIOHClinix = function () {
     var promise = $ipadrbg.context.clinix.filter(function (px) { 
-      return px.ClinixRID == this.id},
-      { id : $scope.ClinixRID}).toLiveArray();
+      return px.ClinixRID == this.id}, { id : $scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.clinix = pxresult[0];
       $scope.$apply();
     });
   }
+
+  $scope.LoadZClinix = function () {
+    var promise = $ipadrbg.context.zclinix.filter(function (tx) { 
+      return tx.ClinixRID == this.id}, { id : $scope.ClinixRID}).toLiveArray();
+    promise.then(function(txresult) {
+      $scope.zclinix = txresult[0];
+      $scope.$apply();
+    });
+  }
+  $scope.LoadZClinix();
+
+  $scope.PEPrioritize = function (pePriorities) {
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 800000);
+    db.transaction(function (tx) {
+       tx.executeSql("DELETE FROM zclinix WHERE ClinixRID = " + $scope.ClinixRID );
+    });
+
+    newrecord = {
+      ClinixRID   : $scope.ClinixRID
+      ,HIP        : pePriorities.HIP
+      ,KNEE       : pePriorities.KNEE
+    }
+    $ipadrbg.context.zclinix.add(newrecord);
+    $ipadrbg.context.zclinix.saveChanges();
+
+    $scope.LoadZClinix();
+
+    alert("Priorities Set! ");
+  }
+
 
   /////////////////////////////////////////////////////////////
   // Close IOHPE send all IOHPE BACK to server
@@ -26,6 +56,7 @@ IOHPEApp.controller('CloseIOHCtrl', function ($scope, $routeParams, $http){
       });
 
       $scope.clinix_JSON = '[{"ClinixRID" : ' + $scope.ClinixRID + ', "TranStatus" : ' + clinix.TranStatus + '}]';
+      
       $scope.notifyServer();
 
       // //Push Chief Complaint, this Clinix PE only

@@ -14,30 +14,35 @@ IOHPEApp.controller('HipStandingCtrl', function ($scope, $routeParams, $http){
   $scope.LoadHipStanding();
 
   $scope.addNew = function (hipStanding) {
-    newrecord = {
-      ClinixRID : $scope.clinix.ClinixRID
-      ,PxRID    : $scope.clinix.PxRID
+    if (hipStanding.PelvisLevel) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
 
-      ,Standing : hipStanding.StandingPelvis
-      ,Left     : hipStanding.PelvisLeft
-      ,Right    : hipStanding.PelvisRight
+        ,Standing : "Pelvis Level"
+        ,Left     : hipStanding.PelvisLevel
+      }
+      $ipadrbg.context.clinix_HipStanding.add(newrecord);
     }
-    $ipadrbg.context.clinix_HipStanding.add(newrecord);
 
-    newrecord = {
-      ClinixRID : $scope.clinix.ClinixRID
-      ,PxRID    : $scope.clinix.PxRID
+    if (hipStanding.TrendLeft || hipStanding.TrendRight) {
+      var xL = (hipStanding.TrendLeft) ? "Left: " + hipStanding.TrendLeft : "";
+      var xR = (hipStanding.TrendRight) ? "Right: " + hipStanding.TrendRight : "";
 
-      ,Standing : hipStanding.StandingTrend
-      ,Left     : hipStanding.TrendLeft
-      ,Right    : hipStanding.TrendRight
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Standing : "Trendelenberg Exam"
+        ,Left     : xL
+        ,Right    : xR
+      }
+      $ipadrbg.context.clinix_HipStanding.add(newrecord);
     }
-    $ipadrbg.context.clinix_HipStanding.add(newrecord);
-
+    
     $ipadrbg.context.clinix_HipStanding.saveChanges();
 
-    hipStanding.StandingPelvis = "Pelvis Level: R = L";
-    hipStanding.StandingTrend = "Trendelenberg Exam";
+    hipStanding.PelvisLevel = "";
     hipStanding.TrendLeft = "";
     hipStanding.TrendRight = "";
 

@@ -52,22 +52,23 @@
 			</tr>
 
 			<tr>	
-				<td nowrap>
-					Dorsalis Pedis Pulse
-					<input type="hidden" ng-model="KneeMeasures.Supine" class="form-control" ng-init="KneeMeasures.Supine='Dorsalis Pedis Pulse'" value="Dorsalis Pedis Pulse" READONLY> 
+				<td nowrap> Dorsalis Pedis Pulse </td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="KneeMeasures.DorsalisLeft" value="Absent"> Absent 
+					<br>
+					<input type="radio" ng-model="KneeMeasures.DorsalisLeft" value="Normal"> Normal
 				</td>
 				<td class="text-center" nowrap>
-					<input type="radio" ng-model="KneeMeasures.Left" value="Absent"> Absent 
+					<input type="radio" ng-model="KneeMeasures.DorsalisRight" value="Absent"> Absent 
 					<br>
-					<input type="radio" ng-model="KneeMeasures.Left" value="Normal"> Normal
+					<input type="radio" ng-model="KneeMeasures.DorsalisRight" value="Normal"> Normal
 				</td>
-				<td class="text-center" nowrap>
-					<input type="radio" ng-model="KneeMeasures.Right" value="Absent"> Absent 
-					<br>
-					<input type="radio" ng-model="KneeMeasures.Right" value="Normal"> Normal
-				</td>
-				<td>
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(KneeMeasures)" style="text-decoration: none; color: #000">ADD</a>
+			</tr>
+			<tr>
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(KneeMeasures)" style="text-decoration: none; color: #000">
+						ADD
+					</a>
 				</td>
 			</tr>
 		</table>
@@ -94,9 +95,9 @@
 	            	</a>
 	        	</td>
                 <td>
-                	<a class="btn btn-large btn-warning" href="#/{{KneeMeasure.ChiefRID}}/edit" ng-click="editChiefComp(KneeMeasure)" style="text-decoration: none">
+                	<!--a class="btn btn-large btn-warning" href="#/{{KneeMeasure.ChiefRID}}/edit" ng-click="editChiefComp(KneeMeasure)" style="text-decoration: none">
                 		EDIT
-                	</a>
+                	</a -->
             	</td>
             	<td></td>
 	        </tr>

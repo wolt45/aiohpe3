@@ -45,7 +45,7 @@ IOHPEApp.controller('OPKNEE_5Ctrl', function ($scope, $routeParams, $http){
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Operative : "Compression Dressings Applpied"
+        ,Operative : "Compression Dressings Applied"
         ,OperValue  : frmObj.CompressionDressings
       }
       $ipadrbg.context.jdata_OPKNEE_5.add(newrecord);

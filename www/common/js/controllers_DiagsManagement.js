@@ -15,16 +15,16 @@ IOHPEApp.controller('DiagsManagementCtrl', function ($scope, $routeParams, $http
 
   $scope.addNew = function (daignosisObj) {
 
-    if (daignosisObj.ManagementDetail1 ) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
+    // if (daignosisObj.ManagementDetail1 ) {
+    //   newrecord = {
+    //     ClinixRID : $scope.clinix.ClinixRID
+    //     ,PxRID    : $scope.clinix.PxRID
 
-        ,Management        : daignosisObj.Management1
-        ,ManagementDetail  : daignosisObj.ManagementDetail1
-      }
-      $ipadrbg.context.clinix_DiagsManagement.add(newrecord);
-    }
+    //     ,Management        : daignosisObj.Management1
+    //     ,ManagementDetail  : daignosisObj.ManagementDetail1
+    //   }
+    //   $ipadrbg.context.clinix_DiagsManagement.add(newrecord);
+    // }
     if (daignosisObj.ManagementDetail2 ) {
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID

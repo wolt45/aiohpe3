@@ -3,7 +3,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeAppearance", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
-	, AppearanceItem: { type: "string"}
-	, NatureOfAppearance: { type: "string"}
-	, AppearanceSeverity: { type: "string"}
+	, Appearance: { type: "string"}
+	, Severity: { type: "string"}
 });

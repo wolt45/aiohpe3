@@ -14,109 +14,59 @@ IOHPEApp.controller('KneeXRaysCtrl', function ($scope, $routeParams, $http){
   $scope.LoadKneeXRays();
 
   $scope.addNew = function (kneeXRay) {
+    newrecord = {
+      ClinixRID : $scope.clinix.ClinixRID
+      ,PxRID    : $scope.clinix.PxRID
 
-    if (kneeXRay.XRayArea1 || kneeXRay.Medial1 || kneeXRay.Lateral1) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
+      ,APDate           : kneeXRay.APDate
+      
+      ,APStanding       : "AP Standing"
+      ,APDegrees        : kneeXRay.APDegrees
+      ,APSeverity       : kneeXRay.APSeverity
+      ,APMedial         : kneeXRay.APMedial
+      ,APLateral        : kneeXRay.APLateral
 
-        ,APDate     : kneeXRay.APDate
-        ,APXRayItem : kneeXRay.APXRayItem1
-        ,XRayArea   : kneeXRay.XRayArea1
-        ,Medial     : kneeXRay.Medial1
-        ,Lateral    : kneeXRay.Lateral1
-      }
-      $ipadrbg.context.clinix_KneeXRays.add(newrecord);
+      ,Varus            : "Varus Deformity"
+      ,VarusDegrees     : kneeXRay.VarusDegrees
+      ,VarusSeverity    : ""
+      ,VarusMedial      : kneeXRay.VarusMedial
+      ,VarusLateral     : kneeXRay.VarusLateral
+
+      ,Valgus           : "Valgus Deformity"
+      ,ValgusDegrees    : kneeXRay.ValgusDegrees
+      ,ValgusSeverity   : ""
+      ,ValgusMedial     : kneeXRay.ValgusMedial
+      ,ValgusLateral    : kneeXRay.ValgusLateral
+
+      ,Lateral30           : "Lateral 30"
+      ,Lateral30Degrees    : ""
+      ,Lateral30Severity   : kneeXRay.Lateral30Severity
+      ,Lateral30Medial     : ""
+      ,Lateral30Lateral    : ""
+
+      ,LaurinPatella           : "Laurin (patella) Views"
+      ,LaurinPatellaDegrees    : ""
+      ,LaurinPatellaSeverity   : kneeXRay.LaurinPatellaSeverity
+      ,LaurinPatellaMedial     : ""
+      ,LaurinPatellaLateral    : ""
+      
     }
-
-    if (kneeXRay.XRayArea2) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,APDate     : kneeXRay.APDate
-        ,APXRayItem : kneeXRay.APXRayItem2
-        ,XRayArea   : kneeXRay.XRayArea2
-      }
-      $ipadrbg.context.clinix_KneeXRays.add(newrecord);
-    }
-
-    if (kneeXRay.XRayArea3 || kneeXRay.Medial3) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,APDate     : kneeXRay.APDate
-        ,APXRayItem : kneeXRay.APXRayItem3
-        ,XRayArea   : kneeXRay.XRayArea3
-        ,Medial     : kneeXRay.Medial3
-      }
-      $ipadrbg.context.clinix_KneeXRays.add(newrecord);
-    }
-
-    if (kneeXRay.XRayArea4 || kneeXRay.Lateral4) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,APDate     : kneeXRay.APDate
-        ,APXRayItem : kneeXRay.APXRayItem4
-        ,XRayArea   : kneeXRay.XRayArea4
-        ,Lateral    : kneeXRay.Lateral4
-      }
-      $ipadrbg.context.clinix_KneeXRays.add(newrecord);
-    }
-
-    if (kneeXRay.XRayArea5) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,APDate     : kneeXRay.APDate
-        ,APXRayItem : kneeXRay.APXRayItem5
-        ,XRayArea   : kneeXRay.XRayArea5
-      }
-      $ipadrbg.context.clinix_KneeXRays.add(newrecord);
-    }
-
-    if (kneeXRay.XRayArea6) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,APDate     : kneeXRay.APDate
-        ,APXRayItem : kneeXRay.APXRayItem6
-        ,XRayArea   : kneeXRay.XRayArea6
-      }
-      $ipadrbg.context.clinix_KneeXRays.add(newrecord);
-    }
-
-
-
+    $ipadrbg.context.clinix_KneeXRays.add(newrecord);
     $ipadrbg.context.clinix_KneeXRays.saveChanges();
 
-    kneeXRay.XRayArea1 = "";
-    kneeXRay.Medial1 = "";
-    kneeXRay.Lateral1 = "";
-    kneeXRay.XRayArea2 = "";
-    kneeXRay.Medial2 = "";
-    kneeXRay.Lateral2 = "";
-
-    kneeXRay.XRayArea3 = "";
-    kneeXRay.Medial3 = "";
-    kneeXRay.Lateral3 = "";
-
-    kneeXRay.XRayArea4 = "";
-    kneeXRay.Medial4 = "";
-    kneeXRay.Lateral4 = "";
-
-    kneeXRay.XRayArea5 = "";
-    kneeXRay.Medial5 = "";
-    kneeXRay.Lateral5 = "";
-
-    kneeXRay.XRayArea6 = "";
-    kneeXRay.Medial6 = "";
-    kneeXRay.Lateral6 = "";
+    kneeXRay.APDate           = "";
+    kneeXRay.APDegrees        = "";
+    kneeXRay.APSeverity       = "";
+    kneeXRay.APMedial         = "";
+    kneeXRay.APLateral        = "";
+    kneeXRay.VarusDegrees     = "";
+    kneeXRay.VarusMedial      = "";
+    kneeXRay.VarusLateral     = "";
+    kneeXRay.ValgusDegrees    = "";
+    kneeXRay.ValgusMedial     = "";
+    kneeXRay.ValgusLateral    = "";
+    kneeXRay.Lateral30Severity = "";
+    kneeXRay.LaurinPatellaSeverity = "";
 
     $scope.LoadKneeXRays();
   }

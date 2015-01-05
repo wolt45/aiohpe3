@@ -12,11 +12,21 @@
 					</th>
 				</tr>
 	    	
-	            <tr class="info" ng-repeat="complaint in clinix_chiefcomp">
+	            <tr class="info">
+	             	<!-- ng-repeat="complaint in clinix_chiefcomp">
 	            	<td width="1%" style="color:black" nowrap>{{complaint.MyBone}}</td>
 	            	<td width="1%" style="color:black" nowrap>{{complaint.MyBoneLRB}}</td>
 	                <td width="1%" style="color:black">{{complaint.MyBoneComplaint}}</td>
-	                <td width="15%" style="color:black">{{complaint.Remarks}}</td> 
+	                <td width="15%" style="color:black">{{complaint.Remarks}}</td --> 
+	                <td width="5%"></td>
+	                <td>
+						<div ng-repeat="complaint in clinix_chiefcomp" style="float:left; color:black">
+							&nbsp; {{complaint.MyBoneComplaint}} 
+							{{complaint.MyBoneLRB ? (", &nbsp;" + (complaint.MyBoneLRB | uppercase) ) : ""}} 
+							{{complaint.MyBone ? (" &nbsp;" + (complaint.MyBone | uppercase) ) : ""}} 
+							{{complaint.Remarks ? (" &nbsp;" + complaint.Remarks ) : ""}} 
+						</div>
+	                </td>
 	                <td></td>
 	            </tr>
 
@@ -24,7 +34,7 @@
 		</div>
 	</div>
 
-	<!-- SPINE -->
+	<!-- SPINE 
 	<div scroll-bookmark="IOPESpineIntl">
 		<div class="panel panel-default">
 
@@ -54,6 +64,6 @@
 			</table>
 
 			
-		</div>
+		</div> -->
 	</div>
 </div>

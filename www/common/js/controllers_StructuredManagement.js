@@ -55,6 +55,37 @@ IOHPEApp.controller('StructuredManagementCtrl', function ($scope, $routeParams, 
       }
       $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
     }
+    if (formArrObj.Shower ) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Management        : "Shower"
+        ,ManagementDetail  : formArrObj.Shower
+      }
+      $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
+    }
+    if (formArrObj.Notes ) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Management        : "Instructions/Notes"
+        ,ManagementDetail  : formArrObj.Notes
+      }
+      $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
+    }
+    if (formArrObj.Follow ) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Management        : "Follow - up"
+        ,ManagementDetail  : formArrObj.Follow
+      }
+      $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
+    }
+
 
     $ipadrbg.context.clinix_StructuredManagement.saveChanges();
 

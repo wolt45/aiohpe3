@@ -14,30 +14,39 @@
 			<tr class="active">
 				<td nowrap>
 					Type of KNEE replacement<br>
-					<input type="text" class="form-control" ng-model="opknee3.TypeOfKNEERep">
+					<input type="radio" ng-model="opknee3.TypeOfKNEERep" value="Cemented">Cemented
+					<br>
+					<input type="radio" ng-model="opknee3.TypeOfKNEERep" value="Hybrid">Hybrid
+					<br>
+					<input type="radio" ng-model="opknee3.TypeOfKNEERep" value="Cement Less">Cement Less
 				</td>
 			
 				<td nowrap>
 					Implants Used
 					<br>
-					<input type="text" class="form-control" ng-model="opknee3.ImplantUsed">
+					<textarea class="form-control" rows="2" ng-model="opknee3.ImplantUsed" placeholder="none"></textarea>
 				</td>
 			</tr>
 
+			<!-- tr class="active">
+				<td colspan="9" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; letter-spacing: 3px; font-style: italic;">
+			    		Femoral Component
+			    	</span>
+				</td>
+			</tr -->
+
 			<tr class="active">
 				<td nowrap>
-					SIZES
-					<br>
 					Femoral Component
 					<br>
-					<input type="text" class="form-control" ng-model="opknee3.FemoralCompo">
+					<textarea class="form-control" rows="2" ng-model="opknee3.FemoralCompo" placeholder="none"></textarea>
 				</td>
 
 				<td nowrap>
-					<br>
 					Tibia Component
 					<br>
-					<input type="text" class="form-control" ng-model="opknee3.TibiaCompo">
+					<textarea class="form-control" rows="2" ng-model="opknee3.TibiaCompo" placeholder="none"></textarea>
 				</td>
 			</tr>
 
@@ -45,7 +54,7 @@
 				<td>
 					Patella:
 					<br>
-					<input type="text" class="form-control" ng-model="opknee3.Patella">
+					<textarea class="form-control" rows="2" ng-model="opknee3.Patella" placeholder="none"></textarea>
 				</td>
 			</tr>
 

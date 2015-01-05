@@ -5,7 +5,12 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPHIP_3", {
 
 	, TypeOfHIPRep	  : { type: "string"}
 	, ImplantUsed	  : { type: "string"}
-	, ImpName	  : { type: "string"}
+	
+	, AcetabularComponent : { type: "string"}
+	, AcetSize : { type: "string"}
+	, AcetScrews : { type: "string"}
+
+	, FemoralComponent : { type: "string"}
 	, HeadSize  : { type: "string"}
 	, NeckLength  : { type: "string"}
 });

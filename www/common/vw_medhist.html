@@ -12,16 +12,16 @@
 					</th>
 				</tr>
 
-				<tr class="info">
-	            	<th width="1%" class="text-center" style="color:#888" nowrap>Item</th>
-	            	<th width="1%" class="text-center" style="color:#888" nowrap>Details</th>
-	            </tr>
+				<tr class="info" ng-repeat="rolHist in clinix_MedHist" style="color:black">
+					<td width="5%"></td>
 
-				<tr class="info" ng-repeat="rolHist in clinix_MedHist">
-	            	<td class="text-center" style="color:black">{{rolHist.MedHist}}</td>
-	            	<td class="text-center" style="color:black">{{rolHist.MedHistDetails}}</td>
-	            </tr>
-				
+					<td class="text-left" style="color:black">
+						{{rolHist.MedHist ? rolHist.MedHist : ''}}
+						{{rolHist.MedHistYN ? ": " + rolHist.MedHistYN : ': NONE'}}
+						{{rolHist.MedHistDetails ? ", " + rolHist.MedHistDetails : ''}}
+					</td> 
+				</tr>
+	
 			</table>
 
 		</div>

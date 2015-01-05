@@ -49,10 +49,13 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_OPHIP_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_5 }
 	, jdata_OPHIP_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_6 }
 
+	, jdata_OPKNEE_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_1 }
+	, jdata_OPKNEE_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_2 }
+	, jdata_OPKNEE_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_3 }
+	, jdata_OPKNEE_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_4 }
+	, jdata_OPKNEE_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_5 }
+
 	, clinix_POSTOp_HIP_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_POSTOp_HIP_preform }
-
-
-
 
 	, clinix_PREOp_KNEE_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_preform }
 	, clinix_PREOp_KNEE_contact: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_contact }
@@ -60,10 +63,8 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, clinix_PREOp_KNEE_repeatBilateral: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_repeatBilateral }
 
 	, clinix_POSTOp_KNEE_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_POSTOp_KNEE_preform }
-	
 
-
-	
+	, zclinix: { type: $data.EntitySet, elementType: $ipadrbg.types.zclinix }
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });

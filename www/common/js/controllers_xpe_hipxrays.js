@@ -19,19 +19,28 @@ IOHPEApp.controller('HipXRaysCtrl', function ($scope, $routeParams, $http){
       ,PxRID    : $scope.clinix.PxRID
 
       ,APPelvisBothHipsDate : hipXRay.APPelvisBothHipsDate
-      ,Pelvis           : hipXRay.Pelvis
-      ,XRayArea         : hipXRay.XRayArea
-      ,XRayAreaSeverity : hipXRay.XRayAreaSeverity
-      ,XRayOthers       : hipXRay.XRayOthers
+      ,Pelvis             : hipXRay.Pelvis
+      ,HipJoint           : hipXRay.HipJoint
+      ,Avascular          : hipXRay.Avascular
+      ,NarrowingHipJoint  : hipXRay.NarrowingHipJoint
+
+      ,Subluxation        : hipXRay.Subluxation
+      ,Osteoporosis       : hipXRay.Osteoporosis
+      ,FractionsNeck      : hipXRay.FractionsNeck
+      ,Others             : hipXRay.Others
     }
     $ipadrbg.context.clinix_HipXRays.add(newrecord);
     $ipadrbg.context.clinix_HipXRays.saveChanges();
 
-    hipXRay.APPelvisBothHipsDate = "";
-    hipXRay.Pelvis = "";
-    hipXRay.XRayArea = "";
-    hipXRay.XRayAreaSeverity = "";
-    hipXRay.XRayOthers = "";
+    hipXRay.APPelvisBothHipsDate  = "";
+    hipXRay.Pelvis  = "";
+    hipXRay.HipJoint  = "";
+    hipXRay.Avascular  = "";
+    hipXRay.NarrowingHipJoint  = "";
+    hipXRay.Subluxation  = "";
+    hipXRay.Osteoporosis  = "";
+    hipXRay.FractionsNeck  = "";
+    hipXRay.Others  = "";
 
     $scope.LoadHipXRays();
   }

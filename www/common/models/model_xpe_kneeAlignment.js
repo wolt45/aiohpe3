@@ -4,6 +4,5 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeAlignment", {
 	, PxRID: { type: "string"}
 	
 	, Alignment: { type: "string"}
-	, Degrees1: { type: "string"}
-	, Degrees2: { type: "string"}
+	, Degrees: { type: "string"}
 });

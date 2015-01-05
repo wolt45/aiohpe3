@@ -13,19 +13,28 @@
 				<td width="1%" ></td>
 				<td></td>
 			</tr>
+
 			<tr>					
-				<td>
-					<select ng-model="KneeMotionRanges.MotionArea" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="Flexion Contracture"> Flexion Contracture </option>
-						<option value="Flexion"> Flexion </option>
-						<option value="Extension"> Extension </option>
-					</select>
-				</td>
-				<td><input type="text" class="form-control" ng-model="KneeMotionRanges.Left" placeholder="left" ></td>
-				<td><input type="text" class="form-control" ng-model="KneeMotionRanges.Right" placeholder="right" ></td>
-				<td>
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(KneeMotionRanges)" style="text-decoration: none; color: #000">ADD</a>
+				<td nowrap> Flexion Contracture </td>
+				<td><input type="text" class="form-control" ng-model="KneeROM.FlexionContractureLeft" placeholder="left (none)" ></td>
+				<td><input type="text" class="form-control" ng-model="KneeROM.FlexionContractureRight" placeholder="right (none)" ></td>
+			</tr>
+				
+			<tr>					
+				<td nowrap> Extension </td>
+				<td><input type="text" class="form-control" ng-model="KneeROM.ExtensionLeft" placeholder="left (none)" ></td>
+				<td><input type="text" class="form-control" ng-model="KneeROM.ExtensionRight" placeholder="right (none)" ></td>
+			</tr>
+
+			<tr>					
+				<td nowrap> Flexion </td>
+				<td><input type="text" class="form-control" ng-model="KneeROM.FlexionLeft" placeholder="left (none)" ></td>
+				<td><input type="text" class="form-control" ng-model="KneeROM.FlexionRight" placeholder="right (none)" ></td>
+			</tr>
+				
+			<tr>
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(KneeROM)" style="text-decoration: none; color: #000">ADD</a>
 				</td>
 			</tr>
 		
@@ -40,9 +49,9 @@
 	            	</a>
 	        	</td>
                 <td>
-                	<a class="btn btn-large btn-warning" href="#/{{KneeMotionRange.ChiefRID}}/edit" ng-click="editChiefComp(KneeMotionRange)" style="text-decoration: none">
+                	<!-- a class="btn btn-large btn-warning" href="#/{{KneeMotionRange.ChiefRID}}/edit" ng-click="editChiefComp(KneeMotionRange)" style="text-decoration: none">
                 		EDIT
-                	</a>
+                	</a -->
             	</td>
             	<td></td>
 	        </tr>

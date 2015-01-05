@@ -12,24 +12,32 @@
 				<td width="15%" class="text-center">RIGHT</td>
 				<td></td>
 			</tr>
+
 			<tr>
-				<td nowrap>
-					<select ng-model="HIPMeasures.Supine" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="Leg length: ASIS / mm"> Leg length: ASIS / mm </option>
-						<option value="Thigh"> Thigh </option>
-						<option value="LEG Circumference"> LEG Circumference </option>
-					</select>
-				</td>
-				<td><input type="text" class="form-control" ng-model="HIPMeasures.SupineLeft" placeholder="Left" ></td>
-				<td><input type="text" class="form-control" ng-model="HIPMeasures.SupineRight" placeholder="Right" ></td>
-				<td>(cm/mm)</td>
+				<td nowrap> Leg length: ASIS / mm </td>
+				<td><input type="text" class="form-control" ng-model="HIPMeasures.ASISLeft" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HIPMeasures.ASISRight" placeholder="none" ></td>
+				<td> </td>
 			</tr>
 
 			<tr>
-				<td nowrap>
-					<input type="text" ng-model="HIPMeasures.Dorsalis" class="form-control" ng-init="HIPMeasures.Dorsalis='Dorsalis Pedis Pulse'" value="Dorsalis Pedis Pulse" READONLY> 
-				</td>
+				<td nowrap> Thigh </td>
+				<td><input type="text" class="form-control" ng-model="HIPMeasures.ThighLeft" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HIPMeasures.ThighRight" placeholder="none" ></td>
+				<td> </td>
+			</tr>
+
+			<tr>
+				<td nowrap> LEG Circumference </td>
+				<td><input type="text" class="form-control" ng-model="HIPMeasures.LEGLeft" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HIPMeasures.LEGRight" placeholder="none" ></td>
+				<td> </td>
+			</tr>
+
+
+
+			<tr>
+				<td nowrap> Dorsalis Pedis Pulse </td>
 				<td class="text-center" nowrap>
 					<input type="radio" ng-model="HIPMeasures.DorsalisLeft" value="Absent"> Absent 
 					<br>
@@ -44,16 +52,14 @@
 			</tr>
 
 			<tr>
-				<td nowrap>
-					<input type="text" ng-model="HIPMeasures.Others" class="form-control" placeholder="others"> 
-				</td>
+				<td nowrap> Others </td>
 				<td class="text-center" nowrap>
 					<input type="text" class="form-control" ng-model="HIPMeasures.OthersLeft" >  
 				</td>
 				<td class="text-center" nowrap>
 					<input type="text" class="form-control" ng-model="HIPMeasures.OthersRight" >  
 				</td>
-				<td>
+				<td class="text-center">
 					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(HIPMeasures)" style="text-decoration: none; color: #000">ADD</a>
 				</td>
 			</tr>
@@ -83,9 +89,9 @@
 	            	</a>
 	        	</td>
                 <td>
-                	<a class="btn btn-large btn-warning" href="#/{{HipMeasure.ChiefRID}}/edit" ng-click="editChiefComp(HipMeasure)" style="text-decoration: none">
+                	<!-- a class="btn btn-large btn-warning" href="#/{{HipMeasure.ChiefRID}}/edit" ng-click="editChiefComp(HipMeasure)" style="text-decoration: none">
                 		EDIT
-                	</a>
+                	</a -->
             	</td>
             	<td></td>
 	        </tr>

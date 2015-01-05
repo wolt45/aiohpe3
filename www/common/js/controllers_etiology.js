@@ -17,6 +17,7 @@ IOHPEApp.controller('EtiologyCtrl', function ($scope, $routeParams, $http){
     newrecord = {
       ClinixRID         : $scope.clinix.ClinixRID
       ,PxRID            : $scope.clinix.PxRID
+
       ,Injury           : grpEtiology.Injury
       ,DateEtio         : grpEtiology.DateEtio
       ,WorkRelated      : grpEtiology.WorkRelated
@@ -25,24 +26,24 @@ IOHPEApp.controller('EtiologyCtrl', function ($scope, $routeParams, $http){
       ,Duration         : grpEtiology.Duration
       ,DurationUnit     : grpEtiology.DurationUnit
       ,Severity         : grpEtiology.Severity
+      ,AmbulatoryAid    : grpEtiology.AmbulatoryAid
     }
+    $ipadrbg.context.clinix_etiology.add(newrecord);
+    $ipadrbg.context.clinix_etiology.saveChanges();
 
-      $ipadrbg.context.clinix_etiology.add(newrecord);
-      $ipadrbg.context.clinix_etiology.saveChanges();
-
-      $scope.LoadEtiology();
+    $scope.LoadEtiology();
   }
 
   $scope.removeEtiology = function (grpEtiology) {
     grpEtiology.remove()
     .then(function() {
       $scope.$apply(function() {
-         var comps = $scope.clinix_etiology;
-         comps.splice(comps.indexOf(grpEtiology), 1);
+        var comps = $scope.clinix_etiology;
+        comps.splice(comps.indexOf(grpEtiology), 1);
       });
     })
    .fail(function(err) {
-       alert("Error deleting item!");
+      alert("Error deleting item!");
    });
   }
 

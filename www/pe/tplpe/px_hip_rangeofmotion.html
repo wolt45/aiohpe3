@@ -13,56 +13,100 @@
 				<td width="1%" ></td>
 				<td></td>
 			</tr>
+
 			<tr>
-				<td>
-					<select ng-model="HipMotionRanges.MotionArea" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="Flexion Contracture"> Flexion Contracture </option>
-						<option value="Flexion"> Flexion </option>
-						<option value="Extension"> Extension </option>
-						<option value="IR"> IR </option>
-						<option value="ER"> ER </option>
-						<option value="Abduction(supine)"> Abduction(supine) </option>
-						<option value="Abduction(lateral)"> Abduction(lateral) </option>
-						<option value="Adduction"> Adduction </option>
-					</select>
-				</td>
-				<td><input type="text" class="form-control" ng-model="HipMotionRanges.Left" placeholder="left" ></td>
-				<td><input type="text" class="form-control" ng-model="HipMotionRanges.Right" placeholder="right" ></td>
+				<td>Flexion Contracture </td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.LeftFlexionContra" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.RightFlexionContra" placeholder="none" ></td>
 			</tr>
 
 			<tr>
-				<td>
-					<select ng-model="HipMotionRanges.MotionArea" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="SLR"> SLR </option>
-						<option value="SLR vs Resistance"> SLR vs Resistance </option>
-					</select>
-				</td>
-				<td class="text-center">
-					<select ng-model="HipMotionRanges.Left" style=" width:110px;" class="form-control">
-						<option value="Mild">Mild</option>
-						<option value="Moderate">Moderate</option>
-						<option value="Severe">Severe</option>
-						<option value="Increasing">Increasing</option>
-						<option value="Progressive">Progressive</option>
-					</select> 
-				</td>
-				<td>
-					<select ng-model="HipMotionRanges.Right" style=" width:110px;" class="form-control">
-						<option value="Mild">Mild</option>
-						<option value="Moderate">Moderate</option>
-						<option value="Severe">Severe</option>
-						<option value="Increasing">Increasing</option>
-						<option value="Progressive">Progressive</option>
-					</select> 
-				</td>
+				<td> Flexion </td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.LeftFlexion" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.RightFlexion" placeholder="none" ></td>
+			</tr>
 
+			<tr>
+				<td> Extension </td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.LeftExtension" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.RightExtension" placeholder="none" ></td>
+			</tr>
+
+			<tr>
+				<td> IR </td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.IRLeft" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.IRRight" placeholder="none" ></td>
+			</tr>
+
+			<tr>
+				<td> ER </td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.ERLeft" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.ERRight" placeholder="none" ></td>
+			</tr>
+
+			<tr>
+				<td> Abduction(supine) </td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.supineLeft" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.supineRight" placeholder="none" ></td>
+			</tr>
+
+			<tr>
+				<td> Abduction(lateral) </td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.lateralLeft" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.lateralRight" placeholder="none" ></td>
+			</tr>
+
+			<tr>
+				<td> Adduction </td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.AdductionLeft" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.AdductionRight" placeholder="none" ></td>
+			</tr>
+
+			<tr>
+				<td> SLR </td>
+				<td class="text-center">
+					<select ng-model="HipMotionRanges.SLRLeft" style=" width:110px;" class="form-control">
+						<option value="Mild">Mild</option>
+						<option value="Moderate">Moderate</option>
+						<option value="Severe">Severe</option>
+						<option value="Increasing">Increasing</option>
+					</select> 
+				</td>
 				<td>
+					<select ng-model="HipMotionRanges.SLRRight" style=" width:110px;" class="form-control">
+						<option value="Mild">Mild</option>
+						<option value="Moderate">Moderate</option>
+						<option value="Severe">Severe</option>
+						<option value="Increasing">Increasing</option>
+					</select> 
+				</td>
+			</tr>
+
+			<tr>
+				<td> SLR vs Resistance </td>
+				<td class="text-center">
+					<select ng-model="HipMotionRanges.ResistLeft" style=" width:110px;" class="form-control">
+						<option value="Mild">Mild</option>
+						<option value="Moderate">Moderate</option>
+						<option value="Severe">Severe</option>
+						<option value="Increasing">Increasing</option>
+					</select> 
+				</td>
+				<td>
+					<select ng-model="HipMotionRanges.ResistRight" style=" width:110px;" class="form-control">
+						<option value="Mild">Mild</option>
+						<option value="Moderate">Moderate</option>
+						<option value="Severe">Severe</option>
+						<option value="Increasing">Increasing</option>
+					</select> 
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="text-center" colspan="9">
 					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(HipMotionRanges)" style="text-decoration: none; color: #000">ADD</a>
 				</td>
 			</tr>
-		
 
 			<tr class="info" ng-repeat="HipMotionRange in clinix_HipMotionRange">
 	        	<td style="color:black" nowrap>{{HipMotionRange.MotionArea}}</td>
@@ -74,9 +118,9 @@
 	            	</a>
 	        	</td>
                 <td>
-                	<a class="btn btn-large btn-warning" href="#/{{HipMotionRange.ChiefRID}}/edit" ng-click="editChiefComp(HipMotionRange)" style="text-decoration: none">
+                	<!-- a class="btn btn-large btn-warning" href="#/{{HipMotionRange.ChiefRID}}/edit" ng-click="editChiefComp(HipMotionRange)" style="text-decoration: none">
                 		EDIT
-                	</a>
+                	</a -->
             	</td>
             	<td></td>
 	        </tr>

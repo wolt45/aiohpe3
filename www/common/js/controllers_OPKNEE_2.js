@@ -22,6 +22,7 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
 
+      ,SurgeryType : frmObj.SurgeryType
       ,Surgeon     : frmObj.Surgeon
       ,Assistant   : frmObj.Assistant
       ,Cardio      : frmObj.Cardio
@@ -31,11 +32,12 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.jdata_OPKNEE_2.add(newrecord);
     $ipadrbg.context.jdata_OPKNEE_2.saveChanges();
 
-    frmObj.Surgeon = "";
-    frmObj.Assistant = "";
-    frmObj.Anesthesio = "";
+    frmObj.SurgeryType    = "";
+    frmObj.Surgeon        = "";
+    frmObj.Assistant      = "";
+    frmObj.Anesthesio     = "";
     frmObj.AnesthesiaType = "";
-    frmObj.Cardio = "";
+    frmObj.Cardio         = "";
 
     $scope.LoadOPKNEE_2();
   }

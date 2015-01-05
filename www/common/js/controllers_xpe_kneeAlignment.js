@@ -15,33 +15,56 @@ IOHPEApp.controller('KneeAlignmentCtrl', function ($scope, $routeParams, $http){
 
   $scope.addNew = function (kneeAlignment) {
 
-    if (kneeAlignment.Degrees11 || kneeAlignment.Degrees12) {
+    if (kneeAlignment.SupineDegrees || kneeAlignment.Degrees12) {
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Alignment : kneeAlignment.Alignment1
-        ,Degrees1  : kneeAlignment.Degrees11
-        ,Degrees2  : kneeAlignment.Degrees12
+        ,Alignment : "Supine"
+        ,Degrees   : kneeAlignment.SupineDegrees
       }
       $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
     }
 
-    if (kneeAlignment.Degrees21) {
+    if (kneeAlignment.Normal) {
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Alignment : kneeAlignment.Alignment2
-        ,Degrees1  : kneeAlignment.Degrees21
+        ,Alignment : "Normal"
+        ,Degrees  : kneeAlignment.Normal
       }
       $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
     }
+
+    if (kneeAlignment.Varus) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Alignment : "Varus"
+        ,Degrees  : kneeAlignment.Varus
+      }
+      $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
+    }
+
+    if (kneeAlignment.Valgus) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Alignment : "Valgus"
+        ,Degrees  : kneeAlignment.Valgus
+      }
+      $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
+    }
+
     $ipadrbg.context.clinix_KneeAlignment.saveChanges();
 
-    kneeAlignment.Degrees11 = "";
-    kneeAlignment.Degrees12 = "";
-    kneeAlignment.Degrees21 = "";
+    kneeAlignment.SupineDegrees = "";
+    kneeAlignment.Normal = "";
+    kneeAlignment.Varus = "";
+    kneeAlignment.Valgus = "";
 
     $scope.LoadKneeAlignment();
   }

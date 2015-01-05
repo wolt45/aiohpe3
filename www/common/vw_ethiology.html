@@ -12,27 +12,22 @@
 					</th>
 				</tr>
 
-			  	<tr class="info" >
-	                <th class="text-center" style="color:#888" width="1%" nowrap>INJURY</th>
-	                <th class="text-center" style="color:#888" width="1%" nowrap>Date</th>
-	                <th class="text-center" style="color:#888" width="1%">WorkRelated</th>
-	                <th class="text-center" style="color:#888" width="1%">Details</th>
-	                <th class="text-center" style="color:#888" width="1%">Onset</th> 
-	                <th class="text-center" style="color:#888" width="1%">Duration</th> 
-	                <th class="text-center" style="color:#888" width="1%">Unit</th> 
-	                <th class="text-center" style="color:#888" width="1%">Severity</th> 
-	                <th></th>
-	            </tr>
+	            <tr class="info">
+					<td width="5%"></td>
+	                <td class="text-left"> 
+						<div ng-repeat="etiology in clinix_etiology" style="float:left; color:black">
+							{{etiology.Injury==1 ? 'Caused by Injury ' : 'Not Caused by Injury '}}
+							{{etiology.DateEtio=="0000-00-00" ? "" : (etiology.DateEtio) }} 
 
-	            <tr class="info" ng-repeat="etiology in clinix_etiology">
-	                <td class="text-center" style="color:black" width="1%" nowrap>{{etiology.Injury}}</td>
-	                <td style="color:black" width="1%" nowrap>{{etiology.DateEtio}}</td>
-	                <td class="text-center" style="color:black" width="1%">{{etiology.WorkRelated}}</td>
-	                <td style="color:black" width="1%">{{etiology.WorkRelatedDetails}}</td>
-	                <td style="color:black" width="1%">{{etiology.OnsetAccuteGradual}}</td> 
-	                <td class="text-center" style="color:black" width="1%">{{etiology.Duration}}</td> 
-	                <td style="color:black" width="1%">{{etiology.DurationUnit}}</td> 
-	                <td style="color:black" width="1%">{{etiology.Severity}}</td> 
+							{{etiology.WorkRelated==1 ? ', Work Related ' : ''}}
+							{{etiology.WorkRelatedDetails ? ", " + etiology.WorkRelatedDetails: "" }}
+							{{etiology.OnsetAccuteGradual ? ", Onset: " + etiology.OnsetAccuteGradual : "" }}
+							{{etiology.Duration ? etiology.Duration : "" }}
+							{{etiology.DurationUnit ? etiology.DurationUnit : "" }}
+							{{etiology.Severity ? ", " + etiology.Severity : "" }}
+							{{etiology.AmbulatoryAid ? ", Ambulatory Aid: " + etiology.AmbulatoryAid : "" }}
+						</div>
+					</td>
 	                <td></td>
 	            </tr>
         	</table>

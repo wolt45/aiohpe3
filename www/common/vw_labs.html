@@ -12,12 +12,17 @@
 					</th>
 				</tr>
 
-				<tr class="info" ng-repeat="rolLabs in clinix_LABS">
-	            	<td style="color:black" nowrap>{{rolLabs.labCategory}}</td>
-	            	<td style="color:black">{{rolLabs.labDate}}</td>
-	            	<td style="color:black" nowrap>{{rolLabs.labSource}}</td>
-	                <td style="color:black">{{rolLabs.labReport}}</td>
-	            </tr>
+				<tr class="info" ng-repeat="rolLabs in clinix_LABS" style="color:black">
+					<td width="5%"></td>
+
+					<td class="text-left"> 
+						&nbsp; {{rolLabs.labCategory ? rolLabs.labCategory : ''}}
+						&nbsp; {{rolLabs.labDate == "0000-00-00" ? "" : (rolLabs.labDate | date) }}
+						&nbsp; {{rolLabs.labSource ? rolLabs.labSource : ''}}
+						&nbsp; {{rolLabs.labReport ? rolLabs.labReport : ''}}
+					</td> 
+				</tr>
+
 			</table>
 		</div>
 	</div>

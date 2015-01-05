@@ -14,31 +14,101 @@
 
 				<tr class="active">
 					<th width="1%" class="text-center">Labs</th>
-					<th width="1%" class="text-center">Date</th>
+					<th width="15%" class="text-center">Date</th>
 					<th width="15%" class="text-center">Where</th>
-					<th width="15%" class="text-center">Report</th>
-					<td width="1%"></td>
-					<td width="1%"></td>
-					<td></td>
+					<th width="35%" class="text-center" colspan="9">Report</th>
 				</tr>
 
-				<tr class="active">
-					<td>
-						<select class="form-control" ng-model="CHIEFCformData.labCategory" style="background-color: white; color: #000">
-	              			<option ng-repeat="rolLabCat in labCategories" value="{{rolLabCat.dropname}}">{{rolLabCat.dropname}}</option>
-						</select>
+				<!-- tr>
+					<td nowrap>
+						<input type="radio" ng-model="CHIEFCformData.NONE" value="NONE">None
 					</td>
-					<td width="1%"><input type="date" class="form-control" ng-model="CHIEFCformData.labDate" ></td>
+					<td></td>
+					<td></td>
+				</tr -->
 
-					<td width="1%"><input type="text" class="form-control" ng-model="CHIEFCformData.labSource" ></td>
+				<tr>	
+					<td nowrap>
+						<!-- input type="radio" ng-model="CHIEFCformData.XRays" value="X-Rays" -->a. X-Rays
+					</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labDateXRays"></td>
+
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceXRays" ></td>
 					
-					<td width="1%"><input type="text" class="form-control" ng-model="CHIEFCformData.labReport" ></td>
-
-					<td class="text-center">
-						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addLABS(CHIEFCformData)" style="text-decoration: none">ADD</a>
+					<td colspan="9">
+						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportXRays" placeholder="lab report (none)"></textarea>
 					</td>
-					<td></td>
-					<td></td>
+				</tr>
+
+				<tr>
+					<td nowrap>
+						<!-- input type="radio" ng-model="CHIEFCformData.MRI" value="MRI" -->b. MRI
+					</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labDateMRI" ></td>
+
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceMRI" ></td>
+					
+					<td colspan="9">
+						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportMRI" placeholder="lab report (none)"></textarea>
+					</td>
+				</tr>
+
+				<tr>
+					<td>	
+						<!-- input type="radio" ng-model="CHIEFCformData.CTSCAN" value="CT-SCAN" -->c. CT-SCAN
+					</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labDateCTSCAN" ></td>
+
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceCTSCAN" ></td>
+					
+					<td colspan="9">
+						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportCTSCAN" placeholder="lab report (none)"></textarea>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="text-left" nowrap>d. Blood Exams
+						&nbsp;&nbsp;&nbsp;CBC
+					</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labDateCBC" ></td>
+
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceCBC" ></td>
+					
+					<td colspan="9">
+						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportCBC" placeholder="lab report (none)"></textarea>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="text-right" nowrap>
+						&nbsp;&nbsp;&nbsp;ESR
+					</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labDateESR" ></td>
+
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceESR" ></td>
+					
+					<td colspan="9">
+						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportESR" placeholder="lab report (none)"></textarea>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="text-right" nowrap>
+						&nbsp;&nbsp;&nbsp;CRP
+					</td>
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labDateCRP" ></td>
+
+					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceCRP" ></td>
+					
+					<td colspan="9">
+						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportCRP" placeholder="lab report (none)"></textarea>
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="9" class="text-center">
+						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addLABS(CHIEFCformData)" style="text-decoration: none">save</a>
+					</td>
 				</tr>
 				
 				<!-- tr class="info">
@@ -65,9 +135,9 @@
 	                	</a>
 	            	</td>
 	                <td width="1%">
-	                	<a class="btn btn-large btn-warning" href="#/{{rolLabs.ChiefRID}}/edit" ng-click="editChiefComp(rolLabs)" style="text-decoration: none">
+	                	<!-- a class="btn btn-large btn-warning" href="#/{{rolLabs.ChiefRID}}/edit" ng-click="editChiefComp(rolLabs)" style="text-decoration: none">
 	                		EDIT
-	                	</a>
+	                	</a-- >
 	            	</td>
 
 	            	<td></td>

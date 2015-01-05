@@ -50,11 +50,27 @@ IOHPEApp.controller('KneeMeasuresCtrl', function ($scope, $routeParams, $http){
       $ipadrbg.context.clinix_KneeMeasures.add(newrecord);
     }
 
+    if (kneeMeasure.DorsalisLeft || kneeMeasure.DorsalisRight) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Supine   : "Dorsalis Pedis Pulse"
+        ,Left     : kneeMeasure.DorsalisLeft
+        ,Right    : kneeMeasure.DorsalisRight
+      }
+      $ipadrbg.context.clinix_KneeMeasures.add(newrecord);
+    }
     $ipadrbg.context.clinix_KneeMeasures.saveChanges();
 
-    kneeMeasure.Supine = "Dorsalis Pedis Pulse";
-    kneeMeasure.Left = "";
-    kneeMeasure.Right = "";
+    kneeMeasure.LegAsisLeft = "";
+    kneeMeasure.LegAsisRight= "";
+    kneeMeasure.ThighLeft= "";
+    kneeMeasure.ThighRight= "";
+    kneeMeasure.LegCircLeft= "";
+    kneeMeasure.LegCircRight= "";
+    kneeMeasure.DorsalisLeft= "";
+    kneeMeasure.DorsalisRight= "";
 
     $scope.LoadKneeMeasures();
   }

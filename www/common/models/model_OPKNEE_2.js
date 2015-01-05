@@ -3,6 +3,7 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPKNEE_2", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 
+	, SurgeryType : { type: "string"}
 	, Surgeon	  : { type: "string"}
 	, Assistant	  : { type: "string"}
 	, Cardio	  : { type: "string"}

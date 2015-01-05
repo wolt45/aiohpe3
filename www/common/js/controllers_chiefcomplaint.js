@@ -35,12 +35,24 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
   $scope.LoadComplaints();
 
   $scope.addNew = function (complaint) {
+
+    var myComplaint = 
+      (complaint.MyBoneComplaint.Pain ? complaint.MyBoneComplaint.Pain + ", " : "") 
+      + (complaint.MyBoneComplaint.Swelling ? " " + complaint.MyBoneComplaint.Swelling + ", " : "") 
+      + (complaint.MyBoneComplaint.Stiffness ? " " + complaint.MyBoneComplaint.Stiffness + ", " : "") 
+      + (complaint.MyBoneComplaint.LimitedMotion ? " " + complaint.MyBoneComplaint.LimitedMotion + ", " : "") 
+      + (complaint.MyBoneComplaint.Deformity ? " " + complaint.MyBoneComplaint.Deformity + ", " : "") 
+      + (complaint.MyBoneComplaint.Shortening ? " " + complaint.MyBoneComplaint.Shortening + ", " : "") 
+      ;
+
     newrecord = {
       ClinixRID         : $scope.clinix.ClinixRID
       ,PxRID            : $scope.clinix.PxRID
-      ,MyBone           : complaint.MyBone
+
+      ,MyBoneComplaint  : myComplaint
       ,MyBoneLRB        : complaint.MyBoneLRB
-      ,MyBoneComplaint  : complaint.MyBoneComplaint
+      ,MyBone           : complaint.MyBone
+      
       ,Remarks          : complaint.Remarks
     }
 

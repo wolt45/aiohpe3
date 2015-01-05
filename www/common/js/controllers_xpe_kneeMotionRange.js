@@ -14,19 +14,52 @@ IOHPEApp.controller('KneeMotionRangeCtrl', function ($scope, $routeParams, $http
   $scope.LoadKneeMotionRange();
 
   $scope.addNew = function (kneeMotionRange) {
-    newrecord = {
-      ClinixRID : $scope.clinix.ClinixRID
-      ,PxRID    : $scope.clinix.PxRID
+    if (kneeMotionRange.FlexionContractureLeft || kneeMotionRange.FlexionContractureRight ) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
 
-      ,MotionArea : kneeMotionRange.MotionArea
-      ,Left     : kneeMotionRange.Left
-      ,Right    : kneeMotionRange.Right
+        ,MotionArea : "Flexion Contracture"
+        ,Left     : kneeMotionRange.FlexionContractureLeft
+        ,Right    : kneeMotionRange.FlexionContractureRight
+      }
+      $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
     }
-    $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
+
+    if (kneeMotionRange.ExtensionLeft || kneeMotionRange.ExtensionRight ) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,MotionArea : "Extension"
+        ,Left     : kneeMotionRange.ExtensionLeft
+        ,Right    : kneeMotionRange.ExtensionRight
+      }
+      $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
+    }
+
+    if (kneeMotionRange.FlexionLeft || kneeMotionRange.FlexionRight ) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,MotionArea : "Flexion"
+        ,Left     : kneeMotionRange.FlexionLeft
+        ,Right    : kneeMotionRange.FlexionRight
+      }
+      $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
+    }
+
     $ipadrbg.context.clinix_KneeMotionRange.saveChanges();
 
-    kneeMotionRange.Left = "";
-    kneeMotionRange.Right = "";
+    kneeMotionRange.FlexionContractureLeft = "";
+    kneeMotionRange.FlexionContractureRight = "";
+
+    kneeMotionRange.ExtensionLeft = "";
+    kneeMotionRange.ExtensionRight = "";
+
+    kneeMotionRange.FlexionLeft = "";
+    kneeMotionRange.FlexionRight = "";
 
     $scope.LoadKneeMotionRange();
   }

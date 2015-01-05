@@ -14,10 +14,12 @@
 
 				<tr class="active">
 					<td width="1%" nowrap>A. Type</td>
-					<td width="30%"><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryType" placeholder="Type" ></td>
+					<td width="25%">
+						<textarea class="form-control" ng-model="CHIEFCformData.SurgeryType" placeholder="Type" rows="3" ></textarea>
+					</td>
 					
-					<td width="30%" nowrap>B. When</td>
-					<td width="30%"><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryWhen" placeholder="When" ></td>
+					<td width="16%" class="text-right" nowrap>B. When</td>
+					<td width="25%"><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryWhen" placeholder="When" ></td>
 
 					<td></td>
 				</tr>
@@ -25,7 +27,7 @@
 					<td nowrap>C. Where</td>
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryWhere" placeholder="Where"></td>
 				
-					<td nowrap>D. Who</td>
+					<td class="text-right" nowrap>D. Who</td>
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryWho" placeholder="Who" ></td>
 
 					<td></td>
