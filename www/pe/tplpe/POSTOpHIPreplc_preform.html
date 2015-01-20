@@ -11,12 +11,25 @@
 			    </td>
 			</tr>
 
-			<tr ng-repeat="preForm in preForms">
+			<tr ng-repeat="preForm in clinix_POSTOp_HIP_preform">
 				<td class="text-center active" width="1%">
-					<input type="checkbox" checklist-model="hipPostform.preForms" checklist-value="preForm">
+					<input type="checkbox" checklist-model="hipPostform.clinix_POSTOp_HIP_preform" checklist-value="preForm"  ng-checked="preForm.PostOpYN == 1">
 				</td>
-				<td> {{preForm}} </td>
+
+				<td> {{preForm.PostOp}} </td>
+
+				<!-- td> {{preForm.PostOpHIPpreformRID}} </td>
+				<td> {{preForm.ClinixRID}} </td>
+				<td> {{preForm.PostOpYN}} </td -->
 			</tr>
+
+			<!-- tr ng-repeat="postFormRow in clinix_POSTOp_HIP_preform">
+				<td class="text-center active" width="1%">
+					<input type="checkbox" checklist-model="hipPostform.clinix_POSTOp_HIP_preform" checklist-value="postFormRow" 
+					ng-checked="postFormRow.PostOpYN == '1'">
+				</td>
+				<td> {{postFormRow.PostOp}} </td>
+			</tr -->
 
 			<tr>
 				<td></td>
@@ -33,7 +46,19 @@
 							</td>
 							<td width="5%"></td>
 							<td width="15%" class="text-center">
-								<a class="btn btn-large btn-info" ng-click="addNew(hipPostform.preForms)" style="text-decoration: none">Save</a>
+
+								<a class="btn btn-large btn-info" ng-click="addNew()" style="text-decoration: none">
+									REFRESH LIST
+								</a>
+
+							</td>
+
+							<td width="15%" class="text-center">
+
+								<a class="btn btn-large btn-info" ng-click="Update(hipPostform.clinix_POSTOp_HIP_preform)" style="text-decoration: none">
+									Update
+								</a>
+
 							</td>
 							<td></td>
 						</tr>
@@ -43,8 +68,11 @@
 		</table>
 
 		<table class="table table-condensed table-bordered">
-
 			<tr class="info" ng-repeat="postFormRow in clinix_POSTOp_HIP_preform" >
+
+	        	<!-- td style="color:black" width="1%">
+	        		{{postFormRow.PostOpYN}}
+	        	</td -->
 
 	        	<td style="color:black" width="75%">
 	        		{{postFormRow.PostOp}}
@@ -55,7 +83,6 @@
 	            		DELETE
 	            	</a>
 	        	</td>
-
             	<td></td>
 	        </tr>
 		</table>

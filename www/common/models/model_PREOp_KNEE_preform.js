@@ -4,4 +4,5 @@ $data.Entity.extend("$ipadrbg.types.clinix_PREOp_KNEE_preform", {
 	, PxRID: { type: "string"}
 
 	, PreOp : { type: "string"}
+	, PreOpYN : { type: "string"}
 });

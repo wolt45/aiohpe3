@@ -21,18 +21,18 @@ IOHPEApp.controller('POSTOpHIP_preformCtrl', function ($scope, $routeParams, $ht
 		, '14. HgB and Hematocrit in 48 hrs'
 		, '15. Keep legs apart with two pillows or abduction pillow'
 
-		, '16. Do not cross legs for at least 3 months.'
-		, '17. May dangle on bed with assistance the post–operative day.'
-		, '18. When sitting, keep feet turned out. Do not internally rotate leg in flexion.'
-		, '19. Keep knee High TEDS stocking when up or awake. Use TEDS stockings for the next 6 weeks.'
-		, '20. Ambulate on the second or third day with PT supervision or nurses assistance.'
+		, '16. PT 2 times daily:'
+		, '........ a. Foot and ankle pump 10 times every hour when awake.'
+		, '........ b. Quadriceps and hamstring sitting exercise 10 times every hour when awake.'
+		, '........ c. Active hip flexion not more than 90⁰.'
+		, '........ d. Isometric abduction 1ox every hour when awake.'
+		, '........ e. Ambulation with crutches or walker, weight bearing as tolerated.'
 
-		, '21. PT 2 times daily:'
-		, '________ a. Foot and ankle pump 10 times every hour when awake.'
-		, '________ b. Quadriceps and hamstring sitting exercise 10 times every hour when awake.'
-		, '________ c. Active hip flexion not more than 90⁰.'
-		, '________ d. Isometric abduction 1ox every hour when awake.'
-		, '________ e. Ambulation with crutches or walker, weight bearing as tolerated.'
+		, '17. Do not cross legs for at least 3 months.'
+		, '18. May dangle on bed with assistance the post–operative day.'
+		, '19. When sitting, keep feet turned out. Do not internally rotate leg in flexion.'
+		, '20. Keep knee High TEDS stocking when up or awake. Use TEDS stockings for the next 6 weeks.'
+		, '21. Ambulate on the second or third day with PT supervision or nurses assistance.'
   	];
 
   	$scope.ClinixRID = $routeParams.p_clinixrid;
@@ -42,27 +42,71 @@ IOHPEApp.controller('POSTOpHIP_preformCtrl', function ($scope, $routeParams, $ht
 	    	return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
 	    promise.then(function(pxresult) {
 	      $scope.$apply(function () {
-	        $scope.clinix_POSTOp_HIP_preform = pxresult;
+	      	if (pxresult.length > 0) {
+	      		// alert('HIT Listed');
+	      		$scope.clinix_POSTOp_HIP_preform = pxresult;
+	      	}
+	      	else {
+	      		// alert('NO HIT Listed');
+	      		$scope.addNew();
+	      	}
 	      });
 	    });
 	  };
 
  	$scope.LoadPOSTHipPreForm();
 
-	$scope.addNew = function (OpObj) {
-		for (i = 0; i < OpObj.length; i++) {
+	$scope.addNew = function () {
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("delete from 'clinix_POSTOp_HIP_preform' WHERE ClinixRID = " + $scope.ClinixRID);
+        });
+
+		for (i = 0; i < $scope.preForms.length; i++) {
 			newrecord = {
 		        ClinixRID : $scope.clinix.ClinixRID
 		        ,PxRID    : $scope.clinix.PxRID
 
-				,PostOp : OpObj[i]
+				,PostOp : $scope.preForms[i]
+				,PostOpYN : "1"
 			}
 			$ipadrbg.context.clinix_POSTOp_HIP_preform.add(newrecord);
 	    }
 		$ipadrbg.context.clinix_POSTOp_HIP_preform.saveChanges();
-
 		//alert("Entries Saved successfully!");
+		$scope.LoadPOSTHipPreForm();
+	};
 
+	$scope.Update = function () {
+		//alert("UPDATE HIT!");
+        var OpObj = $scope.clinix_POSTOp_HIP_preform;
+        
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        // db.transaction(function (tx) {
+        //     tx.executeSql("delete from 'clinix_POSTOp_HIP_preform' WHERE ClinixRID = " + $scope.ClinixRID);
+        // });
+
+		for (i = 0; i < OpObj.length; i++) {
+			var PostOpHIPpreformRID = OpObj[i].PostOpHIPpreformRID;
+			var PostOp   = OpObj[i].PostOp;
+			var PostOpYN = OpObj[i].PostOpYN;
+			// var PostOpYN = PostOpHIPpreformRID;
+
+			db.transaction(function (tx) {
+            	tx.executeSql("UPDATE 'clinix_POSTOp_HIP_preform' SET PostOpYN = " + PostOpYN + " WHERE PostOpHIPpreformRID = " + PostOpHIPpreformRID );
+        	});
+
+			// newrecord = {
+		 	//  ClinixRID : $scope.clinix.ClinixRID
+		 	//  ,PxRID    : $scope.clinix.PxRID
+			// 	,PostOp : PostOp
+			// 	,PostOpYN : PostOpYN
+			// }
+
+			// $ipadrbg.context.clinix_POSTOp_HIP_preform.add(newrecord);
+	    }
+		// $ipadrbg.context.clinix_POSTOp_HIP_preform.saveChanges();
+		//alert("Entries Saved successfully!");
 		$scope.LoadPOSTHipPreForm();
 	};
 
@@ -79,16 +123,35 @@ IOHPEApp.controller('POSTOpHIP_preformCtrl', function ($scope, $routeParams, $ht
    		});
   	}
 
-
+////////////////
 	$scope.hipPostform = {
-	    //preForms: ['hipPostform']
+	    // clinix_POSTOp_HIP_preform : [ $scope.clinix_POSTOp_HIP_preform ]
 	};
 	$scope.checkAll = function() {
 		// alert("Hit!");
-    	$scope.hipPostform.preForms = angular.copy($scope.preForms);
+    	$scope.hipPostform.clinix_POSTOp_HIP_preform = angular.copy($scope.clinix_POSTOp_HIP_preform);
   	};
   	$scope.uncheckAll = function() {
-    	$scope.hipPostform.preForms = [];
+    	$scope.hipPostform.clinix_POSTOp_HIP_preform = [];
   	};
+/////////////////
+
+
+
+
+
+
+	// $scope.hipPostform = {
+	//     // clinix_POSTOp_HIP_preform : [ $scope.clinix_POSTOp_HIP_preform.PostOpYN ]
+	// };
+
+	// $scope.checkAll = function() {
+	// 	// alert("Hit!");
+ //    	$scope.hipPostform.clinix_POSTOp_HIP_preform = angular.copy($scope.clinix_POSTOp_HIP_preform);
+ //  	};
+
+ //  	$scope.uncheckAll = function() {
+ //    	$scope.hipPostform.clinix_POSTOp_HIP_preform = [];
+ //  	};
 
 });

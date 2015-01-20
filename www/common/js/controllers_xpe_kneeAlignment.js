@@ -15,17 +15,6 @@ IOHPEApp.controller('KneeAlignmentCtrl', function ($scope, $routeParams, $http){
 
   $scope.addNew = function (kneeAlignment) {
 
-    if (kneeAlignment.SupineDegrees || kneeAlignment.Degrees12) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Alignment : "Supine"
-        ,Degrees   : kneeAlignment.SupineDegrees
-      }
-      $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
-    }
-
     if (kneeAlignment.Normal) {
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
@@ -33,6 +22,17 @@ IOHPEApp.controller('KneeAlignmentCtrl', function ($scope, $routeParams, $http){
 
         ,Alignment : "Normal"
         ,Degrees  : kneeAlignment.Normal
+      }
+      $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
+    }
+
+    if (kneeAlignment.SupineDegrees || kneeAlignment.Degrees12) {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Alignment : "Supine"
+        ,Degrees   : kneeAlignment.SupineDegrees
       }
       $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
     }

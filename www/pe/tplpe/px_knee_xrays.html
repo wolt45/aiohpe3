@@ -9,6 +9,14 @@
 			    </td>
 			</tr>
 
+			<tr>
+				<td class= "text-center">XRay Date</td>
+				<td>
+					<input type="date" ng-model="KneeXRayForm.APDate" class="form-control">
+				</td>
+				<td></td>
+			</tr>
+
 			<tr class="active">
 				<td width="1%" class="text-center" colspan="1"> </td>
 				<td width="1%"></td>
@@ -18,31 +26,66 @@
 			</tr>
 
 			<tr>
-				<td class= "text-center">XRay Date</td>
-				<td>
-					<input type="date" ng-model="KneeXRayForm.APDate" class="form-control">
+				<td nowrap>AP Standing - RIGHT</td>
+				<td class="text-left" nowrap>
+					<input type="text" class="form-control" ng-model="KneeXRayForm.APDegreesR" placeholder="degrees" >
 				</td>
-				<td></td>
+				<td>
+					<input type="text" class="form-control" ng-model="KneeXRayForm.APMedialR" placeholder="medial (none)">
+				</td>
+				<td>
+					<input type="text" class="form-control" ng-model="KneeXRayForm.APLateralR" placeholder="lateral (none)">
+				</td>
 			</tr>
 
 			<tr>
-				<td nowrap>AP Standing</td>
-				<td class="text-left" nowrap>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.APDegrees" placeholder="degrees" >
-				
-					<br>Joint Space
-					<br><input type="radio" ng-model="KneeXRayForm.APSeverity" value="MILD" > Mild
-					<br><input type="radio" ng-model="KneeXRayForm.APSeverity" value="MODERATE" > Moderate
-					<br><input type="radio" ng-model="KneeXRayForm.APSeverity" value="SEVERE" > Severe
-					<br><input type="radio" ng-model="KneeXRayForm.APSeverity" value="INCREASING" > Increasing
+				<td class="text-right" nowrap>
+					Joint Space
 				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.APSeverityR" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityR" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityR" value="SEVERE" > Severe
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityR" value="INCREASING" > Increasing
+				</td>
+			</tr>
 
-				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.APMedial" placeholder="medial (none)">
+
+			<tr class="active">
+				<td colspan="9"> &nbsp; </td>
+			</tr>
+
+
+			<tr>
+				<td nowrap>AP Standing - LEFT</td>
+				<td class="text-left" nowrap>
+					<input type="text" class="form-control" ng-model="KneeXRayForm.APDegreesL" placeholder="degrees" >
 				</td>
 				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.APLateral" placeholder="lateral (none)">
+					<input type="text" class="form-control" ng-model="KneeXRayForm.APMedialL" placeholder="medial (none)">
 				</td>
+				<td>
+					<input type="text" class="form-control" ng-model="KneeXRayForm.APLateralL" placeholder="lateral (none)">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-right" nowrap>
+					Joint Space
+				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.APSeverityL" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityL" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityL" value="SEVERE" > Severe
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityL" value="INCREASING" > Increasing
+				</td>
+			</tr>
+
+			<tr class="active">
+				<td width="1%" class="text-center" colspan="1"> </td>
+				<td width="1%"></td>
+				<td width="20%" nowrap><center>RIGHT</td>
+				<td width="20%" nowrap><center>LEFT</td>
 				<td></td>
 			</tr>
 
@@ -74,7 +117,7 @@
 				<td></td>
 			</tr>
 
-			<tr>
+			<!-- tr>
 				<td nowrap>Lateral 30
 					<input type="hidden" ng-model="KneeXRayForm.APXRayItem5" class="form-control" ng-init="KneeXRayForm.APXRayItem5='Lateral 30'" value="Lateral 30" READONLY>
 				</td>
@@ -85,17 +128,25 @@
 					<br><input type="radio" ng-model="KneeXRayForm.Lateral30Severity" value="INCREASING" > Increasing
 				</td>
 				<td></td>
-			</tr>
-			<tr>
-				<td nowrap>Laurin (patella) Views
+			</tr -->
 
+			<tr>
+				<td nowrap>Laurin (patella) Views</td>
+				<td></td>
+				<td class="text-left" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityR" value="MILD" > Mild
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityR" value="MODERATE" > Moderate
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityR" value="SEVERE" > Severe
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityR" value="INCREASING" > Increasing
 				</td>
-				<td class="text-left" nowrap>
-					    <input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverity" value="MILD" > Mild
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverity" value="MODERATE" > Moderate
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverity" value="SEVERE" > Severe
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverity" value="INCREASING" > Increasing
+
+				<td class="text-left" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="MILD" > Mild
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="MODERATE" > Moderate
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="SEVERE" > Severe
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="INCREASING" > Increasing
 				</td>
+
 				<td></td>
 			</tr>
 			<tr>
@@ -112,24 +163,35 @@
 	        	<td nowrap>
  					<table class="table table-condensed table-bordered">
  						<tr class="info">
-							<th width="1%" class="text-center" style="color:#888" nowrap>XRay DATE</th>
+							<th class="text-center" style="color:#888" nowrap>XRay DATE</th>
 				        	<th width="1%" class="text-center" style="color:#888" nowwrap>ITEM</th>
 				            <th width="1%" class="text-center" style="color:#888" nowrwap>DEGREES</th>
 				            <th width="1%" class="text-center" style="color:#888" nowrwap>SEVERITY</th>
 				            <th width="1%" class="text-center" style="color:#888">MEDIAL</th>
 				            <th width="1%" class="text-center" style="color:#888">LATERAL</th>
-				            <th></th>
 						</tr>
 
  						<tr class="info">
  							<td style="color:black">{{xrayRow.APDate | date}}</td>
-				        	<td style="color:black">{{xrayRow.APStanding}}</td>
-				        	<td style="color:black">{{xrayRow.APDegrees}}</td>
-				            <td style="color:black">{{xrayRow.APSeverity}}</td>
-				            <td style="color:black">{{xrayRow.APMedial}}</td>
-				            <td style="color:black">{{xrayRow.APLateral}}</td>
-				            <td></td>
+
+				        	<td style="color:black">{{xrayRow.APStandingR}}</td>
+				        	<td style="color:black">{{xrayRow.APDegreesR}}</td>
+				            <td style="color:black">{{xrayRow.APSeverityR}}</td>
+				            <td style="color:black">{{xrayRow.APMedialR}}</td>
+				            <td style="color:black">{{xrayRow.APLateralR}}</td>
 			        	</tr>
+
+ 						<tr class="info">
+ 							<td style="color:black">&nbsp;</td>
+
+				        	<td style="color:black">{{xrayRow.APStandingL}}</td>
+				        	<td style="color:black">{{xrayRow.APDegreesL}}</td>
+				            <td style="color:black">{{xrayRow.APSeverityL}}</td>
+				            <td style="color:black">{{xrayRow.APMedialL}}</td>
+				            <td style="color:black">{{xrayRow.APLateralL}}</td>
+			        	</tr>
+
+
  						<tr class="info">
  							<td> </td>
 				        	<td style="color:black">{{xrayRow.Varus}}</td>
@@ -137,8 +199,8 @@
 				            <td style="color:black">{{xrayRow.VarusSeverity}}</td>
 				            <td style="color:black">{{xrayRow.VarusMedial}}</td>
 				            <td style="color:black">{{xrayRow.VarusLateral}}</td>
-				            <td></td>
 			        	</tr>
+
  						<tr class="info">
  							<td> </td>
 				        	<td style="color:black">{{xrayRow.Valgus}}</td>
@@ -146,25 +208,15 @@
 				            <td style="color:black">{{xrayRow.ValgusSeverity}}</td>
 				            <td style="color:black">{{xrayRow.ValgusMedial}}</td>
 				            <td style="color:black">{{xrayRow.ValgusLateral}}</td>
-				            <td></td>
 			        	</tr>
+
  						<tr class="info">
  							<td> </td>
-				        	<td style="color:black">{{xrayRow.Lateral30}}</td>
-				        	<td style="color:black">{{xrayRow.Lateral30Degrees}}</td>
-				            <td style="color:black">{{xrayRow.Lateral30Severity}}</td>
-				            <td style="color:black">{{xrayRow.Lateral30Medial}}</td>
-				            <td style="color:black">{{xrayRow.Lateral30Lateral}}</td>
-				            <td></td>
-			        	</tr>
- 						<tr class="info">
- 							<td> </td>
-				        	<td style="color:black">{{xrayRow.LaurinPatella}}</td>
-				        	<td style="color:black">{{xrayRow.LaurinPatellaDegrees}}</td>
-				            <td style="color:black">{{xrayRow.LaurinPatellaSeverity}}</td>
-				            <td style="color:black">{{xrayRow.LaurinPatellaMedial}}</td>
-				            <td style="color:black">{{xrayRow.LaurinPatellaLateral}}</td>
-				            <td></td>
+				        	<td style="color:black">Laurin (patella) Views</td>
+				        	<td style="color:black">&nbsp;</td>
+				            <td style="color:black">&nbsp;</td>
+				            <td class="text-center" style="color:black" nowrap>Right:<br> {{xrayRow.LaurinPatellaSeverityR}}</td>
+				            <td class="text-center" style="color:black" nowrap>Left:<br> {{xrayRow.LaurinPatellaSeverityL}}</td>
 			        	</tr>
 		        	</table>
 	        	</td>

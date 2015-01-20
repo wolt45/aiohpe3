@@ -862,6 +862,7 @@ function PushController($rootScope, $scope, $http) {
       var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
       db.transaction(function (tx) {
           tx.executeSql("delete from 'clinix'");
+          tx.executeSql("delete from 'px_data'");
 
           // tx.executeSql("delete from 'tbl_TranStatus'");
           alert("All Transactions were cleared!!!");
@@ -878,14 +879,12 @@ function PushController($rootScope, $scope, $http) {
   $scope.pushHIPops = function() {
     if (confirm('PROCEED with H I P Operative Reports Synch-Push BACK Process?')) {
       $scope.Push_HIP_PREop_FORM();
-      $scope.Push_HIP_PREop_CONTACT();
-      $scope.Push_HIP_PREop_ANTIBIOTICS();
-      $scope.Push_HIP_PREop_REPEAT();
 
       $scope.Push_HIP_OP_Diagnosis();
       $scope.Push_HIP_OP_Surgery();
       $scope.Push_HIP_OP_Implant();
       //$scope.Push_HIP_OP_Acetabular(); 
+      $scope.Push_HIP_OP_Surgical(); 
       $scope.Push_HIP_OP_Operative();
 
       $scope.Push_HIP_POSTop_FORM();
@@ -907,71 +906,9 @@ function PushController($rootScope, $scope, $http) {
       $scope.clinix_PREOp_HIP_preform_JSON = JSON.stringify($scope.clinix_PREOp_HIP_preform);
       $http({
         method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PREop_HIP_Preform.php?clinixJsonIzed=' + $scope.clinix_PREOp_HIP_preform_JSON
+        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PREop_HIP_Preform.php' //?clinixJsonIzed=' + $scope.clinix_PREOp_HIP_preform_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_PREOp_HIP_preform_JSON
-        , cache : false
-      });
-    });
-  }
-
-
-  $scope.Push_HIP_PREop_CONTACT = function(){
-    $scope.clinix_PREOp_HIP_contact = [];
-    var promise = $ipadrbg.context.clinix_PREOp_HIP_contact.filter(function (px) { 
-      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
-
-    promise.then(function(pxresult) {
-      $scope.$apply(function () {
-        $scope.clinix_PREOp_HIP_contact = pxresult;
-      });
-      $scope.clinix_PREOp_HIP_contact_JSON = JSON.stringify($scope.clinix_PREOp_HIP_contact);
-      $http({
-        method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PREop_HIP_Contact.php?clinixJsonIzed=' + $scope.clinix_PREOp_HIP_contact_JSON
-        , contentType : 'application/json'
-        , data : $scope.clinix_PREOp_HIP_contact_JSON
-        , cache : false
-      });
-    });
-  }
-
-
-  $scope.Push_HIP_PREop_ANTIBIOTICS = function(){
-    $scope.clinix_PREOp_HIP_antibio = [];
-    var promise = $ipadrbg.context.clinix_PREOp_HIP_antibio.filter(function (px) { 
-      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
-
-    promise.then(function(pxresult) {
-      $scope.$apply(function () {
-        $scope.clinix_PREOp_HIP_antibio = pxresult;
-      });
-      $scope.clinix_PREOp_HIP_antibio_JSON = JSON.stringify($scope.clinix_PREOp_HIP_antibio);
-      $http({
-        method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PREop_HIP_AntBio.php?clinixJsonIzed=' + $scope.clinix_PREOp_HIP_antibio_JSON
-        , contentType : 'application/json'
-        , data : $scope.clinix_PREOp_HIP_antibio_JSON
-        , cache : false
-      });
-    });
-  }
-
-  $scope.Push_HIP_PREop_REPEAT = function(){
-    $scope.clinix_PREOp_HIP_repeatBilateral = [];
-    var promise = $ipadrbg.context.clinix_PREOp_HIP_repeatBilateral.filter(function (px) { 
-      return px.ClinixRID > this.id},{ id : 0 }).toLiveArray();
-
-    promise.then(function(pxresult) {
-      $scope.$apply(function () {
-        $scope.clinix_PREOp_HIP_repeatBilateral = pxresult;
-      });
-      $scope.clinix_PREOp_HIP_repeatBilateral_JSON = JSON.stringify($scope.clinix_PREOp_HIP_repeatBilateral);
-      $http({
-        method: 'POST'
-        , url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_back_PREop_HIP_RepeatB.php?clinixJsonIzed=' + $scope.clinix_PREOp_HIP_repeatBilateral_JSON
-        , contentType : 'application/json'
-        , data : $scope.clinix_PREOp_HIP_repeatBilateral_JSON
         , cache : false
       });
     });
@@ -1044,7 +981,7 @@ function PushController($rootScope, $scope, $http) {
     });
   }
 
-  // 4
+  // 4   NOT USED ANYMORE, OKAY??
   $scope.Push_HIP_OP_Acetabular = function(){
     $scope.jdata_OPHIP_4 = [];
     var promise = $ipadrbg.context.jdata_OPHIP_4.filter(function (px) { 
@@ -1149,9 +1086,6 @@ function PushController($rootScope, $scope, $http) {
   $scope.pushKNEEops = function() {
     if (confirm('PROCEED with K N E E Operative Reports Synch-Push BACK Process?')) {
       $scope.Push_KNEE_PREop_FORM();
-      $scope.Push_KNEE_PREop_CONTACT();
-      $scope.Push_KNEE_PREop_ANTIBIOTICS();
-      $scope.Push_KNEE_PREop_REPEAT();
 
       $scope.Push_KNEE_OP_Diagnosis();
       $scope.Push_KNEE_OP_Surgery();

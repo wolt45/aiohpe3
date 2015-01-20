@@ -12,29 +12,15 @@
 			</tr>
 
 			<tr class="active">
-				<td width="1%" nowrap>
-					Approach
-				</td>
-				<td width="1%" nowrap>
-					<select class="form-control" ng-model="ophip4.Approach">
-						<option value=""> (select one) </option>
-						<option value="Posterior"> Posterior </option>
-						<option value="Anterior"> Anterior </option>
-						<option value="Transtrochanteric"> Transtrochanteric </option>
-					</select>
-				</td>
-				<td></td>
-			</tr>
-
-			<tr class="active">
-				<td class="text-right" nowrap>
+				<td width="1%" class="text-right" nowrap>
 					Tourniquet used:
 				</td>
-				<td nowrap>
-					<input type="radio" value="Tourniquet used: YES" ng-model="ophip4.Tourniquet" checked> Yes
+				<td width="20%"nowrap>
+					<input type="radio" value="1" ng-model="opknee4.Tourniquet"> YES
 					<br>
-					<input type="radio" value="Tourniquet used: NONE" ng-model="ophip4.Tourniquet"> None
+					<input type="radio" value="0" ng-model="opknee4.Tourniquet"> NO
 				</td>
+				<td width="20%"> <textarea class="form-control" rows="2" ng-model="opknee4.TourniquetNotes"></textarea> </td>
 				<td></td>
 			</tr>
 
@@ -43,10 +29,18 @@
 					Release: 
 				</td>
 				<td nowrap>
-					<input type="radio" value="Release Before C" ng-model="ophip4.ReleaseB4C" checked> Before C 
+					<input type="radio" value="Release Before C" ng-model="opknee4.ReleaseB4C" > Before C 
 					<br>
-					<input type="radio" value="Release After C" ng-model="ophip4.ReleaseB4C"> After C
+					<input type="radio" value="Release After C" ng-model="opknee4.ReleaseB4C"> After C
 				</td>
+				<td><textarea class="form-control" rows="2" ng-model="opknee4.ReleaseB4Notes"></textarea></td>
+				<td></td>
+			</tr>
+
+			<tr class="active">
+				<td width="1%" class="text-right" nowrap> Approach </td>
+				<td></td>
+				<td width="1%" nowrap> <textarea class="form-control" rows="2" ng-model="opknee4.Approach"></textarea> </td>
 				<td></td>
 			</tr>
 
@@ -55,10 +49,11 @@
 					Subvastus: 
 				</td>
 				<td nowrap>
-					<input type="radio" value="Subvastus: YES" ng-model="ophip4.Subvastus" checked> Yes 
+					<input type="radio" value="Subvastus: YES" ng-model="opknee4.Subvastus" > YES 
 					<br>
-					<input type="radio" value="Subvastus: OTHERS" ng-model="ophip4.Subvastus"> Others
+					<input type="radio" value="Subvastus: NO" ng-model="opknee4.Subvastus"> NO
 				</td>
+				<td width="1%" nowrap> <textarea class="form-control" rows="2" ng-model="opknee4.SubvastusNotes"></textarea> </td>
 				<td></td>
 			</tr>
 
@@ -67,34 +62,23 @@
 					Surgical Incision: 
 				</td>
 				<td nowrap>
-					<input type="radio" value="Surgical Incision: Straight Anterior" ng-model="ophip4.SurgicalIncision" checked> Straight Anterior 
+					<input type="radio" value="Surgical Incision: Straight Anterior" ng-model="opknee4.SurgicalIncision" > Straight Anterior 
 					<br>
-					<input type="radio" value="Surgical Incision: Paramedical" ng-model="ophip4.SurgicalIncision"> Paramedical
+					<input type="radio" value="Surgical Incision: Paramedical" ng-model="opknee4.SurgicalIncision"> Paramedical
 				</td>
+				<td> <textarea class="form-control" rows="2" ng-model="opknee4.SurgicalIncisionNotes"></textarea> </td>
 				<td></td>
 			</tr>
 
 			<tr class="active">
-				<td class="text-right" nowrap>
-					Straight anterior:
-				</td>
-				<td nowrap>
-					<input type="radio" value="Straight Anterior: YES" ng-model="ophip4.StraightAnterior" checked> Yes 
+				<td class="text-right" nowrap> Bone Preparation: </td>
+				<!-- td nowrap>
+					<input type="radio" ng-model="opknee4.BonePreparation" value="Bone Preparation: Regular" checked> Regular
 					<br>
-					<input type="radio" value="Straight Anterior: OTHERS" ng-model="ophip4.StraightAnterior"> Others
-				</td>
+					<input type="radio" ng-model="opknee4.BonePreparation" value="Bone Preparation: Others"> Others
+				</td -->
 				<td></td>
-			</tr>
-
-			<tr class="active">
-				<td class="text-right" nowrap>
-					Bone Preparation: 
-				</td>
-				<td nowrap>
-					<input type="radio" ng-model="ophip4.BonePreparation" value="Bone Preparation: Regular" checked> Regular
-					<br>
-					<input type="radio" ng-model="ophip4.BonePreparation" value="Bone Preparation: Others"> Others
-				</td>
+				<td width="1%" nowrap> <textarea class="form-control" rows="2" ng-model="opknee4.BonePreparation"></textarea> </td>
 				<td></td>
 			</tr>
 
@@ -102,11 +86,13 @@
 				<td class="text-right">
 					Cementing of components:
 				</td>
-				<td nowrap>
-					<input type="radio" ng-model="ophip4.CementingComponents" value="Cementing of components: Simultameous" checked> Simultameous
+				<!--td nowrap>
+					<input type="radio" ng-model="opknee4.CementingComponents" value="Cementing of components: Simultameous" checked> Simultameous
 					<br>
-					<input type="radio" ng-model="ophip4.CementingComponents" value="Cementing of components: One After Another"> One After Another
-				</td>
+					<input type="radio" ng-model="opknee4.CementingComponents" value="Cementing of components: One After Another"> One After Another
+				</td -->
+				<td></td>
+				<td width="1%" nowrap> <textarea class="form-control" rows="2" ng-model="opknee4.CementingComponents"></textarea> </td>
 				<td></td>
 			</tr>
 
@@ -114,10 +100,12 @@
 				<td class="text-right" nowrap>Lateral release:
 				</td>
 				<td nowrap>
-					<input type="radio" ng-model="ophip4.LaterRelease" value="Lateral release: YES" checked> Yes
+					<input type="radio" ng-model="opknee4.LateralRelease" value="Lateral release: YES" > YES
 					<br>
-					<input type="radio" ng-model="ophip4.LaterRelease" value="Lateral release: Transtrochanteric"> Transtrochanteric
+					<input type="radio" ng-model="opknee4.LateralRelease" value="Lateral release: NO"> NO
 				</td>
+				
+				<td width="1%" nowrap> <textarea class="form-control" rows="2" ng-model="opknee4.LateralReleaseNotes"></textarea> </td>
 				<td></td>
 			</tr>
 
@@ -126,48 +114,59 @@
 					Hemovac used
 				</td>
 				<td nowrap>
-					<input type="radio" ng-model="ophip4.HemovacUsed" value="Hemovac used: NONE" checked> None
+					<input type="radio" ng-model="opknee4.HemovacUsed" value="Hemovac used: YES"> YES
 					<br>
-					<input type="radio" ng-model="ophip4.HemovacUsed" value="Hemovac used: YES"> Yes
+					<input type="radio" ng-model="opknee4.HemovacUsed" value="Hemovac used: NO" > NO
 				</td>
+				<td></td>
 				<td></td>
 			</tr>
 
-
-
 			<tr>
 				<td colspan="2" class="text-center" nowrap>
-					<a class="btn btn-large btn-info" ng-click="addNew(ophip4)" style="text-decoration: none; color: #000">Save</a>
+					<a class="btn btn-large btn-info" ng-click="addNew(opknee4)" style="text-decoration: none; color: #000">Save</a>
 				</td>
 			</tr>
 		</table>
 
+
+
+
+
 		<table class="table table-condensed table-bordered">
 			<tr class="info">
-	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Surgical Approach</th>
+	        	
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Tourniquet</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Release</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>Subvastus</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>Surgical Incision</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>Straight Anterior</th>
+				<th width="1%" class="text-center" style="color:#888" nowwrap>Approach</th>
+
+	            <th width="1%" class="text-center" style="color:#888" colspan="2" nowrwap>Subvastus</th>
+	            <th width="1%" class="text-center" style="color:#888" colspan="2" nowrwap>Surgical Incision</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Bone Preparation</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Cementing Components</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>Later Release</th>
+	            <th width="1%" class="text-center" style="color:#888" colspan="2" nowrwap>Later Release</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Hemovac Used</th>
 	            <th></th>
 	            <td></td>
 			</tr>
 
 			<tr class="info" ng-repeat="ophip4Row in jdata_OPKNEE_4">
-	        	<td style="color:black">{{ophip4Row.Approach}}</td>
-	        	<td style="color:black">{{ophip4Row.Tourniquet}}</td>
+	        	<td style="color:black">{{(ophip4Row.Tourniquet == "1") ? "YES" : "NO"}}</td>
 	        	<td style="color:black">{{ophip4Row.ReleaseB4C}}</td>
+	        	
+	        	<td style="color:black">{{ophip4Row.Approach}}</td>
+
 	        	<td style="color:black">{{ophip4Row.Subvastus}}</td>
+	        	<td style="color:black">{{ophip4Row.SubvastusNotes}}</td>
+
 	        	<td style="color:black">{{ophip4Row.SurgicalIncision}}</td>
-	        	<td style="color:black">{{ophip4Row.StraightAnterior}}</td>
+	        	<td style="color:black">{{ophip4Row.SurgicalIncisionNotes}}</td>
+
 	        	<td style="color:black">{{ophip4Row.BonePreparation}}</td>
+
 	        	<td style="color:black">{{ophip4Row.CementingComponents}}</td>
-	        	<td style="color:black">{{ophip4Row.LaterRelease}}</td>
+	        	<td style="color:black">{{ophip4Row.LateralRelease}}</td>
+	        	<td style="color:black">{{ophip4Row.LateralReleaseNotes}}</td>
 	        	<td style="color:black">{{ophip4Row.HemovacUsed}}</td>
 	            <td>
 	            	<a class="btn btn-large btn-danger" ng-click="removeItem(ophip4Row)" style="text-decoration: none">

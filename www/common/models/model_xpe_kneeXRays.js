@@ -5,11 +5,17 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeXRays", {
 	
 	, APDate: { type: "string"}
 	
-	, APStanding: { type: "string"}
-	, APDegrees: { type: "string"}
-	, APSeverity: { type: "string"}
-	, APMedial: { type: "string"}
-	, APLateral: { type: "string"}
+	, APStandingR: { type: "string"}
+	, APDegreesR: { type: "string"}
+	, APSeverityR: { type: "string"}
+	, APMedialR: { type: "string"}
+	, APLateralR: { type: "string"}
+
+	, APStandingL: { type: "string"}
+	, APDegreesL: { type: "string"}
+	, APSeverityL: { type: "string"}
+	, APMedialL: { type: "string"}
+	, APLateralL: { type: "string"}
 
 	, Varus: { type: "string"}
 	, VarusDegrees: { type: "string"}
@@ -23,15 +29,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeXRays", {
 	, ValgusMedial: { type: "string"}
 	, ValgusLateral: { type: "string"}
 
-	, Lateral30: { type: "string"}
-	, Lateral30Degrees: { type: "string"}
-	, Lateral30Severity: { type: "string"}
-	, Lateral30Medial: { type: "string"}
-	, Lateral30Lateral: { type: "string"}
-
-	, LaurinPatella: { type: "string"}
-	, LaurinPatellaDegrees: { type: "string"}
-	, LaurinPatellaSeverity: { type: "string"}
-	, LaurinPatellaMedial: { type: "string"}
-	, LaurinPatellaLateral: { type: "string"}
+	, LaurinPatellaSeverityR: { type: "string"}
+	, LaurinPatellaSeverityL: { type: "string"}
 });

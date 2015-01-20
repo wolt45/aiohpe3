@@ -1,5 +1,5 @@
 <div ng-controller="PREOpHIP_preformCtrl">
-	
+
 	<div scroll-bookmark="PreOpHIPpreform">
 
 		<table class="table table-condensed table-bordered">
@@ -43,16 +43,16 @@
 			</tr>
 		</table>
 
+
+
 		<table class="table table-condensed table-bordered">
-
-			<tr class="info" ng-repeat="preFormRow in clinix_PREOp_HIP_preform" >
-
+			<tr class="info" ng-repeat="preFormRow in clinix_PREOp_HIP_preform">
 	        	<td style="color:black" width="75%">
-	        		{{preFormRow.PreOp}}
+	        		<input type="checkbox" checked> &nbsp; {{preFormRow.PreOp}}
 	        	</td>
 	        	
 	            <td width="1%">
-	            	<a class="btn btn-large btn-danger" href="#/{{preFormRow.ClinixRID}}" ng-click="removeItem(preFormRow)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger" ng-click="removeItem(preFormRow)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>

@@ -4,4 +4,5 @@ $data.Entity.extend("$ipadrbg.types.clinix_POSTOp_HIP_preform", {
 	, PxRID: { type: "string"}
 
 	, PostOp : { type: "string"}
+	, PostOpYN : { type: "string"}
 });

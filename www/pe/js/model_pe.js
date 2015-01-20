@@ -28,17 +28,9 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, clinix_DiagsNotes: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_DiagsNotes }
 	
 	, clinix_PREOp_HIP_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_HIP_preform }
-	, clinix_PREOp_HIP_contact: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_HIP_contact }
-	, clinix_PREOp_HIP_antibio: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_HIP_antibio }
-	, clinix_PREOp_HIP_repeatBilateral: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_HIP_repeatBilateral }
-
 	, clinix_POSTOp_HIP_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_POSTOp_HIP_preform }
 
 	, clinix_PREOp_KNEE_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_preform }
-	, clinix_PREOp_KNEE_contact: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_contact }
-	, clinix_PREOp_KNEE_antibio: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_antibio }
-	, clinix_PREOp_KNEE_repeatBilateral: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_repeatBilateral }
-
 	, clinix_POSTOp_KNEE_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_POSTOp_KNEE_preform }
 	
 	, clinix_StructuredDiagnosis: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredDiagnosis }

@@ -22,11 +22,11 @@ IOHPEApp.controller('OPHIP_3Ctrl', function ($scope, $routeParams, $http){
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
 
-      ,TypeOfHIPRep     : frmObj.TypeOfHIPRep
-      ,ImplantUsed   : frmObj.ImplantUsed
+      ,TypeOfHIPRep : frmObj.TypeOfHIPRep
+      ,ImplantUsed  : frmObj.ImplantUsed
       
       ,AcetabularComponent : frmObj.AcetabularComponent
-      ,AcetSize  : frmObj.AcetSize
+      ,AcetSize : frmObj.AcetSize
       ,AcetScrews : frmObj.AcetScrews
 
       ,FemoralComponent  : frmObj.FemoralComponent

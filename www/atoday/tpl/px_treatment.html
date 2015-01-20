@@ -68,7 +68,9 @@
 					<td>&nbsp;</td>
 					<td> </td>
 					<td nowrap>
-						<input type="checkbox" ng-model="CHIEFCformData.injSteroidsResult"> Result
+						Result <br>
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.injSteroidsResult" value="1"> Yes
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.injSteroidsResult" value="0"> No
 					</td>
 					<td>
 						<input type="text" class="form-control" 
@@ -93,8 +95,9 @@
 					<th>&nbsp;</th>
 					<td> </td>
 					<td nowrap>
-						<input type="checkbox" ng-model="CHIEFCformData.injHyaluronicResult"> 
-							Result
+						Result <br>
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.injHyaluronicResult" value="1"> Yes
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.injHyaluronicResult" value="0"> No
 						</td>
 					<td>
 						<input type="text" class="form-control" ng-model="CHIEFCformData.injHyaluronicDetails" placeholder="Details" >
@@ -145,7 +148,7 @@
 	                </td>
 
 					<td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.injSteroidsResult ? treatment.injSteroidsResult : " "}}</span>
+	                	<span>{{treatment.injSteroidsResult == "1" ? "YES" : "NO"}}</span>
 	                </td>
 	                <td class="text-center" style="color:black" width="1%">
 	                	<span>{{treatment.injSteroidsDetails ? treatment.injSteroidsDetails : " "}}</span>
@@ -155,7 +158,7 @@
 	                	<span>{{treatment.injHyaluronicAcid ? treatment.injHyaluronicAcid : " "}}</span>
 	                </td>
 	                <td class="text-center" style="color:black" width="1%">
-	                	<span>{{treatment.injHyaluronicResult ? treatment.injHyaluronicResult : " "}}</span>
+	                	<span>{{treatment.injHyaluronicResult == "1" ? "YES" : "NO"}}</span>
 	                </td>
 	                <td class="text-center" style="color:black" width="1%">
 	                	<span>{{treatment.injHyaluronicDetails ? treatment.injHyaluronicDetails : " "}}</span>

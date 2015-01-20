@@ -36,8 +36,10 @@
 
 				<tr class="active">
 					<td nowrap>E. </td>
-					<td> 
-						<input type="checkbox" ng-model="CHIEFCformData.SurgeryHelped" ng-true-value="YES" ng-false-value=""> Did it help
+					<td nowrap> 
+						Did it help<br>
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.SurgeryHelped" value="1"> Yes
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.SurgeryHelped" value="0"> No
 					</td>
 					
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.SurgeryHowMany" placeholder="for how long" size="10"></td>
@@ -73,13 +75,13 @@
 	            </tr>
 
 				<tr class="info" ng-repeat="prevSurgery in clinix_previousSurgeries">
-	            	<td style="color:black" >{{prevSurgery.SurgeryType}}</td>
-	            	<td style="color:black" >{{prevSurgery.SurgeryWhen}}</td>
-	            	<td style="color:black" >{{prevSurgery.SurgeryWhere}}</td>
-	                <td style="color:black">{{prevSurgery.SurgeryWho}}</td>
-	                <td style="color:black">{{prevSurgery.SurgeryHelped}}</td> 
-	                <td style="color:black">{{prevSurgery.SurgeryHowMany}}</td> 
-	                <td style="color:black">{{prevSurgery.SurgeryHowManyUnit}}</td> 
+	            	<td class="text-center" style="color:black" >{{prevSurgery.SurgeryType}}</td>
+	            	<td class="text-center" style="color:black" >{{prevSurgery.SurgeryWhen}}</td>
+	            	<td class="text-center" style="color:black" >{{prevSurgery.SurgeryWhere}}</td>
+	                <td class="text-center" style="color:black">{{prevSurgery.SurgeryWho}}</td>
+	                <td class="text-center" style="color:black">{{prevSurgery.SurgeryHelped == "1" ? "YES" : "NO" }}</td> 
+	                <td class="text-center" style="color:black">{{prevSurgery.SurgeryHowMany}}</td> 
+	                <td class="text-center" style="color:black">{{prevSurgery.SurgeryHowManyUnit}}</td> 
 	                <td>
 	                	<a class="btn btn-large btn-danger" href="#/{{prevSurgery.ClinixRID}}" ng-click="removePrevSurg(prevSurgery)" style="text-decoration: none">
 	                		DELETE

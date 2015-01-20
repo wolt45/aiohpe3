@@ -14,8 +14,8 @@
 
 				<tr class="active">
 					<td class="text-left" width="5%" nowrap>Injury
-						<br><input type="radio" ng-model="CHIEFCformData.Injury" value="YES"> Yes
-						<br><input type="radio" ng-model="CHIEFCformData.Injury" value="NO"> No
+						<br><input type="radio" ng-model="CHIEFCformData.Injury" value="1"> Yes
+						<br><input type="radio" ng-model="CHIEFCformData.Injury" value="0"> No
 					</td>
 
 					<td width="15%">
@@ -24,8 +24,8 @@
 				
 					<td class="text-left" width="5%" nowrap>
 						Work Related
-						<br><input type="radio" ng-model="CHIEFCformData.WorkRelated" value="YES"> Yes
-						<br><input type="radio" ng-model="CHIEFCformData.WorkRelated" value="NO"> No
+						<br><input type="radio" ng-model="CHIEFCformData.WorkRelated" value="1"> Yes
+						<br><input type="radio" ng-model="CHIEFCformData.WorkRelated" value="0"> No
 					</td>
 					<td>
 						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.WorkRelatedDetails" placeholder="details (none)"></textarea>
@@ -140,9 +140,13 @@
 	            </tr>
 
 	            <tr class="info" ng-repeat="etiology in clinix_etiology">
-	                <td class="text-center" style="color:black" width="1%" nowrap>{{etiology.Injury}}</td>
+	                <td class="text-center" style="color:black" width="1%" nowrap>
+	                	{{etiology.Injury == "1" ? "YES" : "NO" }}
+	                </td>
 	                <td style="color:black" width="1%" nowrap>{{etiology.DateEtio}}</td>
-	                <td class="text-center" style="color:black" width="1%">{{etiology.WorkRelated}}</td>
+	                <td class="text-center" style="color:black" width="1%">
+	                	{{etiology.WorkRelated == "1" ? "YES" : "NO" }}
+	                </td>
 	                <td style="color:black" width="1%">{{etiology.WorkRelatedDetails}}</td>
 	                <td style="color:black" width="1%">{{etiology.OnsetAccuteGradual}}</td> 
 	                <td class="text-center" style="color:black" width="1%">{{etiology.Duration}}</td> 

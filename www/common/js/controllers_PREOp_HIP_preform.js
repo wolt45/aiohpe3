@@ -3,18 +3,30 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
 
   	//http://vitalets.github.io/checklist-model/
 	$scope.preForms = [
-	    'Regular hospital bed.'
-	    , 'Regular diet or unless otherwise specified.'
-	    , 'Get patient consent for Surgery.'
-    	, 'Nothing by mouth after midnight (NPO).'
-    	, 'Shower the night before surgery and wash with soap and water from umbilicus to knee of the schedule extremity wrap with clean towel.'
-    	, 'Have BM the night before and empty bladder before going to surgery.'
-    	, 'Type and x-match of packed red blood cells-units - PRBC.'
-    	, ' -- -- -- Fresh whole blood.'
-    	, 'CBC (Hgb, Hct.) Hematocrit, Sed. Rate.'
-    	, 'EKG.'
-    	, 'Hemostan 1gm in OR and repeat 1/2gm in about 6-12 hrs.'
-    	, 'Preoperative sedation per Anesthesiologist.'
+	      '1. Regular hospital bed.'
+	    , '2. Regular diet or unless otherwise specified.'
+	    , '3. Get patient consent for Surgery.'
+    	, '4. Nothing by mouth after midnight (NPO).'
+    	, '5. Shower the night before surgery and wash with soap and water from umbilicus to knee of the schedule extremity wrap with clean towel.'
+    	, '6. Have BM the night before and empty bladder before going to surgery.'
+    	, '7. Type and x-match of packed red blood cells-units'
+
+    	, '...... a. PRBC.'
+    	, '...... b. Fresh whole blood'
+    	, '8. CBC (Hgb, Hct.) Hematocrit, Sed. Rate.'
+    	, '9. EKG.'
+    	, '10. Hemostan 1gm in OR and repeat 1/2gm in about 6-12 hrs.'
+    	, '11. Contact.'
+    	, '...... a. Admitting Surgeon'
+    	, '...... b. Anesthesiologist'
+    	, '...... c. Internist or Cardiologist'
+    	, '12. Preoperative sedation per Anesthesiologist.'
+    	, '13. Antibiotics'
+    	, '...... a. Cefuroxime 1.5grms in the OR before induction. Repeat 12 hrs. after surgery.'
+	    , '...... b. Cefazolin 2grms in OR before induction repeat 8 hrs. after surgery.'
+	    , '...... c. Others'
+	    , '14. Trenacemic acid 1gm, 30 mins in OR before induction'
+	    , '15. Please inform relatives to wait outside of the operating room to talk to surgeon after surgery is finished.'
   	];
 
   	//$scope.ClinixRID = $routeParams.p_clinixrid;
@@ -35,24 +47,28 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
 	        $scope.clinix_PREOp_HIP_preform = pxresult;
 	      });
 	    });
-	  };
+	};
 
  	$scope.LoadHipPreForm();
 
 	$scope.addNew = function (OpObj) {
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("delete from 'clinix_PREOp_HIP_preform' WHERE ClinixRID = " + $scope.ClinixRID);
+        });
+
 		for (i = 0; i < OpObj.length; i++) {
 			newrecord = {
 		        ClinixRID : $scope.clinix.ClinixRID
 		        ,PxRID    : $scope.clinix.PxRID
 
 				,PreOp : OpObj[i]
+				,PreOpYN : "1"
 			}
 			$ipadrbg.context.clinix_PREOp_HIP_preform.add(newrecord);
 	    }
 		$ipadrbg.context.clinix_PREOp_HIP_preform.saveChanges();
-
-		//alert("Entries Saved successfully!");
-
+		//	alert("Entries Saved successfully!");
 		$scope.LoadHipPreForm();
 	};
 
@@ -68,7 +84,6 @@ IOHPEApp.controller('PREOpHIP_preformCtrl', function ($scope, $routeParams, $htt
     		alert("Error deleting item!");
    		});
   	}
-
 
 	$scope.hipPreform = {
 	    //preForms: ['hipPreform']

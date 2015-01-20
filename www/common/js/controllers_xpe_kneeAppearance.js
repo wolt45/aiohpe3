@@ -15,67 +15,43 @@ IOHPEApp.controller('KneeAppearanceCtrl', function ($scope, $routeParams, $http)
 
   $scope.addNew = function (kneeForm) {
 
-    if (kneeForm.Appearance || kneeForm.AppearanceSeverity) {
+    // if (kneeForm.AppearanceR || kneeForm.AppearanceSeverityR) {
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        , Appearance : kneeForm.Appearance
-        , Severity   : kneeForm.AppearanceSeverity
+        , AppearanceR     : kneeForm.AppearanceR
+        , SeverityR       : kneeForm.AppearanceSeverityR
+
+        , SynovitisR      : kneeForm.SynovitisR
+        , EffusionR       : kneeForm.EffusionR
+        , PainActiveROMR  : kneeForm.PainActiveROMR
+        , PainPassiveROMR : kneeForm.PainPassiveROMR
+
+        , AppearanceL     : kneeForm.AppearanceL
+        , SeverityL       : kneeForm.AppearanceSeverityL
+
+        , SynovitisL      : kneeForm.SynovitisL
+        , EffusionL       : kneeForm.EffusionL
+        , PainActiveROML  : kneeForm.PainActiveROML
+        , PainPassiveROML : kneeForm.PainPassiveROML
       }
       $ipadrbg.context.clinix_KneeAppearance.add(newrecord);
-    }
+    // }
+    // if (kneeForm.Appearan
+    kneeForm.AppearanceR = "";
+    kneeForm.AppearanceSeverityR = "";
+    kneeForm.SynovitisR = "";
+    kneeForm.EffusionR = "";
+    kneeForm.PainActiveROMR = "";
+    kneeForm.PainPassiveROMR = "";
 
-    if (kneeForm.Synovitis) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Appearance : "Synovitis"
-        ,Severity   : kneeForm.Synovitis
-      }
-      $ipadrbg.context.clinix_KneeAppearance.add(newrecord);
-    }
-
-    if (kneeForm.Effusion) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Appearance : "Effusion"
-        ,Severity   : kneeForm.Effusion
-      }
-      $ipadrbg.context.clinix_KneeAppearance.add(newrecord);
-    }
-
-    if (kneeForm.PainActiveROM) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Appearance : "Pain Active ROM"
-        ,Severity   : kneeForm.PainActiveROM
-      }
-      $ipadrbg.context.clinix_KneeAppearance.add(newrecord);
-    }
-
-    if (kneeForm.PainPassiveROM) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Appearance : "Pain Passive ROM"
-        ,Severity   : kneeForm.PainPassiveROM
-      }
-      $ipadrbg.context.clinix_KneeAppearance.add(newrecord);
-    }
-
-    kneeForm.Appearance = "";
-    kneeForm.AppearanceSeverity = "";
-    kneeForm.Synovitis = "";
-    kneeForm.Effusion = "";
-    kneeForm.PainActiveROM = "";
-    kneeForm.PainPassiveROM = "";
+    kneeForm.AppearanceL = "";
+    kneeForm.AppearanceSeverityL = "";
+    kneeForm.SynovitisL = "";
+    kneeForm.EffusionL = "";
+    kneeForm.PainActiveROML = "";
+    kneeForm.PainPassiveROML = "";
 
     $ipadrbg.context.clinix_KneeAppearance.saveChanges();
 

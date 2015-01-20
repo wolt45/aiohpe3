@@ -37,12 +37,12 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
   $scope.addNew = function (complaint) {
 
     var myComplaint = 
-      (complaint.MyBoneComplaint.Pain ? complaint.MyBoneComplaint.Pain + ", " : "") 
-      + (complaint.MyBoneComplaint.Swelling ? " " + complaint.MyBoneComplaint.Swelling + ", " : "") 
-      + (complaint.MyBoneComplaint.Stiffness ? " " + complaint.MyBoneComplaint.Stiffness + ", " : "") 
-      + (complaint.MyBoneComplaint.LimitedMotion ? " " + complaint.MyBoneComplaint.LimitedMotion + ", " : "") 
-      + (complaint.MyBoneComplaint.Deformity ? " " + complaint.MyBoneComplaint.Deformity + ", " : "") 
-      + (complaint.MyBoneComplaint.Shortening ? " " + complaint.MyBoneComplaint.Shortening + ", " : "") 
+      (complaint.MyBoneComplaint.Pain ? complaint.MyBoneComplaint.Pain + " " : "") 
+      + (complaint.MyBoneComplaint.Swelling ? " " + complaint.MyBoneComplaint.Swelling + " " : "") 
+      + (complaint.MyBoneComplaint.Stiffness ? " " + complaint.MyBoneComplaint.Stiffness + " " : "") 
+      + (complaint.MyBoneComplaint.LimitedMotion ? " " + complaint.MyBoneComplaint.LimitedMotion + " " : "") 
+      + (complaint.MyBoneComplaint.Deformity ? " " + complaint.MyBoneComplaint.Deformity + " " : "") 
+      + (complaint.MyBoneComplaint.Shortening ? " " + complaint.MyBoneComplaint.Shortening + " " : "") 
       ;
 
     newrecord = {

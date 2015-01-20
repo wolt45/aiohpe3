@@ -21,30 +21,46 @@ IOHPEApp.controller('OPKNEE_4Ctrl', function ($scope, $routeParams, $http){
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
+      
+      ,Tourniquet  : frmObj.Tourniquet
+      ,TourniquetNotes  : frmObj.TourniquetNotes
+      ,ReleaseB4C : frmObj.ReleaseB4C
+      ,ReleaseB4Notes : frmObj.ReleaseB4Notes
 
       ,Approach : frmObj.Approach
-      ,Tourniquet  : frmObj.Tourniquet
-      ,ReleaseB4C : frmObj.ReleaseB4C
+
       ,Subvastus : frmObj.Subvastus
+      ,SubvastusNotes : frmObj.SubvastusNotes
+
       ,SurgicalIncision : frmObj.SurgicalIncision
-      ,StraightAnterior : frmObj.StraightAnterior
+      ,SurgicalIncisionNotes : frmObj.SurgicalIncisionNotes
+
       ,BonePreparation : frmObj.BonePreparation
+
       ,CementingComponents : frmObj.CementingComponents
-      ,LaterRelease : frmObj.LaterRelease
+      ,LateralRelease : frmObj.LateralRelease
+      ,LateralReleaseNotes : frmObj.LateralReleaseNotes
+
       ,HemovacUsed : frmObj.HemovacUsed
     }
     $ipadrbg.context.jdata_OPKNEE_4.add(newrecord);
     $ipadrbg.context.jdata_OPKNEE_4.saveChanges();
 
-    frmObj.Approach = "";
     frmObj.Tourniquet = "";
+    frmObj.TourniquetNotes = "";
     frmObj.ReleaseB4C = "";
+    frmObj.ReleaseB4Notes = "";
+    frmObj.Approach = "";
+
     frmObj.Subvastus = "";
+    frmObj.SubvastusNotes = "";
     frmObj.SurgicalIncision = "";
-    frmObj.StraightAnterior = "";
+    frmObj.SurgicalIncisionNotes = "";
+    
     frmObj.BonePreparation = "";
     frmObj.CementingComponents = "";
-    frmObj.LaterRelease = "";
+    frmObj.LateralRelease = "";
+    frmObj.LateralReleaseNotes = "";
     frmObj.HemovacUsed = "";
 
     $scope.LoadOPKNEE_4();
