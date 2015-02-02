@@ -1,0 +1,57 @@
+<div id="wnavtopLeft" style="border: 0px solid RED; width:16%">
+
+    <div style="background: #000" >
+    	<img ng-src="..//images/glogo.jpg" width="40px" />
+	  	<span style="font-family: Helvetiker; font-size:18px; color: #fff; font-style: italic;">
+			iPad Medical Records
+		</span>
+	</div>
+
+	<div class="panel-group" id="accordion">
+
+		<div class="panel panel-default">
+			
+			<div class="panel-heading btn btn-success btn-block" >
+				<a data-parent="#accordion" 
+				    href="#/"
+					style="display:block; text-decoration:none">
+					For Interview</a>
+			</div>
+		
+			<div class="panel-heading btn btn-success btn-block">
+				<a data-toggle="collapse" data-parent="#accordion" 	
+					style="display:block; text-decoration:none" href="today_nav.html/#IOHPE" scroll-to-bookmark="IOHPE">
+					IOHPE
+				</a> <!-- href="today_nav.html/#IOHPE"	 -->
+			</div>
+
+			<div id="IOHPE" scroll-bookmark="IOHPE" class="panel-collapse ZZZcollapse">
+				<div class="panel-body">
+					<a class="btn-info btn-block btn text-center" scroll-to-bookmark="ChartData"> Chief Complaint </a> 
+					<!-- a class="btn-info btn-block btn text-center" scroll-to-bookmark="IOPESpineIntl"> Spine </a -->
+					<a class="btn-info btn-block btn text-center" scroll-to-bookmark="IOPEEtio"> Etiology </a>
+					<a class="btn-info btn-block btn text-center" scroll-to-bookmark="IOPETreat"> Past Treatment </a>
+					<a class="btn-info btn-block btn text-center" scroll-to-bookmark="IOPESurgery"> Previous Surgeries</a>
+					<a class="btn-info btn-block btn text-center" scroll-to-bookmark="IOPELabs"> Lab Exams</a>
+					<a class="btn-info btn-block btn text-center" scroll-to-bookmark="IOPEMedHist"> Medical History </a>
+					<a class="btn-danger btn-block btn text-center" scroll-to-bookmark="CloseIOH"> Proceed to PE </a>
+				</div>
+			</div>
+
+			<div class="panel-heading btn btn-active btn-block">
+				<a ng-href="#"
+					style="display:block; text-decoration:none">
+					VISITS
+				</a> 
+			</div>
+
+			<div class="panel-heading btn btn-active btn-block">
+				<a ng-href="..//index.html"
+					style="display:block; text-decoration:none">
+					M A I N
+				</a> 
+			</div>
+
+		</div>
+	</div>
+</div>	

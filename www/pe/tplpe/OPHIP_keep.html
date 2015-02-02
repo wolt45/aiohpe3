@@ -1,0 +1,274 @@
+<div scroll-bookmark="OPHIP">
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+	    			Hip Replacement Operative Report
+	    		</span>
+			</th>
+		</tr>
+
+		<!-- tr class="warning">
+			<td width="1%" colspan="9" nowrap>
+				<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+		    		PREOPERATIVE DIAGNOSIS
+		    	</span>
+		    </td>
+		</tr -->
+	</table>
+
+	<table class="table table-condensed table-bordered">
+		<tr>
+			<td width="50%"></td>
+			<td width="50%"></td>
+		</tr>
+		<tr class="active">
+			<td colspan="2" nowrap>
+				PRE Operative Diagnosis
+				<br>
+				<textarea class="form-control" rows="3"></textarea>
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				Surgeon
+				<br>
+				<input type="text" class="form-control" ng-model="schedSurgeGrp.Surgeon">
+			</td>
+	
+			<td nowrap>
+				Assistant/s
+				<br>
+				<input type="text" class="form-control" ng-model="schedSurgeGrp.Assistant">
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				Internist/Cardio
+				<br>
+				<input type="text" class="form-control" ng-model="schedSurgeGrp.Cardio">
+			</td>
+		</tr>
+
+		<tr class="active">			
+			<td nowrap>
+				Anaesthesiologist
+				<br>
+				<input type="text" class="form-control">
+			</td>
+		
+			<td nowrap>
+				Type of Anesthesia<br>
+				<select class="form-control">
+					<option value=""> (select one) </option>
+					<option value="Spinal"> Spinal </option>
+					<option value="Epidural"> Epidural </option>
+					<option value="Nerve Blocks"> Nerve Blocks </option>
+				</select>
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				Type of HIP replacement<br>
+				<select class="form-control">
+					<option value=""> (select one) </option>
+					<option value="Cemented"> Cemented </option>
+					<option value="Hybrid"> Hybrid </option>
+					<option value="Cement Less"> Cement Less </option>
+				</select>
+			</td>
+		
+			<td nowrap>
+				Implants Used
+				<br>
+				<input type="text" class="form-control">
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				Name
+				<br>
+				<input type="text" class="form-control">
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				SIZES
+				<br>
+				Head Size
+				<br>
+				<input type="text" class="form-control">
+			</td>
+			<td nowrap>
+				<br>
+				Neck Length
+				<br>
+				<input type="text" class="form-control"
+			</td>
+		</tr>
+
+
+		<tr class="active">
+			<td nowrap>
+				Acetabular component
+				<br>
+				<input type="text" class="form-control">
+			</td>
+		</tr>
+
+
+		<tr class="active">
+			<td>
+				Size
+				<br>
+				<input type="text" class="form-control" placeholder="Size of Acetabular Component">
+			</td>
+
+			<td>
+				Screws
+				<br>
+				<input type="text" class="form-control" placeholder="Screws">
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				Acetabular preperation
+			</td>
+
+			<td nowrap>
+				<input type="radio">Cemented
+				<br>
+				<input type="radio">Regular
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				Femoral preperation: 
+				<br>
+				<select class="form-control">
+					<option value=""> (select one) </option>
+					<option value="1"> Cemented
+					<option value="1"> Hybrid
+					<option value="1"> Cement Less
+				</select>
+			</td>
+		
+			<td nowrap>
+				Surgical Approach
+				<br>
+				<select class="form-control">
+					<option value=""> (select one) </option>
+					<option value="Anterior"> Posterior </option>
+					<option value="Anterior"> Anterior </option>
+					<option value="Transtrochanteric"> Transtrochanteric </option>
+				</select>
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				STABILITY
+				<br>
+				Posterior
+				<br>
+				<input type="radio" value="1" checked> Yes
+				<input type="radio" value="2"> No
+			</td>
+			<td nowrap>
+				<br>
+				Anterior
+				<br>
+				<input type="radio" value="1"> Yes
+				<input type="radio" value="2"> No
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				Hemovac used
+				<br>
+				<input type="radio" value="No Hemovac used" checked> No
+				<input type="radio" value="Hemovac used"> Yes
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				Operative Blood Loss
+				<br>
+				<input type="text" class="form-control" placeholder="cc">
+			</td>
+			<td nowrap>
+				Closure/routine
+				<br>
+				<input type="text" class="form-control">
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td nowrap>
+				Others
+				<br>
+				<input type="text" class="form-control">
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td colspan="2" nowrap>
+				Operative Course
+				<br>
+				<textarea class="form-control" rows="3"></textarea>
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td colspan="2" nowrap>
+				Operative Findings:
+				<br>
+				<textarea class="form-control" rows="3"></textarea>
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td colspan="2" nowrap>
+				POST Operative Diagnosis
+				<br>
+				<textarea class="form-control" rows="3"></textarea>
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td colspan="2" nowrap>
+				Duration of Operation
+				<br>
+				<textarea class="form-control" rows="3"></textarea>
+			</td>
+		</tr>
+
+		<tr class="active">
+			<td colspan="2" nowrap>
+				X-Rays
+				<br>
+				<textarea class="form-control" rows="3"></textarea>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="text-center" nowrap>
+				<!-- textarea class="form-control" ng-model="Diagnosis" rows="5" placeholder="Diagnosis"></textarea -->
+				<textarea id="tinymce" ui-tinymce ng-model="Diagnosis.DiagTnyMce" class="form-control" rows="5"></textarea>
+			</td>
+			<td class="text-center" width="10%" nowrap>
+				<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(Diagnosis)" style="text-decoration: none; color: #000">Save</a>
+			</td>
+		</tr>
+
+	</table>
+</div>

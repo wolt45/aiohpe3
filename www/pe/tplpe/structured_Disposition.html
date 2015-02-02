@@ -1,0 +1,49 @@
+<div ng-controller="StructuredDispositionCtrl">
+
+	<div scroll-bookmark="StructuredDischarge_DISPO">
+		
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td width="1%" colspan="9" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+			    		Disposition
+			    	</span>
+			    </td>
+			</tr>	
+
+			<tr>
+				<td width="1%">Disposition</td>
+				<td width="25%">
+					<select class="form-control" ng-model="disposis.Disposition" style="background-color: white; color: #000">
+              			<option ng-repeat="disposition in dispositions" value="{{disposition.dropname}}">{{disposition.dropname}}</option>
+					</select>
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td nowrap>Ambulatory Aid</td>
+				<td>
+					<select class="form-control" ng-model="disposis.Ambulatory" style="background-color: white; color: #000">
+              			<option ng-repeat="ambulatory in ambulatories" value="{{ambulatory.dropname}}">{{ambulatory.dropname}}</option>
+					</select> 
+				</td>
+
+				<td class="text-center" nowrap>
+					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(disposis)" style="text-decoration: none; color: #000">Save</a>
+				</td>
+			</tr>
+					
+			<tr class="info" ng-repeat="dispo in clinix_StructuredDisposition">
+	        	<td style="color:black" nowrap>{{dispo.Dispo}}</td>
+	        	<td style="color:black" nowrap>{{dispo.DispoDetail}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" href="#/{{dispo.ClinixRID}}" ng-click="removeItem(dispo)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+	        	<th> </th>
+	        </tr>
+		</table>
+	</div>
+</div>

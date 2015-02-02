@@ -1,0 +1,200 @@
+<div ng-controller="HipXRaysCtrl">
+	<div scroll-bookmark="HipXRAYS">
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td colspan="9">
+					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+			    		HIP Radiographic Findings
+			    	</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="1%" nowrap>AP Pelvis including both Hips</td>
+				<td colspan="2">
+					<input type="Date" ng-model="HipXRays.APPelvisBothHipsDate" class="form-control" width="20px">
+				</td>
+			</tr>
+
+			<tr>		
+				<td>1. Pelvis</td>
+				<td colspan="9" nowrap>
+					<input type="radio" ng-model="HipXRays.Pelvis" value="NORMAL" >Normal
+					<br><input type="radio" ng-model="HipXRays.Pelvis" value="ASYMMETRICAL" >Asymmetrical
+					<br><input type="radio" ng-model="HipXRays.Pelvis" value="Others" >Others
+				</td>
+			</tr>
+
+			<tr class="active">
+				<td width="1%" nowrap> </td>
+				<td width="1%" class="text-center" nowrap> Mild </td>	
+				<td width="1%" class="text-center" nowrap> Moderate </td>	
+				<td width="1%" class="text-center" nowrap> Severe </td>	
+				<td width="1%" class="text-center" nowrap> Increasing </td>
+				<td></td>
+				<td></td>
+			</tr>	
+
+			<tr>
+				<td nowrap>2. Hip Joint</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.HipJoint" value="MILD" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.HipJoint" value="MODERATE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.HipJoint" value="SEVERE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.HipJoint" value="INCREASING" >
+				</td>
+				<td></td>
+				<td></td>
+			</tr>	
+
+			<tr>
+				<td nowrap>3. Avascular necrosis head </td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Avascular" value="MILD" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Avascular" value="MODERATE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Avascular" value="SEVERE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Avascular" value="INCREASING" >
+				</td>
+				<td></td>
+				<td></td>
+			</tr>	
+
+			<tr>
+				<td nowrap>4. Narrowing of Hip Joint </td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.NarrowingHipJoint" value="MILD" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.NarrowingHipJoint" value="MODERATE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.NarrowingHipJoint" value="SEVERE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.NarrowingHipJoint" value="INCREASING" >
+				</td>
+				<td></td>
+				<td></td>
+			</tr>	
+
+			<tr>
+				<td nowrap>5. Subluxation </td>
+				<td class="text-center">
+					<input type="radio" ng-model="HipXRays.Subluxation" value="MILD" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Subluxation" value="MODERATE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Subluxation" value="SEVERE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Subluxation" value="INCREASING" >
+				</td>
+				<td></td>
+				<td></td>
+			</tr>	
+
+			<tr>
+				<td nowrap>6. Osteoporosis </td>
+				<td class="text-center">
+					<input type="radio" ng-model="HipXRays.Osteoporosis" value="MILD" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Osteoporosis" value="MODERATE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Osteoporosis" value="SEVERE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.Osteoporosis" value="INCREASING" >
+				</td>
+				<td></td>
+				<td></td>
+			</tr>	
+
+			<tr>
+				<td nowrap>7. Fractions: Neck <br> Intertrouch.UD </td>
+				<td class="text-center">
+					<input type="radio" ng-model="HipXRays.FractionsNeck" value="MILD" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.FractionsNeck" value="MODERATE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.FractionsNeck" value="SEVERE" >
+				</td>
+				<td class="text-center" nowrap>
+					<input type="radio" ng-model="HipXRays.FractionsNeck" value="INCREASING" >
+				</td>
+				<td></td>
+				<td></td>
+			</tr>	
+
+			<tr>
+				<td nowrap>8. Others </td>
+				<td colspan="4">
+					<input type="text" class="form-control" ng-model="HipXRays.Others" placeholder="Others">
+				</td>
+			</tr>	
+
+			<tr>	
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(HipXRays)" style="text-decoration: none; color: #000">ADD</a>
+				</td>
+			</tr>
+		</table>
+
+
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+				<th width="1%" class="text-center" style="color:#888">AP Pelvis DATE</th>  <!-- OnsetAccuteGradual -->
+	        	<th width="1%" class="text-center" style="color:#888" nowrap>PELVIS</th>
+	        	<th width="1%" class="text-center" style="color:#888" >Hip Joint</th>
+	            <th width="1%" class="text-center" style="color:#888" >Avascular necrosis head</th>
+	            <th width="1%" class="text-center" style="color:#888" >Narrowing of Hip Joint</th>
+	            <th width="1%" class="text-center" style="color:#888" >Subluxation</th>
+	            <th width="1%" class="text-center" style="color:#888" >Osteoporosis</th>
+	            <th width="1%" class="text-center" style="color:#888" >Fractions Neck</th>
+	            <th width="1%" class="text-center" style="color:#888">Others</th>
+	            <th width="1%"> </th>
+	            <th width=> </th>
+			</tr>
+
+			<tr class="info" ng-repeat="xrayRow in clinix_HipXRays">
+	        	<td style="color:black" nowrap>{{xrayRow.APPelvisBothHipsDate | date}}</td>
+	        	<td style="color:black" nowrap>{{xrayRow.Pelvis}}</td>
+	            <td style="color:black">{{xrayRow.HipJoint}}</td>
+	            <td style="color:black">{{xrayRow.Avascular}}</td>
+	            <td style="color:black">{{xrayRow.NarrowingHipJoint}}</td>
+	            <td style="color:black">{{xrayRow.Subluxation}}</td>
+	            <td style="color:black">{{xrayRow.Osteoporosis}}</td>
+	            <td style="color:black">{{xrayRow.FractionsNeck}}</td>
+	            <td style="color:black">{{xrayRow.Others}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" href="#/{{xrayRow.ClinixRID}}" ng-click="removeHipXRays(xrayRow)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td>
+                	<!-- a class="btn btn-large btn-warning" href="#/{{xrayRow.ChiefRID}}/edit" ng-click="editChiefComp(xrayRow)" style="text-decoration: none">
+                		EDIT
+                	</a -->
+            	</td>
+	        </tr>
+		</table>
+	</div>
+</div>
