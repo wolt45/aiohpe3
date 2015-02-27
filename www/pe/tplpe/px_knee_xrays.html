@@ -17,7 +17,16 @@
 				<td></td>
 			</tr>
 
-			<tr class="active">
+			<tr>
+				<td class="text-left">Normal</td>
+				<td nowrap>
+					<input type="radio" value="1" ng-model="KneeXRayForm.Normal"> Yes &nbsp;&nbsp;
+					<input type="radio" value="0" ng-model="KneeXRayForm.Normal"> No
+				</td>
+				<td></td>
+			</tr>
+
+			<!--tr class="active">
 				<td width="1%" class="text-center" colspan="1"> </td>
 				<td width="1%"></td>
 				<td width="20%" nowrap><center>(R) Medial</td>
@@ -39,24 +48,6 @@
 			</tr>
 
 			<tr>
-				<td class="text-right" nowrap>
-					Joint Space
-				</td>
-				<td class="text-left" colspan="3" nowrap>	
-					<input type="radio" ng-model="KneeXRayForm.APSeverityR" value="MILD" > Mild
-					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityR" value="MODERATE" > Moderate
-					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityR" value="SEVERE" > Severe
-					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityR" value="INCREASING" > Increasing
-				</td>
-			</tr>
-
-
-			<tr class="active">
-				<td colspan="9"> &nbsp; </td>
-			</tr>
-
-
-			<tr>
 				<td nowrap>AP Standing - LEFT</td>
 				<td class="text-left" nowrap>
 					<input type="text" class="form-control" ng-model="KneeXRayForm.APDegreesL" placeholder="degrees" >
@@ -67,26 +58,11 @@
 				<td>
 					<input type="text" class="form-control" ng-model="KneeXRayForm.APLateralL" placeholder="lateral (none)">
 				</td>
-			</tr>
+			</tr -->
 
-			<tr>
-				<td class="text-right" nowrap>
-					Joint Space
-				</td>
-				<td class="text-left" colspan="3" nowrap>	
-					<input type="radio" ng-model="KneeXRayForm.APSeverityL" value="MILD" > Mild
-					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityL" value="MODERATE" > Moderate
-					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityL" value="SEVERE" > Severe
-					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.APSeverityL" value="INCREASING" > Increasing
-				</td>
-			</tr>
 
 			<tr class="active">
-				<td width="1%" class="text-center" colspan="1"> </td>
-				<td width="1%"></td>
-				<td width="20%" nowrap><center>RIGHT</td>
-				<td width="20%" nowrap><center>LEFT</td>
-				<td></td>
+				<td colspan="9">&nbsp;</td>
 			</tr>
 
 			<tr>
@@ -94,57 +70,99 @@
 				<td class="text-left" nowrap>
 					<input type="text" class="form-control" ng-model="KneeXRayForm.VarusDegrees" placeholder="degrees" >
 				</td>
-				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.VarusMedial" placeholder="medial (none)" >
+				<td> &nbsp;
+					<!-- input type="text" class="form-control" ng-model="KneeXRayForm.VarusMedial" placeholder="(none)" -->
 				</td>
-				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.VarusLateral" placeholder="lateral (none)" >
-				</td>
+				<td> &nbsp; </td>
 				<td></td>
 			</tr>
+
+
+			<tr>
+				<td class="text-right" nowrap>
+					Joint Space Varus (R)
+				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusR" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusR" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusR" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusR" value="SEVERE" > Severe
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-right" nowrap>
+					Joint Space Varus (L)
+				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusL" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusL" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusL" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusL" value="SEVERE" > Severe
+				</td>
+			</tr>
+
+
 
 			<tr>
 				<td nowrap>Valgus Deformity</td>
 				<td class="text-left" nowrap>
 					<input type="text" class="form-control" ng-model="KneeXRayForm.ValgusDegrees" placeholder="degrees" >
 				</td>
-				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.ValgusMedial" placeholder="medial (none)" >
+				<td> &nbsp;
+					<!-- input type="text" class="form-control" ng-model="KneeXRayForm.ValgusMedial" placeholder="(none)" -->
 				</td>
-				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.ValgusLateral" placeholder="lateral (none)" >
-				</td>
+				<td> &nbsp; </td>
 				<td></td>
 			</tr>
 
-			<!-- tr>
-				<td nowrap>Lateral 30
-					<input type="hidden" ng-model="KneeXRayForm.APXRayItem5" class="form-control" ng-init="KneeXRayForm.APXRayItem5='Lateral 30'" value="Lateral 30" READONLY>
+			<tr>
+				<td class="text-right" nowrap>
+					Joint Space Valgus (R)
 				</td>
-				<td class="text-left" nowrap>
-					    <input type="radio" ng-model="KneeXRayForm.Lateral30Severity" value="MILD" > Mild
-					<br><input type="radio" ng-model="KneeXRayForm.Lateral30Severity" value="MODERATE" > Moderate
-					<br><input type="radio" ng-model="KneeXRayForm.Lateral30Severity" value="SEVERE" > Severe
-					<br><input type="radio" ng-model="KneeXRayForm.Lateral30Severity" value="INCREASING" > Increasing
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusR" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusR" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusR" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusR" value="SEVERE" > Severe
 				</td>
-				<td></td>
-			</tr -->
+			</tr>
 
 			<tr>
-				<td nowrap>Laurin (patella) Views</td>
-				<td></td>
-				<td class="text-left" nowrap>	
-					<input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityR" value="MILD" > Mild
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityR" value="MODERATE" > Moderate
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityR" value="SEVERE" > Severe
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityR" value="INCREASING" > Increasing
+				<td class="text-right" nowrap>
+					Joint Space Valgus (L)
 				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusL" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusL" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusL" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusL" value="SEVERE" > Severe
+				</td>
+			</tr>
 
+			<tr>
+				<td class="text-right" nowrap>
+					Bilateral Joint Space - Involvement
+				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.BilateralJointSpace" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.BilateralJointSpace" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.BilateralJointSpace" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.BilateralJointSpace" value="SEVERE" > Severe
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-center" nowrap>Laurin - Patella Views <br>(arthritic)</td>
+				<td>
+					<input type="radio" value="RIGHT" ng-model="KneeXRayForm.LaurinPatellaSeverityR"> Right <br>
+					<input type="radio" value="LEFT"  ng-model="KneeXRayForm.LaurinPatellaSeverityR"> Left
+				</td>
 				<td class="text-left" nowrap>	
-					<input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="MILD" > Mild
+					<input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="NORMAL" > Normal
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="MILD" > Mild
 					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="MODERATE" > Moderate
 					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="SEVERE" > Severe
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="INCREASING" > Increasing
 				</td>
 
 				<td></td>
@@ -157,23 +175,33 @@
 
 		</table>
 
+
+		<!-- D   I    S    P    L   A   Y -->
+
+
 		<table class="table table-condensed table-bordered">
 
 			<tr class="info" ng-repeat="xrayRow in clinix_KneeXRays">
 	        	<td nowrap>
  					<table class="table table-condensed table-bordered">
  						<tr class="info">
-							<th class="text-center" style="color:#888" nowrap>XRay DATE</th>
-				        	<th width="1%" class="text-center" style="color:#888" nowwrap>ITEM</th>
-				            <th width="1%" class="text-center" style="color:#888" nowrwap>DEGREES</th>
-				            <th width="1%" class="text-center" style="color:#888" nowrwap>SEVERITY</th>
-				            <th width="1%" class="text-center" style="color:#888">MEDIAL</th>
-				            <th width="1%" class="text-center" style="color:#888">LATERAL</th>
+							<th width="1%" class="text-center" style="color:#888" nowrap>XRay DATE</th>
+				        	<th class="text-center" style="color:#888" nowwrap>ITEM</th>
+				            <th width="1%" class="text-center" style="color:#888" nowrwap> </th>
+				            <th width="1%" class="text-center" style="color:#888" nowrwap> </th>
+				            <!-- th width="1%" class="text-center" style="color:#888">MEDIAL</th>
+				            <th width="1%" class="text-center" style="color:#888">LATERAL</th -->
 						</tr>
 
  						<tr class="info">
+ 							<td style="color:black">Date:</td>
  							<td style="color:black">{{xrayRow.APDate | date}}</td>
+ 							<td></td>
+ 							<td></td>
+ 						</tr>
 
+						<!-- tr class="info">
+ 							<td style="color:black">{{xrayRow.APDate | date}}</td>
 				        	<td style="color:black">{{xrayRow.APStandingR}}</td>
 				        	<td style="color:black">{{xrayRow.APDegreesR}}</td>
 				            <td style="color:black">{{xrayRow.APSeverityR}}</td>
@@ -189,34 +217,71 @@
 				            <td style="color:black">{{xrayRow.APSeverityL}}</td>
 				            <td style="color:black">{{xrayRow.APMedialL}}</td>
 				            <td style="color:black">{{xrayRow.APLateralL}}</td>
-			        	</tr>
+			        	</tr -->
 
 
  						<tr class="info">
  							<td> </td>
+				        	<td style="color:black">Normal</td>
+				        	<td style="color:black" class="text-center">{{(xrayRow.Normal == "1")? "YES" : "NO"}}</td>
+				            <td style="color:black"> </td>
+			        	</tr>
+
+ 						<tr class="info">
+ 							<td> </td>
 				        	<td style="color:black">{{xrayRow.Varus}}</td>
-				        	<td style="color:black">{{xrayRow.VarusDegrees}}</td>
-				            <td style="color:black">{{xrayRow.VarusSeverity}}</td>
-				            <td style="color:black">{{xrayRow.VarusMedial}}</td>
-				            <td style="color:black">{{xrayRow.VarusLateral}}</td>
+				        	<td class="text-center" style="color:black">{{xrayRow.VarusDegrees}}</td>
+				            <td style="color:black"></td>
+			        	</tr>
+
+ 						<tr class="info">
+ 							<td> </td>
+				        	<td class="text-right" style="color:black">Joint Space Varus (R)</td>
+				        	<td class="text-center" style="color:black">{{xrayRow.JointSpaceVarusR}}</td>
+				        	<td></td>
+			        	</tr>
+
+ 						<tr class="info">
+ 							<td> </td>
+				        	<td class="text-right" style="color:black">Joint Space Varus (L)</td>
+				        	<td class="text-center" style="color:black">{{xrayRow.JointSpaceVarusL}}</td>
+				        	<td></td>
 			        	</tr>
 
  						<tr class="info">
  							<td> </td>
 				        	<td style="color:black">{{xrayRow.Valgus}}</td>
-				        	<td style="color:black">{{xrayRow.ValgusDegrees}}</td>
-				            <td style="color:black">{{xrayRow.ValgusSeverity}}</td>
-				            <td style="color:black">{{xrayRow.ValgusMedial}}</td>
-				            <td style="color:black">{{xrayRow.ValgusLateral}}</td>
+				        	<td class="text-center" style="color:black">{{xrayRow.ValgusDegrees}}</td>
+				            <td style="color:black"></td>
+			        	</tr>
+
+
+ 						<tr class="info">
+ 							<td> </td>
+				        	<td class="text-right" style="color:black">Joint Space Valgus (R)</td>
+				        	<td class="text-center" style="color:black">{{xrayRow.JointSpaceValgusR}}</td>
+				        	<td></td>
 			        	</tr>
 
  						<tr class="info">
  							<td> </td>
-				        	<td style="color:black">Laurin (patella) Views</td>
-				        	<td style="color:black">&nbsp;</td>
-				            <td style="color:black">&nbsp;</td>
-				            <td class="text-center" style="color:black" nowrap>Right:<br> {{xrayRow.LaurinPatellaSeverityR}}</td>
-				            <td class="text-center" style="color:black" nowrap>Left:<br> {{xrayRow.LaurinPatellaSeverityL}}</td>
+				        	<td class="text-right" style="color:black">Joint Space Valgus (L)</td>
+				        	<td class="text-center" style="color:black">{{xrayRow.JointSpaceValgusL}}</td>
+				        	<td></td>
+			        	</tr>
+
+ 						<tr class="info">
+ 							<td> </td>
+				        	<td style="color:black">Bilateral Joint Space</td>
+				        	<td class="text-center" style="color:black">{{xrayRow.BilateralJointSpace}}</td>
+				        	<td class="text-center" style="color:black"> &nbsp; </td>
+			        	</tr>
+
+ 						<tr class="info">
+ 							<td> </td>
+				        	<td style="color:black">Laurin - Patella Views <br>(arthritic)</td>
+				        	<td class="text-center" style="color:black">{{xrayRow.LaurinPatellaSeverityR}}</td>
+				            <td class="text-center" style="color:black" nowrap> {{xrayRow.LaurinPatellaSeverityL}}</td>
 			        	</tr>
 		        	</table>
 	        	</td>

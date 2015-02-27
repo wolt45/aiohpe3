@@ -10,15 +10,19 @@
 			    	</span>
 			    </td>
 			</tr>
-
+		
 			<tr class="active">
 				<td nowrap>
 					Type of Surgery
 					<br>
 					<input type="text" class="form-control" ng-model="schedSurgeGrp.SurgeryType">
+					<td>When
+					<br>
+					<input type="date" class="form-control" ng-model="schedSurgeGrp.SurgeryDate">
+				</td>
 				</td>
 			</tr>
-				
+
 			<tr class="active">
 				<td nowrap>
 					Surgeon
@@ -59,6 +63,14 @@
 				</td>
 			</tr>
 
+			<tr class="active">
+				<td>Hospital
+					<br>
+					<input type="text" class="form-control" ng-model="schedSurgeGrp.Hospital" >
+				</td>
+			</tr>
+
+
 			<tr>
 				<td colspan="2" class="text-center" nowrap>
 					<a class="btn btn-large btn-info" 
@@ -75,22 +87,26 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="info">
 	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Type</th>
+	        	<th width="1%" class="text-center" style="color:#888" nowwrap>When</th>
 	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Surgeon</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Assisting</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Internist</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Anesthesiologist</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Anesthesia</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Hospital</th>
 	            <th width="1%"> </th>
 	            <th width=> </th>
 			</tr>
 
 			<tr class="info" ng-repeat="schedSurgery in jdata_OPKNEE_2">
 	        	<td style="color:black">{{schedSurgery.SurgeryType}}</td>
+	        	<td style="color:black">{{schedSurgery.SurgeryDate | date}}</td>
 	        	<td style="color:black">{{schedSurgery.Surgeon}}</td>
 	        	<td style="color:black">{{schedSurgery.Assistant}}</td>
 	        	<td style="color:black">{{schedSurgery.Cardio}}</td>
 	        	<td style="color:black">{{schedSurgery.Anesthesio}}</td>
 	        	<td style="color:black">{{schedSurgery.AnesthesiaType}}</td>
+	        	<td style="color:black">{{schedSurgery.Hospital}}</td>
 	            <td>
 	            	<a class="btn btn-large btn-danger" ng-click="removeItem(schedSurgery)" style="text-decoration: none">
 	            		DELETE
@@ -100,7 +116,6 @@
             	</td>
 	        </tr>
 	    </table>
-
 
 	</div>		
 </div>

@@ -8,29 +8,25 @@
 			    		HIP Measurement (supine)
 			    	</span>
 				</td>
-				<td width="15%" class="text-center">LEFT</td>
-				<td width="15%" class="text-center">RIGHT</td>
+				<td width="30%" class="text-center"> </td>
 				<td></td>
 			</tr>
 
 			<tr>
 				<td nowrap> Leg length: ASIS / mm </td>
 				<td><input type="text" class="form-control" ng-model="HIPMeasures.ASISLeft" placeholder="none" ></td>
-				<td><input type="text" class="form-control" ng-model="HIPMeasures.ASISRight" placeholder="none" ></td>
 				<td> </td>
 			</tr>
 
 			<tr>
 				<td nowrap> Thigh </td>
 				<td><input type="text" class="form-control" ng-model="HIPMeasures.ThighLeft" placeholder="none" ></td>
-				<td><input type="text" class="form-control" ng-model="HIPMeasures.ThighRight" placeholder="none" ></td>
 				<td> </td>
 			</tr>
 
 			<tr>
 				<td nowrap> LEG Circumference </td>
 				<td><input type="text" class="form-control" ng-model="HIPMeasures.LEGLeft" placeholder="none" ></td>
-				<td><input type="text" class="form-control" ng-model="HIPMeasures.LEGRight" placeholder="none" ></td>
 				<td> </td>
 			</tr>
 
@@ -38,11 +34,12 @@
 
 			<tr>
 				<td nowrap> Dorsalis Pedis Pulse </td>
-				<td class="text-center" nowrap>
-					<input type="radio" ng-model="HIPMeasures.DorsalisLeft" value="Absent"> Absent 
+				<td class="text-left" nowrap>
+					<input type="radio" ng-model="HIPMeasures.DorsalisLeft" value="Right"> Right 
 					<br>
-					<input type="radio" ng-model="HIPMeasures.DorsalisLeft" value="Normal"> Normal
+					<input type="radio" ng-model="HIPMeasures.DorsalisLeft" value="Left"> Left
 				</td>
+
 				<td class="text-center" nowrap>
 					<input type="radio" ng-model="HIPMeasures.DorsalisRight" value="Absent"> Absent 
 					<br>
@@ -51,14 +48,13 @@
 				<td></td>
 			</tr>
 
+
 			<tr>
 				<td nowrap> Others </td>
 				<td class="text-center" nowrap>
 					<input type="text" class="form-control" ng-model="HIPMeasures.OthersLeft" >  
 				</td>
-				<td class="text-center" nowrap>
-					<input type="text" class="form-control" ng-model="HIPMeasures.OthersRight" >  
-				</td>
+				
 				<td class="text-center">
 					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(HIPMeasures)" style="text-decoration: none; color: #000">ADD</a>
 				</td>
@@ -71,8 +67,8 @@
 			<tr class="info">
 				<th width="1%" class="text-center" style="color:#888" nowrap></th>  <!-- OnsetAccuteGradual -->
 	        	<th width="1%" class="text-center" style="color:#888" nowrap>Supine</th>
-	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Left</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>Right</th>
+	        	<th width="1%" class="text-center" style="color:#888" nowwrap> </th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap> </th>
 	            <th width="1%"> </th>
 	            <th width="1%"> </th>
 	            <th width=> </th>

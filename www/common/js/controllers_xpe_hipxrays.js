@@ -14,19 +14,29 @@ IOHPEApp.controller('HipXRaysCtrl', function ($scope, $routeParams, $http){
   $scope.LoadHipXRays();
 
   $scope.addNew = function (hipXRay) {
+
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+          + $scope.clinix.ClinixRID
+          + " AND MotionArea = 'SLR vs Resistance (left)'" );
+    }); 
+    
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
 
       ,APPelvisBothHipsDate : hipXRay.APPelvisBothHipsDate
       ,Pelvis             : hipXRay.Pelvis
-      ,HipJoint           : hipXRay.HipJoint
+      ,PelvisInches       : hipXRay.PelvisInches
+
       ,Avascular          : hipXRay.Avascular
-      ,NarrowingHipJoint  : hipXRay.NarrowingHipJoint
+      ,Narrowing          : hipXRay.Narrowing
 
       ,Subluxation        : hipXRay.Subluxation
       ,Osteoporosis       : hipXRay.Osteoporosis
-      ,FractionsNeck      : hipXRay.FractionsNeck
+      ,FracturesNeck      : hipXRay.FracturesNeck
+      ,Intertrouch        : hipXRay.Intertrouch
       ,Others             : hipXRay.Others
     }
     $ipadrbg.context.clinix_HipXRays.add(newrecord);
@@ -34,12 +44,13 @@ IOHPEApp.controller('HipXRaysCtrl', function ($scope, $routeParams, $http){
 
     hipXRay.APPelvisBothHipsDate  = "";
     hipXRay.Pelvis  = "";
-    hipXRay.HipJoint  = "";
+    hipXRay.PelvisInche  = "";
     hipXRay.Avascular  = "";
-    hipXRay.NarrowingHipJoint  = "";
+    hipXRay.Narrowing  = "";
     hipXRay.Subluxation  = "";
     hipXRay.Osteoporosis  = "";
     hipXRay.FractionsNeck  = "";
+    hipXRay.Intertrouch  = "";
     hipXRay.Others  = "";
 
     $scope.LoadHipXRays();

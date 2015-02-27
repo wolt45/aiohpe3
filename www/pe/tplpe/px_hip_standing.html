@@ -13,7 +13,7 @@
 			</tr>
 
 			<tr>
-				<td nowrap> Pelvis Level </td>
+				<td width="1%" nowrap> Pelvis Level </td>
 				<td class="text-left" colspan="9">
 					<input type="radio" name=" PelvisLevel" ng-model="HIPStanding.PelvisLevel" value="Left is Lower"> Left - Lower
 					<br><input type="radio" name=" PelvisLevel" ng-model="HIPStanding.PelvisLevel" value="Right is Lower"> Right - Lower
@@ -23,11 +23,8 @@
 
 			<tr>
 				<td nowrap> Trendelenberg Exam </td>
-				<td class="text-left" nowrap>Left: 
+				<td class="text-left" nowrap>
 					<input type="text" class="form-control" ng-model="HIPStanding.TrendLeft" placeholder="Trendelenberg Left " >
-				</td>
-				<td nowrap>Right
-					<input type="text" class="form-control" ng-model="HIPStanding.TrendRight" placeholder="Trendelenberg Right " >
 				</td>
 			</tr>
 
@@ -37,6 +34,8 @@
 					</a>
 				</td>
 			</tr>
+
+			<!-- D   I   S   P   L   A   Y -->
 
 			<tr class="info" ng-repeat="HipStands in clinix_HipStanding">
 	        	<td style="color:black" nowrap>{{HipStands.Standing}}</td>

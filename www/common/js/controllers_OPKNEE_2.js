@@ -23,22 +23,26 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
       ,PxRID    : $scope.clinix.PxRID
 
       ,SurgeryType : frmObj.SurgeryType
+      ,SurgeryDate : frmObj.SurgeryDate
       ,Surgeon     : frmObj.Surgeon
       ,Assistant   : frmObj.Assistant
       ,Cardio      : frmObj.Cardio
       ,Anesthesio  : frmObj.Anesthesio
       ,AnesthesiaType : frmObj.AnesthesiaType
+      ,Hospital   : frmObj.Hospital
     }
     $ipadrbg.context.jdata_OPKNEE_2.add(newrecord);
     $ipadrbg.context.jdata_OPKNEE_2.saveChanges();
 
     frmObj.SurgeryType    = "";
+    frmObj.SurgeryDate    = "";
     frmObj.Surgeon        = "";
     frmObj.Assistant      = "";
+    frmObj.Cardio         = "";
     frmObj.Anesthesio     = "";
     frmObj.AnesthesiaType = "";
-    frmObj.Cardio         = "";
-
+    frmObj.Hospital = "";
+    
     $scope.LoadOPKNEE_2();
   }
 
@@ -54,6 +58,4 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
        alert("Error deleting item!");
    });
   }
-
-
 });

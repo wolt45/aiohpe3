@@ -5,11 +5,13 @@ $data.Entity.extend("$ipadrbg.types.clinix_HipXRays", {
 	
 	, APPelvisBothHipsDate: { type: "date"}
 	, Pelvis: { type: "string"}
-	, HipJoint: { type: "string"}
+	, PelvisInches: { type: "string"}
+	
 	, Avascular: { type: "string"}
-	, NarrowingHipJoint: { type: "string"}
+	, Narrowing: { type: "string"}
 	, Subluxation: { type: "string"}
 	, Osteoporosis: { type: "string"}
-	, FractionsNeck: { type: "string"}
+	, FracturesNeck: { type: "string"}
+	, Intertrouch: { type: "string"}
 	, Others: { type: "string"}
 });

@@ -3,5 +3,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagsNotes", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 
-	, Notes: { type: "string"}
+	, NoteItem: { type: "string"}
+	, NoteValue: { type: "string"}
 });

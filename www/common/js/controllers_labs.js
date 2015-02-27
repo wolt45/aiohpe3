@@ -1,4 +1,4 @@
-IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http){
+IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http) {
   $scope.clinix_LABS = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -13,9 +13,26 @@ IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http){
 
   $scope.LoadLABS();
 
-  $scope.addLABS = function (grpLABS) {
-    if ( grpLABS.labDateXRays || grpLABS.labSourceXRays || grpLABS.labReportXRays ) {
-        newrecord = {
+  $scope.addLABS_xrays = function (grpLABS) {
+    var xTest = grpLABS.labDateXRays.toUpperCase();
+    
+    if (xTest == "NONE") {
+      grpLABS.labDateXRays = "NONE";
+      grpLABS.labSourceXRays = "NONE";
+      grpLABS.labReportXRays = "NONE"
+    }
+    
+    if ( grpLABS.labDateXRays && grpLABS.labSourceXRays && grpLABS.labReportXRays ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_LABS' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID 
+            + " AND labCategory = 'X-Rays'"
+            );
+      });
+
+      newrecord = {
         ClinixRID         : $scope.clinix.ClinixRID
         ,PxRID            : $scope.clinix.PxRID
 
@@ -25,10 +42,38 @@ IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http){
         ,labReport        : grpLABS.labReportXRays
       }
       $ipadrbg.context.clinix_LABS.add(newrecord);
-    }
+      $ipadrbg.context.clinix_LABS.saveChanges();
+      $scope.LoadLABS();
 
-    if ( grpLABS.labDateMRI || grpLABS.labSourceMRI || grpLABS.labReportMRI ) {
-        newrecord = {
+      grpLABS.labDateXRays    = "";
+      grpLABS.labSourceXRays  = "";
+      grpLABS.labReportXRays  = "";
+    }
+    else {
+      alert ("Incomplete XRay details, please go back!");
+    }
+  }
+  // ====================================================
+
+  $scope.addLABS_mri = function (grpLABS) {
+    var xTest = grpLABS.labDateMRI.toUpperCase();
+
+    if (xTest == "NONE") {
+      grpLABS.labDateMRI = "NONE";
+      grpLABS.labSourceMRI = "NONE";
+      grpLABS.labReportMRI = "NONE";
+    }
+    if ( grpLABS.labDateMRI && grpLABS.labSourceMRI && grpLABS.labReportMRI ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_LABS' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID 
+            + " AND labCategory = 'MRI'"
+            );
+      });
+
+      newrecord = {
         ClinixRID         : $scope.clinix.ClinixRID
         ,PxRID            : $scope.clinix.PxRID
 
@@ -38,10 +83,38 @@ IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http){
         ,labReport        : grpLABS.labReportMRI
       }
       $ipadrbg.context.clinix_LABS.add(newrecord);
-    }
+      $ipadrbg.context.clinix_LABS.saveChanges();
+      $scope.LoadLABS();
 
-    if ( grpLABS.labDateCTSCAN || grpLABS.labSourceCTSCAN || grpLABS.labReportCTSCAN ) {
-        newrecord = {
+      grpLABS.labDateMRI      = "";
+      grpLABS.labSourceMRI    = "";
+      grpLABS.labReportMRI    = "";
+    }
+    else {
+      alert ("Incomplete MRI details, please go back!");
+    }
+  }    
+  // ====================================================
+
+  $scope.addLABS_ctscan = function (grpLABS) {
+    var xTest = grpLABS.labDateCTSCAN.toUpperCase();
+
+    if (xTest == "NONE") {
+      grpLABS.labDateCTSCAN = "NONE";
+      grpLABS.labSourceCTSCAN = "NONE";
+      grpLABS.labReportCTSCAN = "NONE";
+    }
+    if ( grpLABS.labDateCTSCAN && grpLABS.labSourceCTSCAN && grpLABS.labReportCTSCAN ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_LABS' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID 
+            + " AND labCategory = 'CT-SCAN'"
+            );
+      });
+
+      newrecord = {
         ClinixRID         : $scope.clinix.ClinixRID
         ,PxRID            : $scope.clinix.PxRID
 
@@ -51,10 +124,39 @@ IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http){
         ,labReport        : grpLABS.labReportCTSCAN
       }
       $ipadrbg.context.clinix_LABS.add(newrecord);
-    }
+      $ipadrbg.context.clinix_LABS.saveChanges();
+      $scope.LoadLABS();
 
-    if ( grpLABS.labDateCBC || grpLABS.labSourceCBC || grpLABS.labReportCBC ) {
-        newrecord = {
+      grpLABS.labDateCTSCAN   = "";
+      grpLABS.labSourceCTSCAN = "";
+      grpLABS.labReportCTSCAN = "";
+
+    }
+    else {
+      alert ("Incomplete CT-SCAN details, please go back!");
+    }
+  }
+  // ====================================================
+
+  $scope.addLABS_cbc = function (grpLABS) {
+    var xTest = grpLABS.labDateCBC.toUpperCase();
+
+    if (xTest == "NONE") {
+      grpLABS.labDateCBC = "NONE";
+      grpLABS.labSourceCBC = "NONE";
+      grpLABS.labReportCBC = "NONE";
+    }
+    if ( grpLABS.labDateCBC && grpLABS.labSourceCBC && grpLABS.labReportCBC ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_LABS' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID 
+            + " AND labCategory = 'BLOOD-CBC'"
+            );
+      });
+
+      newrecord = {
         ClinixRID         : $scope.clinix.ClinixRID
         ,PxRID            : $scope.clinix.PxRID
 
@@ -64,10 +166,39 @@ IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http){
         ,labReport        : grpLABS.labReportCBC
       }
       $ipadrbg.context.clinix_LABS.add(newrecord);
+      $ipadrbg.context.clinix_LABS.saveChanges();
+      $scope.LoadLABS();
+
+      grpLABS.labDateCBC   = "";
+      grpLABS.labSourceCBC = "";
+      grpLABS.labReportCBC = "";
+    }
+    else {
+      alert ("Incomplete BLOOD-CBC details, please go back!");
+    }
+  }
+  // ====================================================
+
+  $scope.addLABS_esr = function (grpLABS) {
+    var xTest = grpLABS.labDateESR.toUpperCase();
+
+    if (xTest == "NONE") {
+      grpLABS.labDateESR = "NONE";
+      grpLABS.labSourceESR = "NONE";
+      grpLABS.labReportESR = "NONE";
     }
 
-    if ( grpLABS.labDateESR || grpLABS.labSourceESR || grpLABS.labReportESR ) {
-        newrecord = {
+    if ( grpLABS.labDateESR && grpLABS.labSourceESR && grpLABS.labReportESR ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_LABS' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID 
+            + " AND labCategory = 'BLOOD-ESR'"
+            );
+      });
+
+      newrecord = {
         ClinixRID         : $scope.clinix.ClinixRID
         ,PxRID            : $scope.clinix.PxRID
 
@@ -77,10 +208,39 @@ IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http){
         ,labReport        : grpLABS.labReportESR
       }
       $ipadrbg.context.clinix_LABS.add(newrecord);
+      $ipadrbg.context.clinix_LABS.saveChanges();
+      $scope.LoadLABS();
+
+      grpLABS.labDateESR   = "";
+      grpLABS.labSourceESR = "";
+      grpLABS.labReportESR = "";
+    }
+    else {
+      alert ("Incomplete BLOOD-ESR details, please go back!");
+    }
+  }
+  // ====================================================
+
+  $scope.addLABS_crp = function (grpLABS) {
+    var xTest = grpLABS.labDateCRP.toUpperCase();
+
+    if (xTest == "NONE") {
+      grpLABS.labDateCRP = "NONE";
+      grpLABS.labSourceCRP = "NONE";
+      grpLABS.labReportCRP = "NONE";
     }
 
-    if ( grpLABS.labDateCRP || grpLABS.labSourceCRP || grpLABS.labReportCRP ) {
-        newrecord = {
+    if ( grpLABS.labDateCRP && grpLABS.labSourceCRP && grpLABS.labReportCRP ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_LABS' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID 
+            + " AND labCategory = 'BLOOD-CRP'"
+            );
+      });
+
+      newrecord = {
         ClinixRID         : $scope.clinix.ClinixRID
         ,PxRID            : $scope.clinix.PxRID
 
@@ -90,36 +250,19 @@ IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http){
         ,labReport        : grpLABS.labReportCRP
       }
       $ipadrbg.context.clinix_LABS.add(newrecord);
+      $ipadrbg.context.clinix_LABS.saveChanges();
+      $scope.LoadLABS();
+
+      grpLABS.labDateCRP   = "";
+      grpLABS.labSourceCRP = "";
+      grpLABS.labReportCRP = "";
     }
-
-    $ipadrbg.context.clinix_LABS.saveChanges();
-
-    grpLABS.labDateXRays    = "";
-    grpLABS.labSourceXRays  = "";
-    grpLABS.labReportXRays  = "";
-
-    grpLABS.labDateMRI      = "";
-    grpLABS.labSourceMRI    = "";
-    grpLABS.labReportMRI    = "";
-
-    grpLABS.labDateCTSCAN   = "";
-    grpLABS.labSourceCTSCAN = "";
-    grpLABS.labReportCTSCAN = "";
-
-    grpLABS.labDateCBC   = "";
-    grpLABS.labSourceCBC = "";
-    grpLABS.labReportCBC = "";
-
-    grpLABS.labDateESR   = "";
-    grpLABS.labSourceESR = "";
-    grpLABS.labReportESR = "";
-
-    grpLABS.labDateCRP   = "";
-    grpLABS.labSourceCRP = "";
-    grpLABS.labReportCRP = "";
-
-    $scope.LoadLABS();
+    else {
+      alert ("Incomplete BLOOD-CRP details, please go back!");
+    }
   }
+  // ====================================================
+
 
   $scope.removeLABS = function (grpLABS) {
     grpLABS.remove()

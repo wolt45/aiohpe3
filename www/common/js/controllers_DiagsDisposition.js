@@ -14,16 +14,24 @@ IOHPEApp.controller('DiagsDispositionCtrl', function ($scope, $routeParams, $htt
   $scope.LoadDiagsDisposition(); 
 
   $scope.addNew = function (daignosisObj) {
-    if (daignosisObj.Disposition) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
 
-        ,Disposition : daignosisObj.Disposition
-        ,DispoValue  : daignosisObj.DispoValue
-      }
-      $ipadrbg.context.clinix_DiagsDisposition.add(newrecord);
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_DiagsDisposition' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
+    });
+
+    newrecord = {
+      ClinixRID : $scope.clinix.ClinixRID
+      ,PxRID    : $scope.clinix.PxRID
+
+      , DispoCardioClearance  : daignosisObj.DispoCardioClearance
+      , DispoHome             : daignosisObj.DispoHome
+      , DispoHospital         : daignosisObj.DispoHospital
+      , DispoAccompanying     : daignosisObj.DispoAccompanying
     }
+    $ipadrbg.context.clinix_DiagsDisposition.add(newrecord);
+    
+
     
     if (daignosisObj.FollowUp) {
       newrecord = {
@@ -38,9 +46,11 @@ IOHPEApp.controller('DiagsDispositionCtrl', function ($scope, $routeParams, $htt
 
     $ipadrbg.context.clinix_DiagsDisposition.saveChanges();
 
-    daignosisObj.Disposition = "Follow Up Date";
-    daignosisObj.DispoValue = "";
-    daignosisObj.FollowUpDate = null;
+
+    daignosisObj.DispoCardioClearance = "";
+    daignosisObj.DispoHome          = "";
+    daignosisObj.DispoHospital      = "";
+    daignosisObj.DispoAccompanying  = "";
 
     $scope.LoadDiagsDisposition();
   }

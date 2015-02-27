@@ -7,7 +7,7 @@
 				<tr class="info">
 					<th colspan=19>
 						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
-			    			Etiology
+			    			History
 			    		</span>
 					</th>
 				</tr>
@@ -16,8 +16,8 @@
 					<td width="5%"></td>
 	                <td class="text-left"> 
 						<div ng-repeat="etiology in clinix_etiology" style="float:left; color:black">
-							{{etiology.Injury==1 ? 'Caused by Injury ' : 'Not Caused by Injury '}}
-							{{etiology.DateEtio=="0000-00-00" ? "" : (etiology.DateEtio) }} 
+							{{etiology.Injury==1 ? 'Injury: YES ' : 'Injury: NO'}}
+							{{etiology.DateEtio=="0000-00-00" ? "" : ", " + etiology.DateEtio}} 
 
 							{{etiology.WorkRelated==1 ? ', Work Related ' : ''}}
 							{{etiology.WorkRelatedDetails ? ", " + etiology.WorkRelatedDetails: "" }}

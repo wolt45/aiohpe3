@@ -1,3 +1,4 @@
+// 254.99
 function DataController($rootScope, $scope, $http) {
 
 	// Pull All Clinix
@@ -5,11 +6,11 @@ function DataController($rootScope, $scope, $http) {
     	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed?')) {
 		    $scope.clinix = [];
 
-			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
+			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
 		    success(function(data, status, headers, config) {
 				if (data !== null ) {
 
-			      	// save to websql    0.99
+			      	// save to websql    254.99
 				    for(idx in data){
 				    	if (data[idx].ClinixRID	> 0) {
 				    		var clinix = new $ipadrbg.types.clinix();
@@ -32,6 +33,9 @@ function DataController($rootScope, $scope, $http) {
 							clinix.pxFoto 		= data[idx].pxFoto;
 							clinix.TranStatus 	= data[idx].TranStatus;
 							clinix.TranStatusDisp = data[idx].TranStatusDisp;
+
+							clinix.HospitalRID = data[idx].HospitalRID;
+							clinix.Hospital = data[idx].Hospital;
 
 							$ipadrbg.context.clinix.add(clinix);
 						}
@@ -72,7 +76,7 @@ function DataController($rootScope, $scope, $http) {
 	    	// if local data is outdated then pull data from server
 	    	// if local data is latest then push to server 
 
-			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix.php'}).
+			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix.php'}).
 		    success(function(data, status, headers, config) {
 		      	// this callback will be called asynchronously
 		      	// when the response is available
@@ -109,6 +113,9 @@ function DataController($rootScope, $scope, $http) {
 							clinix.TranStatus 	= data[idx].TranStatus;
 							clinix.TranStatusDisp = data[idx].TranStatusDisp;
 
+							clinix.HospitalRID = data[idx].HospitalRID;
+							clinix.Hospital = data[idx].Hospital;
+
 							//clinix_chiefcomp.ChiefRID = idx;
 							// clinix_chiefcomp.ClinixRID = data[idx].ClinixRID;
 					 		// clinix_chiefcomp.PxRID = data[idx].PxRID;
@@ -144,7 +151,7 @@ function DataController($rootScope, $scope, $http) {
 						//var clinixJson = JSON.stringify(ClinixPulled);
 						$http({
 							method: 'POST'
-							, url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
+							, url : 'http://192.168.254.99/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
 							, contentType : 'application/json'
 							, data : ClinixPulled
 							, cache : false
@@ -180,7 +187,7 @@ function DataController($rootScope, $scope, $http) {
 	        //db.close();
 	        // after truncate
 
-			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/pull_TranStatus.php'}).
+			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/pull_TranStatus.php'}).
 		    success ( function ( data, status, headers, config ) {
 
 				if (data !== null ) {
@@ -227,7 +234,7 @@ function DataController($rootScope, $scope, $http) {
 	        //db.close();
 	        // after truncate
 
-			$http({method: 'GET', url: 'http://192.168.0.99/RBGsrvr_todayset/pull_ChargesTariff.php'}).
+			$http({method: 'GET', url: 'http://192.168.254.99/RBGsrvr_todayset/pull_ChargesTariff.php'}).
 		    success ( function ( data, status, headers, config ) {
 
 				if (data !== null ) {

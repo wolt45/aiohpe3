@@ -15,17 +15,13 @@ IOHPEApp.controller('DiagsManagementCtrl', function ($scope, $routeParams, $http
 
   $scope.addNew = function (daignosisObj) {
 
-    // if (daignosisObj.ManagementDetail1 ) {
-    //   newrecord = {
-    //     ClinixRID : $scope.clinix.ClinixRID
-    //     ,PxRID    : $scope.clinix.PxRID
-
-    //     ,Management        : daignosisObj.Management1
-    //     ,ManagementDetail  : daignosisObj.ManagementDetail1
-    //   }
-    //   $ipadrbg.context.clinix_DiagsManagement.add(newrecord);
-    // }
     if (daignosisObj.ManagementDetail2 ) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_DiagsManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+          + " AND Management ='Physical Therapy'" );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -35,17 +31,64 @@ IOHPEApp.controller('DiagsManagementCtrl', function ($scope, $routeParams, $http
       }
       $ipadrbg.context.clinix_DiagsManagement.add(newrecord);
     }
-    if (daignosisObj.ManagementDetail3 ) {
+
+    if (daignosisObj.ManagementDetail3A) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_DiagsManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+          + " AND ManagementDetail ='Foot and Ankle'" );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,Management        : daignosisObj.Management3
-        ,ManagementDetail  : daignosisObj.ManagementDetail3
+        ,ManagementDetail  : daignosisObj.ManagementDetail3A
       }
       $ipadrbg.context.clinix_DiagsManagement.add(newrecord);
     }
+    if (daignosisObj.ManagementDetail3B) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_DiagsManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+          + " AND ManagementDetail ='Quads and Hamstrings'" );
+      });
+    
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Management        : daignosisObj.Management3
+        ,ManagementDetail  : daignosisObj.ManagementDetail3B
+      }
+      $ipadrbg.context.clinix_DiagsManagement.add(newrecord);
+    }
+    if (daignosisObj.ManagementDetail3C) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_DiagsManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+          + " AND ManagementDetail ='SLR'" );
+      });
+    
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Management        : daignosisObj.Management3
+        ,ManagementDetail  : daignosisObj.ManagementDetail3C
+      }
+      $ipadrbg.context.clinix_DiagsManagement.add(newrecord);
+    }
+
+
     if (daignosisObj.ManagementDetail4 ) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_DiagsManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+          + " AND Management ='Ambulatory Trainings'" );
+      });
+      
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -63,7 +106,9 @@ IOHPEApp.controller('DiagsManagementCtrl', function ($scope, $routeParams, $http
     daignosisObj.Management2z = "";
     daignosisObj.ManagementDetail2 = "";
     daignosisObj.Management3z = "";
-    daignosisObj.ManagementDetail3 = "";
+    daignosisObj.ManagementDetail3A = "";
+    daignosisObj.ManagementDetail3B = "";
+    daignosisObj.ManagementDetail3C = "";
     daignosisObj.Management4z = "";
     daignosisObj.ManagementDetail4 = "";
 

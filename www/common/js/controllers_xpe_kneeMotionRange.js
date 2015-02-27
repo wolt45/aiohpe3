@@ -14,38 +14,62 @@ IOHPEApp.controller('KneeMotionRangeCtrl', function ($scope, $routeParams, $http
   $scope.LoadKneeMotionRange();
 
   $scope.addNew = function (kneeMotionRange) {
-    if (kneeMotionRange.FlexionContractureLeft || kneeMotionRange.FlexionContractureRight ) {
+    if (kneeMotionRange.FlexionContractureLeft) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_KneeMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID 
+            + " AND MotionArea = 'Flexion Contracture'"
+            );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "Flexion Contracture"
         ,Left     : kneeMotionRange.FlexionContractureLeft
-        ,Right    : kneeMotionRange.FlexionContractureRight
       }
       $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
     }
 
-    if (kneeMotionRange.ExtensionLeft || kneeMotionRange.ExtensionRight ) {
+    if (kneeMotionRange.ExtensionLeft) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_KneeMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID 
+            + " AND MotionArea = 'Extension'"
+            );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "Extension"
         ,Left     : kneeMotionRange.ExtensionLeft
-        ,Right    : kneeMotionRange.ExtensionRight
       }
       $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
     }
 
-    if (kneeMotionRange.FlexionLeft || kneeMotionRange.FlexionRight ) {
+    if (kneeMotionRange.FlexionLeft) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_KneeMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID 
+            + " AND MotionArea = 'Flexion'"
+            );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "Flexion"
         ,Left     : kneeMotionRange.FlexionLeft
-        ,Right    : kneeMotionRange.FlexionRight
       }
       $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
     }
@@ -53,14 +77,8 @@ IOHPEApp.controller('KneeMotionRangeCtrl', function ($scope, $routeParams, $http
     $ipadrbg.context.clinix_KneeMotionRange.saveChanges();
 
     kneeMotionRange.FlexionContractureLeft = "";
-    kneeMotionRange.FlexionContractureRight = "";
-
     kneeMotionRange.ExtensionLeft = "";
-    kneeMotionRange.ExtensionRight = "";
-
     kneeMotionRange.FlexionLeft = "";
-    kneeMotionRange.FlexionRight = "";
-
     $scope.LoadKneeMotionRange();
   }
 

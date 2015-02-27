@@ -14,17 +14,19 @@
 				<td></td>
 				<td class="text-right">Normal</td>
 				<td nowrap>
-					<input type="radio" value="YES" ng-model="KneeAlignment.Normal"> Yes &nbsp;&nbsp;
-					<input type="radio" value="NO" ng-model="KneeAlignment.Normal"> No
+					<input type="radio" value="1" ng-model="KneeAlignment.Normal"> Yes &nbsp;&nbsp;
+					<input type="radio" value="0" ng-model="KneeAlignment.Normal"> No
 				</td>
 				<td></td>
 			</tr>
 
 			<tr>
+				<td></td>
 				<td width="1%">Alignment</td>
-				<td width="15%" class="text-right">Supine</td>
-				<td width="15%">
-					<input type="text" ng-model="KneeAlignment.SupineDegrees" class="form-control" placeholder="degrees (none)" >
+				<td width="15%" class="text-right" nowrap>
+					<input type="radio" value="Supine" ng-model="KneeAlignment.Alignment"> Supine
+					&nbsp;&nbsp;
+					<input type="radio" value="Standing" ng-model="KneeAlignment.Alignment"> Standing</td>
 				</td>
 				<td></td>
 			</tr>
@@ -57,17 +59,21 @@
 
 			<tr class="info">
 				<th width="1%" class="text-center" style="color:#888" nowrap></th>
+	        	<th width="1%" class="text-center" style="color:#888" nowrap>Normal</th>
 	        	<th width="1%" class="text-center" style="color:#888" nowrap>Alignment</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>Degrees</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Varus</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Valgus</th>
 	            <th width="1%"> </th>
 	            <th width="1%"> </th>
 	            <th width=> </th>
 			</tr>
 
 			<tr class="info" ng-repeat="KneeAlignment in clinix_KneeAlignment">
-	        	<td style="color:black" nowrap></td>
-	        	<td style="color:black" nowrap>{{KneeAlignment.Alignment}}</td>
-	        	<td style="color:black" nowrap>{{KneeAlignment.Degrees}}</td>
+	        	<td class="text-center" style="color:black" nowrap></td>
+	        	<td class="text-center" style="color:black" nowrap>{{(KneeAlignment.Normal=="1")? "YES" : "NO"}}</td>
+	        	<td class="text-center" style="color:black" nowrap>{{KneeAlignment.Alignment}}</td>
+	        	<td class="text-center" style="color:black" nowrap>{{KneeAlignment.Varus}}</td>
+	        	<td class="text-center" style="color:black" nowrap>{{KneeAlignment.Valgus}}</td>
 	            <td>
 	            	<a class="btn btn-large btn-danger" href="#/{{KneeAlignment.ClinixRID}}" ng-click="removeKneeAlignment(KneeAlignment)" style="text-decoration: none">
 	            		DELETE

@@ -14,10 +14,15 @@ IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
   $scope.LoadDiagnosis();
 
   $scope.addNew = function (daignosisObj) {
+
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_Diagnosis' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
+    });
+    
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
-
       ,Diagnosis     : daignosisObj.DiagTnyMce
     }
     $ipadrbg.context.clinix_Diagnosis.add(newrecord);

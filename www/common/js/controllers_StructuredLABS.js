@@ -22,21 +22,31 @@ IOHPEApp.controller('StructuredLABSCtrl', function ($scope, $routeParams, $http)
   $scope.LoadDiagsSchedSurg();
 
   $scope.addNew = function ( formArrObj) {
+
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("DELETE FROM 'clinix_StructuredLABS' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
+    });
+
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
 
-      ,labCategory  : formArrObj.labCategory
       ,labDate      : formArrObj.labDate
       ,labSource    : formArrObj.labSource
-      ,labReport    : formArrObj.labReport
+      ,WBC    : formArrObj.WBC
+      ,HgB    : formArrObj.HgB
+      ,Hematocrit    : formArrObj.Hematocrit
+
     }
     $ipadrbg.context.clinix_StructuredLABS.add(newrecord);
     $ipadrbg.context.clinix_StructuredLABS.saveChanges();
 
     formArrObj.labDate = null;
     formArrObj.labSource = "";
-    formArrObj.labReport = "";
+    formArrObj.WBC = "";
+    formArrObj.HgB = "";
+    formArrObj.Hematocrit = "";
 
     $scope.LoadDiagsSchedSurg();
   }

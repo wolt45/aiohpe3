@@ -14,156 +14,261 @@ IOHPEApp.controller('HipMotionRangeCtrl', function ($scope, $routeParams, $http)
   $scope.LoadHipMotionRange();
 
   $scope.addNew = function (hipMotionRange) {
-    if (hipMotionRange.LeftFlexionContra || hipMotionRange.RightFlexionContra) {
+    if (hipMotionRange.RightFlexionContra) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'Flexion Contracture'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "Flexion Contracture"
-        ,Left     : hipMotionRange.LeftFlexionContra
-        ,Right    : hipMotionRange.RightFlexionContra
+        ,MotionAreaVal    : hipMotionRange.RightFlexionContra
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
-    if (hipMotionRange.LeftFlexion || hipMotionRange.RightFlexion) {
+    if (hipMotionRange.RightFlexion) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'Flexion'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "Flexion"
-        ,Left     : hipMotionRange.LeftFlexion
-        ,Right    : hipMotionRange.RightFlexion
+        ,MotionAreaVal    : hipMotionRange.RightFlexion
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
-    if (hipMotionRange.LeftExtension || hipMotionRange.RightExtension) {
+    if (hipMotionRange.RightExtension) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'Extension'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "Extension"
-        ,Left     : hipMotionRange.LeftExtension
-        ,Right    : hipMotionRange.RightExtension
+        ,MotionAreaVal    : hipMotionRange.RightExtension
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
-    if (hipMotionRange.IRLeft || hipMotionRange.IRRight) {
+    if (hipMotionRange.IRRight) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'IR'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "IR"
-        ,Left     : hipMotionRange.IRLeft
-        ,Right    : hipMotionRange.IRRight
+        ,MotionAreaVal    : hipMotionRange.IRRight
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
-    if (hipMotionRange.ERLeft || hipMotionRange.ERRight) {
+    if (hipMotionRange.ERRight) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'ER'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "ER"
-        ,Left     : hipMotionRange.ERLeft
-        ,Right    : hipMotionRange.ERRight
+        ,MotionAreaVal    : hipMotionRange.ERRight
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
-    if (hipMotionRange.supineLeft || hipMotionRange.supineRight) {
+    if (hipMotionRange.supineRight) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'Abduction(supine)'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "Abduction(supine)"
-        ,Left     : hipMotionRange.supineLeft
-        ,Right    : hipMotionRange.supineRight
+        ,MotionAreaVal    : hipMotionRange.supineRight
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
-    if (hipMotionRange.lateralLeft || hipMotionRange.lateralRight) {
+    if (hipMotionRange.lateralRight) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'Abduction(lateral)'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "Abduction(lateral)"
-        ,Left     : hipMotionRange.lateralLeft
-        ,Right    : hipMotionRange.lateralRight
+        ,MotionAreaVal    : hipMotionRange.lateralRight
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
-    if (hipMotionRange.AdductionLeft || hipMotionRange.AdductionRight) {
+    if (hipMotionRange.AdductionRight) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'Adduction'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
         ,MotionArea : "Adduction"
-        ,Left     : hipMotionRange.AdductionLeft
-        ,Right    : hipMotionRange.AdductionRight
+        ,MotionAreaVal    : hipMotionRange.AdductionRight
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
-    if (hipMotionRange.SLRLeft || hipMotionRange.SLRRight) {
+    // SLR RIGHT
+    if (hipMotionRange.SLR_Ryn || hipMotionRange.SLRValR) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'SLR (right)'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,MotionArea : "SLR"
-        ,Left     : hipMotionRange.SLRLeft
-        ,Right    : hipMotionRange.SLRRight
+        ,MotionArea : "SLR (right)"
+        ,YN       : hipMotionRange.SLR_Ryn
+        ,MotionAreaVal    : hipMotionRange.SLRValR
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
-    if (hipMotionRange.ResistLeft || hipMotionRange.ResistRight) {
+    // SLR LEFT
+    if (hipMotionRange.SLR_Lyn || hipMotionRange.SLRValL) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'SLR (left)'" );
+      });
+    
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,MotionArea : "SLR vs Resistance"
-        ,Left     : hipMotionRange.ResistLeft
-        ,Right    : hipMotionRange.ResistRight
+        ,MotionArea : "SLR (left)"
+        ,YN       : hipMotionRange.SLR_Lyn
+        ,MotionAreaVal     : hipMotionRange.SLRValL
+      }
+      $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
+    }
+
+    if (hipMotionRange.Resist_Ryn) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'SLR vs Resistance (right)'" );
+      });
+    
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,MotionArea : "SLR vs Resistance (right)"
+        ,YN     : hipMotionRange.Resist_Ryn
+        ,MotionAreaVal    : hipMotionRange.ResistRight
+      }
+      $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
+    }
+
+    if (hipMotionRange.Resist_Lyn) {
+      
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
+            + $scope.clinix.ClinixRID
+            + " AND MotionArea = 'SLR vs Resistance (left)'" );
+      });
+    
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,MotionArea : "SLR vs Resistance (left)"
+        ,YN     : hipMotionRange.Resist_Lyn
+        ,MotionAreaVal    : hipMotionRange.ResistLeft
       }
       $ipadrbg.context.clinix_HipMotionRange.add(newrecord);
     }
 
     $ipadrbg.context.clinix_HipMotionRange.saveChanges();
 
-    hipMotionRange.LeftFlexionContra = "";
     hipMotionRange.RightFlexionContra = "";
-    hipMotionRange.LeftFlexion = "";
     hipMotionRange.RightFlexion = "";
-
-    hipMotionRange.LeftExtension = "";
     hipMotionRange.RightExtension = "";
-
-    hipMotionRange.IRLeft = "";
     hipMotionRange.IRRight = "";
-
-    hipMotionRange.ERLeft = "";
     hipMotionRange.ERRight = "";
-
-    hipMotionRange.supineLeft = "";
     hipMotionRange.supineRight = "";
-    
-    hipMotionRange.lateralLeft = "";
     hipMotionRange.lateralRight = "";
-    
-    hipMotionRange.AdductionLeft = "";
     hipMotionRange.AdductionRight = "";
       
-    hipMotionRange.SLRLeft = "";
-    hipMotionRange.SLRRight = "";
+    hipMotionRange.SLR_Ryn = "";
+    hipMotionRange.SLRValR = "";
+    hipMotionRange.SLR_Lyn = "";
+    hipMotionRange.SLRValL = "";
        
-    hipMotionRange.ResistLeft = "";
+    hipMotionRange.Resist_Ryn = "";
     hipMotionRange.ResistRight = "";
+
+    hipMotionRange.Resist_Lyn = "";
+    hipMotionRange.ResistLeft = "";
        
     $scope.LoadHipMotionRange();
   }

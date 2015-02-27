@@ -9,7 +9,8 @@
 			    	</span>
 				</td>
 			</tr>
-			<tr>
+
+			<!-- tr>
 				<td width="1%" nowrap>Type
 					<input type="hidden" ng-model="StructMgmt.Management1" class="form-control" ng-init="StructMgmt.Management1='Management Type'" value="Management Type" READONLY>
 				</td>
@@ -22,10 +23,10 @@
 				</td>
 				<td width="15%"></td>
 				<td></td>
-			</tr>
+			</tr -->
 			
 			<tr>
-				<td nowrap>Physical Therapy
+				<td width="1%" nowrap>Physical Therapy
 					<input type="hidden" ng-model="StructMgmt.Management2" class="form-control" ng-init="StructMgmt.Management2='Physical Therapy'" value="Physical Therapy" READONLY>
 				</td>
 				<td colspan="3">
@@ -33,31 +34,48 @@
 				</td>
 				<td></td>
 			</tr>
+
 			<tr>
-				<td nowrap>Exercise program <br>for hips/knees
-					<input type="hidden" ng-model="StructMgmt.Management3" class="form-control" ng-init="StructMgmt.Management3='Exercise program for hips/knees'" value="Exercise program for hips/knees" READONLY>
+				<td nowrap>Exercise program 
+					<input type="hidden" ng-model="StructMgmt.Management3" class="form-control" ng-init="StructMgmt.Management3='Exercise program'" value="Exercise program" READONLY>
 				</td>
 				<td nowrap>
-					<select ng-model="StructMgmt.ManagementDetail3" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="Foot and Ankle"> Foot and Ankle </option>
-						<option value="Quads and Hamstrings"> Quads and Hamstrings </option>
-						<option value="SLR"> SLR </option>
-					</select>
+					    <input type="checkbox"  ng-model="StructMgmt.DetlA"
+							ng-true-value="Foot and Ankle"
+				            ng-false-value=""> Foot and Ankle
+
+					<br><input type="checkbox" ng-model="StructMgmt.DetlB"
+							ng-true-value="Quads and Hamstrings"
+				            ng-false-value=""> Quads and Hamstrings
+					
+					<br><input type="checkbox" ng-model="StructMgmt.DetlC"
+							ng-true-value="FULL Weight Bearing"
+				            ng-false-value=""> FULL Weight Bearing
+
+					<br><input type="checkbox" ng-model="StructMgmt.DetlD"
+							ng-true-value="SLR"
+				            ng-false-value=""> SLR
 				</td>
 			</tr>
 
 			<tr>
-				<td nowrap>Ambulatory Trainings
-					<input type="hidden" ng-model="StructMgmt.Management4" class="form-control" ng-init="StructMgmt.Management4='Ambulatory Trainings'" value="Ambulatory Trainings" READONLY>
+				<td nowrap>Ambulatory Aid
+					<input type="hidden" ng-model="StructMgmt.Management4" class="form-control" ng-init="StructMgmt.Management4='Ambulatory Aid'" value="Ambulatory Aid" READONLY>
 				</td>
 				<td nowrap>
-					<select ng-model="StructMgmt.ManagementDetail4" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="Cruches"> Cruches </option>
-						<option value="Walker"> Walker </option>
-						<option value="Cane"> Cane </option>
-					</select>
+					    <input type="radio" value="Cruches" ng-model="StructMgmt.ManagementDetail4"> Cruches &nbsp;&nbsp;
+					<br><input type="radio" value="Walker" ng-model="StructMgmt.ManagementDetail4"> Walker
+					<br><input type="radio" value="Cane" ng-model="StructMgmt.ManagementDetail4"> Cane
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td nowrap>TED Stockings</td>
+				<td nowrap>
+					<input type="radio" value="YES" ng-model="StructMgmt.TEDS"> Yes &nbsp;&nbsp;
+					<input type="radio" value="NO" ng-model="StructMgmt.TEDS"> No
 				</td>
 				<td></td>
 				<td></td>
@@ -75,7 +93,7 @@
 
 			<tr>
 				<td nowrap>Instructions/Notes</td>
-				<td colspan="3" nowrap>
+				<td nowrap>
 					<textarea class="form-control" ng-model="StructMgmt.Notes" placeholder="instructions/notes" rows="2"> </textarea> 
 				</td>
 				<td></td>
@@ -109,9 +127,9 @@
 	            	</a>
 	        	</td>
                 <td>
-                	<a class="btn btn-large btn-warning" href="#/{{StructMgmt.ChiefRID}}/edit" ng-click="editChiefComp(StructMgmt)" style="text-decoration: none">
+                	<!-- a class="btn btn-large btn-warning" href="#/{{StructMgmt.ChiefRID}}/edit" ng-click="editChiefComp(StructMgmt)" style="text-decoration: none">
                 		EDIT
-                	</a>
+                	</a -->
             	</td>
 	        </tr>
 

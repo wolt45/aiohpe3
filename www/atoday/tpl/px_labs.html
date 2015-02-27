@@ -7,7 +7,7 @@
 				<tr class="warning">
 					<th colspan=9>
 						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
-			    			Laboratory Examinations
+			    			Previous Laboratory Examinations
 			    		</span>
 					</th>
 				</tr>
@@ -35,8 +35,11 @@
 
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceXRays" ></td>
 					
-					<td colspan="9">
+					<td width="25%">
 						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportXRays" placeholder="lab report (none)"></textarea>
+					</td>
+					<td class="text-center">
+						<a class="btn btn-large btn-info" ng-click="addLABS_xrays(CHIEFCformData)" style="text-decoration: none">add</a>
 					</td>
 				</tr>
 
@@ -48,9 +51,12 @@
 
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceMRI" ></td>
 					
-					<td colspan="9">
+					<td>
 						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportMRI" placeholder="lab report (none)"></textarea>
 					</td>
+					<td class="text-center">
+						<a class="btn btn-large btn-info" ng-click="addLABS_mri(CHIEFCformData)" style="text-decoration: none">add</a>
+					</td>					
 				</tr>
 
 				<tr>
@@ -61,8 +67,11 @@
 
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceCTSCAN" ></td>
 					
-					<td colspan="9">
+					<td>
 						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportCTSCAN" placeholder="lab report (none)"></textarea>
+					</td>
+					<td class="text-center">
+						<a class="btn btn-large btn-info" ng-click="addLABS_ctscan(CHIEFCformData)" style="text-decoration: none">add</a>
 					</td>
 				</tr>
 
@@ -74,8 +83,11 @@
 
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceCBC" ></td>
 					
-					<td colspan="9">
+					<td>
 						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportCBC" placeholder="lab report (none)"></textarea>
+					</td>
+					<td class="text-center">
+						<a class="btn btn-large btn-info" ng-click="addLABS_cbc(CHIEFCformData)" style="text-decoration: none">add</a>
 					</td>
 				</tr>
 
@@ -87,8 +99,11 @@
 
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceESR" ></td>
 					
-					<td colspan="9">
+					<td>
 						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportESR" placeholder="lab report (none)"></textarea>
+					</td>
+					<td class="text-center">
+						<a class="btn btn-large btn-info" ng-click="addLABS_esr(CHIEFCformData)" style="text-decoration: none">add</a>
 					</td>
 				</tr>
 
@@ -100,34 +115,19 @@
 
 					<td><input type="text" class="form-control" ng-model="CHIEFCformData.labSourceCRP" ></td>
 					
-					<td colspan="9">
+					<td>
 						<textarea rows="2" class="form-control" ng-model="CHIEFCformData.labReportCRP" placeholder="lab report (none)"></textarea>
 					</td>
-				</tr>
-
-				<tr>
-					<td colspan="9" class="text-center">
-						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addLABS(CHIEFCformData)" style="text-decoration: none">save</a>
+					<td class="text-center">
+						<a class="btn btn-large btn-info" ng-click="addLABS_crp(CHIEFCformData)" style="text-decoration: none">add</a>
 					</td>
 				</tr>
 				
-				<!-- tr class="info">
-	            	<th class="text-center" style="color:#888" nowrap>XRay Date</th>
-	            	<th class="text-center" style="color:#888" nowrap>XRay Report</th>
-	            	<th class="text-center" style="color:#888" nowrap>MRI</th>
-	                <th class="text-center" style="color:#888">MRI Report</th>
-	                <th class="text-center" style="color:#888">CT Scan</th> 
-	                <th class="text-center" class="text-center" style="color:#888" >CT Scan Report</th> 
-
-					<td></td>
-					<td></td>
-	            </tr -->
-
 				<tr class="info" ng-repeat="rolLabs in clinix_LABS">
 	            	<td style="color:black" nowrap>{{rolLabs.labCategory}}</td>
-	            	<td style="color:black">{{rolLabs.labDate}}</td>
-	            	<td style="color:black" nowrap>{{rolLabs.labSource}}</td>
-	                <td style="color:black">{{rolLabs.labReport}}</td>
+	            	<td class="text-center" style="color:black">{{rolLabs.labDate}}</td>
+	            	<td class="text-center" style="color:black" nowrap>{{rolLabs.labSource}}</td>
+	                <td class="text-center" style="color:black">{{rolLabs.labReport}}</td>
 
 	                <td width="1%">
 	                	<a class="btn btn-large btn-danger" href="#/{{rolLabs.ClinixRID}}" ng-click="removeLABS(rolLabs)" style="text-decoration: none">

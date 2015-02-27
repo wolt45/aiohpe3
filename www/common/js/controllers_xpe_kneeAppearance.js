@@ -20,16 +20,18 @@ IOHPEApp.controller('KneeAppearanceCtrl', function ($scope, $routeParams, $http)
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        , AppearanceR     : kneeForm.AppearanceR
-        , SeverityR       : kneeForm.AppearanceSeverityR
+        , NormalR         : kneeForm.NormalR
+        , SwellingR       : kneeForm.SwellingR
+        , RedR            : kneeForm.RedR
 
         , SynovitisR      : kneeForm.SynovitisR
         , EffusionR       : kneeForm.EffusionR
         , PainActiveROMR  : kneeForm.PainActiveROMR
         , PainPassiveROMR : kneeForm.PainPassiveROMR
 
-        , AppearanceL     : kneeForm.AppearanceL
-        , SeverityL       : kneeForm.AppearanceSeverityL
+        , NormalL         : kneeForm.NormalL
+        , SwellingL       : kneeForm.SwellingL
+        , RedL            : kneeForm.RedL
 
         , SynovitisL      : kneeForm.SynovitisL
         , EffusionL       : kneeForm.EffusionL
@@ -39,14 +41,18 @@ IOHPEApp.controller('KneeAppearanceCtrl', function ($scope, $routeParams, $http)
       $ipadrbg.context.clinix_KneeAppearance.add(newrecord);
     // }
     // if (kneeForm.Appearan
-    kneeForm.AppearanceR = "";
+    kneeForm.NormalR = "";
+    kneeForm.SwellingR = "";
+    kneeForm.RedR = "";
     kneeForm.AppearanceSeverityR = "";
     kneeForm.SynovitisR = "";
     kneeForm.EffusionR = "";
     kneeForm.PainActiveROMR = "";
     kneeForm.PainPassiveROMR = "";
 
-    kneeForm.AppearanceL = "";
+    kneeForm.NormalL = "";
+    kneeForm.SwellingL = "";
+    kneeForm.RedL = "";
     kneeForm.AppearanceSeverityL = "";
     kneeForm.SynovitisL = "";
     kneeForm.EffusionL = "";

@@ -11,7 +11,15 @@
 					<!-- td rowspan=3 width="1%">&nbsp;</td -->
 				</tr>
 				<tr class="success">
-					<td class="text-center" width="1%" style="color: #000" nowrap>Appt: 
+
+					<td class="text-center" width="1%" style="color: #000" nowrap>
+						Chart #: <span style="font-weight: bold; font-size: 24px"> {{clinix.PxRID}} </span>
+						<br>{{clinix.pxregdate | date}}
+					</td>
+
+					<th class="text-center" width="25%" style="color: #000">{{clinix.pxname}}</th>
+					
+					<td class="text-center" width="1%" style="color: #000" nowrap>Clinic Visit #: 
 						<span style="font-weight: bold; font-size: 24px"> {{clinix.ClinixRID}} </span>
 						<br>
 						{{clinix.AppDateSet | date}}
@@ -23,17 +31,16 @@
 						</span>
 					</td>
 
-					<th class="text-center" width="1%" style="color: #000" nowrap>
-						chart: {{clinix.PxRID}} <br> <span style="font-size:16px">{{clinix.pxregdate | date}}</span>
-					</th>
+					<td width="1%" style="color: #000" nowrap>Hospital Chart # 
+						<span style="font-weight: bold; font-size: 24px"> {{clinix.HospitalRID}}</span>
+						<br> {{clinix.Hospital}}</td>
 
-					<th width="1%" style="color: #000" nowrap>{{clinix.pxname}}</th>
 					<td class="text-right" style="color: #000">
 						0.00
 					</td>
 				</tr>
 				<tr class="success" style="color: #000">
-					<td colspan=4 nowrap>
+					<td colspan=9 nowrap>
 						{{clinix.pxstatus}}, 
 						{{clinix.pxAddress}}
 					</td>

@@ -20,7 +20,8 @@
 				</td>
 				<td></td>
 			</tr>
-			<tr>
+
+			<!-- tr>
 				<td>Surgeon</td>
 				<td><input type="text" class="form-control" ng-model="schedSurgeGrp.Surgeon" placeholder="Surgeon" ></td>
 		
@@ -37,7 +38,8 @@
 				<td>
 					<input type="text" class="form-control" ng-model="schedSurgeGrp.Anesthesio" placeholder="Anesthesiologist" >
 				</td>
-			</tr>
+			</tr -->
+
 			<tr>
 				<td>Hospital</td>
 				<td><input type="text" class="form-control" ng-model="schedSurgeGrp.Hospital" placeholder="Hospital" ></td>
@@ -53,10 +55,10 @@
 			<tr class="info">
 				<th width="1%" class="text-center" style="color:#888">Schedule for Surgery</th>  <!-- OnsetAccuteGradual -->
 	        	<th width="1%" class="text-center" style="color:#888" nowwrap>DATE</th>
-	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Surgeon</th>
+	        	<!-- th width="1%" class="text-center" style="color:#888" nowwrap>Surgeon</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Assisting</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Internist</th>
-	            <th width="1%" class="text-center" style="color:#888" nowrwap>Anesthesiologist</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Anesthesiologist</th -->
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Hospital</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Other Info</th>
 	            <th width="1%"> </th>
@@ -66,10 +68,10 @@
 			<tr class="info" ng-repeat="schedSurgery in clinix_DiagSchedSurgery">
 	        	<td style="color:black">{{schedSurgery.SurgeryType}}</td>
 	        	<td style="color:black">{{schedSurgery.SurgeryDate | date}}</td>
-	        	<td style="color:black">{{schedSurgery.Surgeon}}</td>
+	        	<!-- td style="color:black">{{schedSurgery.Surgeon}}</td>
 	        	<td style="color:black">{{schedSurgery.Assistant}}</td>
 	        	<td style="color:black">{{schedSurgery.Cardio}}</td>
-	        	<td style="color:black">{{schedSurgery.Anesthesio}}</td>
+	        	<td style="color:black">{{schedSurgery.Anesthesio}}</td -->
 	        	<td style="color:black">{{schedSurgery.Hospital}}</td>
 	        	<td style="color:black">{{schedSurgery.Others}}</td>
 	            <td>

@@ -3,6 +3,8 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeAlignment", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
+	, Normal: { type: "string"}
 	, Alignment: { type: "string"}
-	, Degrees: { type: "string"}
+	, Varus: { type: "string"}
+	, Valgus: { type: "string"}
 });

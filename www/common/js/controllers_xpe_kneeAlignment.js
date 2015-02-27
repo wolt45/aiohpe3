@@ -15,54 +15,25 @@ IOHPEApp.controller('KneeAlignmentCtrl', function ($scope, $routeParams, $http){
 
   $scope.addNew = function (kneeAlignment) {
 
-    if (kneeAlignment.Normal) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_KneeAlignment' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
+    });
 
-        ,Alignment : "Normal"
-        ,Degrees  : kneeAlignment.Normal
-      }
-      $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
+    newrecord = {
+      ClinixRID : $scope.clinix.ClinixRID
+      ,PxRID    : $scope.clinix.PxRID
+
+      ,Normal    : kneeAlignment.Normal
+      ,Alignment : kneeAlignment.Alignment
+      ,Varus     : kneeAlignment.Varus
+      ,Valgus     : kneeAlignment.Valgus
     }
-
-    if (kneeAlignment.SupineDegrees || kneeAlignment.Degrees12) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Alignment : "Supine"
-        ,Degrees   : kneeAlignment.SupineDegrees
-      }
-      $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
-    }
-
-    if (kneeAlignment.Varus) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Alignment : "Varus"
-        ,Degrees  : kneeAlignment.Varus
-      }
-      $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
-    }
-
-    if (kneeAlignment.Valgus) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Alignment : "Valgus"
-        ,Degrees  : kneeAlignment.Valgus
-      }
-      $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
-    }
-
+    $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
     $ipadrbg.context.clinix_KneeAlignment.saveChanges();
 
-    kneeAlignment.SupineDegrees = "";
     kneeAlignment.Normal = "";
+    kneeAlignment.Alignment = "";
     kneeAlignment.Varus = "";
     kneeAlignment.Valgus = "";
 

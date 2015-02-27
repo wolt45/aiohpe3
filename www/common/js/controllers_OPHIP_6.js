@@ -19,6 +19,12 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
 
   $scope.addNew = function (frmObj) {
     if (frmObj.BloodLoss) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'Operative Blood Loass'");
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -30,6 +36,12 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
     }
 
     if (frmObj.Closure) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'Closure'");
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -40,7 +52,31 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
       $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
     }
 
+    if (frmObj.CompressionDressings) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'Compression Dressings'");
+      });
+
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+
+        ,Operative : "Compression Dressings"
+        ,OperValue  : frmObj.CompressionDressings
+      }
+      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+    }
+
     if (frmObj.OperativeCourse) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'Operative Course'");
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -52,6 +88,12 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
     }
 
     if (frmObj.Findings) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'Operative Findings'");
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -63,6 +105,12 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
     }
 
     if (frmObj.Diagnosis) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'POST Operative Diagnosis'");
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -74,6 +122,12 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
     }
 
     if (frmObj.OpDuratiion) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'Duration of Operation'");
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -84,7 +138,30 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
       $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
     }
 
+    if (frmObj.TEDS) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'TED Stockings'");
+      });
+
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Operative : "TED Stockings"
+        ,OperValue  : frmObj.TEDS
+      }
+      $ipadrbg.context.jdata_OPHIP_6.add(newrecord);
+    }
+
     if (frmObj.XRays) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'X-Rays'");
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -96,6 +173,12 @@ IOHPEApp.controller('OPHIP_6Ctrl', function ($scope, $routeParams, $http){
     }
 
     if (frmObj.Others) {
+      
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_6' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'Others'");
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID

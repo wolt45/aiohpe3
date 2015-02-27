@@ -19,4 +19,7 @@ $data.Entity.extend("$ipadrbg.types.clinix", {
 	,pxregdate: {type: "string"}
 
 	,pxFoto: {type: "string"}
+
+	,HospitalRID: {type: "string"}
+	,Hospital: {type: "string"}
 });

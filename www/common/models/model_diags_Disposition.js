@@ -3,7 +3,8 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagsDisposition", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 
-	, Disposition : { type: "string"}
-	, DispoValue  : { type: "string"}
-	, FollowUpDate: { type: "date"}
+	, DispoCardioClearance: { type: "string"}
+	, DispoHome: { type: "string"}
+	, DispoHospital: { type: "string"}
+	, DispoAccompanying: { type: "string"}
 });

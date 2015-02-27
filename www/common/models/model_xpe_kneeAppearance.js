@@ -3,16 +3,18 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeAppearance", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
-	, AppearanceR: { type: "string"}
-	, SeverityR: { type: "string"}
+	, NormalR: { type: "string"}
+	, SwellingR: { type: "string"}
+	, RedR: { type: "string"}
 
 	, SynovitisR: { type: "string"}
 	, EffusionR: { type: "string"}
 	, PainActiveROMR: { type: "string"}
 	, PainPassiveROMR: { type: "string"}
 
-	, AppearanceL: { type: "string"}
-	, SeverityL: { type: "string"}
+	, NormalL: { type: "string"}
+	, SwellingL: { type: "string"}
+	, RedL: { type: "string"}
 
 	, SynovitisL: { type: "string"}
 	, EffusionL: { type: "string"}

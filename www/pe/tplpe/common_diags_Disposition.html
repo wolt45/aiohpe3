@@ -1,61 +1,70 @@
 <div ng-controller="DiagsDispositionCtrl">	
 
 	<div scroll-bookmark="CommDiagsDISPO">
-		<table class="table table-condensed table-bordered">
+		<table class="table table-condensed">
 			<tr class="warning">
 				<td class="text-left" colspan="9">
 					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
-			    		Disposition
+			    		&nbsp;
 			    	</span>
 				</td>
 			</tr>
+
 			<tr>
-				<td width="25%">
-					<select ng-model="DispoForm.Disposition" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="Home with medication"> Home with medication </option>
-						<option value="Hospital"> Hospital </option>
-						<option value="Schedule Surgery"> Schedule Surgery </option>
-					</select>
+				<td width="25%" nowrap>
+					<input type="checkbox" ng-model="Diagnosis.DispoCardioClearance" 
+			            ng-true-value="1"
+			            ng-false-value="0"> Advised Patient for Cardio Clearance.
+
+					<br>
+					<input type="checkbox" ng-model="Diagnosis.DispoHome" 
+			            ng-true-value="1"
+			            ng-false-value="0"> Patient sent home with medication. 
+
+					<br>
+					<input type="checkbox" ng-model="Diagnosis.DispoHospital" 
+			            ng-true-value="1"
+			            ng-false-value="0"> Hospital
+
+					<br>
+					<input type="checkbox" ng-model="Diagnosis.DispoAccompanying" 
+			            ng-true-value="1"
+			            ng-false-value="0"> Accompanying Person if any.
 				</td>
-				<td width="1%"> 
-					<input type="text" class="form-control" ng-model="DispoForm.DispoValue">
+				
+				<td width="1%" class="text-center" nowrap>
+					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(Diagnosis)" style="text-decoration: none; color: #000">Save</a>
 				</td>
-				<td width="1%"></td>
-				<td width="1%"></td>
+
 				<td></td>
 			</tr>
 
-			<tr>
-				<td> Follow Up
-					<input type="hidden" ng-model="DispoForm.FollowUp" class="form-control" ng-init="DispoForm.FollowUp='Follow Up'" value="Follow Up" READONLY>
-				</td>
-				<td> 
-					<input type="date" class="form-control" ng-model="DispoForm.FollowUpDate" >
-				</td>
-				<td class="text-center" nowrap>
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(DispoForm)" style="text-decoration: none; color: #000">Add</a>
-				</td>
-				<td colspan="2"> <input type="Submit" class="btn btn-warning" name="Anesthesio" value="POST TO CALENDAR" ></td>
-			</tr>
+			<!-- D I S P L A Y -->
 
+			<tr ng-repeat="disposition in clinix_DiagsDisposition">
+	        	<td style="color:black" nowrap> 
 
-			<tr class="info" ng-repeat="disposition in clinix_DiagsDisposition">
-	        	<td style="color:black">{{disposition.Disposition}}</td>
-	        	<td style="color:black">{{disposition.DispoValue }}</td>
-	        	<td style="color:black" nowrap>{{disposition.FollowUpDate | date}}</td>
-	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{disposition.ClinixRID}}" ng-click="removeDiagnosis(disposition)" style="text-decoration: none">
-	            		DELETE
-	            	</a>
+	        		<table class="table table-condensed">
+	        			<tr class="info">
+			        		<td style="color: black" nowrap> {{(disposition.DispoCardioClearance == "1")? "Advised Patient for Cardio Clearance." : ""}} </td>
+			        		<td style="color: black" class="text-center"> {{(disposition.DispoCardioClearance == "1")? "YES" : ""}} </td>
+			        	</tr>
+		        		<tr class="info">
+			        		<td style="color: black" nowrap> {{(disposition.DispoHome == "1")? "Patient sent home with medication." : ""}}</td>
+			        		<td style="color: black" class="text-center"> {{(disposition.DispoHome == "1")? "YES" : ""}}</td>
+			        	</tr>
+		        		<tr class="info">
+			        		<td style="color: black" nowrap>{{(disposition.DispoHospital == "1")? "Hospital" : ""}}</td>
+			        		<td style="color: black" class="text-center">{{(disposition.DispoHospital == "1")? "YES" : ""}}</td>
+			        	</tr>
+		        		<tr class="info">
+			        		<td style="color: black" nowrap>{{(disposition.DispoAccompanying == "1")? "Accompanying Person if any." : ""}}</td>
+			        		<td style="color: black" class="text-center">{{(disposition.DispoAccompanying == "1")? "YES" : ""}}</td>
+			        	</tr>
+		        	</table>
+
 	        	</td>
-                <td>
-                	<a class="btn btn-large btn-warning" href="#/{{disposition.ChiefRID}}/edit" ng-click="editChiefComp(disposition)" style="text-decoration: none">
-                		EDIT
-                	</a>
-            	</td>
 	        </tr>
-
 
 		</table>
 	</div>

@@ -14,22 +14,36 @@ IOHPEApp.controller('EtiologyCtrl', function ($scope, $routeParams, $http){
   $scope.LoadEtiology();
 
   $scope.addEtiology = function (grpEtiology) {
-    newrecord = {
-      ClinixRID         : $scope.clinix.ClinixRID
-      ,PxRID            : $scope.clinix.PxRID
+    if ( grpEtiology.Injury
+          && grpEtiology.DateEtio
+          && grpEtiology.WorkRelated
+          && grpEtiology.OnsetAccuteGradual
+          && grpEtiology.Duration
+          && grpEtiology.DurationUnit
+          && grpEtiology.Severity
+          && grpEtiology.AmbulatoryAid
+      ) { 
+      newrecord = {
+        ClinixRID         : $scope.clinix.ClinixRID
+        ,PxRID            : $scope.clinix.PxRID
 
-      ,Injury           : grpEtiology.Injury
-      ,DateEtio         : grpEtiology.DateEtio
-      ,WorkRelated      : grpEtiology.WorkRelated
-      ,WorkRelatedDetails : grpEtiology.WorkRelatedDetails
-      ,OnsetAccuteGradual : grpEtiology.OnsetAccuteGradual
-      ,Duration         : grpEtiology.Duration
-      ,DurationUnit     : grpEtiology.DurationUnit
-      ,Severity         : grpEtiology.Severity
-      ,AmbulatoryAid    : grpEtiology.AmbulatoryAid
+        ,Injury           : grpEtiology.Injury
+        ,DateEtio         : grpEtiology.DateEtio
+        ,WorkRelated      : grpEtiology.WorkRelated
+        ,WorkRelatedDetails : grpEtiology.WorkRelatedDetails
+        ,OnsetAccuteGradual : grpEtiology.OnsetAccuteGradual
+        ,Duration         : grpEtiology.Duration
+        ,DurationUnit     : grpEtiology.DurationUnit
+        ,Severity         : grpEtiology.Severity
+        ,AmbulatoryAid    : grpEtiology.AmbulatoryAid
+      }
+
+      $ipadrbg.context.clinix_etiology.add(newrecord);
+      $ipadrbg.context.clinix_etiology.saveChanges();
     }
-    $ipadrbg.context.clinix_etiology.add(newrecord);
-    $ipadrbg.context.clinix_etiology.saveChanges();
+    else {
+      alert("Incomplete information, please go back!")
+    }
 
     $scope.LoadEtiology();
   }

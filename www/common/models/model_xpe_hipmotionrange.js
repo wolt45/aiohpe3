@@ -4,6 +4,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_HipMotionRange", {
 	, PxRID: { type: "string"}
 	
 	, MotionArea: { type: "string"}
-	, Left: { type: "string"}
-	, Right: { type: "string"}
+	, YN: { type: "string"}
+	, MotionAreaVal: { type: "string"}
 });

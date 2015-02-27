@@ -32,17 +32,27 @@ IOHPEApp.controller('KneeXRaysCtrl', function ($scope, $routeParams, $http){
       ,APMedialL        : kneeXRay.APMedialL
       ,APLateralL       : kneeXRay.APLateralL
 
+      ,Normal           : kneeXRay.Normal
+
       ,Varus            : "Varus Deformity"
       ,VarusDegrees     : kneeXRay.VarusDegrees
       ,VarusSeverity    : ""
       ,VarusMedial      : kneeXRay.VarusMedial
       ,VarusLateral     : kneeXRay.VarusLateral
 
+      ,JointSpaceVarusR    : kneeXRay.JointSpaceVarusR
+      ,JointSpaceVarusL    : kneeXRay.JointSpaceVarusL
+
       ,Valgus           : "Valgus Deformity"
       ,ValgusDegrees    : kneeXRay.ValgusDegrees
       ,ValgusSeverity   : ""
       ,ValgusMedial     : kneeXRay.ValgusMedial
       ,ValgusLateral    : kneeXRay.ValgusLateral
+      
+      ,JointSpaceValgusR    : kneeXRay.JointSpaceValgusR
+      ,JointSpaceValgusL    : kneeXRay.JointSpaceValgusL
+      
+      ,BilateralJointSpace    : kneeXRay.BilateralJointSpace
 
       ,LaurinPatellaSeverityR  : kneeXRay.LaurinPatellaSeverityR
       ,LaurinPatellaSeverityL  : kneeXRay.LaurinPatellaSeverityL
@@ -62,6 +72,8 @@ IOHPEApp.controller('KneeXRaysCtrl', function ($scope, $routeParams, $http){
     kneeXRay.APMedialL        = "";
     kneeXRay.APLateralL       = "";
 
+    kneeXRay.Normal           = "";
+
     kneeXRay.VarusDegrees     = "";
     kneeXRay.VarusMedial      = "";
     kneeXRay.VarusLateral     = "";
@@ -69,6 +81,8 @@ IOHPEApp.controller('KneeXRaysCtrl', function ($scope, $routeParams, $http){
     kneeXRay.ValgusDegrees    = "";
     kneeXRay.ValgusMedial     = "";
     kneeXRay.ValgusLateral    = "";
+    
+    kneeXRay.BilateralJointSpace    = "";
 
     kneeXRay.LaurinPatellaSeverityR = "";
     kneeXRay.LaurinPatellaSeverityL = "";

@@ -14,18 +14,42 @@ IOHPEApp.controller('DiagsNotesCtrl', function ($scope, $routeParams, $http){
 
   $scope.LoadDiagsNotes();
 
-  $scope.addNew = function (daignosisObj) {
+  $scope.addNewFUP = function (daignosisObj) {
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_DiagsNotes' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND NoteItem = 'Follow Up'" );
+    });
+
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
 
-      ,Notes     : daignosisObj.DiagTnyMce
+      ,NoteItem : "Follow Up"
+      ,NoteValue : daignosisObj.FollowUpDate
     }
     $ipadrbg.context.clinix_DiagsNotes.add(newrecord);
     $ipadrbg.context.clinix_DiagsNotes.saveChanges();
-
-    daignosisObj.DiagTnyMce = "";
     $scope.LoadDiagsNotes();
+    daignosisObj.FollowUpDate = "";
+  }
+
+  $scope.addNew = function (daignosisObj) {
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_DiagsNotes' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND NoteItem = 'Discussions'" );
+    });
+
+    newrecord = {
+      ClinixRID : $scope.clinix.ClinixRID
+      ,PxRID    : $scope.clinix.PxRID
+
+      ,NoteItem : "Discussions"
+      ,NoteValue : daignosisObj.DiagTnyMce
+    }
+    $ipadrbg.context.clinix_DiagsNotes.add(newrecord);
+    $ipadrbg.context.clinix_DiagsNotes.saveChanges();
+    $scope.LoadDiagsNotes();
+    daignosisObj.DiagTnyMce = "";
   }
 
   $scope.removeItem = function (daignosisObj) {

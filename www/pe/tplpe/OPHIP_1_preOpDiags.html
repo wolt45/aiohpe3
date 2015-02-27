@@ -11,7 +11,12 @@
 			    </td>
 			</tr>
 
-			<tr class="active">
+
+			<tr class="info" ng-repeat="diagnosed in clinix_Diagnosis">
+	        	<td style="color:black">{{diagnosed.Diagnosis}}</td>
+	        </tr>	
+
+			<!-- tr class="active">
 				<td colspan="2" nowrap>
 					<textarea class="form-control" ng-model="OPHIP_1.PreOpDiagnosis" rows="3"></textarea>
 				</td>
@@ -21,7 +26,7 @@
 				<td class="text-center" nowrap>
 					<a class="btn btn-large btn-info" ng-click="addNew(OPHIP_1)" style="text-decoration: none; color: #000">Save</a>
 				</td>
-			</tr>
+			</tr -->
 		</table>
 
 		<table class="table table-condensed table-bordered">

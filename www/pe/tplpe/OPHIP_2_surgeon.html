@@ -11,17 +11,34 @@
 			    </td>
 			</tr>
 
+
+			<tr class="active">
+				<td nowrap>
+					Type of Surgery
+					<br>
+					<div ng-repeat="surgery in clinix_DiagSchedSurgery">
+						<input type="text" class="form-control" ng-model="surgery.SurgeryType" READONLY>
+					</div>
+				</td>
+				<td>When
+					<br>
+					<div ng-repeat="surgery in clinix_DiagSchedSurgery">
+						<input type="text" class="form-control" ng-model="surgery.SurgeryDate" READONLY>
+					</div>
+				</td>
+			</tr>
+
 			<tr class="active">
 				<td nowrap>
 					Surgeon
 					<br>
-					<input type="text" class="form-control" ng-model="schedSurgeGrp.Surgeon">
+					<input type="text" class="form-control" ng-model="clinix_DiagSchedSurgery.Surgeon">
 				</td>
 		
 				<td nowrap>
-					Surgeon
+					Assistant/s
 					<br>
-					<input type="text" class="form-control" ng-model="schedSurgeGrp.Assistant">
+					<input type="text" class="form-control" ng-model="clinix_DiagSchedSurgery.Assistant">
 				</td>
 			</tr>
 
@@ -29,7 +46,7 @@
 				<td nowrap>
 					Internist/Cardiologist
 					<br>
-					<input type="text" class="form-control" ng-model="schedSurgeGrp.Cardio">
+					<input type="text" class="form-control" ng-model="clinix_DiagSchedSurgery.Cardio">
 				</td>
 			</tr>
 
@@ -37,12 +54,12 @@
 				<td nowrap>
 					Anaesthesiologist
 					<br>
-					<input type="text" class="form-control" ng-model="schedSurgeGrp.Anesthesio">
+					<input type="text" class="form-control" ng-model="clinix_DiagSchedSurgery.Anesthesio">
 				</td>
 			
 				<td nowrap>
 					Type of Anesthesia<br>
-					<select class="form-control" ng-model="schedSurgeGrp.AnesthesiaType">
+					<select class="form-control" ng-model="clinix_DiagSchedSurgery.AnesthesiaType">
 						<option value=""> (select one) </option>
 						<option value="Spinal"> Spinal </option>
 						<option value="Epidural"> Epidural </option>
@@ -52,17 +69,18 @@
 			</tr>
 
 			<tr class="active">
-				<td nowrap>
-					Type of Surgery
+				<td>Hospital
 					<br>
-					<input type="text" class="form-control" ng-model="schedSurgeGrp.SurgeryType">
+					<div ng-repeat="surgery in clinix_DiagSchedSurgery">
+						<input type="text" class="form-control" ng-model="surgery.Hospital" READONLY>
+					</div>
 				</td>
 			</tr>
 
 			<tr>
 				<td colspan="2" class="text-center" nowrap>
 					<a class="btn btn-large btn-info" 
-						ng-click="addNew(schedSurgeGrp)" 
+						ng-click="addNew(clinix_DiagSchedSurgery)" 
 						style="text-decoration: none; color: #000">
 						Save
 					</a>
@@ -75,11 +93,13 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="info">
 	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Surgery</th>
+	        	<th width="1%" class="text-center" style="color:#888" nowwrap>When</th>
 	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Surgeon</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Assisting</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Internist</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Anesthesiologist</th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap>Anesthesia</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Hospital</th>
 
 	            <th width="1%"> </th>
 	            <th width=> </th>
@@ -87,11 +107,13 @@
 
 			<tr class="info" ng-repeat="schedSurgery in jdata_OPHIP_2">
 	        	<td style="color:black">{{schedSurgery.SurgeryType}}</td>
+	        	<td style="color:black">{{schedSurgery.SurgeryDate | date}}</td>
 	        	<td style="color:black">{{schedSurgery.Surgeon}}</td>
 	        	<td style="color:black">{{schedSurgery.Assistant}}</td>
 	        	<td style="color:black">{{schedSurgery.Cardio}}</td>
 	        	<td style="color:black">{{schedSurgery.Anesthesio}}</td>
 	        	<td style="color:black">{{schedSurgery.AnesthesiaType}}</td>
+	        	<td style="color:black">{{schedSurgery.Hospital}}</td>
 	            <td>
 	            	<a class="btn btn-large btn-danger" ng-click="removeItem(schedSurgery)" style="text-decoration: none">
 	            		DELETE

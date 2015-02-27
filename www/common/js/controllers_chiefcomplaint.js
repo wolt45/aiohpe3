@@ -43,18 +43,20 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
       + (complaint.MyBoneComplaint.LimitedMotion ? " " + complaint.MyBoneComplaint.LimitedMotion + " " : "") 
       + (complaint.MyBoneComplaint.Deformity ? " " + complaint.MyBoneComplaint.Deformity + " " : "") 
       + (complaint.MyBoneComplaint.Shortening ? " " + complaint.MyBoneComplaint.Shortening + " " : "") 
+      + (complaint.MyBoneComplaint.Numbness ? " " + complaint.MyBoneComplaint.Numbness + " " : "") 
       ;
 
-    newrecord = {
-      ClinixRID         : $scope.clinix.ClinixRID
-      ,PxRID            : $scope.clinix.PxRID
+    if (myComplaint && complaint.MyBoneLRB && complaint.MyBone) {
+      newrecord = {
+        ClinixRID         : $scope.clinix.ClinixRID
+        ,PxRID            : $scope.clinix.PxRID
 
-      ,MyBoneComplaint  : myComplaint
-      ,MyBoneLRB        : complaint.MyBoneLRB
-      ,MyBone           : complaint.MyBone
-      
-      ,Remarks          : complaint.Remarks
-    }
+        ,MyBoneComplaint  : myComplaint
+        ,MyBoneLRB        : complaint.MyBoneLRB
+        ,MyBone           : complaint.MyBone
+        
+        ,Remarks          : complaint.Remarks
+      }
 
       $ipadrbg.context.clinix_chiefcomp.add(newrecord);
       $ipadrbg.context.clinix_chiefcomp.saveChanges();
@@ -65,6 +67,10 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
       complaint.Remarks = null;
 
       $scope.LoadComplaints();
+    }
+    else {
+      alert ("CHIEF COMPLAINT data is incomplete!");
+    }
   }
 
   $scope.removeChiefComp = function (complaint) {

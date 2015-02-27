@@ -15,17 +15,15 @@ IOHPEApp.controller('StructuredManagementCtrl', function ($scope, $routeParams, 
 
   $scope.addNew = function (formArrObj) {
 
-    if (formArrObj.ManagementDetail1 ) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Management        : formArrObj.Management1
-        ,ManagementDetail  : formArrObj.ManagementDetail1
-      }
-      $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
-    }
     if (formArrObj.ManagementDetail2 ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("DELETE from 'clinix_StructuredManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+            + " AND Management = 'Physical Therapy'"
+            );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -35,17 +33,42 @@ IOHPEApp.controller('StructuredManagementCtrl', function ($scope, $routeParams, 
       }
       $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
     }
-    if (formArrObj.ManagementDetail3 ) {
+
+
+    if ( formArrObj.DetlA || formArrObj.DetlB || formArrObj.DetlC || formArrObj.DetlD ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("DELETE from 'clinix_StructuredManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+            + " AND Management = 'Exercise program'"
+            );
+      });
+
+      var Detail3 = (formArrObj.DetlA ? formArrObj.DetlA + ", " : "")
+        + (formArrObj.DetlB ? formArrObj.DetlB + ", " : "")
+        + (formArrObj.DetlC ? formArrObj.DetlC + ", " : "")
+        + (formArrObj.DetlD ? formArrObj.DetlD + ", " : "") ;
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Management        : formArrObj.Management3
-        ,ManagementDetail  : formArrObj.ManagementDetail3
+        ,Management        : "Exercise program"
+        ,ManagementDetail  : Detail3
       }
       $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
     }
+
+
     if (formArrObj.ManagementDetail4 ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("DELETE from 'clinix_StructuredManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+            + " AND Management = 'Ambulatory Aid'"
+            );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -55,7 +78,17 @@ IOHPEApp.controller('StructuredManagementCtrl', function ($scope, $routeParams, 
       }
       $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
     }
+
+
     if (formArrObj.Shower ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("DELETE from 'clinix_StructuredManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+            + " AND Management = 'Shower'"
+            );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -65,7 +98,37 @@ IOHPEApp.controller('StructuredManagementCtrl', function ($scope, $routeParams, 
       }
       $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
     }
+
+
+    if (formArrObj.TEDS ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("DELETE from 'clinix_StructuredManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+            + " AND Management = 'TED Stockings'"
+            );
+      });
+
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+
+        ,Management        : "TED Stockings"
+        ,ManagementDetail  : formArrObj.TEDS
+      }
+      $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
+    }
+
+
     if (formArrObj.Notes ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("DELETE from 'clinix_StructuredManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+            + " AND Management = 'Instructions/Notes'"
+            );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
@@ -75,17 +138,25 @@ IOHPEApp.controller('StructuredManagementCtrl', function ($scope, $routeParams, 
       }
       $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
     }
+
     if (formArrObj.Follow ) {
+
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("DELETE from 'clinix_StructuredManagement' WHERE ClinixRID = " + $scope.clinix.ClinixRID
+            + " AND Management = 'Follow-up'"
+            );
+      });
+
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Management        : "Follow - up"
+        ,Management        : "Follow-up"
         ,ManagementDetail  : formArrObj.Follow
       }
       $ipadrbg.context.clinix_StructuredManagement.add(newrecord);
     }
-
 
     $ipadrbg.context.clinix_StructuredManagement.saveChanges();
 
@@ -94,9 +165,19 @@ IOHPEApp.controller('StructuredManagementCtrl', function ($scope, $routeParams, 
     formArrObj.Management2z = "";
     formArrObj.ManagementDetail2 = "";
     formArrObj.Management3z = "";
-    formArrObj.ManagementDetail3 = "";
+    
+    formArrObj.DetlA = "";
+    formArrObj.DetlB = "";
+    formArrObj.DetlC = "";
+    formArrObj.DetlD = "";
+
     formArrObj.Management4z = "";
     formArrObj.ManagementDetail4 = "";
+
+    formArrObj.TEDS  = "";
+    formArrObj.Shower = "";
+    formArrObj.Notes = "";
+    formArrObj.Follow = "";
 
     $scope.LoadStructuredMgmt();
   }

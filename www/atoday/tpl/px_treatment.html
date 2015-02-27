@@ -21,11 +21,6 @@
 								ng-model="CHIEFCformData.medAnalgesic" 
 								placeholder="Pain-meds">
 					</td>
-					<!-- td width="1%" nowrap>Dose: 
-						<select ng-model="CHIEFCformData.drugDozageAnalgesic" style="background-color: white; color: #000">
-	              			<option ng-repeat="doze in drugDozage" value="{{doze.doze}}">{{doze.doze}}</option>
-						</select>
-					</td -->
 				</tr>
 
 				<tr class="active">
@@ -46,11 +41,6 @@
 								ng-model="CHIEFCformData.medOthers" 
 								placeholder="Other meds" >
 					</td>
-					<!-- td width="1%" nowrap>Dose: 
-						<select ng-model="CHIEFCformData.drugDozageOthers" style="background-color: white; color: #000">
-	              			<option ng-repeat="doze in drugDozage" value="{{doze.doze}}">{{doze.doze}}</option>
-						</select>
-					</td -->
 				</tr>
 
 				<tr class="active">
@@ -84,7 +74,8 @@
 					<th>&nbsp;</th>
 					<td nowrap>2. Hyaluronic acid</td>
 					<td colspan="1">
-						<input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Supartz">Supartz
+						<input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="None">NONE
+						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Supartz">Supartz
 						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Synvisc">Synvisc
 						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Go On">Go On
 						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Others">Others

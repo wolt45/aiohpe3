@@ -10,68 +10,77 @@
 				</td>
 			</tr>
 
-			<tr class="active">
-					<th width="15%" class="text-center">Labs</th>
-					<th width="1%" class="text-center">Date</th>
-					<th width="15%" class="text-center">Where</th>
-					<th width="15%" class="text-center">Report</th>
-					<td width="1%"></td>
-					<td width="1%"></td>
-					<td></td>
-				</tr>
+			<tr>
+				<th width="1%" class="text-center">Date</th>
+				<td width="1%"><input type="date" class="form-control" ng-model="labsOnDischarge.labDate" ></td>
+				<td></td>
+			</tr>
 
-				<tr class="active">
-					<td>
-						<select class="form-control" ng-model="labsOnDischarge.labCategory" style="background-color: white; color: #000">
-	              			<option ng-repeat="rolLabCat in labCategories" value="{{rolLabCat.dropname}}">{{rolLabCat.dropname}}</option>
-						</select>
-					</td>
-					<td width="1%"><input type="date" class="form-control" ng-model="labsOnDischarge.labDate" ></td>
+			<tr>
+				<th class="text-center">Where</th>
+				<td><input type="text" class="form-control" ng-model="labsOnDischarge.labSource" ></td>
+			</tr>
 
-					<td width="1%"><input type="text" class="form-control" ng-model="labsOnDischarge.labSource" ></td>
-					
-					<td width="1%"><input type="text" class="form-control" ng-model="labsOnDischarge.labReport" ></td>
+			<tr class="active">		
+				<th class="text-center">Labs</th>
+				<th class="text-center">Report</th>
+			</tr>
 
-					<td class="text-center">
-						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(labsOnDischarge)" style="text-decoration: none">ADD</a>
-					</td>
-					<td></td>
-					<td></td>
-				</tr>
-				
-				<!-- tr class="info">
-	            	<th class="text-center" style="color:#888" nowrap>XRay Date</th>
-	            	<th class="text-center" style="color:#888" nowrap>XRay Report</th>
-	            	<th class="text-center" style="color:#888" nowrap>MRI</th>
-	                <th class="text-center" style="color:#888">MRI Report</th>
-	                <th class="text-center" style="color:#888">CT Scan</th> 
-	                <th class="text-center" class="text-center" style="color:#888" >CT Scan Report</th> 
+			<tr>	
+				<td class="text-center"> WBC </td>
+				<td><input type="text" class="form-control" ng-model="labsOnDischarge.WBC" ></td>
+			</tr>
 
-					<td></td>
-					<td></td>
-	            </tr -->
+			<tr>
+				<td class="text-center"> HgB </td>
+				<td><input type="text" class="form-control" ng-model="labsOnDischarge.HgB" ></td>
+			</tr>
 
-				<tr class="info" ng-repeat="rolLabs in clinix_StructuredLABS">
-	            	<td style="color:black" nowrap>{{rolLabs.labCategory}}</td>
-	            	<td style="color:black">{{rolLabs.labDate | date}}</td>
-	            	<td style="color:black" nowrap>{{rolLabs.labSource}}</td>
-	                <td style="color:black">{{rolLabs.labReport}}</td>
+			<tr>	
+				<td class="text-center"> Hematocrit </td>
+				<td><input type="text" class="form-control" ng-model="labsOnDischarge.Hematocrit" ></td>
+			</tr>
 
-	                <td width="1%">
-	                	<a class="btn btn-large btn-danger" href="#/{{rolLabs.ClinixRID}}" ng-click="removeItem(rolLabs)" style="text-decoration: none">
-	                		DELETE
-	                	</a>
-	            	</td>
-	                <td width="1%">
-	                	<a class="btn btn-large btn-warning" href="#/{{rolLabs.ChiefRID}}/edit" ng-click="editChiefComp(rolLabs)" style="text-decoration: none">
-	                		EDIT
-	                	</a>
-	            	</td>
+			<tr>
+				<td class="text-center" colspan="2">
+					<a class="btn btn-large btn-info btn-block" href="#/{{clinix.ClinixRID}}" ng-click="addNew(labsOnDischarge)" style="text-decoration: none">ADD</a>
+				</td>
+			</tr>
+		</table>	
 
-	            	<td></td>
-	            	
-	            </tr>
-				
-			
+		<!-- D I S P L A Y -->
+
+		<table class="table table-condensed table-bordered">
+	            
+			<tr class="info">
+            	<td width="1%" class="text-center">DATE</td>
+            	<td width="1%" class="text-center" nowrap>WHERE</td>
+                <td width="1%" class="text-center">WBC</td>
+                <td width="1%" class="text-center">HgB</td>
+                <td width="1%" class="text-center">Hematocrit</td>
+                <td width="1%"></td>
+                <td width="1%"></td>
+                <td></td>
+            </tr>
+
+			<tr class="info" ng-repeat="rolLabs in clinix_StructuredLABS">
+            	<td class="text-center" style="color:black" nowrap>{{rolLabs.labDate | date}}</td>
+            	<td class="text-center" style="color:black" nowrap>{{rolLabs.labSource}}</td>
+                <td class="text-center" style="color:black" nowrap>{{rolLabs.WBC}}</td>
+                <td class="text-center" style="color:black" nowrap>{{rolLabs.HgB}}</td>
+                <td class="text-center" style="color:black" nowrap>{{rolLabs.Hematocrit}}</td>
+
+                <td>
+                	<a class="btn btn-large btn-danger" href="#/{{rolLabs.ClinixRID}}" ng-click="removeItem(rolLabs)" style="text-decoration: none">
+                		DELETE
+                	</a>
+            	</td>
+                <td>
+                	<!--a class="btn btn-large btn-warning" href="#/{{rolLabs.ChiefRID}}/edit" ng-click="editChiefComp(rolLabs)" style="text-decoration: none">
+                		EDIT
+                	</a -->
+            	</td>
+            	<td></td>
+            </tr>
 		</table>
 	</div>
