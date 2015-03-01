@@ -9,6 +9,7 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagSchedSurgery", {
 	, Assistant	  : { type: "string"}
 	, Cardio	  : { type: "string"}
 	, Anesthesio  : { type: "string"}
+	, AnesthesiaType  : { type: "string"}
 	, Hospital	  : { type: "string"}
 	, Others	  : { type: "string"}
 });

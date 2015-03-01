@@ -16,29 +16,26 @@
 				<td nowrap>
 					Type of Surgery
 					<br>
-					<div ng-repeat="surgery in clinix_DiagSchedSurgery">
-						<input type="text" class="form-control" ng-model="surgery.SurgeryType" READONLY>
-					</div>
+					<input type="text" class="form-control" ng-model="surgery.SurgeryType" READONLY>
 				</td>
 				<td>When
 					<br>
-					<div ng-repeat="surgery in clinix_DiagSchedSurgery">
-						<input type="text" class="form-control" ng-model="surgery.SurgeryDate" READONLY>
-					</div>
+					<input type="text" class="form-control" value="{{surgery.SurgeryDate | date : 'MM/dd/yyyy'}}" READONLY>
 				</td>
 			</tr>
+
 
 			<tr class="active">
 				<td nowrap>
 					Surgeon
 					<br>
-					<input type="text" class="form-control" ng-model="clinix_DiagSchedSurgery.Surgeon">
+						<input type="text" class="form-control" ng-model="surgery.Surgeon">
 				</td>
 		
 				<td nowrap>
 					Assistant/s
 					<br>
-					<input type="text" class="form-control" ng-model="clinix_DiagSchedSurgery.Assistant">
+					<input type="text" class="form-control" ng-model="surgery.Assistant">
 				</td>
 			</tr>
 
@@ -46,7 +43,7 @@
 				<td nowrap>
 					Internist/Cardiologist
 					<br>
-					<input type="text" class="form-control" ng-model="clinix_DiagSchedSurgery.Cardio">
+					<input type="text" class="form-control" ng-model="surgery.Cardio">
 				</td>
 			</tr>
 
@@ -54,12 +51,12 @@
 				<td nowrap>
 					Anaesthesiologist
 					<br>
-					<input type="text" class="form-control" ng-model="clinix_DiagSchedSurgery.Anesthesio">
+					<input type="text" class="form-control" ng-model="surgery.Anesthesio">
 				</td>
 			
 				<td nowrap>
 					Type of Anesthesia<br>
-					<select class="form-control" ng-model="clinix_DiagSchedSurgery.AnesthesiaType">
+					<select class="form-control" ng-model="surgery.AnesthesiaType">
 						<option value=""> (select one) </option>
 						<option value="Spinal"> Spinal </option>
 						<option value="Epidural"> Epidural </option>
@@ -71,18 +68,15 @@
 			<tr class="active">
 				<td>Hospital
 					<br>
-					<div ng-repeat="surgery in clinix_DiagSchedSurgery">
-						<input type="text" class="form-control" ng-model="surgery.Hospital" READONLY>
-					</div>
+					<input type="text" class="form-control" ng-model="surgery.Hospital" READONLY>
 				</td>
 			</tr>
 
 			<tr>
 				<td colspan="2" class="text-center" nowrap>
 					<a class="btn btn-large btn-info" 
-						ng-click="addNew(clinix_DiagSchedSurgery)" 
-						style="text-decoration: none; color: #000">
-						Save
+						ng-click="UpdateMe(surgery)" style="text-decoration: none; color: #000">
+						UPDATE
 					</a>
 				</td>
 			</tr>
@@ -105,7 +99,7 @@
 	            <th width=> </th>
 			</tr>
 
-			<tr class="info" ng-repeat="schedSurgery in jdata_OPHIP_2">
+			<tr class="info" ng-repeat="schedSurgery in clinix_DiagSchedSurgery">
 	        	<td style="color:black">{{schedSurgery.SurgeryType}}</td>
 	        	<td style="color:black">{{schedSurgery.SurgeryDate | date}}</td>
 	        	<td style="color:black">{{schedSurgery.Surgeon}}</td>

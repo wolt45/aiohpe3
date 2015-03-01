@@ -1,4 +1,4 @@
-<div ng-controller="OPKNEE_1Ctrl">
+<div ng-controller="DiagnosisCtrl">
 	
 	<div scroll-bookmark="OPKNEE_1">
 
@@ -11,33 +11,33 @@
 			    </td>
 			</tr>
 
-			<tr class="active">
+			<!-- tr class="active">
 				<td colspan="2" nowrap>
-					<textarea class="form-control" ng-model="OPKNEE_1.PreOpDiagnosis" rows="3"></textarea>
+					<textarea class="form-control" ng-model="Diagnosis" rows="3"></textarea>
 				</td>
-			</tr>
+			</tr -->
 
-			<tr>
+			<!-- tr>
 				<td class="text-center" nowrap>
 					<a class="btn btn-large btn-info" ng-click="addNew(OPKNEE_1)" style="text-decoration: none; color: #000">Save</a>
 				</td>
-			</tr>
+			</tr -->
 		</table>
 
 		<table class="table table-condensed table-bordered">
 
-			<tr class="info" ng-repeat="preOpDiag in jdata_OPKNEE_1">
+			<tr class="info" ng-repeat="preOpDiag in clinix_Diagnosis">
 	        	
-	        	<td style="color:black">{{preOpDiag.PreOpDiagnosis}}</td>
+	        	<td style="color:black">{{preOpDiag.Diagnosis}}</td>
 
-	            <td width="1%">
+	            <!-- td width="1%">
 	            	<a class="btn btn-large btn-danger" ng-click="removeItem(preOpDiag)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
 	        	
                 <td width="1%">
-            	</td>
+            	</td -->
 	        </tr>
 	    </table>
 

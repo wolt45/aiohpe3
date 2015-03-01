@@ -44,14 +44,12 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, clinix_PEcharges: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PEcharges }
 	, lkup_PEChargesTariff: { type: $data.EntitySet, elementType: $ipadrbg.types.lkup_PEChargesTariff }
 
-	, jdata_OPHIP_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_1 }
 	, jdata_OPHIP_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_2 }
 	, jdata_OPHIP_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_3 }
 	, jdata_OPHIP_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_4 }
 	, jdata_OPHIP_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_5 }
 	, jdata_OPHIP_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPHIP_6 }
 
-	, jdata_OPKNEE_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_1 }
 	, jdata_OPKNEE_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_2 }
 	, jdata_OPKNEE_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_3 }
 	, jdata_OPKNEE_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_4 }

@@ -17,4 +17,8 @@
         Walter Frederick Seballos
     </author>
 
+    <!-- iPad -->
+    <icon src="images/glogo.png" gap:platform="ios" width="76" height="76" />
+    <icon src="images/glogo.png" gap:platform="ios" width="152" height="152" />
+
 </widget>

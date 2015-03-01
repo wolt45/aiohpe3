@@ -1,4 +1,4 @@
-IOHPEApp.controller('StructuredDiagnosisCtrl', function ($scope, $routeParams, $http){
+IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
   // $scope.clinix_StructuredDiagnosis = [];
   // $scope.ClinixRID = $routeParams.p_clinixrid;
 
