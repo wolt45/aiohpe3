@@ -1,0 +1,97 @@
+<div ng-controller="OPKNEE_3Ctrl">
+	
+	<div scroll-bookmark="OPKNEE_3">
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td width="1%" colspan="9" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+			    		KNEE Implant
+			    	</span>
+			    </td>
+			</tr>
+
+			<!-- tr class="active">
+				<td nowrap>
+					Type of KNEE replacement<br>
+					<input type="radio" ng-model="opknee3.TypeOfKNEERep" value="Cemented">Cemented
+					<br>
+					<input type="radio" ng-model="opknee3.TypeOfKNEERep" value="Hybrid">Hybrid
+					<br>
+					<input type="radio" ng-model="opknee3.TypeOfKNEERep" value="Cement Less">Cement Less
+				</td -->
+			
+				<td nowrap>
+					Implants Used
+					<br>
+					<textarea class="form-control" rows="2" ng-model="opknee3.ImplantUsed" placeholder="none"></textarea>
+				</td>
+			</tr>
+
+			<!-- tr class="active">
+				<td colspan="9" nowrap>
+					<span style="font-family: Helvetiker; font-size:30px; letter-spacing: 3px; font-style: italic;">
+			    		Femoral Component
+			    	</span>
+				</td>
+			</tr -->
+
+			<tr class="active">
+				<td nowrap>
+					Femoral Component
+					<br>
+					<textarea class="form-control" rows="2" ng-model="opknee3.FemoralCompo" placeholder="none"></textarea>
+				</td>
+
+				<td nowrap>
+					Tibia Component
+					<br>
+					<textarea class="form-control" rows="2" ng-model="opknee3.TibiaCompo" placeholder="none"></textarea>
+				</td>
+			</tr>
+
+			<tr class="active">
+				<td>
+					Patella:
+					<br>
+					<textarea class="form-control" rows="2" ng-model="opknee3.Patella" placeholder="none"></textarea>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="text-center" nowrap>
+					<a class="btn btn-large btn-info" ng-click="addNew(opknee3)" style="text-decoration: none; color: #000">Save</a>
+				</td>
+			</tr>
+		</table>
+
+
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+	        	<th width="1%" class="text-center" style="color:#888" nowwrap> <i> TYPE </i> </th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>IMPLANT USED</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Femoral</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Tibia</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Patella</th>
+	            <th width="1%"> </th>
+	            <th width=> </th>
+			</tr>
+
+			<tr class="info" ng-repeat="opknee3Row in jdata_OPKNEE_3">
+	        	<td style="color:black">{{opknee3Row.TypeOfKNEERep}}</td>
+	        	<td style="color:black">{{opknee3Row.ImplantUsed}}</td>
+	        	<td style="color:black">{{opknee3Row.FemoralCompo}}</td>
+	        	<td style="color:black">{{opknee3Row.TibiaCompo}}</td>
+	        	<td style="color:black">{{opknee3Row.Patella}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" ng-click="removeItem(opknee3Row)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td>
+            	</td>
+	        </tr>
+	    </table>
+
+	</div>		
+</div>

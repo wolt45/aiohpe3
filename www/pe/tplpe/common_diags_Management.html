@@ -1,0 +1,102 @@
+<div ng-controller="DiagsManagementCtrl">
+
+	<div scroll-bookmark="CommDiagsMANAGEMENT">
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td class="text-left" colspan="4">
+					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+			    		Management
+			    	</span>
+				</td>
+			</tr>
+
+			<!-- tr>
+				<td width="1%" nowrap>Type
+					<input type="hidden" ng-model="DiagsMgmt.Management1" class="form-control" ng-init="DiagsMgmt.Management1='Management Type'" value="Management Type" READONLY>
+				</td>
+				<td width="15%" colspan="1">
+					<select ng-model="DiagsMgmt.ManagementDetail1" class="form-control"> 
+						<option value="">(select one)</option>
+						<option value="CLOSED"> CLOSED </option>
+						<option value="OPEN"> OPEN </option>
+					</select>
+				</td>
+				<td width="15%"></td>
+				<td></td>
+			</tr -->
+			
+			<tr>
+				<td nowrap>Physical Therapy
+					<input type="hidden" ng-model="DiagsMgmt.Management2" class="form-control" ng-init="DiagsMgmt.Management2='Physical Therapy'" value="Physical Therapy" READONLY>
+				</td>
+				<td colspan="2">
+					<input type="text" class="form-control" ng-model="DiagsMgmt.ManagementDetail2" placeholder="Physical Theraphy" >
+				</td>
+				<td></td>
+			</tr>
+
+
+
+			<tr>
+				<td width="1%" nowrap>Exercise program <br>
+					<input type="hidden" ng-model="DiagsMgmt.Management3" class="form-control" ng-init="DiagsMgmt.Management3='Exercise program'" value="Exercise program" READONLY>
+				</td>
+				<td nowrap>
+					<label class="checkbox-inline">
+			            <input type="checkbox" ng-model="DiagsMgmt.ManagementDetail3A" 
+			            ng-true-value="Foot and Ankle"
+			            ng-false-value=""> Foot and Ankle
+			        </label>
+			        <br>
+			        <label class="checkbox-inline">
+			            <input type="checkbox" ng-model="DiagsMgmt.ManagementDetail3B" 
+			            ng-true-value="Quads and Hamstrings"
+			            ng-false-value=""> Quads and Hamstrings
+			        </label>
+					<br>
+			        <label class="checkbox-inline">
+			            <input type="checkbox" ng-model="DiagsMgmt.ManagementDetail3C" 
+			            ng-true-value="SLR"
+			            ng-false-value=""> SLR
+			        </label>
+				</td>
+				<td width="1%"></td>
+			</tr>
+
+
+
+			<tr>
+				<td nowrap>Ambulatory Training
+					<input type="hidden" ng-model="DiagsMgmt.Management4" class="form-control" ng-init="DiagsMgmt.Management4='Ambulatory Training'" value="Ambulatory Training" READONLY>
+				</td>
+				<td nowrap>
+					<select ng-model="DiagsMgmt.ManagementDetail4" class="form-control"> 
+						<option value="">(select one)</option>
+						<option value="Cruches"> Cruches </option>
+						<option value="Walker"> Walker </option>
+						<option value="Cane"> Cane </option>
+					</select>
+				</td>
+				<td class="text-center" nowrap>
+					<a class="btn btn-large btn-info" ng-click="addNew(DiagsMgmt)" style="text-decoration: none; color: #000">Save</a>
+				</td>
+				<td></td>
+			</tr>
+
+			<tr class="info" ng-repeat="diagsMGMT in clinix_DiagsManagement">
+	        	<td style="color:black" nowrap>{{diagsMGMT.Management}}</td>
+	        	<td style="color:black">{{diagsMGMT.ManagementDetail}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" href="#/{{diagsMGMT.ClinixRID}}" ng-click="removeDiagnosis(diagsMGMT)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td>
+                	<!-- a class="btn btn-large btn-warning" href="#/{{diagsMGMT.ChiefRID}}/edit" ng-click="editChiefComp(diagsMGMT)" style="text-decoration: none">
+                		EDIT
+                	</a -->
+            	</td>
+	        </tr>
+		</table>
+	</div>
+</div>

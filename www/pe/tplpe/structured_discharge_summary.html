@@ -1,0 +1,21 @@
+<div scroll-bookmark="StuctDischargeSummary">
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+	    			Structured Discharge Summary
+	    		</span>
+			</th>
+		</tr>
+	</table>
+
+	<ng:include src="'tplpe/structured_Diagnosis.html'"></ng:include>
+	<ng:include src="'tplpe/structured_SurgerySched.html'"></ng:include>
+	<ng:include src="'tplpe/structured_Hospital.html'"></ng:include>
+	<ng:include src="'tplpe/structured_LABSonDischarge.html'"></ng:include>
+
+	<!-- ng:include src="'tplpe/structured_Disposition.html'"></ng:include -->
+	
+	<ng:include src="'tplpe/structured_Management.html'"></ng:include>
+	<ng:include src="'tplpe/structured_Medication.html'"></ng:include>
+</div>

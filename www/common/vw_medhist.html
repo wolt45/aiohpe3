@@ -1,0 +1,29 @@
+<!-- MED HIST -->
+<div ng-controller="MedHistCtrl">
+	<div scroll-bookmark="IOPEMedHist">
+		<div class="panel panel-default">
+			
+			<table class="table table-condensed table-bordered">
+				<tr class="info">
+					<th colspan=9>
+						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+			    			Medical History
+			    		</span>
+					</th>
+				</tr>
+
+				<tr class="info" ng-repeat="rolHist in clinix_MedHist" style="color:black">
+					<td width="5%"></td>
+
+					<td class="text-left" style="color:black">
+						{{rolHist.MedHist ? rolHist.MedHist : ''}}
+						{{rolHist.MedHistYN ? ": " + rolHist.MedHistYN : ': NONE'}}
+						{{rolHist.MedHistDetails ? ", " + rolHist.MedHistDetails : ''}}
+					</td> 
+				</tr>
+	
+			</table>
+
+		</div>
+	</div>
+</div>

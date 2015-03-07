@@ -1,0 +1,29 @@
+<!-- LAB EXAMS -->
+<div ng-controller="LABSCtrl">
+	<div scroll-bookmark="IOPELabs">
+		<div class="panel panel-default">
+
+			<table class="table table-bordered">
+				<tr class="info">
+					<th colspan=9>
+						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+			    			Laboratory Examinations
+			    		</span>
+					</th>
+				</tr>
+
+				<tr class="info" ng-repeat="rolLabs in clinix_LABS" style="color:black">
+					<td width="5%"></td>
+
+					<td class="text-left"> 
+						&nbsp; {{rolLabs.labCategory ? rolLabs.labCategory : ''}}
+						&nbsp; {{rolLabs.labDate == "0000-00-00" ? "" : (rolLabs.labDate | date) }}
+						&nbsp; {{rolLabs.labSource ? rolLabs.labSource : ''}}
+						&nbsp; {{rolLabs.labReport ? rolLabs.labReport : ''}}
+					</td> 
+				</tr>
+
+			</table>
+		</div>
+	</div>
+</div>
