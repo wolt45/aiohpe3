@@ -35,8 +35,17 @@
                     Back to <br>Main Options
                 </a>
             </td>
-            <td></td>
-            <td width="30%"></td>
+            
+            <td>
+                
+            </td>
+
+            <td width="30%">
+                <a class="btn btn-danger btn-block btn-lg text-center" style="text-decoration : none" 
+                    ng-click="CleanClinix()">
+                    Clear ALL Appointments (Use with caution)
+                </a>
+            </td>
         </tr> 
 
         <tr>
@@ -73,49 +82,46 @@
         </tr>
       </table>
 
-      <div >
-          <table class="table table-bordered">
-              <tr>
-                 <td width="1%" nowrap>App #</td>
+        <table class="table table-bordered">
+            <tr>
+               <td width="1%" nowrap>App #</td>
 
-                 <td width="1%" nowrap>Date Set</td>
-                 <td width="1%" nowrap>App Age</td>
+               <td width="1%" nowrap>Date Set</td>
+               <td width="1%" nowrap>App Age</td>
 
-                 <td width="1%" nowrap>Hosp Chart #</td>
-                 <td width="1%" nowrap>Hosp</td>
+               <td width="1%" nowrap>Hosp Chart #</td>
+               <td width="1%" nowrap>Hosp</td>
 
-                 <td width="1%" nowrap>Chart #</td>
-                 <td width="1%" nowrap>Patient</td>
+               <td width="1%" nowrap>Chart #</td>
+               <td width="1%" nowrap>Patient</td>
 
-                 <td width="1%" nowrap>Address</td>
-                 <td width="1%" nowrap>Status</td>
-                 <td width="1%" nowrap>Reg Date</td>
-                 <td>Profile</td>
-                 <td width="1%">TranStatus</td>
-              </tr>
+               <td width="1%" nowrap>Address</td>
+               <td width="1%" nowrap>Status</td>
+               <td width="1%" nowrap>Reg Date</td>
+               <td>Profile</td>
+               <td width="1%">TranStatus</td>
+            </tr>
 
-              <tr ng-repeat="row in clinix">
+            <tr ng-repeat="row in clinix">
 
-                 <td>{{row.ClinixRID}}</td>
+               <td>{{row.ClinixRID}}</td>
 
-                 <td nowrap>{{row.AppDateSet | date}}</td>
-      	         <td nowrap>{{row.AppDateAge}}</td>
+               <td nowrap>{{row.AppDateSet | date}}</td>
+    	         <td nowrap>{{row.AppDateAge}}</td>
 
-                 <td>{{row.HospitalRID}}</td>
-                 <td>{{row.Hospital}}</td>
+               <td>{{row.HospitalRID}}</td>
+               <td>{{row.Hospital}}</td>
 
-                 <td>{{row.PxRID}}</td>
-                 <td nowrap>{{row.pxname}}</td>
+               <td>{{row.PxRID}}</td>
+               <td nowrap>{{row.pxname}}</td>
 
-                 <td nowrap>{{row.pxAddress}}</td>
-                 <td nowrap>{{row.pxstatus}}</td>
-                 <td nowrap>{{row.pxregdate | date}}</td>
-                 <td>{{row.pxFoto}}</td>
-                 <td>{{row.TranStatus}}</td>
-              </tr>
-
-      	</table>
-      </div>
+               <td nowrap>{{row.pxAddress}}</td>
+               <td nowrap>{{row.pxstatus}}</td>
+               <td nowrap>{{row.pxregdate | date}}</td>
+               <td>{{row.pxFoto}}</td>
+               <td>{{row.TranStatus}}</td>
+            </tr>
+    	</table>
   </div>
 </div>
 

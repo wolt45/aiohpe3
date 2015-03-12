@@ -856,7 +856,7 @@ function PushController($rootScope, $scope, $http) {
     });
   }
 
-  // PULL Tran Status
+  // CLEAN TRANS
   $scope.CleanClinix = function(){
     if (confirm('ARE YOU SURE TO CLEAR ALL Transactions, proceed?')) {
       // empty first iPad Table

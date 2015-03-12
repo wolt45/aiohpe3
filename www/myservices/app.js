@@ -1,16 +1,33 @@
 // 1.99
 function DataController($rootScope, $scope, $http) {
 
+	// CLEAN TRANS
+	$scope.CleanClinix = function(){
+		if (confirm('ARE YOU SURE TO CLEAR ALL Transactions, proceed?')) {
+	    	// empty first iPad Table
+	        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	        	tx.executeSql("delete from 'clinix'");
+	          	//tx.executeSql("delete from 'px_data'");
+
+	          	// tx.executeSql("delete from 'tbl_TranStatus'");
+	          	alert("All Transactions were cleared!!!");
+	      	});
+	    }
+	}
+
 	// Pull All Clinix
-    $scope.pullAllClinix = function(){
+    $scope.pullAllClinix = function(){  
     	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed?')) {
 		    $scope.clinix = [];
 
-			$http({method: 'GET', url: 'http://192.168.1.99/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
+		    var serverIP = "192.168.1.99";
+
+			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
 		    success(function(data, status, headers, config) {
 				if (data !== null ) {
 
-			      	// save to websql    1.99
+			      	// save to websql 
 				    for(idx in data){
 				    	if (data[idx].ClinixRID	> 0) {
 				    		var clinix = new $ipadrbg.types.clinix();
@@ -59,6 +76,8 @@ function DataController($rootScope, $scope, $http) {
 	// Pull clinix
     $scope.pullData = function(){
     	if (confirm('Download Appoinments, proceed?')) {
+    		var serverIP = "192.168.1.99";
+
 	    	// var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 		    //    db.transaction(function (tx) {
 		    //        tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix'");
@@ -76,7 +95,7 @@ function DataController($rootScope, $scope, $http) {
 	    	// if local data is outdated then pull data from server
 	    	// if local data is latest then push to server 
 
-			$http({method: 'GET', url: 'http://192.168.1.99/RBGsrvr_todayset/srvr_clinix.php'}).
+			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/srvr_clinix.php'}).
 		    success(function(data, status, headers, config) {
 		      	// this callback will be called asynchronously
 		      	// when the response is available
@@ -151,7 +170,7 @@ function DataController($rootScope, $scope, $http) {
 						//var clinixJson = JSON.stringify(ClinixPulled);
 						$http({
 							method: 'POST'
-							, url : 'http://192.168.1.99/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
+							, url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_clinix_pulled.php?clinixJson=' + ClinixPulled
 							, contentType : 'application/json'
 							, data : ClinixPulled
 							, cache : false
@@ -174,6 +193,8 @@ function DataController($rootScope, $scope, $http) {
 
     // PULL Tran Status
 	$scope.pullTranStatus = function(){
+		var serverIP = "192.168.1.99";
+
 		if (confirm('Download latest Transaction Codes table, proceed?')) {
 	    	// empty first iPad Table
 	        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -187,7 +208,7 @@ function DataController($rootScope, $scope, $http) {
 	        //db.close();
 	        // after truncate
 
-			$http({method: 'GET', url: 'http://192.168.1.99/RBGsrvr_todayset/pull_TranStatus.php'}).
+			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_TranStatus.php'}).
 		    success ( function ( data, status, headers, config ) {
 
 				if (data !== null ) {
@@ -208,7 +229,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.lkup_TranStatus.saveChanges();
 
 					// notify iPad User
-					alert("Import TranStatus from Server Successful!");
+					alert("Import TranStatus from Server Successful! " + serverIP);
 				}
 				else
 					alert("Nothing to Import from Server!");
@@ -220,8 +241,10 @@ function DataController($rootScope, $scope, $http) {
 		}
 	}
 
-	 // PULL Tariff
+	// PULL Tariff
 	$scope.pullTariff = function(){
+		var serverIP = "192.168.1.99";
+
 		if (confirm('Download latest TARIFF Charges table, proceed?')) {
 	    	// empty first iPad Table
 	        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -234,7 +257,7 @@ function DataController($rootScope, $scope, $http) {
 	        //db.close();
 	        // after truncate
 
-			$http({method: 'GET', url: 'http://192.168.1.99/RBGsrvr_todayset/pull_ChargesTariff.php'}).
+			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ChargesTariff.php'}).
 		    success ( function ( data, status, headers, config ) {
 
 				if (data !== null ) {
@@ -259,7 +282,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.lkup_PEChargesTariff.saveChanges();
 
 					// notify iPad User
-					alert("Import Charges Tariff from Server Successful!");
+					alert("Import Charges Tariff from Server Successful!: " + serverIP);
 				}
 				else
 					alert("Nothing to Import from Server!");

@@ -2,7 +2,7 @@
 <html>
 <head>
     <!-- CSS (load bootstrap) -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         .navbar { border-radius:0; }
     </style>
@@ -19,16 +19,17 @@
 <!-- NAVIGATION -->
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="#">Main Options</a>
+        <div style="white-space: nowrap;">
+            <img ng-src="images/glogo.png" width="100px" class="img-rounded"/>
+
+            <span style="font-family: Helvetiker; font-size:40px; color: #fff; font-style: italic;">
+                iPad Medical Records
+            </span>
+        </div>
     </div>
-    <ul class="nav navbar-nav">
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="about">About</a></li>
-    </ul>
 </nav>
 
 <!-- MAIN CONTENT -->
-<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
 <div class="container">
     <div ui-view></div>
 </div>

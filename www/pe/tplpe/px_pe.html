@@ -1,60 +1,124 @@
-<div scroll-bookmark="PEChart">	
-	<ng:include src="'..//common/px_head.html'"></ng:include>
+<ng:include src="'..//common/px_head.html'"></ng:include>
+
+
+
+<div class="btn-group"> 
+  <a href="#/interview/{{clinix.ClinixRID}}" class="btn btn-warning btn-large"> 
+    Interview 
+  </a> 
 </div>
-<!-- form class="form-horizontal" role="form" name="IOHPEform" ng-submit="submitTheForm()" -->
-
-	<!-- INITIAL INTERVIEW -->
-	<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
-	<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
-	<ng:include src="'..//common/vw_treatment.html'"></ng:include>
-	<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
-	<ng:include src="'..//common/vw_labs.html'"></ng:include>
-	<ng:include src="'..//common/vw_medhist.html'"></ng:include>
-	<!-- INITIAL INTERVIEW end -->	
-		
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>
-
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/px_hip.html'"></ng:include>
-
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/px_knee.html'"></ng:include>
-
-		<!-- ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/gen_ortho.html'"></ng:include>
-
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/px_skeletaltrauma.html'"></ng:include>
-	
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/spine.html'"></ng:include -->
-
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/common_diagnosis.html'"></ng:include>
-	
-
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/PREOpHIPreplc.html'"></ng:include>
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/OPHIP.html'"></ng:include>
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/POSTOpHIPreplc.html'"></ng:include>
 
 
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/PREOpKNEEreplc.html'"></ng:include>
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/OPKNEE.html'"></ng:include>
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/POSTOpKNEEreplc.html'"></ng:include>
-	
-	
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/structured_discharge_summary.html'"></ng:include>
+<div class="btn-group">
+    <a class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
+      Physical Exam
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="#/peHIP/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+          HIP PE 
+        </a>
+      </li>
 
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-	<ng:include src="'tplpe/close_pe.html'"></ng:include>
-	
-		<ng:include src="'tplpe/seperator.html'"></ng:include>
-<!-- /form -->
+      <li class="divider"></li>
+
+      <li>
+        <a href="#/peKNEE/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+          KNEE PE 
+        </a>
+      </li>
+    </ul>
+</div>
+
+
+<div class="btn-group"> 
+  <a class="btn btn-warning btn-large" href="#/diagnosis/{{clinix.ClinixRID}}"> 
+    Diagnosis 
+  </a> 
+</div>
+
+<div class="btn-group">
+  	<a class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
+    	Reports & Orders
+    	<span class="caret"></span>
+  	</a>
+  	<ul class="dropdown-menu">
+   		<li>
+        <a href="#/preopHIP/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+          (HIP) PRE-Operative Order 
+        </a>
+      </li>
+
+    	<li>
+        <a tabindex="-1" href="#/opHIP/{{clinix.ClinixRID}}">
+          (HIP) Operative Report
+        </a>
+      </li>
+
+    	<li>
+        <a class="btn-large" tabindex="-1" href="#/postopHIP/{{clinix.ClinixRID}}">
+          (HIP) POST-Operative Order
+        </a>
+      </li>
+
+      <li class="divider">KNEE</li>
+
+      <li>
+        <a href="#/preopKNEE/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+          (KNEE) PRE-Operative Order 
+        </a>
+      </li>
+
+      <li>
+        <a tabindex="-1" href="#/opKNEE/{{clinix.ClinixRID}}">
+          (KNEE) Operative Report
+        </a>
+      </li>
+
+      <li>
+        <a class="btn-large" tabindex="-1" href="#/postopKNEE/{{clinix.ClinixRID}}">
+          (KNEE) POST-Operative Order
+        </a>
+      </li>
+
+
+
+
+    	<li class="divider"></li>
+
+    	<li>
+        <a tabindex="-1" href="#/structuredDischarge/{{clinix.ClinixRID}}">
+          Structured Discharge Summary
+        </a>
+      </li>
+
+  	</ul>
+</div>
+
+<!-- div class="btn-group">	
+  <a href="#/billing/{{clinix.ClinixRID}}" class="btn btn-warning btn-large"> 
+    Billing 
+  </a> 
+</div -->
+
+<div class="btn-group"> 
+  <a class="btn btn-warning btn-large"> 
+    Information Sheet 
+  </a> 
+</div>
+
+<div class="btn-group"> 
+  <a class="btn btn-danger btn-large" href="#/"> 
+    TODAY List 
+  </a> 
+</div>
+
+<div class="btn-group"> 
+  <a href="..//index.html" 
+	class="btn btn-default btn-large" style="display:block;"> 
+    Main 
+  </a> 
+</div>
+
+

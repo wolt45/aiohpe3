@@ -1,8 +1,0 @@
-apiip.txt
-
-myservices/				app.js
-myservices/				app_back.js
-
-common/js/		controller_StructuredMeds.js
-common/js/				controller_CloseIOH.js
-common/js/				controller_PEcharges.js

@@ -133,6 +133,31 @@
 					<td></td>
 				</tr>
 
+	            <tr class="info">
+					<td class="text-center" colspan="9">
+						<form enctype="multipart/form-data" action="/upload/image" method="post">
+						    <input id="image-file" type="file" />
+						    <img id="myImg" src="#" alt="your image" width="80%" />
+						</form>
+
+						<script type="text/javascript">
+							$(function () {
+							    $(":file").change(function () {
+							        if (this.files && this.files[0]) {
+							            var reader = new FileReader();
+							            reader.onload = imageIsLoaded;
+							            reader.readAsDataURL(this.files[0]);
+							        }
+							    });
+							});
+
+							function imageIsLoaded(e) {
+							    $('#myImg').attr('src', e.target.result);
+							};
+						</script>
+					</td>
+	            </tr>
+
 	            <tr class="info" ng-repeat="complaint in clinix_chiefcomp">
 	            	<td width="1%" style="color:black" nowrap></td>  <!-- OnsetAccuteGradual -->
 	            	<td width="1%" style="color:black">{{complaint.MyBoneComplaint}}</td>

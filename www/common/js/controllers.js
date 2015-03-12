@@ -203,6 +203,4 @@ IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
     , {TrnSttsRID : 98, TrnStts : "CANCELLED APPOINMENT", preForeColor:"black", preBackColor:"grey"}
     , {TrnSttsRID : 99, TrnStts : "COMPLETED", preForeColor:"black", preBackColor:"white"}
   ];
-
 });
-

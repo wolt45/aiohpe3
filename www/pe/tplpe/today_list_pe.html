@@ -1,4 +1,4 @@
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover" width="100%">
 	<tr>
 		<td colspan="9">
 			<input type="text" ng-model="searchFilter" placeholder="Search..."/>
@@ -16,11 +16,14 @@
 		<td class="text-center" width="1%" nowrap>	Trn Code </td>
 	</tr>
 
+
+
+
 	<tr ng-repeat="px_Item in clinix | filter : searchFilter | orderBy : [ 'TranStatus', 'AppDateSet', 'ClinixRID' ] ">
 		
 		<td>
 			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">  
-				<img ng-src="..//images/{{px_Item.pxFoto}}" width="75" style="padding: 0 0 0 0">  
+				<img ng-src="..//images/{{px_Item.pxFoto}}" width="75" style="padding: 0 0 0 0" class="img-circle">  
 			</a>   
 		</td>
 		<td class="text-center" nowrap>{{px_Item.ClinixRID}} <br> {{px_Item.AppDateSet | date}} </td>
@@ -41,7 +44,7 @@
 	  	</td>
 	  	<td class="text-center"> 
 			<span style="color:{{px_Item.preForeColor}}; background-color:{{px_Item.preBackColor}}">
-				&nbsp; {{px_Item.TranStatusDisp}} &nbsp;
+				{{px_Item.TranStatusDisp}}
 			</span>
 	  	</td>
   	</tr>
