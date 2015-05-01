@@ -11,6 +11,17 @@ IOHPEApp.controller('OPKNEE_3Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.jdata_OPKNEE_3 = pxresult;
+
+        $scope.opknee3 = {
+          ClinixRID : $scope.clinix.ClinixRID
+          ,PxRID    : $scope.clinix.PxRID
+
+          ,TypeOfKNEERep  : pxresult[0]['TypeOfKNEERep'] 
+          ,ImplantUsed  : pxresult[0]['ImplantUsed'] 
+          ,FemoralCompo  : pxresult[0]['FemoralCompo'] 
+          ,TibiaCompo  : pxresult[0]['TibiaCompo'] 
+          ,Patella  : pxresult[0]['Patella'] 
+        }
       });
     });
   };
@@ -18,6 +29,11 @@ IOHPEApp.controller('OPKNEE_3Ctrl', function ($scope, $routeParams, $http){
   $scope.LoadOPKNEE_3();
 
   $scope.addNew = function (frmObj) {
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("delete from 'jdata_OPKNEE_3' WHERE ClinixRID = " + $scope.ClinixRID);
+    });
+
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
@@ -31,26 +47,19 @@ IOHPEApp.controller('OPKNEE_3Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.jdata_OPKNEE_3.add(newrecord);
     $ipadrbg.context.jdata_OPKNEE_3.saveChanges();
 
-    frmObj.TypeOfKNEERep = "";
-    frmObj.ImplantUsed = "";
-    frmObj.FemoralCompo = "";
-    frmObj.TibiaCompo = "";
-    frmObj.Patella = "";
+    alert("KNEE Implant Data Saved!");
 
     $scope.LoadOPKNEE_3();
   }
 
   $scope.removeItem = function (frmObj) {
-    frmObj.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var diagol = $scope.jdata_OPKNEE_3;
-         diagol.splice(diagol.indexOf(frmObj), 1);
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPKNEE_3' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.opknee3 = [];
+    }
   }
 
 });

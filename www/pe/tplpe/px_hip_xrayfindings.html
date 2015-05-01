@@ -4,7 +4,7 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td colspan="9">
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 			    		HIP Radiographic Findings
 			    	</span>
 				</td>
@@ -13,10 +13,10 @@
 			<tr>
 				<td width="1%" nowrap>AP Pelvis including both Hips</td>
 				<td colspan="2">
-					<input type="Date" ng-model="HipXRays.APPelvisBothHipsDate" class="form-control" width="20px">
+					{{HipXRays.APPelvisBothHipsDate | date}}
+					<input type="Date" ng-model="HipXRays.APPelvisBothHipsDate" class="form-control" width="20px"> 
 				</td>
 			</tr>
-
 
 			<tr>		
 				<td>1. Pelvis Level</td>
@@ -160,7 +160,14 @@
 
 			<tr>	
 				<td class="text-center" colspan="9">
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(HipXRays)" style="text-decoration: none; color: #000">ADD</a>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					 	ng-click="addNew_HipXRAY(HipXRays)">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none"
+					 	ng-click="removeHipXRays(xrayRow)">
+	            		DELETE
+	            	</a>
 				</td>
 			</tr>
 		</table>
@@ -170,10 +177,10 @@
 
 		<!-- DISPLAY -->
 
-		<table class="table table-condensed table-bordered">
+		<!--table class="table table-condensed table-bordered">
 			<tr class="info">
 				<th width="1%" class="text-center" style="color:#888">AP Pelvis DATE</th>  <!-- OnsetAccuteGradual -->
-	        	<th width="1%" class="text-center" style="color:#888" nowrap>PELVIS</th>
+	        	<!--th width="1%" class="text-center" style="color:#888" nowrap>PELVIS</th>
 	        	<th width="1%" class="text-center" style="color:#888" nowrap>PELVIS Inches</th>
 	            <th width="1%" class="text-center" style="color:#888" >Avascular necrosis head</th>
 	            <th width="1%" class="text-center" style="color:#888" >Narrowing of Hip Joint</th>
@@ -198,7 +205,7 @@
 	            <td style="color:black">{{xrayRow.Intertrouch}}</td>
 	            <td style="color:black">{{xrayRow.Others}}</td>
 	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{xrayRow.ClinixRID}}" ng-click="removeHipXRays(xrayRow)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger" ng-click="removeHipXRays(xrayRow)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
@@ -206,8 +213,8 @@
                 	<!-- a class="btn btn-large btn-warning" href="#/{{xrayRow.ChiefRID}}/edit" ng-click="editChiefComp(xrayRow)" style="text-decoration: none">
                 		EDIT
                 	</a -->
-            	</td>
+            	<!-- /td>
 	        </tr>
-		</table>
+		</table -->
 	</div>
 </div>

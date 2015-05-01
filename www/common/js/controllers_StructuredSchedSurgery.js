@@ -63,6 +63,14 @@ IOHPEApp.controller('StructuredSchedSurgCtrl', function ($scope, $routeParams, $
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_DiagSchedSurgery = pxresult;
+
+        $scope.schedSurgeGrp = {
+          ClinixRID  : $scope.clinix.ClinixRID
+          ,PxRID     : $scope.clinix.PxRID
+          ,SurgeryType : pxresult[0]['SurgeryType']
+          ,Surgeon : pxresult[0]['Surgeon']
+        }
+
       });
     });
   };

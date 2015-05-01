@@ -7,13 +7,20 @@ IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_Diagnosis = pxresult;
+
+        $scope.Diagnosis = {
+          ClinixRID  : $scope.clinix.ClinixRID
+          ,PxRID     : $scope.clinix.PxRID
+
+          ,Diagnosis : pxresult[0]['Diagnosis']
+        }
       });
     });
   };
 
   $scope.LoadDiagnosis();
 
-  $scope.addNew = function (daignosisObj) {
+  $scope.addNew_Diagnosis = function (daignosisObj) {
 
     var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
     db.transaction(function (tx) {
@@ -23,25 +30,23 @@ IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
-      ,Diagnosis     : daignosisObj.DiagTnyMce
+      ,Diagnosis : daignosisObj.Diagnosis
     }
     $ipadrbg.context.clinix_Diagnosis.add(newrecord);
     $ipadrbg.context.clinix_Diagnosis.saveChanges();
 
-    daignosisObj.DiagTnyMce = "";
+    alert("Diagnosis Data Saved!");
+
     $scope.LoadDiagnosis();
   }
 
-  $scope.removeDiagnosis = function (daignosisObj) {
-    daignosisObj.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var diagol = $scope.clinix_Diagnosis;
-         diagol.splice(diagol.indexOf(daignosisObj), 1);
+  $scope.removeDiagnosis = function () {
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_Diagnosis' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.Diagnosis = [];
+    }
   }
 });

@@ -303,3 +303,12 @@ input[type=checkbox]:hover {
     top: 10px;
     left: 10px;
 }
+
+#DGL_module_header
+{
+	font-family: Helvetiker; 
+	font-size:30px; 
+	color: #000; 
+	letter-spacing: 3px; 
+	font-style: italic;
+}

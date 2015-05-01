@@ -7,99 +7,68 @@ IOHPEApp.controller('KneeXRaysCtrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_KneeXRays = pxresult;
+
+        $scope.KneeXRayForm = {
+          ClinixRID  : $scope.clinix.ClinixRID
+          ,PxRID     : $scope.clinix.PxRID
+
+          ,APDate : pxresult[0]['APDate']
+          ,Normal : pxresult[0]['Normal']
+          ,VarusDegrees : pxresult[0]['VarusDegrees']
+          ,JointSpaceVarusR : pxresult[0]['JointSpaceVarusR']
+          ,JointSpaceVarusL : pxresult[0]['JointSpaceVarusL']
+          ,ValgusDegrees : pxresult[0]['ValgusDegrees']
+          ,JointSpaceValgusR : pxresult[0]['JointSpaceValgusR']
+          ,JointSpaceValgusL : pxresult[0]['JointSpaceValgusL']
+          ,BilateralJointSpace : pxresult[0]['BilateralJointSpace']
+          ,LaurinPatel_LR : pxresult[0]['LaurinPatel_LR']
+          ,LaurinPatel_LRSeverity : pxresult[0]['LaurinPatel_LRSeverity']
+        }
+
       });
     });
   };
 
   $scope.LoadKneeXRays();
 
-  $scope.addNew = function (kneeXRay) {
+  $scope.addNew_XRays = function (kneeXRay) {
+    
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+      tx.executeSql("delete from 'clinix_KneeXRays' WHERE ClinixRID = " + $scope.ClinixRID);
+    });
+
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
 
-      ,APDate           : kneeXRay.APDate
-      
-      ,APStandingR      : "AP Standing - Right"
-      ,APDegreesR       : kneeXRay.APDegreesR
-      ,APSeverityR      : kneeXRay.APSeverityR
-      ,APMedialR        : kneeXRay.APMedialR
-      ,APLateralR       : kneeXRay.APLateralR
-
-      ,APStandingL      : "AP Standing - Left"
-      ,APDegreesL       : kneeXRay.APDegreesL
-      ,APSeverityL      : kneeXRay.APSeverityL
-      ,APMedialL        : kneeXRay.APMedialL
-      ,APLateralL       : kneeXRay.APLateralL
-
-      ,Normal           : kneeXRay.Normal
-
-      ,Varus            : "Varus Deformity"
-      ,VarusDegrees     : kneeXRay.VarusDegrees
-      ,VarusSeverity    : ""
-      ,VarusMedial      : kneeXRay.VarusMedial
-      ,VarusLateral     : kneeXRay.VarusLateral
-
-      ,JointSpaceVarusR    : kneeXRay.JointSpaceVarusR
-      ,JointSpaceVarusL    : kneeXRay.JointSpaceVarusL
-
-      ,Valgus           : "Valgus Deformity"
-      ,ValgusDegrees    : kneeXRay.ValgusDegrees
-      ,ValgusSeverity   : ""
-      ,ValgusMedial     : kneeXRay.ValgusMedial
-      ,ValgusLateral    : kneeXRay.ValgusLateral
-      
-      ,JointSpaceValgusR    : kneeXRay.JointSpaceValgusR
-      ,JointSpaceValgusL    : kneeXRay.JointSpaceValgusL
-      
-      ,BilateralJointSpace    : kneeXRay.BilateralJointSpace
-
-      ,LaurinPatellaSeverityR  : kneeXRay.LaurinPatellaSeverityR
-      ,LaurinPatellaSeverityL  : kneeXRay.LaurinPatellaSeverityL
+      ,APDate : kneeXRay.APDate
+      ,Normal : kneeXRay.Normal
+      ,VarusDegrees : kneeXRay.VarusDegrees
+      ,JointSpaceVarusR : kneeXRay.JointSpaceVarusR
+      ,JointSpaceVarusL : kneeXRay.JointSpaceVarusL
+      ,ValgusDegrees : kneeXRay.ValgusDegrees
+      ,JointSpaceValgusR : kneeXRay.JointSpaceValgusR
+      ,JointSpaceValgusL : kneeXRay.JointSpaceValgusL
+      ,BilateralJointSpace : kneeXRay.BilateralJointSpace
+      ,LaurinPatel_LR : kneeXRay.LaurinPatel_LR
+      ,LaurinPatel_LRSeverity  : kneeXRay.LaurinPatel_LRSeverity
     }
     $ipadrbg.context.clinix_KneeXRays.add(newrecord);
     $ipadrbg.context.clinix_KneeXRays.saveChanges();
 
-    kneeXRay.APDate           = "";
-
-    kneeXRay.APDegreesR       = "";
-    kneeXRay.APSeverityR      = "";
-    kneeXRay.APMedialR        = "";
-    kneeXRay.APLateralR       = "";
-
-    kneeXRay.APDegreesL       = "";
-    kneeXRay.APSeverityL      = "";
-    kneeXRay.APMedialL        = "";
-    kneeXRay.APLateralL       = "";
-
-    kneeXRay.Normal           = "";
-
-    kneeXRay.VarusDegrees     = "";
-    kneeXRay.VarusMedial      = "";
-    kneeXRay.VarusLateral     = "";
-    
-    kneeXRay.ValgusDegrees    = "";
-    kneeXRay.ValgusMedial     = "";
-    kneeXRay.ValgusLateral    = "";
-    
-    kneeXRay.BilateralJointSpace    = "";
-
-    kneeXRay.LaurinPatellaSeverityR = "";
-    kneeXRay.LaurinPatellaSeverityL = "";
+    alert("KNEE X-Ray Data Saved!");
 
     $scope.LoadKneeXRays();
   }
 
-  $scope.removeKneeXRays = function (kneeXRay) {
-    kneeXRay.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var hipX = $scope.clinix_KneeXRays;
-         hipX.splice(hipX.indexOf(kneeXRay), 1);
+  $scope.removeKneeXRays = function () {
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_KneeXRays' WHERE ClinixRID = " + $scope.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.KneeXRayForm = [];
+    }
   }
 });

@@ -7,14 +7,24 @@ IOHPEApp.controller('KneeAlignmentCtrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_KneeAlignment = pxresult;
+
+        $scope.KneeAlignment = {
+          ClinixRID  : $scope.clinix.ClinixRID
+          ,PxRID     : $scope.clinix.PxRID
+
+          ,Normal : pxresult[0]['Normal']
+          ,Alignment : pxresult[0]['Alignment']
+          ,Varus : pxresult[0]['Varus']
+          ,Valgus : pxresult[0]['Valgus']
+        }
+
       });
     });
   };
 
   $scope.LoadKneeAlignment();
 
-  $scope.addNew = function (kneeAlignment) {
-
+  $scope.addNew_KneeAlignment = function (kneeAlignment) {
     var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
     db.transaction(function (tx) {
         tx.executeSql("delete from 'clinix_KneeAlignment' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
@@ -27,29 +37,23 @@ IOHPEApp.controller('KneeAlignmentCtrl', function ($scope, $routeParams, $http){
       ,Normal    : kneeAlignment.Normal
       ,Alignment : kneeAlignment.Alignment
       ,Varus     : kneeAlignment.Varus
-      ,Valgus     : kneeAlignment.Valgus
+      ,Valgus    : kneeAlignment.Valgus
     }
     $ipadrbg.context.clinix_KneeAlignment.add(newrecord);
     $ipadrbg.context.clinix_KneeAlignment.saveChanges();
 
-    kneeAlignment.Normal = "";
-    kneeAlignment.Alignment = "";
-    kneeAlignment.Varus = "";
-    kneeAlignment.Valgus = "";
+    alert("KNEE Alignment Data Saved!");
 
     $scope.LoadKneeAlignment();
   }
 
-  $scope.removeKneeAlignment = function (kneeAlignment) {
-    kneeAlignment.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var kneeAlign = $scope.clinix_KneeAlignment;
-         kneeAlign.splice(kneeAlign.indexOf(kneeAlignment), 1);
+  $scope.removeKneeAlignment = function () {
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_KneeAlignment' WHERE ClinixRID = " + $scope.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.KneeAlignment = [];
+    }
   }
 });

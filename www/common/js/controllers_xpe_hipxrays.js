@@ -7,19 +7,35 @@ IOHPEApp.controller('HipXRaysCtrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_HipXRays = pxresult;
+
+        $scope.HipXRays = {
+          ClinixRID  : $scope.clinix.ClinixRID
+          ,PxRID     : $scope.clinix.PxRID
+
+          ,APPelvisBothHipsDate : pxresult[0]['APPelvisBothHipsDate']
+          ,Pelvis : pxresult[0]['Pelvis']
+          ,PelvisInches : pxresult[0]['PelvisInches']
+          ,Avascular : pxresult[0]['Avascular']
+          
+          ,Narrowing : pxresult[0]['Narrowing']
+          ,Subluxation : pxresult[0]['Subluxation']
+          ,Osteoporosis : pxresult[0]['Osteoporosis']
+          ,FracturesNeck : pxresult[0]['FracturesNeck']
+          ,Intertrouch : pxresult[0]['Intertrouch']
+          ,Others : pxresult[0]['Others']
+        }
+
       });
     });
   };
 
   $scope.LoadHipXRays();
 
-  $scope.addNew = function (hipXRay) {
+  $scope.addNew_HipXRAY = function (hipXRay) {
 
     var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
     db.transaction(function (tx) {
-        tx.executeSql("delete from 'clinix_HipMotionRange' WHERE ClinixRID = " 
-          + $scope.clinix.ClinixRID
-          + " AND MotionArea = 'SLR vs Resistance (left)'" );
+        tx.executeSql("delete from 'clinix_HipXRays' WHERE ClinixRID = " + $scope.clinix.ClinixRID );
     }); 
     
     newrecord = {
@@ -42,30 +58,18 @@ IOHPEApp.controller('HipXRaysCtrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.clinix_HipXRays.add(newrecord);
     $ipadrbg.context.clinix_HipXRays.saveChanges();
 
-    hipXRay.APPelvisBothHipsDate  = "";
-    hipXRay.Pelvis  = "";
-    hipXRay.PelvisInche  = "";
-    hipXRay.Avascular  = "";
-    hipXRay.Narrowing  = "";
-    hipXRay.Subluxation  = "";
-    hipXRay.Osteoporosis  = "";
-    hipXRay.FractionsNeck  = "";
-    hipXRay.Intertrouch  = "";
-    hipXRay.Others  = "";
+    alert("Hip X-Ray Data Saved!");
 
     $scope.LoadHipXRays();
   }
 
   $scope.removeHipXRays = function (hipXRay) {
-    hipXRay.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var hipX = $scope.clinix_HipXRays;
-         hipX.splice(hipX.indexOf(hipXRay), 1);
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_HipXRays' WHERE ClinixRID = " + $scope.clinix.ClinixRID );
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.HipXRays = [];
+    }
   }
 });

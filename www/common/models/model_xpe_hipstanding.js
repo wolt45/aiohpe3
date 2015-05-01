@@ -3,7 +3,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_HipStanding", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
-	, Standing: { type: "string"}
-	, Left: { type: "string"}
-	, Right: { type: "string"}
+	, PelvisLevel: { type: "string"}
+	, Trendelenberg: { type: "string"}
 });

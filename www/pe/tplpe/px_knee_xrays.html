@@ -3,7 +3,7 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td width="1%" colspan="9" nowrap>
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 			    		Knee Radiographic Findings
 			    	</span>
 			    </td>
@@ -12,6 +12,7 @@
 			<tr>
 				<td class= "text-center">XRay Date</td>
 				<td>
+					{{KneeXRayForm.APDate | date}}
 					<input type="date" ng-model="KneeXRayForm.APDate" class="form-control">
 				</td>
 				<td></td>
@@ -26,41 +27,6 @@
 				<td></td>
 			</tr>
 
-			<!--tr class="active">
-				<td width="1%" class="text-center" colspan="1"> </td>
-				<td width="1%"></td>
-				<td width="20%" nowrap><center>(R) Medial</td>
-				<td width="20%" nowrap><center>Leteral</td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<td nowrap>AP Standing - RIGHT</td>
-				<td class="text-left" nowrap>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.APDegreesR" placeholder="degrees" >
-				</td>
-				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.APMedialR" placeholder="medial (none)">
-				</td>
-				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.APLateralR" placeholder="lateral (none)">
-				</td>
-			</tr>
-
-			<tr>
-				<td nowrap>AP Standing - LEFT</td>
-				<td class="text-left" nowrap>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.APDegreesL" placeholder="degrees" >
-				</td>
-				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.APMedialL" placeholder="medial (none)">
-				</td>
-				<td>
-					<input type="text" class="form-control" ng-model="KneeXRayForm.APLateralL" placeholder="lateral (none)">
-				</td>
-			</tr -->
-
-
 			<tr class="active">
 				<td colspan="9">&nbsp;</td>
 			</tr>
@@ -74,9 +40,7 @@
 					<!-- input type="text" class="form-control" ng-model="KneeXRayForm.VarusMedial" placeholder="(none)" -->
 				</td>
 				<td> &nbsp; </td>
-				<td></td>
 			</tr>
-
 
 			<tr>
 				<td class="text-right" nowrap>
@@ -155,152 +119,30 @@
 			<tr>
 				<td class="text-center" nowrap>Laurin - Patella Views <br>(arthritic)</td>
 				<td>
-					<input type="radio" value="RIGHT" ng-model="KneeXRayForm.LaurinPatellaSeverityR"> Right <br>
-					<input type="radio" value="LEFT"  ng-model="KneeXRayForm.LaurinPatellaSeverityR"> Left
+					<input type="radio" value="RIGHT" ng-model="KneeXRayForm.LaurinPatel_LR"> Right <br>
+					<input type="radio" value="LEFT"  ng-model="KneeXRayForm.LaurinPatel_LR"> Left
 				</td>
 				<td class="text-left" nowrap>	
-					<input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="NORMAL" > Normal
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="MILD" > Mild
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="MODERATE" > Moderate
-					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatellaSeverityL" value="SEVERE" > Severe
+					<input type="radio" ng-model="KneeXRayForm.LaurinPatel_LRSeverity" value="NORMAL" > Normal
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatel_LRSeverity" value="MILD" > Mild
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatel_LRSeverity" value="MODERATE" > Moderate
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatel_LRSeverity" value="SEVERE" > Severe
 				</td>
 
 				<td></td>
 			</tr>
 			<tr>
 				<td class="text-center" colspan="9">
-					<a class="btn btn-large btn-info" ng-click="addNew(KneeXRayForm)" style="text-decoration: none; color: #000">ADD</a>
-				</td>
-			</tr>
-
-		</table>
-
-
-		<!-- D   I    S    P    L   A   Y -->
-
-
-		<table class="table table-condensed table-bordered">
-
-			<tr class="info" ng-repeat="xrayRow in clinix_KneeXRays">
-	        	<td nowrap>
- 					<table class="table table-condensed table-bordered">
- 						<tr class="info">
-							<th width="1%" class="text-center" style="color:#888" nowrap>XRay DATE</th>
-				        	<th class="text-center" style="color:#888" nowwrap>ITEM</th>
-				            <th width="1%" class="text-center" style="color:#888" nowrwap> </th>
-				            <th width="1%" class="text-center" style="color:#888" nowrwap> </th>
-				            <!-- th width="1%" class="text-center" style="color:#888">MEDIAL</th>
-				            <th width="1%" class="text-center" style="color:#888">LATERAL</th -->
-						</tr>
-
- 						<tr class="info">
- 							<td style="color:black">Date:</td>
- 							<td style="color:black">{{xrayRow.APDate | date}}</td>
- 							<td></td>
- 							<td></td>
- 						</tr>
-
-						<!-- tr class="info">
- 							<td style="color:black">{{xrayRow.APDate | date}}</td>
-				        	<td style="color:black">{{xrayRow.APStandingR}}</td>
-				        	<td style="color:black">{{xrayRow.APDegreesR}}</td>
-				            <td style="color:black">{{xrayRow.APSeverityR}}</td>
-				            <td style="color:black">{{xrayRow.APMedialR}}</td>
-				            <td style="color:black">{{xrayRow.APLateralR}}</td>
-			        	</tr>
-
- 						<tr class="info">
- 							<td style="color:black">&nbsp;</td>
-
-				        	<td style="color:black">{{xrayRow.APStandingL}}</td>
-				        	<td style="color:black">{{xrayRow.APDegreesL}}</td>
-				            <td style="color:black">{{xrayRow.APSeverityL}}</td>
-				            <td style="color:black">{{xrayRow.APMedialL}}</td>
-				            <td style="color:black">{{xrayRow.APLateralL}}</td>
-			        	</tr -->
-
-
- 						<tr class="info">
- 							<td> </td>
-				        	<td style="color:black">Normal</td>
-				        	<td style="color:black" class="text-center">{{(xrayRow.Normal == "1")? "YES" : "NO"}}</td>
-				            <td style="color:black"> </td>
-			        	</tr>
-
- 						<tr class="info">
- 							<td> </td>
-				        	<td style="color:black">{{xrayRow.Varus}}</td>
-				        	<td class="text-center" style="color:black">{{xrayRow.VarusDegrees}}</td>
-				            <td style="color:black"></td>
-			        	</tr>
-
- 						<tr class="info">
- 							<td> </td>
-				        	<td class="text-right" style="color:black">Joint Space Varus (R)</td>
-				        	<td class="text-center" style="color:black">{{xrayRow.JointSpaceVarusR}}</td>
-				        	<td></td>
-			        	</tr>
-
- 						<tr class="info">
- 							<td> </td>
-				        	<td class="text-right" style="color:black">Joint Space Varus (L)</td>
-				        	<td class="text-center" style="color:black">{{xrayRow.JointSpaceVarusL}}</td>
-				        	<td></td>
-			        	</tr>
-
- 						<tr class="info">
- 							<td> </td>
-				        	<td style="color:black">{{xrayRow.Valgus}}</td>
-				        	<td class="text-center" style="color:black">{{xrayRow.ValgusDegrees}}</td>
-				            <td style="color:black"></td>
-			        	</tr>
-
-
- 						<tr class="info">
- 							<td> </td>
-				        	<td class="text-right" style="color:black">Joint Space Valgus (R)</td>
-				        	<td class="text-center" style="color:black">{{xrayRow.JointSpaceValgusR}}</td>
-				        	<td></td>
-			        	</tr>
-
- 						<tr class="info">
- 							<td> </td>
-				        	<td class="text-right" style="color:black">Joint Space Valgus (L)</td>
-				        	<td class="text-center" style="color:black">{{xrayRow.JointSpaceValgusL}}</td>
-				        	<td></td>
-			        	</tr>
-
- 						<tr class="info">
- 							<td> </td>
-				        	<td style="color:black">Bilateral Joint Space</td>
-				        	<td class="text-center" style="color:black">{{xrayRow.BilateralJointSpace}}</td>
-				        	<td class="text-center" style="color:black"> &nbsp; </td>
-			        	</tr>
-
- 						<tr class="info">
- 							<td> </td>
-				        	<td style="color:black">Laurin - Patella Views <br>(arthritic)</td>
-				        	<td class="text-center" style="color:black">{{xrayRow.LaurinPatellaSeverityR}}</td>
-				            <td class="text-center" style="color:black" nowrap> {{xrayRow.LaurinPatellaSeverityL}}</td>
-			        	</tr>
-		        	</table>
-	        	</td>
-
-	            <td>
-	            	<br>
-	            	<br>
-	            	<br>
-	            	<a class="btn btn-large btn-danger" ng-click="removeKneeXRays(xrayRow)" style="text-decoration: none">
+					<a class="btn btn-large btn-info" ng-click="addNew_XRays(KneeXRayForm)" 
+						style="text-decoration: none; color: #000">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none" 
+						ng-click="removeKneeXRays(xrayRow)">
 	            		DELETE
 	            	</a>
-	        	</td>
-                <td>
-                	<!-- a class="btn btn-large btn-warning" href="#/{{xrayRow.ChiefRID}}/edit" ng-click="editChiefComp(xrayRow)" style="text-decoration: none">
-                		EDIT
-                	</a -->
-            	</td>
-	        </tr>
-
-		</table>	
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>

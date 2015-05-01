@@ -1,18 +1,22 @@
 <table class="table table-bordered table-hover">
 	<tr>
-		<td colspan="9">
+		<td colspan="3">
 			<input type="text" ng-model="searchFilter" placeholder="Search..."/>
+		</td>
+
+		<td>
+			<ng:include src="'..//common/main.button.link.html'"></ng:include>
 		</td>
 	</tr>
 
 	<tr class="success">
 		<td width="1%"></td>
 
-		<td class="text-center" width="1%" nowrap>Appt </td>
+		<td class="text-center" width="1%" nowrap> VISIT </td>
 
 		<!-- td class="text-center" width="1%" nowrap>Chart # </td -->
-		<td class="text-center" nowrap>	Patient </td>
-		<td class="text-center" width="1%" nowrap>	Trn Code </td>
+		<td class="text-center" nowrap>	PATIENT </td>
+		<td class="text-center" width="1%">	VISIT STATUS </td>
 	</tr>
 
 	<tr ng-repeat="px_Item in clinix | filter : searchFilter | orderBy : [ 'TranStatus', 'AppDateSet', 'ClinixRID' ] ">

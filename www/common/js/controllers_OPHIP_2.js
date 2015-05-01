@@ -1,3 +1,5 @@
+// JET Updates: 2015Feb
+
 IOHPEApp.controller('OPHIP_2Ctrl', function ($scope, $routeParams, $http){
   $scope.clinix_DiagSchedSurgery = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
@@ -46,14 +48,15 @@ IOHPEApp.controller('OPHIP_2Ctrl', function ($scope, $routeParams, $http){
 
         $ipadrbg.context.clinix_DiagSchedSurgery.saveChanges();
 
+        alert("HIP SURGERY Schedule Data Updated Successfuly!!");
+
         $scope.LoadDiagsSchedSurg();
       });
     });
   }
 
   $scope.addNew = function (daignosisObj) {
-    // if solved na, put delete here
-
+    // Do not DELETE, this was done during DIAGNOSIS
 
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
@@ -72,29 +75,11 @@ IOHPEApp.controller('OPHIP_2Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.clinix_DiagSchedSurgery.add(newrecord);
     $ipadrbg.context.clinix_DiagSchedSurgery.saveChanges();
 
-    daignosisObj.SurgeryType = "";
-    daignosisObj.SurgeryDate = null;
-    daignosisObj.Surgeon = "";
-    daignosisObj.Assistant = "";
-    daignosisObj.Anesthesio = "";
-    daignosisObj.AnesthesiaType = "";
-    daignosisObj.Cardio = "";
-    daignosisObj.Hospital = "";
-    daignosisObj.Others = "";
+    // blanks them 
 
     $scope.LoadDiagsSchedSurg();
   }
 
-  $scope.removeItem = function (daignosisObj) {
-    daignosisObj.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var diagol = $scope.clinix_DiagSchedSurgery;
-         diagol.splice(diagol.indexOf(daignosisObj), 1);
-      });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
-  }
+  // NO Remove Routine, you can only update
+
 });

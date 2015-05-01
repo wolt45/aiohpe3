@@ -1,38 +1,33 @@
 <!-- TREATMENT -->
 <div ng-controller="TreatmentCtrl">
-	<div scroll-bookmark="IOPETreat">
-		<div class="panel panel-default">	
+	<div class="panel panel-default">	
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+				<th colspan=19>
+					<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+		    			Past Treatment
+		    		</span>
+				</th>
+			</tr>
 
-			<table class="table table-condensed table-bordered">
+			<tr class="info" ng-repeat="treatment in clinix_treatment">
+				<td width="5%"></td>
 
-				<tr class="info">
-					<th colspan=19>
-						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
-			    			Past Treatment
-			    		</span>
-					</th>
-				</tr>
+				<td class="text-left" style="float:left; color:black">
+					{{treatment.medAnalgesic ? "Analgesic: " + treatment.medAnalgesic : ""}}
+					{{treatment.medAntiInflamatory ? ", AntiInflamatory: " +  treatment.medAntiInflamatory : ""}}
+					{{treatment.medOthers ? ", Others: " + treatment.medOthers : ""}}
 
-				<tr class="info" ng-repeat="treatment in clinix_treatment">
-					<td width="5%"></td>
+					{{treatment.injSteroidsVolume ? ", Steroids: " + treatment.injSteroidsVolume : ""}}
+					{{treatment.injSteroidsWhen ? ", " + treatment.injSteroidsWhen : ""}}
+					{{treatment.injSteroidsResult==1 ? 'result: YES' : ''}}
+					{{treatment.injSteroidsDetails ? ", " + treatment.injSteroidsDetails : ""}}
 
-					<td class="text-left" style="float:left; color:black">
-						{{treatment.medAnalgesic ? "Analgesic: " + treatment.medAnalgesic : ""}}
-						{{treatment.medAntiInflamatory ? ", AntiInflamatory: " +  treatment.medAntiInflamatory : ""}}
-						{{treatment.medOthers ? ", Others: " + treatment.medOthers : ""}}
-
-						{{treatment.injSteroidsVolume ? ", Steroids: " + treatment.injSteroidsVolume : ""}}
-						{{treatment.injSteroidsWhen ? ", " + treatment.injSteroidsWhen : ""}}
-						{{treatment.injSteroidsResult==1 ? 'result: YES' : ''}}
-						{{treatment.injSteroidsDetails ? ", " + treatment.injSteroidsDetails : ""}}
-
-						{{treatment.injHyaluronicAcid ? " Hyaluronic Acid: " + treatment.injHyaluronicAcid : ""}}
-						{{treatment.injHyaluronicResult==1 ? ", result: YES" : ''}}
-						{{treatment.injHyaluronicDetails ? ", " + treatment.injHyaluronicDetails : "" }}
-					</td> 
-				</tr>
-			</table>
-
-		</div>
+					{{treatment.injHyaluronicAcid ? " Hyaluronic Acid: " + treatment.injHyaluronicAcid : ""}}
+					{{treatment.injHyaluronicResult==1 ? ", result: YES" : ''}}
+					{{treatment.injHyaluronicDetails ? ", " + treatment.injHyaluronicDetails : "" }}
+				</td> 
+			</tr>
+		</table>
 	</div>
 </div>

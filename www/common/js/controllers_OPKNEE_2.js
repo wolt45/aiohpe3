@@ -52,8 +52,7 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
   }
 
   $scope.addNew = function (daignosisObj) {
-    // if solved na, put delete here
-
+    // DONT DELETE BECOOZ DATA CAME FORM Diagnosis, EDIT only
 
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
@@ -72,29 +71,8 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.clinix_DiagSchedSurgery.add(newrecord);
     $ipadrbg.context.clinix_DiagSchedSurgery.saveChanges();
 
-    daignosisObj.SurgeryType = "";
-    daignosisObj.SurgeryDate = null;
-    daignosisObj.Surgeon = "";
-    daignosisObj.Assistant = "";
-    daignosisObj.Anesthesio = "";
-    daignosisObj.AnesthesiaType = "";
-    daignosisObj.Cardio = "";
-    daignosisObj.Hospital = "";
-    daignosisObj.Others = "";
+    alert("Data Updated Successfuly!");
 
     $scope.LoadDiagsSchedSurg();
-  }
-
-  $scope.removeItem = function (daignosisObj) {
-    daignosisObj.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var diagol = $scope.clinix_DiagSchedSurgery;
-         diagol.splice(diagol.indexOf(daignosisObj), 1);
-      });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
   }
 });

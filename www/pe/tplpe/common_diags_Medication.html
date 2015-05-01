@@ -4,7 +4,7 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td class="text-left" colspan="9">
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 			    		Medication
 			    	</span>
 				</td>
@@ -22,15 +22,15 @@
 
 			<tr>
 				<td>
-					<input type="text" class="form-control" ng-model="xMeds.GenericName" placeholder="drug" >
+					<input type="text" class="form-control" ng-model="xMeds.GenericName">
 				</td>
 
 				<td nowrap>
-					<input type="text" class="form-control" ng-model="xMeds.Brand" placeholder="brand" >
+					<input type="text" class="form-control" ng-model="xMeds.Brand">
 				</td>
 
 				<td nowrap>
-					<input type="text" class="form-control" ng-model="xMeds.Qty" placeholder="dosage" >
+					<input type="text" class="form-control" ng-model="xMeds.Qty">
 				</td>
 
 				<td nowrap>
@@ -40,11 +40,13 @@
 				</td>
 
 				<td nowrap>
-					<input type="text" class="form-control" ng-model="xMeds.Duration" placeholder="duration" >
+					<input type="text" class="form-control" ng-model="xMeds.Duration">
 				</td>
 
 				<td class="text-center">
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(xMeds)" style="text-decoration: none">ADD</a>
+					<a class="btn btn-large btn-info"  style="text-decoration: none" 
+					ng-click="addNew(xMeds)">
+					ADD</a>
 				</td>
 
 				<td></td>
@@ -57,15 +59,17 @@
 	            <td class="text-center" style="color:black">{{xMed.Dose}}</td>
 	            <td class="text-center" style="color:black">{{xMed.Duration}}</td>
 	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{xMed.ClinixRID}}" ng-click="removeDiagnosis(xMed)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger" style="text-decoration: none" 
+	            		ng-click="removeDiagnosis(xMed)">
 	            		DELETE
 	            	</a>
 	        	</td>
-                <td>
-                	<a class="btn btn-large btn-warning" href="#/{{xMed.ChiefRID}}/edit" ng-click="editChiefComp(xMed)" style="text-decoration: none">
+                <!--td>
+                	<a class="btn btn-large btn-warning" style="text-decoration: none" 
+                		ng-click="editChiefComp(xMed)">
                 		EDIT
                 	</a>
-            	</td>
+            	</td -->
 	        </tr>
 			
 			

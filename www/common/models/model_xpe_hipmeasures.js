@@ -3,7 +3,8 @@ $data.Entity.extend("$ipadrbg.types.clinix_HipMeasures", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
-	, Supine: { type: "string"}
-	, Left: { type: "string"}
-	, Right: { type: "string"}
+	, SupineLength: { type: "string"}
+	, LR: { type: "string"}
+	, AbsentNormal: { type: "string"}
+	, Others: { type: "string"}
 });

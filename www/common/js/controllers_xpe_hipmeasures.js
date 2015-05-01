@@ -7,104 +7,54 @@ IOHPEApp.controller('HipMeasuresCtrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_HipMeasures = pxresult;
+
+        $scope.HIPMeasures = {
+          ClinixRID  : $scope.clinix.ClinixRID
+          ,PxRID     : $scope.clinix.PxRID
+
+          ,SupineLength : pxresult[0]['SupineLength']
+          ,LR : pxresult[0]['LR']
+          ,AbsentNormal : pxresult[0]['AbsentNormal']
+          ,Others : pxresult[0]['Others']
+        }
+
       });
     });
   };
 
   $scope.LoadHipMeasures();
 
-  $scope.addNew = function (hipMeasures) {
+  $scope.addNew_HipMeasures = function (hipMeasures) {
 
-    if (hipMeasures.ASISLeft || hipMeasures.ASISRight) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+      tx.executeSql("delete from 'clinix_HipMeasures' WHERE ClinixRID = " + $scope.ClinixRID);
+    });
 
-        ,Supine   : "Leg length: ASIS / mm"
-        ,Left     : hipMeasures.ASISLeft
-        ,Right    : hipMeasures.ASISRight
-      }
-      $ipadrbg.context.clinix_HipMeasures.add(newrecord);
+    newrecord = {
+      ClinixRID : $scope.clinix.ClinixRID
+      ,PxRID    : $scope.clinix.PxRID
+
+      ,SupineLength : hipMeasures.SupineLength
+      ,LR           : hipMeasures.LR
+      ,Others       : hipMeasures.Others
+      ,AbsentNormal : hipMeasures.AbsentNormal
     }
-
-    if (hipMeasures.ThighLeft || hipMeasures.ThighRight) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Supine   : "Thigh"
-        ,Left     : hipMeasures.ThighLeft
-        ,Right    : hipMeasures.ThighRight
-      }
-      $ipadrbg.context.clinix_HipMeasures.add(newrecord);
-    }
-
-    if (hipMeasures.LEGLeft || hipMeasures.LEGRight) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Supine   : "LEG Circumference"
-        ,Left     : hipMeasures.LEGLeft
-        ,Right    : hipMeasures.LEGRight
-      }
-      $ipadrbg.context.clinix_HipMeasures.add(newrecord);
-    }
-
-    if (hipMeasures.DorsalisLeft || hipMeasures.DorsalisRight) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Supine   : "Dorsalis Pedis Pulse"
-        ,Left     : hipMeasures.DorsalisLeft
-        ,Right    : hipMeasures.DorsalisRight
-      }
-        $ipadrbg.context.clinix_HipMeasures.add(newrecord);
-    }
-
-    if (hipMeasures.OthersLeft || hipMeasures.OthersRight) {
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,Supine   : "Others"
-        ,Left     : hipMeasures.OthersLeft
-        ,Right    : hipMeasures.OthersRight
-      }
-        $ipadrbg.context.clinix_HipMeasures.add(newrecord);
-    }
+    $ipadrbg.context.clinix_HipMeasures.add(newrecord);
     $ipadrbg.context.clinix_HipMeasures.saveChanges();
 
-    hipMeasures.ASISLeft = "";
-    hipMeasures.ASISRight = "";
-    hipMeasures.ThighLeft = "";
-    hipMeasures.ThighRight = "";
-    hipMeasures.LEGLeft = "";
-    hipMeasures.LEGRight = "";
-    hipMeasures.LEGLeft = "";
-    hipMeasures.LEGRight = "";
-
-    hipMeasures.DorsalisLeft = "";
-    hipMeasures.DorsalisRight = "";
-
-    hipMeasures.Others = "";
-    hipMeasures.OthersLeft = "";
-    hipMeasures.OthersRight = "";
-
+    alert("Hip Measurement Supine Data Saved!");
+    
     $scope.LoadHipMeasures();
   }
 
-  $scope.removeHipMeasure = function (hipMeasures) {
-    hipMeasures.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var hipMeas = $scope.clinix_HipMeasures;
-         hipMeas.splice(hipMeas.indexOf(hipMeasures), 1);
+  $scope.removeHipMeasure = function () {
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_HipMeasures' WHERE ClinixRID = " + $scope.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.HIPMeasures = [];
+    }
   }
 });

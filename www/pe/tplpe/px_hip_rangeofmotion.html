@@ -1,47 +1,46 @@
 <div ng-controller="HipMotionRangeCtrl">
 	<div scroll-bookmark="HipMotionRange">
-		<table class="table table-condensed table-bordered">
+		<table class="table table-condensed table-bordered table-striped">
 			<tr class="warning">
 				<td width="1%" colspan="9" nowrap>
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
-			    		Range of Motion (hip)
+					<span id="DGL_module_header">
+			    		Range of Motion
 			    	</span>
 			    </td>
 			</tr>
 
 			<tr>
 				<td width="1%" nowrap>Flexion Contracture </td>
-				<td width="20%"><input type="text" class="form-control" ng-model="HipMotionRanges.RightFlexionContra" placeholder="none" ></td>
+				<td width="20%"><input type="text" class="form-control" ng-model="HipMotionRanges.FlexionContra"></td>
 
 				<td class="text-right" width="1%"> Flexion </td>
-				<td width="20%"><input type="text" class="form-control" ng-model="HipMotionRanges.RightFlexion" placeholder="none" ></td>
+				<td width="20%"><input type="text" class="form-control" ng-model="HipMotionRanges.Flexion"></td>
 			</tr>
 
 			<tr>
 				<td> Extension </td>
-				<td><input type="text" class="form-control" ng-model="HipMotionRanges.RightExtension" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.Extension"></td>
 
 				<td class="text-right"> IR </td>
-				<td><input type="text" class="form-control" ng-model="HipMotionRanges.IRRight" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.IR"></td>
 			</tr>
+
 
 			<tr>
 				<td> ER </td>
-				<td><input type="text" class="form-control" ng-model="HipMotionRanges.ERRight" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.ER"></td>
 
 				<td class="text-right" nowrap> Abduction (supine) </td>
-				<td><input type="text" class="form-control" ng-model="HipMotionRanges.supineRight" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.AbductionSupine"></td>
 			</tr>
 
 			<tr>
 				<td nowrap> Abduction (lateral) </td>
-				<td><input type="text" class="form-control" ng-model="HipMotionRanges.lateralRight" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.AbductionLateral"></td>
 
 				<td class="text-right"> Adduction </td>
-				<td><input type="text" class="form-control" ng-model="HipMotionRanges.AdductionRight" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HipMotionRanges.Adduction"></td>
 			</tr>
-
-
 
 
 			<tr>
@@ -102,25 +101,33 @@
 			
 			<tr>
 				<td class="text-center" colspan="9">
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(HipMotionRanges)" style="text-decoration: none; color: #000">ADD</a>
+					<a class="btn btn-large btn-info" ng-click="addNew_HipROM(HipMotionRanges)" 
+						style="text-decoration: none; color: #000">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none" 
+	            		ng-click="removeHipMotionRange()">
+	            		DELETE
+	            	</a>
 				</td>
 			</tr>
 
-
 			<!-- D  I   S   P   L   A   Y -->
 
-
-			<tr class="info" ng-repeat="HipMotionRange in clinix_HipMotionRange">
-	        	<td style="color:black" nowrap>{{HipMotionRange.MotionArea}}</td>
+			<!-- tr class="info" ng-repeat="HipMotionRange in clinix_HipMotionRange">
+	        	<td style="color:black" nowrap>{{HipMotionRange.FlexionContra}}</td>
 
 	        	<td class="text-center" style="color:black" nowrap>
-	        		{{ (HipMotionRange.YN == "0")? "NO" : ((HipMotionRange.YN == "1")? "YES" : "") }}
+	        		{{ HipMotionRange.Flexion }}
 	        	</td>
 
-	            <td class="text-center" style="color:black" nowrap>{{HipMotionRange.MotionAreaVal}}</td>
+	            <td class="text-center" style="color:black" nowrap>{{ HipMotionRange.Extension }}</td>
+	            <td class="text-center" style="color:black" nowrap>{{ HipMotionRange.Extension }}</td>
+	            <td class="text-center" style="color:black" nowrap>{{ HipMotionRange.IR }}</td>
 
 	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{HipMotionRange.ClinixRID}}" ng-click="removeHipMotionRange(HipMotionRange)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger" ng-click="removeHipMotionRange(HipMotionRange)" 
+	            		style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
@@ -128,10 +135,9 @@
                 	<!-- a class="btn btn-large btn-warning" href="#/{{HipMotionRange.ChiefRID}}/edit" ng-click="editChiefComp(HipMotionRange)" style="text-decoration: none">
                 		EDIT
                 	</a -->
-            	</td>
+            	<!--/td>
             	<td></td>
-	        </tr>
+	        </tr -->
 		</table>
-
 	</div>
 </div>

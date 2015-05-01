@@ -5,7 +5,7 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td width="1%" colspan="9" nowrap>
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 			    		HIP Implant
 			    	</span>
 			    </td>
@@ -102,41 +102,16 @@
 
 			<tr>
 				<td colspan="2" class="text-center" nowrap>
-					<a class="btn btn-large btn-info" ng-click="addNew(ophip3)" style="text-decoration: none; color: #000">Save</a>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					 	ng-click="addNew_HIPImplant(ophip3)">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none"
+						ng-click="removeHIPImplant()">
+	            		DELETE
+	            	</a>
 				</td>
 			</tr>
 		</table>
-
-
-		<table class="table table-condensed table-bordered">
-			<tr class="info" ng-repeat="ophip3Row in jdata_OPHIP_3">
-			
-				<th width="1%" class="text-right" style="color:#888" nowrap>
-					<br>IMPLANT USED
-					<br>ACETABULAR
-					<br>Size
-					<br>Screws
-					<br>FEMORAL
-					<br>Head Size
-					<br>Neck Length
-				</th>
-	        	<td style="color:black">
-	        		<br>{{ophip3Row.ImplantUsed}}
-	        		<br>{{ophip3Row.AcetabularComponent}}
-	        		<br>{{ophip3Row.AcetSize}}
-	        		<br>{{ophip3Row.AcetScrews}}
-	        		<br>{{ophip3Row.FemoralComponent}}
-	        		<br>{{ophip3Row.HeadSize}}
-	        		<br>{{ophip3Row.NeckLength}}
-	        	</td>
-	        	<td width="1%" class="text-center">
-	            	<a class="btn btn-large btn-danger" ng-click="removeItem(ophip3Row)" style="text-decoration: none">
-	            		DELETE
-	            	</a>
-	        	</td>
-	        </tr>	
-	    </table>
-
-
 	</div>		
 </div>

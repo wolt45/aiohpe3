@@ -3,6 +3,9 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagsManagement", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 
-	, Management		: { type: "string"}
-	, ManagementDetail	: { type: "string"}
+	, PhysicalTherapy : { type: "string"}
+	, ExerProg_FootAnkle : { type: "string"}
+	, ExerProg_QuadsHamstrings : { type: "string"}
+	, ExerProg_SLR : { type: "string"}
+	, AmbuTraining : { type: "string"}
 });

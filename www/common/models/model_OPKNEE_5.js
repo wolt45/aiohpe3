@@ -3,6 +3,15 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPKNEE_5", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 
-	, Operative : { type: "string"}
-	, OperValue : { type: "string"}
+	, BloodLoss : { type: "string"}
+	, Closure : { type: "string"}
+	, CompressionDressings : { type: "string"}
+	, OperativeCourse : { type: "string"}
+	, Findings : { type: "string"}
+	, Diagnosis : { type: "string"}
+	
+	, OpDuration : { type: "string"}
+	, TEDS : { type: "string"}
+	, XRays : { type: "string"}
+	, Others : { type: "string"}
 });

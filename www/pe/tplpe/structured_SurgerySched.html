@@ -5,28 +5,24 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td class="text-left" colspan="9">
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 			    		Surgery Details
 			    	</span>
 				</td>
 			</tr>
 
-			<!--tr>
+			<tr>
 				<td>Surgeon</td>
 				<td>
-					<div ng-repeat="schedSurgery in clinix_DiagSchedSurgery">
-						<input type="text" class="form-control" ng-model="schedSurgeGrp.Surgeon" placeholder="Surgeon" DISABLED>
-					</div>
+					<input type="text" class="form-control" ng-model="schedSurgeGrp.SurgeryType" DISABLED>
 				</td>
 		
 				<td nowrap>Surgeon</td>
 				<td>
-					<div ng-repeat="schedSurgery in clinix_DiagSchedSurgery">
-						<input type="text" class="form-control" ng-model="schedSurgeGrp.Assistant" placeholder="Assistant Surgeon" DISABLED>
-					</div>
+					<input type="text" class="form-control" ng-model="schedSurgeGrp.Assistant" DISABLED>
 				</td>
 			</tr>
-			<tr>
+			<!--tr>
 				<td nowrap>Internist or Cardiologist</td>
 				<td>
 					<input type="text" class="form-control" ng-model="schedSurgeGrp.Cardio" placeholder="Internist or Cardiologist" >

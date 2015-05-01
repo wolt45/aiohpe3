@@ -5,7 +5,7 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td width="1%" colspan="9" nowrap>
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 			    		HIP Surgical Technique
 			    	</span>
 			    </td>
@@ -52,11 +52,19 @@
 
 			<tr>
 				<td colspan="2" class="text-center" nowrap>
-					<a class="btn btn-large btn-info" ng-click="addNew(ophip5)" style="text-decoration: none; color: #000">Save</a>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+						ng-click="addNew_SurTeq(ophip5)">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none"
+						ng-click="removeSurTeq()">
+	            		DELETE
+	            	</a>
 				</td>
 			</tr>
 		</table>
 
+		<!-- 
 		<table class="table table-condensed table-bordered">
 			<tr class="info">
 	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Surgical Approach</th>
@@ -79,7 +87,7 @@
 	        	</td>
                 <td></td>
 	        </tr>
-	    </table>
+	    </table> -->
 
 	</div>		
 </div>		

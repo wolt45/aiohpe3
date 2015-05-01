@@ -11,13 +11,32 @@ IOHPEApp.controller('OPHIP_3Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.jdata_OPHIP_3 = pxresult;
+
+        $scope.ophip3 = {
+            ClinixRID : $scope.clinix.ClinixRID
+            ,PxRID    : $scope.clinix.PxRID
+
+            ,TypeOfHIPRep : pxresult[0]['TypeOfHIPRep']
+            ,ImplantUsed : pxresult[0]['ImplantUsed']
+            ,AcetabularComponent : pxresult[0]['AcetabularComponent']
+            ,AcetSize : pxresult[0]['AcetSize']
+            ,AcetScrews : pxresult[0]['AcetScrews']
+            ,FemoralComponent  : pxresult[0]['FemoralComponent']
+            ,HeadSize: pxresult[0]['HeadSize']
+            ,NeckLength    : pxresult[0]['NeckLength']
+        };
       });
     });
   };
 
   $scope.LoadOPHIP_3();
 
-  $scope.addNew = function (frmObj) {
+  $scope.addNew_HIPImplant = function (frmObj) {
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+      tx.executeSql("delete from 'jdata_OPHIP_3' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
+    });
+
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
@@ -36,30 +55,18 @@ IOHPEApp.controller('OPHIP_3Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.jdata_OPHIP_3.add(newrecord);
     $ipadrbg.context.jdata_OPHIP_3.saveChanges();
 
-    frmObj.TypeOfHIPRep = "";
-    frmObj.ImplantUsed = "";
-
-    frmObj.AcetabularComponent = "";
-    frmObj.AcetSize = "";
-    frmObj.AcetScrews = "";
-
-    frmObj.FemoralComponent = "";
-    frmObj.HeadSize = "";
-    frmObj.NeckLength = "";
+    alert("HIP Implant Data Saved!");
 
     $scope.LoadOPHIP_3();
   }
 
-  $scope.removeItem = function (frmObj) {
-    frmObj.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var diagol = $scope.jdata_OPHIP_3;
-         diagol.splice(diagol.indexOf(frmObj), 1);
+  $scope.removeHIPImplant = function () {
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_3' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.ophip3 = [];
+    }
   }
 });

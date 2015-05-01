@@ -27,23 +27,19 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
         }
 
         row = {
-            ClinixRID       : pxresult[key].ClinixRID,
-            PxRID           : pxresult[key].PxRID,
-            AppDateSet      : pxresult[key].AppDateSet,
-
-            AppDateAge      : pxresult[key].AppDateAge,
-
-            TranStatus      : pxresult[key].TranStatus,
-
-            TranStatusDisp  : pxresult[key].TranStatusDisp,
-            preForeColor    : pxresult[key].preForeColor,
-            preBackColor    : pxresult[key].preBackColor,
-
-            pxname          : pxresult[key].pxname,
-            pxAddress       : pxresult[key].pxAddress,
-            pxstatus        : pxresult[key].pxstatus,
-            pxregdate       : pxresult[key].pxregdate,
-            pxFoto          : pxresult[key].pxFoto
+            ClinixRID      : pxresult[key].ClinixRID,
+            PxRID          : pxresult[key].PxRID,
+            AppDateSet     : pxresult[key].AppDateSet,
+            AppDateAge     : pxresult[key].AppDateAge,
+            TranStatus     : pxresult[key].TranStatus,
+            TranStatusDisp : pxresult[key].TranStatusDisp,
+            preForeColor   : pxresult[key].preForeColor,
+            preBackColor   : pxresult[key].preBackColor,
+            pxname         : pxresult[key].pxname,
+            pxAddress      : pxresult[key].pxAddress,
+            pxstatus       : pxresult[key].pxstatus,
+            pxregdate      : pxresult[key].pxregdate,
+            pxFoto         : pxresult[key].pxFoto
           };
 
         $scope.clinix.push(row);

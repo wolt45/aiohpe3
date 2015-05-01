@@ -3,5 +3,5 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredDiagnosis", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 
-	, StructuredDiagnosis: { type: "string"}
+	, Diagnosis: { type: "string"}
 });

@@ -1,10 +1,9 @@
-
 <div ng-controller="PEchargesCtrl">
 
 	<table class="table table-condensed table-bordered">
 		<tr class="warning">
 			<td width="1%" colspan="9" nowrap>
-				<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+				<span id="DGL_module_header">
 		    		Charges
 		    	</span>
 		    </td>
@@ -49,7 +48,10 @@
 			</td>
 
 			<td>
-				<a class="btn btn-large btn-info" ng-click="addNew(selectedCharges)" style="text-decoration: none">add</a>
+				<a class="btn btn-large btn-info" ng-click="addNew_PECharges(selectedCharges)" 
+					style="text-decoration: none">
+					add
+				</a>
 			</td>
 		</tr>
 
@@ -83,7 +85,7 @@
 
 
             <td width="1%">
-            	<a class="btn btn-large btn-danger" href="#/{{peCharge.ClinixRID}}" ng-click="removeItem(peCharge)" style="text-decoration: none">
+            	<a class="btn btn-large btn-danger" ng-click="removePECharges(peCharge)" style="text-decoration: none">
             		DELETE
             	</a>
         	</td>

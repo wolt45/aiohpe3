@@ -4,7 +4,7 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td class="text-left" width="1%" nowrap>
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 			    		HIP Measurement (supine)
 			    	</span>
 				</td>
@@ -14,7 +14,7 @@
 
 			<tr>
 				<td nowrap> Leg length: ASIS / mm </td>
-				<td><input type="text" class="form-control" ng-model="HIPMeasures.ASISLeft" placeholder="none" ></td>
+				<td><input type="text" class="form-control" ng-model="HIPMeasures.SupineLength"></td>
 				<td> </td>
 			</tr>
 
@@ -33,38 +33,42 @@
 			<tr>
 				<td nowrap> Dorsalis Pedis Pulse </td>
 				<td class="text-left" nowrap>
-					<input type="radio" ng-model="HIPMeasures.DorsalisLeft" value="Right"> Right 
+					<input type="radio" ng-model="HIPMeasures.LR" value="Right"> Right 
 					<br>
-					<input type="radio" ng-model="HIPMeasures.DorsalisLeft" value="Left"> Left
+					<input type="radio" ng-model="HIPMeasures.LR" value="Left"> Left
 				</td>
 
 				<td class="text-center" nowrap>
-					<input type="radio" ng-model="HIPMeasures.DorsalisRight" value="Absent"> Absent 
+					<input type="radio" ng-model="HIPMeasures.AbsentNormal" value="Absent"> Absent 
 					<br>
-					<input type="radio" ng-model="HIPMeasures.DorsalisRight" value="Normal"> Normal
+					<input type="radio" ng-model="HIPMeasures.AbsentNormal" value="Normal"> Normal
 				</td>
 				<td></td>
 			</tr>
 
-
 			<tr>
 				<td nowrap> Others </td>
 				<td class="text-center" nowrap>
-					<input type="text" class="form-control" ng-model="HIPMeasures.OthersLeft" >  
+					<input type="text" class="form-control" ng-model="HIPMeasures.Others">  
 				</td>
 				
 				<td class="text-center">
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(HIPMeasures)" style="text-decoration: none; color: #000">ADD</a>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					 	ng-click="addNew_HipMeasures(HIPMeasures)">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none"
+	            	 	ng-click="removeHipMeasure()">
+	            		DELETE
+	            	</a>
 				</td>
 			</tr>
-
 		</table>
 
-
-		<table class="table table-condensed table-bordered">
+		<!-- table class="table table-condensed table-bordered">
 			<tr class="info">
 				<th width="1%" class="text-center" style="color:#888" nowrap></th>  <!-- OnsetAccuteGradual -->
-	        	<th width="1%" class="text-center" style="color:#888" nowrap>Supine</th>
+	        	<!-- th width="1%" class="text-center" style="color:#888" nowrap>Supine</th>
 	        	<th width="1%" class="text-center" style="color:#888" nowwrap> </th>
 	            <th width="1%" class="text-center" style="color:#888" nowrwap> </th>
 	            <th width="1%"> </th>
@@ -74,11 +78,12 @@
 
 			<tr class="info" ng-repeat="HipMeasure in clinix_HipMeasures">
 	        	<td style="color:black" nowrap></td>  <!-- OnsetAccuteGradual -->
-	        	<td style="color:black" nowrap>{{HipMeasure.Supine}}</td>
-	        	<td style="color:black" nowrap>{{HipMeasure.Left}}</td>
-	            <td style="color:black">{{HipMeasure.Right}}</td>
+	        	<!--td style="color:black" nowrap>{{HipMeasure.SupineLength}}</td>
+	        	<td style="color:black" nowrap>{{HipMeasure.LR}}</td>
+	            <td style="color:black">{{HipMeasure.AbsentNormal}}</td>
+	            <td style="color:black">{{HipMeasure.Others}}</td>
 	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{HipMeasure.ClinixRID}}" ng-click="removeHipMeasure(HipMeasure)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger" ng-click="removeHipMeasure(HipMeasure)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
@@ -86,10 +91,10 @@
                 	<!-- a class="btn btn-large btn-warning" href="#/{{HipMeasure.ChiefRID}}/edit" ng-click="editChiefComp(HipMeasure)" style="text-decoration: none">
                 		EDIT
                 	</a -->
-            	</td>
+            	<!--/td>
             	<td></td>
 	        </tr>
-		</table>
+		</table -->
 
 	</div>
 </div>

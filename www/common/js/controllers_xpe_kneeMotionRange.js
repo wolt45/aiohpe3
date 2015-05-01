@@ -7,91 +7,52 @@ IOHPEApp.controller('KneeMotionRangeCtrl', function ($scope, $routeParams, $http
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_KneeMotionRange = pxresult;
+
+        $scope.KneeROM = {
+          ClinixRID  : $scope.clinix.ClinixRID
+          ,PxRID     : $scope.clinix.PxRID
+
+          ,FlexionContracture : pxresult[0]['FlexionContracture']
+          ,Extension : pxresult[0]['Extension']
+          ,Flexion : pxresult[0]['Flexion']
+        }
+
       });
     });
   };
 
   $scope.LoadKneeMotionRange();
 
-  $scope.addNew = function (kneeMotionRange) {
-    if (kneeMotionRange.FlexionContractureLeft) {
+  $scope.addNew_ROM = function (kneeMotionRange) {
 
-      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
-      db.transaction(function (tx) {
-          tx.executeSql("delete from 'clinix_KneeMotionRange' WHERE ClinixRID = " 
-            + $scope.clinix.ClinixRID 
-            + " AND MotionArea = 'Flexion Contracture'"
-            );
-      });
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_KneeMotionRange' WHERE ClinixRID = " + $scope.clinix.ClinixRID );
+    });
 
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
+    newrecord = {
+      ClinixRID : $scope.clinix.ClinixRID
+      ,PxRID    : $scope.clinix.PxRID
 
-        ,MotionArea : "Flexion Contracture"
-        ,Left     : kneeMotionRange.FlexionContractureLeft
-      }
-      $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
+      ,FlexionContracture : kneeMotionRange.FlexionContracture
+      ,Extension          : kneeMotionRange.Extension
+      ,Flexion          : kneeMotionRange.Flexion
     }
-
-    if (kneeMotionRange.ExtensionLeft) {
-
-      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
-      db.transaction(function (tx) {
-          tx.executeSql("delete from 'clinix_KneeMotionRange' WHERE ClinixRID = " 
-            + $scope.clinix.ClinixRID 
-            + " AND MotionArea = 'Extension'"
-            );
-      });
-
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,MotionArea : "Extension"
-        ,Left     : kneeMotionRange.ExtensionLeft
-      }
-      $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
-    }
-
-    if (kneeMotionRange.FlexionLeft) {
-
-      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
-      db.transaction(function (tx) {
-          tx.executeSql("delete from 'clinix_KneeMotionRange' WHERE ClinixRID = " 
-            + $scope.clinix.ClinixRID 
-            + " AND MotionArea = 'Flexion'"
-            );
-      });
-
-      newrecord = {
-        ClinixRID : $scope.clinix.ClinixRID
-        ,PxRID    : $scope.clinix.PxRID
-
-        ,MotionArea : "Flexion"
-        ,Left     : kneeMotionRange.FlexionLeft
-      }
-      $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
-    }
-
+    $ipadrbg.context.clinix_KneeMotionRange.add(newrecord);
     $ipadrbg.context.clinix_KneeMotionRange.saveChanges();
 
-    kneeMotionRange.FlexionContractureLeft = "";
-    kneeMotionRange.ExtensionLeft = "";
-    kneeMotionRange.FlexionLeft = "";
+    alert("KNEE Range of Motion Data Saved!");
+
     $scope.LoadKneeMotionRange();
   }
 
   $scope.removeKneeMotionRange = function (kneeMotionRange) {
-    kneeMotionRange.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var kneeMotio = $scope.clinix_KneeMotionRange;
-         kneeMotio.splice(kneeMotio.indexOf(kneeMotionRange), 1);
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_KneeMotionRange' WHERE ClinixRID = " + $scope.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.KneeROM = [];
+    }
   }
 });

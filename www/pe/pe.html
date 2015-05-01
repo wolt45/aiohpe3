@@ -6,21 +6,18 @@
     <link href="..//css/all.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="..//css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="..//css/tablex.css" rel="stylesheet"  type="text/css" />
-    
   </head>
+
   <body>
 
     <div class="row">
+        <!-- div class="col-xs-12 col-sm-2 bs-docs-container" >
+            <ng:include src="'tplpe/today_nav_pe.html'"></ng:include>
+        </div -->
 
-      <!-- div class="col-xs-12 col-sm-2 bs-docs-container" >
-          <ng:include src="'tplpe/today_nav_pe.html'"></ng:include>
-      </div -->
-
-      <div class="col-xs-12 col-sm-12" id="mainContent">
-
-        <div id="view" ng-view>  </div>
-        
-      </div>
+        <div class="col-xs-12 col-sm-12" id="mainContent">
+          <div id="view" ng-view>  </div>
+        </div>
     </div>
 
     <script src="..//lib/jquery-1.11.1.min.js"></script>
@@ -172,8 +169,5 @@
     <script src="..//common/js/controllers_OPKNEE_3.js"></script>
     <script src="..//common/js/controllers_OPKNEE_4.js"></script>
     <script src="..//common/js/controllers_OPKNEE_5.js"></script>
-
-    
-
   </body>
 </html>

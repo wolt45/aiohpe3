@@ -5,7 +5,7 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td width="1%" colspan="9" nowrap>
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 			    		HIP PRE-Operative Diagnosis
 			    	</span>
 			    </td>
@@ -13,7 +13,9 @@
 
 
 			<tr class="info" ng-repeat="diagnosed in clinix_Diagnosis">
-	        	<td style="color:black">{{diagnosed.Diagnosis}}</td>
+	        	<td style="color:black">
+	        		<span style="font-size: 26px"> {{diagnosed.Diagnosis}} </span>
+	        	</td>
 	        </tr>	
 
 			<!-- tr class="active">

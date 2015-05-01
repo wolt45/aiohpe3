@@ -1,0 +1,127 @@
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td colspan="9">
+					<span id="DGL_module_header">
+			    		Skeletal Trauma X-Ray Findings
+			    	</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="1%" nowrap class="active">Date</td>
+				<td colspan="2">
+					<input type="Date" ng-model="HipXRays.APPelvisBothHipsDate" class="form-control" width="20px">
+				</td>
+			</tr>
+
+			<tr>		
+				<td class="text-right active">a.</td>
+				<td colspan="9" nowrap>
+					<input type="radio" ng-model="HipXRays.Pelvis" value="NORMAL" >  Normal
+				</td>
+			</tr>
+
+			<tr>		
+				<td class="text-right active">b.</td>
+				<td colspan="9" nowrap>
+					<input type="radio" ng-model="HipXRays.Pelvis" value="ABNORMAL" >  Abnormal
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap class="active">1. Fracture:</td>
+				<td class="text-Left" nowrap>
+					<input type="radio" ng-model="SkulTrauma.Fracture" value="Undisplaced"> Undisplaced
+					<br>
+					<input type="radio" ng-model="SkulTrauma.Fracture" value="Oblique"> Oblique
+				</td>
+				<td class="text-Left" nowrap>
+					<input type="radio" ng-model="SkulTrauma.Fracture" value="Displaced"> Displaced
+					<br>
+					<input type="radio" ng-model="SkulTrauma.Fracture" value="Comminuted"> Comminuted
+				</td>
+				<td class="text-Left" nowrap>
+					<input type="radio" ng-model="SkulTrauma.Fracture" value="Transverse"> Transverse
+					<br>
+					<input type="radio" ng-model="SkulTrauma.Fracture" value="Segmented"> Segmented
+				</td>
+			</tr>	
+
+			<tr>
+				<td nowrap class="active">2. Site Shaft:</td>
+				<td class="text-Left" width="15%" nowrap>
+					<input type="radio" ng-model="SkulTrauma.SiteShaft" value="Upper" > Upper
+					<br>
+					<input type="radio" ng-model="SkulTrauma.SiteShaft" value="Middle" > Middle
+					<br>
+					<input type="radio" ng-model="SkulTrauma.SiteShaft" value="Lower" > Lower
+				</td>
+				<td class="text-Left" width="15%"nowrap>
+					<input type="radio" ng-model="SkulTrauma.SiteShaft" value="Articular-Undisplaced" > Articular-Undisplaced
+					<br>
+					<input type="radio" ng-model="SkulTrauma.SiteShaft" value="Displaced" > Displaced
+				</td>
+			</tr>	
+
+			<tr>
+				<td nowrap class="active">3. Dislocation:</td>
+				<td class="text-left" nowrap>
+					<input type="radio" ng-model="SkulTrauma.Dislocation" value="Anterior" > anterior
+					<br>
+					<input type="radio" ng-model="SkulTrauma.Dislocation" value="Posterior" > posterior
+				</td>
+				<td class="text-left" nowrap>
+					<input type="radio" ng-model="SkulTrauma.Dislocation" value="Lateral" > lateral
+					<br>
+					<input type="radio" ng-model="SkulTrauma.Dislocation" value="Medial" > Medial
+				</td>
+				<td></td>
+			</tr>	
+			
+			<tr>	
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(HipXRays)" style="text-decoration: none; color: #000">ADD</a>
+				</td>
+			</tr>
+		</table>
+
+
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+				<th width="1%" class="text-center" style="color:#888">AP Pelvis DATE</th>  <!-- OnsetAccuteGradual -->
+	        	<th width="1%" class="text-center" style="color:#888" nowrap>PELVIS</th>
+	        	<th width="1%" class="text-center" style="color:#888" >Hip Joint</th>
+	            <th width="1%" class="text-center" style="color:#888" >Avascular necrosis head</th>
+	            <th width="1%" class="text-center" style="color:#888" >Narrowing of Hip Joint</th>
+	            <th width="1%" class="text-center" style="color:#888" >Subluxation</th>
+	            <th width="1%" class="text-center" style="color:#888" >Osteoporosis</th>
+	            <th width="1%" class="text-center" style="color:#888" >Fractions Neck</th>
+	            <th width="1%" class="text-center" style="color:#888">Others</th>
+	            <th width="1%"> </th>
+	            <th width=> </th>
+			</tr>
+
+			<tr class="info" ng-repeat="xrayRow in clinix_HipXRays">
+	        	<td style="color:black" nowrap>{{xrayRow.APPelvisBothHipsDate | date}}</td>
+	        	<td style="color:black" nowrap>{{xrayRow.Pelvis}}</td>
+	            <td style="color:black">{{xrayRow.HipJoint}}</td>
+	            <td style="color:black">{{xrayRow.Avascular}}</td>
+	            <td style="color:black">{{xrayRow.NarrowingHipJoint}}</td>
+	            <td style="color:black">{{xrayRow.Subluxation}}</td>
+	            <td style="color:black">{{xrayRow.Osteoporosis}}</td>
+	            <td style="color:black">{{xrayRow.FractionsNeck}}</td>
+	            <td style="color:black">{{xrayRow.Others}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" href="#/{{xrayRow.ClinixRID}}" ng-click="removeHipXRays(xrayRow)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td>
+                	<!-- a class="btn btn-large btn-warning" href="#/{{xrayRow.ChiefRID}}/edit" ng-click="editChiefComp(xrayRow)" style="text-decoration: none">
+                		EDIT
+                	</a -->
+            	</td>
+	        </tr>
+		</table>
+	</div>

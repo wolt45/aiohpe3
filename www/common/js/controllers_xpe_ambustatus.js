@@ -7,38 +7,49 @@ IOHPEApp.controller('AmbulatoryStatusCtrl', function ($scope, $routeParams, $htt
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_AmbuStatus = pxresult;
+
+        $scope.ambulate = {
+          ClinixRID  : $scope.clinix.ClinixRID
+          ,PxRID     : $scope.clinix.PxRID
+
+          ,PhysicalCondition : pxresult[0]['PhysicalCondition']
+          ,AmbulatoryAid : pxresult[0]['AmbulatoryAid']
+        }
       });
     });
   };
 
   $scope.LoadAmbulatoryStatus();
 
-  $scope.addNew = function (ambuStatus) {
-    newrecord = {
-      ClinixRID           : $scope.clinix.ClinixRID
-      ,PxRID              : $scope.clinix.PxRID
+  $scope.addNew_AmbuStatus = function (ambulate) {
 
-      ,PhysicalCondition  : ambuStatus.AmbuPhysCond
-      ,AmbulatoryAid      : ambuStatus.AmbuAid
-      ,AbleTo             : ambuStatus.AmbuAbleTo
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+      tx.executeSql("delete from 'clinix_AmbuStatus' WHERE ClinixRID = " + $scope.ClinixRID);
+    });
+
+    newrecord = {
+      ClinixRID : $scope.clinix.ClinixRID
+      ,PxRID : $scope.clinix.PxRID
+      ,PhysicalCondition : ambulate.PhysicalCondition 
+      ,AmbulatoryAid : ambulate.AmbulatoryAid
     }
 
     $ipadrbg.context.clinix_AmbuStatus.add(newrecord);
     $ipadrbg.context.clinix_AmbuStatus.saveChanges();
 
+    alert("Data Saved!");
+    
     $scope.LoadAmbulatoryStatus();
   }
 
-  $scope.removeChiefComp = function (ambuStatus) {
-    ambuStatus.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var ambstat = $scope.clinix_AmbuStatus;
-         ambstat.splice(ambstat.indexOf(ambuStatus), 1);
+  $scope.removeAmbuStatus = function (ambulate) {
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_AmbuStatus' WHERE ClinixRID = " + $scope.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.ambulate = [];
+    }
   }
 });

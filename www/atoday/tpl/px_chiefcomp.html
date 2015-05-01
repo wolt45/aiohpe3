@@ -1,4 +1,4 @@
-<!-- CHIEF COMPLAINT -->
+<!-- CHIEF COMPLAINT  1.254 -->
 <div ng-controller="ChiefComplaintCtrl">
 	<div scroll-bookmark="IOPEChiefComp">
 		<div class="panel panel-default">
@@ -135,26 +135,12 @@
 
 	            <tr class="info">
 					<td class="text-center" colspan="9">
-						<form enctype="multipart/form-data" action="/upload/image" method="post">
-						    <input id="image-file" type="file" />
-						    <img id="myImg" src="#" alt="your image" width="80%" />
-						</form>
+						
+						<a class="btn btn-large btn-danger" style="text-decoration: none" target="_blank"
+							href="http://192.168.1.254/SoftMedlib/carousel.prep.php?pxrid={{clinix.PxRID}}&hanger=2">
+	                		GROSS PICTURES
+	                	</a>
 
-						<script type="text/javascript">
-							$(function () {
-							    $(":file").change(function () {
-							        if (this.files && this.files[0]) {
-							            var reader = new FileReader();
-							            reader.onload = imageIsLoaded;
-							            reader.readAsDataURL(this.files[0]);
-							        }
-							    });
-							});
-
-							function imageIsLoaded(e) {
-							    $('#myImg').attr('src', e.target.result);
-							};
-						</script>
 					</td>
 	            </tr>
 

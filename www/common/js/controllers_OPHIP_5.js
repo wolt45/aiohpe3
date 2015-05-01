@@ -11,13 +11,29 @@ IOHPEApp.controller('OPHIP_5Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.jdata_OPHIP_5 = pxresult;
+
+        $scope.ophip5 = {
+          ClinixRID : $scope.clinix.ClinixRID
+          ,PxRID    : $scope.clinix.PxRID
+
+          ,SurgicalApproach : pxresult[0]['SurgicalApproach']
+          ,StabPosterior : pxresult[0]['StabPosterior']
+          ,StabAnterior : pxresult[0]['StabAnterior']
+          ,HemovacUsed : pxresult[0]['HemovacUsed']
+        };
+
       });
     });
   };
 
   $scope.LoadOPHIP_5();
 
-  $scope.addNew = function (frmObj) {
+  $scope.addNew_SurTeq = function (frmObj) {
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+      tx.executeSql("delete from 'jdata_OPHIP_5' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
+    });
+
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
@@ -30,25 +46,18 @@ IOHPEApp.controller('OPHIP_5Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.jdata_OPHIP_5.add(newrecord);
     $ipadrbg.context.jdata_OPHIP_5.saveChanges();
 
-    frmObj.SurgicalApproach = "";
-    frmObj.StabPosterior = "";
-    frmObj.StabAnterior = "";
-    frmObj.HemovacUsed = "";
+    alert("HIP Surgical Technique Data Saved!");
 
     $scope.LoadOPHIP_5();
   }
 
-  $scope.removeItem = function (frmObj) {
-    frmObj.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var diagol = $scope.jdata_OPHIP_5;
-         diagol.splice(diagol.indexOf(frmObj), 1);
+  $scope.removeSurTeq = function (frmObj) {
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPHIP_5' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.ophip5 = [];
+    }
   }
-
 });

@@ -1,3 +1,14 @@
+
+
+
+// not used ???
+// not used ???
+// not used ???
+// not used ???
+// not used ???
+
+
+
 IOHPEApp.controller('KneeMeasuresCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_KneeMeasures = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
@@ -75,16 +86,13 @@ IOHPEApp.controller('KneeMeasuresCtrl', function ($scope, $routeParams, $http){
     $scope.LoadKneeMeasures();
   }
 
-  $scope.removeKneeMeasure = function (kneeMeasure) {
-    kneeMeasure.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var hipMeas = $scope.clinix_KneeMeasures;
-         hipMeas.splice(hipMeas.indexOf(kneeMeasure), 1);
+  $scope.removeKneeMeasure = function () {
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_KneeMeasures' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.Diagnosis = [];
+    }
   }
 });

@@ -7,6 +7,22 @@ IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http)
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_DiagSchedSurgery = pxresult;
+
+        $scope.schedSurgeGrp = {
+          ClinixRID  : $scope.clinix.ClinixRID
+          ,PxRID     : $scope.clinix.PxRID
+
+          ,SurgeryType    : pxresult[0]['SurgeryType']
+          ,SurgeryDate    : pxresult[0]['SurgeryDate']
+          ,Surgeon        : pxresult[0]['Surgeon']
+          ,Assistant      : pxresult[0]['Assistant']
+          ,Cardio         : pxresult[0]['Cardio']
+
+          ,Anesthesio     : pxresult[0]['Anesthesio']
+          ,AnesthesiaType : pxresult[0]['AnesthesiaType']
+          ,Hospital       : pxresult[0]['Hospital']
+          ,Others         : pxresult[0]['Others']
+        }
       });
     });
   };
@@ -14,44 +30,40 @@ IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http)
   $scope.LoadDiagsSchedSurg();
 
   $scope.addNew = function (daignosisObj) {
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql("delete from 'clinix_DiagSchedSurgery' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
+    });
+
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
 
-      ,SurgeryType : daignosisObj.SurgeryType
-      ,SurgeryDate : daignosisObj.SurgeryDate
-      ,Surgeon     : daignosisObj.Surgeon
-      ,Assistant   : daignosisObj.Assistant
-      ,Cardio      : daignosisObj.Cardio
-      ,Anesthesio  : daignosisObj.Anesthesio
-      ,Hospital    : daignosisObj.Hospital
-      ,Others      : daignosisObj.Others
+      ,SurgeryType    : daignosisObj.SurgeryType
+      ,SurgeryDate    : daignosisObj.SurgeryDate
+      ,Surgeon        : daignosisObj.Surgeon
+      ,Assistant      : daignosisObj.Assistant
+      ,Cardio         : daignosisObj.Cardio
+      ,Anesthesio     : daignosisObj.Anesthesio
+      ,AnesthesiaType : daignosisObj.AnesthesiaType 
+      ,Hospital       : daignosisObj.Hospital
+      ,Others         : daignosisObj.Others
     }
     $ipadrbg.context.clinix_DiagSchedSurgery.add(newrecord);
     $ipadrbg.context.clinix_DiagSchedSurgery.saveChanges();
 
-    daignosisObj.SurgeryType = "";
-    daignosisObj.SurgeryDate = null;
-    daignosisObj.Surgeon = "";
-    daignosisObj.Assistant = "";
-    daignosisObj.Anesthesio = "";
-    daignosisObj.Cardio = "";
-    daignosisObj.Hospital = "";
-    daignosisObj.Others = "";
+    alert("Diagnosis Surgery Schedule Data Saved!");
 
     $scope.LoadDiagsSchedSurg();
   }
 
-  $scope.removeDiagnosis = function (daignosisObj) {
-    daignosisObj.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var diagol = $scope.clinix_DiagSchedSurgery;
-         diagol.splice(diagol.indexOf(daignosisObj), 1);
+  $scope.removeSchedSurgery = function () {
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'clinix_DiagSchedSurgery' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.schedSurgeGrp = [];
+    }
   }
 });

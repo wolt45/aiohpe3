@@ -5,7 +5,7 @@
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td width="1%" colspan="9" nowrap>
-					<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 			    		&nbsp;
 			    	</span>
 			    </td>
@@ -74,7 +74,7 @@
 					Duration of Operation
 				</td>
 				<td>
-					<textarea class="form-control" rows="2" ng-model="ophip6.OpDuratiion"></textarea>
+					<textarea class="form-control" rows="2" ng-model="ophip6.OpDuration"></textarea>
 				</td>
 			</tr>
 
@@ -108,24 +108,16 @@
 
 			<tr>
 				<td colspan="2" class="text-center" nowrap>
-					<a class="btn btn-large btn-info" ng-click="addNew(ophip6)" style="text-decoration: none; color: #000">Save</a>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					 	ng-click="addNew_OP6(ophip6)">
+					 	SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none" 
+	            		ng-click="removeOPHIP_6()">
+	            		DELETE
+	            	</a>
 				</td>
 			</tr>
 		</table>
-
-
-		<table class="table table-condensed table-bordered">
-			<tr class="info" ng-repeat="ophip6Row in jdata_OPHIP_6">
-	        	<td width="1%" style="color:black" nowrap>{{ophip6Row.Operative}}</td>
-	        	<td width="1%" style="color:black" class="text-center" >{{ophip6Row.OperValue}}</td>
-	            <td width="1%" class="text-center">
-	            	<a class="btn btn-large btn-danger" ng-click="removeItem(ophip6Row)" style="text-decoration: none">
-	            		DELETE
-	            	</a>
-	        	</td>
-                <td></td>
-	        </tr>
-	    </table>
-
 	</div>		
 </div>

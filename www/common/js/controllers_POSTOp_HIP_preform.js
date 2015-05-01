@@ -1,157 +1,127 @@
 IOHPEApp.controller('POSTOpHIP_preformCtrl', function ($scope, $routeParams, $http){
   	$scope.clinix_POSTOp_HIP_preform = [];
-
-  	//http://vitalets.github.io/checklist-model/
-	$scope.preForms = [
-		  '1. To post-operative recovery room'
-		, '2. Portable X-rays in bed-AP (anterior-posterior) and cross table lateral of Operative Hip.'
-		, '3. Regular diet as tolerated.'
-		, '4. Keep IV per ordered by Anesthesiologist.'
-		, '5. Keep epidural anesthesia per order by Anesthesiologist.'
-		, '6. Demerol 50-75 mgs every 3-4 hrs PRN.'
-		, '7. Arcoxia 60, 90, 120 mgs once a day.'
-		, '8. Aspirin 80mgs once a day, indifinitely.'
-
-		, '9. Ferrous Sulfate 300 gms, three times daily for 3 months'
-		, '10. Massive Ice Packs around the hip area continuously for 48 hrs'
-		, '11. Measure and record drainage from Hemovac Suction'
-		, '12. Repeat IV Cefuroxime 1.5 gms. Repeat 12 hrs one doze only'
-		, '13. Repeat IV Cefazoline 2 gms in 8 hrs one doze only'
-
-		, '14. HgB and Hematocrit in 48 hrs'
-		, '15. Keep legs apart with two pillows or abduction pillow'
-
-		, '16. PT 2 times daily:'
-		, '........ a. Foot and ankle pump 10 times every hour when awake.'
-		, '........ b. Quadriceps and hamstring sitting exercise 10 times every hour when awake.'
-		, '........ c. Active hip flexion not more than 90⁰.'
-		, '........ d. Isometric abduction 1ox every hour when awake.'
-		, '........ e. Ambulation with crutches or walker, weight bearing as tolerated.'
-
-		, '17. Do not cross legs for at least 3 months.'
-		, '18. May dangle on bed with assistance the post–operative day.'
-		, '19. When sitting, keep feet turned out. Do not internally rotate leg in flexion.'
-		, '20. Keep knee High TEDS stocking when up or awake. Use TEDS stockings for the next 6 weeks.'
-		, '21. Ambulate on the second or third day with PT supervision or nurses assistance.'
-  	];
-
   	$scope.ClinixRID = $routeParams.p_clinixrid;
 
-	$scope.LoadPOSTHipPreForm = function(){
+	$scope.LoadPOSTHipPreForm = function() {
 	    var promise = $ipadrbg.context.clinix_POSTOp_HIP_preform.filter(function (px) { 
 	    	return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
 	    promise.then(function(pxresult) {
-	      $scope.$apply(function () {
-	      	if (pxresult.length > 0) {
-	      		// alert('HIT Listed');
-	      		$scope.clinix_POSTOp_HIP_preform = pxresult;
-	      	}
-	      	else {
-	      		// alert('NO HIT Listed');
-	      		$scope.addNew();
-	      	}
-	      });
+		    $scope.$apply(function () {
+		    	if (pxresult.length > 0) {
+		    		// alert('HIT Listed');
+		    		$scope.clinix_POSTOp_HIP_preform = pxresult;
+
+			        $scope.hipPostform = {
+	    		        ClinixRID : $scope.clinix.ClinixRID
+	            		,PxRID    : $scope.clinix.PxRID
+
+						,Post01  : pxresult[0]['Post01'] 
+						,Post02  : pxresult[0]['Post02'] 
+						,Post03  : pxresult[0]['Post03'] 
+						,Post04  : pxresult[0]['Post04'] 
+						,Post05  : pxresult[0]['Post05'] 
+						,Post06  : pxresult[0]['Post06'] 
+						,Post07  : pxresult[0]['Post07'] 
+						,Post08  : pxresult[0]['Post08'] 
+						,Post09  : pxresult[0]['Post09'] 
+						,Post10  : pxresult[0]['Post10'] 
+						,Post11  : pxresult[0]['Post11'] 
+						,Post12  : pxresult[0]['Post12'] 
+						,Post13  : pxresult[0]['Post13'] 
+						,Post14  : pxresult[0]['Post14'] 
+						,Post15  : pxresult[0]['Post15'] 
+						,Post16a : pxresult[0]['Post16a'] 
+						,Post16b : pxresult[0]['Post16b'] 
+						,Post16c : pxresult[0]['Post16c'] 
+						,Post16d : pxresult[0]['Post16d'] 
+						,Post16e : pxresult[0]['Post16e'] 
+						,Post17  : pxresult[0]['Post17'] 
+						,Post18  : pxresult[0]['Post18'] 
+						,Post19  : pxresult[0]['Post19'] 
+						,Post20  : pxresult[0]['Post20'] 
+						,Post21  : pxresult[0]['Post21'] 
+	            	}
+		    	}
+		    });
 	    });
-	  };
+	};
 
  	$scope.LoadPOSTHipPreForm();
 
-	$scope.addNew = function () {
-        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
-        db.transaction(function (tx) {
-            tx.executeSql("delete from 'clinix_POSTOp_HIP_preform' WHERE ClinixRID = " + $scope.ClinixRID);
-        });
+	$scope.addNew = function (OpObj) {
 
-		for (i = 0; i < $scope.preForms.length; i++) {
-			newrecord = {
-		        ClinixRID : $scope.clinix.ClinixRID
-		        ,PxRID    : $scope.clinix.PxRID
+		newrecord = {
+	        ClinixRID : $scope.clinix.ClinixRID
+	        ,PxRID    : $scope.clinix.PxRID
 
-				,PostOp : $scope.preForms[i]
-				,PostOpYN : "1"
-			}
-			$ipadrbg.context.clinix_POSTOp_HIP_preform.add(newrecord);
-	    }
+			,Post01  : OpObj.Post01 
+			,Post02  : OpObj.Post02
+			,Post03  : OpObj.Post03 
+			,Post04  : OpObj.Post04 
+			,Post05  : OpObj.Post05 
+			,Post06  : OpObj.Post06 
+			,Post07  : OpObj.Post07 
+			,Post08  : OpObj.Post08 
+			,Post09  : OpObj.Post09 
+			,Post10  : OpObj.Post10 
+			,Post11  : OpObj.Post11 
+			,Post12  : OpObj.Post12 
+			,Post13  : OpObj.Post13 
+			,Post14  : OpObj.Post14 
+			,Post15  : OpObj.Post15 
+			,Post16a : OpObj.Post16a 
+			,Post16b : OpObj.Post16b 
+			,Post16c : OpObj.Post16c 
+			,Post16d : OpObj.Post16d 
+			,Post16e : OpObj.Post16e 
+			,Post17  : OpObj.Post17 
+			,Post18  : OpObj.Post18 
+			,Post19  : OpObj.Post19 
+			,Post20  : OpObj.Post20 
+			,Post21  : OpObj.Post21
+		}
+		$ipadrbg.context.clinix_POSTOp_HIP_preform.add(newrecord);
 		$ipadrbg.context.clinix_POSTOp_HIP_preform.saveChanges();
-		//alert("Entries Saved successfully!");
+
+		alert("Entries Saved successfully!");
+
 		$scope.LoadPOSTHipPreForm();
 	};
 
-	$scope.Update = function () {
-		//alert("UPDATE HIT!");
-        var OpObj = $scope.clinix_POSTOp_HIP_preform;
-        
-        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
-        // db.transaction(function (tx) {
-        //     tx.executeSql("delete from 'clinix_POSTOp_HIP_preform' WHERE ClinixRID = " + $scope.ClinixRID);
-        // });
-
-		for (i = 0; i < OpObj.length; i++) {
-			var PostOpHIPpreformRID = OpObj[i].PostOpHIPpreformRID;
-			var PostOp   = OpObj[i].PostOp;
-			var PostOpYN = OpObj[i].PostOpYN;
-			// var PostOpYN = PostOpHIPpreformRID;
-
-			db.transaction(function (tx) {
-            	tx.executeSql("UPDATE 'clinix_POSTOp_HIP_preform' SET PostOpYN = " + PostOpYN + " WHERE PostOpHIPpreformRID = " + PostOpHIPpreformRID );
-        	});
-
-			// newrecord = {
-		 	//  ClinixRID : $scope.clinix.ClinixRID
-		 	//  ,PxRID    : $scope.clinix.PxRID
-			// 	,PostOp : PostOp
-			// 	,PostOpYN : PostOpYN
-			// }
-
-			// $ipadrbg.context.clinix_POSTOp_HIP_preform.add(newrecord);
-	    }
-		// $ipadrbg.context.clinix_POSTOp_HIP_preform.saveChanges();
-		//alert("Entries Saved successfully!");
-		$scope.LoadPOSTHipPreForm();
-	};
-
-  	$scope.removeItem = function (OpObj) {
-    	OpObj.remove()
-    		.then(function() {
-      		$scope.$apply(function() {
-       			var diagol = $scope.clinix_POSTOp_HIP_preform;
-         		diagol.splice(diagol.indexOf(OpObj), 1);
-      		});
-    	})
-   		.fail(function(err) {
-    		alert("Error deleting item!");
-   		});
-  	}
-
-////////////////
-	$scope.hipPostform = {
-	    // clinix_POSTOp_HIP_preform : [ $scope.clinix_POSTOp_HIP_preform ]
-	};
 	$scope.checkAll = function() {
-		// alert("Hit!");
-    	$scope.hipPostform.clinix_POSTOp_HIP_preform = angular.copy($scope.clinix_POSTOp_HIP_preform);
+    	$scope.hipPostform = {
+	        ClinixRID : $scope.clinix.ClinixRID
+	        ,PxRID    : $scope.clinix.PxRID
+
+			,Post01  : "1" 
+			,Post02  : "1" 
+			,Post03  : "1" 
+			,Post04  : "1" 
+			,Post05  : "1" 
+			,Post06  : "1" 
+			,Post07  : "1" 
+			,Post08  : "1" 
+			,Post09  : "1" 
+			,Post10  : "1" 
+			,Post11  : "1" 
+			,Post12  : "1" 
+			,Post13  : "1" 
+			,Post14  : "1" 
+			,Post15  : "1" 
+			,Post16a : "1" 
+			,Post16b : "1" 
+			,Post16c : "1" 
+			,Post16d : "1" 
+			,Post16e : "1" 
+			,Post17  : "1" 
+			,Post18  : "1" 
+			,Post19  : "1" 
+			,Post20  : "1" 
+			,Post21  : "1" 
+	    };
   	};
+
   	$scope.uncheckAll = function() {
-    	$scope.hipPostform.clinix_POSTOp_HIP_preform = [];
+    	$scope.hipPostform = [];
   	};
-/////////////////
-
-
-
-
-
-
-	// $scope.hipPostform = {
-	//     // clinix_POSTOp_HIP_preform : [ $scope.clinix_POSTOp_HIP_preform.PostOpYN ]
-	// };
-
-	// $scope.checkAll = function() {
-	// 	// alert("Hit!");
- //    	$scope.hipPostform.clinix_POSTOp_HIP_preform = angular.copy($scope.clinix_POSTOp_HIP_preform);
- //  	};
-
- //  	$scope.uncheckAll = function() {
- //    	$scope.hipPostform.clinix_POSTOp_HIP_preform = [];
- //  	};
-
 });

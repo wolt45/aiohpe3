@@ -3,7 +3,7 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeMotionRange", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
-	, MotionArea: { type: "string"}
-	, Left: { type: "string"}
-	, Right: { type: "string"}
+	, FlexionContracture: { type: "string"}
+	, Extension: { type: "string"}
+	, Flexion: { type: "string"}
 });

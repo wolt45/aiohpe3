@@ -11,6 +11,27 @@ IOHPEApp.controller('OPKNEE_4Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.jdata_OPKNEE_4 = pxresult;
+
+        $scope.opknee4 = {
+          ClinixRID : $scope.clinix.ClinixRID
+          ,PxRID    : $scope.clinix.PxRID
+
+          ,Tourniquet  : pxresult[0]['Tourniquet'] 
+          ,TourniquetNotes  : pxresult[0]['TourniquetNotes'] 
+          ,ReleaseB4C  : pxresult[0]['ReleaseB4C'] 
+          ,ReleaseB4Notes  : pxresult[0]['ReleaseB4Notes'] 
+          ,Approach  : pxresult[0]['Approach'] 
+          
+          ,Subvastus  : pxresult[0]['Subvastus'] 
+          ,SubvastusNotes  : pxresult[0]['SubvastusNotes'] 
+          ,SurgicalIncision  : pxresult[0]['SurgicalIncision'] 
+          ,SurgicalIncisionNotes  : pxresult[0]['SurgicalIncisionNotes'] 
+          ,BonePreparation  : pxresult[0]['BonePreparation'] 
+          ,CementingComponents  : pxresult[0]['CementingComponents'] 
+          ,LateralRelease  : pxresult[0]['LateralRelease'] 
+          ,LateralReleaseNotes  : pxresult[0]['LateralReleaseNotes'] 
+          ,HemovacUsed  : pxresult[0]['HemovacUsed'] 
+        }
       });
     });
   };
@@ -18,6 +39,12 @@ IOHPEApp.controller('OPKNEE_4Ctrl', function ($scope, $routeParams, $http){
   $scope.LoadOPKNEE_4();
 
   $scope.addNew = function (frmObj) {
+
+    var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPKNEE_4' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
+    });
+
     newrecord = {
       ClinixRID : $scope.clinix.ClinixRID
       ,PxRID    : $scope.clinix.PxRID
@@ -46,37 +73,18 @@ IOHPEApp.controller('OPKNEE_4Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.jdata_OPKNEE_4.add(newrecord);
     $ipadrbg.context.jdata_OPKNEE_4.saveChanges();
 
-    frmObj.Tourniquet = "";
-    frmObj.TourniquetNotes = "";
-    frmObj.ReleaseB4C = "";
-    frmObj.ReleaseB4Notes = "";
-    frmObj.Approach = "";
-
-    frmObj.Subvastus = "";
-    frmObj.SubvastusNotes = "";
-    frmObj.SurgicalIncision = "";
-    frmObj.SurgicalIncisionNotes = "";
-    
-    frmObj.BonePreparation = "";
-    frmObj.CementingComponents = "";
-    frmObj.LateralRelease = "";
-    frmObj.LateralReleaseNotes = "";
-    frmObj.HemovacUsed = "";
+    alert("Surgical Technique Data Saved!");
 
     $scope.LoadOPKNEE_4();
   }
 
   $scope.removeItem = function (frmObj) {
-    frmObj.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var diagol = $scope.jdata_OPKNEE_4;
-         diagol.splice(diagol.indexOf(frmObj), 1);
+    if (confirm('Are you sure to Delete this data?')) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("delete from 'jdata_OPKNEE_4' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
       });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
+      $scope.opknee4 = [];
+    }
   }
-
 });
