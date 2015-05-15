@@ -1,31 +1,71 @@
 <!-- TREATMENT -->
 <div ng-controller="TreatmentCtrl">
-	<div class="panel panel-default">	
+	<div class="panel panel-default">
+
 		<table class="table table-condensed table-bordered">
 			<tr class="info">
 				<th colspan=19>
-					<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+					<span id="DGL_module_header">
 		    			Past Treatment
 		    		</span>
 				</th>
 			</tr>
 
-			<tr class="info" ng-repeat="treatment in clinix_treatment">
-				<td width="5%"></td>
+		  	<tr class="primary" >
+                <th class="text-center" width="1%">Analgesics</th>
+                <th class="text-center" width="1%">Anti-Inflamatory</th>
+                <th class="text-center" width="1%">Others</th>
+                <th class="text-center" width="1%">Steriods</th>
+                <th class="text-center" width="1%">When</th>
 
-				<td class="text-left" style="float:left; color:black">
-					{{treatment.medAnalgesic ? "Analgesic: " + treatment.medAnalgesic : ""}}
-					{{treatment.medAntiInflamatory ? ", AntiInflamatory: " +  treatment.medAntiInflamatory : ""}}
-					{{treatment.medOthers ? ", Others: " + treatment.medOthers : ""}}
+                <th class="text-center" width="1%">Result</th>
+                <th class="text-center" width="1%">Details</th>
 
-					{{treatment.injSteroidsVolume ? ", Steroids: " + treatment.injSteroidsVolume : ""}}
-					{{treatment.injSteroidsWhen ? ", " + treatment.injSteroidsWhen : ""}}
-					{{treatment.injSteroidsResult==1 ? 'result: YES' : ''}}
-					{{treatment.injSteroidsDetails ? ", " + treatment.injSteroidsDetails : ""}}
+                <th class="text-center" width="1%">HyaluronicAcid</th>
+                <th class="text-center" width="1%">Result</th>
+                <th class="text-center" width="1%">Details</th>
+                <th class="text-center"></th>
+            </tr>
 
-					{{treatment.injHyaluronicAcid ? " Hyaluronic Acid: " + treatment.injHyaluronicAcid : ""}}
-					{{treatment.injHyaluronicResult==1 ? ", result: YES" : ''}}
-					{{treatment.injHyaluronicDetails ? ", " + treatment.injHyaluronicDetails : "" }}
+			<tr class="active" ng-repeat="treatment in clinix_treatment">
+				<td class="text-center">
+					{{ treatment.medAnalgesic }} 
+				</td>
+	               
+	            <td class="text-center">
+	                {{ treatment.medAntiInflamatory }}</span>
+	            </td>
+
+				<td class="text-center">
+					{{ treatment.medOthers }}
+				</td>
+
+				<td class="text-center">
+					{{ treatment.injSteroidsVolume }}
+				</td>
+
+				<td class="text-center">
+					{{ treatment.injSteroidsWhen }}
+				</td>
+
+				<td class="text-center">
+					{{ treatment.injSteroidsResult==1 ? 'YES' : 'NO' }}
+				</td>
+
+				<td class="text-center">
+					{{ treatment.injSteroidsDetails }}
+				</td>
+
+				<td class="text-center">
+					{{ treatment.injHyaluronicAcid }}
+				</td>
+
+				<td class="text-center">
+					{{ treatment.injHyaluronicResult==1 ? "YES" : 'NO'}}
+				</td>
+
+				<td class="text-center">
+					{{ treatment.injHyaluronicDetails }}
 				</td> 
 			</tr>
 		</table>

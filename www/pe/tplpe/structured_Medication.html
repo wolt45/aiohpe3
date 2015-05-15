@@ -40,7 +40,10 @@
 				</td>
 
 				<td class="text-center">
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(xMeds)" style="text-decoration: none">ADD</a>
+					<a class="btn btn-large btn-info" style="text-decoration: none" 
+						ng-click="addNew(xMeds)">
+						ADD
+					</a>
 				</td>
 
 				<td></td>
@@ -52,14 +55,14 @@
 	            <td class="text-center" style="color:black">{{xMed.Qty}}</td>
 	            <td class="text-center" style="color:black">{{xMed.Dose}}</td>
 	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{xMed.ClinixRID}}" ng-click="removeItem(xMed)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger" ng-click="removeItem(xMed)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
                 <td>
-                	<a class="btn btn-large btn-warning" href="#/{{xMed.ChiefRID}}/edit" ng-click="editChiefComp(xMed)" style="text-decoration: none">
+                	<!-- a class="btn btn-large btn-warning" href="#/{{xMed.ChiefRID}}/edit" ng-click="editChiefComp(xMed)" style="text-decoration: none">
                 		EDIT
-                	</a>
+                	</a -->
             	</td>
 	        </tr>
 

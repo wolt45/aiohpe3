@@ -6,16 +6,34 @@
 			<table class="table table-condensed table-bordered">
 				<tr class="info">
 					<th colspan=9>
-						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+						<span id="DGL_module_header">
 			    			Previous Surgeries
 			    		</span>
 					</th>
 				</tr>
 
-				<tr class="info" ng-repeat="prevSurgery in clinix_previousSurgeries">
-					<td width="5%"></td>
+				<tr class="primary">
+	            	<th width="1%" class="text-center">Type</th>
+	            	<th width="1%" class="text-center">Date</th>
+	            	<th width="1%" class="text-center">Location</th>
+	                <th width="1%" class="text-center">By Who</th>
+	                <th width="1%" class="text-center">Result</th> 
+	                <th width="1%" class="text-center">Did it Help</th> 
+	                <th width="1%" class="text-center">Duration</th> 
+	                <th width="1%">	</th>
+					<td></td>
+	            </tr>
 
-					<td class="text-left" style="float:left; color:black">
+				<tr class="active" ng-repeat="prevSurgery in clinix_previousSurgeries">
+	            	<td class="text-center"> {{prevSurgery.SurgeryType}} </td>
+	            	<td class="text-center"> {{prevSurgery.SurgeryWhen | date}} </td>
+	            	<td class="text-center"> {{prevSurgery.SurgeryWhere}} </td>
+	                <td class="text-center"> {{prevSurgery.SurgeryWho}} </td>
+	                <td class="text-center"> {{prevSurgery.SurgeryHelped == "1" ? "YES" : "NO" }} </td> 
+	                <td class="text-center"> {{prevSurgery.SurgeryHowMany}} </td> 
+	                <td class="text-center"> {{prevSurgery.SurgeryHowManyUnit}} </td>
+
+					<!-- td class="text-left" style="color:black">
 
 						&nbsp; {{prevSurgery.SurgeryType ? prevSurgery.SurgeryType : ""}}
 						&nbsp; {{prevSurgery.SurgeryWhen == "0000-00-00" ? "" : (prevSurgery.SurgeryWhen) }}
@@ -27,7 +45,7 @@
 
 						&nbsp; {{prevSurgery.SurgeryHowMany ? prevSurgery.SurgeryHowMany : ""}}
 						&nbsp; {{prevSurgery.SurgeryHowManyUnit ? prevSurgery.SurgeryHowManyUnit : ""}}
-					</td> 
+					</td --> 
 				</tr>
 			</table>
 			

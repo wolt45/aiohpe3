@@ -3,24 +3,28 @@
 	<div scroll-bookmark="IOPELabs">
 		<div class="panel panel-default">
 
-			<table class="table table-bordered">
+			<table class="table table-condensed table-bordered">
 				<tr class="info">
 					<th colspan=9>
-						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+						<span id="DGL_module_header">
 			    			Laboratory Examinations
 			    		</span>
 					</th>
 				</tr>
 
-				<tr class="info" ng-repeat="rolLabs in clinix_LABS" style="color:black">
-					<td width="5%"></td>
+				<tr class="primary">
+					<th width="1%" class="text-center">Labs</th>
+					<th width="1%" class="text-center">Date</th>
+					<th width="1%" class="text-center">Where</th>
+					<th width="1%" class="text-center">Report</th>
+					<th></th>
+				</tr>
 
-					<td class="text-left"> 
-						&nbsp; {{rolLabs.labCategory ? rolLabs.labCategory : ''}}
-						&nbsp; {{rolLabs.labDate == "0000-00-00" ? "" : (rolLabs.labDate | date) }}
-						&nbsp; {{rolLabs.labSource ? rolLabs.labSource : ''}}
-						&nbsp; {{rolLabs.labReport ? rolLabs.labReport : ''}}
-					</td> 
+				<tr class="active" ng-repeat="rolLabs in clinix_LABS">
+	            	<td nowrap>{{rolLabs.labCategory}}</td>
+	            	<td class="text-center">{{rolLabs.labDate}}</td>
+	            	<td class="text-center" nowrap>{{rolLabs.labSource}}</td>
+	                <td class="text-center">{{rolLabs.labReport}}</td>
 				</tr>
 
 			</table>

@@ -13,57 +13,53 @@
 
 			<tr>
 				<td width="1%" nowrap>Date Admitted </td>
-				<td width="1%">
-					<input type="Date" class="form-control" ng-model="hospitalize.DateAdmitted">
+				<td class="active" width="1%">
+					{{ hospitalize.DateAdmitted | date : 'MM/dd/yyyy' }}
+					<br>
+					<input type="Date" class="form-control" 
+						ng-model="hospitalize.DateAdmitted" 
+						value="{{ hospitalize.DateAdmitted | date : 'MM/dd/yyyy' }}">
 				</td>
 				<td width="1%" nowrap>Date Discharged</td>
-				<td width="1%">
-					<input type="Date" class="form-control" ng-model="hospitalize.DateDischarged">
+				<td class="active" width="1%">
+					{{ hospitalize.DateDischarged | date : 'MM/dd/yyyy' }}
+					<br>
+					<input type="Date" class="form-control" 
+						ng-model="hospitalize.DateDischarged"
+						value="{{ hospitalize.DateDischarged | date : 'MM/dd/yyyy' }}">
 				</td>
 				<td></td>
 			</tr>
 
 			<tr>
 				<td nowrap>Hospital Course</td>
-				<td colspan="3">
+				<td class="active" colspan="3">
 					<input type="text" class="form-control" ng-model="hospitalize.HospitalCourse" placeholder="hospital course" >
 				</td>
 			</tr>
 
 			<tr>
 				<td colspan="2" nowrap>Wound Appearance on Discharge</td>
-				<td colspan="2">
+				<td class="active" colspan="2">
 					<input type="text" class="form-control" ng-model="hospitalize.WoundAppearance" placeholder="wound appearance">
 				</td>
-				<td class="text-center" width="10%" nowrap>
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(hospitalize)" style="text-decoration: none; color: #000">Save</a>
+
+				<td class="text-center" width="10%" nowrap> </td>
+			</tr>
+
+			<tr>	
+				<td class="text-center" colspan="9" nowrap>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+						ng-click="addNew(hospitalize)">
+						SAVE
+					</a>
+
+					<a class="btn btn-large btn-danger" style="text-decoration: none"
+	            	 	ng-click="removeItem()">
+	            		DELETE
+	            	</a>
 				</td>
 			</tr>
 		</table>
-
-		<table class="table table-condensed table-bordered">
-			<tr class="info">
-				<th width="1%" class="text-center" style="color:#888">Admitted</th>  <!-- OnsetAccuteGradual -->
-	        	<th width="1%" class="text-center" style="color:#888" nowrap>Discharged</th>
-	        	<th width="1%" class="text-center" style="color:#888" >Hospital Course</th>
-	            <th width="1%" class="text-center" style="color:#888" >Wound Appearnce</th>
-	            <th width="1%"> </th>
-	            <th> </th>
-			</tr>
-
-			<tr class="info" ng-repeat="hospitz in clinix_StructuredHospitalization">
-	        	<td style="color:black" nowrap>{{hospitz.DateAdmitted | date}}</td>
-	        	<td style="color:black" nowrap>{{hospitz.DateDischarged | date}}</td>
-	        	<td style="color:black">{{hospitz.HospitalCourse}}</td>
-	        	<td style="color:black">{{hospitz.WoundAppearance}}</td>
-	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{hospitz.ClinixRID}}" ng-click="removeItem(hospitz)" style="text-decoration: none">
-	            		DELETE
-	            	</a>
-	        	</td>
-	        	<th> </th>
-	        </tr>
-	    </table>
-
 	</div>
 </div>

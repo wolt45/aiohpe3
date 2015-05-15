@@ -17,6 +17,7 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
       $scope.clinix = [];
       for(key in pxresult) {
 
+        // search and assign the Status
         for (var i = 0; i < $scope.lkup_TranStatus.length; i++) {
           if ($scope.lkup_TranStatus[i]['TrnSttsRID'] == pxresult[key].TranStatus ) {
             pxresult[key].TranStatusDisp = $scope.lkup_TranStatus[i]['TrnStts'];
@@ -168,7 +169,6 @@ IOHPEApp.controller('PXListPECtrl', function ($scope){
 
 IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
   $scope.clinix = [];
-  
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
   var promise = $ipadrbg.context.clinix.filter(function (px) { 

@@ -1,6 +1,9 @@
 IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_chiefcomp = [];
+  $scope.clinix_HXchiefcomp = [];
+
   $scope.ClinixRID = $routeParams.p_clinixrid;
+  $scope.PxRID = 0;
 
   $scope.myBone= [
       { id : 0, name: "(undefined)"}
@@ -17,25 +20,34 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
   // http://jsfiddle.net/jaredwilli/vUSPu/
 
   $scope.LoadComplaints = function(){
-    var promise = $ipadrbg.context.clinix_chiefcomp.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+    var promise = $ipadrbg.context.clinix_chiefcomp.filter(function (px) 
+      { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_chiefcomp = pxresult;
+        // WFS HACKS: pick-up Chart Number Here
+        $scope.PxRID = pxresult[0]['PxRID'];
+        // alert($scope.PxRID);
+        $scope.LoadHXComplaints();
       });
     });
-
-    var promise = $ipadrbg.context.clinix_spineIntl.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-    promise.then(function(pxresult) {
-      $scope.$apply(function () {
-        $scope.clinix_spineIntl = pxresult;
-      });
-    })
   }
-
   $scope.LoadComplaints();
 
-  $scope.addNew = function (complaint) {
+  // HISTORY, loaded on the first promise, load after $scope.PxRID was promised
+  $scope.LoadHXComplaints = function(){
+    var promise = $ipadrbg.context.clinix_chiefcomp.filter(function (px) 
+      { return px.PxRID == this.id} , {id:$scope.PxRID}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.clinix_HXchiefcomp = pxresult;
+        // alert($scope.PxRID);
+      });
+    });
+  }
 
+
+  $scope.addNew = function (complaint) {
     var myComplaint = 
       (complaint.MyBoneComplaint.Pain ? complaint.MyBoneComplaint.Pain + " " : "") 
       + (complaint.MyBoneComplaint.Swelling ? " " + complaint.MyBoneComplaint.Swelling + " " : "") 
@@ -77,78 +89,13 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
     complaint.remove()
     .then(function() {
       $scope.$apply(function() {
-         var comps = $scope.clinix_chiefcomp;
-         comps.splice(comps.indexOf(complaint), 1);
+        var comps = $scope.clinix_chiefcomp;
+        comps.splice(comps.indexOf(complaint), 1);
       });
     })
    .fail(function(err) {
-       alert("Error deleting item!");
+      alert("Error deleting item!");
    });
   }
-
-  // $scope.editChiefComp = function (cheifcompdetailID) {
-  //   complaint.remove()
-  //   .then(function() {
-  //     $scope.$apply(function() {
-  //        var comps = $scope.clinix_chiefcomp;
-  //        comps.splice(comps.indexOf(complaint), 1);
-  //     });
-  //   })
-  //  .fail(function(err) {
-  //      alert("Error deleting item!");
-  //  });
-  // }
-
-
-
-
-
-  // Spine Initial
-  $scope.saveSpineIntl = function (spineIntl) {
-    newrecord = {
-      ClinixRID         : $scope.clinix.ClinixRID
-      ,PxRID            : $scope.clinix.PxRID
-      ,MySpineNeck      : spineIntl.Neck
-      ,MySpineUpperBack : spineIntl.UpperBack
-      ,MySpineLowerBack : spineIntl.LowerBack
-      ,MySpineOthers    : spineIntl.SpineOthers
-    }
-
-      $ipadrbg.context.clinix_spineIntl.add(newrecord);
-      $ipadrbg.context.clinix_spineIntl.saveChanges();
-
-      spineIntl.Neck = "";
-      spineIntl.UpperBack = "";
-      spineIntl.LowerBack = "";
-      spineIntl.SpineOthers = "";
-
-      $scope.LoadComplaints();
-  }
-
-  $scope.removeSpineIntl = function (spineIntl) {
-    spineIntl.remove()
-    .then(function() {
-      $scope.$apply(function() {
-         var comps = $scope.clinix_spineIntl;
-         comps.splice(comps.indexOf(spineIntl), 1);
-      });
-    })
-   .fail(function(err) {
-       alert("Error deleting item!");
-   });
-  }
-
 
 });
-
-// IOHPEApp.controller('myBone', function ($scope) {
-//   $scope.myBone = [
-//   { 0 : "(undefined)"},
-//   { 1 : "HIP"},
-//   { 2 : "KNEE"},
-//   { 3 : "ANKLE and FOOT"},
-//   { 4 : "SHOULDER-ARM"},
-//   { 5 : "ELBOW"},
-//   { 6 : "WRIST and HAND"},
-//   { 7 : "THIGH"}
-// ]}

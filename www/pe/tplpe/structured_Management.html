@@ -10,62 +10,41 @@
 				</td>
 			</tr>
 
-			<!-- tr>
-				<td width="1%" nowrap>Type
-					<input type="hidden" ng-model="StructMgmt.Management1" class="form-control" ng-init="StructMgmt.Management1='Management Type'" value="Management Type" READONLY>
-				</td>
-				<td width="15%" colspan="1">
-					<select ng-model="StructMgmt.ManagementDetail1" class="form-control"> 
-						<option value="">(select one)</option>
-						<option value="CLOSED"> CLOSED </option>
-						<option value="OPEN"> OPEN </option>
-					</select>
-				</td>
-				<td width="15%"></td>
-				<td></td>
-			</tr -->
-			
 			<tr>
-				<td width="1%" nowrap>Physical Therapy
-					<input type="hidden" ng-model="StructMgmt.Management2" class="form-control" ng-init="StructMgmt.Management2='Physical Therapy'" value="Physical Therapy" READONLY>
-				</td>
+				<td width="1%" nowrap> Physical Therapy </td>
 				<td colspan="3">
-					<input type="text" class="form-control" ng-model="StructMgmt.ManagementDetail2" placeholder="Physical Theraphy" >
+					<input type="text" class="form-control" ng-model="StructMgmt.PhysicalTherapy">
 				</td>
 				<td></td>
 			</tr>
 
 			<tr>
-				<td nowrap>Exercise program 
-					<input type="hidden" ng-model="StructMgmt.Management3" class="form-control" ng-init="StructMgmt.Management3='Exercise program'" value="Exercise program" READONLY>
-				</td>
+				<td nowrap> Exercise program </td>
 				<td nowrap>
-					    <input type="checkbox"  ng-model="StructMgmt.DetlA"
-							ng-true-value="Foot and Ankle"
-				            ng-false-value=""> Foot and Ankle
+					    <input type="checkbox"  ng-model="StructMgmt.ExProg_FootAnkle"
+							ng-true-value="1"
+				            ng-false-value="0"> Foot and Ankle
 
-					<br><input type="checkbox" ng-model="StructMgmt.DetlB"
-							ng-true-value="Quads and Hamstrings"
-				            ng-false-value=""> Quads and Hamstrings
+					<br><input type="checkbox" ng-model="StructMgmt.ExProg_QuadsHams"
+							ng-true-value="1"
+				            ng-false-value="0"> Quads and Hamstrings
 					
-					<br><input type="checkbox" ng-model="StructMgmt.DetlC"
-							ng-true-value="FULL Weight Bearing"
-				            ng-false-value=""> FULL Weight Bearing
+					<br><input type="checkbox" ng-model="StructMgmt.ExProg_FullWeight"
+							ng-true-value="1"
+				            ng-false-value="0"> FULL Weight Bearing
 
-					<br><input type="checkbox" ng-model="StructMgmt.DetlD"
-							ng-true-value="SLR"
-				            ng-false-value=""> SLR
+					<br><input type="checkbox" ng-model="StructMgmt.ExProg_SLR"
+							ng-true-value="1"
+				            ng-false-value="0"> SLR
 				</td>
 			</tr>
 
 			<tr>
-				<td nowrap>Ambulatory Aid
-					<input type="hidden" ng-model="StructMgmt.Management4" class="form-control" ng-init="StructMgmt.Management4='Ambulatory Aid'" value="Ambulatory Aid" READONLY>
-				</td>
+				<td nowrap> Ambulatory Aid </td>
 				<td nowrap>
-					    <input type="radio" value="Cruches" ng-model="StructMgmt.ManagementDetail4"> Cruches &nbsp;&nbsp;
-					<br><input type="radio" value="Walker" ng-model="StructMgmt.ManagementDetail4"> Walker
-					<br><input type="radio" value="Cane" ng-model="StructMgmt.ManagementDetail4"> Cane
+					    <input type="radio" value="Cruches" ng-model="StructMgmt.AmbulatoryAid"> Cruches &nbsp;&nbsp;
+					<br><input type="radio" value="Walker" ng-model="StructMgmt.AmbulatoryAid"> Walker
+					<br><input type="radio" value="Cane" ng-model="StructMgmt.AmbulatoryAid"> Cane
 				</td>
 				<td></td>
 				<td></td>
@@ -94,7 +73,7 @@
 			<tr>
 				<td nowrap>Instructions/Notes</td>
 				<td nowrap>
-					<textarea class="form-control" ng-model="StructMgmt.Notes" placeholder="instructions/notes" rows="2"> </textarea> 
+					<textarea class="form-control" ng-model="StructMgmt.Notes" rows="2"> </textarea> 
 				</td>
 				<td></td>
 				<td></td>
@@ -103,7 +82,7 @@
 			<tr>
 				<td nowrap>Follow-up</td>
 				<td nowrap>
-					<input type="text" ng-model="StructMgmt.Follow" class="form-control" plpaceholder="follow-up" >
+					<input type="text" ng-model="StructMgmt.FollowUp" class="form-control">
 				</td>
 				<td></td>
 				<td></td>
@@ -111,28 +90,18 @@
 
 			<tr>
 				<td class="text-center" colspan="9" nowrap>
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(StructMgmt)" style="text-decoration: none; color: #000">Save</a>
-				</td>
-				<td></td>
-			</tr>
-
-
-
-			<tr class="info" ng-repeat="StructMgmt in clinix_StructuredManagement">
-	        	<td style="color:black" nowrap>{{StructMgmt.Management}}</td>
-	        	<td style="color:black">{{StructMgmt.ManagementDetail}}</td>
-	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{StructMgmt.ClinixRID}}" ng-click="removeItem(StructMgmt)" style="text-decoration: none">
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000" 
+						ng-click="addNew(StructMgmt)">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none" 
+	            		ng-click="removeItem()">
 	            		DELETE
 	            	</a>
-	        	</td>
-                <td>
-                	<!-- a class="btn btn-large btn-warning" href="#/{{StructMgmt.ChiefRID}}/edit" ng-click="editChiefComp(StructMgmt)" style="text-decoration: none">
-                		EDIT
-                	</a -->
-            	</td>
-	        </tr>
+				</td>
 
+				<td></td>
+			</tr>
 
 		</table>
 	</div>

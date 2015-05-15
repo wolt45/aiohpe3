@@ -19,13 +19,15 @@ IOHPEApp.controller('PREOpKNEE_preformCtrl', function ($scope, $routeParams, $ht
               ,Pre04  : pxresult[0]['Pre04']
               ,Pre05  : pxresult[0]['Pre05']
               ,Pre06  : pxresult[0]['Pre06']
-              ,Pre07  : pxresult[0]['Pre07b']
+              ,Pre07  : pxresult[0]['Pre07']
               ,Pre08  : pxresult[0]['Pre08']
               ,Pre09  : pxresult[0]['Pre09']
               ,Pre10  : pxresult[0]['Pre10']
               ,Pre11a : pxresult[0]['Pre11a']
               ,Pre11b : pxresult[0]['Pre11b']
               ,Pre11c : pxresult[0]['Pre11c']
+              ,Pre11d : pxresult[0]['Pre11d']
+
               ,Pre12  : pxresult[0]['Pre12']
               ,Pre13a : pxresult[0]['Pre13a']
               ,Pre13b : pxresult[0]['Pre13b']
@@ -58,9 +60,12 @@ IOHPEApp.controller('PREOpKNEE_preformCtrl', function ($scope, $routeParams, $ht
       ,Pre08 : OpObj.Pre08 
       ,Pre09 : OpObj.Pre09 
       ,Pre10 : OpObj.Pre10 
+
       ,Pre11a: OpObj.Pre11a
       ,Pre11b: OpObj.Pre11b
       ,Pre11c: OpObj.Pre11c
+      ,Pre11d: OpObj.Pre11d
+
       ,Pre12 : OpObj.Pre12 
       ,Pre13a: OpObj.Pre13a
       ,Pre13b: OpObj.Pre13b
@@ -90,10 +95,12 @@ IOHPEApp.controller('PREOpKNEE_preformCtrl', function ($scope, $routeParams, $ht
       ,Pre08  : "1"
       ,Pre09  : "1"
       ,Pre10  : "1"
+
       ,Pre11a : "1"
       ,Pre11b : "1"
       ,Pre11c : "1"
       ,Pre11d : "1"
+      
       ,Pre12  : "1"
       ,Pre13a : "1"
       ,Pre13b : "1"

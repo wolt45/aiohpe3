@@ -1,17 +1,36 @@
 IOHPEApp.controller('EtiologyCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_etiology = [];
+  $scope.clinix_HXetiology = [];
+
   $scope.ClinixRID = $routeParams.p_clinixrid;
+  $scope.PxRID = 0;
 
   $scope.LoadEtiology = function(){
-    var promise = $ipadrbg.context.clinix_etiology.filter(function (px) { return px.ClinixRID == this.id },{ id: $scope.ClinixRID }).toLiveArray();
+    var promise = $ipadrbg.context.clinix_etiology.filter(function (px) 
+      { return px.ClinixRID == this.id },{ id: $scope.ClinixRID }).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_etiology = pxresult;
+
+        // WFS HACKS: pick-up Chart Number Here
+        $scope.PxRID = pxresult[0]['PxRID'];
+        // alert($scope.PxRID);
+        $scope.LoadHXEtiology();
+      });
+    })
+  }
+  $scope.LoadEtiology();
+
+  $scope.LoadHXEtiology = function(){
+    var promise = $ipadrbg.context.clinix_etiology.filter(function (px) 
+      { return px.PxRID == this.id },{ id: $scope.PxRID }).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.clinix_HXetiology = pxresult;
       });
     })
   }
 
-  $scope.LoadEtiology();
 
   $scope.addEtiology = function (grpEtiology) {
     if ( grpEtiology.Injury

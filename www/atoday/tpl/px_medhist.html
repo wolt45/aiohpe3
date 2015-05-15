@@ -6,7 +6,7 @@
 			<table class="table table-condensed table-bordered">
 				<tr class="warning">
 					<th colspan=9>
-						<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+						<span id="DGL_module_header">
 			    			Medical History
 			    		</span>
 					</th>
@@ -165,10 +165,10 @@
 
 
 
-				<tr class="info" ng-repeat="rolHist in clinix_MedHist">
-	            	<td class="text-center" style="color:black">{{rolHist.MedHist}}</td>
-	            	<td class="text-center" style="color:black">{{rolHist.MedHistYN}}</td>
-	            	<td class="text-center" style="color:black">{{rolHist.MedHistDetails}}</td>
+				<tr class="info" ng-repeat="rolHist in clinix_MedHist" style="color:black">
+	            	<td class="text-center">{{rolHist.MedHist}}</td>
+	            	<td class="text-center">{{rolHist.MedHistYN}}</td>
+	            	<td class="text-center">{{rolHist.MedHistDetails}}</td>
 
 	                <td class="text-center" width="1%">
 	                	<a class="btn btn-large btn-danger" href="#/{{rolHist.ClinixRID}}" ng-click="removeMedHist(rolHist)" style="text-decoration: none">

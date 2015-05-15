@@ -16,25 +16,17 @@ IOHPEApp.controller('OPKNEE_5Ctrl', function ($scope, $routeParams, $http){
           ClinixRID  : $scope.clinix.ClinixRID
           ,PxRID     : $scope.clinix.PxRID
 
-          ,SupineLength : pxresult[0]['SupineLength']
-          ,LR : pxresult[0]['LR']
-          ,AbsentNormal : pxresult[0]['AbsentNormal']
-          ,Others : pxresult[0]['Others']
-
-
-
-          , BloodLoss : pxresult[0]['SupineLength']
-          , Closure   : pxresult[0]['SupineLength']
-          , CompressionDressings : pxresult[0]['SupineLength']
-          , OperativeCourse : pxresult[0]['SupineLength']
-          , Findings : pxresult[0]['SupineLength']
-          , Diagnosis : pxresult[0]['SupineLength']
+          , BloodLoss : pxresult[0]['BloodLoss']
+          , Closure   : pxresult[0]['Closure']
+          , CompressionDressings : pxresult[0]['CompressionDressings']
+          , OperativeCourse : pxresult[0]['OperativeCourse']
+          , Findings : pxresult[0]['Findings']
+          , Diagnosis : pxresult[0]['Diagnosis']
           
-          , OpDuration : pxresult[0]['SupineLength']
-          , TEDS : pxresult[0]['SupineLength']
-          , XRays : pxresult[0]['SupineLength']
-          , Others : pxresult[0]['SupineLength']
-
+          , OpDuration : pxresult[0]['OpDuration']
+          , TEDS : pxresult[0]['TEDS']
+          , XRays : pxresult[0]['XRays']
+          , Others : pxresult[0]['Others']
         }
 
       });
@@ -47,7 +39,7 @@ IOHPEApp.controller('OPKNEE_5Ctrl', function ($scope, $routeParams, $http){
 
     var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
     db.transaction(function (tx) {
-        tx.executeSql("delete from 'jdata_OPKNEE_5' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND  Operative = 'Operative Blood Loass'");
+        tx.executeSql("delete from 'jdata_OPKNEE_5' WHERE ClinixRID = " + $scope.clinix.ClinixRID );
     });
 
     newrecord = {

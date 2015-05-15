@@ -43,9 +43,13 @@
 
 			<tr>
 				<td class="text-center" colspan="2">
-					<a class="btn btn-large btn-info btn-block" href="#/{{clinix.ClinixRID}}" ng-click="addNew(labsOnDischarge)" style="text-decoration: none">ADD</a>
+					<a class="btn btn-large btn-info" style="text-decoration: none" 
+						ng-click="addNew(labsOnDischarge)">
+						ADD
+					</a>
 				</td>
 			</tr>
+			
 		</table>	
 
 		<!-- D I S P L A Y -->
@@ -58,7 +62,6 @@
                 <td width="1%" class="text-center">WBC</td>
                 <td width="1%" class="text-center">HgB</td>
                 <td width="1%" class="text-center">Hematocrit</td>
-                <td width="1%"></td>
                 <td width="1%"></td>
                 <td></td>
             </tr>
@@ -75,12 +78,13 @@
                 		DELETE
                 	</a>
             	</td>
+
                 <td>
                 	<!--a class="btn btn-large btn-warning" href="#/{{rolLabs.ChiefRID}}/edit" ng-click="editChiefComp(rolLabs)" style="text-decoration: none">
                 		EDIT
                 	</a -->
             	</td>
-            	<td></td>
+            	
             </tr>
 		</table>
 	</div>

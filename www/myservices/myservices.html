@@ -83,8 +83,11 @@
       </table>
 
         <table class="table table-bordered">
-            <tr>
+            <tr class="info">
                <td width="1%" nowrap>App #</td>
+
+               <td width="1%" nowrap>Purpose</td>
+               <td width="1%" nowrap>Dok</td>
 
                <td width="1%" nowrap>Date Set</td>
                <td width="1%" nowrap>App Age</td>
@@ -99,12 +102,14 @@
                <td width="1%" nowrap>Status</td>
                <td width="1%" nowrap>Reg Date</td>
                <td>Profile</td>
-               <td width="1%">TranStatus</td>
             </tr>
 
-            <tr ng-repeat="row in clinix">
+            <tr class="primary" ng-repeat="row in clinix | limitTo:50">
 
                <td>{{row.ClinixRID}}</td>
+
+               <td>{{ row.PurposeOfVisit }}</td>
+               <td>{{ row.Dok }}</td>
 
                <td nowrap>{{row.AppDateSet | date}}</td>
     	         <td nowrap>{{row.AppDateAge}}</td>
@@ -113,13 +118,12 @@
                <td>{{row.Hospital}}</td>
 
                <td>{{row.PxRID}}</td>
-               <td nowrap>{{row.pxname}}</td>
+               <td>{{row.pxname}}</td>
 
-               <td nowrap>{{row.pxAddress}}</td>
+               <td>{{row.pxAddress}}</td>
                <td nowrap>{{row.pxstatus}}</td>
                <td nowrap>{{row.pxregdate | date}}</td>
                <td>{{row.pxFoto}}</td>
-               <td>{{row.TranStatus}}</td>
             </tr>
     	</table>
   </div>

@@ -3,6 +3,16 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredManagement", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 
-	, Management		: { type: "string"}
-	, ManagementDetail	: { type: "string"}
+	, PhysicalTherapy : { type: "string"}
+
+	, ExProg_FootAnkle : { type: "string"}
+	, ExProg_QuadsHams : { type: "string"}
+	, ExProg_FullWeight	: { type: "string"}
+	, ExProg_SLR : { type: "string"}
+
+	, AmbulatoryAid : { type: "string"}
+	, TEDS : { type: "string"}
+	, Shower : { type: "string"}
+	, Notes : { type: "string"}
+	, FollowUp : { type: "string"}
 });

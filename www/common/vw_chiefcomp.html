@@ -2,31 +2,24 @@
 <div ng-controller="ChiefComplaintCtrl">
 	<div class="panel panel-default">
 
-	    <table class="table table-condensed table-bordered">
+	    <table class="table table-condensed">
 			<tr class="info">
-				<th colspan=9>
-					<span style="font-family: Helvetiker; font-size:30px; color: #555; letter-spacing: 3px; font-style: italic;">
+				<th colspan="9" nowrap>
+					<span id="DGL_module_header">
 		    			Chief Complaint
 		    		</span>
-				</th>
+                </th>
 			</tr>
-    	
-            <tr class="info">
-             	<!-- ng-repeat="complaint in clinix_chiefcomp">
-            	<td width="1%" style="color:black" nowrap>{{complaint.MyBone}}</td>
-            	<td width="1%" style="color:black" nowrap>{{complaint.MyBoneLRB}}</td>
-                <td width="1%" style="color:black">{{complaint.MyBoneComplaint}}</td>
-                <td width="15%" style="color:black">{{complaint.Remarks}}</td --> 
-                <td width="5%"></td>
-                <td>
-					<div ng-repeat="complaint in clinix_chiefcomp" style="float:left; color:black">
-						&nbsp; {{complaint.MyBoneComplaint}} 
-						{{complaint.MyBoneLRB ? (", &nbsp;" + (complaint.MyBoneLRB | uppercase) ) : ""}} 
-						{{complaint.MyBone ? (" &nbsp;" + (complaint.MyBone | uppercase) ) : ""}} 
-						{{complaint.Remarks ? (" &nbsp;" + complaint.Remarks ) : ""}} 
-					</div>
+
+			<tr class="primary" ng-repeat="complaint in clinix_chiefcomp">
+				<td class="primary" width="5%" nowrap> &nbsp; </td>
+
+				<td class="active text-left">
+					{{complaint.MyBoneComplaint}} 
+					{{complaint.MyBoneLRB ? (", &nbsp;" + (complaint.MyBoneLRB | uppercase) ) : ""}} 
+					{{complaint.MyBone ? (" &nbsp;" + (complaint.MyBone | uppercase) ) : ""}} 
+					{{complaint.Remarks ? (" &nbsp;" + complaint.Remarks ) : ""}} 
                 </td>
-                <td></td>
             </tr>
 
 		</table>

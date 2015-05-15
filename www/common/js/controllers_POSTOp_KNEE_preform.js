@@ -51,6 +51,7 @@ IOHPEApp.controller('POSTOpKNEE_preformCtrl', function ($scope, $routeParams, $h
 				, Post07  : pxresult[0]['Post07'] 
 				, Post08  : pxresult[0]['Post08'] 
 				, Post09  : pxresult[0]['Post09'] 
+
 				, Post10  : pxresult[0]['Post10'] 
 				, Post11  : pxresult[0]['Post11'] 
 				, Post12  : pxresult[0]['Post12'] 
@@ -61,14 +62,11 @@ IOHPEApp.controller('POSTOpKNEE_preformCtrl', function ($scope, $routeParams, $h
 				, Post16a : pxresult[0]['Post16a'] 
 				, Post16b : pxresult[0]['Post16b'] 
 				, Post16c : pxresult[0]['Post16c'] 
-				, Post16d : pxresult[0]['Post16d'] 
-				, Post16e : pxresult[0]['Post16e'] 
 	
 				, Post17  : pxresult[0]['Post17'] 
 				, Post18  : pxresult[0]['Post18'] 
 				, Post19  : pxresult[0]['Post19'] 
 				, Post20  : pxresult[0]['Post20'] 
-				, Post21  : pxresult[0]['Post21'] 
 			}
 	      });
 	    });
@@ -88,7 +86,6 @@ IOHPEApp.controller('POSTOpKNEE_preformCtrl', function ($scope, $routeParams, $h
 
 			, Post01  : OpObj.Post01 
 			, Post02  : OpObj.Post02
-
 			, Post03  : OpObj.Post03
 			, Post04  : OpObj.Post04
 			, Post05  : OpObj.Post05
@@ -96,13 +93,9 @@ IOHPEApp.controller('POSTOpKNEE_preformCtrl', function ($scope, $routeParams, $h
 			, Post07  : OpObj.Post07
 			, Post08  : OpObj.Post08
 			, Post09  : OpObj.Post09
+
 			, Post10  : OpObj.Post10
 			, Post11  : OpObj.Post11
-			, Post12  : OpObj.Post12 
-			, Post13  : OpObj.Post13 
-			, Post14  : OpObj.Post14 
-			, Post15  : OpObj.Post15 
-			, Post11  : OpObj.Post11 
 			, Post12  : OpObj.Post12 
 			, Post13  : OpObj.Post13 
 			, Post14  : OpObj.Post14 
@@ -111,14 +104,11 @@ IOHPEApp.controller('POSTOpKNEE_preformCtrl', function ($scope, $routeParams, $h
 			, Post16a : OpObj.Post16a
 			, Post16b : OpObj.Post16b
 			, Post16c : OpObj.Post16c
-			, Post16d : OpObj.Post16d
-			, Post16e : OpObj.Post16e
 
 			, Post17  : OpObj.Post17
 			, Post18  : OpObj.Post18
 			, Post19  : OpObj.Post19
 			, Post20  : OpObj.Post20
-			, Post21  : OpObj.Post21
 		}
 		$ipadrbg.context.clinix_POSTOp_KNEE_preform.add(newrecord);
 		$ipadrbg.context.clinix_POSTOp_KNEE_preform.saveChanges();
@@ -141,13 +131,9 @@ IOHPEApp.controller('POSTOpKNEE_preformCtrl', function ($scope, $routeParams, $h
 			, Post07  : "1"
 			, Post08  : "1"
 			, Post09  : "1"
+
 			, Post10  : "1"
 			, Post11  : "1"
-			, Post12  : "1" 
-			, Post13  : "1" 
-			, Post14  : "1" 
-			, Post15  : "1" 
-			, Post11  : "1" 
 			, Post12  : "1" 
 			, Post13  : "1" 
 			, Post14  : "1" 
@@ -156,17 +142,13 @@ IOHPEApp.controller('POSTOpKNEE_preformCtrl', function ($scope, $routeParams, $h
 			, Post16a : "1"
 			, Post16b : "1"
 			, Post16c : "1"
-			, Post16d : "1"
-			, Post16e : "1"
 
 			, Post17  : "1"
 			, Post18  : "1"
 			, Post19  : "1"
 			, Post20  : "1"
-			, Post21  : "1"
 		}
   	};
-
   	$scope.uncheckAll = function() {
     	$scope.kneePostForm = [];
   	};
