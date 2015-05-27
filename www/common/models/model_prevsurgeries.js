@@ -12,4 +12,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_previousSurgeries", {
 	, SurgeryHowMany: { type: "text"}
 	
 	, SurgeryHowManyUnit: { type: "text"}
+
+	, SynchStatus: { type: "string"}
 });

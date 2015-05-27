@@ -13,4 +13,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPHIP_3", {
 	, FemoralComponent : { type: "string"}
 	, HeadSize  : { type: "string"}
 	, NeckLength  : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

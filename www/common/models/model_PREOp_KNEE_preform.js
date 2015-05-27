@@ -24,4 +24,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_PREOp_KNEE_preform", {
 	, Pre13b : { type: "string"}
 	, Pre14  : { type: "string"}
 	, Pre15  : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

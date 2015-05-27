@@ -6,4 +6,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeMotionRange", {
 	, FlexionContracture: { type: "string"}
 	, Extension: { type: "string"}
 	, Flexion: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

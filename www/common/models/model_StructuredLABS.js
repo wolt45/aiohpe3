@@ -11,4 +11,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredLABS", {
 	, Hematocrit: { type: "string"}
 
 	, SynchStatus: { type: "int" }
+
+	, SynchStatus: { type: "string"}
 });

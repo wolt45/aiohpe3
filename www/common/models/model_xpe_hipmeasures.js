@@ -7,4 +7,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_HipMeasures", {
 	, LR: { type: "string"}
 	, AbsentNormal: { type: "string"}
 	, Others: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

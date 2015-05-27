@@ -24,4 +24,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPKNEE_4", {
 	, LateralReleaseNotes: { type: "string"}
 
 	, HemovacUsed: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

@@ -12,4 +12,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_PEcharges", {
 	, LinePayment: { type: "float" }
 	, LineBalance: { type: "float" }
 	, SynchStatus: { type: "int" }
+
+	, SynchStatus: { type: "string"}
 });

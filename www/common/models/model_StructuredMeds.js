@@ -8,4 +8,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredMedication", {
 	, Qty			: { type: "text"}
 	, DropName		: { type: "text"}
 	, Dose			: { type: "text"}
+
+	, SynchStatus: { type: "string"}
 });

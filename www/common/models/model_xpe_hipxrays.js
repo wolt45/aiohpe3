@@ -14,4 +14,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_HipXRays", {
 	, FracturesNeck: { type: "string"}
 	, Intertrouch: { type: "string"}
 	, Others: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

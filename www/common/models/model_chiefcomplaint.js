@@ -7,4 +7,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_chiefcomp", {
 	, MyBoneLRB: { type: "string" }
 	, MyBoneComplaint: { type: "string"}
 	, Remarks: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

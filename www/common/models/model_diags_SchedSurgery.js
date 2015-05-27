@@ -12,4 +12,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagSchedSurgery", {
 	, AnesthesiaType  : { type: "string"}
 	, Hospital	  : { type: "string"}
 	, Others	  : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

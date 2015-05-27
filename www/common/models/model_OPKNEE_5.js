@@ -14,4 +14,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPKNEE_5", {
 	, TEDS : { type: "string"}
 	, XRays : { type: "string"}
 	, Others : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

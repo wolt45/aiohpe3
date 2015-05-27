@@ -12,4 +12,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_etiology", {
 	,DurationUnit: { type: "string"}
 	,Severity: { type: "string"}
 	,AmbulatoryAid: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

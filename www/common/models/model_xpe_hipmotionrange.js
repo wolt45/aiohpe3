@@ -21,4 +21,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_HipMotionRange", {
 	, ResistRight: { type: "string"}
 	, Resist_Lyn: { type: "string"}
 	, ResistLeft: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

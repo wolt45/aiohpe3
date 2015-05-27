@@ -4,4 +4,6 @@ $data.Entity.extend("$ipadrbg.types.lkup_TranStatus", {
 	, preForeColor: { type: "string" }
 	, preBackColor: { type: "string" }
 	, Deleted: { type: "int"}
+
+	, SynchStatus: { type: "string"}
 });

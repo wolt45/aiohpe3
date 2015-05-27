@@ -13,4 +13,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPKNEE_2", {
 	, Anesthesio  : { type: "string"}
 	, AnesthesiaType  : { type: "string"}
 	, Hospital  	: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

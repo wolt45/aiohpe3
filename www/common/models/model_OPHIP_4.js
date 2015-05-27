@@ -11,4 +11,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPHIP_4", {
 	, AcetScrews : { type: "string"}
 	, AcetPrep : { type: "string"}
 	, FemoralPrep : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

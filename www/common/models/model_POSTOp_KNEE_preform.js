@@ -30,4 +30,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_POSTOp_KNEE_preform", {
 	, Post19  : { type: "string"}
 	, Post20  : { type: "string"}
 	, Post21  : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

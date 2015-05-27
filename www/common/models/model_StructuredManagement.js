@@ -15,4 +15,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredManagement", {
 	, Shower : { type: "string"}
 	, Notes : { type: "string"}
 	, FollowUp : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

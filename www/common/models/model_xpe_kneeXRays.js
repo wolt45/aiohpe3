@@ -14,4 +14,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeXRays", {
 	, BilateralJointSpace: { type: "string"}
 	, LaurinPatel_LR: { type: "string"}
 	, LaurinPatel_LRSeverity: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

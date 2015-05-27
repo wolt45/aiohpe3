@@ -9,4 +9,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagsMedication", {
 	, DropName		: { type: "text"}
 	, Dose			: { type: "text"}
 	, Duration		: { type: "text"}
+
+	, SynchStatus: { type: "string"}
 });

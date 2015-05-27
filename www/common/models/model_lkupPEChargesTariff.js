@@ -11,4 +11,6 @@ $data.Entity.extend("$ipadrbg.types.lkup_PEChargesTariff", {
 
 	, ClinixRID: { type: "int" }
 	, PxRID: { type: "int" }
+
+	, SynchStatus: { type: "string"}
 });

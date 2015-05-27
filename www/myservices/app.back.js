@@ -864,7 +864,7 @@ function PushController($rootScope, $scope, $http) {
   // HIP PRE-OPERATIVE section
 
   $scope.pushHIPops = function() {
-    if (confirm('PROCEED with H I P Operative Reports Synch-Push BACK Process?')) {
+    if (confirm('PROCEED with H I P Orders / Reports Synch-Push BACK Process?')) {
       $scope.Push_HIP_PREop_FORM();
 
       //DEPRECATE, CONTENT is in zipad_Diagnosis // $scope.Push_HIP_OP_Diagnosis();

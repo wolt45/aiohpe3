@@ -4,4 +4,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_Diagnosis", {
 	, PxRID: { type: "string"}
 
 	, Diagnosis: { type: "string"}
+	
+	, SynchStatus: { type: "string"}
 });

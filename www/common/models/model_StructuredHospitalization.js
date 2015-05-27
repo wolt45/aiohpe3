@@ -8,4 +8,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredHospitalization", {
 	, HospitalCourse: { type: "string"}
 	, WoundAppearance: { type: "string"}
 	, SynchStatus: { type: "int" }
+
+	, SynchStatus: { type: "string"}
 });

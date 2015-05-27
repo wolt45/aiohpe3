@@ -7,4 +7,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_LABS", {
 	, labDate: { type: "string"}
 	, labSource: { type: "string"}
 	, labReport: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

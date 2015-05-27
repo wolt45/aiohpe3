@@ -7,4 +7,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_spineIntl", {
 	, MySpineUpperBack: { type: "string"}
 	, MySpineLowerBack: { type: "string"}
 	, MySpineOthers: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

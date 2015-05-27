@@ -20,4 +20,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeAppearance", {
 	, EffusionL: { type: "string"}
 	, PainActiveROML: { type: "string"}
 	, PainPassiveROML: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

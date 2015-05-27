@@ -22,4 +22,6 @@ $data.Entity.extend("$ipadrbg.types.clinix", {
 	
 	,PurposeOfVisit: {type: "string"}
 	,Dok: {type: "string"}
+	
+	, SynchStatus: { type: "string"}
 });

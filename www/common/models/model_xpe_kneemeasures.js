@@ -6,4 +6,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeMeasures", {
 	, Supine: { type: "string"}
 	, Left: { type: "string"}
 	, Right: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

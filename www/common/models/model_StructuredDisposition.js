@@ -5,4 +5,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredDisposition", {
 
 	, Dispo : { type: "string"}
 	, DispoDetail : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

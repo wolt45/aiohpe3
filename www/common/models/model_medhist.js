@@ -6,4 +6,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_MedHist", {
 	, MedHist: { type: "string"}
 	, MedHistYN: { type: "string"}
 	, MedHistDetails: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

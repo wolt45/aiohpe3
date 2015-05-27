@@ -11,4 +11,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredSchedSurgery", {
 	, Anesthesio  : { type: "string"}
 	, Hospital	  : { type: "string"}
 	, Others	  : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

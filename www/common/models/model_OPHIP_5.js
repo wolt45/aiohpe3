@@ -7,4 +7,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPHIP_5", {
 	, StabPosterior : { type: "string"}
 	, StabAnterior : { type: "string"}
 	, HemovacUsed : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

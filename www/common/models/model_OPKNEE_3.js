@@ -8,4 +8,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPKNEE_3", {
 	, FemoralCompo	  : { type: "string"}
 	, TibiaCompo	  : { type: "string"}
 	, Patella		  : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

@@ -6,4 +6,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_AmbuStatus", {
 	, PhysicalCondition: { type: "string"}
 	, AmbulatoryAid: { type: "string"}
 	, AbleTo: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

@@ -7,4 +7,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagsDisposition", {
 	, DispoHome: { type: "string"}
 	, DispoHospital: { type: "string"}
 	, DispoAccompanying: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

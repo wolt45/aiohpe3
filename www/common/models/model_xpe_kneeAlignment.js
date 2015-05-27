@@ -7,4 +7,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_KneeAlignment", {
 	, Alignment: { type: "string"}
 	, Varus: { type: "string"}
 	, Valgus: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

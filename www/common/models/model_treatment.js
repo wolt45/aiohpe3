@@ -15,4 +15,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_treatment", {
 	, injHyaluronicAcid: { type: "text"}
 	, injHyaluronicResult: { type: "boolean"}
 	, injHyaluronicDetails: { type: "text"}
+
+	, SynchStatus: { type: "string"}
 });

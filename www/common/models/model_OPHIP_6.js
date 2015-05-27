@@ -14,4 +14,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_OPHIP_6", {
 	, TEDS : { type: "string"}
 	, XRays : { type: "string"}
 	, Others : { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });

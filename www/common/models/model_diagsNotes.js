@@ -5,4 +5,6 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagsNotes", {
 
 	, NoteItem: { type: "string"}
 	, NoteValue: { type: "string"}
+
+	, SynchStatus: { type: "string"}
 });
