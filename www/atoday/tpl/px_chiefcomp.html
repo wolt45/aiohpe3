@@ -1,4 +1,17 @@
 <!-- CHIEF COMPLAINT  0.99 -->
+
+<script>
+    $(document).ready(function()
+    {
+        $("#hideshowChiefComp").hide();
+
+        $("#showlabsChiefComp").click(function()
+        {
+            $("#hideshowChiefComp").toggle(200);
+        });
+    });
+</script> 
+
 <div ng-controller="ChiefComplaintCtrl">
 	<div scroll-bookmark="IOPEChiefComp">
 		<div class="panel panel-default">
@@ -134,22 +147,22 @@
 				</tr>
 
 	            <tr class="info">
-					<td class="text-center" colspan="9">
-						
-						<a class="btn btn-large btn-danger" style="text-decoration: none" target="_blank"
-							href="http://192.168.0.99/SoftMedlib/carousel.prep.php?pxrid={{clinix.PxRID}}&hanger=2">
-	                		GROSS PICTURES
-	                	</a>
 
-	<a class="btn btn-large btn-success" style="text-decoration: none" 
-	onclick="window.open('http://192.168.0.99/SoftMedlib/carousel.prep.php?pxrid={{clinix.PxRID}}&hanger=2', 'width=380, height=160, left=300,top=250'); return false">
-	                		GROSS PICTURES W
-	                	</a>
-
+					<td class="text-center">
+						<input type="submit" id="showlabsChiefComp" class="btn btn-danger" value="GROSS PICTURES">
+	                </td>
+	                
+					<td class="text-left" colspan="9" nowrap>
+	                	<div id="hideshowChiefComp">
+		                	<div ng-repeat="labs_chiefcomp in LABSChiefcomp" style="padding: 0 20px 0 20px">
+		                		
+								<img ng-src="http://192.168.0.99/{{labs_chiefcomp.ImageFolder}}/{{labs_chiefcomp.ImageFileName}}" height="450" class="img-rounded"> 
+		                	</div>
+	                	</div>
 					</td>
 	            </tr>
 
-	            <tr class="info" ng-repeat="complaint in clinix_chiefcomp">
+ 				<tr class="info" ng-repeat="complaint in clinix_chiefcomp">
 	            	<td width="1%" style="color:black" nowrap></td>  <!-- OnsetAccuteGradual -->
 	            	<td width="1%" style="color:black">{{complaint.MyBoneComplaint}}</td>
 	            	<td width="1%" style="color:black" nowrap>{{complaint.MyBoneLRB}}</td>
@@ -168,6 +181,7 @@
 	            	</td>
 	            	<td></td>
 	            </tr>
+	           
 			</table>
 		</div>
 	</div>

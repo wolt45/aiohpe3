@@ -10,6 +10,8 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, lkup_TranStatus: { type: $data.EntitySet, elementType: $ipadrbg.types.lkup_TranStatus }
 	
 	, zclinix: { type: $data.EntitySet, elementType: $ipadrbg.types.zclinix }
+
+	, LAB_Results: { type: $data.EntitySet, elementType: $ipadrbg.types.LAB_Results }
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });

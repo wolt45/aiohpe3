@@ -15,6 +15,8 @@
     <script src="..//common/models/model_lkupTranStatus.js"></script>
     <script src="..//common/models/model_lkupPEChargesTariff.js"></script>
 
+    <script src="..//common/models/model_lab_results.js"></script>
+
     <script src="model_myservices.js"></script>
     
     <script src="app.js"></script>
@@ -25,7 +27,7 @@
   <div class="jumbotron text-center">
 
       <h2>SYNCH Updates and Processes</h2>
-      <h3>UPLOAD Data from SERVER to iPad</h3>
+      <h3>DOWNLOAD Data from SERVER to iPad</h3>
       
       <table class="table" width="100%"> 
         <tr>
@@ -67,7 +69,7 @@
             <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
             <td>
                 <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTranStatus()">
-                  Upload Latest <br> Transaction Statuses
+                  DOWNLOAD Latest <br> Transaction Statuses
                 </button>
             </td>
         </tr> 
@@ -76,10 +78,23 @@
             <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
             <td>
                 <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTariff()">
-                  Upload Latest <br>PE Charges Tariff 
+                  DOWNLOAD Latest <br>PE Charges Tariff 
                 </button>
             </td>
         </tr>
+
+
+         <tr>
+            <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
+            <td>
+                <button class="btn-warning btn-block btn-lg text-center" ng-click="pullLABResults()">
+                  DOWNLOAD Lab Results 
+                </button>
+            </td>
+        </tr>
+
+
+
       </table>
 
         <table class="table table-bordered">

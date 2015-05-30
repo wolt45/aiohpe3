@@ -1,17 +1,38 @@
 IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http) {
   $scope.clinix_LABS = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
+  $scope.LABSPrevLabs = [];
 
   $scope.LoadLABS = function(){
-    var promise = $ipadrbg.context.clinix_LABS.filter(function (px) { return px.ClinixRID == this.id },{ id: $scope.ClinixRID }).toLiveArray();
+    var promise = $ipadrbg.context.clinix_LABS.filter(function (px) 
+      { return px.ClinixRID == this.id },{ id: $scope.ClinixRID }).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_LABS = pxresult;
+        
+        // WFS HACKS: pick-up Chart Number Here
+        $scope.PxRID = pxresult[0]['PxRID'];
+        // alert($scope.PxRID);
+        $scope.LoadLABSPrevLabs();
+
       });
     })
   }
 
   $scope.LoadLABS();
+
+  // LABS, loaded on the first promise, load after $scope.PxRID was promised
+  $scope.LoadLABSPrevLabs = function(){
+    var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
+      { return labs.PxRID == this.id && labs.HangRID == this.hangRID} , {id:$scope.PxRID, hangRID: 3}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.LABSPrevLabs = pxresult;
+        // 
+        alert($scope.PxRID);
+      });
+    });
+  }
 
   $scope.addLABS_xrays = function (grpLABS) {
     var xTest = grpLABS.labDateXRays.toUpperCase();

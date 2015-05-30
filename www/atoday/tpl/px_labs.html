@@ -1,4 +1,17 @@
 <!-- LAB EXAMS -->
+
+<script>
+    $(document).ready(function()
+    {
+        $("#hideshowPrevLabs").hide();
+
+        $("#showlabsPrevLabs").click(function()
+        {
+            $("#hideshowPrevLabs").toggle(200);
+        });
+    });
+</script> 
+
 <div ng-controller="LABSCtrl">
 	<div scroll-bookmark="IOPELabs">
 		<div class="panel panel-default">
@@ -125,17 +138,21 @@
 
 
 	            <tr class="info">
-					<td class="text-center" colspan="9">
-						
-						<a class="btn btn-large btn-danger" style="text-decoration: none" target="_blank"
-							href="http://192.168.0.99/SoftMedlib/carousel.prep.php?pxrid={{clinix.PxRID}}&hanger=3">
-	                		GROSS PICTURES
-	                	</a>
-	                	
+					<td class="text-center">
+	                	<input type="submit" id="showlabsPrevLabs" class="btn btn-danger" value="GROSS PICTURES">
+					</td>
+
+					<td class="text-left" colspan="9" nowrap>
+	                	<div id="hideshowPrevLabs">
+		                	<div ng-repeat="labs_prevlabs in LABSPrevLabs" style="padding: 0 20px 0 20px">
+		                		
+		                		{{labs_prevlabs.HangRID}}
+
+								<img ng-src="http://192.168.0.99/{{labs_prevlabs.ImageFolder}}/{{labs_prevlabs.ImageFileName}}" height="450" class="img-rounded"> 
+		                	</div>
+	                	</div>
 					</td>
 	            </tr>
-
-
 				
 				<tr class="info" ng-repeat="rolLabs in clinix_LABS">
 	            	<td style="color:black" nowrap>{{rolLabs.labCategory}}</td>

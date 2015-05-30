@@ -1,6 +1,7 @@
 IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_chiefcomp = [];
   $scope.clinix_HXchiefcomp = [];
+  $scope.LABSChiefcomp = [];
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
   $scope.PxRID = 0;
@@ -29,10 +30,14 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
         $scope.PxRID = pxresult[0]['PxRID'];
         // alert($scope.PxRID);
         $scope.LoadHXComplaints();
+
+        $scope.LoadLABSChiefcomp();
       });
     });
   }
   $scope.LoadComplaints();
+
+
 
   // HISTORY, loaded on the first promise, load after $scope.PxRID was promised
   $scope.LoadHXComplaints = function(){
@@ -41,6 +46,19 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_HXchiefcomp = pxresult;
+        // alert($scope.PxRID);
+      });
+    });
+  }
+
+
+  // LABS, loaded on the first promise, load after $scope.PxRID was promised
+  $scope.LoadLABSChiefcomp = function(){
+    var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
+      { return labs.PxRID == this.id && labs.HangRID == this.hangRID} , {id:$scope.PxRID, hangRID:2}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.LABSChiefcomp = pxresult;
         // alert($scope.PxRID);
       });
     });

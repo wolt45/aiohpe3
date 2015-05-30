@@ -65,7 +65,7 @@ function DataController($rootScope, $scope, $http) {
 					$scope.clinix = data;
 					
 					// notify iPad User
-					alert("Import from Server Successful!");
+					alert("Importing from Server was Successful!");
 				}
 				else
 					alert("Nothing to Import from Server!");
@@ -151,7 +151,8 @@ function DataController($rootScope, $scope, $http) {
 					
 					// notify REST and change TranStatus, that iPad already received appointments set
 
-					ClinixPulled += '{"ClinixRID":0}]';
+					ClinixPulled += '{"ClinixRID":0}]'; // closing the bracket here 
+
 					if (data.length > 0 ) {
 						//var clinixJson = JSON.stringify(ClinixPulled);
 						$http({
@@ -164,7 +165,7 @@ function DataController($rootScope, $scope, $http) {
 					}
 
 					// notify iPad User
-					alert("Import from Server Successful!");
+					alert("Importing from Server was Successful!");
 				}
 				else
 					alert("Nothing to Import from Server!");
@@ -215,7 +216,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.lkup_TranStatus.saveChanges();
 
 					// notify iPad User
-					alert("Import TranStatus from Server Successful! " + serverIP);
+					alert("Importing TranStatus from Server was Successful! " + serverIP);
 				}
 				else
 					alert("Nothing to Import from Server!");
@@ -268,7 +269,80 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.lkup_PEChargesTariff.saveChanges();
 
 					// notify iPad User
-					alert("Import Charges Tariff from Server Successful!: " + serverIP);
+					alert("Importing Charges Tariff from Server was Successful!: " + serverIP);
+				}
+				else
+					alert("Nothing to Import from Server!");
+		    }).
+		    error(function(data, status, headers, config) {
+		      	// called asynchronously if an error occurs
+		      	// or server returns response with an error status.
+		    });
+		}
+	}
+
+
+	// PULL LABs Reults
+	$scope.pullLABResults = function(){
+		var serverIP = "192.168.0.99";
+
+		if (confirm('Download LAB Results, proceed?')) {
+	    	// empty first iPad Table
+	        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	            tx.executeSql("update sqlite_sequence set seq = 0 where name ='LAB_Results'");
+	            tx.executeSql("delete from 'LAB_Results'");
+
+	            // tx.executeSql("drop table ' put tablename here '");
+	        });
+	        //db.close();
+	        // after truncate
+
+			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_LABResults.php'}).
+		    success ( function ( data, status, headers, config ) {
+
+				if (data !== null ) {
+			      	// save to websql
+				    for(idx in data){
+				    	// get only the Finals
+				    	if (data[idx].Final > 0 && data[idx].Deleted == 0) {
+				    		var LAB_Results = new $ipadrbg.types.LAB_Results();
+
+							LAB_Results.LabRexRID 		= data[idx].LabRexRID;
+
+							LAB_Results.ClinixRID 		= data[idx].ClinixRID;
+							LAB_Results.PxRID 			= data[idx].PxRID;
+
+							LAB_Results.LCatRID 		= data[idx].LCatRID;
+							LAB_Results.RefNum			= data[idx].RefNum;
+							LAB_Results.LabRexTypeRID 	= data[idx].LabRexTypeRID;
+							LAB_Results.RefDate 		= data[idx].RefDate;
+							LAB_Results.DateEntered 	= data[idx].DateEntered;
+
+							LAB_Results.DateDone 		= data[idx].DateDone;
+							LAB_Results.ScannedUploaded	= data[idx].ScannedUploaded	
+							LAB_Results.EnteredBy		= data[idx].EnteredBy							
+							LAB_Results.SourceLocation	= data[idx].SourceLocation	
+
+							LAB_Results.ImageFolder		= data[idx].ImageFolder								
+							LAB_Results.ImageFileName	= data[idx].ImageFileName							
+							LAB_Results.SysFileName		= data[idx].SysFileName		
+							LAB_Results.HangRID			= data[idx].HangRID							
+							LAB_Results.data64			= data[idx].data64
+
+							LAB_Results.Final			= data[idx].Final
+							LAB_Results.remarks			= data[idx].remarks							
+							LAB_Results.Deleted			= data[idx].Deleted	
+
+							LAB_Results.SynchStatus		= "222"							
+
+							$ipadrbg.context.LAB_Results.add(LAB_Results);
+						}
+				    }
+					$ipadrbg.context.LAB_Results.saveChanges();
+
+					// notify iPad User
+					alert("Importing LAB Results from Server was Successful!: " + serverIP);
 				}
 				else
 					alert("Nothing to Import from Server!");
