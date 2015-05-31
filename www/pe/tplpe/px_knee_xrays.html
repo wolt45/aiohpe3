@@ -1,3 +1,16 @@
+
+<script>
+    $(document).ready(function()
+    {
+        $("#hideshowPEKneeXRays").hide(); 
+
+        $("#showPEKneeXRays").click(function() 
+        {
+            $("#hideshowPEKneeXRays").toggle(200);
+        });
+    });
+</script> 
+
 <div ng-controller="KneeXRaysCtrl">
 	<div scroll-bookmark="KneeXRAY">
 		<table class="table table-condensed table-bordered">
@@ -143,6 +156,22 @@
 	            	</a>
 				</td>
 			</tr>
+
+            <tr class="info">
+				<td class="text-center">
+                	<input type="submit" id="showPEKneeXRays" class="btn btn-danger" value="GROSS PICTURES">
+				</td>
+
+				<td class="text-left" colspan="9" nowrap>
+                	<div id="hideshowPEKneeXRays">
+	                	<div ng-repeat="pekneexrays in PEKNEExrays" style="padding: 0 20px 0 20px">
+
+							<img ng-src="http://192.168.0.99/{{pekneexrays.ImageFolder}}/{{pekneexrays.ImageFileName}}" height="450" class="img-rounded"> 
+	                	</div>
+                	</div>
+				</td>
+            </tr>
+
 		</table>
 	</div>
 </div>

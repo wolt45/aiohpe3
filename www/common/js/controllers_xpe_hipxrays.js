@@ -1,6 +1,8 @@
 IOHPEApp.controller('HipXRaysCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_HipXRays = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
+  $scope.PEHIPxrays = [];
+  $scope.PxRID = 0;
 
   $scope.LoadHipXRays = function(){
     var promise = $ipadrbg.context.clinix_HipXRays.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
@@ -25,11 +27,28 @@ IOHPEApp.controller('HipXRaysCtrl', function ($scope, $routeParams, $http){
           ,Others : pxresult[0]['Others']
         }
 
+        // WFS HACKS: pick-up Chart Number Here
+        $scope.PxRID = pxresult[0]['PxRID'];
+        // alert($scope.PxRID);
+
+        $scope.LoadPEHIPxrays();
       });
     });
   };
 
   $scope.LoadHipXRays();
+
+  // LABS-XRays, loaded on the first promise, load after $scope.PxRID was promised
+  $scope.LoadPEHIPxrays = function(){
+    var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
+      { return labs.PxRID == this.id && labs.HangRID == this.hangRID} , {id:$scope.PxRID, hangRID: 4}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.PEHIPxrays = pxresult;
+        // alert("HIP PE LABS & XRAYS working");
+      });
+    });
+  }
 
   $scope.addNew_HipXRAY = function (hipXRay) {
 

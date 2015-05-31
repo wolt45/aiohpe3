@@ -1,3 +1,16 @@
+
+<script>
+    $(document).ready(function()
+    {
+        $("#hideshowPEHipXRays").hide();
+
+        $("#showPEHipXRays").click(function()
+        {
+            $("#hideshowPEHipXRays").toggle(200);
+        });
+    });
+</script> 
+
 <div ng-controller="HipXRaysCtrl">
 	<div scroll-bookmark="HipXRAYS">
 
@@ -170,51 +183,22 @@
 	            	</a>
 				</td>
 			</tr>
+
+            <tr class="info">
+				<td class="text-center">
+                	<input type="submit" id="showPEHipXRays" class="btn btn-danger" value="GROSS PICTURES">
+				</td>
+
+				<td class="text-left" colspan="9" nowrap>
+                	<div id="hideshowPEHipXRays">
+	                	<div ng-repeat="pehipxrays in PEHIPxrays" style="padding: 0 20px 0 20px">
+
+							<img ng-src="http://192.168.0.99/{{pehipxrays.ImageFolder}}/{{pehipxrays.ImageFileName}}" height="450" class="img-rounded"> 
+	                	</div>
+                	</div>
+				</td>
+            </tr>
+
 		</table>
-
-
-
-
-		<!-- DISPLAY -->
-
-		<!--table class="table table-condensed table-bordered">
-			<tr class="info">
-				<th width="1%" class="text-center" style="color:#888">AP Pelvis DATE</th>  <!-- OnsetAccuteGradual -->
-	        	<!--th width="1%" class="text-center" style="color:#888" nowrap>PELVIS</th>
-	        	<th width="1%" class="text-center" style="color:#888" nowrap>PELVIS Inches</th>
-	            <th width="1%" class="text-center" style="color:#888" >Avascular necrosis head</th>
-	            <th width="1%" class="text-center" style="color:#888" >Narrowing of Hip Joint</th>
-	            <th width="1%" class="text-center" style="color:#888" >Subluxation</th>
-	            <th width="1%" class="text-center" style="color:#888" >Osteoporosis</th>
-	            <th width="1%" class="text-center" style="color:#888" >Fractures Neck</th>
-	            <th width="1%" class="text-center" style="color:#888" >Intertrouch</th>
-	            <th width="1%" class="text-center" style="color:#888">Others</th>
-	            <th width="1%"> </th>
-	            <th width=> </th>
-			</tr>
-
-			<tr class="info" ng-repeat="xrayRow in clinix_HipXRays">
-	        	<td style="color:black" nowrap>{{xrayRow.APPelvisBothHipsDate | date}}</td>
-	        	<td style="color:black">{{xrayRow.Pelvis}}</td>
-	        	<td style="color:black" class="text-center" nowrap>{{xrayRow.PelvisInches}}</td>
-	            <td style="color:black">{{xrayRow.Avascular}}</td>
-	            <td style="color:black">{{xrayRow.Narrowing}}</td>
-	            <td style="color:black">{{xrayRow.Subluxation}}</td>
-	            <td style="color:black">{{xrayRow.Osteoporosis}}</td>
-	            <td style="color:black">{{xrayRow.FracturesNeck}}</td>
-	            <td style="color:black">{{xrayRow.Intertrouch}}</td>
-	            <td style="color:black">{{xrayRow.Others}}</td>
-	            <td>
-	            	<a class="btn btn-large btn-danger" ng-click="removeHipXRays(xrayRow)" style="text-decoration: none">
-	            		DELETE
-	            	</a>
-	        	</td>
-                <td>
-                	<!-- a class="btn btn-large btn-warning" href="#/{{xrayRow.ChiefRID}}/edit" ng-click="editChiefComp(xrayRow)" style="text-decoration: none">
-                		EDIT
-                	</a -->
-            	<!-- /td>
-	        </tr>
-		</table -->
 	</div>
 </div>

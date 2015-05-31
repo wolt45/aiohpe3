@@ -28,8 +28,6 @@ IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http) {
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.LABSPrevLabs = pxresult;
-        // 
-        alert($scope.PxRID);
       });
     });
   }

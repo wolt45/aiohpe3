@@ -2,6 +2,9 @@ IOHPEApp.controller('KneeXRaysCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_KneeXRays = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
+  $scope.PEKNEExrays = [];
+  $scope.PxRID = 0;
+
   $scope.LoadKneeXRays = function(){
     var promise = $ipadrbg.context.clinix_KneeXRays.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
@@ -25,11 +28,28 @@ IOHPEApp.controller('KneeXRaysCtrl', function ($scope, $routeParams, $http){
           ,LaurinPatel_LRSeverity : pxresult[0]['LaurinPatel_LRSeverity']
         }
 
+        // WFS HACKS: pick-up Chart Number Here
+        $scope.PxRID = pxresult[0]['PxRID'];
+        // alert($scope.PxRID);
+
+        $scope.LoadPEKNEExrays(); 
       });
     });
   };
 
   $scope.LoadKneeXRays();
+
+  // LABS-XRays, loaded on the first promise, load after $scope.PxRID was promised
+  $scope.LoadPEKNEExrays = function(){
+    var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
+      { return labs.PxRID == this.id && labs.HangRID == this.hangRID} , {id:$scope.PxRID, hangRID: 5}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.PEKNEExrays = pxresult;
+        // alert("HIP PE LABS & XRAYS working");
+      });
+    });
+  }
 
   $scope.addNew_XRays = function (kneeXRay) {
     
