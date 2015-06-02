@@ -1,4 +1,4 @@
-// 0.99
+// 254.99
 function DataController($rootScope, $scope, $http) {
 
 	// CLEAN TRANS
@@ -21,7 +21,7 @@ function DataController($rootScope, $scope, $http) {
     	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed?')) {
 		    $scope.clinix = [];
 
-		    var serverIP = "192.168.0.99";
+		    var serverIP = "192.168.254.99";
 
 			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
 		    success(function(data, status, headers, config) {
@@ -78,7 +78,7 @@ function DataController($rootScope, $scope, $http) {
 	// Pull clinix
     $scope.pullData = function(){
     	if (confirm('Download Appoinments, proceed?')) {
-    		var serverIP = "192.168.0.99";
+    		var serverIP = "192.168.254.99";
 
 	    	// var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 		    //    db.transaction(function (tx) {
@@ -180,7 +180,7 @@ function DataController($rootScope, $scope, $http) {
 
     // PULL Tran Status
 	$scope.pullTranStatus = function(){
-		var serverIP = "192.168.0.99";
+		var serverIP = "192.168.254.99";
 
 		if (confirm('Download latest Transaction Codes table, proceed?')) {
 	    	// empty first iPad Table
@@ -230,7 +230,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Tariff
 	$scope.pullTariff = function(){
-		var serverIP = "192.168.0.99";
+		var serverIP = "192.168.254.99";
 
 		if (confirm('Download latest TARIFF Charges table, proceed?')) {
 	    	// empty first iPad Table
@@ -284,7 +284,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL LABs Reults
 	$scope.pullLABResults = function(){
-		var serverIP = "192.168.0.99";
+		var serverIP = "192.168.254.99";
 
 		if (confirm('Download LAB Results, proceed?')) {
 	    	// empty first iPad Table
