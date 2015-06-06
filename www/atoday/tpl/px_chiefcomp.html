@@ -1,4 +1,4 @@
-<!-- CHIEF COMPLAINT  254.99 -->
+<!-- CHIEF COMPLAINT  0.99 -->
 
 <script>
     $(document).ready(function()
@@ -146,22 +146,6 @@
 					<td></td>
 				</tr>
 
-	            <tr class="info">
-
-					<td class="text-center">
-						<input type="submit" id="showlabsChiefComp" class="btn btn-danger" value="GROSS PICTURES">
-	                </td>
-	                
-					<td class="text-left" colspan="9" nowrap>
-	                	<div id="hideshowChiefComp">
-		                	<div ng-repeat="labs_chiefcomp in LABSChiefcomp" style="padding: 0 20px 0 20px">
-		                		
-								<img ng-src="http://192.168.254.99/{{labs_chiefcomp.ImageFolder}}/{{labs_chiefcomp.ImageFileName}}" height="450" class="img-rounded"> 
-		                	</div>
-	                	</div>
-					</td>
-	            </tr>
-
  				<tr class="info" ng-repeat="complaint in clinix_chiefcomp">
 	            	<td width="1%" style="color:black" nowrap></td>  <!-- OnsetAccuteGradual -->
 	            	<td width="1%" style="color:black">{{complaint.MyBoneComplaint}}</td>
@@ -182,6 +166,25 @@
 	            	<td></td>
 	            </tr>
 	           
+	           
+	            <tr class="info">
+
+					<td class="text-left" colspan="9" nowrap>
+						<input type="submit" id="showlabsChiefComp" class="btn btn-danger" value="GROSS PICTURES">
+	                	<div id="hideshowChiefComp">
+		                	<div ng-repeat="lab_results in LABSChiefcomp" style="padding: 0 20px 0 20px">
+		                		<br><br>
+	                			LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+            					<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+            					<br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
+            					<br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+            					<br>
+								<img ng-src="http://192.168.0.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+		                	</div>
+	                	</div>
+					</td>
+	            </tr>
+
 			</table>
 		</div>
 	</div>

@@ -6,6 +6,7 @@ $data.Entity.extend("$ipadrbg.types.LAB_Results", {
 	, LabRexTypeRID	: { type: "string"}
 	, LCatRID: { type: "string"}
 	, RefNum: { type: "string"}
+	, Result: { type: "string"}
 	, RefDate: { type: "string"}
 	, DateEntered: { type: "string"}
 

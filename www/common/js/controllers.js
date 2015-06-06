@@ -8,8 +8,7 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
 
     var promise = $ipadrbg.context.clinix.filter(function (px) { 
       
-      return px.ClinixRID > this.id }
-      , { id : 0 }).order('TranStatus', 'AppDateSet', 'ClinixRID').toLiveArray();
+      return px.ClinixRID > this.id }, { id : 0 }).order('TranStatus', 'AppDateSet', 'ClinixRID').toLiveArray();
     
     promise.then(function(pxresult) {
 
@@ -61,7 +60,7 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
     , {TrnSttsRID : 2, TrnStts : "UNPAID", preForeColor:"white", preBackColor:"red"}
     , {TrnSttsRID : 10, TrnStts : "FOR INTERVIEW", preForeColor:"blue", preBackColor:"lightyellow"}
     , {TrnSttsRID : 20, TrnStts : "FOR PE", preForeColor:"blue", preBackColor:"lightgreen"}
-    , {TrnSttsRID : 30, TrnStts : "CLOSED PE", preForeColor:"black", preBackColor:"white"}
+    , {TrnSttsRID : 30, TrnStts : "PE CLOSED", preForeColor:"black", preBackColor:"white"}
     , {TrnSttsRID : 91, TrnStts : "NO SHOW", preForeColor:"black", preBackColor:"grey"}
     , {TrnSttsRID : 96, TrnStts : "INTERVIEW CANCELLED", preForeColor:"red", preBackColor:"yellow"}
     , {TrnSttsRID : 98, TrnStts : "CANCELLED APPOINMENT", preForeColor:"black", preBackColor:"grey"}
@@ -127,9 +126,7 @@ IOHPEApp.controller('PXListPECtrl', function ($scope){
             ClinixRID       : pxresult[key].ClinixRID,
             PxRID           : pxresult[key].PxRID,
             AppDateSet      : pxresult[key].AppDateSet,
-
             AppDateAge      : pxresult[key].AppDateAge,
-            
             TranStatus      : pxresult[key].TranStatus,
 
             TranStatusDisp  : pxresult[key].TranStatusDisp,
@@ -158,7 +155,7 @@ IOHPEApp.controller('PXListPECtrl', function ($scope){
     , {TrnSttsRID : 2, TrnStts : "UNPAID", preForeColor:"white", preBackColor:"red"}
     , {TrnSttsRID : 10, TrnStts : "FOR INTERVIEW", preForeColor:"blue", preBackColor:"lightyellow"}
     , {TrnSttsRID : 20, TrnStts : "FOR PE", preForeColor:"blue", preBackColor:"lightgreen"}
-    , {TrnSttsRID : 30, TrnStts : "CLOSED PE", preForeColor:"black", preBackColor:"white"}
+    , {TrnSttsRID : 30, TrnStts : "UNPAID", preForeColor:"black", preBackColor:"white"}
     , {TrnSttsRID : 91, TrnStts : "NO SHOW", preForeColor:"black", preBackColor:"grey"}
     , {TrnSttsRID : 96, TrnStts : "INTERVIEW CANCELLED", preForeColor:"red", preBackColor:"yellow"}
     , {TrnSttsRID : 98, TrnStts : "CANCELLED APPOINMENT", preForeColor:"black", preBackColor:"grey"}
@@ -193,7 +190,7 @@ IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
     , {TrnSttsRID : 2, TrnStts : "UNPAID", preForeColor:"white", preBackColor:"red"}
     , {TrnSttsRID : 10, TrnStts : "FOR INTERVIEW", preForeColor:"blue", preBackColor:"lightyellow"}
     , {TrnSttsRID : 20, TrnStts : "FOR PE", preForeColor:"blue", preBackColor:"lightgreen"}
-    , {TrnSttsRID : 30, TrnStts : "CLOSED PE", preForeColor:"black", preBackColor:"white"}
+    , {TrnSttsRID : 30, TrnStts : "UNPAID", preForeColor:"black", preBackColor:"white"}
     , {TrnSttsRID : 91, TrnStts : "NO SHOW", preForeColor:"black", preBackColor:"grey"}
     , {TrnSttsRID : 96, TrnStts : "INTERVIEW CANCELLED", preForeColor:"red", preBackColor:"yellow"}
     , {TrnSttsRID : 98, TrnStts : "CANCELLED APPOINMENT", preForeColor:"black", preBackColor:"grey"}

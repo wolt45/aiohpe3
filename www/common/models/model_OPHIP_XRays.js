@@ -1,3 +1,8 @@
+// NOT USED, MOVED TO lab results table instead
+// NOT USED, MOVED TO lab results table instead
+// NOT USED, MOVED TO lab results table instead
+// NOT USED, MOVED TO lab results table instead
+
 $data.Entity.extend("$ipadrbg.types.jdata_OPHIP_XRays", {
 	OPHIP_XRaysRID: { type: "int", key: true, computed: true }
 	, ClinixRID: { type: "string"}

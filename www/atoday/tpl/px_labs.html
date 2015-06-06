@@ -136,22 +136,6 @@
 					</td>
 				</tr>
 
-
-	            <tr class="info">
-					<td class="text-center">
-	                	<input type="submit" id="showlabsPrevLabs" class="btn btn-danger" value="GROSS PICTURES">
-					</td>
-
-					<td class="text-left" colspan="9" nowrap>
-	                	<div id="hideshowPrevLabs">
-		                	<div ng-repeat="labs_prevlabs in LABSPrevLabs" style="padding: 0 20px 0 20px">
-
-								<img ng-src="http://192.168.0.99/{{labs_prevlabs.ImageFolder}}/{{labs_prevlabs.ImageFileName}}" height="450" class="img-rounded"> 
-		                	</div>
-	                	</div>
-					</td>
-	            </tr>
-				
 				<tr class="info" ng-repeat="rolLabs in clinix_LABS">
 	            	<td style="color:black" nowrap>{{rolLabs.labCategory}}</td>
 	            	<td class="text-center" style="color:black">{{rolLabs.labDate}}</td>
@@ -159,19 +143,31 @@
 	                <td class="text-center" style="color:black">{{rolLabs.labReport}}</td>
 
 	                <td width="1%">
-	                	<a class="btn btn-large btn-danger" href="#/{{rolLabs.ClinixRID}}" ng-click="removeLABS(rolLabs)" style="text-decoration: none">
+	                	<a class="btn btn-large btn-danger" ng-click="removeLABS(rolLabs)" style="text-decoration: none">
 	                		DELETE
 	                	</a>
 	            	</td>
-	                <td width="1%">
-	                	<!-- a class="btn btn-large btn-warning" href="#/{{rolLabs.ChiefRID}}/edit" ng-click="editChiefComp(rolLabs)" style="text-decoration: none">
-	                		EDIT
-	                	</a-- >
-	            	</td>
-
-	            	<td></td>
-	            	
 	            </tr>
+				
+	            <tr class="info">
+					<td class="text-left" colspan="9" nowrap>
+	                	<input type="submit" id="showlabsPrevLabs" class="btn btn-danger" value="GROSS PICTURES">
+					
+	                	<div id="hideshowPrevLabs">
+		                	<div ng-repeat="lab_results in LABSPrevLabs" style="padding: 0 20px 0 20px">
+								<br><br>
+	                			LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+            					<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+            					<br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
+            					<br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+            					<br>
+								<img ng-src="http://192.168.0.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+		                	</div>
+	                	</div>
+					</td>
+	            </tr>
+
+
 				
 			</table>
 		</div>

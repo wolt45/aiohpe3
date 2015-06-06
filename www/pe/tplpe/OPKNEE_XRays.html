@@ -1,25 +1,23 @@
 <script>
     $(document).ready(function()
     {
-        $("#hideshowPre_OPHipXRays").hide();
+        $("#hideshowPre_OPKneeXRays").hide();
 
-        $("#showPreOpHIPXRays").click(function()
+        $("#showPreOpKNEEXRays").click(function() 
         {
-            $("#hideshowPre_OPHipXRays").toggle(200);
+            $("#hideshowPre_OPKneeXRays").toggle(200);
         });
 
+        $("#hideshowPost_OPKneeXRays").hide();
 
-        $("#hideshowPost_OPHipXRays").hide();
-
-        $("#showPostOpHIPXRays").click(function()
+        $("#showPostOpKNEEXRays").click(function() 
         {
-            $("#hideshowPost_OPHipXRays").toggle(200);
+            $("#hideshowPost_OPKneeXRays").toggle(200);
         });
     });
 </script> 
 
-<div ng-controller="OPHIP_XRays_Ctrl">
-	
+<div ng-controller="OPKNEE_XRays_Ctrl">
 	<table class="table table-condensed table-bordered">
 		<tr class="warning">
 			<td width="1%" colspan="9" nowrap>
@@ -31,14 +29,14 @@
 
 		<tr class="active">
 			<td class="text-center" colspan="9">
-            	<input type="submit" id="showPreOpHIPXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
+            	<input type="submit" id="showPreOpKNEEXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
 			</td>
 		</tr>
 
         <tr class="info">
 			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPHipXRays">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreOpHIPxrays">
+            	<div id="hideshowPre_OPKneeXRays">
+                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreOpKNEExrays">
                 		<br><br>
                 		LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
         				<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
@@ -62,15 +60,14 @@
 
 		<tr class="active">
 			<td class="text-center" colspan="9">
-            	<input type="submit" id="showPostOpHIPXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
+            	<input type="submit" id="showPostOpKNEEXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
 			</td>
 		</tr>
 
-
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPost_OPHipXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpHIPxrays">
+                <div id="hideshowPost_OPKneeXRays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpKNEExrays">
                         <br><br>
                         LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
                         <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
