@@ -30,6 +30,8 @@ IOHPEApp.controller('OPHIP_2Ctrl', function ($scope, $routeParams, $http){
   $scope.LoadDiagsSchedSurg();
 
   $scope.UpdateMe = function (daignosisObj){
+    //alert("UPDATE FUNCTION HIIIT!!");
+
     var promise = $ipadrbg.context.clinix_DiagSchedSurgery.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {

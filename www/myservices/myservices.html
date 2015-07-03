@@ -14,134 +14,179 @@
     <script src="model_etiology.js"></script -->
     <script src="..//common/models/model_lkupTranStatus.js"></script>
     <script src="..//common/models/model_lkupPEChargesTariff.js"></script>
-
     <script src="..//common/models/model_lab_results.js"></script>
 
+    <script src="..//common/models/model_chiefcomplaint.js"></script>
+    <script src="..//common/models/model_etiology.js"></script>
+    <script src="..//common/models/model_treatment.js"></script>
+    <script src="..//common/models/model_prevsurgeries.js"></script>
+    <script src="..//common/models/model_labs.js"></script>
+    <script src="..//common/models/model_medhist.js"></script>
+
+
+
+
     <script src="model_myservices.js"></script>
-    
     <script src="app.js"></script>
 </head>
 
 <body ng-controller="DataController">
 <div class="container">
   <div class="jumbotron text-center">
-
       <h2>SYNCH Updates and Processes</h2>
       <h3>DOWNLOAD Data from SERVER to iPad</h3>
-      
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
       <table class="table" width="100%"> 
         <tr>
             <td width="1%"><span class="glyphicon glyphicon-home btn-lg"></span></td>
-            <td width="30%">
-                <a href="..//index.html" class="btn btn-primary btn-block btn-lg text-center" style="text-decoration : none">   
-                    Back to <br>Main Options
-                </a>
-            </td>
-            
-            <td>
-                
-            </td>
 
             <td width="30%">
-                <a class="btn btn-danger btn-block btn-lg text-center" style="text-decoration : none" 
-                    ng-click="CleanClinix()">
-                    Clear ALL Appointments (Use with caution)
-                </a>
+              <a href="..//index.html" class="btn btn-primary btn-block btn-lg text-center" 
+                style="text-decoration : none">Back to <br>Main Options
+              </a>
+            </td>
+        </tr> 
+
+
+        <tr>
+            <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
+            
+            <td>
+              <button class="btn-warning btn-block btn-lg text-center" ng-click="puller_IOH()">
+                DOWNLOAD <br> Initial Interview Results 
+              </button>
+            </td>
+        </tr> 
+        
+        <tr>
+            <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
+            <td>
+              <button class="btn-warning btn-block btn-lg text-center" ng-click="pullPEResults()">
+                DOWNLOAD <br> physical Examination Results 
+              </button>
             </td>
         </tr> 
 
         <tr>
-            <td width="1%"><span class="glyphicon glyphicon-user btn-lg"></span></td>
+            <td width="1%"><span class="glyphicon glyphicon-camera btn-lg"></span></td>
+            
             <td>
-                <button class="btn-success btn-block btn-lg text-center" ng-click="pullData()">
-                  Pull APPOINMENTs <br>From Server
-                </button>
-            </td>
-            <td></td>
-            <td>
-                <button class="btn-danger btn-block btn-lg text-center" ng-click="pullAllClinix()">
-                  Pull ALL Transactions<br>From Server
-                </button>
+              <button class="btn-warning btn-block btn-lg text-center" ng-click="pullLABResults()">
+                DOWNLOAD <br> Lab Results 
+              </button>
             </td>
         </tr> 
         
         <tr>
             <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
             <td>
-                <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTranStatus()">
-                  DOWNLOAD Latest <br> Transaction Statuses
-                </button>
+              <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTranStatus()">
+                DOWNLOAD Latest <br> Transaction Statuses
+              </button>
             </td>
         </tr> 
 
          <tr>
             <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
             <td>
-                <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTariff()">
-                  DOWNLOAD Latest <br>PE Charges Tariff 
-                </button>
+              <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTariff()">
+                DOWNLOAD Latest <br>PE Charges Tariff 
+              </button>
             </td>
         </tr>
+      </table>
+    </div>
 
 
-         <tr>
+
+    <!-- 2nd column -->
+
+    <div class="col-xs-6">
+      <table class="table" width="100%"> 
+        <tr>
+            <td width="1%"><span class="glyphicon glyphicon-fire btn-lg"></span></td>
+
+            <td width="30%">
+                <a class="btn btn-danger btn-block btn-lg text-center" style="text-decoration : none" 
+                    ng-click="CleanClinix()">
+                    Clear ALL Appointments<br>(use with caution)
+                </a>
+            </td>
+        </tr> 
+
+        <tr>
+            <td width="1%"><span class="glyphicon glyphicon-cog btn-lg"></span></td>
+            <td>
+                <button class="btn-danger btn-block btn-lg text-center" ng-click="pullAllClinix()">
+                  Pull ALL Appointments<br>From Server
+                </button>
+
+            </td>
+        </tr> 
+        
+        <tr>
             <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
             <td>
-                <button class="btn-warning btn-block btn-lg text-center" ng-click="pullLABResults()">
-                  DOWNLOAD Lab Results 
-                </button>
-            </td>
-        </tr>
-
-
-
+              <button class="btn-warning btn-block btn-lg text-center" ng-click="pullData()">
+                Pull Today's APPOINMENTs <br>From Server
+              </button>
+            </td>    
+        </tr> 
       </table>
+    </div>
 
-        <table class="table table-bordered">
-            <tr class="info">
-               <td width="1%" nowrap>App #</td>
-
-               <td width="1%" nowrap>Purpose</td>
-               <td width="1%" nowrap>Dok</td>
-
-               <td width="1%" nowrap>Date Set</td>
-               <td width="1%" nowrap>App Age</td>
-
-               <td width="1%" nowrap>Hosp Chart #</td>
-               <td width="1%" nowrap>Hosp</td>
-
-               <td width="1%" nowrap>Chart #</td>
-               <td width="1%" nowrap>Patient</td>
-
-               <td width="1%" nowrap>Address</td>
-               <td width="1%" nowrap>Status</td>
-               <td width="1%" nowrap>Reg Date</td>
-               <td>Profile</td>
-            </tr>
-
-            <tr class="primary" ng-repeat="row in clinix | limitTo:50">
-
-               <td>{{row.ClinixRID}}</td>
-
-               <td>{{ row.PurposeOfVisit }}</td>
-               <td>{{ row.Dok }}</td>
-
-               <td nowrap>{{row.AppDateSet | date}}</td>
-    	         <td nowrap>{{row.AppDateAge}}</td>
-
-               <td>{{row.HospitalRID}}</td>
-               <td>{{row.Hospital}}</td>
-
-               <td>{{row.PxRID}}</td>
-               <td>{{row.pxname}}</td>
-
-               <td>{{row.pxAddress}}</td>
-               <td nowrap>{{row.pxstatus}}</td>
-               <td nowrap>{{row.pxregdate | date}}</td>
-               <td>{{row.pxFoto}}</td>
-            </tr>
-    	</table>
   </div>
+
+  <div>
+      
+
+      <table class="table table-bordered">
+          <tr class="info">
+             <td width="1%" nowrap>App #</td>
+
+             <td width="1%" nowrap>Purpose</td>
+             <td width="1%" nowrap>Dok</td>
+
+             <td width="1%" nowrap>Date Set</td>
+             <td width="1%" nowrap>App Age</td>
+
+             <td width="1%" nowrap>Hosp Chart #</td>
+             <td width="1%" nowrap>Hosp</td>
+
+             <td width="1%" nowrap>Chart #</td>
+             <td width="1%" nowrap>Patient</td>
+
+             <td width="1%" nowrap>Address</td>
+             <td width="1%" nowrap>Status</td>
+             <td width="1%" nowrap>Reg Date</td>
+             <td>Profile</td>
+          </tr>
+
+          <tr class="primary" ng-repeat="row in clinix | limitTo:50">
+
+             <td>{{row.ClinixRID}}</td>
+
+             <td>{{ row.PurposeOfVisit }}</td>
+             <td>{{ row.Dok }}</td>
+
+             <td nowrap>{{row.AppDateSet | date}}</td>
+  	         <td nowrap>{{row.AppDateAge}}</td>
+
+             <td>{{row.HospitalRID}}</td>
+             <td>{{row.Hospital}}</td>
+
+             <td>{{row.PxRID}}</td>
+             <td>{{row.pxname}}</td>
+
+             <td>{{row.pxAddress}}</td>
+             <td nowrap>{{row.pxstatus}}</td>
+             <td nowrap>{{row.pxregdate | date}}</td>
+             <td>{{row.pxFoto}}</td>
+          </tr>
+    	</table>
 </div>
 
 </body>

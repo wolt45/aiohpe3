@@ -32,8 +32,7 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPreOpKNEExrays = pxresult;
-        // 
-        alert("KNEE PRE LABS & XRAYS working");
+        // alert("KNEE PRE LABS & XRAYS working");
       });
     });
   };
@@ -44,8 +43,7 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPostOpKNEExrays = pxresult;
-        // 
-        alert("KNEE POST PE LABS & XRAYS working");
+        // alert("KNEE POST PE LABS & XRAYS working");
       });
     });
   }

@@ -1,9 +1,9 @@
-<!-- LAB EXAMS 254.99 -->
+<!-- LAB EXAMS 0.99 -->
 
 <script>
     $(document).ready(function()
     {
-        $("#hideshowPrevLabs").hide();
+        $("#hideshowPrevLabs").show();
 
         $("#showlabsPrevLabs").click(function()
         {
@@ -161,7 +161,7 @@
             					<br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
             					<br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
             					<br>
-								<img ng-src="http://192.168.254.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+								<img ng-src="http://192.168.0.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
 		                	</div>
 	                	</div>
 					</td>

@@ -1,10 +1,10 @@
 <script>
 
-    // 254.99
+    // 0.99
 
     $(document).ready(function()
     {
-        $("#hideshowPre_OPHipXRays").hide();
+        $("#hideshowPre_OPHipXRays").show(); //hide
 
         $("#showPreOpHIPXRays").click(function()
         {
@@ -12,7 +12,7 @@
         });
 
 
-        $("#hideshowPost_OPHipXRays").hide();
+        $("#hideshowPost_OPHipXRays").show();
 
         $("#showPostOpHIPXRays").click(function()
         {
@@ -47,7 +47,7 @@
         				<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
         				<br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
         				<br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-        				<br> <img ng-src="http://192.168.254.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+        				<br> <img ng-src="http://192.168.0.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
                 	</div>
             	</div>
 			</td>
@@ -79,7 +79,7 @@
                         <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
                         <br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
                         <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-                        <br> <img ng-src="http://192.168.254.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        <br> <img ng-src="http://192.168.0.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
                     </div>
                 </div>
             </td>

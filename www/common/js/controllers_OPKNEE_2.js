@@ -71,7 +71,7 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.clinix_DiagSchedSurgery.add(newrecord);
     $ipadrbg.context.clinix_DiagSchedSurgery.saveChanges();
 
-    alert("Data Updated Successfuly!");
+    alert("KNEE SURGERY Schedule Data Updated Successfuly!!");
 
     $scope.LoadDiagsSchedSurg();
   }
