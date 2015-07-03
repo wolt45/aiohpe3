@@ -9,9 +9,6 @@
     <script src="..//lib/angular-1.2.18.min.js"></script>
 
     <script src="..//common/models/model_clinix.js"></script>
-    <!-- script src="model_chiefcomplaint.js"></script>
-    <script src="model_spineIntl.js"></script>
-    <script src="model_etiology.js"></script -->
     <script src="..//common/models/model_lkupTranStatus.js"></script>
     <script src="..//common/models/model_lkupPEChargesTariff.js"></script>
     <script src="..//common/models/model_lab_results.js"></script>
@@ -22,6 +19,14 @@
     <script src="..//common/models/model_prevsurgeries.js"></script>
     <script src="..//common/models/model_labs.js"></script>
     <script src="..//common/models/model_medhist.js"></script>
+
+    <!-- Diagnosis -->
+    <script src="..//common/models/model_diagnosis.js"></script>
+    <script src="..//common/models/model_diags_Management.js"></script>
+    <script src="..//common/models/model_diags_Meds.js"></script>
+    <script src="..//common/models/model_diags_SchedSurgery.js"></script>
+    <script src="..//common/models/model_diags_Disposition.js"></script>
+    <script src="..//common/models/model_diagsNotes.js"></script>
 
 
 
@@ -64,7 +69,7 @@
         <tr>
             <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
             <td>
-              <button class="btn-warning btn-block btn-lg text-center" ng-click="pullPEResults()">
+              <button class="btn-warning btn-block btn-lg text-center" ng-click="puller_PEResults()">
                 DOWNLOAD <br> physical Examination Results 
               </button>
             </td>

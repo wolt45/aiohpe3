@@ -688,4 +688,124 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
+
+
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	// PULL PHYSICAL EXAM RESULTS and REPORTS and ORDERS
+  	$scope.puller_PEResults = function() {
+    	if (confirm('Download PE Results, DIAGNOSIS, Operative Orders and Reports, proceed?')) {
+
+      		$scope.pullDIAGS();
+      		$scope.pullDIAGS_mgmt();
+
+      		$scope.pullORDERS();
+
+      		alert("Importing PE Results, DIAGNOSIS, Operative Orders and Reports from Server was Successful!");
+    	}
+  	}	
+
+	// PULL DIAGS
+	$scope.pullDIAGS = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_Diagnosis'");
+            tx.executeSql("delete from 'clinix_Diagnosis'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_Diagnosis = new $ipadrbg.types.clinix_Diagnosis();
+			    	
+					clinix_Diagnosis.ClinixRID = data[idx].ClinixRID;
+					clinix_Diagnosis.PxRID = data[idx].PxRID;
+
+					clinix_Diagnosis.Diagnosis = data[idx].Diagnosis;
+
+					clinix_Diagnosis.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_Diagnosis.add(clinix_Diagnosis);
+				}
+				$ipadrbg.context.clinix_Diagnosis.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+
+	// PULL DIAGS - Management
+	$scope.pullDIAGS_mgmt = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_DiagsManagement'");
+            tx.executeSql("delete from 'clinix_DiagsManagement'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_mgmt.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_DiagsManagement = new $ipadrbg.types.clinix_DiagsManagement();
+			    	
+					clinix_DiagsManagement.ClinixRID = data[idx].ClinixRID;
+					clinix_DiagsManagement.PxRID = data[idx].PxRID;
+
+					clinix_DiagsManagement.PhysicalTherapy = data[idx].PhysicalTherapy;
+					clinix_DiagsManagement.ExerProg_FootAnkle = data[idx].ExerProg_FootAnkle;
+					clinix_DiagsManagement.ExerProg_QuadsHamstrings = data[idx].ExerProg_QuadsHamstrings;
+					clinix_DiagsManagement.ExerProg_SLR = data[idx].ExerProg_SLR;
+					clinix_DiagsManagement.AmbuTraining = data[idx].AmbuTraining;
+
+					clinix_DiagsManagement.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_DiagsManagement.add(clinix_DiagsManagement);
+				}
+				$ipadrbg.context.clinix_DiagsManagement.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 }	
