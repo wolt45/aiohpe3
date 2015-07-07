@@ -8,11 +8,15 @@
     <script src="..//lib/jaydata-1.3.6/jaydataproviders/SqLiteProvider.min.js"></script>
     <script src="..//lib/angular-1.2.18.min.js"></script>
 
+    <script src="..//common/models/model_zclinix.js"></script>
+
     <script src="..//common/models/model_clinix.js"></script>
     <script src="..//common/models/model_lkupTranStatus.js"></script>
     <script src="..//common/models/model_lkupPEChargesTariff.js"></script>
     <script src="..//common/models/model_lab_results.js"></script>
+    <script src="..//common/models/model_pe_charges.js"></script>
 
+    <!-- IOH -->
     <script src="..//common/models/model_chiefcomplaint.js"></script>
     <script src="..//common/models/model_etiology.js"></script>
     <script src="..//common/models/model_treatment.js"></script>
@@ -28,10 +32,18 @@
     <script src="..//common/models/model_diags_Disposition.js"></script>
     <script src="..//common/models/model_diagsNotes.js"></script>
 
+    <script src="..//common/models/model_OPHIP_3.js"></script>
+    <script src="..//common/models/model_OPHIP_4.js"></script>
+    <script src="..//common/models/model_OPHIP_5.js"></script>
+    <script src="..//common/models/model_OPHIP_6.js"></script>
 
-
+    <script src="..//common/models/model_OPKNEE_2.js"></script>
+    <script src="..//common/models/model_OPKNEE_3.js"></script>
+    <script src="..//common/models/model_OPKNEE_4.js"></script>
+    <script src="..//common/models/model_OPKNEE_5.js"></script>
 
     <script src="model_myservices.js"></script>
+
     <script src="app.js"></script>
 </head>
 
@@ -70,7 +82,7 @@
             <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
             <td>
               <button class="btn-warning btn-block btn-lg text-center" ng-click="puller_PEResults()">
-                DOWNLOAD <br> physical Examination Results 
+                DOWNLOAD <br> PE, Diagsnosis, Orders and Reports  
               </button>
             </td>
         </tr> 

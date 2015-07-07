@@ -12,7 +12,7 @@
 					</th>
 				</tr>
 
-			  	<tr class="primary">
+			  	<tr class="info">
 	                <th class="text-center" width="1%">CAUSED by INJURY</th>
 	                <th class="text-center" width="1%">DATE</th>
 	                <th class="text-center" width="1%">WORK RELATED</th>
@@ -24,7 +24,7 @@
 	                <th></th>
 	            </tr>
 
-				<tr class="active" ng-repeat="etiology in clinix_etiology">
+				<tr class="primary" ng-repeat="etiology in clinix_etiology">
 	                <td class="text-center"> {{etiology.Injury==1 ? 'YES' : 'NO'}} </td>
 	                <td class="text-center"> {{etiology.DateEtio=="0000-00-00" ? "" : etiology.DateEtio }} </td>
 	                <td class="text-center"> {{etiology.WorkRelated==1 ? 'YES ' : 'NO'}} </td>

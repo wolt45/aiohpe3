@@ -2,7 +2,7 @@
 	// 0.99
     $(document).ready(function()
     {
-        $("#hideshowChiefComp").show();
+        $("#hideshowChiefComp").show(); // hide
 
         $("#showlabsChiefComp").click(function()
         {
@@ -25,10 +25,10 @@
                 </th>
 			</tr>
 
-			<tr class="primary" ng-repeat="complaint in clinix_chiefcomp">
-				<td class="primary" width="5%" nowrap> &nbsp; </td>
+			<tr class="active" ng-repeat="complaint in clinix_chiefcomp">
+				<td width="5%" nowrap> &nbsp; </td>
 
-				<td class="active text-left">
+				<td class="text-left">
 					{{complaint.MyBoneComplaint}} 
 					{{complaint.MyBoneLRB ? (", &nbsp;" + (complaint.MyBoneLRB | uppercase) ) : ""}} 
 					{{complaint.MyBone ? (" &nbsp;" + (complaint.MyBone | uppercase) ) : ""}} 
@@ -39,7 +39,7 @@
             <tr class="info">
 
 				<td class="text-left" colspan="9" nowrap>
-					<input type="submit" id="showlabsChiefComp" class="btn btn-danger" value="GROSS PICTURES">
+					<input type="submit" id="showlabsChiefComp" class="btn btn-danger" value="Gross Images">
                 	<div id="hideshowChiefComp">
 	                	<div ng-repeat="lab_results in LABSChiefcomp" style="padding: 0 20px 0 20px">
 	                		<br><br>

@@ -6,3 +6,83 @@
 <ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
 <ng:include src="'..//common/vw_labs.html'"></ng:include>
 <ng:include src="'..//common/vw_medhist.html'"></ng:include>
+
+
+<div ng-controller="ChiefComplaintCtrl">
+	<div ng-repeat="zclinixes in zclinix">
+		<p ng-show = {{zclinixes.HIP}} >
+			<ng:include src="'..//common/vw_px_hip.html'"></ng:include>
+		</p>
+
+		<p ng-show = {{zclinixes.KNEE}} >
+			<ng:include src="'..//common/vw_px_knee.html'"></ng:include>
+		</p>
+	</div>
+</div>
+
+<ng:include src="'..//common/vw_diagnosis.html'"></ng:include>
+
+<ng:include src="'..//common/vw_diags_Management.html'"></ng:include>
+<ng:include src="'..//common/vw_diags_SurgerySched.html'"></ng:include>
+<ng:include src="'..//common/vw_diags_Medication.html'"></ng:include>
+<ng:include src="'..//common/vw_diags_Disposition.html'"></ng:include>
+
+<ng:include src="'..//common/vw_diags_Notes.html'"></ng:include>
+<!-- ng:include src="'tplpe/close_pe.html'"></ng:include -->
+
+<div ng-controller="ChiefComplaintCtrl">
+	<div ng-repeat="zclinixes in zclinix">
+		<p ng-show = {{zclinixes.HIP}} >
+			<ng:include src="'..//common/vw_PREOpHIPreplc_preform.html'"></ng:include>
+		</p>
+		<p ng-show = {{zclinixes.KNEE}} >
+			<ng:include src="'..//common/vw_PREOpKNEEreplc_preform.html'"></ng:include>
+		</p>
+	</div>
+</div>
+
+<table class="table table-condensed table-bordered">
+	<tr class="info">
+		<th colspan=9>
+			<span id="DGL_module_header">
+    			Hip Replacement Operative Report
+    		</span>
+		</th>
+	</tr>
+</table>
+
+<div ng-controller="ChiefComplaintCtrl">
+	<div ng-repeat="zclinixes in zclinix">
+		<p ng-show = {{zclinixes.HIP}} >
+			<ng:include src="'tplpe/OPHIP_1_preOpDiags.html'"></ng:include>
+			<ng:include src="'tplpe/OPHIP_2_surgeon.html'"></ng:include>
+			<ng:include src="'tplpe/OPHIP_3_implant.html'"></ng:include>
+			<!-- NOT USED!!!  ng:include src="'tplpe/OPHIP_4_acetabular.html'"></ng:include -->
+			<ng:include src="'tplpe/OPHIP_5_surgicalapp.html'"></ng:include>
+			<ng:include src="'tplpe/OPHIP_6_finale.html'"></ng:include>
+			<!-- Move up in XRay Findings ng:include src="'tplpe/OPHIP_XRays.html'"></ng:include -->
+		</p>	
+
+		<p ng-show = {{zclinixes.KNEE}} >
+			<ng:include src="'tplpe/OPKNEE_1_preOpDiags.html'"></ng:include>
+			<ng:include src="'tplpe/OPKNEE_2_surgeon.html'"></ng:include>
+			<ng:include src="'tplpe/OPKNEE_3_implant.html'"></ng:include>
+			<ng:include src="'tplpe/OPKNEE_4_surgicalapp.html'"></ng:include>
+			<ng:include src="'tplpe/OPKNEE_5_finale.html'"></ng:include>
+
+			<!-- ng:include src="'tplpe/OPKNEE_XRays.html'"></ng:include -->
+		</p>
+	</div>
+</div>
+
+<div ng-controller="ChiefComplaintCtrl">
+	<div ng-repeat="zclinixes in zclinix">
+	<p ng-show = {{zclinixes.HIP}} >
+		<ng:include src="'..//common/vw_POSTOpHIPreplc_preform.html'"></ng:include>
+	</p>
+	<p ng-show = {{zclinixes.KNEE}} >
+		<ng:include src="'..//common/vw_POSTOpKNEEreplc_preform.html'"></ng:include>
+	</p>
+</div>	
+
+<ng:include src="'..//common/vw_structured_discharge_summary.html'"></ng:include>

@@ -9,24 +9,23 @@ IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http) {
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_LABS = pxresult;
-        
         // WFS HACKS: pick-up Chart Number Here
         $scope.PxRID = pxresult[0]['PxRID'];
         // alert($scope.PxRID);
         $scope.LoadLABSPrevLabs();
-
       });
     })
   }
 
-  $scope.LoadLABS();
+  $scope.LoadLABS(); // this is model_labs
 
-  // LABS, loaded on the first promise, load after $scope.PxRID was promised
+  // LABS this time from LabResults, loaded on the first promise, load after $scope.PxRID was promised
   $scope.LoadLABSPrevLabs = function(){
     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
-      { return labs.PxRID == this.id && labs.HangRID == this.hangRID} , {id:$scope.PxRID, hangRID: 3}).toLiveArray();
+      { return labs.PxRID == this.id } , {id:$scope.PxRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
+        // alert('Hit!');
         $scope.LABSPrevLabs = pxresult;
       });
     });

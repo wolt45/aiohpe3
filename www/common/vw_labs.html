@@ -18,6 +18,7 @@
 		<div class="panel panel-default">
 
 			<table class="table table-condensed table-bordered">
+
 				<tr class="info">
 					<th colspan=9>
 						<span id="DGL_module_header">
@@ -26,7 +27,7 @@
 					</th>
 				</tr>
 
-				<tr class="primary">
+				<tr class="info">
 					<th width="1%" class="text-center">Labs</th>
 					<th width="1%" class="text-center">Date</th>
 					<th width="1%" class="text-center">Where</th>
@@ -41,13 +42,12 @@
 	                <td class="text-center">{{rolLabs.labReport}}</td>
 				</tr>
 
-
-	            <tr class="info">
+	            <!--tr class="info">
 					<td class="text-left" colspan="9" nowrap>
-	                	<input type="submit" id="showlabsPrevLabs" class="btn btn-danger" value="GROSS PICTURES">
+	                	<input type="submit" id="showlabsPrevLabs" class="btn btn-danger" value="Gross Images">
 					
 	                	<div id="hideshowPrevLabs">
-		                	<div ng-repeat="lab_results in LABSPrevLabs" style="padding: 0 20px 0 20px">
+		                	<div ng-repeat="lab_results in LABSPrevLabs | orderBy : [ 'RefDate' ] " style="padding: 0 20px 0 20px">
 								<br><br>
 	                			LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
             					<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
@@ -58,7 +58,7 @@
 		                	</div>
 	                	</div>
 					</td>
-	            </tr>
+	            </tr-->
 
 			</table>
 		</div>

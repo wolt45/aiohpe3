@@ -1,7 +1,9 @@
 IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_chiefcomp = [];
   $scope.clinix_HXchiefcomp = [];
+
   $scope.LABSChiefcomp = [];
+  $scope.zclinix = [];
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
   $scope.PxRID = 0;
@@ -32,11 +34,12 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
         $scope.LoadHXComplaints();
 
         $scope.LoadLABSChiefcomp();
+
+        $scope.LoadZCLINIX();
       });
     });
   }
   $scope.LoadComplaints();
-
 
 
   // HISTORY, loaded on the first promise, load after $scope.PxRID was promised
@@ -63,6 +66,21 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
       });
     });
   }
+
+
+  // LABS, loaded on the first promise, load after $scope.PxRID was promised
+  $scope.LoadZCLINIX = function(){
+    var promise = $ipadrbg.context.zclinix.filter(function (tblZClinix) 
+      { return tblZClinix.ClinixRID == this.id } , {id:$scope.ClinixRID}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.zclinix = pxresult;
+        // alert($scope.ClinixRID);
+      });
+    });
+  }
+
+
 
 
   $scope.addNew = function (complaint) {

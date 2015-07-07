@@ -4,7 +4,7 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagSchedSurgery", {
 	, PxRID: { type: "string"}
 
 	, SurgeryType : { type: "string"}
-	, SurgeryDate : { type: "date"}
+	, SurgeryDate : { type: "string"}
 	, Surgeon	  : { type: "string"}
 	, Assistant	  : { type: "string"}
 	, Cardio	  : { type: "string"}
