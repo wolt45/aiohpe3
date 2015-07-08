@@ -997,7 +997,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.clinix_DiagsDisposition.add(clinix_DiagsDisposition);
 
 				}
-				$ipadrbg.context.clinix_DiagsDisposition.saveChanges();
+				//$ipadrbg.context.clinix_DiagsDisposition.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1041,7 +1041,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.clinix_DiagsNotes.add(clinix_DiagsNotes);
 
 				}
-				$ipadrbg.context.clinix_DiagsNotes.saveChanges();
+				//$ipadrbg.context.clinix_DiagsNotes.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1091,7 +1091,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.clinix_PEcharges.add(clinix_PEcharges);
 
 				}
-				$ipadrbg.context.clinix_PEcharges.saveChanges();
+				//$ipadrbg.context.clinix_PEcharges.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1149,7 +1149,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPHIP_3.add(jdata_OPHIP_3);
 				}
-				$ipadrbg.context.jdata_OPHIP_3.saveChanges();
+				//$ipadrbg.context.jdata_OPHIP_3.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1167,7 +1167,7 @@ function DataController($rootScope, $scope, $http) {
 	//
 	//
 	//
-	
+
 		// PULL OPERATIVES - HIP
 		$scope.pull_OPHIP_5 = function(){
 		var serverIP = "192.168.0.99";
@@ -1203,7 +1203,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPHIP_5.add(jdata_OPHIP_5);
 				}
-				$ipadrbg.context.jdata_OPHIP_5.saveChanges();
+				//$ipadrbg.context.jdata_OPHIP_5.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1257,7 +1257,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPHIP_6.add(jdata_OPHIP_6);
 				}
-				$ipadrbg.context.jdata_OPHIP_6.saveChanges();
+				//$ipadrbg.context.jdata_OPHIP_6.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1306,7 +1306,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPKNEE_3.add(jdata_OPKNEE_3);
 				}
-				$ipadrbg.context.jdata_OPKNEE_3.saveChanges();
+				//$ipadrbg.context.jdata_OPKNEE_3.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1362,7 +1362,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPKNEE_4.add(jdata_OPKNEE_4);
 				}
-				$ipadrbg.context.jdata_OPKNEE_4.saveChanges();
+				//$ipadrbg.context.jdata_OPKNEE_4.saveChanges();
 
 			}
 			// else
