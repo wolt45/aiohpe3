@@ -59,6 +59,10 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_OPKNEE_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_5 }
 	
 	, LAB_Results: { type: $data.EntitySet, elementType: $ipadrbg.types.LAB_Results }
+	
+	//, jdata_skeltrauma_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_skeltrauma_1 }
+
+
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });

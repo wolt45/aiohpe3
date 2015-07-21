@@ -1,3 +1,8 @@
+// not used
+// not used
+// not used
+// not used
+// not used
 $data.Entity.extend("$ipadrbg.types.jdata_OPHIP_2", {
 	OPHIP_2RID: { type: "int", key: true, computed: true }
 	, ClinixRID: { type: "string"}

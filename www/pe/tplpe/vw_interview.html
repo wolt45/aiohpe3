@@ -41,19 +41,20 @@
 	</div>
 </div>
 
-<table class="table table-condensed table-bordered">
-	<tr class="info">
-		<th colspan=9>
-			<span id="DGL_module_header">
-    			Hip Replacement Operative Report
-    		</span>
-		</th>
-	</tr>
-</table>
-
 <div ng-controller="ChiefComplaintCtrl">
 	<div ng-repeat="zclinixes in zclinix">
 		<p ng-show = {{zclinixes.HIP}} >
+
+			<table class="table table-condensed table-bordered">
+				<tr class="info">
+					<th colspan=9>
+						<span id="DGL_module_header">
+			    			HIP Replacement Operative Report
+			    		</span>
+					</th>
+				</tr>
+			</table>
+
 			<ng:include src="'tplpe/OPHIP_1_preOpDiags.html'"></ng:include>
 			<ng:include src="'tplpe/OPHIP_2_surgeon.html'"></ng:include>
 			<ng:include src="'tplpe/OPHIP_3_implant.html'"></ng:include>
@@ -64,6 +65,17 @@
 		</p>	
 
 		<p ng-show = {{zclinixes.KNEE}} >
+
+			<table class="table table-condensed table-bordered">
+				<tr class="info">
+					<th colspan=9>
+						<span id="DGL_module_header">
+			    			KNEE Replacement Operative Report
+			    		</span>
+					</th>
+				</tr>
+			</table>
+
 			<ng:include src="'tplpe/OPKNEE_1_preOpDiags.html'"></ng:include>
 			<ng:include src="'tplpe/OPKNEE_2_surgeon.html'"></ng:include>
 			<ng:include src="'tplpe/OPKNEE_3_implant.html'"></ng:include>

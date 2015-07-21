@@ -8,7 +8,7 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
 
     var promise = $ipadrbg.context.clinix.filter(function (px) { 
       
-      return px.ClinixRID > this.id }, { id : 0 }).order('TranStatus', 'AppDateSet', 'ClinixRID').toLiveArray();
+      return px.ClinixRID > 0 }).order('TranStatus', 'AppDateSet', 'ClinixRID').toLiveArray();
     
     promise.then(function(pxresult) {
 

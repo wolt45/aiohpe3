@@ -19,6 +19,7 @@
 		<td width="15%" class="active">Dominant Hand:</td>
 		<td colspan="2" >
 			<input type="radio" id="DominantHandRight" name="Dominant" value="R" checked> R
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" id="DominantHandLeft"  name="Dominant" value="L"> L
 		</td>
 	</tr>
@@ -26,7 +27,9 @@
 		<td class="active">Chief Complaint:</td>
 		<td colspan="2">
 			<input type="radio" id="ChiefComplainSpine" name="CC" value="Low Back/Legs" checked> Low Back/Legs
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" id="ChiefComplainSpine2"  name="CC" value="Neck/Arms"> Neck/Arms
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" id="ChiefComplainSpine3"  name="CC" value="Thoracic/Upper Back"> Thoracic/Upper Back
 		</td>
 	</tr>
@@ -40,25 +43,26 @@
 	<tr>
 		<td class="active" colspan="2">
 			When did your current problem/symptoms begin?<br>
-			<textarea class="form-control" id="SymptomsStarted" placeholder="When did the Symptoms begin?"></textarea>
+			<textarea class="form-control" id="SymptomsStarted" style="font-size:26px"></textarea>
 		</td>
 	</tr>
 	<tr>
 		<td class="active" colspan="2">
 			Have your symptoms changed since onset?<br>
-			<textarea class="form-control" id="SymptomsChange" placeholder="Have your symoptoms change since onset?"></textarea>
+			<textarea class="form-control" id="SymptomsChange" style="font-size:26px"></textarea>
 		</td>
 	</tr>
 	<tr>
 		<td class="active" colspan="2">
 			Have you had prior episodes of this condition?<br>
-			<textarea class="form-control" id="SymptomsChange" placeholder="Have your symoptoms change since onset?"></textarea>
+			<textarea class="form-control" id="SymptomsChange" style="font-size:26px"></textarea>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="3" class="active">
 			Is your problem the result of an on-the-job injuty?<br>
 			Yes <input type="radio" id="JobInjuryYes" name="JI" value="Y" checked>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			No <input type="radio" id="JobInjuryNo"  name="JI" value="N">
 		</td>
 	</tr>
@@ -72,7 +76,31 @@
 
 <table class="table table-bordered">
 	<tr>
-		<td></td>
+		<td class="warning" colspan="3">
+			<div scroll-bookmark="SPINEPainSeverity" id="DGL_module_header">
+				<b>Pain Diagram</b>
+			</div>
+		</td>
+	</tr>
+
+	<tr class="active">
+		<td>SYMBOLS</td>
+		<td class="text-center">FRONT</td>
+		<td class="text-center">BACK</td>
+	</tr>
+	<tr>
+		<td class="active">ACHE<br> >>>>> <br> >>>>></td>
+		<td class="text-center" rowspan="4"><img src="../images/Front.jpg" height="600px" width="300px"></td>
+		<td class="text-center" rowspan="4"><img src="../images/Back.jpg" height="600px" width="300px"></td>
+	</tr>
+	<tr>
+		<td class="active">NUMBNESS<br> ===== <br> ===== </td>
+	</tr>
+	<tr>
+		<td class="active">Stabbing Pain<br> ///// <br> ///// </td>
+	</tr>
+	<tr>
+		<td class="active">Pins and Needles<br> 0000 <br> 0000 </td>
 	</tr>
 </table>
 
@@ -113,28 +141,6 @@
 	</tr>
 	<tr>
 		<td colspan="6" class="active"> &nbsp;</td>
-	</tr>
-</table>
-
-<table class="table table-bordered">
-	<tr class="active">
-		<td>SYMBOLS</td>
-		<td class="text-center">FRONT</td>
-		<td class="text-center">BACK</td>
-	</tr>
-	<tr>
-		<td class="active">ACHE<br> >>>>> <br> >>>>></td>
-		<td class="text-center" rowspan="4"><img src="../images/Front.jpg" height="600px" width="300px"></td>
-		<td class="text-center" rowspan="4"><img src="../images/Back.jpg" height="600px" width="300px"></td>
-	</tr>
-	<tr>
-		<td class="active">NUMBNESS<br> ===== <br> ===== </td>
-	</tr>
-	<tr>
-		<td class="active">Stabbing Pain<br> ///// <br> ///// </td>
-	</tr>
-	<tr>
-		<td class="active">Pins and Needles<br> 0000 <br> 0000 </td>
 	</tr>
 </table>
 

@@ -3,7 +3,7 @@ $data.Entity.extend("$ipadrbg.types.clinix_HipXRays", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
-	, APPelvisBothHipsDate: { type: "date"}
+	, APPelvisBothHipsDate: { type: "string"}
 	, Pelvis: { type: "string"}
 	, PelvisInches: { type: "string"}
 	

@@ -12,6 +12,23 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, clinix_LABS: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_LABS }
 	, clinix_MedHist: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_MedHist }
 
+	, clinix_AmbuStatus: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_AmbuStatus }
+	, clinix_HipMeasures: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_HipMeasures }
+	, clinix_HipStanding: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_HipStanding }
+	, clinix_HipMotionRange: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_HipMotionRange }
+	, clinix_HipXRays: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_HipXRays }
+
+	, clinix_KneeMeasures: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_KneeMeasures }
+	, clinix_KneeAppearance: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_KneeAppearance }
+	, clinix_KneeAlignment: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_KneeAlignment }
+	, clinix_KneeMotionRange: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_KneeMotionRange }
+	, clinix_KneeXRays: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_KneeXRays }	
+
+	, clinix_PREOp_HIP_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_HIP_preform }
+	, clinix_POSTOp_HIP_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_POSTOp_HIP_preform }
+	, clinix_PREOp_KNEE_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_PREOp_KNEE_preform }
+	, clinix_POSTOp_KNEE_preform: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_POSTOp_KNEE_preform }
+
 	, clinix_Diagnosis: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_Diagnosis }
 	, clinix_DiagsManagement: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_DiagsManagement }
 	, clinix_DiagsMedication: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_DiagsMedication }
@@ -30,6 +47,14 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_OPKNEE_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_3 }
 	, jdata_OPKNEE_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_4 }
 	, jdata_OPKNEE_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OPKNEE_5 }
+
+	, clinix_StructuredDiagnosis: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredDiagnosis }
+	, clinix_StructuredSchedSurgery: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredSchedSurgery }
+	, clinix_StructuredHospitalization: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredHospitalization }
+	, clinix_StructuredLABS: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredLABS }
+	, clinix_StructuredDisposition: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredDisposition }
+	, clinix_StructuredManagement: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredManagement }
+	, clinix_StructuredMedication: { type: $data.EntitySet, elementType: $ipadrbg.types.clinix_StructuredMedication }
 	
 	, zclinix: { type: $data.EntitySet, elementType: $ipadrbg.types.zclinix }
 });

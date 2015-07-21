@@ -751,25 +751,539 @@ function DataController($rootScope, $scope, $http) {
   	$scope.puller_PEResults = function() {
     	if (confirm('Download PE Results, DIAGNOSIS, Operative Orders and Reports, proceed?')) {
 
-      		$scope.pullDIAGS();
-      		$scope.pullDIAGS_mgmt();
-      		$scope.pullDIAGS_ScheduleForSurgery();
+    		// alert(ipaddress);
+    		
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_AmbuStatus'");
+	            tx.executeSql("delete from 'clinix_AmbuStatus'");
+
+	            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipMotionRange'");
+            	tx.executeSql("delete from 'clinix_HipMotionRange'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipStanding'");
+            	tx.executeSql("delete from 'clinix_HipStanding'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipXRays'");
+            	tx.executeSql("delete from 'clinix_HipXRays'");
+	        });
+
+    		$scope.pullambustatus(function(){
+    			$scope.pullHipMotionRange(function(){
+    				$scope.pullHipStanding(function(){
+    					$scope.pullHipXray(function(){
+
+    						$ipadrbg.context.saveChanges();
+    						
+    					});
+    				});
+    			});
+    		});
+
+    		// $scope.pullambustatus()
+    		// .after($scope.pullHipMotionRange)
+    		// .after($scope.pullHipStanding)
+    		// .after
+
+      		// $scope.pullHipXray();
+
+      		// $scope.pullKneeAlignment();
+      		// $scope.pullKneeApperance();
+      		// NOT USED NOT USED  $scope.pullKneeMeasurements();
+      		// $scope.pullKneeMotionRange();      			
+      		// $scope.pullKneeXray();      			
+
+      		// $scope.pullDIAGS();
+      		// $scope.pullDIAGS_mgmt();
+      		// $scope.pullDIAGS_ScheduleForSurgery();
       		
-      		$scope.pullDIAGS_Medication();
-      		$scope.pullDIAGS_Disposition();
-      		$scope.pullDIAGS_Notes();
-      		$scope.pullDIAGS_Charges();
+   //    		$scope.pullDIAGS_Medication();
+   //    		$scope.pullDIAGS_Disposition();
+   //    		$scope.pullDIAGS_Notes();
+   //    		$scope.pullDIAGS_Charges();
 
-      		$scope.pull_OPHIP_3();
-      		$scope.pull_OPHIP_5();
-      		$scope.pull_OPHIP_6();
+   //    		$scope.pull_POSTOPHIP();
+   //    		$scope.pull_PREOPHIP();
 
- 			$scope.pull_OPKNEE_3();
- 			$scope.pull_OPKNEE_4();
- 			$scope.pull_OPKNEE_5();     
+   //    		$scope.pull_OPHIP_3();
+   //    		$scope.pull_OPHIP_5();
+   //    		$scope.pull_OPHIP_6();
+      		
+			// $scope.pull_POSTOPKNEE();
+   //    		$scope.pull_PREOPKNEE();
+
+ 		// 	$scope.pull_OPKNEE_3();
+ 		// 	$scope.pull_OPKNEE_4();
+ 		// 	$scope.pull_OPKNEE_5();     
+
+ 		// 	$scope.pull_StrucDiagnosis();
+ 		// 	$scope.pull_StrucDisposition();
+ 		// 	$scope.pull_StrucHospitalization();
+ 		// 	$scope.pull_StrucLabs();
+ 		// 	$scope.pull_StrucManagement();
+ 			//$scope.pull_StrucMedication();
+ 			
+ 			// not used, see diagnosis sur schedule
+ 			// $scope.pull_StrucSchedSurgery();
+
       		alert("Importing PE Results, DIAGNOSIS, Operative Orders and Reports from Server was Successful!");
     	}
   	}	
+
+
+  	// PULL Ambulatory Status
+	$scope.pullambustatus = function(callback){
+		var serverIP = "192.168.0.99";
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_AmbulatoryStatus.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_AmbuStatus = new $ipadrbg.types.clinix_AmbuStatus();
+			    	
+					clinix_AmbuStatus.ClinixRID = data[idx].ClinixRID;
+					clinix_AmbuStatus.PxRID = data[idx].PxRID;
+
+					clinix_AmbuStatus.PhysicalCondition = data[idx].PhysicalCondition;
+					clinix_AmbuStatus.AmbulatoryAid = data[idx].AmbulatoryAid;
+					clinix_AmbuStatus.AbleTo = data[idx].AbleTo;
+
+					clinix_AmbuStatus.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_AmbuStatus.add(clinix_AmbuStatus);
+				}
+			}
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	// PULL Hip Measurements
+	$scope.pullHipMeasurements = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipMeasures'");
+            tx.executeSql("delete from 'clinix_HipMeasures'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_HipMeasurements.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_HipMeasures = new $ipadrbg.types.clinix_HipMeasures();
+			    	
+					clinix_HipMeasures.ClinixRID = data[idx].ClinixRID;
+					clinix_HipMeasures.PxRID = data[idx].PxRID;
+
+					clinix_HipMeasures.SupineLength = data[idx].SupineLength;
+					clinix_HipMeasures.LR = data[idx].LR;
+					clinix_HipMeasures.AbsentNormal = data[idx].AbsentNormal;
+					clinix_HipMeasures.Others = data[idx].Others;
+
+					clinix_HipMeasures.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_HipMeasures.add(clinix_HipMeasures);
+				}
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	// PULL Hip Motion Range
+	$scope.pullHipMotionRange = function(callback){
+		var serverIP = "192.168.0.99";
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_HipMotionRange.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_HipMotionRange = new $ipadrbg.types.clinix_HipMotionRange();
+			    	
+					clinix_HipMotionRange.ClinixRID = data[idx].ClinixRID;
+					clinix_HipMotionRange.PxRID = data[idx].PxRID;
+
+					clinix_HipMotionRange.FlexionContra = data[idx].FlexionContra;
+					clinix_HipMotionRange.Flexion = data[idx].Flexion;
+					clinix_HipMotionRange.Extension = data[idx].Extension;
+					clinix_HipMotionRange.IR = data[idx].IR;
+					clinix_HipMotionRange.ER = data[idx].ER;
+					clinix_HipMotionRange.AbductionSupine = data[idx].AbductionSupine;
+					clinix_HipMotionRange.AbductionLateral = data[idx].AbductionLateral;
+					clinix_HipMotionRange.Adduction = data[idx].Adduction;
+
+					clinix_HipMotionRange.SLR_Ryn = data[idx].SLR_Ryn;
+					clinix_HipMotionRange.SLRValR = data[idx].SLRValR;
+					clinix_HipMotionRange.SLR_Lyn = data[idx].SLR_Lyn;
+					clinix_HipMotionRange.SLRValL = data[idx].SLRValL;
+
+					clinix_HipMotionRange.Resist_Ryn = data[idx].Resist_Ryn;
+					clinix_HipMotionRange.ResistRight = data[idx].ResistRight;
+					clinix_HipMotionRange.Resist_Lyn = data[idx].Resist_Lyn;
+					clinix_HipMotionRange.ResistLeft = data[idx].ResistLeft;
+
+					clinix_HipMotionRange.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_HipMotionRange.add(clinix_HipMotionRange);
+				}
+			}
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	// PULL HipStanding
+	$scope.pullHipStanding = function(callback){
+		var serverIP = "192.168.0.99";
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_HipStanding.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_HipStanding = new $ipadrbg.types.clinix_HipStanding();
+			    	
+					clinix_HipStanding.ClinixRID = data[idx].ClinixRID;
+					clinix_HipStanding.PxRID = data[idx].PxRID;
+
+					clinix_HipStanding.PelvisLevel = data[idx].PelvisLevel;
+					clinix_HipStanding.Trendelenberg = data[idx].Trendelenberg;
+
+					clinix_HipStanding.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_HipStanding.add(clinix_HipStanding);
+				}
+			}
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	// **********PULL HipXray***********
+	$scope.pullHipXray = function(callback){
+		var serverIP = "192.168.0.99";
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_HipXray.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_HipXRays = new $ipadrbg.types.clinix_HipXRays();
+			    	
+					clinix_HipXRays.ClinixRID = data[idx].ClinixRID;
+					clinix_HipXRays.PxRID = data[idx].PxRID;
+
+					clinix_HipXRays.APPelvisBothHipsDate = data[idx].APPelvisBothHipsDate;
+					clinix_HipXRays.Pelvis = data[idx].Pelvis;
+					clinix_HipXRays.PelvisInches = data[idx].PelvisInches;
+					clinix_HipXRays.Avascular = data[idx].Avascular;
+					clinix_HipXRays.Narrowing = data[idx].Narrowing;
+					clinix_HipXRays.Subluxation = data[idx].Subluxation;
+					clinix_HipXRays.Osteoporosis = data[idx].Osteoporosis;
+					clinix_HipXRays.FracturesNeck = data[idx].FracturesNeck;
+					clinix_HipXRays.Intertrouch = data[idx].Intertrouch;
+					clinix_HipXRays.Others = data[idx].Others;
+
+					clinix_HipXRays.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_HipXRays.add(clinix_HipXRays);
+				}
+			}
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	//Pull Knee Alignment
+	$scope.pullKneeAlignment = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeAlignment'");
+            tx.executeSql("delete from 'clinix_KneeAlignment'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeAlignment.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_KneeAlignment = new $ipadrbg.types.clinix_KneeAlignment();
+			    	
+					clinix_KneeAlignment.ClinixRID = data[idx].ClinixRID;
+					clinix_KneeAlignment.PxRID = data[idx].PxRID;
+
+					clinix_KneeAlignment.Normal = data[idx].Normal;
+					clinix_KneeAlignment.Alignment = data[idx].Alignment;
+					clinix_KneeAlignment.Varus = data[idx].Varus;
+					clinix_KneeAlignment.Valgus = data[idx].Valgus;
+
+					clinix_KneeAlignment.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_KneeAlignment.add(clinix_KneeAlignment);
+				}
+				$ipadrbg.context.clinix_KneeAlignment.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	//Pull Knee Apperance
+	$scope.pullKneeApperance = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeAppearance'");
+            tx.executeSql("delete from 'clinix_KneeAppearance'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeAppearance.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_KneeAppearance = new $ipadrbg.types.clinix_KneeAppearance();
+			    	
+					clinix_KneeAppearance.ClinixRID = data[idx].ClinixRID;
+					clinix_KneeAppearance.PxRID = data[idx].PxRID;
+
+					clinix_KneeAppearance.NormalR = data[idx].NormalR;
+					clinix_KneeAppearance.SwellingR = data[idx].SwellingR;
+					clinix_KneeAppearance.RedR = data[idx].RedR;
+					clinix_KneeAppearance.SynovitisR = data[idx].SynovitisR;
+					clinix_KneeAppearance.EffusionR = data[idx].EffusionR;
+					clinix_KneeAppearance.PainActiveROMR = data[idx].PainActiveROMR;
+					clinix_KneeAppearance.PainPassiveROMR = data[idx].PainPassiveROMR;
+					clinix_KneeAppearance.NormalL = data[idx].NormalL;
+					clinix_KneeAppearance.SwellingL = data[idx].SwellingL;
+					clinix_KneeAppearance.RedL = data[idx].RedL;
+					clinix_KneeAppearance.SynovitisL = data[idx].SynovitisL;
+					clinix_KneeAppearance.RedL = data[idx].RedL;
+					clinix_KneeAppearance.EffusionL = data[idx].EffusionL;
+					clinix_KneeAppearance.PainActiveROML = data[idx].PainActiveROML;
+					clinix_KneeAppearance.PainPassiveROML = data[idx].PainPassiveROML;
+
+					clinix_KneeAppearance.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_KneeAppearance.add(clinix_KneeAppearance);
+				}
+				$ipadrbg.context.clinix_KneeAppearance.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	//pull Knee Measurements
+	$scope.pullKneeMeasurements = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeMeasures'");
+            tx.executeSql("delete from 'clinix_KneeMeasures'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeMeasurements.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_KneeMeasures = new $ipadrbg.types.clinix_KneeMeasures();
+			    	
+					clinix_KneeMeasures.ClinixRID = data[idx].ClinixRID;
+					clinix_KneeMeasures.PxRID = data[idx].PxRID;
+
+					clinix_KneeMeasures.Supine = data[idx].Supine;
+					clinix_KneeMeasures.Left = data[idx].Left;
+					clinix_KneeMeasures.Right = data[idx].Right;
+
+					clinix_KneeMeasures.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_KneeMeasures.add(clinix_KneeMeasures);
+				}
+				$ipadrbg.context.clinix_KneeMeasures.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+
+	//pull Knee Motion Range
+	$scope.pullKneeMotionRange = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeMotionRange'");
+            tx.executeSql("delete from 'clinix_KneeMotionRange'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeMotionRange.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_KneeMotionRange = new $ipadrbg.types.clinix_KneeMotionRange();
+			    	
+					clinix_KneeMotionRange.ClinixRID = data[idx].ClinixRID;
+					clinix_KneeMotionRange.PxRID = data[idx].PxRID;
+
+					clinix_KneeMotionRange.FlexionContracture = data[idx].FlexionContracture;
+					clinix_KneeMotionRange.Extension = data[idx].Extension;
+					clinix_KneeMotionRange.Flexion = data[idx].Flexion;
+
+					clinix_KneeMotionRange.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_KneeMotionRange.add(clinix_KneeMotionRange);
+				}
+				$ipadrbg.context.clinix_KneeMotionRange.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+
+	//pull Knee Xray
+	$scope.pullKneeXray = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeXRays'");
+            tx.executeSql("delete from 'clinix_KneeXRays'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeXrays.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_KneeXRays = new $ipadrbg.types.clinix_KneeXRays();
+			    	
+					clinix_KneeXRays.ClinixRID = data[idx].ClinixRID;
+					clinix_KneeXRays.PxRID = data[idx].PxRID;
+
+					clinix_KneeXRays.APDate = data[idx].APDate;
+					clinix_KneeXRays.Normal = data[idx].Normal;
+					clinix_KneeXRays.VarusDegrees = data[idx].VarusDegrees;
+					clinix_KneeXRays.JointSpaceVarusR = data[idx].JointSpaceVarusR;
+					clinix_KneeXRays.JointSpaceVarusL = data[idx].JointSpaceVarusL;
+					clinix_KneeXRays.ValgusDegrees = data[idx].ValgusDegrees;
+					clinix_KneeXRays.JointSpaceValgusR = data[idx].JointSpaceValgusR;
+					clinix_KneeXRays.JointSpaceValgusL = data[idx].JointSpaceValgusL;
+					clinix_KneeXRays.BilateralJointSpace = data[idx].BilateralJointSpace;
+					clinix_KneeXRays.LaurinPatel_LR = data[idx].LaurinPatel_LR;
+					clinix_KneeXRays.LaurinPatel_LRSeverity = data[idx].LaurinPatel_LRSeverity;
+
+					clinix_KneeXRays.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_KneeXRays.add(clinix_KneeXRays);
+				}
+				$ipadrbg.context.clinix_KneeXRays.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
 
 	// PULL DIAGS
 	$scope.pullDIAGS = function(){
@@ -803,7 +1317,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.clinix_Diagnosis.add(clinix_Diagnosis);
 				}
-				//$ipadrbg.context.clinix_Diagnosis.saveChanges();
+				$ipadrbg.context.clinix_Diagnosis.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -851,7 +1365,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.clinix_DiagsManagement.add(clinix_DiagsManagement);
 				}
-				//$ipadrbg.context.clinix_DiagsManagement.saveChanges();
+				$ipadrbg.context.clinix_DiagsManagement.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -863,7 +1377,7 @@ function DataController($rootScope, $scope, $http) {
 	}
 
 
-	// PULL DIAGS - Management
+	// PULL DIAGS - Schedule for Surgery
 	$scope.pullDIAGS_ScheduleForSurgery = function(){
 		var serverIP = "192.168.0.99";
 
@@ -903,7 +1417,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.clinix_DiagSchedSurgery.add(clinix_DiagSchedSurgery);
 				}
-				//$ipadrbg.context.clinix_DiagSchedSurgery.saveChanges();
+				$ipadrbg.context.clinix_DiagSchedSurgery.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -914,7 +1428,7 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	// PULL DIAGS - Management
+	// PULL DIAGS - Medication
 	$scope.pullDIAGS_Medication= function(){
 		var serverIP = "192.168.0.99";
 
@@ -950,7 +1464,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.clinix_DiagsMedication.add(clinix_DiagsMedication);
 				}
-				//$ipadrbg.context.clinix_DiagsMedication.saveChanges();
+				$ipadrbg.context.clinix_DiagsMedication.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -997,7 +1511,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.clinix_DiagsDisposition.add(clinix_DiagsDisposition);
 
 				}
-				//$ipadrbg.context.clinix_DiagsDisposition.saveChanges();
+				$ipadrbg.context.clinix_DiagsDisposition.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1041,7 +1555,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.clinix_DiagsNotes.add(clinix_DiagsNotes);
 
 				}
-				//$ipadrbg.context.clinix_DiagsNotes.saveChanges();
+				$ipadrbg.context.clinix_DiagsNotes.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1091,7 +1605,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.clinix_PEcharges.add(clinix_PEcharges);
 
 				}
-				//$ipadrbg.context.clinix_PEcharges.saveChanges();
+				$ipadrbg.context.clinix_PEcharges.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1111,6 +1625,256 @@ function DataController($rootScope, $scope, $http) {
 	//
 	//
 
+
+	//Pull POSTOp_HIP_preform
+	$scope.pull_POSTOPHIP= function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_POSTOp_HIP_preform'");
+            tx.executeSql("delete from 'clinix_POSTOp_HIP_preform'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_PostOPHipPreform.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_POSTOp_HIP_preform = new $ipadrbg.types.clinix_POSTOp_HIP_preform();
+			    	
+					clinix_POSTOp_HIP_preform.ClinixRID = data[idx].ClinixRID;
+					clinix_POSTOp_HIP_preform.PxRID = data[idx].PxRID;
+
+					clinix_POSTOp_HIP_preform.Post01 = data[idx].Post01;
+					clinix_POSTOp_HIP_preform.Post02 = data[idx].Post02;
+					clinix_POSTOp_HIP_preform.Post03 = data[idx].Post03;
+					clinix_POSTOp_HIP_preform.Post04 = data[idx].Post04;
+					clinix_POSTOp_HIP_preform.Post05 = data[idx].Post05;
+					clinix_POSTOp_HIP_preform.Post06 = data[idx].Post06;
+					clinix_POSTOp_HIP_preform.Post07 = data[idx].Post07;
+					clinix_POSTOp_HIP_preform.Post08 = data[idx].Post08;
+					clinix_POSTOp_HIP_preform.Post09 = data[idx].Post09;
+					clinix_POSTOp_HIP_preform.Post10 = data[idx].Post10;
+					clinix_POSTOp_HIP_preform.Post11 = data[idx].Post11;
+					clinix_POSTOp_HIP_preform.Post12 = data[idx].Post12;
+					clinix_POSTOp_HIP_preform.Post13 = data[idx].Post13;
+					clinix_POSTOp_HIP_preform.Post14 = data[idx].Post14;
+					clinix_POSTOp_HIP_preform.Post15 = data[idx].Post15;
+					clinix_POSTOp_HIP_preform.Post16a = data[idx].Post16a;
+					clinix_POSTOp_HIP_preform.Post16b = data[idx].Post16b;
+					clinix_POSTOp_HIP_preform.Post16c = data[idx].Post16c;
+					clinix_POSTOp_HIP_preform.Post16d = data[idx].Post16d;
+					clinix_POSTOp_HIP_preform.Post16e = data[idx].Post16e;
+					clinix_POSTOp_HIP_preform.Post17 = data[idx].Post17;
+					clinix_POSTOp_HIP_preform.Post18 = data[idx].Post18;
+					clinix_POSTOp_HIP_preform.Post19 = data[idx].Post19;
+					clinix_POSTOp_HIP_preform.Post20 = data[idx].Post20;
+					clinix_POSTOp_HIP_preform.Post21 = data[idx].Post21;
+
+					clinix_POSTOp_HIP_preform.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_POSTOp_HIP_preform.add(clinix_POSTOp_HIP_preform);
+				}
+				$ipadrbg.context.clinix_POSTOp_HIP_preform.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}	
+
+	// PULL Pre Op Hip Preform
+	$scope.pull_PREOPHIP= function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_PREOp_HIP_preform'");
+            tx.executeSql("delete from 'clinix_PREOp_HIP_preform'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_PreOPHipPreform.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_PREOp_HIP_preform = new $ipadrbg.types.clinix_PREOp_HIP_preform();
+			    	
+					clinix_PREOp_HIP_preform.ClinixRID = data[idx].ClinixRID;
+					clinix_PREOp_HIP_preform.PxRID = data[idx].PxRID;
+
+					clinix_PREOp_HIP_preform.Pre01 = data[idx].Pre01;
+					clinix_PREOp_HIP_preform.Pre02 = data[idx].Pre02;
+					clinix_PREOp_HIP_preform.Pre03 = data[idx].Pre03;
+					clinix_PREOp_HIP_preform.Pre04 = data[idx].Pre04;
+					clinix_PREOp_HIP_preform.Pre05 = data[idx].Pre05;
+					clinix_PREOp_HIP_preform.Pre06 = data[idx].Pre06;
+					clinix_PREOp_HIP_preform.Pre07a = data[idx].Pre07a;
+					clinix_PREOp_HIP_preform.Pre07b = data[idx].Pre07b;
+					clinix_PREOp_HIP_preform.Pre08 = data[idx].Pre08;
+					clinix_PREOp_HIP_preform.Pre09 = data[idx].Pre09;
+					clinix_PREOp_HIP_preform.Pre10 = data[idx].Pre10;
+					clinix_PREOp_HIP_preform.Pre11a = data[idx].Pre11a;
+					clinix_PREOp_HIP_preform.Pre11b = data[idx].Pre11b;
+					clinix_PREOp_HIP_preform.Pre11c = data[idx].Pre11c;
+					clinix_PREOp_HIP_preform.Pre12 = data[idx].Pre12;
+					clinix_PREOp_HIP_preform.Pre13a = data[idx].Pre13a;
+					clinix_PREOp_HIP_preform.Pre13b = data[idx].Pre13b;
+					clinix_PREOp_HIP_preform.Pre13c = data[idx].Pre13c;
+					clinix_PREOp_HIP_preform.Pre14 = data[idx].Pre14;
+					clinix_PREOp_HIP_preform.Pre15 = data[idx].Pre15;
+
+					clinix_PREOp_HIP_preform.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_PREOp_HIP_preform.add(clinix_PREOp_HIP_preform);
+				}
+				$ipadrbg.context.clinix_PREOp_HIP_preform.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}	
+
+
+	// PULL Post Op knee Preform
+	$scope.pull_POSTOPKNEE= function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_POSTOp_KNEE_preform'");
+            tx.executeSql("delete from 'clinix_POSTOp_KNEE_preform'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_PostOPKneePreform.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_POSTOp_KNEE_preform = new $ipadrbg.types.clinix_POSTOp_KNEE_preform();
+			    	
+					clinix_POSTOp_KNEE_preform.ClinixRID = data[idx].ClinixRID;
+					clinix_POSTOp_KNEE_preform.PxRID = data[idx].PxRID;
+
+					clinix_POSTOp_KNEE_preform.Post01 = data[idx].Post01;
+					clinix_POSTOp_KNEE_preform.Post02 = data[idx].Post02;
+					clinix_POSTOp_KNEE_preform.Post03 = data[idx].Post03;
+					clinix_POSTOp_KNEE_preform.Post04 = data[idx].Post04;
+					clinix_POSTOp_KNEE_preform.Post05 = data[idx].Post05;
+					clinix_POSTOp_KNEE_preform.Post06 = data[idx].Post06;
+					clinix_POSTOp_KNEE_preform.Post07 = data[idx].Post07;
+					clinix_POSTOp_KNEE_preform.Post08 = data[idx].Post08;
+					clinix_POSTOp_KNEE_preform.Post09 = data[idx].Post09;
+					clinix_POSTOp_KNEE_preform.Post10 = data[idx].Post10;
+					clinix_POSTOp_KNEE_preform.Post11 = data[idx].Post11;
+					clinix_POSTOp_KNEE_preform.Post12 = data[idx].Post12;
+					clinix_POSTOp_KNEE_preform.Post13 = data[idx].Post13;
+					clinix_POSTOp_KNEE_preform.Post14 = data[idx].Post14;
+					clinix_POSTOp_KNEE_preform.Post15 = data[idx].Post15;
+					clinix_POSTOp_KNEE_preform.Post16a = data[idx].Post16a;
+					clinix_POSTOp_KNEE_preform.Post16b = data[idx].Post16b;
+					clinix_POSTOp_KNEE_preform.Post16c = data[idx].Post16c;
+					clinix_POSTOp_KNEE_preform.Post16d = data[idx].Post16d;
+					clinix_POSTOp_KNEE_preform.Post16e = data[idx].Post16e;
+					clinix_POSTOp_KNEE_preform.Post17 = data[idx].Post17;
+					clinix_POSTOp_KNEE_preform.Post18 = data[idx].Post18;
+					clinix_POSTOp_KNEE_preform.Post19 = data[idx].Post19;
+					clinix_POSTOp_KNEE_preform.Post20 = data[idx].Post20;
+					clinix_POSTOp_KNEE_preform.Post21 = data[idx].Post21;
+
+					clinix_POSTOp_KNEE_preform.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_POSTOp_KNEE_preform.add(clinix_POSTOp_KNEE_preform);
+				}
+				$ipadrbg.context.clinix_POSTOp_KNEE_preform.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}	
+
+	// PULL PREOPKNEE
+	$scope.pull_PREOPKNEE= function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_PREOp_KNEE_preform'");
+            tx.executeSql("delete from 'clinix_PREOp_KNEE_preform'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_PreOPKneePreform.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_PREOp_KNEE_preform = new $ipadrbg.types.clinix_PREOp_KNEE_preform();
+			    	
+					clinix_PREOp_KNEE_preform.ClinixRID = data[idx].ClinixRID;
+					clinix_PREOp_KNEE_preform.PxRID = data[idx].PxRID;
+
+					clinix_PREOp_KNEE_preform.Pre01 = data[idx].Pre01;
+					clinix_PREOp_KNEE_preform.Pre02 = data[idx].Pre02;
+					clinix_PREOp_KNEE_preform.Pre03 = data[idx].Pre03;
+					clinix_PREOp_KNEE_preform.Pre04 = data[idx].Pre04;
+					clinix_PREOp_KNEE_preform.Pre05 = data[idx].Pre05;
+					clinix_PREOp_KNEE_preform.Pre06 = data[idx].Pre06;
+					clinix_PREOp_KNEE_preform.Pre07 = data[idx].Pre07;
+					clinix_PREOp_KNEE_preform.Pre08 = data[idx].Pre08;
+					clinix_PREOp_KNEE_preform.Pre09 = data[idx].Pre09;
+					clinix_PREOp_KNEE_preform.Pre10 = data[idx].Pre10;
+					clinix_PREOp_KNEE_preform.Pre11a = data[idx].Pre11a;
+					clinix_PREOp_KNEE_preform.Pre11b = data[idx].Pre11b;
+					clinix_PREOp_KNEE_preform.Pre11c = data[idx].Pre11c;
+					clinix_PREOp_KNEE_preform.Pre11d = data[idx].Pre11d;
+					clinix_PREOp_KNEE_preform.Pre12 = data[idx].Pre12;
+					clinix_PREOp_KNEE_preform.Pre13a = data[idx].Pre13a;
+					clinix_PREOp_KNEE_preform.Pre13b = data[idx].Pre13b;
+					clinix_PREOp_KNEE_preform.Pre14 = data[idx].Pre14;
+					clinix_PREOp_KNEE_preform.Pre15 = data[idx].Pre15;
+
+					clinix_PREOp_KNEE_preform.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_PREOp_KNEE_preform.add(clinix_PREOp_KNEE_preform);
+				}
+				$ipadrbg.context.clinix_PREOp_KNEE_preform.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
 
 
 	// PULL OPERATIVES - HIP
@@ -1149,7 +1913,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPHIP_3.add(jdata_OPHIP_3);
 				}
-				//$ipadrbg.context.jdata_OPHIP_3.saveChanges();
+				$ipadrbg.context.jdata_OPHIP_3.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1168,8 +1932,8 @@ function DataController($rootScope, $scope, $http) {
 	//
 	//
 
-		// PULL OPERATIVES - HIP
-		$scope.pull_OPHIP_5 = function(){
+	// PULL OPERATIVES - HIP
+	$scope.pull_OPHIP_5 = function(){
 		var serverIP = "192.168.0.99";
 
     	// empty first iPad Table
@@ -1203,7 +1967,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPHIP_5.add(jdata_OPHIP_5);
 				}
-				//$ipadrbg.context.jdata_OPHIP_5.saveChanges();
+				$ipadrbg.context.jdata_OPHIP_5.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1213,7 +1977,6 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
-
 
 
 	// PULL OPERATIVES - HIP
@@ -1257,7 +2020,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPHIP_6.add(jdata_OPHIP_6);
 				}
-				//$ipadrbg.context.jdata_OPHIP_6.saveChanges();
+				$ipadrbg.context.jdata_OPHIP_6.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1270,8 +2033,8 @@ function DataController($rootScope, $scope, $http) {
 
 
 
-		// PULL OPERATIVES - HIP
-		$scope.pull_OPKNEE_3 = function(){
+	// PULL OPERATIVES - KNEE
+	$scope.pull_OPKNEE_3 = function(){
 		var serverIP = "192.168.0.99";
 
     	// empty first iPad Table
@@ -1306,7 +2069,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPKNEE_3.add(jdata_OPKNEE_3);
 				}
-				//$ipadrbg.context.jdata_OPKNEE_3.saveChanges();
+				$ipadrbg.context.jdata_OPKNEE_3.saveChanges();
 			}
 			// else
 			// 	alert("Nothing to Import from Server!");
@@ -1317,8 +2080,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	// PULL OPERATIVES - HIP
-		$scope.pull_OPKNEE_4 = function(){
+	// PULL OPERATIVES - KNEE
+	$scope.pull_OPKNEE_4 = function(){
 		var serverIP = "192.168.0.99";
 
     	// empty first iPad Table
@@ -1362,7 +2125,7 @@ function DataController($rootScope, $scope, $http) {
 
 					$ipadrbg.context.jdata_OPKNEE_4.add(jdata_OPKNEE_4);
 				}
-				//$ipadrbg.context.jdata_OPKNEE_4.saveChanges();
+				$ipadrbg.context.jdata_OPKNEE_4.saveChanges();
 
 			}
 			// else
@@ -1375,8 +2138,8 @@ function DataController($rootScope, $scope, $http) {
 	}
 
 
-		// PULL OPERATIVES - HIP
-		$scope.pull_OPKNEE_5 = function(){
+	// PULL OPERATIVES - KNEE
+	$scope.pull_OPKNEE_5 = function(){
 		var serverIP = "192.168.0.99";
 
     	// empty first iPad Table
@@ -1427,5 +2190,359 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
+
+	//
+	//
+	//
+	//
+	//
+	//
+
+
+	// PULL Structured DISCHARGE SUMMARY
+	//
+	//
+	// Structure Dischare - DIAGNOSIS
+	$scope.pull_StrucDiagnosis = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_StructuredDiagnosis'");
+            tx.executeSql("delete from 'clinix_StructuredDiagnosis'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_StrucDiagnosis.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) { 
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_StructuredDiagnosis = new $ipadrbg.types.clinix_StructuredDiagnosis();
+			    	
+					clinix_StructuredDiagnosis.ClinixRID = data[idx].ClinixRID;
+					clinix_StructuredDiagnosis.PxRID = data[idx].PxRID;
+
+					clinix_StructuredDiagnosis.Diagnosis = data[idx].Diagnosis;
+
+					clinix_StructuredDiagnosis.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_StructuredDiagnosis.add(clinix_StructuredDiagnosis);
+				}
+				$ipadrbg.context.clinix_StructuredDiagnosis.saveChanges();
+
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	// PULL Structured Disposition
+	$scope.pull_StrucDisposition = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_StructuredDisposition'");
+            tx.executeSql("delete from 'clinix_StructuredDisposition'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_StrucDisposition.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) { 
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_StructuredDisposition = new $ipadrbg.types.clinix_StructuredDisposition();
+			    	
+					clinix_StructuredDisposition.ClinixRID = data[idx].ClinixRID;
+					clinix_StructuredDisposition.PxRID = data[idx].PxRID;
+
+					clinix_StructuredDisposition.Dispo = data[idx].Dispo;
+					clinix_StructuredDisposition.DispoDetail = data[idx].DispoDetail;
+
+					clinix_StructuredDisposition.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_StructuredDisposition.add(clinix_StructuredDisposition);
+				}
+				$ipadrbg.context.clinix_StructuredDisposition.saveChanges();
+
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	// PULL Structured Disachrge - Hospitalization
+	$scope.pull_StrucHospitalization = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_StructuredHospitalization'");
+            tx.executeSql("delete from 'clinix_StructuredHospitalization'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_StrucHospitalization.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) { 
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_StructuredHospitalization = new $ipadrbg.types.clinix_StructuredHospitalization();
+			    	
+					clinix_StructuredHospitalization.ClinixRID = data[idx].ClinixRID;
+					clinix_StructuredHospitalization.PxRID = data[idx].PxRID;
+
+					clinix_StructuredHospitalization.DateAdmitted = data[idx].DateAdmitted;
+					clinix_StructuredHospitalization.DateDischarged = data[idx].DateDischarged;
+					clinix_StructuredHospitalization.HospitalCourse = data[idx].HospitalCourse;
+					clinix_StructuredHospitalization.WoundAppearance = data[idx].WoundAppearance;
+
+					clinix_StructuredHospitalization.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_StructuredHospitalization.add(clinix_StructuredHospitalization);
+				}
+				$ipadrbg.context.clinix_StructuredHospitalization.saveChanges();
+
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+
+	// PULL Structured Discharge - Labs
+	$scope.pull_StrucLabs = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_StructuredLABS'");
+            tx.executeSql("delete from 'clinix_StructuredLABS'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_StrucLabs.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) { 
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_StructuredLABS = new $ipadrbg.types.clinix_StructuredLABS();
+			    	
+					clinix_StructuredLABS.ClinixRID = data[idx].ClinixRID;
+					clinix_StructuredLABS.PxRID = data[idx].PxRID;
+
+					clinix_StructuredLABS.labDate = data[idx].labDate;
+					clinix_StructuredLABS.labSource = data[idx].labSource;
+					clinix_StructuredLABS.WBC = data[idx].WBC;
+					clinix_StructuredLABS.HgB = data[idx].HgB;
+					clinix_StructuredLABS.Hematocrit = data[idx].Hematocrit;
+
+					clinix_StructuredLABS.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_StructuredLABS.add(clinix_StructuredLABS);
+				}
+				$ipadrbg.context.clinix_StructuredLABS.saveChanges();
+
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+
+	// PULL Structured Discharge - Management
+	$scope.pull_StrucManagement = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_StructuredManagement'");
+            tx.executeSql("delete from 'clinix_StructuredManagement'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_StrucManagement.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) { 
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_StructuredManagement = new $ipadrbg.types.clinix_StructuredManagement();
+			    	
+					clinix_StructuredManagement.ClinixRID = data[idx].ClinixRID;
+					clinix_StructuredManagement.PxRID = data[idx].PxRID;
+
+					clinix_StructuredManagement.PhysicalTherapy = data[idx].PhysicalTherapy;
+					clinix_StructuredManagement.ExProg_FootAnkle = data[idx].ExProg_FootAnkle;
+					clinix_StructuredManagement.ExProg_QuadsHams = data[idx].ExProg_QuadsHams;
+					clinix_StructuredManagement.ExProg_FullWeight = data[idx].ExProg_FullWeight;
+					clinix_StructuredManagement.ExProg_SLR = data[idx].ExProg_SLR;
+					clinix_StructuredManagement.AmbulatoryAid = data[idx].AmbulatoryAid;
+					clinix_StructuredManagement.TEDS = data[idx].TEDS;
+					clinix_StructuredManagement.Shower = data[idx].Shower;
+					clinix_StructuredManagement.Notes = data[idx].Notes;
+					clinix_StructuredManagement.FollowUp = data[idx].FollowUp;
+
+					clinix_StructuredManagement.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_StructuredManagement.add(clinix_StructuredManagement);
+				}
+				$ipadrbg.context.clinix_StructuredManagement.saveChanges();
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+
+	// PULL Structured Discharge - Medication
+	$scope.pull_StrucMedication = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_StructuredMedication'");
+            tx.executeSql("delete from 'clinix_StructuredMedication'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_StrucMedication.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) { 
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_StructuredMedication = new $ipadrbg.types.clinix_StructuredMedication();
+			    	
+					clinix_StructuredMedication.ClinixRID = data[idx].ClinixRID;
+					clinix_StructuredMedication.PxRID = data[idx].PxRID;
+
+					clinix_StructuredMedication.GenericName = data[idx].GenericName;
+					clinix_StructuredMedication.Brand = data[idx].Brand;
+					clinix_StructuredMedication.Qty = data[idx].Qty;
+					clinix_StructuredMedication.DropName = data[idx].DropName;
+					clinix_StructuredMedication.Dose = data[idx].Dose;
+
+					clinix_StructuredMedication.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_StructuredMedication.add(clinix_StructuredMedication);
+				}
+				$ipadrbg.context.clinix_StructuredMedication.saveChanges();
+
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	// PULL Structured Discharge - SchedSurgery THIS ROUTINE IS NOT IN USE
+	// PULL Structured Discharge - SchedSurgery THIS ROUTINE IS NOT IN USE
+	// PULL Structured Discharge - SchedSurgery THIS ROUTINE IS NOT IN USE
+	// PULL Structured Discharge - SchedSurgery THIS ROUTINE IS NOT IN USE
+	// PULL Structured Discharge - SchedSurgery THIS ROUTINE IS NOT IN USE
+	$scope.pull_StrucSchedSurgery = function(){
+		var serverIP = "192.168.0.99";
+
+    	// empty first iPad Table
+        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+        db.transaction(function (tx) {
+            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_StructuredSchedSurgery'");
+            tx.executeSql("delete from 'clinix_StructuredSchedSurgery'");
+
+            // tx.executeSql("drop table ' put tablename here '");
+        });
+        //db.close();
+        // after truncate
+
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_StrucSchedSurgery.php'}).
+	    success ( function ( data, status, headers, config ) {
+
+			if (data !== null ) { 
+		      	// save to websql
+			    for(idx in data){
+			    	var clinix_StructuredSchedSurgery = new $ipadrbg.types.clinix_StructuredSchedSurgery();
+			    	
+					clinix_StructuredSchedSurgery.ClinixRID = data[idx].ClinixRID;
+					clinix_StructuredSchedSurgery.PxRID = data[idx].PxRID;
+
+					clinix_StructuredSchedSurgery.SurgeryType = data[idx].SurgeryType;
+					clinix_StructuredSchedSurgery.SurgeryDate = data[idx].SurgeryDate;
+					clinix_StructuredSchedSurgery.Surgeon = data[idx].Surgeon;
+					clinix_StructuredSchedSurgery.Assistant = data[idx].Assistant;
+					clinix_StructuredSchedSurgery.Cardio = data[idx].Cardio;
+					clinix_StructuredSchedSurgery.Anesthesio = data[idx].Anesthesio;
+					clinix_StructuredSchedSurgery.Hospital = data[idx].Hospital;
+					clinix_StructuredSchedSurgery.Others = data[idx].Others;
+
+					clinix_StructuredSchedSurgery.SynchStatus = "222";					
+
+					$ipadrbg.context.clinix_StructuredSchedSurgery.add(clinix_StructuredSchedSurgery);
+				}
+				/////// NOT USED NOT USED $ipadrbg.context.clinix_StructuredSchedSurgery.saveChanges();
+
+			}
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
 
 }	
