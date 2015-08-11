@@ -1,4 +1,4 @@
-// 0.99
+// 10.0.1.99
 IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_PEcharges = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
@@ -134,138 +134,138 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
       $scope.clinix_JSON = JSON.stringify(clinix);
       $scope.clinix_JSON = "[" + $scope.clinix_JSON + "]";
 
-      //Push Ambulatory Status, this Clinix PE only
-      $scope.clinix_AmbuStatus = [];
-      var promise = $ipadrbg.context.clinix_AmbuStatus.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_AmbuStatus = pxresult;
-        });
-        $scope.clinix_AmbuStatus_JSON = JSON.stringify($scope.clinix_AmbuStatus);
-        $http({
-          method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_AmbuStatus.php?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_AmbuStatus_JSON
-          , cache : false
-        });
-      });
+      // //Push Ambulatory Status, this Clinix PE only
+      // $scope.clinix_AmbuStatus = [];
+      // var promise = $ipadrbg.context.clinix_AmbuStatus.filter(function (px) { 
+      //   return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      // promise.then(function(pxresult) {
+      //   $scope.$apply(function () {
+      //     $scope.clinix_AmbuStatus = pxresult;
+      //   });
+      //   $scope.clinix_AmbuStatus_JSON = JSON.stringify($scope.clinix_AmbuStatus);
+      //   $http({
+      //     method: 'POST'
+      //     , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_AmbuStatus.php?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+      //     , contentType : 'application/json'
+      //     , data : $scope.clinix_AmbuStatus_JSON
+      //     , cache : false
+      //   });
+      // });
 
 
-      // Push Diagnosis, this Clinix.PE onlye   0.99
-      $scope.clinix_Diagnosis = [];
-      var promise = $ipadrbg.context.clinix_Diagnosis.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      // // Push Diagnosis, this Clinix.PE onlye   11.99
+      // $scope.clinix_Diagnosis = [];
+      // var promise = $ipadrbg.context.clinix_Diagnosis.filter(function (px) { 
+      //   return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
 
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_Diagnosis = pxresult;
-        });
-        $scope.clinix_Diagnosis_JSON = JSON.stringify($scope.clinix_Diagnosis);
-        $http({
-          method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_Diagnosis.php?clinixJsonIzed=' + $scope.clinix_Diagnosis_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_Diagnosis_JSON
-          , cache : false
-        });
-      });
-
-
-      // PUSH DiagsManagement
-      $scope.clinix_DiagsManagement = [];
-      var promise = $ipadrbg.context.clinix_DiagsManagement.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagsManagement = pxresult;
-        });
-        $scope.clinix_DiagsManagement_JSON = JSON.stringify($scope.clinix_DiagsManagement);
-        $http({
-          method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsManagement.php?clinixJsonIzed=' + $scope.clinix_DiagsManagement_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagsManagement_JSON
-          , cache : false
-        });
-      });
+      // promise.then(function(pxresult) {
+      //   $scope.$apply(function () {
+      //     $scope.clinix_Diagnosis = pxresult;
+      //   });
+      //   $scope.clinix_Diagnosis_JSON = JSON.stringify($scope.clinix_Diagnosis);
+      //   $http({
+      //     method: 'POST'
+      //     , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_Diagnosis.php?clinixJsonIzed=' + $scope.clinix_Diagnosis_JSON
+      //     , contentType : 'application/json'
+      //     , data : $scope.clinix_Diagnosis_JSON
+      //     , cache : false
+      //   });
+      // });
 
 
-      // PUSH DiagsMedication = [];
-      $scope.clinix_DiagsMedication = [];
-      var promise = $ipadrbg.context.clinix_DiagsMedication.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagsMedication = pxresult;
-        });
-        $scope.clinix_DiagsMedication_JSON = JSON.stringify($scope.clinix_DiagsMedication);
-        $http({
-          method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsMedication.php?clinixJsonIzed=' + $scope.clinix_DiagsMedication_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagsMedication_JSON
-          , cache : false
-        });
-      });
+      // // PUSH DiagsManagement
+      // $scope.clinix_DiagsManagement = [];
+      // var promise = $ipadrbg.context.clinix_DiagsManagement.filter(function (px) { 
+      //   return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      // promise.then(function(pxresult) {
+      //   $scope.$apply(function () {
+      //     $scope.clinix_DiagsManagement = pxresult;
+      //   });
+      //   $scope.clinix_DiagsManagement_JSON = JSON.stringify($scope.clinix_DiagsManagement);
+      //   $http({
+      //     method: 'POST'
+      //     , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_DiagsManagement.php?clinixJsonIzed=' + $scope.clinix_DiagsManagement_JSON
+      //     , contentType : 'application/json'
+      //     , data : $scope.clinix_DiagsManagement_JSON
+      //     , cache : false
+      //   });
+      // });
 
 
-      // PUSH DiagSchedSurgery = [];
-      $scope.clinix_DiagSchedSurgery = [];
-      var promise = $ipadrbg.context.clinix_DiagSchedSurgery.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagSchedSurgery = pxresult;
-        });
-        $scope.clinix_DiagSchedSurgery_JSON = JSON.stringify($scope.clinix_DiagSchedSurgery);
-        $http({
-          method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsSchedSurgery.php?clinixJsonIzed=' + $scope.clinix_DiagSchedSurgery_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagSchedSurgery_JSON
-          , cache : false
-        });
-      });
+      // // PUSH DiagsMedication = [];
+      // $scope.clinix_DiagsMedication = [];
+      // var promise = $ipadrbg.context.clinix_DiagsMedication.filter(function (px) { 
+      //   return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      // promise.then(function(pxresult) {
+      //   $scope.$apply(function () {
+      //     $scope.clinix_DiagsMedication = pxresult;
+      //   });
+      //   $scope.clinix_DiagsMedication_JSON = JSON.stringify($scope.clinix_DiagsMedication);
+      //   $http({
+      //     method: 'POST'
+      //     , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_DiagsMedication.php?clinixJsonIzed=' + $scope.clinix_DiagsMedication_JSON
+      //     , contentType : 'application/json'
+      //     , data : $scope.clinix_DiagsMedication_JSON
+      //     , cache : false
+      //   });
+      // });
 
 
-      // PUSH DiagsDisposition = [];
-      $scope.clinix_DiagsDisposition = [];
-      var promise = $ipadrbg.context.clinix_DiagsDisposition.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagsDisposition = pxresult;
-        });
-        $scope.clinix_DiagsDisposition_JSON = JSON.stringify($scope.clinix_DiagsDisposition);
-        $http({
-          method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsDisposition.php?clinixJsonIzed=' + $scope.clinix_DiagsDisposition_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagsDisposition_JSON
-          , cache : false
-        });
-      });
+      // // PUSH DiagSchedSurgery = [];
+      // $scope.clinix_DiagSchedSurgery = [];
+      // var promise = $ipadrbg.context.clinix_DiagSchedSurgery.filter(function (px) { 
+      //   return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      // promise.then(function(pxresult) {
+      //   $scope.$apply(function () {
+      //     $scope.clinix_DiagSchedSurgery = pxresult;
+      //   });
+      //   $scope.clinix_DiagSchedSurgery_JSON = JSON.stringify($scope.clinix_DiagSchedSurgery);
+      //   $http({
+      //     method: 'POST'
+      //     , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_DiagsSchedSurgery.php?clinixJsonIzed=' + $scope.clinix_DiagSchedSurgery_JSON
+      //     , contentType : 'application/json'
+      //     , data : $scope.clinix_DiagSchedSurgery_JSON
+      //     , cache : false
+      //   });
+      // });
 
 
-      // PUSH Diags NOTES  
-      $scope.clinix_DiagsNotes = [];
-      var promise = $ipadrbg.context.clinix_DiagsNotes.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagsNotes = pxresult;
-        });
-        $scope.clinix_DiagsNotes_JSON = JSON.stringify($scope.clinix_DiagsNotes);
-        $http({
-          method: 'POST'
-          , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_DiagsNotes.php?clinixJsonIzed=' + $scope.clinix_DiagsNotes_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagsNotes_JSON
-          , cache : false
-        });
-      });
+      // // PUSH DiagsDisposition = [];
+      // $scope.clinix_DiagsDisposition = [];
+      // var promise = $ipadrbg.context.clinix_DiagsDisposition.filter(function (px) { 
+      //   return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      // promise.then(function(pxresult) {
+      //   $scope.$apply(function () {
+      //     $scope.clinix_DiagsDisposition = pxresult;
+      //   });
+      //   $scope.clinix_DiagsDisposition_JSON = JSON.stringify($scope.clinix_DiagsDisposition);
+      //   $http({
+      //     method: 'POST'
+      //     , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_DiagsDisposition.php?clinixJsonIzed=' + $scope.clinix_DiagsDisposition_JSON
+      //     , contentType : 'application/json'
+      //     , data : $scope.clinix_DiagsDisposition_JSON
+      //     , cache : false
+      //   });
+      // });
+
+
+      // // PUSH Diags NOTES  
+      // $scope.clinix_DiagsNotes = [];
+      // var promise = $ipadrbg.context.clinix_DiagsNotes.filter(function (px) { 
+      //   return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      // promise.then(function(pxresult) {
+      //   $scope.$apply(function () {
+      //     $scope.clinix_DiagsNotes = pxresult;
+      //   });
+      //   $scope.clinix_DiagsNotes_JSON = JSON.stringify($scope.clinix_DiagsNotes);
+      //   $http({
+      //     method: 'POST'
+      //     , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_DiagsNotes.php?clinixJsonIzed=' + $scope.clinix_DiagsNotes_JSON
+      //     , contentType : 'application/json'
+      //     , data : $scope.clinix_DiagsNotes_JSON
+      //     , cache : false
+      //   });
+      // });
 
       // PUSH BACK - FLOOR
 
@@ -312,7 +312,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     // Set TranStatus
     $http({
       method: 'POST'
-      , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_clinixTrnStts.php?clinixJsonIzed=' + $scope.clinix_JSON
+      , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_clinixTrnStts.php' //?clinixJsonIzed=' + $scope.clinix_JSON
       , contentType : 'application/json'
       , data : $scope.clinix_JSON
       , cache : false
@@ -321,13 +321,13 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     // PUASH BACk PE Charges
     $http({
       method: 'POST'
-      , url : 'http://192.168.0.99/RBGsrvr_todayset/srvr_back_PEcharges.php?clinixJsonIzed=' + $scope.clinix_PEcharges_JSON
+      , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_PEcharges.php' //?clinixJsonIzed=' + $scope.clinix_PEcharges_JSON
       , contentType : 'application/json'
       , data : $scope.clinix_PEcharges_JSON
       , cache : false
     });
 
-    //alert("Appoinment # " + $scope.ClinixRID + " SERVER was Notified!");
+    alert("Appoinment # " + $scope.ClinixRID + " SERVER was Notified!");
   }
 
 });
