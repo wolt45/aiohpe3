@@ -1,4 +1,4 @@
-// 10.0.1.99    cap from 0 . 99 to 254 . 99    132.168.254!99
+// 10.0.1.99    cap from 0 . 99 to 254 . 99    192.168.254!99  10.0.1!99
 function DataController($rootScope, $scope, $http) {
 
 	// CLEAN TRANS

@@ -507,6 +507,13 @@ function PushController($rootScope, $scope, $http) {
       $scope.pushALLDiagsDisposition();
       $scope.pushALLDiagsNotes();
 
+
+
+      // ULUBRAHON...
+      // PUSH BACK PE charges, look at controllers_PECharges.js lin 325 
+
+
+
 		  alert("EXPORT to Server Successful!");
 		}
 	};
