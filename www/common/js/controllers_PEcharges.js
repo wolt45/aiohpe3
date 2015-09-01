@@ -46,18 +46,23 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
       ,Tariff           : pcCharge.Tariff
       ,ChargeAmount     : pcCharge.ChargeAmount
       ,Discount         : pcCharge.Discount
+
+      ,PHIC             : pcCharge.PHIC
+      ,HMOs             : pcCharge.HMOs
+      ,SrCIT            : pcCharge.SrCIT
+
       ,NetAmount        : netDiscnt
       ,SynchStatus      : 111
     }
 
-      $ipadrbg.context.clinix_PEcharges.add(newrecord);
-      $ipadrbg.context.clinix_PEcharges.saveChanges();
+    $ipadrbg.context.clinix_PEcharges.add(newrecord);
+    $ipadrbg.context.clinix_PEcharges.saveChanges();
 
-      //pcCharge.Description = null;
-      pcCharge.ChargeAmount = "0";
-      pcCharge.Discount = "0";
+    //pcCharge.Description = null;
+    pcCharge.ChargeAmount = "0";
+    pcCharge.Discount = "0";
 
-      $scope.LoadPECharges();
+    $scope.LoadPECharges();
   }
 
   // column totals
@@ -89,6 +94,41 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     }
     return total;
   }
+
+
+
+
+  $scope.CALC_PHIC = function(){
+    var total = 0;
+    for(var i = 0; i < $scope.clinix_PEcharges.length; i++){
+        var chargeRow = $scope.clinix_PEcharges[i];
+        total += parseFloat(chargeRow.PHIC);
+    }
+    return total;
+  }
+
+  $scope.CALC_HMOs = function(){
+    var total = 0;
+    for(var i = 0; i < $scope.clinix_PEcharges.length; i++){
+        var chargeRow = $scope.clinix_PEcharges[i];
+        total += parseFloat(chargeRow.HMOs);
+    }
+    return total;
+  }
+
+
+  $scope.CALC_SrCIT = function(){
+    var total = 0;
+    for(var i = 0; i < $scope.clinix_PEcharges.length; i++){
+        var chargeRow = $scope.clinix_PEcharges[i];
+        total += parseFloat(chargeRow.SrCIT);
+    }
+    return total;
+  }
+
+
+
+
 
   $scope.CALC_NetAmount = function(){
     var total = 0;

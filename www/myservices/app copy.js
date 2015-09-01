@@ -407,7 +407,7 @@ function DataController($rootScope, $scope, $http) {
 	      							$scope.pullMedHist(function(){
 
 	      								$ipadrbg.context.saveChanges();
-
+	      								
 			    					});
 			    				});
 			    			});
@@ -416,47 +416,59 @@ function DataController($rootScope, $scope, $http) {
 			    });
 			});
 
+
       		alert("Importing INITIAL INTERVIEW Results from Server was Successful!");
     	}
   	}	
 
 	// PULL IOH - CHIEF COMPLAINT
-	$scope.pullZClinix = function(callback){
+	$scope.pullZClinix = function(){
 		var serverIP = "10.0.1.99";
 
-		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ZClinix.php'}).
-		success ( function ( data, status, headers, config ) {
+		//if (confirm('Download INITIAL INTERVIEW Results, proceed?')) {
+	    	// empty first iPad Table
+	        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	            tx.executeSql("update sqlite_sequence set seq = 0 where name ='zclinix'");
+	            tx.executeSql("delete from 'zclinix'");
+	            // tx.executeSql("drop table ' put tablename here '");
+	        });
+	        //db.close();
+	        // after truncate
 
-			if (data !== null ) {
-		      	// save to websql
-			    for(idx in data){
-			    	var zclinix = new $ipadrbg.types.zclinix();
+			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ZClinix.php'}).
+		    success ( function ( data, status, headers, config ) {
 
-					zclinix.ClinixRID 		= data[idx].ClinixRID;
+				if (data !== null ) {
+			      	// save to websql
+				    for(idx in data){
+				    	var zclinix = new $ipadrbg.types.zclinix();
 
-					zclinix.HIP 		= data[idx].HIP;
-					zclinix.KNEE		= data[idx].KNEE;
+						zclinix.ClinixRID 		= data[idx].ClinixRID;
 
-					zclinix.ANKLEFOOT	= data[idx].ANKLEFOOT;
-					zclinix.SHOULDERARM	= data[idx].SHOULDERARM;
-					zclinix.ELBOW		= data[idx].ELBOW;
-					zclinix.WRISTHAND	= data[idx].WRISTHAND;
-					zclinix.THIGH		= data[idx].THIGH;
-					zclinix.SPINE		= data[idx].SPINE;
+						zclinix.HIP 		= data[idx].HIP;
+						zclinix.KNEE		= data[idx].KNEE;
 
-					zclinix.SynchStatus	= "222";					
-					$ipadrbg.context.zclinix.add(zclinix);
+						zclinix.ANKLEFOOT	= data[idx].ANKLEFOOT;
+						zclinix.SHOULDERARM	= data[idx].SHOULDERARM;
+						zclinix.ELBOW		= data[idx].ELBOW;
+						zclinix.WRISTHAND	= data[idx].WRISTHAND;
+						zclinix.THIGH		= data[idx].THIGH;
+						zclinix.SPINE		= data[idx].SPINE;
+
+						zclinix.SynchStatus	= "222";					
+						$ipadrbg.context.zclinix.add(zclinix);
+					}
 				}
-			}
-			
-			callback();
-			//else
-				//alert("Nothing to Import from Server!");
-	    }).
-	    error(function(data, status, headers, config) {
-	      	// called asynchronously if an error occurs
-	      	// or server returns response with an error status.
-	    });
+				callback();
+				//else
+					//alert("Nothing to Import from Server!");
+		    }).
+		    error(function(data, status, headers, config) {
+		      	// called asynchronously if an error occurs
+		      	// or server returns response with an error status.
+		    });
+		//}
 	}
 
 

@@ -33,6 +33,14 @@ IOHPEApp.controller('CloseIOHCtrl', function ($scope, $routeParams, $http){
       ClinixRID   : $scope.ClinixRID
       ,HIP        : pePriorities.HIP
       ,KNEE       : pePriorities.KNEE
+
+      ,ANKLEFOOT   : pePriorities.ANKLEFOOT
+      ,SHOULDERARM : pePriorities.SHOULDERARM
+      ,ELBOW       : pePriorities.ELBOW
+      ,WRISTHAND   : pePriorities.WRISTHAND
+      ,THIGH       : pePriorities.THIGH
+      ,SPINE       : pePriorities.SPINE
+
     }
     $ipadrbg.context.zclinix.add(newrecord);
     $ipadrbg.context.zclinix.saveChanges();

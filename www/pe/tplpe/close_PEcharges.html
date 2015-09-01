@@ -2,7 +2,7 @@
 
 	<table class="table table-condensed table-bordered">
 		<tr class="warning">
-			<td width="1%" colspan="9" nowrap>
+			<td width="1%" colspan="29" nowrap>
 				<span id="DGL_module_header">
 		    		Charges
 		    	</span>
@@ -15,6 +15,11 @@
 			<td class="text-center" width="15%" nowrap> Tariff </td>
 			<td class="text-center" width="15%"> Bill </td>
 			<td class="text-center" width="15%"> Discount </td>
+
+			<td class="text-center" width="15%"> PHIC </td>
+			<td class="text-center" width="15%"> HMOs </td>
+			<td class="text-center" width="20%"> Sr Cit </td>
+
 			<th class="text-center" width="15%"> NET </th>
 			<td></td>
 		</tr>
@@ -42,6 +47,35 @@
 					ng-init="selectedCharges.Discount=0" value="0"
 					style="text-align: right"> 
 			</td>
+
+
+
+			<td> 
+				<input type="text" class="form-control" ng-model="selectedCharges.PHIC" 
+					ng-init="selectedCharges.PHIC=0" value="0"
+					style="text-align: right"> 
+			</td>
+
+			<td> 
+				<input type="text" class="form-control" ng-model="selectedCharges.HMOs" 
+					ng-init="selectedCharges.HMOs=0" value="0"
+					style="text-align: right"> 
+			</td>
+
+			<td> 
+				<input type="text" class="form-control" ng-model="selectedCharges.SrCIT" 
+					ng-init="selectedCharges.SrCIT=0" value="0"
+					style="text-align: right"> 
+			</td>
+
+
+
+
+
+
+
+
+
 
 			<td class="text-right"> 
 				<label>{{ (selectedCharges.ChargeAmount|number) - (selectedCharges.Discount|number) | number:2 }}</label> 
@@ -79,6 +113,22 @@
         		{{peCharge.Discount | number : 2 }}
         	</td>
 
+
+
+        	<td style="color:black" class="text-right" nowrap>
+        		{{peCharge.PHIC | number : 2 }}
+        	</td>
+
+        	<td style="color:black" class="text-right" nowrap>
+        		{{peCharge.HMOs | number : 2 }}
+        	</td>
+
+        	<td style="color:black" class="text-right" nowrap>
+        		{{peCharge.SrCIT | number : 2 }}
+        	</td>
+
+
+
         	<th style="color:black" class="text-right" nowrap>
         		{{ peCharge.NetAmount | number : 2 }}
         	</th>
@@ -97,8 +147,23 @@
         	<th class="text-right">Total</th>
         	<th class="text-right" style="color:black">{{CALC_Tariff() | number : 2 }}</th>
         	<th class="text-right" style="color:black">{{CALC_ChargeAmount() | number : 2 }}</th>
+
         	<th class="text-right" style="color:black">{{CALC_Discount() | number : 2 }}</th>
+        	
+
+
+        	<th class="text-right" style="color:black">{{CALC_PHIC() | number : 2 }}</th>
+        	
+        	<th class="text-right" style="color:black">{{CALC_HMOs() | number : 2 }}</th>
+        	
+        	<th class="text-right" style="color:black">{{CALC_SrCIT() | number : 2 }}</th>
+        	
+
+
+
         	<th class="text-right warning" style="color:black">{{CALC_NetAmount() | number : 2 }}</th>
+
+
         	<td></td>
         	<td></td>
 		</tr>	

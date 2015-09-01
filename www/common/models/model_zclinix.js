@@ -3,4 +3,11 @@ $data.Entity.extend("$ipadrbg.types.zclinix", {
 
 	,HIP: { type: "string"}
 	,KNEE: { type: "string"}
+
+	,ANKLEFOOT: { type: "string"}
+	,SHOULDERARM: { type: "string"}
+	,ELBOW: { type: "string"}
+	,WRISTHAND: { type: "string"}
+	,THIGH: { type: "string"}
+	,SPINE: { type: "string"}
 });

@@ -34,18 +34,17 @@
 
 <div ng-controller="ChiefComplaintCtrl">
 	<div ng-repeat="zclinixes in zclinix">
-		<p ng-show = {{zclinixes.HIP}} >
+		<!-- p ng-show = {{zclinixes.HIP}} >
 			<ng:include src="'..//common/vw_PREOpHIPreplc_preform.html'"></ng:include>
 		</p>
 		<p ng-show = {{zclinixes.KNEE}} >
 			<ng:include src="'..//common/vw_PREOpKNEEreplc_preform.html'"></ng:include>
-		</p>
+		</p -->
 	</div>
 </div>
 
 <div ng-controller="ChiefComplaintCtrl">
 	<div ng-repeat="zclinixes in zclinix">
-
 
 		<p ng-show = {{zclinixes.HIP}} >
 
@@ -90,21 +89,19 @@
 
 			<!-- ng:include src="'tplpe/OPKNEE_XRays.html'"></ng:include -->
 		</p>
-
-
 	</div>
 </div>
 
-<div ng-controller="ChiefComplaintCtrl">
+<!-- div ng-controller="ChiefComplaintCtrl">
 	<div ng-repeat="zclinixes in zclinix">
-	<p ng-show = {{zclinixes.HIP}} >
-		<ng:include src="'..//common/vw_POSTOpHIPreplc_preform.html'"></ng:include>
-	</p>
-	<p ng-show = {{zclinixes.KNEE}} >
-		<ng:include src="'..//common/vw_POSTOpKNEEreplc_preform.html'"></ng:include>
-	</p>
-</div>	
-
+		<p ng-show = {{zclinixes.HIP}} >
+			<ng:include src="'..//common/vw_POSTOpHIPreplc_preform.html'"></ng:include>
+		</p>
+		<p ng-show = {{zclinixes.KNEE}} >
+			<ng:include src="'..//common/vw_POSTOpKNEEreplc_preform.html'"></ng:include>
+		</p>
+ 	</div>
+</div -->	
 
 <!-- XRAY / LABS boxess -->
 <div ng-controller="ChiefComplaintCtrl">
@@ -116,12 +113,11 @@
 		</div>	
 	</p>
 
-	<!-- p ng-show = {{zclinixes.KNEE}}>
+	<p ng-show = {{zclinixes.KNEE}}>
 		<div scroll-bookmark="KNEE_XRAYBOX">
 			<ng:include src="'tplpe/OPKNEE_XRays.html'"></ng:include>
 		</div>
-	</p -->
-</div>	
-
+	</p>
+</div>
 
 <ng:include src="'..//common/vw_structured_discharge_summary.html'"></ng:include>

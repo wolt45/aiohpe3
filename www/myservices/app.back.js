@@ -69,7 +69,7 @@ function PushController($rootScope, $scope, $http) {
 
 
 	$scope.pushIOHPE = function() {
-		if (confirm('PROCEED with IOHPE Synch-Push BACK Process?')) {
+		if (confirm('10.0.1.99: PROCEED with IOHPE Synch-Push BACK Process?')) {
 			$scope.PushIOH_ChiefComp();
 			//$scope.PushIOH_spineIntl();
 			$scope.PushIOH_Ethiology();
@@ -141,6 +141,13 @@ function PushController($rootScope, $scope, $http) {
           temp += '{"ClinixRID" : ' + $scope.zclinix[i]['ClinixRID'];
           temp += ', "HIP" : ' + $scope.zclinix[i]['HIP'];
           temp += ', "KNEE" : '+ $scope.zclinix[i]['KNEE'] 
+          
+          temp += ', "ANKLEFOOT" : '+ $scope.zclinix[i]['ANKLEFOOT'] 
+          temp += ', "SHOULDERARM" : '+ $scope.zclinix[i]['SHOULDERARM'] 
+          temp += ', "ELBOW" : '+ $scope.zclinix[i]['ELBOW'] 
+          temp += ', "WRISTHAND" : '+ $scope.zclinix[i]['WRISTHAND'] 
+          temp += ', "THIGH" : '+ $scope.zclinix[i]['THIGH'] 
+          temp += ', "SPINE" : '+ $scope.zclinix[i]['SPINE'] 
           temp += '},';
       }
       var newTemp = temp.substring(0, temp.length-1);

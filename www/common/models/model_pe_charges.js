@@ -8,6 +8,11 @@ $data.Entity.extend("$ipadrbg.types.clinix_PEcharges", {
 	, Tariff: { type: "float" }
 	, ChargeAmount: { type: "float" }
 	, Discount: { type: "float" }
+
+	, PHIC: { type: "float" }
+	, HMOs: { type: "float" }
+	, SrCIT: { type: "float" }
+
 	, NetAmount: { type: "float" }
 	, LinePayment: { type: "float" }
 	, LineBalance: { type: "float" }
