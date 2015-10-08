@@ -1,0 +1,71 @@
+<div ng-controller="spine_1_Ctrl">
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span id="DGL_module_header">
+					Spine Evaluation Form
+				</span>
+			</th>
+		</tr>
+		<tr>
+			<td width="1%" class='active' nowrap>Dominant Hand:</td>
+			<td colspan="2" >
+				<input type="radio" ng-model="spine1.DominantHand" value="Right"> R
+				<input type="radio" ng-model="spine1.DominantHand" value="Left"> L
+			</td>
+		</tr>
+		<tr>
+			<td class="active" nowrap>Chief Complaint:</td>
+			<td colspan="2">
+				<input type="radio" ng-model="spine1.CC" value="Low Back/Legs"> Low Back/Legs
+				<input type="radio" ng-model="spine1.CC" value="Neck/Arms"> Neck/Arms
+				<input type="radio" ng-model="spine1.CC" value="Thoracic/Upper Back"> Thoracic/Upper Back
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" class="warning">	
+				<div scroll-bookmark="SPINEOnsetSpine" id="DGL_module_header">
+					<b>Onset of spine problem:</b>
+				</div>						
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				When did your current problem/symptoms begin?<br>
+				<textarea class="form-control" ng-model="spine1.problemsymptoms" placeholder="When did the Symptoms begin?"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				Have your symptoms changed since onset?<br>
+				<textarea class="form-control" ng-model="spine1.symptoms" placeholder="Have your symoptoms change since onset?"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				Have you had prior episodes of this condition?<br>
+				<textarea class="form-control" ng-model="spine1.priorepisodes" placeholder="Have your symoptoms change since onset?"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" 
+				Is your problem the result of an on-the-job injuty?<br>
+				Yes <input type="radio" ng-model="spine1.JobInjury" value="Yes">
+				No <input type="radio" ng-model="spine1.JobInjury"  value="No">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class='form-inline'>
+				Estimated Date of Injury
+				<input type="Date" ng-model="spine1.injurydate" class="form-control" style="width:160px;">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" class="text-center active">
+				<a class="btn btn-large btn-info" ng-click="addNew_Spine1(spine1)" style="text-decoration: none; color: #000">SAVE</a>
+
+				<a class="btn btn-large btn-danger" ng-click="removespine1(spine1)" style="text-decoration: none; color: #000">DELETE</a>
+			<td>
+		</tr>
+	</table>
+</div>

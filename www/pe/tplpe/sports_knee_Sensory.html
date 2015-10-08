@@ -1,0 +1,347 @@
+<div ng-controller="knee_3_Ctrl">
+		<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="3" class="text-center">
+					<input type="radio" ng-model="SportsKnee3.SensoryLeftRight" value="LEFT" > LEFT
+				</td>
+				<td colspan="3">
+					<input type="radio" ng-model="SportsKnee3.SensoryLeftRight" value="RIGHT" > RIGHT
+				</td>
+			</tr>
+			<tr class="active">
+				<td class="text-center" width='1%' nowrap>Inspection</td>
+				<td class="text-center" width='1%'>(-)</td>
+				<td class="text-center" width='1%'>(+)</td>
+				<td colspan="3" class="text-center">Details (Size, Location, Description)</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee3.Deformity" ng-true-value="Deformity" ng-false-value=""> Deformity
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.DeformitySel" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.DeformitySel" value="1" >
+				</td>
+				<td class='form-inline' width='15'>
+					<input type="text" ng-model="SportsKnee3.DeformityDefinition" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee3.Erythema" ng-true-value="Erythema" ng-false-value=""> Erythema
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.ErythemaSel" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.ErythemaSel" value="1" >
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.ErythemaDescrip" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee3.OpenWound" ng-true-value="Open Wound" ng-false-value=""> Open Wound
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.OpenWoundSel" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.OpenWoundSel" value="1" >
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.OpenWoundDescrip" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee3.Swelling" ng-true-value="Swelling" ng-false-value=""> Swelling
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.SwellingSel" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.SwellingSel" value="1" >
+				</td>
+				<td class='form-inline'>
+					<input type="text" class="form-control" ng-model="SportsKnee3.SwellingDescrip" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee3.Hematoma" ng-true-value="Hematoma" ng-false-value=""> Hematoma
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.HematomaSel" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.HematomaSel" value="1" >
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.HematomaDescrip" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee3.MuscleAtropy" ng-true-value="Muscle Atropy" ng-false-value=""> Muscle atropy
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.MuscleAtropySel" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.MuscleAtropySel" value="1" >
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.MuscleAtropyDescrip" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee3.Mass" ng-true-value="Mass" ng-false-value=""> Mass
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.MassSel" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.MassSel" value="1" >
+				</td>
+				<td>
+					<input type="checkbox" ng-model="SportsKnee3.Masstender" ng-true-value="tender" ng-false-value=""> tender
+					<br>
+					<input type="checkbox" ng-model="SportsKnee3.Massnontender" ng-true-value="nontender" ng-false-value=""> nontender
+					<br>
+					<input type="checkbox" ng-model="SportsKnee3.Massmoveable" ng-true-value="moveable" ng-false-value=""> moveable
+					<br>
+					<input type="checkbox" ng-model="SportsKnee3.Massfixed" ng-true-value="fixed" ng-false-value=""> fixed
+					<br>
+				</td>
+				<td>
+					<input type="checkbox" ng-model="SportsKnee3.Massregular" ng-true-value="regular" ng-false-value=""> regular
+					<br>
+					<input type="checkbox" ng-model="SportsKnee3.Massirregular" ng-true-value="irregular" ng-false-value=""> irregular
+					<br>
+					<input type="checkbox" ng-model="SportsKnee3.Masslymphadenopathy" ng-true-value="lymphadenopathy" ng-false-value=""> lymphadenopathy
+				</td>
+			</tr>
+			<tr>
+				<td class='active'>
+				</td>
+				<td colspan='2'>
+					Size: 
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.MassSize" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class='active'>
+				</td>
+				<td class='form-inline' colspan='2'>
+					Location:
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.MassLocation" class="form-control">
+				</td>
+			</tr>
+				<td class='active'>
+				</td>
+				<td colspan='2'>
+					Consistency: 
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.MassConsistency" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Deformities
+				</td>
+				<td colspan='2'>
+					<input type="radio" ng-model="SportsKnee3.Deformities" value="Valgus" >  Valgus
+				</td>
+				<td>
+					<input type="radio" ng-model="SportsKnee3.Deformities" value="Varus" >  Varus
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Palpitation
+				</td>
+				<td colspan='2' nowrap>
+					<input type="radio" ng-model="SportsKnee3.Palpitation" value="1" >  Normal
+					<br>
+					<input type="radio" ng-model="SportsKnee3.Palpitation" value="2" >  Tenderness 
+				</td>
+				<td>
+					<input type="radio" ng-model="SportsKnee3.Palpitation" value="3" >  Muscle Spasm
+				</td>
+			</tr>
+		</table>
+		<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="7" class="warning" id="DGL_module_header">
+					Sensory
+				</td>
+			</tr>
+			<tr>
+				<td nowrap width='1%'>
+					<input type="checkbox" ng-model="SportsKnee3.SensoryNormal" ng-true-value="1" >  Normal					 
+				</td>
+				<td class="active" width='1%' nowrap>
+					Abnormal
+				</td>
+				<td class="text-center active" width='1%' nowrap>
+					Normal
+				</td>
+				<td class="text-center active" width='1%' nowrap>
+					Hypoaesthesia
+				</td>
+				<td class="text-center active" width='1%' nowrap>
+					Hyperaesthesia
+				</td>
+				<td class="text-center active" width='1%' nowrap>
+					Paresthesia
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class='active'></td>
+				<td class="text-center active" >
+					L3
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L3Normal" ng-true-value="Normal" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L3Hypoaesthesia" ng-true-value="Hypoaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L3Hyperaesthesia" ng-true-value="Hyperaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L3Paresthesia" ng-true-value="Paresthesia" ng-false-value="">
+				</td>
+			</tr>
+				<td class='active'></td>
+				<td class="text-center active">
+					L4
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L4Normal" ng-true-value="Normal" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L4Hypoaesthesia" ng-true-value="Hypoaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L4Hyperaesthesia" ng-true-value="Hyperaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L4Paresthesia" ng-true-value="Paresthesia" ng-false-value="">
+				</td>
+			</tr>
+			<tr>
+				<td class='active'></td>
+				<td class="text-center active">
+					L5
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L5Normal" ng-true-value="Normal" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L5Hypoaesthesia" ng-true-value="Hypoaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L5Hyperaesthesia" ng-true-value="Hyperaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.L5Paresthesia" ng-true-value="Paresthesia" ng-false-value="">
+				</td>
+			</tr>
+			<tr>
+				<td class='active'></td>
+				<td class="text-center active">
+					S1
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.S1Normal" ng-true-value="Normal" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.S1Hypoaesthesia" ng-true-value="Hypoaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.S1Hyperaesthesia" ng-true-value="Hyperaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee3.S1Paresthesia" ng-true-value="Paresthesia" ng-false-value="">
+				</td>
+			</tr>
+		</table>
+		<table class="table table-condensed table-bordered">
+			<tr>	
+				<td class="active" width="1%" nowrap>
+					Nerve deficit
+				</td>
+				<td class="text-center active" width='1%'>
+					(-)
+				</td>
+				<td class="text-center active" width='1%'>
+					(+)
+				</td>
+				<td colspan="3" class="active">
+					Details (Location, Description)
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Superficial peroncal n
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.Superficialperoncaln" value="0" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.Superficialperoncaln" value="1" ng-false-value="">
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.SuperficialperoncalnDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Deep peroneal n
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.Deepperonealn" value="0" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.Deepperonealn" value="1" ng-false-value="">
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.DeepperonealnDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Tibial nerve
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.Tibialnerve" value="0" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee3.Tibialnerve" value="1" ng-false-value="">
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee3.TibialnerveDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center active">
+					<a class="btn btn-large btn-info" ng-click="addNew_Knee3(SportsKnee3)" style="text-decoration: none; color: #000">SAVE</a>
+
+					<a class="btn btn-large btn-danger" ng-click="removeKnee3(SportsKnee3)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+		</table>
+	</div>

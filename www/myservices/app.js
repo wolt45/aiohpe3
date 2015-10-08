@@ -421,7 +421,7 @@ function DataController($rootScope, $scope, $http) {
   	}	
 
 	// PULL IOH - CHIEF COMPLAINT
-	$scope.pullZClinix = function(callback){
+	$scope.pullZClinix = function(){
 		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ZClinix.php'}).
@@ -437,8 +437,12 @@ function DataController($rootScope, $scope, $http) {
 					zclinix.HIP 		= data[idx].HIP;
 					zclinix.KNEE		= data[idx].KNEE;
 
+					zclinix.GENORTHO	= data[idx].GENORTHO;
+					zclinix.SKELTRAUMA	= data[idx].SKELTRAUMA;
+
 					zclinix.ANKLEFOOT	= data[idx].ANKLEFOOT;
 					zclinix.SHOULDERARM	= data[idx].SHOULDERARM;
+
 					zclinix.ELBOW		= data[idx].ELBOW;
 					zclinix.WRISTHAND	= data[idx].WRISTHAND;
 					zclinix.THIGH		= data[idx].THIGH;
@@ -1407,7 +1411,8 @@ function DataController($rootScope, $scope, $http) {
 	$scope.pullDIAGS_ScheduleForSurgery = function(callback){
 		var serverIP = "10.0.1.99";
 
-		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_SchedSurgery.php'}).success ( function ( data, status, headers, config ) {
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_SchedSurgery.php'}).
+		success ( function ( data, status, headers, config ) {
 
 			if (data !== null ) {
 		      	// save to websql
@@ -1448,7 +1453,8 @@ function DataController($rootScope, $scope, $http) {
 	$scope.pullDIAGS_Medication= function(callback){
 		var serverIP = "10.0.1.99";
 
-		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_Med.php'}).success ( function ( data, status, headers, config ) {
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_Med.php'}).
+		success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
 			    for(idx in data){
@@ -1487,7 +1493,8 @@ function DataController($rootScope, $scope, $http) {
 	$scope.pullDIAGS_Disposition= function(callback){
 		var serverIP = "10.0.1.99";
 
-		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_Disposition.php'}).success ( function ( data, status, headers, config ) {
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_Disposition.php'}).
+		success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
 			    for(idx in data){

@@ -1,0 +1,119 @@
+
+<div ng-controller="spine_3_Ctrl">
+	<table class="table table-bordered">
+		<tr class="active">
+			<td width='1%' nowrap>SYMBOLS</td>
+			<td class="text-center">FRONT</td>
+			<td class="text-center">BACK</td>
+		</tr>
+		<tr>
+			<td class="active">ACHE<br> >>>>> <br> >>>>></td>
+			<td class="text-center" rowspan="4"><img src="../images/Front.jpg" height="600px" width="300px"></td>
+			<td class="text-center" rowspan="4"><img src="../images/Back.jpg" height="600px" width="300px"></td>
+		</tr>
+		<tr>
+			<td class="active">NUMBNESS<br> ===== <br> ===== </td>
+		</tr>
+		<tr>
+			<td class="active">Stabbing Pain<br> ///// <br> ///// </td>
+		</tr>
+		<tr>
+			<td class="active">Pins and Needles<br> 0000 <br> 0000 </td>
+		</tr>
+	</table>
+
+	<table class="table table-bordered">
+		<tr class="warning">
+			<td id="DGL_module_header" colspan="6">What does each of the following activities do to your pain?</td>
+		</tr>
+		<tr class="active">
+			<td width="15%"></td>
+			<td class="text-center">NO CHANGE</td>
+			<Td class="text-center">RELIEVES PAIN</td>
+			<td class="text-center">INCRESES PAIN</td>
+			<td class="text-center">AFTER HOW LONG?</td>
+		</tr>
+		<tr>
+			<td class="active">Sitting</td>
+			<td><input type="text" ng-model="spine3.sittingnochange" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.sittingrelievespain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.sittingincreasepain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.sittingafterhowlong" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="active">Walking</td>
+			<td><input type="text" ng-model="spine3.walkingnochange" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.walkingrelievespain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.walkingincreasepain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.walkingafterhowlong" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="active">Standing</td>
+			<td><input type="text" ng-model="spine3.standingnochange" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.standingrelievespain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.standingincreasepain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.standingafterhowlong" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="active">Lying Down</td>
+			<td><input type="text" ng-model="spine3.lyingdownnochange" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.lyingdownrelievespain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.lyingdownincreasepain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.lyingdownafterhowlong" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="active">Bending Forward</td>
+			<td><input type="text" ng-model="spine3.bendingforwardnochange" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.bendingforwardrelievespain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.bendingforwardincreasepain" class="form-control"></td>
+			<td><input type="text" ng-model="spine3.bendingforwardafterhowlong" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="active">Bending Backward</td>
+			<td><input type="text" class="form-control" ng-model="spine3.bendingbackwardnochange"></td>
+			<td><input type="text" class="form-control" ng-model="spine3.bendingbackwardrelievespain"></td>
+			<td><input type="text" class="form-control" ng-model="spine3.bendingbackwardincreasepain"></td>
+			<td><input type="text" class="form-control" ng-model="spine3.bendingbackwardafterhowlong"></td>
+		</tr>
+		<tr>
+			<td class="active">Lifting</td>
+			<td><input type="text" class="form-control"  ng-model="spine3.liftingnochange"></td>
+			<td><input type="text" class="form-control"  ng-model="spine3.liftingrelievespain"></td>
+			<td><input type="text" class="form-control"  ng-model="spine3.liftingincreasepain"></td>
+			<td><input type="text" class="form-control"  ng-model="spine3.liftingafterhowlong"></td>
+		</tr>
+		<tr>
+			<td class="active">Coughing/Sneezing</td>
+			<td><input type="text" class="form-control" ng-model="spine3.coughingsneezingnochange"></td>
+			<td><input type="text" class="form-control" ng-model="spine3.coughingsneezingrelievespain"></td>
+			<td><input type="text" class="form-control" ng-model="spine3.coughingsneezingincreasepain"></td>
+			<td><input type="text" class="form-control" ng-model="spine3.coughingsneezingafterhowlong"></td>
+		</tr>
+		<tr>
+			<td class="active">Changing/Position</td>
+			<td><input type="text" class="form-control" ng-model="spine3.changingpositionnochange"></td>
+			<td><input type="text" class="form-control" ng-model="spine3.changingpositionrelievespain"></td>
+			<td><input type="text" class="form-control" ng-model="spine3.changingpositionincreasepain"></td>
+			<td><input type="text" class="form-control" ng-model="spine3.changingpositionafterhowlong"></td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				Which other activities, motions, or positions affect your symptoms?<br>
+				<textarea class="form-control" ng-model="spine3.activitiesmotionposition"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				What do you do to relieve your pain?<br>
+				<textarea class="form-control" ng-model="spine3.relievepain"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6" class="text-center active">
+				<a class="btn btn-large btn-info" ng-click="addNew_spine3(spine3)" style="text-decoration: none; color: #000">SAVE</a>
+
+				<a class="btn btn-large btn-danger" ng-click="removespine3(spine3)" style="text-decoration: none; color: #000">DELETE</a>
+			<td>
+		</tr>
+	</table>
+
+</div>

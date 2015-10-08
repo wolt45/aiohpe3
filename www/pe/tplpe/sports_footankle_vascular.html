@@ -1,0 +1,303 @@
+<div ng-controller="footAnkle_6_Ctrl">	
+	<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					Vascular
+				</td>
+			</tr>
+			<tr class="active">
+				<td class="text-center">
+					Artery
+				</td>
+				<td class="text-center" width='1%'>
+					Strong					 
+				</td>
+				<td class="text-center" width='1%'>
+					Weak
+				</td>
+				<td class="text-center" width='1%'>
+					Absent
+				</td>
+				<td class="text-center" colspan="2">
+					Location
+				</td>
+			</tr>
+			<tr>
+				<td class="active" width='1%' nowrap>
+					Dorsalis pedis artery
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle6.DorsalisPedisArtery" value="Strong" > 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle6.DorsalisPedisArtery" value="Weak" > 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle6.DorsalisPedisArtery" value="Absent" > 
+				</td>
+				<td colspan="2">
+					<input type="text" ng-model="FootAnkle6.DorsalisPedisArteryDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Posterior pedis artery
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle6.PosteriorPedisArtery" value="Strong" > 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle6.PosteriorPedisArtery" value="Weak" > 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle6.PosteriorPedisArtery" value="Absent" > 
+				</td>
+				<td colspan="2">
+					<input type="text" ng-model="FootAnkle6.PosteriorPedisArteryDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Color:
+				</td>
+				<td nowrap colspan='5'>
+					<input type="radio" ng-model="FootAnkle6.Color" value="Pink" > Pink
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="FootAnkle6.Color" value="Pallor" > Pallor
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="FootAnkle6.Color" value="Dusky" > Dusky
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="FootAnkle6.Color" value="Cyanotic" > Cyanotic
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="FootAnkle6.Color" value="Gangrenous" > Gangrenous
+				</td>
+			</tr>
+			<tr>
+				<td class="active" colspan='5'>
+				</td>
+			</tr>
+		</table>
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td colspan="6" id="DGL_module_header">
+					Special Test
+				</td>
+			</tr>
+			<tr>
+				<td width="1%" nowrap>
+					<input type="checkbox" ng-model="FootAnkle6.SpecialTestNormal" ng-true-value="Normal" > NORMAL
+				</td>
+				<td class='active' width='1%' nowrap>
+					ABNORMAL			 
+				</td>
+				<td class="text-center active" width="1%" nowrap>
+					(-)
+				</td>
+				<td class="text-center active" width="1%" nowrap>
+					(+)
+				</td>
+				<td colspan="2" class='text-center active'>
+					Location
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					Tinel's
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.Tinel" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.Tinel" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.TinelDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					Anterior drawer's
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.AnteriorDrawer" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.AnteriorDrawer" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.AnteriorDrawerDescript" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					Posterior drawer's
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.PosteriorDrawer" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.PosteriorDrawer" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.PosteriorDrawerDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					Inversion Stress
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.InversionStress" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.InversionStress" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.InversionStressDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					External Rolation Stress
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.ERS" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.ERS" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.ERSDescript" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					Thompson's
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.Thompson" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.Thompson" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.ThompsonDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					Homan's
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.Homan" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.Homan" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.HomanDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					Squeeze
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.Squeeze" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.Squeeze" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.SqueezeDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					Toe - legged stance
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.ToeLegStance" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.ToeLegStance" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.ToeLegStanceDescrip" class="form-control">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					
+				</td>
+				<td class="active" nowrap>
+					Single Toe-Legged Stance
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.STLStance" value="0" >			 
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle6.STLStance" value="1" >			 
+				</td>
+				<td colspan="2" class='form-inline'>
+					<input type='text' ng-model="FootAnkle6.STLStanceDescrip" class="form-control">
+				</td>
+			</tr>
+			
+			<tr>
+				<td nowrap>
+					
+			 	</td>
+			 	<td class='active'>
+			 		Other Tests
+			 	</td>
+			 	<td>
+			 	</td>
+			 	<td></td>
+				<td class="form-inline">
+					<input type='text' ng-model="FootAnkle6.SpecialTestOthersDescrip" class='form-control'>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center active">
+					<a class="btn btn-large btn-info active" ng-click="addNew_FootAnkle6(FootAnkle6)" style="text-decoration: none; color: #000">SAVE</a>
+
+
+					<a class="btn btn-large btn-danger" ng-click="removeFootAnkle6(FootAnkle6)" style="text-decoration: none; color: #000">
+					DELETE
+				</a>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>

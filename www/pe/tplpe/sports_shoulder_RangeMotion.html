@@ -1,0 +1,188 @@
+	<div ng-controller="shoulder_5_Ctrl">
+		<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="7" class="warning" id="DGL_module_header">
+					Range of Motion/ Muscle Testing
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Shoulder
+				</td>
+				<td>
+					<input type="radio" ng-model="Sportsholder5.ShoulderFullLimited" value="Full" >  Full					 
+				</td>
+				<td colspan="4">
+					<input type="radio" ng-model="Sportsholder5.ShoulderFullLimited" value="Limited" >  Limited
+				</td>
+			</tr>
+			<tr class="active">
+				<td>
+					Motion
+				</td>
+				<td>
+					Passive
+				</td>
+				<td>
+					Active
+				</td>
+				<td>
+					With Pain
+				</td>
+				<td>
+					Crepitation
+				</td>
+				<td>
+					MMT(0 - 5)
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Dorsiflexion
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.DorsiflexionPass" class="form-control">
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.DorsiflexionActiv" class="form-control">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.DorsiflexionWidthPain" ng-true-value="Width Pain" ng-false-value=""> 
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.DorsiflexionCrepitation" ng-true-value="Crepitation" ng-false-value=""> 
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.DorsiflexionMMT" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Flexion
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.FlexionPassive" class="form-control">
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.FlexionActive" class="form-control">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.FlexionWithPain" ng-true-value="With Pain" ng-false-value=""> 
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.FlexionCrepitation" ng-true-value="Crepitation" ng-false-value=""> 
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.FlexionMMT" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Extension
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.ExtensionPassive" class="form-control">
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.ExtensionActive" class="form-control">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.ExtensionWithPain" ng-true-value="With Pain" ng-false-value=""> 
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.ExtensionCrepitation" ng-true-value="Crepitation" ng-false-value=""> 
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.ExtensionMMT" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Abduction
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.AbductionPassive" class="form-control">
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.AbductionActive" class="form-control">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.AbductionWithPain" ng-true-value="With Pain" ng-false-value=""> 
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.AbductionCrepitation" ng-true-value="Crepitation" ng-false-value=""> 
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.AbductionMMT" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					adduction
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.AdductionPassive" class="form-control">
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.AdductionActive" class="form-control">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.AdductionWithPain" ng-true-value="With Pain" ng-false-value=""> 
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.AdductionCrepitation" ng-true-value="Crepitation" ng-false-value=""> 
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.AdductionMMT" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					IR
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.IRPassive" class="form-control">
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.IRActive" class="form-control">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.IRWithPain" ng-true-value="With Pain" ng-false-value=""> 
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.IRCrepitation" ng-true-value="Crepitation" ng-false-value=""> 
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.IRMMT" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					ER
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.ERPassive" class="form-control">
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.ERActive" class="form-control">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.ERWithPain" ng-true-value="With Pain" ng-false-value=""> 
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="Sportsholder5.ERCrepitation" ng-true-value="Crepitation" ng-false-value=""> 
+				</td>
+				<td>
+					<input type="text" ng-model="Sportsholder5.ERMMT" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center active">
+					<a class="btn btn-large btn-info"ng-click="addNew_shoulder5(Sportsholder5)" style="text-decoration: none; color: #000">SAVE</a>
+
+					<a class="btn btn-danger btn-info"ng-click="removeshoulder5(Sportsholder5)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+
+		</table>
+	</div>

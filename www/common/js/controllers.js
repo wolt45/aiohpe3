@@ -1,7 +1,4 @@
 IOHPEApp.controller('PXListCtrl', function ($scope){
-  // request for transactions from the server via REST
-
-  // let say we have this sample transactions
   $scope.clinix = [];
 
   $scope.ShowData = function(){
@@ -166,6 +163,7 @@ IOHPEApp.controller('PXListPECtrl', function ($scope){
 
 IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
   $scope.clinix = [];
+  $scope.zclinix = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
   var promise = $ipadrbg.context.clinix.filter(function (px) { 
@@ -196,4 +194,18 @@ IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
     , {TrnSttsRID : 98, TrnStts : "CANCELLED APPOINMENT", preForeColor:"black", preBackColor:"grey"}
     , {TrnSttsRID : 99, TrnStts : "COMPLETED", preForeColor:"black", preBackColor:"white"}
   ];
+
+
+  $scope.LoadZClinix = function () {
+    var promise = $ipadrbg.context.zclinix.filter(function (tx) { 
+      return tx.ClinixRID == this.id}, { id : $scope.ClinixRID}).toLiveArray();
+    promise.then(function(txresult) {
+      $scope.zclinix = txresult[0];
+      $scope.$apply();
+    });
+  }
+  $scope.LoadZClinix();
+
+  
+
 });

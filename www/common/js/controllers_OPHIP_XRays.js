@@ -1,5 +1,5 @@
 IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
-  $scope.jdata_OPHIP_XRays = [];
+  //$scope.jdata_OPHIP_XRays = [];
   $scope.PxRID = 0;
   $scope.AllPreOpHIPxrays = []; // hangers 4, 9
   $scope.AllPostOpHIPxrays = []; // hangers 4, 9, 10
@@ -13,9 +13,10 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
       return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
-        $scope.jdata_OPHIP_XRays = pxresult;
+        //$scope.jdata_OPHIP_XRays = pxresult;
 
         $scope.PxRID = pxresult[0]['PxRID'];
+        
         $scope.LoadPREOpHIPxraysImgs();
         $scope.LoadPOSTOpHIPxraysImgs();
       });

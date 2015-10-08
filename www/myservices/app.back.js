@@ -141,7 +141,10 @@ function PushController($rootScope, $scope, $http) {
           temp += '{"ClinixRID" : ' + $scope.zclinix[i]['ClinixRID'];
           temp += ', "HIP" : ' + $scope.zclinix[i]['HIP'];
           temp += ', "KNEE" : '+ $scope.zclinix[i]['KNEE'] 
-          
+
+          temp += ', "GENORTHO" : '+ $scope.zclinix[i]['GENORTHO'] 
+          temp += ', "SKELTRAUMA" : '+ $scope.zclinix[i]['SKELTRAUMA'] 
+
           temp += ', "ANKLEFOOT" : '+ $scope.zclinix[i]['ANKLEFOOT'] 
           temp += ', "SHOULDERARM" : '+ $scope.zclinix[i]['SHOULDERARM'] 
           temp += ', "ELBOW" : '+ $scope.zclinix[i]['ELBOW'] 
@@ -351,7 +354,7 @@ function PushController($rootScope, $scope, $http) {
       $scope.clinix_StructuredDiagnosis_JSON = JSON.stringify($scope.clinix_StructuredDiagnosis);
       $http({
         method: 'POST'
-        , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_StructuredDiagnosis.php?clinixJsonIzed=' + $scope.clinix_StructuredDiagnosis_JSON
+        , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_StructuredDiagnosis.php' //?clinixJsonIzed=' + $scope.clinix_StructuredDiagnosis_JSON
         , contentType : 'application/json'
         , data : $scope.clinix_StructuredDiagnosis_JSON
         , cache : false
@@ -514,18 +517,12 @@ function PushController($rootScope, $scope, $http) {
       $scope.pushALLDiagsDisposition();
       $scope.pushALLDiagsNotes();
 
-
-
       // ULUBRAHON...
       // PUSH BACK PE charges, look at controllers_PECharges.js lin 325 
-
-
 
 		  alert("EXPORT to Server Successful!");
 		}
 	};
-
-
 
 	
 
@@ -1319,4 +1316,870 @@ function PushController($rootScope, $scope, $http) {
   // ?clinixJsonIzed=' + $scope.clinix_POSTOp_KNEE_preform_JSON
 
   // floor of PUSHES 
+
+
+
+  $scope.pushSkelTrauma = function(){
+    if (confirm('PROCEED With Sycnh Process?')) {
+
+      $scope.pushSkelTrauma_1();
+      $scope.pushSkelTrauma_2();
+
+
+
+      alert("EXPORT to Server Successful!");
+    }
+  }
+
+  //Push ALL pushjdata_SkelTrauma_1 
+  $scope.pushSkelTrauma_1 = function(){
+    $scope.jdata_SkelTrauma_1 = [];
+    var promise = $ipadrbg.context.jdata_SkelTrauma_1.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_SkelTrauma_1 = pxresult;
+        });
+        $scope.jdata_SkelTrauma_1_JSON = JSON.stringify($scope.jdata_SkelTrauma_1);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_SkelTrauma_1.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_SkelTrauma_1_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSkelTrauma_2 = function(){
+    $scope.jdata_SkelTrauma_2 = [];
+    var promise = $ipadrbg.context.jdata_SkelTrauma_2.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_SkelTrauma_2 = pxresult;
+        });
+        $scope.jdata_SkelTrauma_2_JSON = JSON.stringify($scope.jdata_SkelTrauma_2);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_SkelTrauma_2.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_SkelTrauma_2_JSON
+            , cache : false
+        });
+    });
+  };
+  //Synch Process of Skeletal Trauma - end
+
+  // floor of PUSHES 
+
+   $scope.pushGenOrtho = function(){
+    if (confirm('PROCEED With Sycnh Process?')) {
+
+      $scope.pushGenOrtho_1();
+      $scope.pushGenOrtho_2();
+      $scope.pushGenOrtho_3();
+      $scope.pushGenOrtho_4();
+      $scope.pushGenOrtho_5();
+      $scope.pushGenOrtho_6();
+
+      alert("EXPORT to Server Successful!");
+    }
+  }
+
+  //Push ALL pushjdata_GenOrtho_1 
+  $scope.pushGenOrtho_1 = function(){
+    $scope.jdata_genotho_1 = [];
+    var promise = $ipadrbg.context.jdata_genotho_1.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_genotho_1 = pxresult;
+        });
+        $scope.jdata_genotho_1_JSON = JSON.stringify($scope.jdata_genotho_1);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_genotho_1.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_genotho_1_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushGenOrtho_2 = function(){
+    $scope.jdata_genotho_2 = [];
+    var promise = $ipadrbg.context.jdata_genotho_2.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_genotho_2 = pxresult;
+        });
+        $scope.jdata_genotho_2_JSON = JSON.stringify($scope.jdata_genotho_2);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_genotho_2.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_genotho_2_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushGenOrtho_3 = function(){
+    $scope.jdata_genotho_3 = [];
+    var promise = $ipadrbg.context.jdata_genotho_3.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_genotho_3 = pxresult;
+        });
+        $scope.jdata_genotho_3_JSON = JSON.stringify($scope.jdata_genotho_3);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_genotho_3.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_genotho_3_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushGenOrtho_4 = function(){
+    $scope.jdata_genotho_4 = [];
+    var promise = $ipadrbg.context.jdata_genotho_4.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_genotho_4 = pxresult;
+        });
+        $scope.jdata_genotho_4_JSON = JSON.stringify($scope.jdata_genotho_4);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_genotho_4.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_genotho_4_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushGenOrtho_5 = function(){
+    $scope.jdata_genotho_5 = [];
+    var promise = $ipadrbg.context.jdata_genotho_5.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_genotho_5 = pxresult;
+        });
+        $scope.jdata_genotho_5_JSON = JSON.stringify($scope.jdata_genotho_5);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_genotho_5.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_genotho_5_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushGenOrtho_6 = function(){
+    $scope.jdata_genotho_6 = [];
+    var promise = $ipadrbg.context.jdata_genotho_6.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_genotho_6 = pxresult;
+        });
+        $scope.jdata_genotho_6_JSON = JSON.stringify($scope.jdata_genotho_6);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_genotho_6.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_genotho_6_JSON
+            , cache : false
+        });
+    });
+  };
+
+
+  $scope.pushSpine = function(){
+    if (confirm('PROCEED With Sycnh Process?')) {
+
+      $scope.pushSpine_1();
+      $scope.pushSpine_2();
+      $scope.pushSpine_3();
+      $scope.pushSpine_4();
+
+      alert("EXPORT to Server Successful!");
+    }
+  }
+
+  //Push ALL pushjdata_GenOrtho_1 
+  $scope.pushSpine_1 = function(){
+    $scope.jdata_spine_1 = [];
+    var promise = $ipadrbg.context.jdata_spine_1.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_spine_1 = pxresult;
+        });
+        $scope.jdata_spine_1_JSON = JSON.stringify($scope.jdata_spine_1);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_spine_1.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_spine_1_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSpine_2 = function(){
+    $scope.jdata_spine_2 = [];
+    var promise = $ipadrbg.context.jdata_spine_2.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_spine_2 = pxresult;
+        });
+        $scope.jdata_spine_2_JSON = JSON.stringify($scope.jdata_spine_2);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_spine_2.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_spine_2_JSON
+            , cache : false
+        });
+    });
+  };
+
+
+  $scope.pushSpine_3 = function(){
+    $scope.jdata_spine_3 = [];
+    var promise = $ipadrbg.context.jdata_spine_3.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_spine_3 = pxresult;
+        });
+        $scope.jdata_spine_3_JSON = JSON.stringify($scope.jdata_spine_3);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_spine_3.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_spine_3_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSpine_4 = function(){
+    $scope.jdata_spine_4 = [];
+    var promise = $ipadrbg.context.jdata_spine_4.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_spine_4 = pxresult;
+        });
+        $scope.jdata_spine_4_JSON = JSON.stringify($scope.jdata_spine_4);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_spine_4.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_spine_4_JSON
+            , cache : false
+        });
+    });
+  };
+
+$scope.pushSportsAnkleFoot = function(){
+    if (confirm('PROCEED With Sycnh Process?')) {
+
+      $scope.pushSportsAnkleFoot_1();
+      $scope.pushSportsAnkleFoot_2();
+      $scope.pushSportsAnkleFoot_3();
+      $scope.pushSportsAnkleFoot_4();
+      $scope.pushSportsAnkleFoot_5();
+      $scope.pushSportsAnkleFoot_6();
+      $scope.pushSportsAnkleFoot_7();
+      $scope.pushSportsAnkleFoot_8();
+      $scope.pushSportsAnkleFoot_9();
+
+
+
+      alert("EXPORT to Server Successful!");
+    }
+  }
+
+  //Push ALL pushSportsAnkleFoot_1
+    $scope.pushSportsAnkleFoot_1 = function(){
+    $scope.jdata_FootAnkle_1 = [];
+    var promise = $ipadrbg.context.jdata_FootAnkle_1.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_FootAnkle_1 = pxresult;
+        });
+        $scope.jdata_FootAnkle_1_JSON = JSON.stringify($scope.jdata_FootAnkle_1);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_anklefoot_1.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_FootAnkle_1_JSON
+            , cache : false
+        });
+    });
+  };
+  //Push ALL pushSportsAnkleFoot_2
+    $scope.pushSportsAnkleFoot_2 = function(){
+    $scope.jdata_FootAnkle_2 = [];
+    var promise = $ipadrbg.context.jdata_FootAnkle_2.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_FootAnkle_2 = pxresult;
+        });
+        $scope.jdata_FootAnkle_2_JSON = JSON.stringify($scope.jdata_FootAnkle_2);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_anklefoot_2.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_FootAnkle_2_JSON
+            , cache : false
+        });
+    });
+  };
+  //Push ALL pushSportsAnkleFoot_2
+    $scope.pushSportsAnkleFoot_3 = function(){
+    $scope.jdata_FootAnkle_3 = [];
+    var promise = $ipadrbg.context.jdata_FootAnkle_3.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_FootAnkle_3 = pxresult;
+        });
+        $scope.jdata_FootAnkle_3_JSON = JSON.stringify($scope.jdata_FootAnkle_3);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_anklefoot_3.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_FootAnkle_3_JSON
+            , cache : false
+        });
+    });
+  };
+
+  //Push ALL pushSportsAnkleFoot_2
+    $scope.pushSportsAnkleFoot_4 = function(){
+    $scope.jdata_FootAnkle_4 = [];
+    var promise = $ipadrbg.context.jdata_FootAnkle_4.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_FootAnkle_4 = pxresult;
+        });
+        $scope.jdata_FootAnkle_4_JSON = JSON.stringify($scope.jdata_FootAnkle_4);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_anklefoot_4.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_FootAnkle_4_JSON
+            , cache : false
+        });
+    });
+  };
+
+  //Push ALL pushSportsAnkleFoot_2
+    $scope.pushSportsAnkleFoot_5 = function(){
+    $scope.jdata_FootAnkle_5 = [];
+    var promise = $ipadrbg.context.jdata_FootAnkle_5.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_FootAnkle_5 = pxresult;
+        });
+        $scope.jdata_FootAnkle_5_JSON = JSON.stringify($scope.jdata_FootAnkle_5);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_anklefoot_5.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_FootAnkle_5_JSON
+            , cache : false
+        });
+    });
+  };
+
+  //Push ALL pushSportsAnkleFoot_2
+    $scope.pushSportsAnkleFoot_6 = function(){
+    $scope.jdata_FootAnkle_6 = [];
+    var promise = $ipadrbg.context.jdata_FootAnkle_6.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_FootAnkle_6 = pxresult;
+        });
+        $scope.jdata_FootAnkle_6_JSON = JSON.stringify($scope.jdata_FootAnkle_6);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_anklefoot_6.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_FootAnkle_6_JSON
+            , cache : false
+        });
+    });
+  };
+  //Push ALL pushSportsAnkleFoot_2
+    $scope.pushSportsAnkleFoot_7 = function(){
+    $scope.jdata_FootAnkle_7 = [];
+    var promise = $ipadrbg.context.jdata_FootAnkle_7.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_FootAnkle_7 = pxresult;
+        });
+        $scope.jdata_FootAnkle_7_JSON = JSON.stringify($scope.jdata_FootAnkle_7);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_anklefoot_7.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_FootAnkle_7_JSON
+            , cache : false
+        });
+    });
+  };
+
+   $scope.pushSportsAnkleFoot_8 = function(){
+    $scope.jdata_FootAnkle_8 = [];
+    var promise = $ipadrbg.context.jdata_FootAnkle_8.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_FootAnkle_8 = pxresult;
+        });
+        $scope.jdata_FootAnkle_8_JSON = JSON.stringify($scope.jdata_FootAnkle_8);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_anklefoot_8.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_FootAnkle_8_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsAnkleFoot_9 = function(){
+    $scope.jdata_FootAnkle_9 = [];
+    var promise = $ipadrbg.context.jdata_FootAnkle_9.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_FootAnkle_9 = pxresult;
+        });
+        $scope.jdata_FootAnkle_9_JSON = JSON.stringify($scope.jdata_FootAnkle_9);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_anklefoot_9.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_FootAnkle_9_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsKnee = function(){
+    if (confirm('PROCEED With Sycnh Process?')) {
+
+      $scope.pushSportsKnee_1();
+      $scope.pushSportsKnee_2();
+      $scope.pushSportsKnee_3();
+      $scope.pushSportsKnee_4();
+      $scope.pushSportsKnee_5();
+      $scope.pushSportsKnee_6();
+      $scope.pushSportsKnee_7();
+      $scope.pushSportsKnee_8();
+
+      alert("EXPORT to Server Successful!");
+    }
+  }
+
+  //Push ALL pushSportsanklefoot_1
+    $scope.pushSportsKnee_1 = function(){
+    $scope.jdata_Knee_1 = [];
+    var promise = $ipadrbg.context.jdata_Knee_1.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_Knee_1 = pxresult;
+        });
+        $scope.jdata_Knee_1_JSON = JSON.stringify($scope.jdata_Knee_1);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsknee_1.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_Knee_1_JSON
+            , cache : false
+        });
+    });
+  };
+
+    $scope.pushSportsKnee_2 = function(){
+    $scope.jdata_Knee_2 = [];
+    var promise = $ipadrbg.context.jdata_Knee_2.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_Knee_2 = pxresult;
+        });
+        $scope.jdata_Knee_2_JSON = JSON.stringify($scope.jdata_Knee_2);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsknee_2.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_Knee_2_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsKnee_3 = function(){
+    $scope.jdata_Knee_3= [];
+    var promise = $ipadrbg.context.jdata_Knee_3.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_Knee_3 = pxresult;
+        });
+        $scope.jdata_Knee_3_JSON = JSON.stringify($scope.jdata_Knee_3);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsknee_3.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_Knee_3_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsKnee_4 = function(){
+    $scope.jdata_Knee_4= [];
+    var promise = $ipadrbg.context.jdata_Knee_4.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_Knee_4 = pxresult;
+        });
+        $scope.jdata_Knee_4_JSON = JSON.stringify($scope.jdata_Knee_4);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsknee_4.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_Knee_4_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsKnee_5 = function(){
+    $scope.jdata_Knee_5= [];
+    var promise = $ipadrbg.context.jdata_Knee_5.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_Knee_5 = pxresult;
+        });
+        $scope.jdata_Knee_5_JSON = JSON.stringify($scope.jdata_Knee_5);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsknee_5.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_Knee_5_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsKnee_6 = function(){
+    $scope.jdata_Knee_6= [];
+    var promise = $ipadrbg.context.jdata_Knee_6.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_Knee_6 = pxresult;
+        });
+        $scope.jdata_Knee_6_JSON = JSON.stringify($scope.jdata_Knee_6);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsknee_6.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_Knee_6_JSON
+            , cache : false
+        });
+    });
+  };
+
+   $scope.pushSportsKnee_7 = function(){
+    $scope.jdata_Knee_7= [];
+    var promise = $ipadrbg.context.jdata_Knee_7.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_Knee_7 = pxresult;
+        });
+        $scope.jdata_Knee_7_JSON = JSON.stringify($scope.jdata_Knee_7);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsknee_7.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_Knee_7_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsKnee_8 = function(){
+    $scope.jdata_Knee_8= [];
+    var promise = $ipadrbg.context.jdata_Knee_8.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_Knee_8 = pxresult;
+        });
+        $scope.jdata_Knee_8_JSON = JSON.stringify($scope.jdata_Knee_8);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsknee_8.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_Knee_8_JSON
+            , cache : false
+        });
+    });
+  };
+
+ $scope.pushSportsSholder = function(){
+    if (confirm('PROCEED With Sycnh Process?')) {
+
+      $scope.pushSportsSholder_1();
+      $scope.pushSportsSholder_2();
+      $scope.pushSportsSholder_3();
+      $scope.pushSportsSholder_4();
+      $scope.pushSportsSholder_5();
+      $scope.pushSportsSholder_6();
+      $scope.pushSportsSholder_7();
+      $scope.pushSportsSholder_8();
+      $scope.pushSportsSholder_9();
+
+      alert("EXPORT to Server Successful!");
+    }
+  }
+
+  $scope.pushSportsSholder_1 = function(){
+    $scope.jdata_shoulder_1= [];
+    var promise = $ipadrbg.context.jdata_shoulder_1.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_shoulder_1 = pxresult;
+        });
+        $scope.jdata_shoulder_1_JSON = JSON.stringify($scope.jdata_shoulder_1);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsholder_1.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_shoulder_1_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsSholder_2 = function(){
+    $scope.jdata_shoulder_2= [];
+    var promise = $ipadrbg.context.jdata_shoulder_2.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_shoulder_2 = pxresult;
+        });
+        $scope.jdata_shoulder_2_JSON = JSON.stringify($scope.jdata_shoulder_2);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsholder_2.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_shoulder_2_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsSholder_3 = function(){
+    $scope.jdata_shoulder_3= [];
+    var promise = $ipadrbg.context.jdata_shoulder_3.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_shoulder_3 = pxresult;
+        });
+        $scope.jdata_shoulder_3_JSON = JSON.stringify($scope.jdata_shoulder_3);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsholder_3.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_shoulder_3_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsSholder_4 = function(){
+    $scope.jdata_shoulder_4= [];
+    var promise = $ipadrbg.context.jdata_shoulder_4.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_shoulder_4 = pxresult;
+        });
+        $scope.jdata_shoulder_4_JSON = JSON.stringify($scope.jdata_shoulder_4);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsholder_4.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_shoulder_4_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsSholder_5 = function(){
+    $scope.jdata_shoulder_5= [];
+    var promise = $ipadrbg.context.jdata_shoulder_5.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_shoulder_5 = pxresult;
+        });
+        $scope.jdata_shoulder_5_JSON = JSON.stringify($scope.jdata_shoulder_5);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsholder_5.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_shoulder_5_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsSholder_6 = function(){
+    $scope.jdata_shoulder_6= [];
+    var promise = $ipadrbg.context.jdata_shoulder_6.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_shoulder_6 = pxresult;
+        });
+        $scope.jdata_shoulder_6_JSON = JSON.stringify($scope.jdata_shoulder_6);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsholder_6.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_shoulder_6_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsSholder_7 = function(){
+    $scope.jdata_shoulder_7= [];
+    var promise = $ipadrbg.context.jdata_shoulder_7.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_shoulder_7 = pxresult;
+        });
+        $scope.jdata_shoulder_7_JSON = JSON.stringify($scope.jdata_shoulder_7);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsholder_7.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_shoulder_7_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushSportsSholder_8 = function(){
+    $scope.jdata_shoulder_8= [];
+    var promise = $ipadrbg.context.jdata_shoulder_8.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_shoulder_8 = pxresult;
+        });
+        $scope.jdata_shoulder_8_JSON = JSON.stringify($scope.jdata_shoulder_8);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsholder_8.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_shoulder_8_JSON
+            , cache : false
+        });
+    });
+  };
+
+
+  $scope.pushSportsSholder_9 = function(){
+    $scope.jdata_shoulder_9= [];
+    var promise = $ipadrbg.context.jdata_shoulder_9.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_shoulder_9 = pxresult;
+        });
+        $scope.jdata_shoulder_9_JSON = JSON.stringify($scope.jdata_shoulder_9);
+        $http({
+            method: 'POST'
+            , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_jdata_sportsholder_9.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_shoulder_9_JSON
+            , cache : false
+        });
+    });
+  };
 }

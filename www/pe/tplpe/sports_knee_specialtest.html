@@ -1,0 +1,304 @@
+<div ng-controller="knee_6_Ctrl">	
+	<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					Special Test
+				</td>
+			</tr>
+			<tr>
+				<td width="20%">
+					<input type="checkbox" ng-model="SportsKnee6.SpecialTestNormal" ng-true-value="Normal" ng-false-value=""> Normal <br>		 
+				</td>
+			</tr>
+			<tr>
+				<td class="active text-center" width='1%'>
+					Abnormal
+				</td>
+				<td class="text-center active" width="1%">
+					(-)
+				</td>
+				<td class="text-center active" width="1%">
+					(+)
+				</td>
+				<td colspan="2" class="active">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Lachman's
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Lachmans" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Lachmans" value="1" >			 
+				</td>
+				<td colspan="2">
+					<input type="checkbox" ng-model="SportsKnee6.LachmansGrade" ng-true-value="Grade" ng-false-value=""> Grade			 
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Pivot Shift
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.PivotShift" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.PivotShift" value="1" >			 
+				</td>
+				<td colspan="2">
+					<input type="checkbox" ng-model="SportsKnee6.PivotShiftGrade" ng-true-value="Grade" ng-false-value=""> Grade			 
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Anterior drawer's
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Anteriordrawers" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Anteriordrawers" value="1" >			 
+				</td>
+				<td colspan="2">
+					<input type="checkbox" ng-model="SportsKnee6.AnteriordrawersGrade" ng-true-value="Grade" ng-false-value=""> Grade			 
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Brachial Artery
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.BrachialArtery" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.BrachialArtery" value="1" >			 
+				</td>
+				<td colspan="2">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					McMurray's
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.McMurray" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.McMurray" value="1" >			 
+				</td>
+				<td>
+					<input type="checkbox" ng-model="SportsKnee6.McMurrayPain" ng-true-value="Pain" ng-false-value=""> Pain
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="SportsKnee6.McMurrayClick" ng-true-value="Click" ng-false-value=""> Click
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Apley's
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Apley" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Apley" value="1" >			 
+				</td>
+				<td>
+					<input type="checkbox" ng-model="SportsKnee6.ApleyPain" ng-true-value="Pain" ng-false-value=""> Pain
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="SportsKnee6.ApleyClick" ng-true-value="Click" ng-false-value=""> Click
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Reverse McMurray's
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.ReverseMcMurray" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.ReverseMcMurray" value="1" >			 
+				</td>
+				<td>
+					<input type="checkbox" ng-model="SportsKnee6.ReverseMcMurrayPain" ng-true-value="Pain" ng-false-value="">  Pain
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="SportsKnee6.ReverseMcMurrayClick" ng-true-value="Click" ng-false-value=""> Click
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Apprehension
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Apprehension" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Apprehension" value="1" >			 
+				</td>
+				<td colspan="2">
+					<input type="checkbox" ng-model="SportsKnee6.ApprehensionGrade" ng-true-value="Grade" ng-false-value=""> Grade
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="active">
+					Patellar tilt
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Patellartilt" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Patellartilt" value="1" >			 
+				</td>
+				<td colspan="2">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Patellar grind
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Patellargrind" value="0" >			 
+				</td>
+				<td class="text-center"> 
+					<input type="radio" ng-model="SportsKnee6.Patellargrind" value="1" >			 
+				</td>
+				<td colspan="2">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="active">
+					Patellar comprehension
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Patellarcomprehension" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Patellarcomprehension" value="1" >			 
+				</td>
+				<td colspan="2">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="active">
+					Ballotement
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Ballotement" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Ballotement" value="1" >			 
+				</td>
+				<td colspan="2">
+					
+				</td>
+			</tr>
+
+			<tr>
+				<td class="active">
+					Varus instability
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Varusinstability" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Varusinstability" value="1" >			 
+				</td>
+				<td>
+					<input type="checkbox" ng-model="SportsKnee6.VarusinstabilityPain" ng-true-value="Pain" ng-false-value=""> Pain
+				</td>
+			</tr>
+
+			<tr>
+				<td class="active">
+					Valgus instability
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Valgusinstability" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Valgusinstability" value="1" >			 
+				</td>
+				<td>
+					<input type="checkbox" ng-model="SportsKnee6.ValgusinstabilityPain" ng-true-value="Pain" ng-false-value=""> Pain
+				</td>
+			</tr>
+
+			<tr>
+				<td class="active">
+					Dial test
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Dialtest" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Dialtest" value="1" >			 
+				</td>
+				<td colspan = "2">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="active">
+					External rotation stress test
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Externalrotationstresstest" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Externalrotationstresstest" value="1" >			 
+				</td>
+				<td colspan = "2">
+					
+				</td>
+			</tr>
+
+			<tr>
+				<td class="active">
+					Thessaly's
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Thessaly" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Thessaly" value="1" >			 
+				</td>
+				<td colspan="2">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="active">
+					Ege's
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Ege" value="0" >			 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee6.Ege" value="1" >			 
+				</td>
+				<td colspan="2">
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Other Tests
+				</td>
+				<td colspan='3' class='form-inline'>
+					<input type="textbox" ng-model="SportsKnee6.SpecialtestOthers" class='form-control'>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center active">
+					<a class="btn btn-large btn-info" ng-click="addNew_Knee6(SportsKnee6)" style="text-decoration: none; color: #000">SAVE</a>
+
+					<a class="btn btn-large btn-danger" ng-click="removeKnee6(SportsKnee6)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+		</table>
+	</div>

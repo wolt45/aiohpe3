@@ -2,7 +2,7 @@
 
 	<table class="table table-condensed table-bordered">
 		<tr class="warning">
-			<td width="1%" colspan="29" nowrap>
+			<td width="1%" colspan="9" nowrap>
 				<span id="DGL_module_header">
 		    		Charges
 		    	</span>
@@ -51,20 +51,20 @@
 
 
 			<td> 
-				<input type="text" class="form-control" ng-model="selectedCharges.PHIC" 
-					ng-init="selectedCharges.PHIC=0" value="0"
+				<input type="text" class="form-control" ng-model="selectedCharges.Discount" 
+					ng-init="selectedCharges.Discount=0" value="0"
 					style="text-align: right"> 
 			</td>
 
 			<td> 
-				<input type="text" class="form-control" ng-model="selectedCharges.HMOs" 
-					ng-init="selectedCharges.HMOs=0" value="0"
+				<input type="text" class="form-control" ng-model="selectedCharges.Discount" 
+					ng-init="selectedCharges.Discount=0" value="0"
 					style="text-align: right"> 
 			</td>
 
 			<td> 
-				<input type="text" class="form-control" ng-model="selectedCharges.SrCIT" 
-					ng-init="selectedCharges.SrCIT=0" value="0"
+				<input type="text" class="form-control" ng-model="selectedCharges.Discount" 
+					ng-init="selectedCharges.Discount=0" value="0"
 					style="text-align: right"> 
 			</td>
 
@@ -115,17 +115,22 @@
 
 
 
+
+
         	<td style="color:black" class="text-right" nowrap>
-        		{{peCharge.PHIC | number : 2 }}
+        		{{peCharge.Discount | number : 2 }}
         	</td>
 
         	<td style="color:black" class="text-right" nowrap>
-        		{{peCharge.HMOs | number : 2 }}
+        		{{peCharge.Discount | number : 2 }}
         	</td>
 
         	<td style="color:black" class="text-right" nowrap>
-        		{{peCharge.SrCIT | number : 2 }}
+        		{{peCharge.Discount | number : 2 }}
         	</td>
+
+
+
 
 
 
@@ -152,11 +157,11 @@
         	
 
 
-        	<th class="text-right" style="color:black">{{CALC_PHIC() | number : 2 }}</th>
+        	<th class="text-right" style="color:black">{{CALC_Discount() | number : 2 }}</th>
         	
-        	<th class="text-right" style="color:black">{{CALC_HMOs() | number : 2 }}</th>
+        	<th class="text-right" style="color:black">{{CALC_Discount() | number : 2 }}</th>
         	
-        	<th class="text-right" style="color:black">{{CALC_SrCIT() | number : 2 }}</th>
+        	<th class="text-right" style="color:black">{{CALC_Discount() | number : 2 }}</th>
         	
 
 

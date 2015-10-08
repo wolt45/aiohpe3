@@ -1,0 +1,101 @@
+<div ng-controller="gen_orth1_Ctrl">	
+	<table class="table table-bordered">					
+		<tr>
+			<td class="active" width="15%">Appearance</td>
+			<td>
+				<input type="radio" ng-model="genortho1.Appearance" value="Normal" > Normal
+			</td>
+			<td colspan="6" class="form-inline">
+				<input type="radio" ng-model="genortho1.Appearance" value="Deformed" > &nbsp;&nbsp;&nbsp;
+				Deformity
+				<input type="text" ng-model="genortho1.Deformity" class="form-control" size='55'>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="active">Skin</td>
+			<td><input type="radio" ng-model="genortho1.SkinCloOp" value="Closed"> Closed</td>
+			<td>
+				Open:
+				<input type="radio" ng-model="genortho1.SkinCloOp" value="G1"> G1
+				&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="genortho1.SkinCloOp" value="G2"> G2
+				&nbsp;&nbsp;&nbsp;
+				<input type="radio"ng-model="genortho1.SkinCloOp" value="G3"> G3
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+				Pain
+			</td>
+			<td class="text-right">
+				Active Motion:
+			</td>
+			
+			<td class="text-left" colspan="2" nowrap> 
+				<input type="radio" ng-model="genortho1.ActiveMotion" value="NORMAL" > Normal
+				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="genortho1.ActiveMotion" value="MILD" > Mild
+				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="genortho1.ActiveMotion" value="MODERATE" > Moderate
+				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="genortho1.ActiveMotion" value="SEVERE" > Severe
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+			
+			</td>
+			<td class="text-right">
+				Passive Motion:
+			</td>
+			
+			<td class="text-left" colspan="2" nowrap> 
+				<input type="radio" ng-model="genortho1.PassiveMotion" value="NORMAL" > Normal
+				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="genortho1.PassiveMotion" value="MILD" > Mild
+				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="genortho1.PassiveMotion" value="MODERATE" > Moderate
+				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="genortho1.PassiveMotion" value="SEVERE" > Severe
+			</td>
+			
+		</tr>
+		<tr>
+			<td class="active">
+				Neurologic Status
+			</td>
+			<td>
+				<input type="radio" ng-model="genortho1.Neurologic" value="Normal"> Normal
+			</td>
+			<td colspan="4">
+				<input type="radio" ng-model="genortho1.Neurologic" value="Poor"> Poor
+			</td>
+		</tr>
+		<tr>
+			<td class="active">Vascular Status</td>
+			<td>
+				<input type="radio" ng-model="genortho1.Vascular" value="Normal" > Normal
+			</td>
+			<td>
+				<input type="radio" ng-model="genortho1.Vascular" value="Poor"> Poor
+			</td>
+		</tr>
+		<tr>
+			<td colspan="1" class="active">
+				
+			</td>
+			<td colspan="6" nowrap>
+				Describe in details if Neurologic and Vascular are Poor
+				<br>
+				<textarea rows="2" class="form-control" ng-model="genortho1.PoorDetails"></textarea>
+			</td>
+		</tr>
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_genortho1(genortho1)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removegenortho1(genortho1)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>

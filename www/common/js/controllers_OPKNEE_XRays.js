@@ -1,5 +1,6 @@
 IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http){
-  $scope.jdata_OPKNEE_XRays = []; // jdata not actually placed, directly get from lab_results  
+  //$scope.jdata_OPKNEE_XRays = []; // jdata not actually placed, directly get from lab_results  
+  
   $scope.PxRID = 0;
   $scope.AllPreOpKNEExrays = []; // hangers 5, 11 
   $scope.AllPostOpKNEExrays = []; // hangers 12
@@ -13,7 +14,8 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http){
       return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
-        $scope.jdata_OPKNEE_XRays = pxresult;
+  
+        //$scope.jdata_OPKNEE_XRays = pxresult;
 
         $scope.PxRID = pxresult[0]['PxRID'];
         

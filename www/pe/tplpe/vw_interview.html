@@ -45,7 +45,6 @@
 
 <div ng-controller="ChiefComplaintCtrl">
 	<div ng-repeat="zclinixes in zclinix">
-
 		<p ng-show = {{zclinixes.HIP}} >
 
 			<table class="table table-condensed table-bordered">
@@ -67,10 +66,7 @@
 			<!-- Move up in XRay Findings ng:include src="'tplpe/OPHIP_XRays.html'"></ng:include -->
 		</p>
 
-
-
 		<p ng-show = {{zclinixes.KNEE}} >
-
 			<table class="table table-condensed table-bordered">
 				<tr class="info">
 					<th colspan=9>
@@ -106,18 +102,18 @@
 <!-- XRAY / LABS boxess -->
 <div ng-controller="ChiefComplaintCtrl">
 	<div ng-repeat="zclinixes in zclinix">
-	<p ng-show = {{zclinixes.HIP}}>
+		<p ng-show = {{zclinixes.HIP}}>
+			<div scroll-bookmark="HIP_XRAYBOX">
+				<ng:include src="'tplpe/OPHIP_XRays.html'"></ng:include>
+			</div>	
+		</p>
 
-		<div scroll-bookmark="HIP_XRAYBOX">
-			<ng:include src="'tplpe/OPHIP_XRays.html'"></ng:include>
-		</div>	
-	</p>
-
-	<p ng-show = {{zclinixes.KNEE}}>
-		<div scroll-bookmark="KNEE_XRAYBOX">
-			<ng:include src="'tplpe/OPKNEE_XRays.html'"></ng:include>
-		</div>
-	</p>
+		<p ng-show = {{zclinixes.KNEE}}>
+			<div scroll-bookmark="KNEE_XRAYBOX">
+				<ng:include src="'tplpe/OPKNEE_XRays.html'"></ng:include>
+			</div>
+		</p>
+	</div>
 </div>
 
 <ng:include src="'..//common/vw_structured_discharge_summary.html'"></ng:include>

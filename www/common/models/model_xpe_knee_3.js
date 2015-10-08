@@ -1,0 +1,66 @@
+$data.Entity.extend("$ipadrbg.types.jdata_Knee_3", {
+	KneeRID: { type: "int", key: true, computed: true }
+	, ClinixRID: { type: "string"}
+	, PxRID: { type: "string"}
+
+	, SensoryLeftRight: { type: "string"}
+	, Deformity: { type: "string"}
+	, DeformitySel: { type: "string"}
+	, DeformityDefinition: { type: "string"}
+	, Sensory: { type: "string"}
+	, SensoryDescrip: { type: "string"}
+	, Erythema: { type: "string"}
+	, ErythemaSel: { type: "string"}
+	, ErythemaDescrip: { type: "string"}
+	, OpenWound: { type: "string"}
+	, OpenWoundSel: { type: "string"}
+	, OpenWoundDescrip: { type: "string"}
+	, Swelling: { type: "string"}
+	, SwellingSel: { type: "string"}
+	, SwellingDescrip: { type: "string"}
+	, Hematoma: { type: "string"}
+	, HematomaSel: { type: "string"}
+	, HematomaDescrip: { type: "string"}
+	, MuscleAtropy: { type: "string"}
+	, MuscleAtropySel: { type: "string"}
+	, MuscleAtropyDescrip: { type: "string"}
+	, Mass: { type: "string"}
+	, MassSel: { type: "string"}
+	, Masstender: { type: "string"}
+	, Massnontender: { type: "string"}
+	, Massmoveable: { type: "string"}
+	, Massfixed: { type: "string"}
+	, Massregular: { type: "string"}
+	, Massirregular: { type: "string"}
+	, Masslymphadenopathy: { type: "string"}
+	, MassSize: { type: "string"}
+	, MassLocation: { type: "string"}
+	, MassConsistency: { type: "string"}
+	, Deformities: { type: "string"}
+	, Palpitation: { type: "string"}
+	, SensoryNormal: { type: "string"}
+	, L3Normal: { type: "string"}
+	, L3Hypoaesthesia: { type: "string"}
+	, L3Hyperaesthesia: { type: "string"}
+	, L3Paresthesia: { type: "string"}
+	, L4Normal: { type: "string"}
+	, L4Hypoaesthesia: { type: "string"}
+	, L4Hyperaesthesia: { type: "string"}
+	, L4Paresthesia: { type: "string"}
+	, L5Normal: { type: "string"}
+	, L5Hypoaesthesia: { type: "string"}
+	, L5Hyperaesthesia: { type: "string"}
+	, L5Paresthesia: { type: "string"}
+	, S1Normal: { type: "string"}
+	, S1Hypoaesthesia: { type: "string"}
+	, S1Hyperaesthesia: { type: "string"}
+	, S1Paresthesia: { type: "string"}
+	, Superficialperoncaln: { type: "string"}
+	, SuperficialperoncalnDescrip: { type: "string"}
+	, Deepperonealn: { type: "string"}
+	, DeepperonealnDescrip: { type: "string"}
+	, Tibialnerve: { type: "string"}
+	, TibialnerveDescrip: { type: "string"}
+	
+	, SynchStatus: { type: "string"}
+});

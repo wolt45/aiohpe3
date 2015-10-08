@@ -1,0 +1,43 @@
+
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<th colspan=9>
+				<span id="DGL_module_header">
+					Educational Level
+				</span>
+			</th>
+		</tr>
+		<tr>
+			<td class='active form-inline' colspan='6'>
+				 <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Not in School
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Day Care
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Pre-school/Nursery
+			</td>
+		</tr>
+		<tr>
+			<td>
+				 Elementary 
+			</td>
+			<td>
+				<input type='text' class='form-control'>
+			</td>
+			<td>
+				 High School
+			</td>
+			<td>
+				<input type='text' class='form-control'>
+			</td>
+			<td>
+				<input type="checkbox" ng-model="spine1.BornIn" value="Hospital"> College
+			</td>
+		</tr>
+		<tr>
+			<td colspan="10" class="text-center active">
+				<a class="btn btn-large btn-info" ng-click="addNew_Spine1(spine1)" style="text-decoration: none; color: #000">SAVE</a>
+
+				<a class="btn btn-large btn-danger" ng-click="removespine1(spine1)" style="text-decoration: none; color: #000">DELETE</a>
+			</td>
+		</tr>
+	</table>

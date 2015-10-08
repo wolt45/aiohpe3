@@ -3,8 +3,8 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredHospitalization", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 
-	, DateAdmitted: { type: "date"}
-	, DateDischarged: { type: "date"}
+	, DateAdmitted: { type: "string"}
+	, DateDischarged: { type: "string"}
 	, HospitalCourse: { type: "string"}
 	, WoundAppearance: { type: "string"}
 	, SynchStatus: { type: "int" }

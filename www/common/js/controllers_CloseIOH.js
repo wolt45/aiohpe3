@@ -33,15 +33,16 @@ IOHPEApp.controller('CloseIOHCtrl', function ($scope, $routeParams, $http){
       ClinixRID   : $scope.ClinixRID
       ,HIP        : pePriorities.HIP
       ,KNEE       : pePriorities.KNEE
-
+      ,GENORTHO   : pePriorities.GENORTHO
+      ,SKELTRAUMA : pePriorities.SKELTRAUMA
       ,ANKLEFOOT   : pePriorities.ANKLEFOOT
+      ,KNEESPORTS   : pePriorities.KNEESPORTS
       ,SHOULDERARM : pePriorities.SHOULDERARM
-      ,ELBOW       : pePriorities.ELBOW
-      ,WRISTHAND   : pePriorities.WRISTHAND
-      ,THIGH       : pePriorities.THIGH
       ,SPINE       : pePriorities.SPINE
-
     }
+      // ,ELBOW       : pePriorities.ELBOW
+      // ,WRISTHAND   : pePriorities.WRISTHAND
+      // ,THIGH       : pePriorities.THIGH
     $ipadrbg.context.zclinix.add(newrecord);
     $ipadrbg.context.zclinix.saveChanges();
 
@@ -131,7 +132,7 @@ IOHPEApp.controller('CloseIOHCtrl', function ($scope, $routeParams, $http){
     // Set TranStatus
     $http({
       method: 'POST'
-      , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_clinixTrnStts.php?clinixJsonIzed=' + $scope.clinix_JSON
+      , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_clinixTrnStts.php' //?clinixJsonIzed=' + $scope.clinix_JSON
       , contentType : 'application/json'
       , data : $scope.clinix_JSON
       , cache : false

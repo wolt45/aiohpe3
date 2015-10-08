@@ -1,0 +1,119 @@
+<div ng-controller="footAnkle_2_Ctrl">
+
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<td class="text-left" colspan='4' nowrap>
+				<span id="DGL_module_header">
+		    		Physical Examination:
+		    	</span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" class="active"> Systemic</td>
+		</tr>
+		<tr>
+			<td nowrap class="active" width='1%' nowrap>Ambulation:</td>
+			<td width='1%' nowrap>
+				<input type="radio" ng-model="FootAnkle2.Ambulation" value="Independent"> Independent
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Ambulation" value="With Assist"> With Assist
+			<td>	
+				<input type="radio" ng-model="FootAnkle2.Ambulation" value="Wheel Chair-borne"> Wheel Chair-borne
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Ambulation" value="Bedridden"> Bedridden
+			</td>
+		</tr>
+
+		<tr>
+			<td nowrap class="active">Sensorium:</td>
+			<td>
+				<input type="radio" ng-model="FootAnkle2.Sensorium" value="Conscious,coherent"> Conscious, coherent
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Sensorium" value="Open"> Drowsey
+			</td>
+			<td>
+				<input type="radio" ng-model="FootAnkle2.Sensorium" value="stuporous"> stuporous
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Sensorium" value="comatose"> comatose
+			</td>			
+		</tr>
+
+		<tr>
+			<td class="active">
+				Conjunctivae:
+			</td>
+			<td class="text-left" nowrap>
+				<input type="radio" ng-model="FootAnkle2.Conjunctivae" value="p ink" >  pink
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Conjunctivae" value="pale;Sclera" >  pale; Sclera
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Conjunctivae" value="anicteric" >  anicteric
+			</td>
+			<td>
+				<input type="radio" ng-model="FootAnkle2.Conjunctivae" value="icteric" >  icteric
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Conjunctivae" value="masses" >  masses
+			</td>
+		</tr>
+
+		<tr>
+			<td class="active" nowrap>
+				Chest Expansion:
+			</td>
+			<td class="text-left" nowrap>
+				<input type="radio" ng-model="FootAnkle2.ChestExpansion" value="Symmetric" >  Symmetric
+				<br>
+				<input type="radio" ng-model="FootAnkle2.ChestExpansion" value="assymmetric;BreathSounds">  assymmetric; Breath sounds
+				<br>
+				<input type="radio" ng-model="FootAnkle2.ChestExpansion" value="clear" >  clear
+			</td>
+			<td>
+				
+				<input type="radio" ng-model="FootAnkle2.ChestExpansion" value="wheezes" >  wheezes
+				<br>
+				<input type="radio" ng-model="FootAnkle2.ChestExpansion" value="rales/crackles" >  rales/crackles
+			</td>
+		</tr>
+
+		<tr>
+			<td nowrap class="active">
+				Cardiac:
+			</td>
+			<td nowrap>
+				<input type="radio" ng-model="FootAnkle2.Cardiac" value="AdynamicPrecordium" > Adynamic Precordium
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Cardiac" value="Poor" > Normal rate, regular rhythm
+			</td>
+			<td>
+				<input type="radio" ng-model="FootAnkle2.Cardiac" value="Arrthymic" > Arrthymic
+			</td>
+		</tr>
+		<tr>
+			<td nowrap class="active">
+				Abdomen:
+			</td>
+			
+			<td nowrap>
+				<input type="radio" ng-model="FootAnkle2.Abdomen" value="Soft" > Soft
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Abdomen" value="Hard" > Hard
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Abdomen" value="DirectTenderness" > Direct Tenderness
+			</td>
+			<td nowrap>
+				<input type="radio" ng-model="FootAnkle2.Abdomen" value="ReboundTenderness" > Rebound Tenderness
+				<br>
+				<input type="radio" ng-model="FootAnkle2.Abdomen" value="Masses" > Masses
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" class="text-center active">
+				<a class="btn btn-large btn-info" ng-click="addNew_FootAnkle2(FootAnkle2)" style="text-decoration: none; color: #000">SAVE</a>
+
+				<a class="btn btn-large btn-danger" ng-click="removeFootAnkle2(FootAnkle2)" style="text-decoration: none; color: #000">DELETE</a>
+			</td>
+		</tr>
+	</table>
+
+
+</div>

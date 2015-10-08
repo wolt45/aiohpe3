@@ -1,0 +1,66 @@
+
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<th colspan=9>
+				<span id="DGL_module_header">
+					Nutritional History
+				</span>
+			</th>
+		</tr>
+		<tr>
+			<td width="1%" class='active' nowrap>
+				Infancy
+			</td>
+			<td colspan='4'>
+				 <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Exclusive Breast Feeding
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Mixed Feeding
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Formula Feeding
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Child Food Preference
+			</td>
+			<td width='1%' nowrap>
+				 <input type="radio" ng-model="spine1.BornIn" value="Hospital"> None
+				 <br>
+				 <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Meats
+				 <br>
+				 <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Rice Cereal
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+			<Td width='1%' nowrap>
+				 <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Vegetables
+				 <br>
+				 <input type="radio" ng-model="spine1.BornIn" value="Hospital"> Sweets/Junk Food
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Suplements Taken
+			</td>
+			<td nowrap>
+				<input type="radio" ng-model="spine1.BornIn" value="Hospital"> Multivitamins and minerals
+				<br>
+				<input type="radio" ng-model="spine1.BornIn" value="Hospital"> Iron
+				<br>
+				<input type="radio" ng-model="spine1.BornIn" value="Hospital"> Vitamins C
+			</td>
+			<td nowrap>
+				<input type="radio" ng-model="spine1.BornIn" value="Hospital"> Vitamins C plus Zinc
+				<br>
+				<input type="radio" ng-model="spine1.BornIn" value="Hospital"> Zinc
+			</td>
+		</tr>
+		<tr>
+			<td colspan="9" class="text-center active">
+				<a class="btn btn-large btn-info" ng-click="addNew_Spine1(spine1)" style="text-decoration: none; color: #000">SAVE</a>
+
+				<a class="btn btn-large btn-danger" ng-click="removespine1(spine1)" style="text-decoration: none; color: #000">DELETE</a>
+			</td>
+		</tr>
+	</table>

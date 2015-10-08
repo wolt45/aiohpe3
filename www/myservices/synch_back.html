@@ -67,6 +67,50 @@
     <script src="..//common/models/model_OPKNEE_3.js"></script>
     <script src="..//common/models/model_OPKNEE_4.js"></script>
     <script src="..//common/models/model_OPKNEE_5.js"></script>
+
+    <script src="..//common/models/model_xpe_SkelTrauma_1.js"></script>
+    <script src="..//common/models/model_xpe_SkelTrauma_2.js"></script>
+
+    <script src="..//common/models/model_gen_ortho_1.js"></script>
+    <script src="..//common/models/model_gen_ortho_2.js"></script>
+    <script src="..//common/models/model_gen_ortho_3.js"></script>
+    <script src="..//common/models/model_gen_ortho_4.js"></script>
+    <script src="..//common/models/model_gen_ortho_5.js"></script>
+    <script src="..//common/models/model_gen_ortho_6.js"></script>
+
+    <script src="..//common/models/model_spine_1.js"></script>
+    <script src="..//common/models/model_spine_2.js"></script>
+    <script src="..//common/models/model_spine_3.js"></script>
+    <script src="..//common/models/model_spine_4.js"></script>
+    
+    <script src="..//common/models/model_xpe_footAnkle_1.js"></script>
+    <script src="..//common/models/model_xpe_footAnkle_2.js"></script>
+    <script src="..//common/models/model_xpe_footAnkle_3.js"></script>
+    <script src="..//common/models/model_xpe_footAnkle_4.js"></script>
+    <script src="..//common/models/model_xpe_footAnkle_5.js"></script>
+    <script src="..//common/models/model_xpe_footAnkle_6.js"></script>
+    <script src="..//common/models/model_xpe_footAnkle_7.js"></script>
+    <script src="..//common/models/model_xpe_footAnkle_8.js"></script>
+    <script src="..//common/models/model_xpe_footAnkle_9.js"></script>
+
+    <script src="..//common/models/model_xpe_knee_1.js"></script>
+    <script src="..//common/models/model_xpe_knee_2.js"></script>
+    <script src="..//common/models/model_xpe_knee_3.js"></script>
+    <script src="..//common/models/model_xpe_knee_4.js"></script>
+    <script src="..//common/models/model_xpe_knee_5.js"></script>
+    <script src="..//common/models/model_xpe_knee_6.js"></script>
+    <script src="..//common/models/model_xpe_knee_7.js"></script>
+    <script src="..//common/models/model_xpe_knee_8.js"></script>
+
+    <script src="..//common/models/model_xpe_sholder_1.js"></script>
+    <script src="..//common/models/model_xpe_sholder_2.js"></script>
+    <script src="..//common/models/model_xpe_sholder_3.js"></script>
+    <script src="..//common/models/model_xpe_sholder_4.js"></script>
+    <script src="..//common/models/model_xpe_sholder_5.js"></script>
+    <script src="..//common/models/model_xpe_sholder_6.js"></script>
+    <script src="..//common/models/model_xpe_sholder_7.js"></script>
+    <script src="..//common/models/model_xpe_sholder_8.js"></script>
+    <script src="..//common/models/model_xpe_sholder_9.js"></script>
     
     <!--  TOP Models Loader -->
     <script src="model_myservices_back.js"></script>
@@ -107,8 +151,19 @@
                     </a>
                 </td>
 
-                <td></td>
-
+                <td>
+                    <a class="btn btn-success btn-block btn-lg text-center" 
+                            style="text-decoration : none" 
+                            ng-click="pushSkelTrauma()">
+                        Synch Skeletal Trauma
+                    </a>
+                </td>
+                <td>
+                  <a class="btn btn-success btn-block btn-lg text-center" style="text-decoration : none" 
+                        ng-click="pushSportsSholder()">
+                        Synch SPORTS SHOULDER  
+                    </a>
+                </td>
             </tr> 
 
             <tr>
@@ -121,7 +176,13 @@
                     </a>
                 </td>
 
-                <td></td>
+                <td>
+                    <a class="btn btn-success btn-block btn-lg text-center" 
+                            style="text-decoration : none" 
+                            ng-click="pushGenOrtho()">
+                        Synch General Orthopedic
+                    </a>
+                </td>
             </tr>
 
 
@@ -134,7 +195,12 @@
                     </a>
                 </td>
 
-                <td></td>
+                <td>
+                    <a class="btn btn-success btn-block btn-lg text-center" style="text-decoration : none" 
+                        ng-click="pushSpine()">
+                        Synch Spine 
+                    </a>
+                </td>
             </tr>
 
             <tr>
@@ -146,7 +212,12 @@
                     </a>
                 </td>
 
-                <td></td>
+                <td>
+                  <a class="btn btn-success btn-block btn-lg text-center" style="text-decoration : none" 
+                        ng-click="pushSportsAnkleFoot()">
+                        Synch SPORTS ANKLE FOOT  
+                    </a>
+                </td>
             </tr>
 
             <tr>
@@ -158,7 +229,13 @@
                     </a>
                 </td>
 
-                <td></td>
+                <td>
+                  <a class="btn btn-success btn-block btn-lg text-center" style="text-decoration : none" 
+                        ng-click="pushSportsKnee()">
+                        Synch SPORTS KNEE  
+                    </a>
+                </td>
+
             </tr>
 
 
