@@ -1,5 +1,5 @@
-// 127.0.0.1    cap from 0 . 99 to 254 . 99    192.168.254!99  10.0.1!99  192.168.11!99
-// 127.0.0.1
+// 10.0.1.99    cap from 0 . 99 to 254 . 99    192.168.254!99  10.0.1!99  192.168.11!99
+// 10.0.1.99
 function DataController($rootScope, $scope, $http) {
 
 	// CLEAN TRANS
@@ -22,7 +22,7 @@ function DataController($rootScope, $scope, $http) {
     	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed?')) {
 		    $scope.clinix = [];
 
-		    var serverIP = "127.0.0.1";
+		    var serverIP = "10.0.1.99";
 
 			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
 		    success(function(data, status, headers, config) {
@@ -79,7 +79,7 @@ function DataController($rootScope, $scope, $http) {
 	// Pull clinix
     $scope.pullData = function(){
     	if (confirm('Download Appoinments, proceed?')) {
-    		var serverIP = "127.0.0.1";
+    		var serverIP = "10.0.1.99";
 
 	    	// var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 		    //    db.transaction(function (tx) {
@@ -181,7 +181,7 @@ function DataController($rootScope, $scope, $http) {
 
     // PULL Tran Status
 	$scope.pullTranStatus = function(){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		if (confirm('Download latest Transaction Codes table, proceed?')) {
 	    	// empty first iPad Table
@@ -231,7 +231,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Tariff
 	$scope.pullTariff = function(){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		if (confirm('Download latest TARIFF Charges table, proceed?')) {
 	    	// empty first iPad Table
@@ -285,7 +285,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL LABs Reults
 	$scope.pullLABResults = function(){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		if (confirm('Download LAB Results, proceed?')) {
 	    	// empty first iPad Table
@@ -366,7 +366,7 @@ function DataController($rootScope, $scope, $http) {
 	//
 	// PULL INITIAL INTERVIEW RESULTS
   	$scope.puller_IOH = function() {
-  		var serverIP = "127.0.0.1";
+  		var serverIP = "10.0.1.99";
 
     	if (confirm(serverIP + ': Download INITIAL INTERVIEW Results, proceed?')) {
 
@@ -421,7 +421,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL IOH - CHIEF COMPLAINT
 	$scope.pullZClinix = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ZClinix.php'}).
 		success ( function ( data, status, headers, config ) {
@@ -465,7 +465,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL IOH - CHIEF COMPLAINT
 	$scope.pullChiefComplaint = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_IOH_chiefcomp.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -501,7 +501,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL IOH - Etiology
 	$scope.pullEtiology = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_IOH_etiology.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -546,7 +546,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL IOH - PAST TREATMENTs 
 	$scope.pullPastTreats = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_IOH_pasttreats.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -595,7 +595,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL IOH - PREV SURGERY  
 	$scope.pullPrevSurg = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_IOH_prevsurg.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -641,7 +641,7 @@ function DataController($rootScope, $scope, $http) {
 	// PULL IOH - PREV LABORATORY RESULTS  
 
 	$scope.pullPrevLABS = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_IOH_prevlabs.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -682,7 +682,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL IOH - PREV Medical History  
 	$scope.pullMedHist = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_IOH_medhist.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -726,7 +726,7 @@ function DataController($rootScope, $scope, $http) {
 	//
 	// PULL PHYSICAL EXAM RESULTS
   	$scope.puller_PEResults = function() {
-  		var ipaddress = "127.0.0.1";
+  		var ipaddress = "10.0.1.99";
     	if (confirm(ipaddress + ': Download PE Results, DIAGNOSIS, proceed? ')) {
 
     		// alert(ipaddress);
@@ -830,7 +830,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL REPORTS and ORDERS
   	$scope.puller_OrdersReorts = function() {
-  		var ipaddress = "127.0.0.1";
+  		var ipaddress = "10.0.1.99";
     	if (confirm(ipaddress + ': Operative Orders, Discharge Summary and REPORTS, proceed? ')) {
 
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -931,7 +931,7 @@ function DataController($rootScope, $scope, $http) {
 
   	// PULL Ambulatory Status
 	$scope.pullambustatus = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_AmbulatoryStatus.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -966,7 +966,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Hip Measurements
 	$scope.pullHipMeasurements = function(){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -1012,7 +1012,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Hip Motion Range
 	$scope.pullHipMotionRange = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_HipMotionRange.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1062,7 +1062,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL HipStanding
 	$scope.pullHipStanding = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_HipStanding.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1096,7 +1096,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// **********PULL HipXray***********
 	$scope.pullHipXray = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_HipXray.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1138,7 +1138,7 @@ function DataController($rootScope, $scope, $http) {
 
 	//Pull Knee Alignment
 	$scope.pullKneeAlignment = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeAlignment.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1174,7 +1174,7 @@ function DataController($rootScope, $scope, $http) {
 
 	//Pull Knee Apperance
 	$scope.pullKneeApperance = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeAppearance.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1221,7 +1221,7 @@ function DataController($rootScope, $scope, $http) {
 
 	//pull Knee Measurements
 	$scope.pullKneeMeasurements = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeMeasurements.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1257,7 +1257,7 @@ function DataController($rootScope, $scope, $http) {
 
 	//pull Knee Motion Range
 	$scope.pullKneeMotionRange = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeMotionRange.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1293,7 +1293,7 @@ function DataController($rootScope, $scope, $http) {
 
 	//pull Knee Xray
 	$scope.pullKneeXray = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_KneeXrays.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1337,7 +1337,7 @@ function DataController($rootScope, $scope, $http) {
 	///////////////// PULL DIAGS
 
 	$scope.pullDIAGS = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1371,7 +1371,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL DIAGS - Management
 	$scope.pullDIAGS_mgmt = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_mgmt.php'}).
 	    success ( function ( data, status, headers, config ) {
@@ -1409,7 +1409,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL DIAGS - Schedule for Surgery
 	$scope.pullDIAGS_ScheduleForSurgery = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_SchedSurgery.php'}).
 		success ( function ( data, status, headers, config ) {
@@ -1451,7 +1451,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL DIAGS - Medication
 	$scope.pullDIAGS_Medication= function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_Med.php'}).
 		success ( function ( data, status, headers, config ) {
@@ -1491,7 +1491,7 @@ function DataController($rootScope, $scope, $http) {
 	
 	// PULL DIAGS - Disposition
 	$scope.pullDIAGS_Disposition= function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_Disposition.php'}).
 		success ( function ( data, status, headers, config ) {
@@ -1528,7 +1528,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL DIAGS - Notes
 	$scope.pullDIAGS_Notes= function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_Notes.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
@@ -1562,7 +1562,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL DIAGS - Charges
 	$scope.pullDIAGS_Charges= function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Diags_Charges.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
@@ -1612,7 +1612,7 @@ function DataController($rootScope, $scope, $http) {
 
 	//Pull POSTOp_HIP_preform
 	$scope.pull_POSTOPHIP= function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -1678,7 +1678,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Pre Op Hip Preform
 	$scope.pull_PREOPHIP= function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_PreOPHipPreform.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
@@ -1729,7 +1729,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Post Op knee Preform
 	$scope.pull_POSTOPKNEE= function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -1795,7 +1795,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL PREOPKNEE
 	$scope.pull_PREOPKNEE= function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -1856,7 +1856,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL OPERATIVES - HIP
 	$scope.pull_OPHIP_3 = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -1912,7 +1912,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL OPERATIVES - HIP
 	$scope.pull_OPHIP_5 = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -1960,7 +1960,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL OPERATIVES - HIP
 	$scope.pull_OPHIP_6 = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2015,7 +2015,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL OPERATIVES - KNEE
 	$scope.pull_OPKNEE_3 = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2063,7 +2063,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL OPERATIVES - KNEE
 	$scope.pull_OPKNEE_4 = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2122,7 +2122,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL OPERATIVES - KNEE
 	$scope.pull_OPKNEE_5 = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2187,7 +2187,7 @@ function DataController($rootScope, $scope, $http) {
 	//
 	// Structure Dischare - DIAGNOSIS
 	$scope.pull_StrucDiagnosis = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2232,7 +2232,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Structured Disposition
 	$scope.pull_StrucDisposition = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2278,7 +2278,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Structured Disachrge - Hospitalization
 	$scope.pull_StrucHospitalization = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2327,7 +2327,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Structured Discharge - Labs
 	$scope.pull_StrucLabs = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2377,7 +2377,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Structured Discharge - Management
 	$scope.pull_StrucManagement = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2431,7 +2431,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL Structured Discharge - Medication
 	$scope.pull_StrucMedication = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -2484,7 +2484,7 @@ function DataController($rootScope, $scope, $http) {
 	// PULL Structured Discharge - SchedSurgery THIS ROUTINE IS NOT IN USE
 	// PULL Structured Discharge - SchedSurgery THIS ROUTINE IS NOT IN USE
 	$scope.pull_StrucSchedSurgery = function(callback){
-		var serverIP = "127.0.0.1";
+		var serverIP = "10.0.1.99";
 
     	// empty first iPad Table
         var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
