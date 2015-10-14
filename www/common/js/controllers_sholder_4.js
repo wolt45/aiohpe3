@@ -47,26 +47,11 @@ IOHPEApp.controller('shoulder_4_Ctrl', function ($scope, $routeParams, $http){
     ,MassConsistency : pxresult[0]['MassConsistency']
     ,Palpitation : pxresult[0]['Palpitation']
     ,SensoryNormal : pxresult[0]['SensoryNormal']
-    ,C5Normal : pxresult[0]['C5Normal']
-    ,C5Hypoaesthesia : pxresult[0]['C5Hypoaesthesia']
-    ,C5Hyperaesthesia : pxresult[0]['C5Hyperaesthesia']
-    ,C5Paresthesia : pxresult[0]['C5Paresthesia']
-    ,C6Normal : pxresult[0]['C6Normal']
-    ,C6Hypoaesthesia : pxresult[0]['C6Hypoaesthesia']
-    ,C6Hyperaesthesia : pxresult[0]['C6Hyperaesthesia']
-    ,C6Paresthesia : pxresult[0]['C6Paresthesia']
-    ,C7Normal : pxresult[0]['C7Normal']
-    ,C7Hypoaesthesia : pxresult[0]['C7Hypoaesthesia']
-    ,C7Hyperaesthesia : pxresult[0]['C7Hyperaesthesia']
-    ,C7Paresthesia : pxresult[0]['C7Paresthesia']
-    ,C8Normal : pxresult[0]['C8Normal']
-    ,C8Hypoaesthesia : pxresult[0]['C8Hypoaesthesia']
-    ,C8Hyperaesthesia : pxresult[0]['C8Hyperaesthesia']
-    ,C8Paresthesia : pxresult[0]['C8Paresthesia']
-    ,T1Normal : pxresult[0]['T1Normal']
-    ,T1Hypoaesthesia : pxresult[0]['T1Hypoaesthesia']
-    ,T1Hyperaesthesia : pxresult[0]['T1Hyperaesthesia']
-    ,T1Paresthesia : pxresult[0]['T1Paresthesia']
+    ,C5 : pxresult[0]['C5']
+    ,C6 : pxresult[0]['C6']
+    ,C7 : pxresult[0]['C7']
+    ,C8 : pxresult[0]['C8']
+    ,T1 : pxresult[0]['T1']
     ,Ulnarnervevalue : pxresult[0]['Ulnarnervevalue']
     ,UlnarnervevalueDescrip : pxresult[0]['UlnarnervevalueDescrip']
     ,MedialnerveValue : pxresult[0]['MedialnerveValue']
@@ -132,26 +117,11 @@ IOHPEApp.controller('shoulder_4_Ctrl', function ($scope, $routeParams, $http){
       ,MassConsistency : frmshoulder4.MassConsistency
       ,Palpitation : frmshoulder4.Palpitation
       ,SensoryNormal : frmshoulder4.SensoryNormal
-      ,C5Normal : frmshoulder4.C5Normal
-      ,C5Hypoaesthesia : frmshoulder4.C5Hypoaesthesia
-      ,C5Hyperaesthesia : frmshoulder4.C5Hyperaesthesia
-      ,C5Paresthesia : frmshoulder4.C5Paresthesia
-      ,C6Normal : frmshoulder4.C6Normal
-      ,C6Hypoaesthesia : frmshoulder4.C6Hypoaesthesia
-      ,C6Hyperaesthesia : frmshoulder4.C6Hyperaesthesia
-      ,C6Paresthesia : frmshoulder4.C6Paresthesia
-      ,C7Normal : frmshoulder4.C7Normal
-      ,C7Hypoaesthesia : frmshoulder4.C7Hypoaesthesia
-      ,C7Hyperaesthesia : frmshoulder4.C7Hyperaesthesia
-      ,C7Paresthesia : frmshoulder4.C7Paresthesia
-      ,C8Normal : frmshoulder4.C8Normal
-      ,C8Hypoaesthesia : frmshoulder4.C8Hypoaesthesia
-      ,C8Hyperaesthesia : frmshoulder4.C8Hyperaesthesia
-      ,C8Paresthesia : frmshoulder4.C8Paresthesia
-      ,T1Normal : frmshoulder4.T1Normal
-      ,T1Hypoaesthesia : frmshoulder4.T1Hypoaesthesia
-      ,T1Hyperaesthesia : frmshoulder4.T1Hyperaesthesia
-      ,T1Paresthesia : frmshoulder4.T1Paresthesia
+      ,C5: frmshoulder4.C5
+      ,C6 : frmshoulder4.C6
+      ,C7 : frmshoulder4.C7
+      ,C8 : frmshoulder4.C8
+      ,T1 : frmshoulder4.T1
       ,Ulnarnervevalue : frmshoulder4.Ulnarnervevalue
       ,UlnarnervevalueDescrip : frmshoulder4.UlnarnervevalueDescrip
       ,MedialnerveValue : frmshoulder4.MedialnerveValue

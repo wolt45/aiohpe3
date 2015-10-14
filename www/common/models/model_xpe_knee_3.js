@@ -39,22 +39,10 @@ $data.Entity.extend("$ipadrbg.types.jdata_Knee_3", {
 	, Deformities: { type: "string"}
 	, Palpitation: { type: "string"}
 	, SensoryNormal: { type: "string"}
-	, L3Normal: { type: "string"}
-	, L3Hypoaesthesia: { type: "string"}
-	, L3Hyperaesthesia: { type: "string"}
-	, L3Paresthesia: { type: "string"}
-	, L4Normal: { type: "string"}
-	, L4Hypoaesthesia: { type: "string"}
-	, L4Hyperaesthesia: { type: "string"}
-	, L4Paresthesia: { type: "string"}
-	, L5Normal: { type: "string"}
-	, L5Hypoaesthesia: { type: "string"}
-	, L5Hyperaesthesia: { type: "string"}
-	, L5Paresthesia: { type: "string"}
-	, S1Normal: { type: "string"}
-	, S1Hypoaesthesia: { type: "string"}
-	, S1Hyperaesthesia: { type: "string"}
-	, S1Paresthesia: { type: "string"}
+	, L3: { type: "string"}
+	, L4: { type: "string"}
+	, L5: { type: "string"}
+	, S1: { type: "string"}
 	, Superficialperoncaln: { type: "string"}
 	, SuperficialperoncalnDescrip: { type: "string"}
 	, Deepperonealn: { type: "string"}

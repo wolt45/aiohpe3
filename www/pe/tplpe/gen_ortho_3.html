@@ -2,11 +2,12 @@
 		<div scroll-bookmark="XRAY_FINDINGS"></div>
 		<table class="table">
 			<tr class="warning">
-				<td colspan="6" id="DGL_module_header">	X-Rays Findings </td>
+				<td colspan="6" id="DGL_module_header">	
+					X-Rays Findings</td>
 			</tr>
 			<tr>
 				<td width='5%' nowrap>
-					<input type="checkbox" ng-model="genortho3.xfindings" ng-true-value="Normal"> Normal
+					<input type="checkbox" ng-model="genortho3.xfindings" ng-true-value="Normal" ng-false-value="Abnormal"> Normal
 				</td>
 				<td class="active" colspan="4">ABNORMAL DESCRIBE:
 					<textarea class="form-control" ng-model="genortho3.AbnormalDes" rows="3" placeholder="Describe why"></textarea>

@@ -20,16 +20,14 @@
 				</td>
 			</tr>
 			<tr class="active">
-				<td>
-				</td>
 				<td width='15%'>
 					Motion
 				</td>
 				<td width='15%'>
-					Passive
+					Active
 				</td>
 				<td>
-					Active
+					Passive
 				</td>
 				<td>
 					With Pain
@@ -47,19 +45,15 @@
 					Flexion
 				</td>
 				<td>
-					<input type="text" ng-model="SportsKnee4.FlexionMotion" class="form-control">
+					<input type="text" ng-model="SportsKnee4.FlexionActive" class="form-control">
 				</td>
 				<td>
 					<input type="text" ng-model="SportsKnee4.FlexionPassive" class="form-control">
 				</td>
 				<td class="text-center">
-					<input type="checkbox" ng-model="SportsKnee4.FlexionActive" ng-true-value="Active" ng-false-value=""> 
-				</td>
-				<td class="text-center">
 					<input type="checkbox" ng-model="SportsKnee4.FlexionWithPain" ng-true-value="With Pain" ng-false-value=""> 
-				</td>
-				<td>
-					<input type="text" ng-model="SportsKnee4.FlexionCrepitation"class="form-control">
+				</td><td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee4.FlexionCrepitation" ng-true-value="1" ng-false-value=""> 
 				</td>
 				<td>
 					<input type="text" ng-model="SportsKnee4.FlexionMMT" class="form-control">
@@ -71,19 +65,17 @@
 					Extension
 				</td>
 				<td>
-					<input type="text" ng-model="SportsKnee4.ExtensionMotion" class="form-control">
+					<input type="text" ng-model="SportsKnee4.ExtensionActive" class="form-control">
 				</td>
 				<td>
 					<input type="text" ng-model="SportsKnee4.ExtensionPassive" class="form-control">
 				</td>
-				<td class="text-center">
-					<input type="checkbox" ng-model="SportsKnee4.ExtensionActive" ng-true-value="Active" ng-false-value=""> 
-				</td>
+				
 				<td class="text-center">
 					<input type="checkbox" ng-model="SportsKnee4.ExtensionWithPain" ng-true-value="With Pain" ng-false-value=""> 
 				</td>
-				<td>
-					<input type="text" ng-model="SportsKnee4.ExtensionCrepitation" class="form-control">
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee4.ExtensionCrepitation" ng-true-value="1" ng-false-value=""> 
 				</td>
 				<td>
 					<input type="text" ng-model="SportsKnee4.ExtensionMMT" class="form-control">
@@ -99,7 +91,7 @@
 				<td>
 					<input type="radio" ng-model="SportsKnee4.GaitNormalAbnormal" value="Abnormal"> Abnormal
 				</td>
-				<td colspan="3">
+				<td colspan="3" class='form-inline'>
 					Type <input type='text' ng-model="SportsKnee4.GaitType" class='form-control'?
 				</td>
 			</tr>

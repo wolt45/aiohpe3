@@ -38,6 +38,7 @@ IOHPEApp.controller('footAnkle_4_Ctrl', function ($scope, $routeParams, $http){
     ,MassSize : pxresult[0]['MassSize']
     ,MassLocation : pxresult[0]['MassLocation']
     ,MassConsistency : pxresult[0]['MassConsistency']
+    ,Arch : pxresult[0]['Arch']
     ,Deformities : pxresult[0]['Deformities']
     ,Palpitation : pxresult[0]['Palpitation']
     ,PalpitationDescrip : pxresult[0]['PalpitationDescrip']
@@ -99,6 +100,7 @@ IOHPEApp.controller('footAnkle_4_Ctrl', function ($scope, $routeParams, $http){
       ,MassLocation : frmFootAnkle4.MassLocation
       ,Masslymphadenopathy : frmFootAnkle4.Masslymphadenopathy
       ,MassConsistency : frmFootAnkle4.MassConsistency
+      ,Arch : frmFootAnkle4.Arch
       ,Deformities : frmFootAnkle4.Deformities
       ,Palpitation : frmFootAnkle4.Palpitation
       ,PalpitationDescrip : frmFootAnkle4.PalpitationDescrip

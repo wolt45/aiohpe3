@@ -36,26 +36,11 @@ $data.Entity.extend("$ipadrbg.types.jdata_shoulder_4", {
 	, MassConsistency: { type: "string"}
 	, Palpitation: { type: "string"}
 	, SensoryNormal: { type: "string"}
-	, C5Normal: { type: "string"}
-	, C5Hypoaesthesia: { type: "string"}
-	, C5Hyperaesthesia: { type: "string"}
-	, C5Paresthesia: { type: "string"}
-	, C6Normal: { type: "string"}
-	, C6Hypoaesthesia: { type: "string"}
-	, C6Hyperaesthesia: { type: "string"}
-	, C6Paresthesia: { type: "string"}
-	, C7Normal: { type: "string"}
-	, C7Hypoaesthesia: { type: "string"}
-	, C7Hyperaesthesia: { type: "string"}
-	, C7Paresthesia: { type: "string"}
-	, C8Normal: { type: "string"}
-	, C8Hypoaesthesia: { type: "string"}
-	, C8Hyperaesthesia: { type: "string"}
-	, C8Paresthesia: { type: "string"}
-	, T1Normal: { type: "string"}
-	, T1Hypoaesthesia: { type: "string"}
-	, T1Hyperaesthesia: { type: "string"}
-	, T1Paresthesia: { type: "string"}
+	, C5: { type: "string"}
+	, C6: { type: "string"}
+	, C7: { type: "string"}
+	, C8: { type: "string"}
+	, T1: { type: "string"}
 	, Ulnarnervevalue: { type: "string"}
 	, UlnarnervevalueDescrip: { type: "string"}
 	, MedialnerveValue: { type: "string"}

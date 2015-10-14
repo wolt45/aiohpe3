@@ -28,6 +28,7 @@ $data.Entity.extend("$ipadrbg.types.jdata_Knee_6", {
 	, Ballotement: { type: "string"}
 	, Varusinstability: { type: "string"}
 	, VarusinstabilityPain: { type: "string"}
+	, Valgusinstability: { type: "string"}
 	, ValgusinstabilityPain: { type: "string"}
 	, Dialtest: { type: "string"}
 	, Externalrotationstresstest: { type: "string"}

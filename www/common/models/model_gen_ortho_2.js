@@ -5,7 +5,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_genotho_2", {
 	
 	, Hip: { type: "string"}
 	, Knee: { type: "string"}
-
 	, LeftHand: { type: "string"}
 	, RightHand: { type: "string"}
 	, ShoulLeft: { type: "string"}
@@ -18,7 +17,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_genotho_2", {
 	, WristRight: { type: "string"}
 	, FootLeft: { type: "string"}
 	, FootRight: { type: "string"}
-	
 	, Spine: { type: "string"}
 	, Pelvis: { type: "string"}
 	, Humerus: { type: "string"}

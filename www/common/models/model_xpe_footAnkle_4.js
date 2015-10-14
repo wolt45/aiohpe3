@@ -28,6 +28,8 @@ $data.Entity.extend("$ipadrbg.types.jdata_FootAnkle_4", {
 	, MassSize: { type: "string"}
 	, MassLocation: { type: "string"}
 	, MassConsistency: { type: "string"}
+	, Arch: { type: "string"}
+	, Deformities: { type: "string"}
 	, Deformities: { type: "string"}
 	, Palpitation: { type: "string"}
 	, PalpitationDescrip: { type: "string"}

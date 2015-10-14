@@ -51,51 +51,52 @@
 
 			<tr>
 				<td nowrap width='1%'>
-					<input type="checkbox" ng-model="Sportsholder1.Hypertension" ng-true-value="Hypertension" ng-false-value=""> Hypertension
+					<input type="checkbox" ng-model="Sportsholder1.Hypertension" ng-true-value="1" ng-false-value="0"> Hypertension
 				</td>
 				<td nowrap width='1%'>
-					<input type="checkbox" ng-model="Sportsholder1.Cardiac" ng-true-value="Cardiac" ng-false-value=""> Cardiac
+					<input type="checkbox" ng-model="Sportsholder1.Cardiac" ng-true-value="1" ng-false-value="0"> Cardiac
 				</td>
 				<td colspan="2">
-					<input type="checkbox" ng-model="Sportsholder1.Genital" ng-true-value="Genital" ng-false-value=""> Genital
+					<input type="checkbox" ng-model="Sportsholder1.Genital" ng-true-value="1" ng-false-value="0"> Genital
 				</td>
 			</tr>
 			<tr>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.Diabetes" ng-true-value="Diabetes" ng-false-value=""> Diabetes
+					<input type="checkbox" ng-model="Sportsholder1.Diabetes" ng-true-value="1" ng-false-value="0"> Diabetes
 				</td>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.Pulmo" ng-true-value="Pulmo" ng-false-value=""> Pulmo
+					<input type="checkbox" ng-model="Sportsholder1.Pulmo" ng-true-value="1" ng-false-value="0"> Pulmo
 				</td>
 				<td colspan="2">
-					<input type="checkbox" ng-model="Sportsholder1.Hepatitis" ng-true-value="Pain" ng-false-value=""> Hepatitis
+					<input type="checkbox" ng-model="Sportsholder1.Hepatitis" ng-true-value="1" ng-false-value="0"> Hepatitis
 				</td>
 			</tr>
 			<tr>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.Asthma" ng-true-value="Asthma" ng-false-value=""> Asthma
+					<input type="checkbox" ng-model="Sportsholder1.Asthma" ng-true-value="1" ng-false-value="0"> Asthma
 				</td>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.Kidney" ng-true-value="Kidney" ng-false-value=""> Kidney
+					<input type="checkbox" ng-model="Sportsholder1.Kidney" ng-true-value="1" ng-false-value="0"> Kidney
 				</td>
 				<td colspan="2">
-					<input type="checkbox" ng-model="Sportsholder1.Bleeding" ng-true-value="Bleeding" ng-false-value=""> Bleeding
+					<input type="checkbox" ng-model="Sportsholder1.Bleeding" ng-true-value="1" ng-false-value="0"> Bleeding
 				</td>
 			</tr>
 			<tr>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.Thyroid" ng-true-value="Pain" ng-false-value=""> Thyroid
+					<input type="checkbox" ng-model="Sportsholder1.Thyroid" ng-true-value="1" ng-false-value="0"> Thyroid
 				</td>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.GI" ng-true-value="Pain" ng-false-value=""> GI
+					<input type="checkbox" ng-model="Sportsholder1.GI" ng-true-value="1" ng-false-value="0"> GI
 				</td>
-				<td colspan="2">
-					<input type="checkbox" ng-model="Sportsholder1.Others" ng-true-value="Pain" ng-false-value=""> Others
+				<td colspan="2" class='form-inline'>
+					Others
+					<input type="text" ng-model="Sportsholder1.Others" class='form-control'> 
 				</td>
 			</tr>
 			<tr>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.Allergies" ng-true-value="Allergies" ng-false-value=""> Allergies
+					<input type="checkbox" ng-model="Sportsholder1.Allergies" ng-true-value="1" ng-false-value="0"> Allergies
 				</td>
 				<td colspan="3" class='form-inline'>
 					<input type="text" ng-model="Sportsholder1.AllergiesDescrip" class="form-control">
@@ -103,7 +104,7 @@
 			</tr>
 			<tr>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.PreviousOperation" ng-true-value="Previous" ng-false-value=""> Previous Operation
+					<input type="checkbox" ng-model="Sportsholder1.PreviousOperation" ng-true-value="1" ng-false-value="0"> Previous Operation
 				</td>
 				<td colspan="3" class='form-inline'>
 					<input type="text" ng-model="Sportsholder1.PreviousOperationDescrip" class="form-control">
@@ -111,7 +112,7 @@
 			</tr>
 			<tr>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.Currentmedication" ng-true-value="Current medication" ng-false-value=""> Current medication
+					<input type="checkbox" ng-model="Sportsholder1.Currentmedication" ng-true-value="1" ng-false-value="0"> Current medication
 				</td>
 				<td colspan="3" class='form-inline'>
 					<input type="text" ng-model="Sportsholder1.CurrentmedicationDescrip" class="form-control">
@@ -128,30 +129,30 @@
 
 			<tr>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsFever" ng-true-value="Fever" ng-false-value=""> Fever
+					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsFever" ng-true-value="1" ng-false-value="0"> Fever
 				</td>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsAbdominalPain" ng-true-value="Abdominal Pain" ng-false-value=""> Abdominal Pain
+					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsAbdominalPain" ng-true-value="Abdominal Pain" ng-true-value="1" ng-false-value="0"> Abdominal Pain
 				</td>
 				<td width='1%' nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsVomiting" ng-true-value="Vomiting" ng-false-value=""> Vomiting
+					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsVomiting" ng-true-value="1" ng-false-value="0"> Vomiting
 				</td>
 				<td>
-					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsDysuria" ng-true-value="Dysuria" ng-false-value=""> Dysuria
+					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsDysuria" ng-true-value="1" ng-false-value="0"> Dysuria
 				</td>
 			</tr>
 			<tr>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsCough" ng-true-value="Cough" ng-false-value=""> Cough
+					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsCough" ng-true-value="1" ng-false-value="0"> Cough
 				</td>
 				<td nowrap>
-					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsDOB" ng-true-value="DOB" ng-false-value=""> DOB
+					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsDOB" ng-ng-true-value="1" ng-false-value="0"> DOB
 				</td>
 				<td>
-					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsDiarrhea" ng-true-value="Diarrhea" ng-false-value=""> Diarrhea
+					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemsDiarrhea" ng-true-value="1" ng-false-value="0"> Diarrhea
 				</td>
 				<td>
-					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemslowback" ng-true-value="low back" ng-false-value=""> low back pain
+					<input type="checkbox" ng-model="Sportsholder1.ReviewOfSystemslowback" ng-true-value="1" ng-false-value="0"> low back pain
 				</td>
 			</tr>
 			<tr>

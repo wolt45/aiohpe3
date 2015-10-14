@@ -38,9 +38,11 @@ IOHPEApp.controller('knee_3_Ctrl', function ($scope, $routeParams, $http){
     ,MassSel : pxresult[0]['MassSel']
     ,MuscleAtropyDescrip : pxresult[0]['MuscleAtropyDescrip']
     ,Masstender : pxresult[0]['Masstender']
+    ,Massnontender : pxresult[0]['Massnontender']
     ,Massmoveable : pxresult[0]['Massmoveable']
     ,Massfixed : pxresult[0]['Massfixed']
     ,Massregular : pxresult[0]['Massregular']
+    ,Massirregular : pxresult[0]['Massirregular']
     ,Masslymphadenopathy : pxresult[0]['Masslymphadenopathy']
     ,MassSize : pxresult[0]['MassSize']
     ,MassLocation : pxresult[0]['MassLocation']
@@ -48,22 +50,10 @@ IOHPEApp.controller('knee_3_Ctrl', function ($scope, $routeParams, $http){
     ,Deformities : pxresult[0]['Deformities']
     ,Palpitation : pxresult[0]['Palpitation']
     ,SensoryNormal : pxresult[0]['SensoryNormal']
-    ,L3Normal : pxresult[0]['L3Normal']
-    ,L3Hypoaesthesia : pxresult[0]['L3Hypoaesthesia']
-    ,L3Hyperaesthesia : pxresult[0]['L3Hyperaesthesia']
-    ,L3Paresthesia : pxresult[0]['L3Paresthesia']
-    ,L4Normal : pxresult[0]['L4Normal']
-    ,L4Hypoaesthesia : pxresult[0]['L4Hypoaesthesia']
-    ,L4Hyperaesthesia : pxresult[0]['L4Hyperaesthesia']
-    ,L4Paresthesia : pxresult[0]['L4Paresthesia']
-    ,L5Normal : pxresult[0]['L5Normal']
-    ,L5Hypoaesthesia : pxresult[0]['L5Hypoaesthesia']
-    ,L5Hyperaesthesia : pxresult[0]['L5Hyperaesthesia']
-    ,L5Paresthesia : pxresult[0]['L5Paresthesia']
-    ,S1Normal : pxresult[0]['S1Normal']
-    ,S1Hypoaesthesia : pxresult[0]['S1Hypoaesthesia']
-    ,S1Hyperaesthesia : pxresult[0]['S1Hyperaesthesia']
-    ,S1Paresthesia : pxresult[0]['S1Paresthesia']
+    ,L3 : pxresult[0]['L3']
+    ,L4 : pxresult[0]['L4']
+    ,L5 : pxresult[0]['L5']
+    ,S1 : pxresult[0]['S1']
     ,Superficialperoncaln : pxresult[0]['Superficialperoncaln']
     ,SuperficialperoncalnDescrip : pxresult[0]['SuperficialperoncalnDescrip']
     ,Deepperonealn : pxresult[0]['Deepperonealn']
@@ -114,9 +104,11 @@ IOHPEApp.controller('knee_3_Ctrl', function ($scope, $routeParams, $http){
       ,MassSel : frmknee3.MassSel
       ,MuscleAtropyDescrip : frmknee3.MuscleAtropyDescrip
       ,Masstender : frmknee3.Masstender
+      ,Massnontender : frmknee3.Massnontender
       ,Massmoveable : frmknee3.Massmoveable
       ,Massfixed : frmknee3.Massfixed
       ,Massregular : frmknee3.Massregular
+      ,Massirregular : frmknee3.Massirregular
       ,Masslymphadenopathy : frmknee3.Masslymphadenopathy
       ,MassSize : frmknee3.MassSize
       ,MassLocation : frmknee3.MassLocation
@@ -124,22 +116,10 @@ IOHPEApp.controller('knee_3_Ctrl', function ($scope, $routeParams, $http){
       ,Deformities : frmknee3.Deformities
       ,Palpitation : frmknee3.Palpitation
       ,SensoryNormal : frmknee3.SensoryNormal
-      ,L3Normal : frmknee3.L3Normal
-      ,L3Hypoaesthesia : frmknee3.L3Hypoaesthesia
-      ,L3Hyperaesthesia : frmknee3.L3Hyperaesthesia
-      ,L3Paresthesia : frmknee3.L3Paresthesia
-      ,L4Normal : frmknee3.L4Normal
-      ,L4Hypoaesthesia : frmknee3.L4Hypoaesthesia
-      ,L4Hyperaesthesia : frmknee3.L4Hyperaesthesia
-      ,L4Paresthesia : frmknee3.L4Paresthesia
-      ,L5Normal : frmknee3.L5Normal
-      ,L5Hypoaesthesia : frmknee3.L5Hypoaesthesia
-      ,L5Hyperaesthesia : frmknee3.L5Hyperaesthesia
-      ,L5Paresthesia : frmknee3.L5Paresthesia
-      ,S1Normal : frmknee3.S1Normal
-      ,S1Hypoaesthesia : frmknee3.S1Hypoaesthesia
-      ,S1Hyperaesthesia : frmknee3.S1Hyperaesthesia
-      ,S1Paresthesia : frmknee3.S1Paresthesia
+      ,L3: frmknee3.L3
+      ,L4: frmknee3.L4
+      ,L5: frmknee3.L5
+      ,S1: frmknee3.S1
       ,Superficialperoncaln : frmknee3.Superficialperoncaln
       ,SuperficialperoncalnDescrip : frmknee3.SuperficialperoncalnDescrip
       ,Deepperonealn : frmknee3.Deepperonealn

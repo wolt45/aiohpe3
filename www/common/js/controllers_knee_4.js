@@ -14,13 +14,11 @@ IOHPEApp.controller('knee_4_Ctrl', function ($scope, $routeParams, $http){
     ,PxRID     : $scope.clinix.PxRID
 
     ,KneeandLeg : pxresult[0]['KneeandLeg']
-    ,FlexionMotion : pxresult[0]['FlexionMotion']
     ,FlexionActive : pxresult[0]['FlexionActive']
     ,FlexionPassive : pxresult[0]['FlexionPassive']
     ,FlexionWithPain : pxresult[0]['FlexionWithPain']
     ,FlexionCrepitation : pxresult[0]['FlexionCrepitation']
     ,FlexionMMT : pxresult[0]['FlexionMMT']
-    ,ExtensionMotion : pxresult[0]['ExtensionMotion']
     ,ExtensionPassive : pxresult[0]['ExtensionPassive']
     ,ExtensionActive : pxresult[0]['ExtensionActive']
     ,ExtensionWithPain : pxresult[0]['ExtensionWithPain']
@@ -48,13 +46,11 @@ IOHPEApp.controller('knee_4_Ctrl', function ($scope, $routeParams, $http){
       ,PxRID    : $scope.clinix.PxRID
 
       ,KneeandLeg : frmknee4.KneeandLeg
-      ,FlexionMotion : frmknee4.FlexionMotion
       ,FlexionActive : frmknee4.FlexionActive
       ,FlexionPassive : frmknee4.FlexionPassive
       ,FlexionWithPain : frmknee4.FlexionWithPain
       ,FlexionCrepitation : frmknee4.FlexionCrepitation
       ,FlexionMMT : frmknee4.FlexionMMT
-      ,ExtensionMotion : frmknee4.ExtensionMotion
       ,ExtensionPassive : frmknee4.ExtensionPassive
       ,ExtensionActive : frmknee4.ExtensionActive
       ,ExtensionWithPain : frmknee4.ExtensionWithPain

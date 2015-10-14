@@ -4,13 +4,11 @@ $data.Entity.extend("$ipadrbg.types.jdata_Knee_4", {
 	, PxRID: { type: "string"}
 
 	, KneeandLeg: { type: "string"}
-	, FlexionMotion: { type: "string"}
 	, FlexionActive: { type: "string"}
 	, FlexionPassive: { type: "string"}
 	, FlexionWithPain: { type: "string"}
 	, FlexionCrepitation: { type: "string"}
 	, FlexionMMT: { type: "string"}
-	, ExtensionMotion: { type: "string"}
 	, ExtensionPassive: { type: "string"}
 	, ExtensionActive: { type: "string"}
 	, ExtensionWithPain: { type: "string"}

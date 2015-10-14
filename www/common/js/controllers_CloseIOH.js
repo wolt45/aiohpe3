@@ -1,4 +1,4 @@
-// 10.0.1.99
+// 127.0.0.1
 IOHPEApp.controller('CloseIOHCtrl', function ($scope, $routeParams, $http){
   $scope.clinix = [];
   $scope.zclinix = [];
@@ -80,7 +80,7 @@ IOHPEApp.controller('CloseIOHCtrl', function ($scope, $routeParams, $http){
       //   $scope.clinix_AmbuStatus_JSON = JSON.stringify($scope.clinix_chiefcomp);
       //   $http({
       //     method: 'POST'
-      //     , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_AmbuStatus.php?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+      //     , url : 'http://127.0.0.1/RBGsrvr_todayset/srvr_back_AmbuStatus.php?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
       //     , contentType : 'application/json'
       //     , data : $scope.clinix_AmbuStatus_JSON
       //     , cache : false
@@ -132,7 +132,7 @@ IOHPEApp.controller('CloseIOHCtrl', function ($scope, $routeParams, $http){
     // Set TranStatus
     $http({
       method: 'POST'
-      , url : 'http://10.0.1.99/RBGsrvr_todayset/srvr_back_clinixTrnStts.php' //?clinixJsonIzed=' + $scope.clinix_JSON
+      , url : 'http://127.0.0.1/RBGsrvr_todayset/srvr_back_clinixTrnStts.php' //?clinixJsonIzed=' + $scope.clinix_JSON
       , contentType : 'application/json'
       , data : $scope.clinix_JSON
       , cache : false

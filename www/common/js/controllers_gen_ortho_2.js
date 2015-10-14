@@ -78,7 +78,7 @@ IOHPEApp.controller('gen_orth2_Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.jdata_genotho_2.add(newrecord);
     $ipadrbg.context.jdata_genotho_2.saveChanges();
 
-    alert("Sholder Data Saved!");
+    alert("General Ortho Data Saved!");
 
     $scope.Loadgenortho2();    
   }

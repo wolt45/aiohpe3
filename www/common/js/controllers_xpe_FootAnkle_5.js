@@ -41,7 +41,7 @@ IOHPEApp.controller('footAnkle_5_Ctrl', function ($scope, $routeParams, $http){
 
     ,ToeFlexionMotion : pxresult[0]['ToeFlexionMotion']
     ,ToeFlexionPassive : pxresult[0]['ToeFlexionPassive']
-    ,ToeFlexionPain : pxresult[0]['ToeFlexion']
+    ,ToeFlexionPain : pxresult[0]['ToeFlexionPain']
     ,ToeFlexionCrepitation : pxresult[0]['ToeFlexionCrepitation']
     ,ToeFlexionMMT : pxresult[0]['ToeFlexionMMT']
 

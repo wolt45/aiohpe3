@@ -91,6 +91,7 @@ IOHPEApp.controller('knee_6_Ctrl', function ($scope, $routeParams, $http){
       ,Varusinstability : frmknee6.Varusinstability
       ,VarusinstabilityPain : frmknee6.VarusinstabilityPain
       ,Valgusinstability : frmknee6.Valgusinstability
+      ,ValgusinstabilityPain : frmknee6.ValgusinstabilityPain
       ,Dialtest : frmknee6.Dialtest
       ,Externalrotationstresstest : frmknee6.Externalrotationstresstest
       ,Thessaly : frmknee6.Thessaly
