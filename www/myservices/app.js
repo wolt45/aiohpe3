@@ -369,7 +369,6 @@ function DataController($rootScope, $scope, $http) {
   		var serverIP = "10.0.1.99";
 
     	if (confirm(serverIP + ': Download INITIAL INTERVIEW Results, proceed?')) {
-      		//$scope.pullZClinix();
 
 	        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
@@ -421,7 +420,7 @@ function DataController($rootScope, $scope, $http) {
   	}	
 
 	// PULL IOH - CHIEF COMPLAINT
-	$scope.pullZClinix = function(){
+	$scope.pullZClinix = function(callback){
 		var serverIP = "10.0.1.99";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ZClinix.php'}).
@@ -441,6 +440,7 @@ function DataController($rootScope, $scope, $http) {
 					zclinix.SKELTRAUMA	= data[idx].SKELTRAUMA;
 
 					zclinix.ANKLEFOOT	= data[idx].ANKLEFOOT;
+					zclinix.KNEESPORTS	= data[idx].KNEESPORTS;
 					zclinix.SHOULDERARM	= data[idx].SHOULDERARM;
 
 					zclinix.ELBOW		= data[idx].ELBOW;
@@ -452,7 +452,6 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.zclinix.add(zclinix);
 				}
 			}
-			
 			callback();
 			//else
 				//alert("Nothing to Import from Server!");
@@ -1001,6 +1000,7 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.clinix_HipMeasures.add(clinix_HipMeasures);
 				}
 			}
+			callback();
 			// else
 			// 	alert("Nothing to Import from Server!");
 	    }).
@@ -1578,6 +1578,7 @@ function DataController($rootScope, $scope, $http) {
 					clinix_PEcharges.Tariff = data[idx].Tariff;
 					clinix_PEcharges.ChargeAmount = data[idx].ChargeAmount;
 					clinix_PEcharges.Discount = data[idx].Discount;
+					
 					clinix_PEcharges.NetAmount = data[idx].NetAmount;
 					clinix_PEcharges.LinePayment = data[idx].LinePayment;
 					clinix_PEcharges.LineBalance = data[idx].LineBalance;

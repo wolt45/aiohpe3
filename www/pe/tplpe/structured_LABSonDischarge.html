@@ -41,6 +41,11 @@
 				<td><input type="text" class="form-control" ng-model="labsOnDischarge.Hematocrit" ></td>
 			</tr>
 
+			<tr>	
+				<td class="text-center"> Others </td>
+				<td><input type="text" class="form-control" ng-model="labsOnDischarge.Others" ></td>
+			</tr>
+
 			<tr>
 				<td class="text-center" colspan="2">
 					<a class="btn btn-large btn-info" style="text-decoration: none" 
@@ -62,6 +67,7 @@
                 <td width="1%" class="text-center">WBC</td>
                 <td width="1%" class="text-center">HgB</td>
                 <td width="1%" class="text-center">Hematocrit</td>
+                <td width="1%" class="text-center">Others</td>
                 <td width="1%"></td>
                 <td></td>
             </tr>
@@ -72,7 +78,7 @@
                 <td class="text-center" style="color:black" nowrap>{{rolLabs.WBC}}</td>
                 <td class="text-center" style="color:black" nowrap>{{rolLabs.HgB}}</td>
                 <td class="text-center" style="color:black" nowrap>{{rolLabs.Hematocrit}}</td>
-
+				<td class="text-center" style="color:black" nowrap>{{rolLabs.Others}}</td>
                 <td>
                 	<a class="btn btn-large btn-danger" href="#/{{rolLabs.ClinixRID}}" ng-click="removeItem(rolLabs)" style="text-decoration: none">
                 		DELETE

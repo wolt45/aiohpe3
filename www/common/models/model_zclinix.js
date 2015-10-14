@@ -4,9 +4,11 @@ $data.Entity.extend("$ipadrbg.types.zclinix", {
 	,KNEE: { type: "string"}
 	,GENORTHO: { type: "string"}
 	,SKELTRAUMA: { type: "string"}
+
 	,ANKLEFOOT: { type: "string"}
 	,KNEESPORTS: { type: "string"}
 	,SHOULDERARM: { type: "string"}
+	
 	,ELBOW: { type: "string"}
 	,WRISTHAND: { type: "string"}
 	,THIGH: { type: "string"}

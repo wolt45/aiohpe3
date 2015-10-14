@@ -1,0 +1,146 @@
+	<div ng-controller="SkelTrauma_2_Ctrl">
+<div scroll-bookmark="XRAYBOX_APPERANCE"></div>
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td class="text-left" colspan="4">
+					<span id="DGL_module_header">
+						Appropriate x-rays ordereded:
+					</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="active" width="1%" nowrap>AP and lateral</td>
+				<td width="1%" nowrap>
+					<input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedSpine" ng-true-value="Spine">
+					 Spine
+					 <br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedHumerus" ng-true-value="Humerus">
+					Humerus
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedRadiusUlna" ng-true-value="Radius - Ulna">
+					Radius - Ulna
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedShoulder" ng-true-value="Shoulder">
+					 Shoulder
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedElbows" ng-true-value="Elbows">
+					Elbows
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedWrist" ng-true-value="Wrist">
+					Wrist
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedHand" ng-true-value="Hand">
+					Hand
+				</td>
+				<td width="1%" nowrap>
+					<input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedPelvis" ng-true-value="Pelvis">
+					Pelvis
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedHip" ng-true-value="Hip">
+					Hip
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedKnee" ng-true-value="Knee">
+					Knee
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedTibia" ng-true-value="Tibia">
+					Tibia
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedAnkle" ng-true-value="Ankle"> 
+					Ankle
+					<br><input type="checkbox" ng-model="SkelTrauma2.ApproXraysOrderedFoot" ng-true-value="Foot"> 
+					Foot
+					<br>
+				</td>
+				<td>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					 	scroll-to-bookmark="XRAYBOX">
+						VIEW X-RAY BOX
+					</a>
+				</td>
+			</tr>
+		</table>
+
+
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td colspan="9">
+					<span id="DGL_module_header">
+			    		Skeletal Trauma X-Ray Findings
+			    	</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="1%" nowrap class="active">Date</td>
+				<td colspan="2">
+					<input type="Date" ng-model="SkelTrauma2.XrayFindDate" class="form-control" width="20px">
+				</td>
+			</tr>
+
+			<tr>		
+				<td class="text-right active">a.</td>
+				<td colspan="9" nowrap>
+					<input type="radio" ng-model="SkelTrauma2.NormalAbnormal" value="0" >  Normal
+				</td>
+			</tr>
+
+			<tr>		
+				<td class="text-right active">b.</td>
+				<td colspan="9" nowrap>
+					<input type="radio" ng-model="SkelTrauma2.NormalAbnormal" value="1" >  Abnormal
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap class="active">1. Fracture:</td>
+				<td class="text-Left" nowrap>
+					<input type="radio" ng-model="SkelTrauma2.Fracture" value="Undisplaced"> Undisplaced
+					<br>
+					<input type="radio" ng-model="SkelTrauma2.Fracture" value="Oblique"> Oblique
+				</td>
+				<td class="text-Left" nowrap>
+					<input type="radio" ng-model="SkelTrauma2.Fracture" value="Displaced"> Displaced
+					<br>
+					<input type="radio" ng-model="SkelTrauma2.Fracture" value="Comminuted"> Comminuted
+				</td>
+				<td class="text-Left" nowrap>
+					<input type="radio" ng-model="SkelTrauma2.Fracture" value="Transverse"> Transverse
+					<br>
+					<input type="radio" ng-model="SkelTrauma2.Fracture" value="Segmented"> Segmented
+				</td>
+			</tr>	
+
+			<tr>
+				<td nowrap class="active">2. Site Shaft:</td>
+				<td class="text-Left" width="15%" nowrap>
+					<input type="radio" ng-model="SkelTrauma2.SiteShaft" value="Upper" > Upper
+					<br>
+					<input type="radio" ng-model="SkelTrauma2.SiteShaft" value="Middle" > Middle
+					<br>
+					<input type="radio" ng-model="SkelTrauma2.SiteShaft" value="Lower" > Lower
+				</td>
+				<td class="text-Left" width="15%"nowrap>
+					<input type="radio" ng-model="SkelTrauma2.SiteShaft" value="Articular-Undisplaced" > Articular-Undisplaced
+					<br>
+					<input type="radio" ng-model="SkelTrauma2.SiteShaft" value="Displaced" > Displaced
+				</td>
+			</tr>	
+
+			<tr>
+				<td nowrap class="active">3. Dislocation:</td>
+				<td class="text-left" nowrap>
+					<input type="radio" ng-model="SkelTrauma2.Dislocation" value="Anterior" > anterior
+					<br>
+					<input type="radio" ng-model="SkelTrauma2.Dislocation" value="Posterior" > posterior
+				</td>
+				<td class="text-left" nowrap>
+					<input type="radio" ng-model="SkelTrauma2.Dislocation" value="Lateral" > lateral
+					<br>
+					<input type="radio" ng-model="SkelTrauma2.Dislocation" value="Medial" > Medial
+				</td>
+				<td></td>
+			</tr>	
+			
+			<tr>	
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" ng-click="addNew_SkelTrauma2(SkelTrauma2)" style="text-decoration: none; color: #000">SAVE</a>
+				
+	            	<a class="btn btn-large btn-danger" ng-click="removeSkelTrauma2(SkelTrauma2)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+	        </tr>
+		</table>
+	</div>

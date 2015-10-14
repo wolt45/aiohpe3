@@ -335,7 +335,7 @@ function PushController($rootScope, $scope, $http) {
 
       $scope.Push_StructuredHospitalization();
       $scope.Push_StructuredLABS();
-      // DEPRECATE // $scope.Push_StructuredDisposition();
+      $scope.Push_StructuredDisposition();
       $scope.Push_StructuredManagement();
       $scope.Push_StructuredMedication();
 

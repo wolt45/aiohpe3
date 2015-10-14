@@ -1,11 +1,3 @@
-<!-- 
-	DEPRECATED
-	DEPRECATED
-	DEPRECATED
-	DEPRECATED
-	DEPRECATED
--->
-
 <div ng-controller="StructuredDispositionCtrl">
 
 	<div scroll-bookmark="StructuredDischarge_DISPO">
@@ -38,7 +30,8 @@
 				</td>
 
 				<td class="text-center" nowrap>
-					<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addNew(disposis)" style="text-decoration: none; color: #000">Save</a>
+					<a class="btn btn-large btn-info" 
+					ng-click="addNew(disposis)" style="text-decoration: none; color: #000">Save</a>
 				</td>
 			</tr>
 					
@@ -46,7 +39,8 @@
 	        	<td style="color:black" nowrap>{{dispo.Dispo}}</td>
 	        	<td style="color:black" nowrap>{{dispo.DispoDetail}}</td>
 	            <td>
-	            	<a class="btn btn-large btn-danger" href="#/{{dispo.ClinixRID}}" ng-click="removeItem(dispo)" style="text-decoration: none">
+	            	<a class="btn btn-large btn-danger"
+	            	ng-click="removeItem(dispo)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>

@@ -7,6 +7,7 @@ IOHPEApp.controller('StructuredLABSCtrl', function ($scope, $routeParams, $http)
     , { id : 1,  dropname : "WBC"}
     , { id : 2,  dropname : "HgB"}
     , { id : 3,  dropname : "HEMATOCRIT"}
+    , { id : 3,  dropname : "Others"}
   ]
 
   $scope.LoadDiagsSchedSurg = function(){
@@ -37,6 +38,7 @@ IOHPEApp.controller('StructuredLABSCtrl', function ($scope, $routeParams, $http)
       ,WBC    : formArrObj.WBC
       ,HgB    : formArrObj.HgB
       ,Hematocrit    : formArrObj.Hematocrit
+      ,Others    : formArrObj.Others
 
     }
     $ipadrbg.context.clinix_StructuredLABS.add(newrecord);
@@ -47,6 +49,7 @@ IOHPEApp.controller('StructuredLABSCtrl', function ($scope, $routeParams, $http)
     formArrObj.WBC = "";
     formArrObj.HgB = "";
     formArrObj.Hematocrit = "";
+    formArrObj.Others = "";
 
     $scope.LoadDiagsSchedSurg();
   }

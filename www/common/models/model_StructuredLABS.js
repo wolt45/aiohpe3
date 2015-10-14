@@ -3,12 +3,13 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredLABS", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
-	, labDate: { type: "date"}
+	, labDate: { type: "string"}
 	, labSource: { type: "string"}
 	
 	, WBC: { type: "string"}
 	, HgB: { type: "string"}
 	, Hematocrit: { type: "string"}
+	, Others: { type: "string"}
 
 	, SynchStatus: { type: "int" }
 
