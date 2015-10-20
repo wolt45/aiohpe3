@@ -205,7 +205,4 @@ IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
     });
   }
   $scope.LoadZClinix();
-
-  
-
 });
