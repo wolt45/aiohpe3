@@ -4,19 +4,19 @@
 
     $(document).ready(function()
     {
-        $("#hideshowPre_OPHipXRays").show(); //hide
+        $("#hideshowPre_OPKneeXRays").show(); //hide
 
-        $("#showPreOpHIPXRays").click(function()
+        $("#showPreOpKneeXRays").click(function()
         {
-            $("#hideshowPre_OPHipXRays").toggle(200);
+            $("#hideshowPre_OPKneeXRays").toggle(200);
         });
 
 
-        $("#hideshowPost_OPHipXRays").show();
+        $("#hideshowPost_OPKneeXRays").show();
 
-        $("#showPostOpHIPXRays").click(function()
+        $("#showPostOpKneeXRays").click(function()
         {
-            $("#hideshowPost_OPHipXRays").toggle(200);
+            $("#hideshowPost_OPKneeXRays").toggle(200);
         });
     });
 </script> 
@@ -40,13 +40,13 @@
                     JUMP TO X-Ray Findings
                 </a>
 
-                <input type="submit" id="showPreOpHIPXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
+                <input type="submit" id="showPreOpKneeXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
 			</td>
 		</tr>
 
         <tr class="info">
 			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPHipXRays">
+            	<div id="hideshowPre_OPKneeXRays">
                 	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreKneexrays">
                 		<br><br>
                 		LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
@@ -76,14 +76,14 @@
                     JUMP TO X-Ray Findings
                 </a>
 
-            	<input type="submit" id="showPostOpHIPXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
+            	<input type="submit" id="showPostOpKneeXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
 			</td>
 		</tr>
 
 
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPost_OPHipXRays">
+                <div id="hideshowPost_OPKneeXRays">
                     <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostKneexrays">
                         <br><br>
                         LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}

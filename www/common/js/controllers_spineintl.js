@@ -1,8 +1,18 @@
 
 
 not used, repeat in time
+not used, repeat in time
+not used, repeat in time
+not used, repeat in time
+not used, repeat in time
 
-
+DEPRECATE
+DEPRECATE
+DEPRECATE
+DEPRECATE
+DEPRECATE
+DEPRECATE
+DEPRECATE
 
 IOHPEApp.controller('SpineInitialCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_spineIntl = [];

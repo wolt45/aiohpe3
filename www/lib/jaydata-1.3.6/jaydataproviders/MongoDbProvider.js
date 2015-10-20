@@ -1430,16 +1430,16 @@ $C('$data.storageProviders.mongoDB.mongoDBProvider', $data.StorageProviderBase, 
         this.context = ctx;
         this.providerConfiguration = $data.typeSystem.extend({
             dbCreation: $data.storageProviders.DbCreationType.DropTableIfChanged,
-            address: '10.0.1.99',
+            address: '127.0.0.1',
             port: 27017,
             serverOptions: {},
             databaseName: 'test'
         }, cfg);
         if (this.providerConfiguration.server){
-            if (typeof this.providerConfiguration.server === 'string') this.providerConfiguration.server = [{ address: this.providerConfiguration.server.split(':')[0] || '10.0.1.99', port: this.providerConfiguration.server.split(':')[1] || 27017 }];
+            if (typeof this.providerConfiguration.server === 'string') this.providerConfiguration.server = [{ address: this.providerConfiguration.server.split(':')[0] || '127.0.0.1', port: this.providerConfiguration.server.split(':')[1] || 27017 }];
             if (!(this.providerConfiguration.server instanceof Array)) this.providerConfiguration.server = [this.providerConfiguration.server];
             if (this.providerConfiguration.server.length == 1){
-                this.providerConfiguration.address = this.providerConfiguration.server[0].address || '10.0.1.99';
+                this.providerConfiguration.address = this.providerConfiguration.server[0].address || '127.0.0.1';
                 this.providerConfiguration.port = this.providerConfiguration.server[0].port || 27017;
                 delete this.providerConfiguration.server;
             }

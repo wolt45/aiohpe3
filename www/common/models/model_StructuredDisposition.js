@@ -3,8 +3,8 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredDisposition", {
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 
-	, Dispo : { type: "string"}
-	, DispoDetail : { type: "string"}
+	, Disposition : { type: "string"}
+	, DispoValue : { type: "string"}
 
 	, SynchStatus: { type: "string"}
 });

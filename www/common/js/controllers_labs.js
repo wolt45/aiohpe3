@@ -1,6 +1,7 @@
 IOHPEApp.controller('LABSCtrl', function ($scope, $routeParams, $http) {
   $scope.clinix_LABS = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
+  
   $scope.LABSPrevLabs = [];
 
   $scope.LoadLABS = function(){

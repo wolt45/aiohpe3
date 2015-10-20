@@ -1,22 +1,20 @@
 <script>
-
     // 10.0.1.99
-
     $(document).ready(function()
     {
-        $("#hideshowPre_OPHipXRays").show(); //hide
+        $("#hideshowPre_OPSkelTraumaXRays").show(); //hide
 
-        $("#showPreOpHIPXRays").click(function()
+        $("#showPreOpSkelTraumaXRays").click(function()
         {
-            $("#hideshowPre_OPHipXRays").toggle(200);
+            $("#hideshowPre_OPSkelTraumaXRays").toggle(200);
         });
 
 
-        $("#hideshowPost_OPHipXRays").show();
+        $("#hideshowPost_OPSkelTraumaXRays").show();
 
-        $("#showPostOpHIPXRays").click(function()
+        $("#showPostOpSkelTraumaXRays").click(function()
         {
-            $("#hideshowPost_OPHipXRays").toggle(200);
+            $("#hideshowPost_OPSkelTraumaXRays").toggle(200);
         });
     });
 </script> 
@@ -39,13 +37,13 @@
                     JUMP TO X-Ray Findings
                 </a>
 
-            	<input type="submit" id="showPreOpHIPXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
+            	<input type="submit" id="showPreOpSkelTraumaXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
 			</td>
 		</tr>
 
         <tr class="info">
 			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPHipXRays">
+            	<div id="hideshowPre_OPSkelTraumaXRays">
                 	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumaxrays">
                 		<br><br>
                 		LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
@@ -75,14 +73,14 @@
                     JUMP TO X-Ray Findings
                 </a>
 
-            	<input type="submit" id="showPostOpHIPXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
+            	<input type="submit" id="showPostOpSkelTraumaXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
 			</td>
 		</tr>
 
 
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPost_OPHipXRays">
+                <div id="hideshowPost_OPSkelTraumaXRays">
                     <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSkelTraumaxrays">
                         <br><br>
                         LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
