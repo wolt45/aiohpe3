@@ -1,0 +1,48 @@
+ALTER TABLE `zipad_genortho_1` ENGINE = MyISAM;
+
+ALTER TABLE `zipad_sholder_1` ENGINE = MyISAM;
+ALTER TABLE `zipad_sholder_2` ENGINE = MyISAM;
+ALTER TABLE `zipad_sholder_3` ENGINE = MyISAM;
+ALTER TABLE `zipad_sholder_4` ENGINE = MyISAM;
+ALTER TABLE `zipad_sholder_5` ENGINE = MyISAM;
+ALTER TABLE `zipad_sholder_6` ENGINE = MyISAM;
+ALTER TABLE `zipad_sholder_7` ENGINE = MyISAM;
+ALTER TABLE `zipad_sholder_8` ENGINE = MyISAM;
+ALTER TABLE `zipad_sholder_9` ENGINE = MyISAM;
+
+ALTER TABLE `zipad_skeltrauma_2` ENGINE = MyISAM;
+
+ALTER TABLE `zipad_spine_1` ENGINE = MyISAM;
+ALTER TABLE `zipad_spine_2` ENGINE = MyISAM;
+ALTER TABLE `zipad_spine_3` ENGINE = MyISAM;
+ALTER TABLE `zipad_spine_4` ENGINE = MyISAM;
+
+ALTER TABLE `zipad_sportsfootankle_1` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsfootankle_2` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsfootankle_3` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsfootankle_4` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsfootankle_5` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsfootankle_6` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsfootankle_7` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsfootankle_8` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsfootankle_9` ENGINE = MyISAM;
+
+ALTER TABLE `zipad_sportsknee_1` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsknee_2` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsknee_3` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsknee_4` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsknee_5` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsknee_6` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsknee_7` ENGINE = MyISAM;
+ALTER TABLE `zipad_sportsknee_8` ENGINE = MyISAM;
+
+
+ALTER TABLE `zipad_genortho_1` ENGINE = MyISAM;
+ALTER TABLE `zipad_genortho_2` ENGINE = MyISAM;
+ALTER TABLE `zipad_genortho_3` ENGINE = MyISAM;
+ALTER TABLE `zipad_genortho_4` ENGINE = MyISAM;
+ALTER TABLE `zipad_genortho_5` ENGINE = MyISAM;
+ALTER TABLE `zipad_genortho_6` ENGINE = MyISAM;
+
+
+
