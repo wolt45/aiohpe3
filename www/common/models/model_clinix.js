@@ -1,6 +1,7 @@
 $data.Entity.extend("$ipadrbg.types.clinix", {
 	ClinixRID: { type: "int", key: true, computed: true }
-
+	,PxRID: { type: "int"}
+	
 	,AppDateSet: { type: "string"}
 	,AppDateAge: { type: "int"}
 	,TranStatus: { type: "int"}
@@ -9,7 +10,6 @@ $data.Entity.extend("$ipadrbg.types.clinix", {
 	,preForeColor: { type: "string"}
 	,preBackColor: { type: "string"}
 
-	,PxRID: { type: "int"}
 	,pxname: { type: "string" }
 	,pxAddress: { type: "string" }
 	,pxstatus: { type: "string" }
