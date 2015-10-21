@@ -6,6 +6,7 @@ var IOHPEApp = angular.module('IOHPEApp', [
 IOHPEApp.config(function($routeProvider) {
   $routeProvider.
     when('/', { templateUrl: 'tplpe/today_list_pe.html', controller: 'PXListPECtrl' }).
+    
     when('/homeZZZ', { templateUrl: '..//index.html' }).
  
     when('/:p_clinixrid', { templateUrl: 'tplpe/px_pe.html', controller: 'PXDetailCtrl' }).

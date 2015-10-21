@@ -1,0 +1,52 @@
+<table class="table table-bordered table-hover" width="100%">
+	<tr>
+		<td colspan="3">
+			<input type="text" ng-model="searchFilter" placeholder="Search..."/>
+		</td>
+
+		<td>
+			<ng:include src="'..//common/main.button.link.html'"></ng:include>
+		</td>
+	</tr>
+
+	<tr class="success">
+		<td class="text-center" width="1%">000110</td>
+
+		<td class="text-center" width="1%" nowrap> VISIT </td>
+
+		<!-- td class="text-center" width="1%" nowrap>Chart # </td -->
+
+		<td class="text-center" nowrap>	PATIENT </td>
+		<td class="text-center" width="1%" nowrap>	VISIT STATUS </td>
+	</tr>
+
+	<tr ng-repeat="px_Item in clinix | filter : searchFilter | orderBy : [ 'TranStatus', 'AppDateSet', 'ClinixRID' ] ">
+		<td>
+			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">  
+				<img ng-src="..//images/{{px_Item.pxFoto}}" width="75" style="padding: 0 0 0 0" class="img-circle">  
+			</a>   
+		</td>
+		<td class="text-center" nowrap>{{px_Item.ClinixRID}} <br> {{px_Item.AppDateSet | date}} </td>
+
+		<!-- td class="text-center" nowrap>{{px_Item.PxRID}} </td -->
+
+		<td nowrap>		
+			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">
+				<span style='font-size:12px; font-weight:bold'>
+					{{px_Item.PxRID}} 
+				</span>
+				&nbsp;
+				&nbsp;
+		    	{{px_Item.pxname}}
+		    	<br>{{px_Item.pxstatus}}  {{px_Item.AppDateAge ? ", Age @ appoinment: " + px_Item.AppDateAge : "" }}
+		    	<br><span style="font-size:12px">{{px_Item.pxAddress}}</span>
+			</a>
+	  	</td>
+	  	<td class="text-center"> 
+			<span style="color:{{px_Item.preForeColor}}; background-color:{{px_Item.preBackColor}}">
+				{{px_Item.TranStatusDisp}}
+			</span>
+	  	</td>
+  	</tr>
+</table>
+
