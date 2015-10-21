@@ -1,0 +1,79 @@
+<div ng-controller="spine_4_Ctrl">
+	<table class='table table-bordered'>
+		<tr>
+			<td colspan="5" class="warning" id="DGL_module_header">
+				<div scroll-bookmark="SPINECheckApplyToYou">
+					<b>Check all those that apply to you:</b>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				Bladder Function<br>
+				<input type="radio" ng-model="spine4.BladderFunction" value="Normal"> Normal
+				<input type="radio" ng-model="spine4.BladderFunction" value="Loss of control or accidents"> Loss of control or accidents
+				<input type="radio" ng-model="spine4.BladderFunction" value="Difficulty starting urination"> Difficulty starting urination
+				<input type="radio" ng-model="spine4.BladderFunction" value="Sense of urgency"> Sense of urgency
+			</td>
+		<tr>
+			<td colspan="5">
+				Bowel Function<br>
+				<input type="radio" ng-model="spine4.BowelFunction" value="Normal" > Normal
+				<input type="radio" ng-model="spine4.BowelFunction" value="Loss of control or accidents"> Loss of control or accidents
+			</td>
+		</tr>
+		<tr >
+			<td colspan="5">
+				Problems with sexual funtion?<br>
+				<input type="radio" ng-model="spine4.sexualfunction" value="No"> No
+				<input type="radio" ng-model="spine4.sexualfunction" value="Yes"> Yes
+			</td>
+		</tr>
+		<tr >
+			<td colspan="5">
+				Loss of sensation around the groin, genitals or buttocks?<br>
+				<input type="radio" ng-model="spine4.groingenitalsbuttock" value="No"> No
+				<input type="radio" ng-model="spine4.groingenitalsbuttock" value="Yes"> Yes
+			</td>
+		</tr>
+		<tr >
+			<td colspan="5">
+				Weakness of a leg/foot? <br>			
+				<input type="radio" ng-model="spine4.legfoot" value="No"> No
+				<input type="radio" ng-model="spine4.legfoot" value="Yes"> Yes
+				(	<input type="radio" ng-model="spine4.legfootRightLeft" value="Right"> Right
+					<input type="radio" ng-model="spine4.legfootRightLeft" value="Left"> Left)
+			</td>
+		</tr>
+		<tr >
+			<td colspan="5">
+				Weakness of a arm/hand? <br>
+				<input type="radio" ng-model="spine4.armhand" value="No"> No
+				<input type="radio" ng-model="spine4.armhand" value="Yes"> Yes
+				(	<input type="radio" ng-model="spine4.armhandRightLeft" value="Right"> Right
+					<input type="radio" ng-model="spine4.armhandRightLeft" value="Left">	Left)
+			</td>
+		</tr>
+		<tr >
+			<td colspan="5">
+				Does your pain hurt only at night or awaken you at night <br>		
+				<input type="radio" ng-model="spine4.nightawaken" value="No"> No
+				<input type="radio" ng-model="spine4.nightawaken" value="Yes"> Yes
+			</td>
+		</tr>
+		<tr >
+			<td colspan="5">
+				Does you pain interfere with your sleep? <br>
+				<input type="radio" ng-model="spine4.inference" value="No"> No
+				<input type="radio" ng-model="spine4.inference" value="Yes"> Yes
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6" class="text-center active">
+				<a class="btn btn-large btn-info" ng-click="addNew_spine4(spine4)" style="text-decoration: none; color: #000">SAVE</a>
+
+				<a class="btn btn-large btn-danger" ng-click="removespine4(spine4)" style="text-decoration: none; color: #000">DELETE</a>
+			<td>
+		</tr>
+	</table>
+</div>

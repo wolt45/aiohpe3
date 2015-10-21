@@ -1,0 +1,87 @@
+<script>
+
+    // 10.0.1.99
+
+    $(document).ready(function()
+    {
+        $("#hideshowPre_OPSpineXRays").show(); //hide
+
+        $("#showPreOpSpineXRays").click(function()
+        {
+            $("#hideshowPre_OPSpineXRays").toggle(200);
+        });
+
+
+        $("#hideshowPost_OPSpineXRays").show();
+
+        $("#showPostOpSpineXRays").click(function()
+        {
+            $("#hideshowPost_OPSpineXRays").toggle(200);
+        });
+    });
+</script> 
+
+<div ng-controller="OPSpine_XRays_Ctrl">
+	
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<td width="1%" colspan="9" nowrap>
+				<span id="DGL_module_header">
+		    		PRE-Operative X-Rays
+		    	</span>
+		    </td>
+		</tr>
+
+		<tr class="active">
+			<td class="text-center" colspan="9">
+            	<input type="submit" id="showPreOpSpineXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
+			</td>
+		</tr>
+
+        <tr class="info">
+			<td class="text-left" colspan="9" nowrap>
+            	<div id="hideshowPre_OPSpineXRays">
+                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSpinexrays">
+                		<br><br>
+                		LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+        				<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+        				<br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
+        				<br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+        				<br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                	</div>
+            	</div>
+			</td>
+        </tr>
+    </table>
+		
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<td width="1%" colspan="9" nowrap>
+				<span id="DGL_module_header">
+		    		POST-Operative X-Rays
+		    	</span>
+		    </td>
+		</tr>
+
+		<tr class="active">
+			<td class="text-center" colspan="9">
+            	<input type="submit" id="showPostOpSpineXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
+			</td>
+		</tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPost_OPSpineXRays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSpinexrays">
+                        <br><br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
