@@ -10,7 +10,7 @@
 	</tr>
 
 	<tr class="success">
-		<td class="text-center" width="1%">00011</td>
+		<td class="text-center" width="1%">00000101</td>
 
 		<td class="text-center" width="1%" nowrap> VISIT </td>
 
@@ -20,11 +20,8 @@
 		<td class="text-center" width="1%" nowrap>	VISIT STATUS </td>
 	</tr>
 
-	<tr>
-		<td nowrap>	worked 1</td>
-		<td nowrap>	worked 2</td>
-		<td nowrap>	worked 3</td>
-		<td nowrap>	worked 4</td>
+	<tr ng-repeat="px_Item in clinix ">
+		<td nowrap>	{{px_Item.ClinixRID}} </td>
   	</tr>
 </table>
 
