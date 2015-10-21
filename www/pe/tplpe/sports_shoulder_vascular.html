@@ -1,0 +1,69 @@
+<div ng-controller="shoulder_6_Ctrl">	
+	<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					Vascular
+				</td>
+			</tr>
+			<tr class="active">
+				<td class="text-center" width='1%'>
+					Artery
+				</td>
+				<td class="text-center" width='1%'>
+					Strong					 
+				</td>
+				<td class="text-center" width='1%'>
+					Weak
+				</td>
+				<td class="text-center" width='1%'>
+					Absent
+				</td>
+				<td class="text-center" width='15%'>
+					Location
+				</td>
+				<td class='active'></td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Brachial Artery
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="Sportshoulder6.BrachialArtery" value="Strong" > 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="Sportshoulder6.BrachialArtery" value="Weak" > 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="Sportshoulder6.BrachialArtery" value="Absent" > 
+				</td>
+				<td  class='form-inline'>
+					<input type="text" ng-model="Sportshoulder6.BrachialArteryDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Color:
+				</td>
+				<td nowrap>
+					<input type="radio" ng-model="Sportshoulder6.Color" value="Pink" > Pink
+					<br>
+					<input type="radio" ng-model="Sportshoulder6.Color" value="Pallor" > Pallor
+					<br>
+					<input type="radio" ng-model="Sportshoulder6.Color" value="Dusky" > Dusky
+				</td>
+				<td nowrap>
+					<input type="radio" ng-model="Sportshoulder6.Color" value="Cyanotic" > Cyanotic
+					<br>
+					<input type="radio" ng-model="Sportshoulder6.Color" value="Gangrenous" > Gangrenous
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center active">
+					<a class="btn btn-large btn-info" ng-click="addNew_shoulder6(Sportshoulder6)" style="text-decoration: none; color: #000">SAVE</a>
+
+					<a class="btn btn-large btn-danger" ng-click="removeshoulder6(Sportshoulder6)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+
+		</table>
+	</div>

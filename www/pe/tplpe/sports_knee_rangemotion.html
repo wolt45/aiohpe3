@@ -1,0 +1,108 @@
+<div ng-controller="knee_4_Ctrl">
+<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="7" class="warning" id="DGL_module_header">
+					Range of Motion/ Muscle Testing
+				</td>
+			</tr>
+			<tr>
+				<td class="active" width='1%' nowrap>
+					Knee and Leg
+				</td>
+				<td >
+					<input type="radio" ng-model="SportsKnee4.KneeandLeg" value="Full" >  Full					 
+				</td>
+				<td nowrap>
+					<input type="radio" ng-model="SportsKnee4.KneeandLeg" value="Extension Lag" >  Extension Lag
+				</td>
+				<td colspan="3">
+					<input type="radio" ng-model="SportsKnee4.KneeandLeg" value="Flexion Lag" >  Flexion Lag
+				</td>
+			</tr>
+			<tr class="active">
+				<td width='15%'>
+					Motion
+				</td>
+				<td width='15%'>
+					Active
+				</td>
+				<td>
+					Passive
+				</td>
+				<td>
+					With Pain
+				</td>
+				<td>
+					Crepitation
+				</td>
+				<td>
+					MMT(0 - 5)
+				</td>
+			</tr>
+			<tr>
+				
+				<td class="active">
+					Flexion
+				</td>
+				<td>
+					<input type="text" ng-model="SportsKnee4.FlexionActive" class="form-control">
+				</td>
+				<td>
+					<input type="text" ng-model="SportsKnee4.FlexionPassive" class="form-control">
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee4.FlexionWithPain" ng-true-value="With Pain" ng-false-value=""> 
+				</td><td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee4.FlexionCrepitation" ng-true-value="1" ng-false-value=""> 
+				</td>
+				<td>
+					<input type="text" ng-model="SportsKnee4.FlexionMMT" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				
+				<td class="active">
+					Extension
+				</td>
+				<td>
+					<input type="text" ng-model="SportsKnee4.ExtensionActive" class="form-control">
+				</td>
+				<td>
+					<input type="text" ng-model="SportsKnee4.ExtensionPassive" class="form-control">
+				</td>
+				
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee4.ExtensionWithPain" ng-true-value="With Pain" ng-false-value=""> 
+				</td>
+				<td class="text-center">
+					<input type="checkbox" ng-model="SportsKnee4.ExtensionCrepitation" ng-true-value="1" ng-false-value=""> 
+				</td>
+				<td>
+					<input type="text" ng-model="SportsKnee4.ExtensionMMT" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Gait
+				</td>
+				<td>
+					<input type="radio" ng-model="SportsKnee4.GaitNormalAbnormal" value="Normal" > Normal
+				</td>
+				<td>
+					<input type="radio" ng-model="SportsKnee4.GaitNormalAbnormal" value="Abnormal"> Abnormal
+				</td>
+				<td colspan="3" class='form-inline'>
+					Type <input type='text' ng-model="SportsKnee4.GaitType" class='form-control'?
+				</td>
+			</tr>
+				
+			<tr>
+				<td colspan="7" class="text-center active">
+					<a class="btn btn-large btn-info" ng-click="addNew_Knee4(SportsKnee4)" style="text-decoration: none; color: #000">SAVE</a>
+
+					<a class="btn btn-large btn-danger" ng-click="removeKnee4(SportsKnee4)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+
+		</table>
+	</div>

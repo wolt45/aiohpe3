@@ -1,0 +1,268 @@
+<div ng-controller="knee_7_Ctrl">
+	<div scroll-bookmark="XRAY"></div>
+	<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					Gross Pictures/Imaging (Radio Graphs, CT, MRI)
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6">
+					<textarea class="form-control" ng-model="SportsKnee7.GrossPictures" size="50px">
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center">
+					<a class="btn btn-large btn-success" style="text-decoration: none; color: #000"
+					 	scroll-to-bookmark="XRAYBOX">
+						VIEW X-RAY BOX
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					Xray
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="active">
+					<input type="checkbox" ng-model="SportsKnee7.CompartmentNarrowing" ng-true-value="1" ng-false-value="0"> Compartment Narrowing
+				</td>
+			</tr>
+			<tr>
+				<td class="active"  width='1%'>
+					Location
+				</td>
+				<td width='1%'>
+					<input type="checkbox" ng-model="SportsKnee7.MedialLocation" ng-true-value="1" ng-false-value="0" > Medial:
+					
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.MedialLocationDescrip" class="form-control">
+					Lateral:
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="active">
+				</td>
+				<td>
+					<input type="checkbox" ng-model="SportsKnee7.LateralLocation" ng-true-value="1" ng-false-value="0" > Lateral :
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.LateralLocationDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					<input type="checkbox" ng-model="SportsKnee7.Patellartilt" ng-true-value="1" ng-false-value="0" > Patellar tilt
+				</td>
+				<td class="form-inline" nowrap>
+					Congruence angle
+				</td>
+				<td class='form-inline'><input type="text" ng-model="SportsKnee7.Congruenceangle" class="form-control"></td>
+				
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.Osteophytes" ng-true-value="1" ng-false-value="0" > Osteophytes
+				</td>
+				<td>
+					Location: 
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.OsteophytesLocation" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.Pastellaalta" ng-true-value="1" ng-false-value="0" > Pastella alta
+				</td>
+				<td>
+					Insall Ratio
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.PastellaaltaInsallRatio" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.Patellabaja" ng-true-value="1" ng-false-value="0" > Patella baja
+				</td>
+				<td class="form-inline">
+					Insall Ratio
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.PatellabajaInsallRatio" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="active">
+					<input type="checkbox" ng-model="SportsKnee7.Shallowtrochleargroove" ng-true-value="1" ng-false-value="0" > Shallow trochlear groove:
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					 <input type="checkbox" ng-model="SportsKnee7.Osteochondraldefects" ng-true-value="1" ng-false-value="0" >Osteochondral defects
+				</td>
+				<td nowrap>
+					Location
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.OsteochondraldefectsLocation" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Others
+				</td>
+				<td></td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.OsteochondraldefectsOthers" class="form-control">
+				</td>
+			</tr>
+		</table>
+		<table class='table table-bordered'>
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					MRI
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="active">
+					<input type="checkbox" ng-model="SportsKnee7.MRIEffusion" ng-true-value="1" ng-false-value="0" > Effusion
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="active">
+					<input type="checkbox" ng-model="SportsKnee7.MRISynovialInflamation" ng-true-value="1" ng-false-value="0" > Synovial inflamation
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="active" width='1%' nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.MedialMeniscalTear" ng-true-value="1" ng-false-value="0" > Medial Meniscal Tear
+					
+				</td>
+				<td width='1%'nowrap>
+					Location
+				</td>
+				<td width='15%'>
+					<input type="text" ng-model="SportsKnee7.MedialMeniscalLocation" class="form-control">
+				</td>
+				<td width='1%' nowrap>
+					Grade
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.MedialMeniscalGrade" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.LateralMeniscalTear" ng-true-value="1" ng-false-value="0" > Lateral Meniscal Tear
+					
+				</td>
+				<td>
+					Location
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.LateralMeniscalTearLocation" class="form-control">
+				</td>
+				<td>
+					Grade
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.LateralMeniscalTearGrade" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.Anteriorcruciateligamenttear" ng-true-value="1" ng-false-value="0" > Anterior cruciate ligament tear
+				</td>
+				<td class="form-inline" nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.AnteriorcruciateligamenttearPartial" ng-true-value="Partial" > Partial
+				</td>
+				<td colspan="3">
+					<input type="checkbox" ng-model="SportsKnee7.AnteriorcruciateligamenttearComplete" ng-true-value="Complete" > Complete
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.Posteriorcruciateligamenttear" ng-true-value="1" ng-false-value="0" > Posterior cruciate ligament tear
+				</td>
+				<td class="form-inline" nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.PosteriorcruciateligamenttearPartial" ng-true-value="Partial" > Partial
+				</td>
+				<td colspan="3">
+					<input type="checkbox" ng-model="SportsKnee7.PosteriorcruciateligamenttearComplete" ng-true-value="Complete" > Complete
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="active">
+					<input type="checkbox" ng-model="SportsKnee7.Medialcollateralligamentpathology" ng-true-value="1" ng-false-value="0" >Medial collateral ligament pathology
+				</td>
+			</tr>
+			<tr>
+				<td class="active" >
+					Grade
+				</td>
+				<td colspan='2'>
+					<input type="checkbox" ng-model="SportsKnee7.MedialcollateralligamentpathologyI" ng-true-value="I" >I
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="SportsKnee7.MedialcollateralligamentpathologyII" ng-true-value="II" >II
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="SportsKnee7.MedialcollateralligamentpathologyIII" ng-true-value="III" >III
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					<input type="checkbox" ng-model="SportsKnee7.Medialcollateralligamenttear" ng-true-value="1" ng-false-value="0" > Medial collateral ligament tear
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Grade
+				</td>
+				<td colspan='2'>
+					<input type="checkbox" ng-model="SportsKnee7.MedialcollateralligamenttearI" ng-true-value="I" >I
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="SportsKnee7.MedialcollateralligamenttearII" ng-true-value="II" >II
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="SportsKnee7.MedialcollateralligamenttearIII" ng-true-value="III" >III
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					<input type="checkbox" ng-model="SportsKnee7.Posterolateralcornerinflammation" ng-true-value="1" ng-false-value="0" > Posterolateral corner inflammation
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					<input type="checkbox" ng-model="SportsKnee7.Osteochondrallession" ng-true-value="1" ng-false-value="0" > Osteochondral lession
+				</td>
+				<td >
+					 Location
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="SportsKnee7.OsteochondrallessionLocation" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Others
+				</td>
+				<td colspan="5" class='form-inline'>
+					<input type='text' ng-model="SportsKnee7.OsteochondrallessionOthersDescrip" class='form-control form-inline'>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center active">
+					<a class="btn btn-large btn-info" ng-click="addNew_Knee7(SportsKnee7)" style="text-decoration: none; color: #000">SAVE</a>
+
+					<a class="btn btn-large btn-danger" ng-click="removeKnee7(SportsKnee7)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+
+		</table>
+	</div>

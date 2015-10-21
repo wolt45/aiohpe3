@@ -1,0 +1,67 @@
+<div ng-controller="knee_5_Ctrl">
+	<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					Vascular
+				</td>
+			</tr>
+			<tr class="active">
+				<td class="text-center" width='1%' nowrap>
+					Artery
+				</td>
+				<td class="text-center" width='1%' nowrap>
+					Strong					 
+				</td>
+				<td class="text-center" width='1%' nowrap>
+					Weak
+				</td>
+				<td class="text-center" width='1%' nowrap>
+					Absent
+				</td>
+				<td class="text-center" colspan="2">
+					Location
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Popliteral artery
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee5.PopliteralArtery" value="Strong" > 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee5.PopliteralArtery" value="Weak" > 
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="SportsKnee5.PopliteralArtery" value="Absent" > 
+				</td>
+				<td>
+					<input type="text" ng-model="SportsKnee5.PopliteralArteryDescrip" class="form-control">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="active">
+					Color:
+				</td>
+				<td colspan='4'>
+					<input type="radio" ng-model="SportsKnee5.Color" value="Pink" > Pink
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="SportsKnee5.Color" value="Pallor" > Pallor
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="SportsKnee5.Color" value="Dusky" > Dusky
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="SportsKnee5.Color" value="Cyanotic" > Cyanotic
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="SportsKnee5.Color" value="Gangrenous" > Gangrenous
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center active">
+					<a class="btn btn-large btn-info" ng-click="addNew_Knee5(SportsKnee5)" style="text-decoration: none; color: #000">SAVE</a>
+					<a class="btn btn-large btn-danger" ng-click="removeKnee5(SportsKnee5)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+
+		</table>
+	</div>
