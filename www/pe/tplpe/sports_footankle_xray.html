@@ -1,0 +1,186 @@
+<div ng-controller="footAnkle_7_Ctrl">
+	<div scroll-bookmark="XRAY"></div>
+	<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header" nowrap>
+					Gross Pictures/Imaging (Radio Graphics, CT, MRI)
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="6">
+					<textarea class="form-control" ng-model="FootAnkle7.GrossPicture" size="50px">
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class='text-center'>
+					<a class="btn btn-large btn-success" style="text-decoration: none; color: #000"
+					 	scroll-to-bookmark="XRAYBOX">
+						VIEW X-RAY BOX
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					Xray
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class='active'>
+					<input type="checkbox" ng-model="FootAnkle7.CompartmentNarrowing" ng-true-value="1" ng-false-value="0"> Compartment Narrowing
+				</td>
+			</tr>
+			<tr>
+				<th class="active" width='1%' nowrap>
+					Location
+				</th>
+				<td width='1%'>
+					<input type="checkbox" ng-model="FootAnkle7.Medial" ng-true-value="1" ng-false-value="0" > Medial :
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle7.MedialDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class='active'></td>
+				<td>
+					<input type="checkbox" ng-model="FootAnkle7.Lateral" ng-true-value="1" ng-false-value="0" > Lateral :
+				</td>
+				
+				<td>
+					<input type="text" ng-model="FootAnkle7.LateralDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class='active' nowrap>
+					<input type="checkbox" ng-model="FootAnkle7.Talartilt" ng-true-value="1" ng-false-value="0" > Talar tilt
+				</td>
+				<td>
+					Tibiotalar angle:
+				</td>
+				<td><input type="text" ng-model="FootAnkle7.TalartiltDescrip" class="form-control"></td>
+			</tr>
+			<tr>
+				<td class="active"></td>
+				<td >
+					Talocrural angle:
+				</td>
+				<td><input type="text" ng-model="FootAnkle7.TalocruralAngleDescrip" class="form-control"></td>
+				
+			</tr>
+			<tr>
+				<td class='active'>
+					<input type="checkbox" ng-model="FootAnkle7.Osteophytes" ng-true-value="1" ng-false-value="0" > Osteophytes
+				</td>
+				<td class="form-inline">
+					Location: 
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle7.OsteophytesDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class='active' nowrap>
+					<input type="checkbox" ng-model="FootAnkle7.LateralTalarTilt" ng-true-value="1" ng-false-value="0" > Lateral talar tilt
+				</td>
+				<td>
+					Angle 
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle7.LateralTalarTiltAngle" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class='active'>
+					<input type="checkbox" ng-model="FootAnkle7.AnteriorTibialSpur" ng-true-value="1" ng-false-value="0" > Anterior tibial spur
+				</td>
+				<td class="form-inline" class="active">
+					Grade
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle7.AnteriorTibialSpurGrade" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class='active' nowrap>
+					<input type="checkbox" ng-model="FootAnkle7.SyndesmoticWidening" ng-true-value="1" ng-false-value="0" > Syndesmotic widening:
+				</td>
+				<td>
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle7.SyndesmoticWideningDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class='active' colspan="6" >
+					 <input type="checkbox" ng-model="FootAnkle7.TibiotalarArthritis" ng-true-value="1" ng-false-value="0" > Tibiotalar arthritis
+				</td>
+			</tr>
+			<tr>
+				<td class='active'>
+					 <input type="checkbox" ng-model="FootAnkle7.SubtalarArthritis" ng-true-value="1" ng-false-value="0" > Subtalar arthritis
+				</td>
+				<td nowrap>
+					 <input type="checkbox" ng-model="FootAnkle7.TalonavicularArthritis" ng-true-value="Talonavicular arthritis" > Talonavicular arthritis
+					<br>
+					 <input type="checkbox" ng-model="FootAnkle7.CalcaneocuboidArthritis" ng-true-value="Calcaneocuboid arthritis" >Calcaneocuboid arthritis 
+				</td>
+				<td>
+					 <input type="checkbox" ng-model="FootAnkle7.MidfootArthritis" ng-true-value="Midfoot arthritis" >Midfoot arthritis 
+					<br>
+					 <input type="checkbox" ng-model="FootAnkle7.ForefootArthritis" ng-true-value="Forefoot arthritis" >Forefoot arthritis 
+				</td>
+			</tr>
+			
+			<tr>
+				<td class='active'>
+					 <input type="checkbox" ng-model="FootAnkle7.OsTrigonum" ng-true-value="1" ng-false-value="0" >Os Trigonum
+				</td>
+				<td>
+					 <input type="checkbox" ng-model="FootAnkle7.OtherOS" ng-true-value="Other OS" >Other OS
+				</td>
+				<td class='form-inline'>
+					 Type <input type="text" ng-model="FootAnkle7.OsTrigonumType" class="form-control">
+					</td>
+			</tr>
+			
+			<tr>
+				<td class='active'>
+					<input type="checkbox" ng-model="FootAnkle7.Hanglund" ng-true-value="1" ng-false-value="0" > Hanglund's
+				</td>
+				<td>
+					<input type="checkbox" ng-model="FootAnkle7.CalcanealOssicle" ng-true-value="Calcaneal ossicle" > Calcaneal ossicle
+				</td>
+				<td colspan="3">
+					<input type="checkbox" ng-model="FootAnkle7.PosteriorCalcanealSpur" ng-true-value="Posterior calcaneal spur(plantar facial insertion)" > Posterior calcaneal spur(plantar facial insertion)
+				</td>
+			</tr>
+			<tr>
+				<td class='active'>
+					<input type="checkbox" ng-model="FootAnkle7.OsteochondralDefects" ng-true-value="1" ng-false-value="0" > Osteochondral defects
+				</td>
+				<td>
+					Location 
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle7.OsteochondralDefectsDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr >
+				<td class='active'>
+					Others 
+				</td>
+				<td></td>
+				<td><input type="text" ng-model="FootAnkle7.OthersXray" class="form-control"></td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center active">
+					<a class="btn btn-large btn-info" ng-click="addNew_FootAnkle7(FootAnkle7)" style="text-decoration: none; color: #000">SAVE</a>
+				
+					<a class="btn btn-large btn-danger" ng-click="removeFootAnkle7(FootAnkle7)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+		</table>
+		
+	</div>

@@ -1,0 +1,171 @@
+<div ng-controller="footAnkle_1_Ctrl">
+	
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td class="text-left" colspan="4" nowrap>
+					<span id="DGL_module_header">
+			    		History Of Present Illness:
+			    	</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" class="active"> Chief Complaint: </td>
+			</tr>
+			<tr >
+				<td class="active text-right">DOI:</td>
+				<td>
+					<input type="text" ng-model="FootAnkle1.DOI" class="form-control">
+				</td>
+				<td class="active text-right">	
+					TOI :
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle1.TOI" class="form-control">
+				</td>
+			</tr>
+
+			<tr >
+				<td class="active text-right">MOI:</td>
+				<td>
+					<input type="text" ng-model="FootAnkle1.MOI" class="form-control">
+				<td class="active text-right">	
+					POI:
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle1.POI" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<TEXTAREA ng-model="FootAnkle1.HistoryOfIllness" class="form-control" ></TEXTAREA>
+				</td>
+			</tr>
+		</table>
+		<table class='table table-bordered'>
+			<tr class="warning" >
+				<td colspan="5">
+					<span id="DGL_module_header">
+			    		Past Medical History:
+			    	</span>
+				</td>
+				
+			</tr>
+
+			<tr>
+				<td width='1%' nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistHypertension" ng-true-value="1" ng-false-value="0"> Hypertension
+				</td>
+				<td width='1%' nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistCardiac" ng-true-value="1" ng-false-value="0"> 
+					Cardiac
+				</td>
+				<td width='1%' nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistGenital" ng-true-value="1" ng-false-value="0"> Genital
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistDiabetes" ng-true-value="1" ng-false-value="0"> Diabetes
+				</td>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistPulmo" ng-true-value="1" ng-false-value="0"> Pulmo
+				</td>
+				<td width='1%' nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistHepatitis" ng-true-value="1" ng-false-value="0"> Hepatitis
+				</td>
+			</tr>
+			<tr>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistAsthma" ng-true-value="1" ng-false-value="0"> Asthma
+				</td>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistKidney" ng-true-value="1" ng-false-value="0"> Kidney
+				</td>
+				<td width='1%' nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistBleeding" ng-true-value="1" ng-false-value="0"> Bleeding
+				</td>
+			</tr>
+			<tr>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistThyroid" ng-true-value="1" ng-false-value="0"> Thyroid
+				</td>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.MedHistGI" ng-true-value="1" ng-false-value="0"> GI
+				</td>
+				<td width='1%' nowrap>
+					 Others
+					 <input type="text" ng-model="FootAnkle1.MedHistOthers" class='form-control'>
+				</td>
+			</tr>
+			<tr>
+				<td nowrap>
+					Allergies
+				</td>
+				<td colspan="2">
+					<input type="text" ng-model="FootAnkle1.MedHistAllergies" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td nowrap>
+					Previous Operation
+				</td>
+				<td colspan="2">
+					<input type="text" ng-model="FootAnkle1.MedHistPrevOp" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td nowrap>
+					Current medication
+				</td>
+				<td colspan="2">
+					<input type="text" ng-model="FootAnkle1.MedHistCurrentMedication" class="form-control">
+				</td>
+			</tr>
+			<tr class="warning">
+				<td colspan="5">
+					<span id="DGL_module_header">
+			    		Review Of Systems
+			    	</span>
+				</td>
+				
+			</tr>
+
+			<tr>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.ReviewSystemFever" ng-true-value="1" ng-false-value="0"> Fever
+				</td>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.ReviewSystemAbdominalPain" ng-true-value="1" ng-false-value="0"> Abdominal Pain
+				</td>
+				<td>
+					<input type="checkbox" ng-model="FootAnkle1.ReviewSystemVomiting" ng-true-value="1" ng-false-value="0"> Vomiting
+				</td>
+				<td colspan='2'>
+					<input type="checkbox" ng-model="FootAnkle1.ReviewSystemDysuria" ng-true-value="1" ng-false-value="0"> Dysuria
+				</td>
+			</tr>
+			<tr>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.ReviewSystemCough" ng-true-value="1" ng-false-value="0"> Cough
+				</td>
+				<td nowrap>
+					<input type="checkbox" ng-model="FootAnkle1.ReviewSystemDOB" ng-true-value="1" ng-false-value="0"> DOB
+				</td>
+				<td>
+					<input type="checkbox" ng-model="FootAnkle1.ReviewSystemDiarrhea" ng-true-value="1" ng-false-value="0"> Diarrhea
+				</td>
+				<td colspan='2'>
+					<input type="checkbox" ng-model="FootAnkle1.ReviewSystemlowbackpain" ng-true-value="1" ng-false-value="0"> low back pain
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" class="text-center active">
+					<a class="btn btn-large btn-info" ng-click="addNew_FootAnkle1(FootAnkle1)" style="text-decoration: none; color: #000">SAVE</a>
+				
+					<a class="btn btn-large btn-danger" ng-click="removeFootAnkle1(FootAnkle1)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+		</table>
+</div>
+

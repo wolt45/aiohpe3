@@ -73,6 +73,18 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_spine_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_3 }
 	, jdata_spine_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_4 }
 
+
+	, jdata_FootAnkle_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_1 }
+	, jdata_FootAnkle_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_2 }
+	, jdata_FootAnkle_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_3 }
+	, jdata_FootAnkle_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_4 }
+	, jdata_FootAnkle_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_5 }
+	, jdata_FootAnkle_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_6 }
+	, jdata_FootAnkle_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_7 }
+	, jdata_FootAnkle_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_8 }
+	, jdata_FootAnkle_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_9 }
+	
+
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });
