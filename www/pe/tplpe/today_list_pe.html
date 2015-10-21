@@ -10,7 +10,7 @@
 	</tr>
 
 	<tr class="success">
-		<td class="text-center" width="1%">00010</td>
+		<td class="text-center" width="1%">00011</td>
 
 		<td class="text-center" width="1%" nowrap> VISIT </td>
 
@@ -20,9 +20,9 @@
 		<td class="text-center" width="1%" nowrap>	VISIT STATUS </td>
 	</tr>
 
-	<tr ng-repeat="px_Item in clinix | filter : searchFilter | orderBy : [ 'TranStatus', 'AppDateSet', 'ClinixRID' ] ">
-		<td>
-			worked
+	<tr ng-repeat="px_Item in clinix">
+		<td nowrap>
+			worked {{px_Item.ClinixRID}}
 	  	</td>
   	</tr>
 </table>
