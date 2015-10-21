@@ -60,6 +60,13 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, LAB_Results: { type: $data.EntitySet, elementType: $ipadrbg.types.LAB_Results }
 
 
+	, jdata_genotho_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_1 }
+	, jdata_genotho_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_2 }
+	, jdata_genotho_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_3 }
+	, jdata_genotho_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_4 }
+	, jdata_genotho_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_5 }
+	, jdata_genotho_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_6 }
+
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });

@@ -1,0 +1,47 @@
+	<div ng-controller="gen_orth4_Ctrl">	
+		<table class="table table-bordered">
+						<tr class="warning">
+							<td colspan="6" id="DGL_module_header">	Diagnosis
+							</td>
+						</tr>
+						<tr>
+							<td width='1%' class='active' nowrap>Medications</td>
+							<td width='25%'><textarea class="form-control" ng-model="genortho4.Medications" rows="3"placeholder="Medications" ></textarea></td>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class='active'>Injections</td>
+							<td><input type="text" class="form-control input-mysize" ng-model="genortho4.Injections" placeholder="Injections" ></td>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class='active' nowrap>Physical Therapy</td>
+							<td><input type="text" class="form-control input-mysize" ng-model="genortho4.PhysicalTherapy" placeholder="Physical Theraphy" ></td>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class='active'>Others</td>
+							<td><input type="text" class="form-control input-mysize" ng-model="genortho4.Others" placeholder="Others" ></td>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class='active'>Disposition:</td>
+							<td>
+								<input type="radio" ng-model="genortho4.Disposition" value="Home"> Home 
+								<input type="radio" ng-model="genortho4.Disposition" value="Hospital" > Hospital
+							</td>
+						</tr>
+				<tr>	
+					<td class="text-center" colspan="9" nowrap>
+						<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+									 	ng-click="addNew_genortho4(genortho4)">
+						 	SAVE
+						</a>
+						<a class="btn btn-large btn-danger" style="text-decoration: none"
+					            		ng-click="removegenortho4(genortho4)">
+					        DELETE
+					    </a>
+					</td>
+				</tr>			
+		</table>	
+	</div>
