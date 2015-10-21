@@ -4,6 +4,7 @@ $data.Entity.extend("$ipadrbg.types.jdata_SkelTrauma_2", {
 	, PxRID: { type: "string"}
 	
 	, ApproXraysOrderedSpine: { type: "string"}
+	
 	, ApproXraysOrderedHumerus: { type: "string"}
 	, ApproXraysOrderedRadiusUlna: { type: "string"}
 	, ApproXraysOrderedShoulder: { type: "string"}

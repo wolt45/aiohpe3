@@ -3,7 +3,6 @@ IOHPEApp.controller('SkelTrauma_1_Ctrl', function ($scope, $routeParams, $http){
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
 
-
   $scope.LoadSkelTrauma1 = function(){
     var promise = $ipadrbg.context.jdata_SkelTrauma_1.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
@@ -24,10 +23,7 @@ IOHPEApp.controller('SkelTrauma_1_Ctrl', function ($scope, $routeParams, $http){
         ,VascularStatus : pxresult[0]['VascularStatus']
         ,NeurologicVascularDes : pxresult[0]['NeurologicVascularDes']
       }
-       
-
        //alert($scope.SkelTrauma1.NeurologicVascularDes);
-
     });
   }; 
 
