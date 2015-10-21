@@ -96,6 +96,7 @@ IOHPEApp.controller('PXListCtrl', function ($scope){
 // tpl_pe/today_list_pe.html, app.js
 // Controller established for PE module purposely for the use of TranStatus = 10, for the IOHPE status but wait and see if needed
 IOHPEApp.controller('PXListPECtrl', function ($scope){
+  
   $scope.clinix = [];
 
   $scope.ShowData = function(){
@@ -204,6 +205,6 @@ IOHPEApp.controller('PXDetailCtrl', function ($scope, $routeParams, $http){
       $scope.$apply();
     });
   }
-  
+
   $scope.LoadZClinix();
 });
