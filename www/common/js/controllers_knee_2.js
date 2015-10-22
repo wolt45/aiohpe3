@@ -30,7 +30,7 @@ IOHPEApp.controller('knee_2_Ctrl', function ($scope, $routeParams, $http){
     });
   }; 
 
-   $scope.LoadKnee2();
+  $scope.LoadKnee2();
 
   $scope.addNew_Knee2 = function (frmknee2) {
     
