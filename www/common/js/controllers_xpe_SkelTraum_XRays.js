@@ -13,7 +13,6 @@ IOHPEApp.controller('SkelTrauma_XRays_Ctrl', function ($scope, $routeParams, $ht
       return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
-        
 
         $scope.PxRID = pxresult[0]['PxRID'];
 
