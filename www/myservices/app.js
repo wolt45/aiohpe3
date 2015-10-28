@@ -412,8 +412,6 @@ function DataController($rootScope, $scope, $http) {
 
 	// PULL IOH - CHIEF COMPLAINT
 	$scope.pullZClinix = function(callback){
-		// 
-
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ZClinix.php'}).
 		success ( function ( data, status, headers, config ) {
 

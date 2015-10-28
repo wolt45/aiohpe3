@@ -1,10 +1,9 @@
 $data.Entity.extend("$ipadrbg.types.jdata_SkelTrauma_2", {
-	SkelTraumaRID2: { type: "int", key: true, computed: true }
+	SkelTraumaRID: { type: "int", key: true, computed: true }
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
 	, ApproXraysOrderedSpine: { type: "string"}
-	
 	, ApproXraysOrderedHumerus: { type: "string"}
 	, ApproXraysOrderedRadiusUlna: { type: "string"}
 	, ApproXraysOrderedShoulder: { type: "string"}

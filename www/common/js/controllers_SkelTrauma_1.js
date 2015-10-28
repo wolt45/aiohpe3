@@ -63,7 +63,7 @@ IOHPEApp.controller('SkelTrauma_1_Ctrl', function ($scope, $routeParams, $http){
       db.transaction(function (tx) {
         tx.executeSql("delete from 'jdata_SkelTrauma_1' WHERE ClinixRID = " + $scope.ClinixRID);
       });
-      $scope.SkelTrauma = [];
+      $scope.SkelTrauma1 = [];
     }
   }
 

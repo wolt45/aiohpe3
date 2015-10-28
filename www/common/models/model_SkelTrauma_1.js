@@ -1,5 +1,5 @@
 $data.Entity.extend("$ipadrbg.types.jdata_SkelTrauma_1", {
-	SkelTraumaRID1: { type: "int", key: true, computed: true }
+	SkelTraumaRID: { type: "int", key: true, computed: true }
 	, ClinixRID: { type: "string"}
 	, PxRID: { type: "string"}
 	
