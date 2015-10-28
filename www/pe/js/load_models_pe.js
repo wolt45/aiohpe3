@@ -59,7 +59,6 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	
 	, LAB_Results: { type: $data.EntitySet, elementType: $ipadrbg.types.LAB_Results }
 
-
 	, jdata_genotho_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_1 }
 	, jdata_genotho_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_2 }
 	, jdata_genotho_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_3 }
@@ -67,12 +66,10 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_genotho_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_5 }
 	, jdata_genotho_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_6 }
 
-
 	, jdata_spine_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_1 }
 	, jdata_spine_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_2 }
 	, jdata_spine_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_3 }
 	, jdata_spine_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_4 }
-
 
 	, jdata_FootAnkle_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_1 }
 	, jdata_FootAnkle_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_2 }
@@ -103,6 +100,8 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_shoulder_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_8 }
 	, jdata_shoulder_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_9 }
 
+	, jdata_SkelTrauma_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SkelTrauma_1 }
+	, jdata_SkelTrauma_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SkelTrauma_2 }
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });
