@@ -6,8 +6,8 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagsManagement", {
 	, PhysicalTherapy : { type: "string"}
 	, ExerProg_FootAnkle : { type: "string"}
 	, ExerProg_QuadsHamstrings : { type: "string"}
-	, ExerProg_SLR : { type: "string"}
-	, AmbuTraining : { type: "string"}
+	, ExerProg_SLR: { type: "string"}
+	, AmbuTraining: { type: "string"}
 
 	, SynchStatus: { type: "string"}
 });

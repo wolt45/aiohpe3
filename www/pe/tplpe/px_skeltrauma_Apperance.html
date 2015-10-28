@@ -11,26 +11,25 @@
 		<tr>
 			<td class="active" width="15%">Appearance</td>
 			<td>
-				<input type="checkbox" ng-model="SkelTrauma1.AppearanceNormal" ng-true-value="Normal"
-		            ng-false-value="Abnormal"> Normal
+				<input type="radio" name="SkelTrauma1_AppearanceNormal" ng-model="SkelTrauma1.AppearanceNormal" value="0"> Normal
 			</td>
 			<td class="form-inline">
-				Deformity <input type="text" ng-model="SkelTrauma1.Deformity" class="form-control">
+				<input type="radio" name="SkelTrauma1_AppearanceNormal" ng-model="SkelTrauma1.AppearanceNormal" value="1"> Deformity <input type="text" ng-model="SkelTrauma1.Deformity" class="form-control">
 			</td>
 		</tr>
 
 		<tr>
 			<td class="active">Skin</td>
 			<td>
-				<input type="radio" ng-model="SkelTrauma1.Skin" value="Closed" checked> Closed
+				<input type="radio" name="SkelTrauma1_Skin" ng-model="SkelTrauma1.Skin" value="Closed" checked> Closed
 			</td>
 			<td>
 				Open:
-				<input type="radio" ng-model="SkelTrauma1.Skin" value="G1"> G1
+				<input type="radio" name="SkelTrauma1_Skin" ng-model="SkelTrauma1.Skin" value="G1"> G1
 				&nbsp;&nbsp;&nbsp;
-				<input type="radio" ng-model="SkelTrauma1.Skin" value="G2"> G2
+				<input type="radio" name="SkelTrauma1_Skin" ng-model="SkelTrauma1.Skin" value="G2"> G2
 				&nbsp;&nbsp;&nbsp;
-				<input type="radio" ng-model="SkelTrauma1.Skin" value="G3"> G3
+				<input type="radio" name="SkelTrauma1_Skin" ng-model="SkelTrauma1.Skin" value="G3"> G3
 			</td>
 		</tr>
 		<tr>
@@ -43,9 +42,9 @@
 			
 			<td class="text-left" colspan="2" nowrap> 
 				<input type="radio" ng-model="SkelTrauma1.PainActiveMotion" value="NORMAL" > Normal
-				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="SkelTrauma1.PainActiveMotion" value="MILD" > Mild
-				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="SkelTrauma1.PainActiveMotion" value="MODERATE" > Moderate
-				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="SkelTrauma1.PainActiveMotion" value="SEVERE" > Severe
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainActiveMotion" ng-model="SkelTrauma1.PainActiveMotion" value="MILD" > Mild
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainActiveMotion" ng-model="SkelTrauma1.PainActiveMotion" value="MODERATE" > Moderate
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainActiveMotion" ng-model="SkelTrauma1.PainActiveMotion" value="SEVERE" > Severe
 			</td>
 		</tr>
 		<tr>
@@ -58,9 +57,9 @@
 			
 			<td class="text-left" colspan="2" nowrap> 
 				<input type="radio" ng-model="SkelTrauma1.PainPassiveMotion" value="NORMAL" > Normal
-				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="SkelTrauma1.PainPassiveMotion" value="MILD" > Mild
-				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="SkelTrauma1.PainPassiveMotion" value="MODERATE" > Moderate
-				&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="SkelTrauma1.PainPassiveMotion" value="SEVERE" > Severe
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainPassiveMotion" ng-model="SkelTrauma1.PainPassiveMotion" value="MILD" > Mild
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainPassiveMotion" ng-model="SkelTrauma1.PainPassiveMotion" value="MODERATE" > Moderate
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainPassiveMotion" ng-model="SkelTrauma1.PainPassiveMotion" value="SEVERE" > Severe
 			</td>
 			
 		</tr>
@@ -69,19 +68,19 @@
 				Neurologic Status
 			</td>
 			<td>
-				<input type="radio" ng-model="SkelTrauma1.NeurologicStatus" value="Normal" checked> Normal
+				<input type="radio" name="SkelTrauma1_NeurologicStatus" ng-model="SkelTrauma1.NeurologicStatus" value="Normal" checked> Normal
 			</td>
 			<td colspan="4">
-				<input type="radio" ng-model="SkelTrauma1.NeurologicStatus" value="Poor"> Poor
+				<input type="radio" name="SkelTrauma1_NeurologicStatus" ng-model="SkelTrauma1.NeurologicStatus" value="Poor"> Poor
 			</td>
 		</tr>
 		<tr>
 			<td class="active">Vascular Status</td>
 			<td>
-				<input type="radio" ng-model="SkelTrauma1.VascularStatus" value="Normal" checked> Normal
+				<input type="radio" name="SkelTrauma1_VascularStatus" ng-model="SkelTrauma1.VascularStatus" value="Normal" checked> Normal
 			</td>
 			<td>
-				<input type="radio" ng-model="SkelTrauma1.VascularStatus" value="Poor"> Poor
+				<input type="radio" name="SkelTrauma1_VascularStatus" ng-model="SkelTrauma1.VascularStatus" value="Poor"> Poor
 			</td>
 		</tr>
 		
