@@ -2488,8 +2488,7 @@ function DataController($rootScope, $scope, $http) {
 	// PULL GEN ORTHO
 	// PULL GEN ORTHO
 	$scope.pullgenortho = function() {
-  		var ipaddress = "127.0.0.1";
-    	if (confirm(ipaddress + ': Pull all General Orthopedics Data, proceed? ')) {
+    	if (confirm(serverIP + ': Pull all General Orthopedics Data, proceed? ')) {
 
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
@@ -2534,9 +2533,8 @@ function DataController($rootScope, $scope, $http) {
     	}
 	}
 
-	$scope.pull_genortho1= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_genortho1= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_genortho1.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -2570,9 +2568,9 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
-	$scope.pull_genortho2= function(callback){
-		var serverIP = "127.0.0.1";
 
+
+	$scope.pull_genortho2= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_genortho2.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -2620,8 +2618,6 @@ function DataController($rootScope, $scope, $http) {
 	}
 
 	$scope.pull_genortho3= function(callback){
-		var serverIP = "127.0.0.1";
-
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_genortho3.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -2649,9 +2645,9 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
-	$scope.pull_genortho4= function(callback){
-		var serverIP = "127.0.0.1";
 
+
+	$scope.pull_genortho4= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_genortho4.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -2682,9 +2678,9 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
-	$scope.pull_genortho5= function(callback){
-		var serverIP = "127.0.0.1";
 
+
+	$scope.pull_genortho5= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_genortho5.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -2718,9 +2714,9 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
-	    $scope.pull_genortho6= function(callback){
-		var serverIP = "127.0.0.1";
+	    
 
+	$scope.pull_genortho6= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_genortho6.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -2750,8 +2746,7 @@ function DataController($rootScope, $scope, $http) {
 
 
 	$scope.pullskeltrauma = function() {
-  		var ipaddress = "127.0.0.1";
-    	if (confirm(ipaddress + ': Pull all Skeletal Trauma Data, proceed? ')) {
+    	if (confirm(serverIP + ': Pull all Skeletal Trauma Data, proceed? ')) {
 
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
@@ -2777,8 +2772,6 @@ function DataController($rootScope, $scope, $http) {
 	}
 
 	 $scope.pull_skeletaltrauma1= function(callback){
-		var serverIP = "127.0.0.1";
-
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_skeltrauma1.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -2814,8 +2807,6 @@ function DataController($rootScope, $scope, $http) {
 	}
 
 	$scope.pull_skeletaltrauma2= function(callback){
-		var serverIP = "127.0.0.1";
-
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_skeltrauma2.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -2862,8 +2853,7 @@ function DataController($rootScope, $scope, $http) {
 
 
 	$scope.pullspine = function() {
-  		var ipaddress = "127.0.0.1";
-    	if (confirm(ipaddress + ': Pull all Skeletal Trauma Data, proceed? ')) {
+    	if (confirm(serverIP + ': Pull all Skeletal Trauma Data, proceed? ')) {
 
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
@@ -2908,7 +2898,6 @@ function DataController($rootScope, $scope, $http) {
 
 
 	$scope.pull_spine1= function(callback){
-		var serverIP = "127.0.0.1";
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_spine1.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
@@ -2942,9 +2931,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 	
-	$scope.pull_spine2= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_spine2= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_spine2.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -2972,9 +2960,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 	
-	$scope.pull_spine3= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_spine3= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_spine3.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3038,9 +3025,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_spine4= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_spine4= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_spine4.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3076,10 +3062,8 @@ function DataController($rootScope, $scope, $http) {
 	}
 
 
-
 	$scope.pullsportsfootankle = function() {
-  		var ipaddress = "127.0.0.1";
-    	if (confirm(ipaddress + ': Pull all Sports Foot and Ankle Data, proceed? ')) {
+    	if (confirm(serverIP + ': Pull all Sports Foot and Ankle Data, proceed? ')) {
 
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
@@ -3138,9 +3122,8 @@ function DataController($rootScope, $scope, $http) {
     	}
 	}
 
-	$scope.pull_footankle1= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_footankle1= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_footankle1.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3194,9 +3177,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_footankle2= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_footankle2= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_footankle2.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3230,9 +3212,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_footankle3= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_footankle3= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_footankle3.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3270,9 +3251,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_footankle4= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_footankle4= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_footankle4.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3339,9 +3319,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_footankle5= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_footankle5= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_footankle5.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3398,9 +3377,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_footankle6= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_footankle6= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_footankle6.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3453,8 +3431,6 @@ function DataController($rootScope, $scope, $http) {
 
 
 	$scope.pull_footankle7= function(callback){
-		var serverIP = "127.0.0.1";
-
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_footankle7.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3514,8 +3490,6 @@ function DataController($rootScope, $scope, $http) {
 
 
 	$scope.pull_footankle8= function(callback){
-		var serverIP = "127.0.0.1";
-
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_footankle8.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3570,9 +3544,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_footankle9= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_footankle9= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_footankle9.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3601,9 +3574,9 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
+
 	$scope.pullSportsknee = function() {
-  		var ipaddress = "127.0.0.1";
-    	if (confirm(ipaddress + ': Pull all knee Data, proceed? ')) {
+    	if (confirm(serverIP + ': Pull all knee Data, proceed? ')) {
 
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
@@ -3657,9 +3630,8 @@ function DataController($rootScope, $scope, $http) {
     	}
     }
 
-    $scope.pull_knee1= function(callback){
-		var serverIP = "127.0.0.1";
 
+    $scope.pull_knee1= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportknee1.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3690,9 +3662,9 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
-	$scope.pull_knee2= function(callback){
-		var serverIP = "127.0.0.1";
 
+
+	$scope.pull_knee2= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportknee2.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3729,9 +3701,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_knee3= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_knee3= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportknee3.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3801,9 +3772,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_knee4= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_knee4= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportknee4.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3842,9 +3812,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_knee5= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_knee5= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportknee5.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3873,9 +3842,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_knee6= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_knee6= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportknee6.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -3932,9 +3900,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_knee7= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_knee7= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportknee7.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -4003,9 +3970,9 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
-	$scope.pull_knee8= function(callback){
-		var serverIP = "127.0.0.1";
 
+
+	$scope.pull_knee8= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportknee8.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -4034,9 +4001,9 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
+
 	$scope.pullsportshoulder = function() {
-  		var ipaddress = "127.0.0.1";
-    	if (confirm(ipaddress + ': Pull all Shoulder Data, proceed? ')) {
+    	if (confirm(serverIP + ': Pull all Shoulder Data, proceed? ')) {
 
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
@@ -4092,9 +4059,8 @@ function DataController($rootScope, $scope, $http) {
     	}
 	}
 
-	$scope.pull_sportshoulder1= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_sportshoulder1= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportshoulder1.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -4150,9 +4116,9 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
-	$scope.pull_sportshoulder2= function(callback){
-		var serverIP = "127.0.0.1";
 
+
+	$scope.pull_sportshoulder2= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportshoulder2.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -4184,9 +4150,8 @@ function DataController($rootScope, $scope, $http) {
 	    });
 	}
 
-	$scope.pull_sportshoulder3= function(callback){
-		var serverIP = "127.0.0.1";
 
+	$scope.pull_sportshoulder3= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportshoulder3.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -4222,9 +4187,9 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
-	$scope.pull_sportshoulder4= function(callback){
-		var serverIP = "127.0.0.1";
 
+
+	$scope.pull_sportshoulder4= function(callback){
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportshoulder4.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -4303,8 +4268,6 @@ function DataController($rootScope, $scope, $http) {
 	}
 
 	$scope.pull_sportshoulder5= function(callback){
-		var serverIP = "127.0.0.1";
-
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportshoulder5.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -4367,8 +4330,6 @@ function DataController($rootScope, $scope, $http) {
 	}
 
 	$scope.pull_sportshoulder6= function(callback){
-		var serverIP = "127.0.0.1";
-
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportshoulder6.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
@@ -4399,8 +4360,7 @@ function DataController($rootScope, $scope, $http) {
 
 
 
-	    $scope.pull_sportshoulder7= function(callback){
-		var serverIP = "127.0.0.1";
+	$scope.pull_sportshoulder7= function(callback){
 
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportshoulder7.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
@@ -4448,8 +4408,6 @@ function DataController($rootScope, $scope, $http) {
 	}
 
 	$scope.pull_sportshoulder8= function(callback){
-		var serverIP = "127.0.0.1";
-
 		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_sportshoulder8.php'}).success ( function ( data, status, headers, config ) {
 			if (data !== null ) {
 		      	// save to websql
