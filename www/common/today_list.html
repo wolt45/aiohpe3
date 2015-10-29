@@ -23,9 +23,13 @@
 		
 		<td>
 			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">  
-				<img ng-src="..//images/{{px_Item.pxFoto}}" width="75" style="padding: 0 0 0 0" class="img-rounded">  
+				<!-- img ng-src="..//images/{{px_Item.pxFoto}}" width="75" style="padding: 0 0 0 0" class="img-rounded"  --> 
+
+				<img ng-src="http://127.0.0.1/dump_px/{{px_Item.pxFoto}}" width="75" 
+				style="padding: 0 0 0 0" class="img-rounded">  
 			</a>   
 		</td>
+		
 		<td class="text-center" nowrap>{{px_Item.ClinixRID}} <br> {{px_Item.AppDateSet | date }} </td>
 
 		<!-- td class="text-center" nowrap>{{px_Item.PxRID}} </td -->

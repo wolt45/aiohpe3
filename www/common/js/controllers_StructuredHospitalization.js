@@ -39,7 +39,7 @@ IOHPEApp.controller('StructuredHospitalizationCtrl', function ($scope, $routePar
       , DateDischarged  : formArrObj.DateDischarged
       , HospitalCourse  : formArrObj.HospitalCourse
       , WoundAppearance : formArrObj.WoundAppearance
-      , SynchStatus     : 0
+      , SynchStatus     : 111
 
     }
     $ipadrbg.context.clinix_StructuredHospitalization.add(newrecord);
