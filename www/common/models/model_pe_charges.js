@@ -5,17 +5,17 @@ $data.Entity.extend("$ipadrbg.types.clinix_PEcharges", {
 	
 	, ChargeRID: { type: "int"}
 	, ChargeItem: { type: "string"}
-	, Tariff: { type: "float" }
-	, ChargeAmount: { type: "float" }
-	, Discount: { type: "float" }
+	, Tariff: { type: "number" }
+	, ChargeAmount: { type: "number" }
+	, Discount: { type: "number" }
 
-	, PHIC: { type: "float" }
-	, HMOs: { type: "float" }
-	, SrCIT: { type: "float" }
+	, PHIC: { type: "number" }
+	, HMOs: { type: "number" }
+	, SrCIT: { type: "number" }
 
-	, NetAmount: { type: "float" }
-	, LinePayment: { type: "float" }
-	, LineBalance: { type: "float" }
+	, NetAmount: { type: "number" }
+	, LinePayment: { type: "number" }
+	, LineBalance: { type: "number" }
 	, SynchStatus: { type: "int" }
 
 	, SynchStatus: { type: "string"}
