@@ -8,6 +8,79 @@
 			</th>
 		</tr>
 		<tr>
+			<td>
+			<button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target=".bs-example-modal-lg">SEARCH ICD 10</button>
+				
+				<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				  <div class="modal-dialog modal-lg">
+
+				    <div class="modal-content">
+
+				      	<div class="modal-header" style="color:black; background-color: #ccc">
+				    		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				    		<h4 class="modal-title" id="myModalLabel"> Enter Charges </h4>
+      					</div>
+
+      					<div class='container-fluid'>
+      						<table class='table table-bordered'>
+      							<tr class="warning text-center">	
+	      							<td width='8%'>
+	      								ID
+	      							</td>
+	      							<td>
+	      								Description
+	      							</td>
+	      							<td width='13%'>
+	      								Tariff
+	      							</td>
+	      							<td width='13%'>
+	      								Cash
+	      							</td>
+	      							<td width='13%'>
+	      								Discount
+	      							</td>
+	      							<td width='13%'>
+	      								Total
+	      							</td>
+      							</tr>
+      							<tr>
+      								<td>
+      									<input type="text" class="form-control" ng-model="selectedCharges.FeeRID" style="text-align: right" READONLY> 
+      								</td>
+      								<td>
+      									<input type="text" class="form-control" ng-model="selectedCharges.Description" style="text-align: right" READONLY> 
+      								</td>
+      								<td>
+      									<input type="text" class="form-control" ng-model="selectedCharges.Tariff" style="text-align: right" READONLY> 
+      								</td>
+      								<td>
+      									<input type="text" class="form-control" ng-model="selectedCharges.ChargeAmount" style="text-align: right"> 
+      								</td>
+      								<td>
+      									<input type="text" class="form-control" ng-model="selectedCharges.Discount" style="text-align: right"> 
+      								</td>
+      								<td class="text-right">
+      									
+      								</td>
+      							</tr>
+      							<tr>
+      								<td class="text-center" colspan="9">
+      									<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						        		<a class="btn btn-large btn-info" ng-click="addNew(ClinixOBJ.ClinixRID, ClinixOBJ.PxRID, selectedCharges)" style="text-decoration: none">
+											add new </a>
+									</td>
+      							</tr>
+      						</table>
+
+
+					    	
+							<div class="modal-footer">
+						       FOOTER
+						    </div>
+						</div>
+					</td>
+		</tr>
+		<tr>
 			<td class="text-center" nowrap>
 				<!-- textarea class="form-control" ng-model="Diagnosis" rows="5" placeholder="Diagnosis"></textarea -->
 				<textarea id="tinymce" ui-tinymce ng-model="Diagnosis.Diagnosis" class="form-control" rows="2" style="font-size:26px"></textarea>

@@ -4452,4 +4452,50 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
+
+
+	$scope.pull_ICD10 = function() {
+    	if (confirm(serverIP + ': Pull all ICD10, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ICD10'");
+            	tx.executeSql("delete from 'jdata_ICD10'");
+
+	        }); 
+
+	        $scope.pull_ICD101(function(){
+				$ipadrbg.context.saveChanges();
+    		});
+ 			// not used, see diagnosis sur schedule
+ 			// $scope.pull_StrucSchedSurgery();
+			alert("Importing ICD 10 Codes from Server was Successful!");
+    	}
+	}
+
+
+	$scope.pull_ICD101= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ICD10.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_ICD10 = new $ipadrbg.types.jdata_ICD10();
+			    	
+					jdata_ICD10.lkup_ICDRID = data[idx].lkup_ICDRID;
+					jdata_ICD10.icd_code = data[idx].icd_code;
+					jdata_ICD10.icd_description = data[idx].icd_description;
+						
+
+					$ipadrbg.context.jdata_ICD10.add(jdata_ICD10);
+				}
+			}
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
 }

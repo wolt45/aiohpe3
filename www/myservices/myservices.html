@@ -116,6 +116,8 @@
     <script src="..//common/models/model_xpe_sholder_8.js"></script>
     <script src="..//common/models/model_xpe_sholder_9.js"></script>
 
+    <script src="..//common/models/model_ICD10.js"></script>
+
     <script src="model_myservices.js"></script>
 
     <script src="app.js"></script>
@@ -157,12 +159,19 @@
           <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
           <td>
             <button class="btn-info btn-block btn-lg text-center" ng-click="puller_PEResults()">
-              DOWNLOAD <br> PE, Diagsnosis  
+              DOWNLOAD <br> PE (HIP & KNEE), Diagsnosis  
             </button>
           </td>
         </tr>
 
-
+        <tr>
+            <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
+            <td>
+              <button class="btn-success btn-block btn-lg text-center" ng-click="puller_OrdersReorts()">
+                DOWNLOAD <br> Orders and Reports (HIP & KNEE)
+              </button>
+            </td>
+        </tr>
 
         <tr>
           <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
@@ -217,27 +226,8 @@
           </td>
         </tr>
 
-        <tr>
-            <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
-            <td>
-              <button class="btn-success btn-block btn-lg text-center" ng-click="puller_OrdersReorts()">
-                DOWNLOAD <br> Orders and Reports  
-              </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
-            <td>
-              <button class="btn-info btn-block btn-lg text-center" ng-click="pullTranStatus()">
-                DOWNLOAD Latest <br> Appoinment Statuses
-              </button>
-            </td>
-        </tr> 
-
       </table>
     </div>
-
 
 
 
@@ -291,7 +281,7 @@
         <tr>
           <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
           <td>
-            <button class="btn-warning btn-block btn-lg text-center" ng-click="pullICD10()">
+            <button class="btn-warning btn-block btn-lg text-center" ng-click="pull_ICD10()">
               DOWNLOAD Latest <br>ICD 10 
             </button>
           </td>
@@ -300,12 +290,21 @@
         <tr>
           <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
           <td>
-            <button class="btn-info btn-block btn-lg text-center" ng-click="pullTariff()">
+            <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTariff()">
               DOWNLOAD Latest <br>PE Charges Tariff 
             </button>
           </td>
         </tr>
       
+        <tr>
+            <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
+            <td>
+              <button class="btn-warning btn-block btn-lg text-center" ng-click="pullTranStatus()">
+                DOWNLOAD Latest <br> Appoinment Statuses
+              </button>
+            </td>
+        </tr> 
+
       </table>
     </div>
 

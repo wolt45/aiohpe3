@@ -58,7 +58,6 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	
 	, zclinix: { type: $data.EntitySet, elementType: $ipadrbg.types.zclinix }
 
-
  	, jdata_SkelTrauma_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SkelTrauma_1 }
  	, jdata_SkelTrauma_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SkelTrauma_2 }
 	
@@ -102,6 +101,8 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_shoulder_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_7}
 	, jdata_shoulder_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_8}
 	, jdata_shoulder_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_9}
+
+	, jdata_ICD10: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ICD10}
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });
