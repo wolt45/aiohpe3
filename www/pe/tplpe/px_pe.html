@@ -1,0 +1,161 @@
+<ng:include src="'..//common/px_head.html'"></ng:include>
+
+<div class="btn-group">
+  
+  <a class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
+    Physical Exam
+    <span class="caret"></span>
+  </a>
+
+  <ul class="dropdown-menu">
+
+    <li>
+      <a href="#/peHIP/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        HIP PE 
+      </a>
+    </li>
+
+    <li>
+      <a href="#/peKNEE/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        KNEE PE 
+      </a>
+    </li>
+
+    <li>
+      <a href="#/peSPINE/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        SPINE
+      </a>
+    </li>
+
+    <li class="divider"></li>
+
+    <li>
+      <a href="#/peGenOrtho/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        GENERAL ORTHOPEDIC 
+      </a>
+    </li>
+
+    <li>
+      <a href="#/peSkelitalTrauma/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        SKELETAL TRAUMA
+      </a>
+    </li>
+ 
+    <li class="divider"></li>
+    
+    <li class="dropdown-header"><b>SPORTS</b></li>
+    <li>
+      <a href="#/peSPORTS_FootAnkle/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        FOOT and ANKLE
+      </a>
+    </li>
+    <li>
+      <a href="#/peSPORTS_Knee/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        KNEE Sports
+      </a>
+    </li>
+    <li>
+      <a href="#/peSPORTS_Shoulder/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        SHOULDER
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li>
+        <a href="#/oby-gyne/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+          OB-Gyne
+        </a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="btn-group">
+  <a class="btn btn-warning btn-large" href="#/diagnosis/{{clinix.ClinixRID}}"> 
+    Diagnosis 
+  </a> 
+</div>
+
+<div class="btn-group">
+  <a class="btn btn-success btn-large" href="#/billing/{{clinix.ClinixRID}}"> 
+    Billing 
+  </a> 
+</div>
+
+<div class="btn-group">
+	<a class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
+  	Orders amd Reports
+	</a>
+
+	<ul class="dropdown-menu">
+
+    <!--li>
+      <a tabindex="-1" href="#/structuredDischarge/{{clinix.ClinixRID}}">
+        Medical Report
+      </a>
+    </li -->
+
+    <li class="divider"></li>
+
+ 		<li>
+      <a href="#/preopHIP/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        (HIP) PRE-Operative Order 
+      </a>
+    </li>
+
+  	<li>
+      <a tabindex="-1" href="#/opHIP/{{clinix.ClinixRID}}">
+        (HIP) Operative Report
+      </a>
+    </li>
+
+  	<li>
+      <a class="btn-large" tabindex="-1" href="#/postopHIP/{{clinix.ClinixRID}}">
+        (HIP) POST-Operative Order
+      </a>
+    </li>
+
+    <li class="divider">KNEE</li>
+
+    <li>
+      <a href="#/preopKNEE/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        (KNEE) PRE-Operative Order 
+      </a>
+    </li>
+
+    <li>
+      <a tabindex="-1" href="#/opKNEE/{{clinix.ClinixRID}}">
+        (KNEE) Operative Report
+      </a>
+    </li>
+
+    <li>
+      <a class="btn-large" tabindex="-1" href="#/postopKNEE/{{clinix.ClinixRID}}">
+        (KNEE) POST-Operative Order
+      </a>
+    </li>
+
+  	<li class="divider"></li>
+
+  	<li>
+      <a tabindex="-1" href="#/structuredDischarge/{{clinix.ClinixRID}}">
+        Structured Discharge Summary
+      </a>
+    </li>
+	</ul>
+</div>
+
+<!--div class="btn-group"> 
+  <a href="#/history/{{clinix.ClinixRID}}" class="btn btn-info btn-large"> 
+    HISTORY 
+  </a> 
+</div-->
+
+<div class="btn-group">
+  <a class="btn btn-primary btn-large" href="#/"> 
+    TODAY's PE List 
+  </a> 
+</div>
+
+<div class="btn-group"> 
+  <ng:include src="'..//common/main.button.link.html'"></ng:include> 
+</div>

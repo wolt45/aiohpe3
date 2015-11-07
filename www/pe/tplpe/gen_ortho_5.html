@@ -1,0 +1,62 @@
+	<div ng-controller="gen_orth5_Ctrl">		
+		<table class="table table-bordered">
+						<tr class="warning">
+							<td colspan="6" id="DGL_module_header">	Laboratory Examination
+						</td>
+						<tr>
+							<td width='15%' class='active'>A. X-Rays</td>
+							<td class='active' width='1%' nowrap>Date</td>
+							<td width='1%'><input type="date" ng-model="genortho5.XrayDate" class="form-control"></td>
+							<td width='1%' class='active' nowrap>Report</td>
+							<td width='35%'><textarea rows="3" ng-model="genortho5.XrayReport" placeholder="Result" class = "form-control" ></textarea></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class='active'>B. MRI</td>
+							<td class='active'>Date</td>
+							<td><input type="date" class="form-control" ng-model="genortho5.MRIDate" ></td>
+							<td  class='active'>Report</td>
+							<td><textarea rows="3" ng-model="genortho5.MRIReport" class = "form-control" placeholder="Result" ></textarea></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class='active'>C. CT-SCAN</td>
+							<td class='active'>Date</td>
+							<td><input type="date" class="form-control" ng-model="genortho5.CTSCANDate" ></td>
+							<td class='active'>Report</td>
+							<td><textarea rows="3" ng-model="genortho5.CTSCANReport" class = "form-control" placeholder="Result" ></textarea></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class='active'>D. Blood Exams</td>
+							<td colspan="2">
+								<input type="radio" ng-model="genortho5.BloodExams" value="CBC"> CBC 
+								<input type="radio" ng-model="genortho5.BloodExams" value="ESR"> ESR
+								<input type="radio" ng-model="genortho5.BloodExams" value="CRP"> CRP
+							</td>
+							<td class="active">Where</td>
+							<td><input type="text" class="form-control" ng-model="genortho5.BloodExamsWhere" placeholder="Where" ></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class='active'>&nbsp;</td>
+							<td class='active'>Reports</td>
+							<td colspan="3"><Textarea rows="3" ng-model="genortho5.BloodReports" class = "form-control" placeholder="Reports" ></textarea></td>
+						</tr>
+					<tr>	
+						<td class="text-center" colspan="9" nowrap>
+							<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+										 	ng-click="addNew_genortho5(genortho5)">
+							 	SAVE
+							</a>
+							<a class="btn btn-large btn-danger" style="text-decoration: none"
+						            		ng-click="removegenortho5(genortho5)">
+						        DELETE
+						    </a>
+						</td>
+					</tr>
+			</table>
+		</div>

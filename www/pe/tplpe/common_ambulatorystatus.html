@@ -1,0 +1,104 @@
+<div ng-controller="AmbulatoryStatusCtrl">
+	<table class="table table-condensed table-bordered">
+
+		<tr class="warning">
+			<th colspan="5">
+				<span id="DGL_module_header">
+				Ambulatory Status
+				</span>
+			</th>
+		</tr>
+
+		<tr>
+			<td width="1%" class="text-right" nowrap>
+				Physical Condition
+			</td>
+			<td width="1%" nowrap>
+				<input type="radio" ng-model="ambulate.PhysicalCondition" value="Normal"> Normal
+			</td>
+			<td width="1%">
+				<input type="radio" ng-model="ambulate.PhysicalCondition" value="Limping"> Limping
+			</td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td class="text-right" nowrap>Ambulatory aid</td>
+			<td nowrap>
+				    <input type="radio" ng-model="ambulate.AmbulatoryAid" value="None"> None
+				<br><input type="radio" ng-model="ambulate.AmbulatoryAid" value="Cane"> Cane
+				<br><input type="radio" ng-model="ambulate.AmbulatoryAid" value="Walker"> Walker
+			</td>
+			<td nowrap>
+				    <input type="radio" ng-model="ambulate.AmbulatoryAid" value="Crutches"> Crutches
+				<br><input type="radio" ng-model="ambulate.AmbulatoryAid" value="Wheelchair"> Wheelchair
+				<br><input type="radio" ng-model="ambulate.AmbulatoryAid" value="Stretcher"> Stretcher
+			</td>
+
+		</tr>
+
+		<tr>
+			<td></td>
+			<td>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					ng-click="addNew_AmbuStatus(ambulate)">
+					SAVE
+				</a>
+			</td>
+			
+			<td>	
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            	 	ng-click="removeAmbuStatus(ambulate)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+			
+		<!--tr>
+			<td class="text-right">Able to </td>
+			< td colspan="2" nowrap>
+				    <input type="radio" ng-model="ambulate.AmbuAbleTo" value="get in/out of exam table BY SELF"> get in/out of exam table BY SELF 
+				<br><input type="radio" ng-model="ambulate.AmbuAbleTo" value="get in/out of exam table WITH ASSIST"> get in/out of exam table WITH ASSIST
+			</td>
+		</tr -->
+		<!-- tr>
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					ng-click="addNew_AmbuStatus(ambulate)">
+					save
+				</a>
+			</td>
+		</tr -->
+	</table>
+
+	<!-- table class="table table-condensed table-bordered">
+		<tr class="info">
+			<th width="1%" class="text-center" style="color:#888" nowrap></th>  <!-- OnsetAccuteGradual -->
+        	<!--th width="1%" class="text-center" style="color:#888" nowrap>Condition</th>
+        	<th width="1%" class="text-center" style="color:#888" nowwrap>Ambulatory Aid</th>
+            <th width="1%" class="text-center" style="color:#888" nowrwap>Able To</th>
+            <th width="1%"> </th>
+            <th width="1%"> </th>
+            <th width=> </th>
+		</tr>
+
+		<tr class="info" ng-repeat="ambState in clinix_AmbuStatus">
+        	<td style="color:black" nowrap></td> 
+        	<td style="color:black" nowrap>{{ambState.PhysicalCondition}}</td>
+        	<td style="color:black" nowrap>{{ambState.AmbulatoryAid}}</td>
+            <td style="color:black">{{ambState.AbleTo}}</td>
+            <td>
+            	<!-- a class="btn btn-large btn-danger" ng-click="removeAmbuStatus(ambState)" style="text-decoration: none">
+            		DELETE
+            	</a -->
+            	<!-- href="#/peKNEE/{{ambState.ClinixRID}}" -->
+        	<!--/td>
+            <td>
+            	<!-- a class="btn btn-large btn-warning" href="#/{{ambState.ChiefRID}}/edit" ng-click="editChiefComp(ambState)" style="text-decoration: none">
+            		EDIT
+            	</a -->
+        	<!-- /td>
+        	<td></td>
+        </tr>
+	</table -->	
+</div>

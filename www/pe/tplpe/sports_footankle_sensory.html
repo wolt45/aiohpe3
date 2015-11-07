@@ -1,0 +1,377 @@
+<div ng-controller="footAnkle_4_Ctrl">
+	
+	<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="3" class="text-center">
+					<input type="radio" ng-model="FootAnkle4.FootAnkle" value="FOOT" > FOOT
+					<input type="radio" ng-model="FootAnkle4.FootAnkle" value="ANKLE" > ANKLE
+				</td>
+
+				<td colspan="3">
+					<input type="radio" ng-model="FootAnkle4.LeftRight" value="LEFT" > LEFT
+					<input type="radio" ng-model="FootAnkle4.LeftRight" value="RIGHT" > RIGHT
+				</td>
+			</tr>
+			<tr>
+				<td class="text-center active">Inspection</td>
+				<td class="text-center active" width='1%'>(-)</td>
+				<td class="text-center active" width='1%'>(+)</td>
+				<td colspan="3" class=" active">Details (Size, Location, Description)</td>
+			</tr>
+			<tr>
+				<td class="active" width='1%' nowrap>
+					Deformity
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Deformity" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Deformity" value="1" >
+				</td>
+				<td  class='form-inline'>
+					<input type="text" ng-model="FootAnkle4.DeforDetails" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Erythema
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Erythema" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Erythema" value="1" >
+				</td>
+				<td  class='form-inline'>
+					<input type="text" ng-model="FootAnkle4.ErythemaDetails" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Open Wound
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.OpenWound" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.OpenWound" value="1" >
+				</td>
+				<td  class='form-inline'>
+					<input type="text" ng-model="FootAnkle4.OpenWoundDetails" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Swelling
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Swelling" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Swelling" value="1" >
+				</td>
+				<td  class='form-inline'>
+					<input type="text" class="form-control" ng-model="FootAnkle4.SwellingDetails" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Hematoma
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Hematoma" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Hematoma" value="1" >
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="FootAnkle4.HematomaDetails" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Muscle atropy
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.MuscleAtrophy" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.MuscleAtrophy" value="1" >
+				</td>
+				<td  class='form-inline'>
+					<input type="text"  ng-model="FootAnkle4.MuscleAtrophyDetails" class="form-control" value="" >
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Mass
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Mass" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Mass" value="1" >
+				</td>
+				<td>
+					<input type="checkbox" ng-model="FootAnkle4.MassTender" ng-true-value="1" ng-false-value="0"> tender
+					<br>
+					<input type="checkbox" ng-model="FootAnkle4.MassNontender" ng-true-value="1" ng-false-value="0"> nontender
+					<br>
+					<input type="checkbox" ng-model="FootAnkle4.MassMoveable" ng-true-value="1" ng-false-value="0"> moveable
+					<br>
+					<input type="checkbox" ng-model="FootAnkle4.MassFixed" ng-true-value="1" ng-false-value="0"> fixed
+				</td>
+				<td>
+					<input type="checkbox" ng-model="FootAnkle4.MassRegular" ng-true-value="1" ng-false-value="0"> regular
+					<br>
+					<input type="checkbox" ng-model="FootAnkle4.MassIrregular" ng-true-value="1" ng-false-value="0"> irregular
+					<br>
+					<input type="checkbox" ng-model="FootAnkle4.Masslymphadenopathy" ng-true-value="1" ng-false-value="0"> lymphadenopathy
+				</td>
+			</tr>
+			<tr>
+				<td class='active'>
+				</td>
+				<td colspan='2'>
+					Size: 
+				</td>
+				<td width='20%'>
+					<input type="text" ng-model="FootAnkle4.MassSize" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class='active'>
+				</td>
+				<td colspan='2'>
+					Location: 
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle4.MassLocation" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class='active'>
+				</td>
+				<td colspan='2'>
+					Consistency:
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle4.MassConsistency" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Arch
+				</td>
+				<td colspan="2">
+					<input type="radio" ng-model="FootAnkle4.Arch" value="Normal" >  Normal
+				<td>
+					<input type="radio" ng-model="FootAnkle4.Arch" value="Flatfoot" >  Flatfoot
+					<br>
+					<input type="radio" ng-model="FootAnkle4.Arch" value="Rigid" >  Rigid
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle4.Arch" value="Flexible" >  Flexible
+					<br>
+					<input type="radio" ng-model="FootAnkle4.Arch" value="Cavus" >  Cavus
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Deformities
+				</td>
+				<td colspan="2" nowrap>
+					<input type="radio" ng-model="FootAnkle4.Deformities" value="Equino Varus" >  Equino Varus
+					<br>
+					<input type="radio" ng-model="FootAnkle4.Deformities" value="Bunion" >  Bunion
+				</td>
+				<td>
+					<input type="radio" ng-model="FootAnkle4.Deformities" value="Claw Toe" >  Claw Toe
+					<br>
+					<input type="radio" ng-model="FootAnkle4.Deformities" value="Hammer Toe" >  Hammer Toe
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+					Palpitation
+				</td>
+				<td colspan='2'>
+					<input type="radio" ng-model="FootAnkle4.Palpitation" value="Normal" >  Normal
+					<br>
+					<input type="radio" ng-model="FootAnkle4.Palpitation" value="Tenderness" >  Tenderness 
+				</td>
+				<td colspan="3">
+					<input type="radio" ng-model="FootAnkle4.Palpitation" value="Muscle Spasm" >  Muscle Spasm
+				</td>
+			</tr>
+		</table>
+		<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="7" class="warning" id="DGL_module_header">
+					Sensory
+				</td>
+			</tr>
+			<tr>
+				<td width='1%' nowrap>
+					<input type="checkbox" ng-model="FootAnkle4.SensoryNormal" ng-true-value="Normal" >  Normal					 
+				</td>
+				<td class='active text-center' width='1%'>
+					Abnormal
+				</td>
+				<td class="text-center active" width='1%'>
+					Normal
+				</td>
+				<td class="text-center active" width='1%' nowrap>
+					Hypoaesthesia
+				</td>
+				<td class="text-center active" width='1%' nowrap>
+					Hyperaesthesia
+				</td>
+				<td class="text-center active" width='1%'>
+					Paresthesia
+				</td>
+				<td class='active'>
+				</td>
+			</tr>
+			<tr>
+				<td class="active"></td>
+				<td class="text-center active">
+					L4
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.L4" value="Normal" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.L4" value="Hypoaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.L4" value="Hyperaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.L4" value="Paresthesia" ng-false-value="">
+				</td>
+			</tr>
+				<td class="active">
+				</td>
+				<td class="text-center active">
+					L5
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.L5" value="Normal" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.L5" value="Hypoaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.L5" value="Hyperaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.L5" value="Paresthesia" ng-false-value="">
+				</td>
+			</tr>
+			<tr>
+				<td class="active">
+				</td>
+				<td class="text-center active">
+					S1
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.S1" value="Normal" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.S1" value="Hypoaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.S1" value="Hyperaesthesia" ng-false-value="">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.S1" value="Paresthesia" ng-false-value="">
+				</td>
+			</tr>
+			
+		</table>
+		<table class="table table-condensed table-bordered">
+				<td class="active" width='1%' nowrap>
+					Nerve deficit
+				</td>
+				<td class="text-center active" width='1%' nowrap>
+					(-)
+				</td>
+				<td class="text-center active" width='1%' nowrap>
+					(+)
+				</td>
+				<td colspan="4" class="active text-center" >
+					Details (Location, Description)
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Lateral plantar nerve
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Lateralplantarnerve" value="0">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Lateralplantarnerve" value="1">
+				</td>
+				<td width='40%'>
+					<input type="text" ng-model="FootAnkle4.LateralplantarnerveDetails" class="form-control">
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Medial plantar nerve
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Medialplantarnerve" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Medialplantarnerve" value="1" >
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle4.MedialplantarnerveDetails" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Peroneal nerve
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Peronealnerve" value="0" >
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Peronealnerve" value="1" >
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle4.PeronealnerveDetails" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="active" nowrap>
+					Tibial nerve
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Tibialnerve" value="0">
+				</td>
+				<td class="text-center">
+					<input type="radio" ng-model="FootAnkle4.Tibialnerve" value="1">
+				</td>
+				<td>
+					<input type="text" ng-model="FootAnkle4.TibialnerveDetails" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center active">
+				<a class="btn btn-large btn-info" ng-click="addNew_FootAnkle4(FootAnkle4)" style="text-decoration: none; color: #000">
+					SAVE
+				</a>
+
+				<a class="btn btn-large btn-danger" ng-click="removeFootAnkle4(FootAnkle4)" style="text-decoration: none; color: #000">
+					DELETE
+				</a>
+				</td>
+			</tr>
+		</table>
+	</div>

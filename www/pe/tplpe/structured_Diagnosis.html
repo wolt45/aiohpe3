@@ -1,0 +1,22 @@
+<div ng-controller="DiagnosisCtrl">
+	<div scroll-bookmark="StructuredDiagnosis">
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td width="1%" colspan="9" nowrap>
+					<span id="DGL_module_header">
+			    		Diagnosis
+			    	</span>
+			    </td>
+			</tr>
+
+			<tr class="active" ng-repeat="preOpDiag in clinix_Diagnosis">
+	        	<td>
+	        		<span style="font-size: 26px;">
+	        			{{preOpDiag.Diagnosis}}
+	        		</span>
+	        	</td>
+	        </tr>
+	    </table>
+	</div>
+</div>

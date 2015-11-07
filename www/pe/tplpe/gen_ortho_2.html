@@ -1,0 +1,184 @@
+		<div ng-controller="gen_orth2_Ctrl">	
+			<table class="table table-bordered" style='margin-buttom:0px;'>
+						<tr class="warning">
+							
+							<td colspan="6" id="DGL_module_header">	Appropriate X-Rays ordered</td>
+						</tr>
+						<tr >
+							<td class="active" width='5%' nowrap rowspan="3">
+								Hip
+							</td>
+							
+							<td>
+								<input type="radio" ng-model="genortho2.Hip" value="AP PELVIS TO INCLUDE THE HIP" > AP PELVIS TO INCLUDE THE HIP
+							</td>	
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" ng-model="genortho2.Hip" value="AP RIGHT/LEFT HIP FLEXION" > AP RIGHT/LEFT HIP FLEXION
+							</td>	
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" ng-model="genortho2.Hip" value="FROG LEG OR CROSSTABLE VIEW" > FROG LEG OR CROSSTABLE VIEW
+							</td>
+						</tr>
+						<tr >
+							<td class="active" rowspan="6">
+								Knee
+							</td>
+							<td>
+								<input type="radio" ng-model="genortho2.Knee" value="AP Standing at 0 and 20 Degrees flexion"  checked> AP Standing at 0 and 20 Degrees flexion
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" ng-model="genortho2.Knee" value="Lateral at 30 degrees flexion" > Lateral at 30 degrees flexion
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" ng-model="genortho2.Knee" value="Patellar Views(LAURIN VIEW)" > Patellar Views(LAURIN VIEW)
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" ng-model="genortho2.Knee" value="AP PELVIS TO INCLUDE HIP" > AP PELVIS TO INCLUDE HIP
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" ng-model="genortho2.Knee" value="AP STANDING BOTH KNEES 0 DEGREE AND 20 " > AP STANDING BOTH KNEES 0 DEGREE AND 20 DEGREES FLEXION
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" ng-model="genortho2.Knee" value="LATERAL XRAY AT 30 DEGREES FLEXION" > LATERAL XRAY AT 30 DEGREES FLEXION
+							</td>
+						</tr>
+						
+					</table>
+					<table class="table">
+						<tr class="active">
+							<td></td>
+							<td class="text-center">LEFT</td>
+							<td class="text-center">RIGHT</td>
+							<td>
+						</tr>
+						<tr>
+							<td width="1%" class="active">
+								Hand
+							</td>
+							<td class="text-center" width="1%">
+								<input type="checkbox" ng-model="genortho2.LeftHand" ng-true-value="Left" >
+							</td>
+							<td class="text-center" width="1%">
+								<input type="checkbox" ng-model="genortho2.RightHand" ng-true-value="Right" >
+							</td>
+							<td></td>
+						</tr>
+						
+						<tr>
+							<td class="active">
+								Shoulder
+							</td>
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.ShoulLeft" ng-true-value="Left" >
+							</td>
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.ShoulRight" ng-true-value="Right" >
+							</td>		
+							<td></td>							
+						</tr>
+						<tr>
+							<td class="active">
+								Elbows
+							</td>
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.ElbowLeft" ng-true-value="Left" >
+							</td>
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.ElbowRight" ng-true-value="Right" >
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="active">
+								Ankle 
+							</td>
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.AnkleLeft" ng-true-value="Left" >
+							</td class="text-center">
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.AnkleRight" ng-true-value="Right" >
+							</td>
+							<td></td>
+						</tr>
+						<TR>
+							<td class="active">
+								Wrist 
+							</td>
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.WristLeft" ng-true-value="Left" >
+							</td>
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.WristRight" ng-true-value="Right" >
+							</td>
+							<td></td>
+						</TR>
+						<tr>
+							<td class="active">
+								Foot 
+							</td>
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.FootLeft" ng-true-value="Left" >
+							</td>
+							<td class="text-center">
+								<input type="checkbox" ng-model="genortho2.FootRight" ng-true-value="Right" >
+							</td>
+							<td></td>
+						</tr>
+						<TR>
+							<td class="active" colspan="4">&nbsp;</td>
+						</TR>
+						<tr>
+							<td nowrap>
+								<input type="checkbox" ng-model="genortho2.Spine" ng-true-value="Spine" > Spine
+							</td>
+							<td colspan="2" nowrap>
+								<input type="checkbox" ng-model="genortho2.Pelvis" ng-true-value="Pelvis" > Pelvis
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td nowrap>
+								<input type="checkbox" ng-model="genortho2.Humerus" ng-true-value="Humerus" > Humerus
+							</td>
+							<td colspan="2" nowrap>
+								<input type="checkbox" ng-model="genortho2.RadiusUlna" ng-true-value="Radius-Ulna" > Radius-Ulna
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td nowrap>
+								<input type="checkbox" ng-model="genortho2.Tibia" ng-true-value="Tibia" > Tibia
+							</td>
+							<td colspan="2" nowrap>
+								<input type="checkbox" ng-model="genortho2.Ferum" ng-true-value="Ferum" > Ferum
+							</td>
+							<td></td>
+						</tr>
+						<tr>	
+						<td class="text-center" colspan="9" nowrap>
+							<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+							 	ng-click="addNew_genortho2(genortho2)">
+							 	SAVE
+							</a>
+							<a class="btn btn-large btn-danger" style="text-decoration: none"
+			            		ng-click="removegenortho2(genortho2)">
+			            		DELETE
+			            	</a>
+						</td>
+					</tr>
+					</table>
+				</div>

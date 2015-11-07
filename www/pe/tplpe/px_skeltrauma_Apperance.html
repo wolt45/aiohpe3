@@ -1,0 +1,107 @@
+<div ng-controller="SkelTrauma_1_Ctrl">
+
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+				<td width="1%" colspan="9" nowrap>
+					<span id="DGL_module_header">
+			    		&nbsp;
+			    	</span>
+			    </td>
+			</tr>
+		<tr>
+			<td class="active" width="15%">Appearance</td>
+			<td>
+				<input type="radio" name="SkelTrauma1_AppearanceNormal" ng-model="SkelTrauma1.AppearanceNormal" value="0"> Normal
+			</td>
+			<td class="form-inline">
+				<input type="radio" name="SkelTrauma1_AppearanceNormal" ng-model="SkelTrauma1.AppearanceNormal" value="1"> Deformity <input type="text" ng-model="SkelTrauma1.Deformity" class="form-control">
+			</td>
+		</tr>
+
+		<tr>
+			<td class="active">Skin</td>
+			<td>
+				<input type="radio" name="SkelTrauma1_Skin" ng-model="SkelTrauma1.Skin" value="Closed" checked> Closed
+			</td>
+			<td>
+				Open:
+				<input type="radio" name="SkelTrauma1_Skin" ng-model="SkelTrauma1.Skin" value="G1"> G1
+				&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="SkelTrauma1_Skin" ng-model="SkelTrauma1.Skin" value="G2"> G2
+				&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="SkelTrauma1_Skin" ng-model="SkelTrauma1.Skin" value="G3"> G3
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+				Pain
+			</td>
+			<td class="text-right">
+				Active Motion:
+			</td>
+			
+			<td class="text-left" colspan="2" nowrap> 
+				<input type="radio" ng-model="SkelTrauma1.PainActiveMotion" value="NORMAL" > Normal
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainActiveMotion" ng-model="SkelTrauma1.PainActiveMotion" value="MILD" > Mild
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainActiveMotion" ng-model="SkelTrauma1.PainActiveMotion" value="MODERATE" > Moderate
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainActiveMotion" ng-model="SkelTrauma1.PainActiveMotion" value="SEVERE" > Severe
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+			
+			</td>
+			<td class="text-right">
+				Passive Motion:
+			</td>
+			
+			<td class="text-left" colspan="2" nowrap> 
+				<input type="radio" ng-model="SkelTrauma1.PainPassiveMotion" value="NORMAL" > Normal
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainPassiveMotion" ng-model="SkelTrauma1.PainPassiveMotion" value="MILD" > Mild
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainPassiveMotion" ng-model="SkelTrauma1.PainPassiveMotion" value="MODERATE" > Moderate
+				&nbsp;&nbsp;&nbsp;<input type="radio" name="SkelTrauma1_PainPassiveMotion" ng-model="SkelTrauma1.PainPassiveMotion" value="SEVERE" > Severe
+			</td>
+			
+		</tr>
+		<tr>
+			<td class="active">
+				Neurologic Status
+			</td>
+			<td>
+				<input type="radio" name="SkelTrauma1_NeurologicStatus" ng-model="SkelTrauma1.NeurologicStatus" value="Normal" checked> Normal
+			</td>
+			<td colspan="4">
+				<input type="radio" name="SkelTrauma1_NeurologicStatus" ng-model="SkelTrauma1.NeurologicStatus" value="Poor"> Poor
+			</td>
+		</tr>
+		<tr>
+			<td class="active">Vascular Status</td>
+			<td>
+				<input type="radio" name="SkelTrauma1_VascularStatus" ng-model="SkelTrauma1.VascularStatus" value="Normal" checked> Normal
+			</td>
+			<td>
+				<input type="radio" name="SkelTrauma1_VascularStatus" ng-model="SkelTrauma1.VascularStatus" value="Poor"> Poor
+			</td>
+		</tr>
+		
+	</table>
+
+	<table class="table table-condensed table-bordered">
+		<tr>
+			<td colspan="9" nowrap>
+				Describe in details if Neurologic and Vascular are Poor
+				<br>
+				<textarea id="tinymce" ui-tinymce ng-model="SkelTrauma1.NeurologicVascularDes" class="form-control" rows="5"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-center" width="10%" nowrap>
+				<a class="btn btn-large btn-info" ng-click="addNew_SkelTrauma1(SkelTrauma1)" style="text-decoration: none; color: #000">SAVE</a>
+
+            	<a class="btn btn-large btn-danger" ng-click="removeSkelTrauma1(SkelTrauma1)" style="text-decoration: none">
+            		DELETE
+            	</a>
+        	</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,59 @@
+<div ng-controller="PXDetailCtrl">
+	<div class="panel panel-danger">
+		<table class="table table-bordered table-condensed">
+			<tr class="success">
+				<td rowspan=3 width="1%">
+					<img ng-src="http://10.0.1.99/rbgreg/dump_px/{{clinix.pxFoto}}" width="120" class="img-circle">
+				</td>
+				<!-- td rowspan=3 width="1%">&nbsp;</td -->
+			</tr>
+			<tr class="success">
+
+				<td class="text-center" width="1%" style="color: #000" nowrap>
+					Chart #: <span style="font-weight: bold; font-size: 24px"> {{clinix.PxRID}} </span>
+					<br>{{clinix.pxregdate | date}}
+				</td>
+
+				<th class="text-center" width="25%" style="color: #000">{{clinix.pxname}}</th>
+				
+				<td class="text-center" width="1%" style="color: #000" nowrap>Clinic Visit #: 
+					<span style="font-weight: bold; font-size: 24px"> {{clinix.ClinixRID}} </span>
+					<br>
+					{{clinix.AppDateSet | date}}
+					<br>
+					<span style="font-weight: bold; font-size: 24px"> 
+						<span style="color:{{clinix.preForeColor}}; background-color:{{clinix.preBackColor}}">
+							&nbsp; {{clinix.TranStatusDisp}} &nbsp;
+						</span>
+					</span>
+				</td>
+
+				<td width="1%" style="color: #000" nowrap>Hospital Chart # 
+					<span style="font-weight: bold; font-size: 24px"> {{clinix.HospitalRID}}</span>
+					<br> {{clinix.Hospital}}</td>
+
+				<td class="text-right" style="color: #000">
+					0.00
+				</td>
+			</tr>
+			<tr class="success" style="color: #000">
+				<td colspan=9 nowrap>
+					{{clinix.pxstatus}}, 
+					{{clinix.pxAddress}}
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<!-- 
+Chart
+RegDate
+pxname
+address
+DOB /age /sex /marital /status
+race
+contact number
+occupation
+insurance
+-->

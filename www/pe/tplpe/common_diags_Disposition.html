@@ -1,0 +1,75 @@
+<div ng-controller="DiagsDispositionCtrl">	
+
+	<div scroll-bookmark="CommDiagsDISPO">
+		<table class="table table-condensed">
+			<tr class="warning">
+				<td class="text-left" colspan="9">
+					<span id="DGL_module_header">
+			    		&nbsp;
+			    	</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="25%" nowrap>
+					<input type="checkbox" ng-model="Diagnosis.DispoCardioClearance" 
+			            ng-true-value="1"
+			            ng-false-value="0"> Advised Patient for Cardio Clearance.
+
+					<br>
+					<input type="checkbox" ng-model="Diagnosis.DispoHome" 
+			            ng-true-value="1"
+			            ng-false-value="0"> Patient sent home with medication. 
+
+					<br>
+					<input type="checkbox" ng-model="Diagnosis.DispoHospital" 
+			            ng-true-value="1"
+			            ng-false-value="0"> Hospital
+
+					<br>
+					<input type="checkbox" ng-model="Diagnosis.DispoAccompanying" 
+			            ng-true-value="1"
+			            ng-false-value="0"> Accompanying Person if any.
+				</td>
+				
+				<td width="1%" class="text-center" nowrap>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+						ng-click="addNew(Diagnosis)">
+					 	SAVE
+					</a>
+				</td>
+
+				<td></td>
+			</tr>
+
+			<!-- D I S P L A Y -->
+
+			<tr ng-repeat="disposition in clinix_DiagsDisposition">
+	        	<td style="color:black" nowrap> 
+
+	        		<table class="table table-condensed">
+	        			<tr class="info">
+			        		<td style="color: black" nowrap> {{(disposition.DispoCardioClearance == "1")? "Advised Patient for Cardio Clearance." : ""}} </td>
+			        		<td style="color: black" class="text-center"> {{(disposition.DispoCardioClearance == "1")? "YES" : ""}} </td>
+			        	</tr>
+		        		<tr class="info">
+			        		<td style="color: black" nowrap> {{(disposition.DispoHome == "1")? "Patient sent home with medication." : ""}}</td>
+			        		<td style="color: black" class="text-center"> {{(disposition.DispoHome == "1")? "YES" : ""}}</td>
+			        	</tr>
+		        		<tr class="info">
+			        		<td style="color: black" nowrap>{{(disposition.DispoHospital == "1")? "Hospital" : ""}}</td>
+			        		<td style="color: black" class="text-center">{{(disposition.DispoHospital == "1")? "YES" : ""}}</td>
+			        	</tr>
+		        		<tr class="info">
+			        		<td style="color: black" nowrap>{{(disposition.DispoAccompanying == "1")? "Accompanying Person if any." : ""}}</td>
+			        		<td style="color: black" class="text-center">{{(disposition.DispoAccompanying == "1")? "YES" : ""}}</td>
+			        	</tr>
+		        	</table>
+
+	        	</td>
+	        </tr>
+
+		</table>
+	</div>
+
+</div>

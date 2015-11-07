@@ -1,0 +1,194 @@
+<script>
+	// 10.0.1.99
+    $(document).ready(function()
+    {
+        $("#hideshowPEKneeXRays").show(); 
+
+        $("#showPEKneeXRays").click(function() 
+        {
+            $("#hideshowPEKneeXRays").toggle(200);
+        });
+    });
+</script> 
+
+<div ng-controller="KneeXRaysCtrl">
+	<div scroll-bookmark="XRAY_FINDINGS"> 
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td width="1%" colspan="9" nowrap>
+					<span id="DGL_module_header">
+			    		Knee Radiographic Findings
+			    	</span>
+			    </td>
+			</tr>
+
+			<tr>
+				<td class= "text-center">XRay Date</td>
+				<td>
+					{{KneeXRayForm.APDate | date}}
+					<input type="date" ng-model="KneeXRayForm.APDate" class="form-control">
+				</td>
+				
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					 	scroll-to-bookmark="XRAYBOX">
+
+						VIEW X-RAY BOX
+
+					</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-left">Normal</td>
+				<td nowrap>
+					<input type="radio" value="1" ng-model="KneeXRayForm.Normal"> Yes &nbsp;&nbsp;
+					<input type="radio" value="0" ng-model="KneeXRayForm.Normal"> No
+				</td>
+				<td></td>
+			</tr>
+
+			<tr class="active">
+				<td colspan="9">&nbsp;</td>
+			</tr>
+
+			<tr>
+				<td nowrap>Varus Deformity</td>
+				<td class="text-left" nowrap>
+					<input type="text" class="form-control" ng-model="KneeXRayForm.VarusDegrees" placeholder="degrees" >
+				</td>
+				<td> &nbsp;
+					<!-- input type="text" class="form-control" ng-model="KneeXRayForm.VarusMedial" placeholder="(none)" -->
+				</td>
+				<td> &nbsp; </td>
+			</tr>
+
+			<tr>
+				<td class="text-right" nowrap>
+					Joint Space Varus (R)
+				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusR" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusR" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusR" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusR" value="SEVERE" > Severe
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-right" nowrap>
+					Joint Space Varus (L)
+				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusL" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusL" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusL" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceVarusL" value="SEVERE" > Severe
+				</td>
+			</tr>
+
+
+
+			<tr>
+				<td nowrap>Valgus Deformity</td>
+				<td class="text-left" nowrap>
+					<input type="text" class="form-control" ng-model="KneeXRayForm.ValgusDegrees" placeholder="degrees" >
+				</td>
+				<td> &nbsp;
+					<!-- input type="text" class="form-control" ng-model="KneeXRayForm.ValgusMedial" placeholder="(none)" -->
+				</td>
+				<td> &nbsp; </td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td class="text-right" nowrap>
+					Joint Space Valgus (R)
+				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusR" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusR" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusR" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusR" value="SEVERE" > Severe
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-right" nowrap>
+					Joint Space Valgus (L)
+				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusL" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusL" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusL" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.JointSpaceValgusL" value="SEVERE" > Severe
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-right" nowrap>
+					Bilateral Joint Space - Involvement
+				</td>
+				<td class="text-left" colspan="3" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.BilateralJointSpace" value="NORMAL" > Normal
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.BilateralJointSpace" value="MILD" > Mild
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.BilateralJointSpace" value="MODERATE" > Moderate
+					&nbsp;&nbsp;&nbsp;<input type="radio" ng-model="KneeXRayForm.BilateralJointSpace" value="SEVERE" > Severe
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-center" nowrap>Laurin - Patella Views <br>(arthritic)</td>
+				<td>
+					<input type="radio" value="RIGHT" ng-model="KneeXRayForm.LaurinPatel_LR"> Right <br>
+					<input type="radio" value="LEFT"  ng-model="KneeXRayForm.LaurinPatel_LR"> Left
+				</td>
+				<td class="text-left" nowrap>	
+					<input type="radio" ng-model="KneeXRayForm.LaurinPatel_LRSeverity" value="NORMAL" > Normal
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatel_LRSeverity" value="MILD" > Mild
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatel_LRSeverity" value="MODERATE" > Moderate
+					<br><input type="radio" ng-model="KneeXRayForm.LaurinPatel_LRSeverity" value="SEVERE" > Severe
+				</td>
+
+				<td></td>
+			</tr>
+			<tr>
+				<td class="text-center" colspan="2">
+					<a class="btn btn-large btn-info" ng-click="addNew_XRays(KneeXRayForm)" 
+						style="text-decoration: none; color: #000">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none" 
+						ng-click="removeKneeXRays(xrayRow)">
+	            		DELETE
+	            	</a>
+				</td>
+
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					 	scroll-to-bookmark="XRAYBOX">
+						VIEW X-RAY BOX
+					</a>
+				</td>
+			</tr>
+
+            <!-- tr class="info">
+				<td class="text-left" colspan="9" nowrap>
+                	<input type="submit" id="showPEKneeXRays" class="btn btn-danger" value="GROSS PICTURES">
+                	<div id="hideshowPEKneeXRays">
+	                	<div ng-repeat="lab_results in PEKNEExrays" style="padding: 0 20px 0 20px">
+							<br><br>
+                			LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+        					<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+        					<br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
+        					<br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+        					<br>
+							<img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" height="450" class="img-rounded"> 
+	                	</div>
+                	</div>
+				</td>
+            </tr -->
+
+		</table>
+	</div>
+</div>

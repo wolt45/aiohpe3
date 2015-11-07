@@ -1,0 +1,50 @@
+<div ng-controller="DiagsSchedSurgCtrl">
+		
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+				<td class="text-left" colspan="9">
+					<span id="DGL_module_header">
+			    		Schedule for Surgery
+			    	</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="1%">Type &nbsp;&nbsp;&nbsp; </td>
+				<td class="active" width="25%">
+					{{schedSurgeGrp.SurgeryType}}
+				</td>
+				<td width="1%">When &nbsp;&nbsp;&nbsp; </td>
+				<td class="active" width="25%">
+					{{schedSurgeGrp.SurgeryDate | date}}
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>Surgeon &nbsp;&nbsp;&nbsp; </td>
+				<td class="active">{{ schedSurgeGrp.Surgeon }}</td>
+		
+				<td nowrap>Assistant/s &nbsp;&nbsp;&nbsp; </td>
+				<td class="active">{{ schedSurgeGrp.Assistant }}</td>
+			</tr>
+			<tr>
+				<td nowrap>Internist or Cardiologist &nbsp;&nbsp;&nbsp; </td>
+				<td class="active">
+					{{ schedSurgeGrp.Cardio }}
+				</td>
+		
+				<td nowrap>Anesthesiologist:  &nbsp;&nbsp;&nbsp; </td>
+				<td class="active">
+					{{ schedSurgeGrp.Anesthesio }}
+				</td>
+			</tr>
+
+			<tr>
+				<td>Hospital &nbsp;&nbsp;&nbsp;</td>
+				<td class="active">{{ schedSurgeGrp.Hospital }}</td>
+				<td nowrap>Other Info &nbsp;&nbsp;&nbsp; </td>
+				<td class="active">{{ schedSurgeGrp.Others }}</td>
+			</tr>
+
+		</table>
+	</div>

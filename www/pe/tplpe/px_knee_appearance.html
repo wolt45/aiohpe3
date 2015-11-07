@@ -1,0 +1,210 @@
+<div ng-controller="KneeAppearanceCtrl">
+	<div scroll-bookmark="KneeAppearance">	
+		<table class="table table-condensed table-bordered">
+			
+			<tr class="warning">
+				<td class="text-left" colspan="9" nowrap>
+					<span id="DGL_module_header">
+			    		Knee Appearance
+			    	</span>
+				</td>
+				<!-- td width="15%" class="text-center">LEFT</td>
+				<td width="15%" class="text-center">RIGHT</td -->
+			</tr>
+			
+			<tr>
+				<td class="text-center" width="1%"> </td>
+				<td class="text-center" width="1%" nowrap>RIGHT KNEE</td>
+				<td class="text-center" width="1%" nowrap>Mild</td>
+				<td class="text-center" width="1%">Moderate</td>
+				<td class="text-center" width="1%">Severe</td>
+				<td class="text-center" width="1%">Increasing</td>
+				<td></td>
+			</tr>	
+			
+			<tr>
+				<td><input type="checkbox" ng-model="KneeForm.NormalR" ng-false-value="" ng-true-value="NORMAL" ></td>
+				<td nowrap> Normal </td>
+
+				<td class="text-center"></td>
+				<td class="text-center"></td>
+				<td class="text-center"></td>
+				<td class="text-center"></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td> </td>
+				<td nowrap> Swelling </td>
+
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SwellingR" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SwellingR" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SwellingR" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.SwellingR" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td>  </td>
+				<td nowrap> Red </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.RedR" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.RedR" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.RedR" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.RedR" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+
+			<tr class="active>">
+				<td colspan="9">&nbsp;</td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td nowrap> Synovitis </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SynovitisR" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SynovitisR" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SynovitisR" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.SynovitisR" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td></td>
+				<td nowrap> Effusion </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.EffusionR" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.EffusionR" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.EffusionR" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.EffusionR" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+
+			<tr>
+				<td></td>
+				<td nowrap> Pain, Active ROM </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROMR" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROMR" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROMR" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.PainActiveROMR" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td></td>
+				<td nowrap> Pain, Passive ROM </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROMR" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROMR" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROMR" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.PainPassiveROMR" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+
+			<tr class="active">
+				<td colspan="9"> &nbsp; </td>
+			</tr>
+
+			<tr>
+				<td class="text-center" width="1%"> </td>
+				<td class="text-center" width="1%" nowrap>LEFT KNEE</td>
+				<td class="text-center" width="1%" nowrap>Mild</td>
+				<td class="text-center" width="1%">Moderate</td>
+				<td class="text-center" width="1%">Severe</td>
+				<td class="text-center" width="1%">Increasing</td>
+				<td></td>
+			</tr>	
+			
+			<tr>
+				<td><input type="checkbox" ng-model="KneeForm.NormalL" ng-false-value="" ng-true-value="NORMAL" ></td>
+				<td nowrap> Normal </td>
+
+				<td class="text-center"></td>
+				<td class="text-center"></td>
+				<td class="text-center"></td>
+				<td class="text-center"></td>
+				<td class="text-center"></td>
+			</tr>	
+
+			<tr>
+				<td> </td>
+				<td nowrap> Swelling </td>
+
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SwellingL" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SwellingL" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SwellingL" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.SwellingL" value="INCREASING" --></td>
+				<td class="text-center"></td>				
+			</tr>	
+			
+			<tr>
+				<td> </td>
+				<td nowrap> Red </td>
+
+				<td class="text-center"><input type="radio" ng-model="KneeForm.RedL" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.RedL" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.RedL" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.RedL" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+
+			<tr class="active>">
+				<td colspan="9">&nbsp;</td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td nowrap> Synovitis </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SynovitisL" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SynovitisL" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.SynovitisL" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.SynovitisL" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td></td>
+				<td nowrap> Effusion </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.EffusionL" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.EffusionL" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.EffusionL" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.EffusionL" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+
+			<tr>
+				<td></td>
+				<td nowrap> Pain, Active ROM </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROML" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROML" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainActiveROML" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.PainActiveROML" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+			
+			<tr>
+				<td></td>
+				<td nowrap> Pain, Passive ROM </td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROML" value="MILD" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROML" value="MODERATE" ></td>
+				<td class="text-center"><input type="radio" ng-model="KneeForm.PainPassiveROML" value="SEVERE" ></td>
+				<td class="text-center"><!-- input type="radio" ng-model="KneeForm.PainPassiveROML" value="INCREASING" --></td>
+				<td class="text-center"></td>
+			</tr>	
+
+			<tr>
+				<td class="text-center" colspan="9">
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					 	ng-click="addNew_KneeAppearance(KneeForm)">
+						SAVE
+					</a>
+
+		            <a class="btn btn-large btn-danger" style="text-decoration: none"
+		            	ng-click="removeKneeAppearance()">
+	            		DELETE
+	            	</a>
+				</td>
+			</tr>
+		</table>
+
+	</div>
+</div>

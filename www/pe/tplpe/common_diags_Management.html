@@ -1,0 +1,66 @@
+<div ng-controller="DiagsManagementCtrl">
+
+	<div scroll-bookmark="CommDiagsMANAGEMENT">
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td class="text-left" colspan="9">
+					<span id="DGL_module_header"> Management </span>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="1%" nowrap> Physical Therapy </td>
+				<td>
+					<input type="text" class="form-control" ng-model="DiagsMgmt.PhysicalTherapy">
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap> Exercise program </td>
+				<td nowrap>
+					<label class="checkbox-inline">
+			            <input type="checkbox" ng-model="DiagsMgmt.ExerProg_FootAnkle" 
+			            	ng-true-value="Foot and Ankle" ng-false-value=""> Foot and Ankle
+			        </label>
+			        <br>
+			        <label class="checkbox-inline">
+			            <input type="checkbox" ng-model="DiagsMgmt.ExerProg_QuadsHamstrings" 
+			            ng-true-value="Quads and Hamstrings" ng-false-value=""> Quads and Hamstrings
+			        </label>
+					<br>
+			        <label class="checkbox-inline">
+			            <input type="checkbox" ng-model="DiagsMgmt.ExerProg_SLR" 
+			            ng-true-value="SLR" ng-false-value=""> SLR
+			        </label>
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap>Ambulatory Training </td>
+				<td nowrap>
+					<select ng-model="DiagsMgmt.AmbuTraining" class="form-control"> 
+						<option value="">(select one)</option>
+						<option value="Cruches"> Cruches </option>
+						<option value="Walker"> Walker </option>
+						<option value="Cane"> Cane </option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>	
+				<td class="text-center" colspan="9" nowrap>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					 	ng-click="addNew(DiagsMgmt)">
+					 	Save
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none"
+	            		ng-click="removeDiagMgmt()">
+	            		DELETE
+	            	</a>
+				</td>
+			</tr>
+			
+		</table>
+	</div>
+</div>

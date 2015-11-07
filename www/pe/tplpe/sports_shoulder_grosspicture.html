@@ -1,0 +1,146 @@
+	<div ng-controller="shoulder_8_Ctrl">
+		<div scroll-bookmark="XRAY"></div>
+		<table class="table table-condensed table-bordered">
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					Gross Pictures/Imaging (Radio Graphics, CT, MRI)
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="6">
+					<textarea class="form-control" ng-model="Sportshoulder8.GrossPictures" size="50px">
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center">
+					<a class="btn btn-large btn-success" style="text-decoration: none; color: #000"
+					 	scroll-to-bookmark="XRAYBOX">
+						VIEW X-RAY BOX
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					Xray
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6">
+					<input type="checkbox" ng-model="Sportshoulder8.Acronialspur" ng-true-value="1" ng-false-value="0" > Acronial spur
+				</td>
+			</tr>
+			<tr>
+				<th class="text-center active" width='1%' nowrap>
+					Bigliani Type
+				</th>
+				<td width='1%' nowrap>
+					<input type="radio" ng-model="Sportshoulder8.BiglianiType" value="I" > I
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="Sportshoulder8.BiglianiType" value="II" > II
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" ng-model="Sportshoulder8.BiglianiType" value="III" > III
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6">
+					<input type="checkbox" ng-model="Sportshoulder8.ACjointarthritis" ng-true-value="1" ng-false-value="0" > AC joint arthritis
+				</td>
+			</tr>
+			<tr>
+				<td nowrap>
+					<input type="checkbox" ng-model="Sportshoulder8.Calcifications" ng-true-value="1" ng-false-value="0" > Calcifications
+				</td>
+				<td width='1%'>
+					Location: 
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="Sportshoulder8.CalcificationsDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td colspan = "6">
+					<input type="checkbox" ng-model="Sportshoulder8.Osacromiale" ng-true-value="1" ng-false-value="0" > Os acromiale
+				</td>
+			</tr>
+			<tr>
+				<td colspan = "6">
+					<input type="checkbox" ng-model="Sportshoulder8.Glenohumeralarthritis" ng-true-value="1" ng-false-value="0" > Glenohumeral arthritis
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="warning" id="DGL_module_header">
+					MRI
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6">
+					<input type="checkbox" ng-model="Sportshoulder8.Inflammedbursa" ng-true-value="1" ng-false-value="0" > Inflammed bursa
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6">
+					<input type="checkbox" ng-model="Sportshoulder8.MRIACjointarthritis" ng-true-value="1" ng-false-value="0" > AC joint arthritis
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" ng-model="Sportshoulder8.MRICalcification" ng-true-value="1" ng-false-value="0" > Calcification
+					
+				</td>
+				<td>
+					Location 
+				</td>
+				<td class='form-inline'>
+					<input type="text" ng-model="Sportshoulder8.MRICalcificationDescrip" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" ng-model="Sportshoulder8.MRIOsacromiale" ng-true-value="1" ng-false-value="0" > Os acromiale
+				</td>
+			</tr>
+			<tr>
+				<td nowrap>
+					<input type="checkbox" ng-model="Sportshoulder8.Bicepstendonpathology" ng-true-value="1" ng-false-value="0" > Biceps tendon pathology
+				</td>
+				<td width='1%' colspan='3'>
+					<input type="checkbox" ng-model="Sportshoulder8.BicepstendonpathologyInflammed" ng-true-value="1" ng-false-value="0" > Inflammed
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="Sportshoulder8.BicepstendonpathologyFlattered" ng-true-value="1" ng-false-value="0" > Flattered
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="Sportshoulder8.BicepstendonpathologyTear" ng-true-value="1" ng-false-value="0" > Tear
+				</td>
+			</tr>
+			<tr>
+				<td nowrap>
+					<input type="checkbox" ng-model="Sportshoulder8.Rotatorcufftendonpathology" ng-true-value="1" ng-false-value="0"> Rotator cuff tendon pathology
+				</td>
+				<td colspan='2'>
+					<input type="checkbox" ng-model="Sportshoulder8.RotatorcufftendonpathologyInflammed" ng-true-value="1" ng-false-value="0" > Inflammed
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="Sportshoulder8.RotatorcufftendonpathologyFlattered" ng-true-value="1" ng-false-value="0" > Flattered
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" ng-model="Sportshoulder8.RotatorcufftendonpathologyTear" ng-true-value="1" ng-false-value="0" > Tear
+				</td>
+			</tr>
+			<tr>
+				<td class='form-inline'>
+					Others
+				</td>
+				<td colspan="5" class='form-inline'>
+					<input type="text" ng-model="Sportshoulder8.MRIOthers" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="text-center">
+					<a class="btn btn-large btn-info"ng-click="addNew_shoulder8(Sportshoulder8)" style="text-decoration: none; color: #000">SAVE</a>
+
+					<a class="btn btn-large btn-danger"ng-click="removeshoulder8(Sportshoulder8)" style="text-decoration: none; color: #000">DELETE</a>
+				</td>
+			</tr>
+
+		</table>
+	</div>

@@ -1,0 +1,165 @@
+<!-- TREATMENT -->
+<div ng-controller="TreatmentCtrl">
+	<div scroll-bookmark="IOPETreat">
+		<div class="panel panel-default">	
+
+			<table class="table table-condensed table-bordered">
+
+				<tr class="warning">
+					<th colspan=19>
+						<span id="DGL_module_header">
+			    			Past Treatment
+			    		</span>
+					</th>
+				</tr>
+
+				<tr class="active">
+					<th width="1%">Medications</th>
+					<th width="1%">Analgesics (pain meds)</th>
+					<td width="20%">
+						<input type="text" class="form-control" 
+								ng-model="CHIEFCformData.medAnalgesic" 
+								placeholder="Pain-meds">
+					</td>
+				</tr>
+
+				<tr class="active">
+					<th>&nbsp;</th>
+					<th>Anti-inflammatory meds</th>
+					<td>
+						<input type="text" class="form-control" 
+								ng-model="CHIEFCformData.medAntiInflamatory" 
+								placeholder="Anti-inflammatory">
+					</td>
+				</tr>
+
+				<tr class="active">
+					<th>&nbsp;</th>
+					<th>Others</th>
+					<td>
+						<input type="text" class="form-control" 
+								ng-model="CHIEFCformData.medOthers" 
+								placeholder="Other meds" >
+					</td>
+				</tr>
+
+				<tr class="active">
+					<td>Joint Injection</b></td>
+					<td>1. Steroids, how many</td>
+					<td>
+						<input type="text" class="form-control" ng-model="CHIEFCformData.injSteroidsVolume" placeholder="How many Steroids" >
+					</td>
+					<td>
+						<input type="text" class="form-control" ng-model="CHIEFCformData.injSteroidsWhen" placeholder="When" >
+					</td>
+				</tr>
+
+				<tr class="active">
+					<td>&nbsp;</td>
+					<td> </td>
+					<td nowrap>
+						Result <br>
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.injSteroidsResult" value="1"> Yes
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.injSteroidsResult" value="0"> No
+					</td>
+					<td>
+						<input type="text" class="form-control" 
+							ng-model="CHIEFCformData.injSteroidsDetails" 
+							placeholder="Details" >
+					</td>
+					
+				</tr>
+
+				<tr class="active">
+					<th>&nbsp;</th>
+					<td nowrap>2. Hyaluronic acid</td>
+					<td colspan="1">
+						<input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="None">NONE
+						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Supartz">Supartz
+						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Synvisc">Synvisc
+						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Go On">Go On
+						<br><input type="radio" ng-model="CHIEFCformData.injHyaluronicAcid" value="Others">Others
+					</td>
+				</tr>
+
+				<tr class="active">
+					<th>&nbsp;</th>
+					<td> </td>
+					<td nowrap>
+						Result <br>
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.injHyaluronicResult" value="1"> Yes
+						&nbsp;&nbsp;<input type="radio" ng-model="CHIEFCformData.injHyaluronicResult" value="0"> No
+						</td>
+					<td>
+						<input type="text" class="form-control" ng-model="CHIEFCformData.injHyaluronicDetails" placeholder="Details" >
+					</td>
+				</tr>
+
+				<tr>
+					<td class="text-center" colspan="9">
+						<a class="btn btn-large btn-info" href="#/{{clinix.ClinixRID}}" ng-click="addTreatment(CHIEFCformData)" style="text-decoration: none">ADD</a>
+					</td>
+				</tr>
+			</table>
+			
+			<table class="table table-condensed table-bordered">
+
+			  	<tr class="info" >
+	                <th class="text-center" style="color:#888" width="1%">Analgesics</th>
+	                <th class="text-center" style="color:#888" width="1%">Anti-Inflamatory</th>
+	                <th class="text-center" style="color:#888" width="1%">Others</th>
+	                <th class="text-center" style="color:#888" width="1%">Steriods</th>
+	                <th class="text-center" style="color:#888" width="1%">When</th>
+
+	                <th class="text-center" style="color:#888" width="1%">Result</th>
+	                <th class="text-center" style="color:#888" width="1%">Details</th>
+
+	                <th class="text-center" style="color:#888" width="1%">HyaluronicAcid</th>
+	                <th class="text-center" style="color:#888" width="1%">Result</th>
+	                <th class="text-center" style="color:#888" width="1%">Details</th>
+	                <th class="text-center" style="color:#888" width="1%"></th>
+	            </tr>
+
+	            <tr class="info" ng-repeat="treatment in clinix_treatment">
+	                <td class="text-center" style="color:black" width="1%">
+             			<span>{{treatment.medAnalgesic ? treatment.medAnalgesic : " "}}</span>
+	                </td>
+	                <td class="text-center" style="color:black" width="1%">
+	                	<span>{{treatment.medAntiInflamatory ? treatment.medAntiInflamatory : " "}}</span>
+	                </td>
+	                <td class="text-center" style="color:black" width="1%">
+	                	<span>{{treatment.medOthers ? treatment.medOthers : " "}}</span>
+	                </td>
+					<td class="text-center" style="color:black" width="1%">
+	                	<span>{{treatment.injSteroidsVolume ? treatment.injSteroidsVolume : " "}}</span>
+	                </td>
+	                <td class="text-center" style="color:black" width="1%">
+	                	<span>{{treatment.injSteroidsWhen ? treatment.injSteroidsWhen : " "}}</span>
+	                </td>
+
+					<td class="text-center" style="color:black" width="1%">
+	                	<span>{{treatment.injSteroidsResult == "1" ? "YES" : "NO"}}</span>
+	                </td>
+	                <td class="text-center" style="color:black" width="1%">
+	                	<span>{{treatment.injSteroidsDetails ? treatment.injSteroidsDetails : " "}}</span>
+	                </td>
+
+					<td class="text-center" style="color:black" width="1%">
+	                	<span>{{treatment.injHyaluronicAcid ? treatment.injHyaluronicAcid : " "}}</span>
+	                </td>
+	                <td class="text-center" style="color:black" width="1%">
+	                	<span>{{treatment.injHyaluronicResult == "1" ? "YES" : "NO"}}</span>
+	                </td>
+	                <td class="text-center" style="color:black" width="1%">
+	                	<span>{{treatment.injHyaluronicDetails ? treatment.injHyaluronicDetails : " "}}</span>
+	                </td>
+
+	                <td width="1%">
+	                	<a class="btn btn-large btn-danger" href="#/{{treatment.ClinixRID}}" ng-click="removeTreatment(treatment)" tyle="text-decoration: none">DELETE</a>
+	                </td>
+	            </tr>
+			</table>
+
+		</div>
+	</div>
+</div>

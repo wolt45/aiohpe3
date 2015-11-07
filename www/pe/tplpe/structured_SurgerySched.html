@@ -1,0 +1,63 @@
+<div ng-controller="StructuredSchedSurgCtrl">
+
+	<div scroll-bookmark="StructuredDischarge_SURGSCHED">
+		
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td class="text-left" colspan="9">
+					<span id="DGL_module_header">
+			    		Surgery Details
+			    	</span>
+				</td>
+			</tr>
+		
+			<tr>
+				<td width="1%" nowrap> Type of Surgery </td>
+				<td class="active">
+					{{ surgery.SurgeryType }}
+				</td>
+					
+				<td width="1%"> When </td>
+				<td class="active">
+					{{surgery.SurgeryDate | date}}
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>Surgeon</td>
+				<td class="active">
+					{{ surgery.SurgeryType }}
+				</td>
+		
+				<td nowrap>Assistant/s</td>
+				<td class="active">
+					{{ surgery.Assistant }}
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap>Internist or Cardiologist</td>
+				<td class="active">
+					{{ surgery.Cardio }}
+				</td>
+			</tr>
+
+			<tr>			
+				<td nowrap> Anaesthesiologist </td>
+				<td class="active"> {{ surgery.Anesthesio }} </td>
+			
+				<td nowrap> Type of Anesthesia</td>
+				<td class="active"> {{ surgery.AnesthesiaType }} </td>
+			</tr>
+			<tr>
+				<td>Hospital</td>
+				<td class="active"> {{ surgery.Hospital }} </td>
+
+				<!-- td nowrap>Other Info</td>
+				<td class="active"> {{ surgery.Others }}</td -->
+			</tr>
+		</table>
+
+	</div>
+</div>

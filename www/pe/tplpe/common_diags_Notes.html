@@ -1,0 +1,61 @@
+<div ng-controller="DiagsNotesCtrl">	
+	<table class="table table-condensed table-bordered">
+		<!-- tr class="active">
+			<td class="text-center" colspan="5">
+				<span style="font-family: Helvetiker; font-size:20px; color: #EEE; letter-spacing: 3px; font-style: italic;">
+				Diagnosis Starts at this Point
+				</span>
+			</td>
+		</tr -->
+		<tr>
+			<td> Follow Up	</td>
+			<td> 
+				<input type="date" class="form-control" ng-model="Diagnosis.FollowUpDate" >
+			</td>
+			<td class="text-center" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					ng-click="addNewFUP(Diagnosis)">
+					SAVE
+				</a>
+			</td>
+			<!--td colspan="2"> <input type="Submit" class="btn btn-warning" name="Anesthesio" value="POST TO CALENDAR" ></td-->
+		</tr>
+	</table>	
+
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span style="font-family: Helvetiker; font-size:30px; color: #000; letter-spacing: 3px; font-style: italic;">
+	    			Discussions/Follow-up Notes:
+	    		</span>
+			</th>
+		</tr>	
+		<tr>
+			<td colspan="2" class="text-center" nowrap>
+				<!-- textarea class="form-control" ng-model="Diagnosis" rows="5" placeholder="Diagnosis"></textarea -->
+				<textarea id="tinymce" ui-tinymce ng-model="Diagnosis.DiagTnyMce" class="form-control" rows="2"></textarea>
+			</td>
+			<td class="text-center" width="10%" nowrap>
+				<a class="btn btn-large btn-info" ng-click="addNew(Diagnosis)" style="text-decoration: none; color: #000">Save</a>
+			</td>
+		</tr>
+
+		<tr class="info" ng-repeat="noted in clinix_DiagsNotes">
+        	
+        	<td width="1%" style="color:black" nowrap>{{noted.NoteItem}}</td>
+        	<td style="color:black">{{noted.NoteValue}}</td>
+
+            <td width="1%">
+            	<a class="btn btn-large btn-danger" ng-click="removeItem(noted)" style="text-decoration: none">
+            		DELETE
+            	</a>
+        	</td>
+        	
+            <td width="1%">
+            	<!-- a class="btn btn-large btn-warning" href="#/{{noted.ChiefRID}}/edit" ng-click="editChiefComp(noted)" style="text-decoration: none">
+            		EDIT
+            	</a -->
+        	</td>
+        </tr>
+	</table>
+</div>

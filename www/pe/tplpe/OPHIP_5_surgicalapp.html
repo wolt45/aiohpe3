@@ -1,0 +1,93 @@
+<div ng-controller="OPHIP_5Ctrl">
+	
+	<div scroll-bookmark="OPHIP_5">
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td width="1%" colspan="9" nowrap>
+					<span id="DGL_module_header">
+			    		HIP Surgical Technique
+			    	</span>
+			    </td>
+			</tr>
+
+			<tr class="active">
+				<td nowrap>
+					Approach
+					<br>
+					<select class="form-control" ng-model="ophip5.SurgicalApproach">
+						<option value=""> (select one) </option>
+						<option value="Posterior"> Posterior </option>
+						<option value="Anterior"> Anterior </option>
+						<option value="Transtrochanteric"> Transtrochanteric </option>
+					</select>
+				</td>
+				<td></td>
+			</tr>
+
+			<tr class="active">
+				<td nowrap>
+					STABILITY
+					<br>
+					Posterior: &nbsp;&nbsp;
+					<input type="radio" value="YES" ng-model="ophip5.StabPosterior"> Yes &nbsp;&nbsp;
+					<input type="radio" value="NO" ng-model="ophip5.StabPosterior"> No
+				</td>
+				<td nowrap>
+					<br>
+					Anterior: &nbsp;&nbsp;
+					<input type="radio" value="YES" ng-model="ophip5.StabAnterior"> Yes &nbsp;&nbsp;
+					<input type="radio" value="NO" ng-model="ophip5.StabAnterior"> No
+				</td>
+			</tr>
+
+			<tr class="active">
+				<td nowrap>
+					Hemovac: &nbsp;&nbsp;
+					<input type="radio" value="YES" ng-model="ophip5.HemovacUsed"> Yes &nbsp;&nbsp;
+					<input type="radio" value="NO" ng-model="ophip5.HemovacUsed"> No
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="text-center" nowrap>
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+						ng-click="addNew_SurTeq(ophip5)">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" style="text-decoration: none"
+						ng-click="removeSurTeq()">
+	            		DELETE
+	            	</a>
+				</td>
+			</tr>
+		</table>
+
+		<!-- 
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+	        	<th width="1%" class="text-center" style="color:#888" nowwrap>Surgical Approach</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Posterior</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Anterior</th>
+	            <th width="1%" class="text-center" style="color:#888" nowrwap>Hemovac</th>
+	            <th></th>
+	            <td></td>
+			</tr>
+
+			<tr class="info" ng-repeat="ophip5Row in jdata_OPHIP_5">
+	        	<td style="color:black">{{ophip5Row.SurgicalApproach}}</td>
+	        	<td style="color:black">{{ophip5Row.StabPosterior}}</td>
+	        	<td style="color:black">{{ophip5Row.StabAnterior}}</td>
+	        	<td style="color:black">{{ophip5Row.HemovacUsed}}</td>
+	            <td>
+	            	<a class="btn btn-large btn-danger" ng-click="removeItem(ophip5Row)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+	        	</td>
+                <td></td>
+	        </tr>
+	    </table> -->
+
+	</div>		
+</div>		

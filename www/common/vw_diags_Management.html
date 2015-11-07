@@ -1,0 +1,46 @@
+<div ng-controller="DiagsManagementCtrl">
+
+		<table class="table table-condensed table-bordered">
+			<tr class="info">
+				<td class="text-left" colspan="9">
+					<span id="DGL_module_header"> Management </span>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="1%" nowrap> Physical Therapy </td>
+				<td class="active">
+					{{DiagsMgmt.PhysicalTherapy}}
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap> Exercise program </td>
+				<td class="active" nowrap>
+					<label class="checkbox-inline">
+			            <input type="checkbox" ng-model="DiagsMgmt.ExerProg_FootAnkle" 
+			            	ng-checked="DiagsMgmt.ExerProg_FootAnkle == 1" DISABLED> Foot and Ankle
+			        </label>
+			        <br>
+			        <label class="checkbox-inline">
+			            <input type="checkbox" ng-model="DiagsMgmt.ExerProg_QuadsHamstrings" 
+			            ng-checked="DiagsMgmt.ExerProg_FootAnkle == 1" DISABLED> Quads and Hamstrings
+			        </label>
+					<br>
+			        <label class="checkbox-inline">
+			            <input type="checkbox" ng-model="DiagsMgmt.ExerProg_SLR" 
+			            ng-checked="DiagsMgmt.ExerProg_FootAnkle == 1" DISABLED> SLR
+			        </label>
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap>Ambulatory Training: &nbsp;&nbsp;&nbsp; </td>
+				<td class="active" nowrap>
+					{{ DiagsMgmt.AmbuTraining }}
+				</td>
+			</tr>
+
+		</table>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+	<div ng-controller="gen_orth3_Ctrl">	
+		<div scroll-bookmark="XRAY_FINDINGS"></div>
+		<table class="table">
+			<tr class="warning">
+				<td colspan="6" id="DGL_module_header">	
+					X-Rays Findings</td>
+			</tr>
+			<tr>
+				<td width='5%' nowrap>
+					<input type="checkbox" ng-model="genortho3.xfindings" ng-true-value="Normal" ng-false-value="Abnormal"> Normal
+				</td>
+				<td class="active" colspan="4">ABNORMAL DESCRIBE:
+					<textarea class="form-control" ng-model="genortho3.AbnormalDes" rows="3" placeholder="Describe why"></textarea>
+				</td>
+			</tr>
+			<td class="text-center" colspan="9" nowrap>
+
+					<a class="btn btn-large btn-success" style="text-decoration: none; color: #000"
+					 	scroll-to-bookmark="XRAYBOX">
+						VIEW X-RAY BOX
+					</a>
+
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+							 	ng-click="addNew_genortho3(genortho3)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+			            		ng-click="removegenortho3(genortho3)">
+			        DELETE
+			    </a>
+			</td>			
+		</table>	
+	</div>

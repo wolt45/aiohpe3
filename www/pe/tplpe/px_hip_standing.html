@@ -1,0 +1,42 @@
+<div ng-controller="HipStandingCtrl">
+	<div scroll-bookmark="HipStanding">
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<td colspan="9">
+					<span id="DGL_module_header">
+			    		HIP Measurement (Standing)
+			    	</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="1%" nowrap> Pelvis Level </td>
+				<td class="text-left" colspan="9">
+					<input type="radio" name=" PelvisLevel" ng-model="HIPStanding.PelvisLevel" value="Left is Lower"> 
+						Left - Lower
+					<br><input type="radio" name=" PelvisLevel" ng-model="HIPStanding.PelvisLevel" value="Right is Lower"> 
+						Right - Lower
+					<br><input type="radio" name=" PelvisLevel" ng-model="HIPStanding.PelvisLevel" value="Left = Right"> 
+						Left = Right
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap> Trendelenberg Gait </td>
+				<td class="text-left" nowrap>
+					<input type="text" class="form-control" ng-model="HIPStanding.Trendelenberg">
+				</td>
+
+				<td class="text-center">
+					<a class="btn btn-large btn-info"  style="text-decoration: none; color: #000"
+						ng-click="addNew_HipStanding(HIPStanding)">
+						SAVE
+					</a>
+					<a class="btn btn-large btn-danger" ng-click="removeHipStanding(HipStands)" style="text-decoration: none">
+	            		DELETE
+	            	</a>
+				</td>
+			</tr>
+		</table>
+	</div>						
+</div>						
