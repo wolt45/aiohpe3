@@ -2,10 +2,22 @@ IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_Diagnosis = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
+  // populate ICD Object
+  $scope.LkUpICDCodes= [];
+  var promise = $ipadrbg.context.jdata_ICD10.filter(function (icdx) { 
+    return icdx.lkup_ICDRID > 0}).order('icd_description').toLiveArray();
+    promise.then(function(icdresult) {
+      $scope.$apply( function () {
+      $scope.LkUpICDCodes = icdresult;
+    });
+  });
+  // populate ICD Object - end
+
   $scope.LoadDiagnosis = function(){
-    var promise = $ipadrbg.context.clinix_Diagnosis.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-    promise.then(function(pxresult) {
-      $scope.$apply(function () {
+    var promise = $ipadrbg.context.clinix_Diagnosis.filter(function (px) { 
+      return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+      promise.then(function(pxresult) {
+        $scope.$apply(function () {
         $scope.clinix_Diagnosis = pxresult;
 
         $scope.Diagnosis = {
