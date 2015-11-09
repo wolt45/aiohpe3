@@ -4485,7 +4485,6 @@ function DataController($rootScope, $scope, $http) {
 					jdata_ICD10.icd_code = data[idx].icd_code;
 					jdata_ICD10.icd_description = data[idx].icd_description;
 						
-
 					$ipadrbg.context.jdata_ICD10.add(jdata_ICD10);
 				}
 			}
