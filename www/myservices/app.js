@@ -4469,16 +4469,16 @@ function DataController($rootScope, $scope, $http) {
 
 
 
-			 // populate ICD Object
-			  $scope.LkUpICDCodes= [];
-			  var promise = $ipadrbg.context.jdata_ICD10.filter(function (icdx) { 
-			    return icdx.lkup_ICDRID > 0}).order('Description').toLiveArray();
-			  promise.then(function(icdresult) {
-			    $scope.$apply( function () {
-			      $scope.LkUpICDCodes = icdresult;
-			    });
-			  });
-			  // populate ICD Object - end
+			 	// populate ICD Object
+			  	$scope.LkUpICDCodes= [];
+			  	var promise = $ipadrbg.context.jdata_ICD10.filter(function (icdx) { 
+			  	  return icdx.lkup_ICDRID > 0}).order('Description').toLiveArray();
+			  	promise.then(function(icdresult) {
+			  	  $scope.$apply( function () {
+			  	    $scope.LkUpICDCodes = icdresult;
+			  	  });
+			  	});
+			  	// populate ICD Object - end
 
 
 
