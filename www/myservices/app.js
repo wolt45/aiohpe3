@@ -4461,11 +4461,28 @@ function DataController($rootScope, $scope, $http) {
 	        db.transaction(function (tx) {
 	           	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ICD10'");
             	tx.executeSql("delete from 'jdata_ICD10'");
-
 	        }); 
 
 	        $scope.pull_ICD101(function(){
 				$ipadrbg.context.saveChanges();
+
+
+
+
+			 // populate ICD Object
+			  $scope.LkUpICDCodes= [];
+			  var promise = $ipadrbg.context.jdata_ICD10.filter(function (icdx) { 
+			    return icdx.lkup_ICDRID > 0}).order('Description').toLiveArray();
+			  promise.then(function(icdresult) {
+			    $scope.$apply( function () {
+			      $scope.LkUpICDCodes = icdresult;
+			    });
+			  });
+			  // populate ICD Object - end
+
+
+
+
     		});
  			// not used, see diagnosis sur schedule
  			// $scope.pull_StrucSchedSurgery();

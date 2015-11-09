@@ -92,9 +92,32 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
       + (complaint.MyBoneComplaint.Deformity ? " " + complaint.MyBoneComplaint.Deformity + " " : "") 
       + (complaint.MyBoneComplaint.Shortening ? " " + complaint.MyBoneComplaint.Shortening + " " : "") 
       + (complaint.MyBoneComplaint.Numbness ? " " + complaint.MyBoneComplaint.Numbness + " " : "") 
+      + (complaint.MyBoneComplaint.FollowUp ? " " + complaint.MyBoneComplaint.FollowUp + " " : "") 
       ;
 
-    if (myComplaint && complaint.MyBoneLRB && complaint.MyBone) {
+    var affectedArea = "";
+    if (complaint.MyBone == "HIP" || 
+      complaint.MyBone == "KNEE" || 
+      complaint.MyBone == "ANKLE and FOOT" || 
+      complaint.MyBone == "KNEE SPORTS" || 
+      complaint.MyBone == "SHOULDER-ARM") {
+
+      if (complaint.MyBoneLRB == "Left" || 
+        complaint.MyBoneLRB == "Right" || 
+        complaint.MyBoneLRB == "Both") {
+        var affectedArea = complaint.MyBone + complaint.MyBoneLRB;
+      }
+    }  
+    else {
+      var affectedArea = complaint.MyBone;
+    }
+
+    // alert ("myComplaint = " + myComplaint);
+    // alert ("MyBoneLRB = " + complaint.MyBoneLRB);
+    // alert ("MyBone = " + complaint.MyBone);
+    // alert ("affectedArea = " + affectedArea);
+
+    if (myComplaint && affectedArea) {
       newrecord = {
         ClinixRID         : $scope.clinix.ClinixRID
         ,PxRID            : $scope.clinix.PxRID
@@ -122,16 +145,18 @@ IOHPEApp.controller('ChiefComplaintCtrl', function ($scope, $routeParams, $http)
   }
 
   $scope.removeChiefComp = function (complaint) {
-    complaint.remove()
-    .then(function() {
-      $scope.$apply(function() {
-        var comps = $scope.clinix_chiefcomp;
-        comps.splice(comps.indexOf(complaint), 1);
+    if (confirm('Are you sure to DELETE this data?')) {
+      complaint.remove()
+      .then(function() {
+        $scope.$apply(function() {
+          var comps = $scope.clinix_chiefcomp;
+          comps.splice(comps.indexOf(complaint), 1);
+        });
+      })
+      .fail(function(err) {
+        alert("Error deleting item!");
       });
-    })
-   .fail(function(err) {
-      alert("Error deleting item!");
-   });
+    }
   }
 
 });

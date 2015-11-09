@@ -96,6 +96,9 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_shoulder_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_7}
 	, jdata_shoulder_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_8}
 	, jdata_shoulder_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_9}
+
+	// ICD10 is not a synch back process, it's a service based data	
+
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });
