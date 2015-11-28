@@ -115,6 +115,7 @@
 <script src="..//common/models/model_xpe_sholder_9.js"></script>
 
 <script src="..//common/models/model_ICD10.js"></script>
+<script src="..//common/models/model_rvs.js"></script>
 
 <script src="model_myservices.js"></script>
 
@@ -208,7 +209,7 @@
           <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
           <td>
             <button class="btn-warning btn-block btn-lg text-center" ng-click="pullSportsknee()">
-              DOWNLOAD Latest <br>SPORTS KNEE
+              DOWNLOAD Latest <br> SPORTS KNEE
             </button>
           </td>
         </tr>
@@ -217,7 +218,7 @@
           <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
           <td>
             <button class="btn-warning btn-block btn-lg text-center" ng-click="pullsportshoulder()">
-              DOWNLOAD Latest <br>SPORTS SHOULDER
+              DOWNLOAD Latest <br> SPORTS SHOULDER
             </button>
           </td>
         </tr>
@@ -226,9 +227,7 @@
     </div>
 
 
-
     <!-- 2nd column -->
-
     <div class="col-xs-6">
       <table class="table" width="100%"> 
 
@@ -280,6 +279,14 @@
             </button>
           </td>
         </tr>
+        <tr>
+          <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
+          <td>
+            <button class="btn-warning btn-block btn-lg text-center" ng-click="pull_rvs()">
+              DOWNLOAD <br>RVS 
+            </button>
+          </td>
+        </tr>
 
         <tr>
           <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
@@ -301,7 +308,6 @@
 
       </table>
     </div>
-
   </div>
 
   <div>

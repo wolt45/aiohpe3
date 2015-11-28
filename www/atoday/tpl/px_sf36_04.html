@@ -1,0 +1,71 @@
+		<div ng-controller="sf3604Ctrl">
+			<table class='table table-bordered'>
+				<tr class='active'>
+					<td colspan='5'>
+						5. During the past 4 weeks, have you had any of the following problems with your work or other regular daily activities as a result of any emotional problems (e.g. feeling depressed or anxious)?
+					</td>
+					
+				</tr>
+				<tr class='active'>
+					<td width='1%'></td>
+					<td style='padding:10px;' class='text-center' width='60%'>
+						ACTIVITIES
+					</td>
+					<td width='1%'>YES</td>
+					<td width='1%'>NO</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>5.a</td>
+					<td>
+						Cut down on the amount of time you spent on work or other activities
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="sf364.sf5a" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="sf364.sf5a" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>5.b</td>
+					<td>
+						Accomplished less than you would like
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="sf364.sf5b" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="sf364.sf5b" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>5.c</td>
+					<td>
+						Didn’t do work or other activities as carefully as usual
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="sf364.sf5c" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="sf364.sf5c" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td colspan='6' class='text-center'>
+						<a class="btn btn-large btn-info" ng-click="addNewsf364(sf364)" style="text-decoration: none; color: #000">SAVE</a>
+
+						<a class="btn btn-large btn-danger" ng-click="removesf364(sf364)" style="text-decoration: none; color: #000">DELETE</a>
+					</td>
+				</tr>
+			</table>
+		</div>

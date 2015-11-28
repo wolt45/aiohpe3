@@ -3,7 +3,8 @@ IOHPEApp.controller('DiagsDispositionCtrl', function ($scope, $routeParams, $htt
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
   $scope.LoadDiagsDisposition = function(){
-    var promise = $ipadrbg.context.clinix_DiagsDisposition.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+    var promise = $ipadrbg.context.clinix_DiagsDisposition.filter(function (px) { 
+      return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_DiagsDisposition = pxresult;

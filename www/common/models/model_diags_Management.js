@@ -9,5 +9,9 @@ $data.Entity.extend("$ipadrbg.types.clinix_DiagsManagement", {
 	, ExerProg_SLR: { type: "string"}
 	, AmbuTraining: { type: "string"}
 
+
+	, HyaluronicAcid: { type: "string"}
+	, ManageOthers: { type: "string"}
+
 	, SynchStatus: { type: "string"}
 });

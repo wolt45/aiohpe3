@@ -1,68 +1,87 @@
-<ng:include src="'tplpe/px_pe.html'"></ng:include>
+<div class="col-xs-6 col-sm-2 bs-docs-container" >
+        <ng:include src="'tplpe/today_nav_peknee.html'"></ng:include>
+ </div>
 
 
-<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
-<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
-<ng:include src="'..//common/vw_treatment.html'"></ng:include>
-<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
-<ng:include src="'..//common/vw_labs.html'"></ng:include>
-<ng:include src="'..//common/vw_medhist.html'"></ng:include>
+<div class="col-xs-6 col-sm-10 bs-docs-container" >
+
+	<ng:include src="'tplpe/px_pe.html'"></ng:include>
+
+<div scroll-bookmark="InitialInter">
+	<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
+	<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
+	<ng:include src="'..//common/vw_treatment.html'"></ng:include>
+	<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
+	<ng:include src="'..//common/vw_labs.html'"></ng:include>
+	<ng:include src="'..//common/vw_medhist.html'"></ng:include>
+</div>
+
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span id="DGL_module_header">
+	    			KNEE Pysical Examination
+	    		</span>
+			</th>
+		</tr>
+	</table>
+
+<div scroll-bookmark="Ambustats">
+	<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>
+	<ng:include src="'tplpe/px_knee_appearance.html'"></ng:include>
+	<ng:include src="'tplpe/px_knee_alignment.html'"></ng:include>
+</div>
+
+<div scroll-bookmark="KneeRangeMotion">
+	<ng:include src="'tplpe/px_knee_rangeofmotion.html'"></ng:include>
+</div>
+<div scroll-bookmark="KneeXrayFindings">
+	<ng:include src="'tplpe/px_knee_xrays.html'"></ng:include>
+</div>
 
 
-<table class="table table-condensed table-bordered">
-	<tr class="success">
-		<th colspan=9>
-			<span id="DGL_module_header">
-    			KNEE Pysical Examination
-    		</span>
-		</th>
-	</tr>
-</table>
+<div scroll-bookmark="Diagnosis">
+	<ng:include src="'..//common/vw_diagnosis.html'"></ng:include>
+</div>
+<div scroll-bookmark="Manage">
+	<ng:include src="'..//common/vw_diags_Management.html'"></ng:include>
+</div>
+<div scroll-bookmark="Manage">
+	<ng:include src="'..//common/vw_diags_SurgerySched.html'"></ng:include>
+</div>
+	<ng:include src="'..//common/vw_diags_Medication.html'"></ng:include>
+	<ng:include src="'..//common/vw_diags_Disposition.html'"></ng:include>
 
-<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>
-
-<!--NOT USED NOT USED NOT USED ng:include src="'tplpe/px_knee_measurements.html'"></ng:include -->
-
-<ng:include src="'tplpe/px_knee_appearance.html'"></ng:include>
-<ng:include src="'tplpe/px_knee_alignment.html'"></ng:include>
-<ng:include src="'tplpe/px_knee_rangeofmotion.html'"></ng:include>
-<ng:include src="'tplpe/px_knee_xrays.html'"></ng:include>
+	<ng:include src="'..//common/vw_diags_Notes.html'"></ng:include>
+	<!-- ng:include src="'tplpe/close_pe.html'"></ng:include -->
 
 
+	<!-- <table class="table table-condensed table-bordered">
+		<tr class="info">
+			<th colspan=9>
+				<span id="DGL_module_header">
+	    			KNEE Replacement Operative Report
+	    		</span>
+			</th>
+		</tr>
+		</table>
 
-<ng:include src="'..//common/vw_diagnosis.html'"></ng:include>
+		<ng:include src="'tplpe/OPKNEE_1_preOpDiags.html'"></ng:include>
+		<ng:include src="'tplpe/OPKNEE_2_surgeon.html'"></ng:include>
+		<ng:include src="'tplpe/OPKNEE_3_implant.html'"></ng:include>
+		<ng:include src="'tplpe/OPKNEE_4_surgicalapp.html'"></ng:include>
+		<ng:include src="'tplpe/OPKNEE_5_finale.html'"></ng:include> 
+	-->
 
-<ng:include src="'..//common/vw_diags_Management.html'"></ng:include>
-<ng:include src="'..//common/vw_diags_SurgerySched.html'"></ng:include>
-<ng:include src="'..//common/vw_diags_Medication.html'"></ng:include>
-<ng:include src="'..//common/vw_diags_Disposition.html'"></ng:include>
+		<!-- ng:include src="'tplpe/OPKNEE_XRays.html'"></ng:include -->
 
-<ng:include src="'..//common/vw_diags_Notes.html'"></ng:include>
-<!-- ng:include src="'tplpe/close_pe.html'"></ng:include -->
+	<!-- 
+			<ng:include src="'..//common/vw_structured_discharge_summary.html'"></ng:include> 
+	-->
 
-
-<table class="table table-condensed table-bordered">
-	<tr class="info">
-		<th colspan=9>
-			<span id="DGL_module_header">
-    			KNEE Replacement Operative Report
-    		</span>
-		</th>
-	</tr>
-</table>
-
-<ng:include src="'tplpe/OPKNEE_1_preOpDiags.html'"></ng:include>
-<ng:include src="'tplpe/OPKNEE_2_surgeon.html'"></ng:include>
-<ng:include src="'tplpe/OPKNEE_3_implant.html'"></ng:include>
-<ng:include src="'tplpe/OPKNEE_4_surgicalapp.html'"></ng:include>
-<ng:include src="'tplpe/OPKNEE_5_finale.html'"></ng:include>
-
-<!-- ng:include src="'tplpe/OPKNEE_XRays.html'"></ng:include -->
-
-<ng:include src="'..//common/vw_structured_discharge_summary.html'"></ng:include>
-
-<p ng-show = {{zclinixes.KNEE}}>
-	<div scroll-bookmark="XRAYBOX">
-		<ng:include src="'tplpe/OPKNEE_XRays.html'"></ng:include>
-	</div>
-</p>
+	<p ng-show = {{zclinixes.KNEE}}>
+		<div scroll-bookmark="XRAYBOX">
+			<ng:include src="'tplpe/OPKNEE_XRays.html'"></ng:include>
+		</div>
+	</p>
+</div>

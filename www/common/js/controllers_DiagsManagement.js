@@ -17,6 +17,9 @@ IOHPEApp.controller('DiagsManagementCtrl', function ($scope, $routeParams, $http
           ,ExerProg_QuadsHamstrings : pxresult[0]['ExerProg_QuadsHamstrings']
           ,ExerProg_SLR : pxresult[0]['ExerProg_SLR']
           ,AmbuTraining : pxresult[0]['AmbuTraining']
+
+          ,HyaluronicAcid : pxresult[0]['HyaluronicAcid']
+          ,ManageOthers : pxresult[0]['ManageOthers']
         }
         
       });
@@ -41,6 +44,9 @@ IOHPEApp.controller('DiagsManagementCtrl', function ($scope, $routeParams, $http
       ,ExerProg_QuadsHamstrings  : daignosisObj.ExerProg_QuadsHamstrings
       ,ExerProg_SLR : daignosisObj.ExerProg_SLR
       ,AmbuTraining : daignosisObj.AmbuTraining
+      
+      ,HyaluronicAcid : daignosisObj.HyaluronicAcid
+      ,ManageOthers : daignosisObj.ManageOthers
     }
     $ipadrbg.context.clinix_DiagsManagement.add(newrecord);
     $ipadrbg.context.clinix_DiagsManagement.saveChanges();

@@ -2,7 +2,9 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
   //$scope.jdata_OPHIP_XRays = [];
   $scope.PxRID = 0;
   $scope.AllPreOpHIPxrays = []; // hangers 4, 9
+  $scope.AllPreOpMediaHIPxrays = []; // hangers 4, 9
   $scope.AllPostOpHIPxrays = []; // hangers 4, 9, 10
+  $scope.AllPostOpMediaHIPxrays = []; // hangers 4, 9, 10
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -18,7 +20,9 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
         $scope.PxRID = pxresult[0]['PxRID'];
         
         $scope.LoadPREOpHIPxraysImgs();
+        $scope.LoadPREOpMediaHIPxraysImgs();
         $scope.LoadPOSTOpHIPxraysImgs();
+        $scope.LoadPOSTOpMediaHIPxraysImgs();
       });
     });
   };
@@ -37,12 +41,34 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
     });
   };
 
+  $scope.LoadPREOpMediaHIPxraysImgs = function(){
+    var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
+      { return labs.PxRID == this.id && (labs.HangRID == 22) } , {id:$scope.PxRID}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.AllPreOpMediaHIPxrays = pxresult;
+        // alert("HIP PE LABS & XRAYS working");
+      });
+    });
+  };
+
   $scope.LoadPOSTOpHIPxraysImgs = function(){
     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
       { return labs.PxRID == this.id && (labs.HangRID == 10) } , {id:$scope.PxRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPostOpHIPxrays = pxresult;
+        // alert("HIP POST PE LABS & XRAYS working");
+      });
+    });
+  } 
+
+  $scope.LoadPOSTOpMediaHIPxraysImgs = function(){
+    var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
+      { return labs.PxRID == this.id && (labs.HangRID == 23) } , {id:$scope.PxRID}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.AllPostOpMediaHIPxrays = pxresult;
         // alert("HIP POST PE LABS & XRAYS working");
       });
     });

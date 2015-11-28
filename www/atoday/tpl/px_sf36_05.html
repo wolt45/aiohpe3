@@ -1,0 +1,72 @@
+	<div ng-controller="sf3605Ctrl">
+		<table class='table table-bordered'>
+				<tr>
+					<td class='active'>
+						6. During the past 4 weeks, to what extent has your physical health or emotional problems interfered with your normal social activities with family, friends, neighbours, or groups?
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" ng-model="sf365.sf6" 
+				            value="0"> Not at All &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf6" 
+				            value="1"> Slightly &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf6" 
+				            value="2"> Moderately &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf6" 
+				            value="3"> Quite a bit &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf6" 
+				            value="4"> Extremely &nbsp;&nbsp;&nbsp;
+
+					</td>
+				</tr>
+				<tr>
+					<td class='active'>
+						7. How much physical pain have you had during the past 4 weeks?
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" ng-model="sf365.sf7" 
+				            value="0"> None &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf7" 
+				            value="1"> Very mild &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf7" 
+				            value="2"> Mild &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf7" 
+				            value="3"> Moderate &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf7" 
+				            value="4"> Severe &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf7" 
+				            value="5"> Very Severe &nbsp;&nbsp;&nbsp;
+
+					</td>
+				</tr>
+				<tr>
+					<td class='active'>
+						8. During the past 4 weeks, how much did pain interfere with your normal work (including both work outside the home and housework)?
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" ng-model="sf365.sf8" 
+				            value="0"> Not at all &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf8" 
+				            value="1"> A little bit &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf8" 
+				            value="2"> Moderately &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf8" 
+				            value="3"> Quite a bit &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="sf365.sf8" 
+				            value="4"> Extremely &nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td colspan='6' class='text-center'>
+						<a class="btn btn-large btn-info" ng-click="addNewsf365(sf365)" style="text-decoration: none; color: #000">SAVE</a>
+
+						<a class="btn btn-large btn-danger" ng-click="removesf365(sf365)" style="text-decoration: none; color: #000">DELETE</a>
+					</td>
+				</tr>
+			</table>
+		</div>

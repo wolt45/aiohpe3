@@ -748,6 +748,9 @@ function DataController($rootScope, $scope, $http) {
 				tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_DiagSchedSurgery'");
             	tx.executeSql("delete from 'clinix_DiagSchedSurgery'");
 
+				tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_DiagsDisposition'");
+            	tx.executeSql("delete from 'clinix_DiagsDisposition'");
+
 				tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_DiagsMedication'");
             	tx.executeSql("delete from 'clinix_DiagsMedication'");
 
@@ -1356,6 +1359,9 @@ function DataController($rootScope, $scope, $http) {
 					clinix_DiagsManagement.ExerProg_QuadsHamstrings = data[idx].ExerProg_QuadsHamstrings;
 					clinix_DiagsManagement.ExerProg_SLR = data[idx].ExerProg_SLR;
 					clinix_DiagsManagement.AmbuTraining = data[idx].AmbuTraining;
+					
+					clinix_DiagsManagement.HyaluronicAcid = data[idx].HyaluronicAcid;
+					clinix_DiagsManagement.ManageOthers = data[idx].ManageOthers;
 
 					clinix_DiagsManagement.SynchStatus = "222";					
 
@@ -4463,24 +4469,12 @@ function DataController($rootScope, $scope, $http) {
             	tx.executeSql("delete from 'jdata_ICD10'");
 	        }); 
 
+
+
 	        $scope.pull_ICD101(function(){
 				$ipadrbg.context.saveChanges();
 
-
-
-
-			 	// populate ICD Object
 			  	$scope.LkUpICDCodes= [];
-			  	var promise = $ipadrbg.context.jdata_ICD10.filter(function (icdx) { 
-			  	  return icdx.lkup_ICDRID > 0}).order('Description').toLiveArray();
-			  	promise.then(function(icdresult) {
-			  	  $scope.$apply( function () {
-			  	    $scope.LkUpICDCodes = icdresult;
-			  	  });
-			  	});
-			  	// populate ICD Object - end
-
-
 
 
     		});
@@ -4505,6 +4499,62 @@ function DataController($rootScope, $scope, $http) {
 					$ipadrbg.context.jdata_ICD10.add(jdata_ICD10);
 				}
 			}
+
+			$scope.LkUpICDCodes= [];
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pull_rvs = function() {
+    	if (confirm(serverIP + ': Pull all RVS, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_RVS'");
+            	tx.executeSql("delete from 'jdata_RVS'");
+	        }); 
+
+
+
+	        $scope.pull_RVS1(function(){
+				$ipadrbg.context.saveChanges();
+
+			  	$scope.LkUpRVSCodes= [];
+
+
+    		});
+ 			// not used, see diagnosis sur schedule
+ 			// $scope.pull_StrucSchedSurgery();
+			alert("Importing RVS Codes from Server was Successful!");
+    	}
+	}
+
+
+	$scope.pull_RVS1= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_RVS.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_RVS = new $ipadrbg.types.jdata_RVS();
+			    	
+					jdata_RVS.lkup_RVSRID = data[idx].lkup_RVSRID;
+					jdata_RVS.rvs_code = data[idx].rvs_code;
+					jdata_RVS.rvs_description = data[idx].rvs_description;
+					jdata_RVS.rvs_unit = data[idx].rvs_unit;
+						
+					$ipadrbg.context.jdata_RVS.add(jdata_RVS);
+				}
+			}
+
+			$scope.LkUpRVSCodes= [];
+
 			callback();
 			// else
 			// 	alert("Nothing to Import from Server!");

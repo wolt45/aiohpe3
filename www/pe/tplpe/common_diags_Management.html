@@ -47,7 +47,24 @@
 					</select>
 				</td>
 			</tr>
-
+			<tr>
+				<td>Hyaluronic acid</td>
+				<td colspan="1" class='form-inline'>
+					<input type="radio" ng-model="DiagsMgmt.HyaluronicAcid" value="None">NONE
+					<br><input type="radio" ng-model="DiagsMgmt.HyaluronicAcid" value="Supartz">Supartz
+					<br><input type="radio" ng-model="DiagsMgmt.HyaluronicAcid" value="Synvisc">Synvisc
+					<br><input type="radio" ng-model="DiagsMgmt.HyaluronicAcid" value="Go On">Go On
+					<br>Others <input type="text" ng-model="DiagsMgmt.HyaluronicAcid" class='form-control' value="">
+				</td>
+			</tr>
+			<tr>
+				<td>Others</td>
+				<td colspan="1">
+					<textarea rows='2' ng-model="DiagsMgmt.ManageOthers" class='form-control'>
+						
+					</textarea>
+				</td>
+			</tr>
 			<tr>	
 				<td class="text-center" colspan="9" nowrap>
 					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"

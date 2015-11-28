@@ -1,0 +1,36 @@
+	<div ng-controller="sf3607Ctrl">
+		<table class='table table-bordered'>
+				<tr class='active'>
+					<td colspan='9'>
+						10. During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with your social activities
+					</td>
+					
+				</tr>
+				<tr>
+					<td width='1%' nowrap>
+						<input type="radio" ng-model="sf367.sf10a" 
+				            value="1"> All of the time <br>
+				        <input type="radio" ng-model="sf367.sf10a" 
+				            value="2"> Most of the time <br>
+				        <input type="radio" ng-model="sf367.sf10a" 
+				            value="3"> Some of the time <br>
+				       
+					</td>
+					<td width='1%' nowrap>
+						 <input type="radio" ng-model="sf367.sf10a" 
+				            value="4"> A little of the time <br>
+				        <input type="radio" ng-model="sf367.sf10a" 
+				            value="5"> None of the time
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan='6' class='text-center'>
+						<a class="btn btn-large btn-info" ng-click="addNewsf367(sf367)" style="text-decoration: none; color: #000">SAVE</a>
+
+						<a class="btn btn-large btn-danger" ng-click="removesf367(sf367)" style="text-decoration: none; color: #000">DELETE</a>
+					</td>
+				</tr>
+				
+			</table>
+		</div>

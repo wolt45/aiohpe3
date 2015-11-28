@@ -1,6 +1,94 @@
 <div ng-controller="DiagsSchedSurgCtrl">
 	<div scroll-bookmark="CommDiagsSURGSCHED">
 		
+
+
+
+
+			<div class="modal fade" id="rvsmodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				  	<div class="modal-dialog modal-lg">
+
+				    	<div class="modal-content">
+
+					      	<div class="modal-header" style="color:black; background-color: #ccc">
+					    		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					    		<h4 class="modal-title" id="myModalLabel"> RVS </h4>
+	      					</div>
+
+	      					<div class='container-fluid'>
+
+								<!-- div ng-controller="ICDCtrl" -->
+
+		      						<table class='table table-bordered'>
+		      							<tr>
+											<td colspan="3">
+												<input type="text" ng-model="searchFilterRVS" placeholder="Search..."/>
+											</td>
+										</tr>
+
+										<!-- tr>
+											<td class="text-center" colspan="9">
+												<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+												<a class="btn btn-large btn-info" ng-click="addNew(ClinixOBJ.ClinixRID, ClinixOBJ.PxRID, selectedCharges)" style="text-decoration: none">
+													add new </a>
+											</td>
+										</tr -->
+
+		      							<tr class="warning text-center">	
+			      							<td width='1%' NOWRAP>
+			      								File #
+			      							</td>
+											
+											<td width='1%' NOWRAP>
+			      								RVS Code
+			      							</td>
+
+			      							<td>
+			      								RVS_description
+			      							</td>
+			      							<td>
+			      								RVU
+			      							</td>
+		      							</tr>
+		      							
+										<tr ng-repeat="RVS_Item in LkUpRVSCodes | filter : searchFilterRVS | orderBy : ['rvs_description'] ">
+											<td>
+												<a class="btn btn-info" ng-click="pickRVS(RVS_Item.lkup_RVSRID, RVS_Item.rvs_code, RVS_Item.rvs_description,RVS_Item.rvs_unit)" 
+													style="text-decoration:none; display:block;color:black">  
+													{{RVS_Item.lkup_RVSRID}}
+												</a>   
+											</td>
+
+											<td class="text-left"> {{RVS_Item.rvs_code}} </td>
+											<td class="text-left"> {{RVS_Item.rvs_description}} </td>
+											<td class="text-left"> {{RVS_Item.rvs_unit}} </td>
+									  	</tr>
+									</table>
+
+								<!-- /div -->
+
+							</div>
+							<div class="modal-footer">
+						    	<button type="button" class="btn btn-danger" data-dismiss="modal">
+						    		Close
+						    	</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
 		<table class="table table-condensed table-bordered">
 			<tr class="warning">
 				<td class="text-left" colspan="9">
@@ -10,10 +98,18 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="1%">Type</td>
-				<td width="25%">
-					<textarea class="form-control" ng-model="schedSurgeGrp.SurgeryType" placeholder="Surgery Type" rows="3" ></textarea>
+				<td width="1%">Type 
+						<br>
+						<br>
+						<button type="button" class="btn btn-warning btn-inline" data-toggle="modal" data-target="#rvsmodal">
+						SEARCH RVS
+					</button>
 				</td>
+				<td>
+					<textarea class="form-control" ng-model="schedSurgeGrp.SurgeryType" placeholder="Surgery Type" rows="3"></textarea>
+				</td>
+			
+		
 				<td width="1%">When</td>
 				<td width="25%">
 					{{schedSurgeGrp.SurgeryDate | date}}
@@ -47,7 +143,9 @@
 				<td nowrap>Other Info</td>
 				<td><input type="text" class="form-control" ng-model="schedSurgeGrp.Others" placeholder="Other Info" ></td>
 			</tr>
+			<tr>
 
+			</tr>
 			<tr>	
 				<td class="text-center" colspan="9" nowrap>
 					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"

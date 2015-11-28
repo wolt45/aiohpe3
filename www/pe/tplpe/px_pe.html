@@ -1,14 +1,18 @@
 <ng:include src="'..//common/px_head.html'"></ng:include>
 
 <div class="btn-group">
-  
+  <a href="#/interview/{{clinix.ClinixRID}}" class="btn btn-primary btn-large" data-toggle="dropdown">
+    INITIAL EVALUATION
+  </a> 
+</div>
+
+<div class="btn-group">
   <a class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
     Physical Exam
     <span class="caret"></span>
   </a>
 
   <ul class="dropdown-menu">
-
     <li>
       <a href="#/peHIP/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
         HIP PE 
@@ -28,7 +32,6 @@
     </li>
 
     <li class="divider"></li>
-
     <li>
       <a href="#/peGenOrtho/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
         GENERAL ORTHOPEDIC 
@@ -59,12 +62,15 @@
         SHOULDER
       </a>
     </li>
-    <li class="divider"></li>
-    <li>
+    
+    <!--li class="divider"></li -->
+
+    <!--li>
         <a href="#/oby-gyne/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
           OB-Gyne
         </a>
-    </li>
+    </li -->
+  
   </ul>
 </div>
 

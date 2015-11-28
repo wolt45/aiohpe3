@@ -1,0 +1,1017 @@
+<!-- SF36  127.0.0. 1 -->
+
+
+<!-- <div ng-controller="ChiefComplaintCtrl"> -->
+	<div ng-controller="sf3601_Ctrl">
+	<div scroll-bookmark="SF36book">
+		<div class="panel panel-default">
+
+		    <table class="table table-condensed table-bordered">
+				<tr class="warning">
+					<th colspan=9>
+						<span id="DGL_module_header">
+			    			SF 36
+			    		</span>
+					</th>
+				</tr>
+	    	
+				<tr class="active">
+
+					<td width="1%" nowrap colspan='3'>General Health: 
+						<br>1. In general, would you say your health is:
+					</td>
+				</tr>
+
+				
+				<tr>
+					
+					<td width='1%'>
+
+
+						
+
+							<div class="form-group">
+	        					<input type="radio" ng-model="sf36_01.Health" 
+					            value="1"> Excellent &nbsp;&nbsp;&nbsp;
+					            <input type="radio" ng-model="sf36_01.Health" 
+					            value="2"> Very Good &nbsp;&nbsp;&nbsp;
+					            <input type="radio" ng-model="sf36_01.Health" 
+					            value="3"> Good &nbsp;&nbsp;&nbsp;
+					            <input type="radio" ng-model="sf36_01.Health" 
+					            value="4"> Fair &nbsp;&nbsp;&nbsp;
+					            <input type="radio" ng-model="sf36_01.Health" 
+					            value="5"> Poor
+						    </div>
+						   
+					    
+					</td>
+					<tr>
+						<td colspan="6" class="text-center">
+							
+						</td>
+					</tr>
+					
+				</tr>
+
+				<tr class="active">
+
+					<td width="1%" nowrap colspan='3'>
+						2. Compared to one year ago, how would you rate your health in general now?
+					</td>
+				</tr>
+				<tr>
+					<td width='1%'>
+						<div class="form-group">
+        					<input type="radio" ng-model="sf36_01.Health2" 
+				            value="1"> Much better now than one year ago <br>
+				            <input type="radio" ng-model="sf36_01.Health2" 
+				            value="2"> Somewhat better now than one year ago <br>
+				            <input type="radio" ng-model="sf36_01.Health2" 
+				            value="3"> About the same <br>
+				            <input type="radio" ng-model="sf36_01.Health2" 
+				            value="4"> Somewhat worse now than one year ago <br>
+				            <input type="radio" ng-model="sf36_01.Health2" 
+				            value="5"> Much worse than one year ago
+					    </div>
+					</td>
+
+				</tr>
+				<tr>
+					<td colspan='3' class='text-center'>
+						<a class="btn btn-large btn-info" ng-click="addNewsf3601(sf36_01)" style="text-decoration: none; color: #000">SAVE</a>
+
+						<a class="btn btn-large btn-danger" ng-click="removesf3601(sf36_01)" style="text-decoration: none; color: #000">DELETE</a>
+					</td>
+				</tr>
+			</div>
+
+			</table>
+
+			
+			<table class="table table-condensed table-bordered">
+				<tr>
+					<td class='active' colspan='6'>
+					3. Does your health now limit you in these activities? If so, how much?
+					</td>
+				</tr>
+				<tr class="active text-center">
+
+					<td width='1%' style='padding:30px'>
+						
+					</td>
+					<td width='60%' style='padding:30px'>
+						ACTIVITIES
+					</td>
+					<td width="1%">
+						Yes Limited A Lot
+					</td>
+					<td width="1%">
+						Yes Limited A Little
+					</td>
+					<td width="1%">
+						Yes Limited At All
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.a 
+					</td>
+					<td>
+						Vigorous activities, such as running, lifting heavy objects,
+						participating in strenuous sports
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.b 
+					</td>
+					<td>
+						Moderate activities, such as moving a table, pushing a vacuum cleaner, bowling, or playing golf
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.c 
+					</td>
+					<td>
+						Lifting or carrying groceries
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.d
+					</td>
+					<td>
+						Climbing several flights of stairs
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.e 
+					</td>
+					<td>
+						Climbing one flight of stairs
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.f 
+					</td>
+					<td>
+						Bending, kneeling, or stooping
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.g
+					</td>
+					<td>
+						Waling more than a mile
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.h
+					</td>
+					<td >
+						Walking several blocks
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.i 
+					</td>
+					<td>
+						Walking one block
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>
+						3.j 
+					</td>
+					<td>
+						Bathing or dressing yourself
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+			<table class='table table-bordered'>
+				<tr class='active'>
+					<td colspan='5'>
+						4. During the past 4 weeks, have you had any of the following problems with your work or other regular daily activities as a result of your physical health?
+					</td>
+					
+				</tr>
+				<tr class='active'>
+					<td width='1%'></td>
+					<td style='padding:10px;' class='text-center' width='60%'>
+						&nbps;
+					</td>
+					<td width='1%'>YES</td>
+					<td width='1%'>NO</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>4.a</td>
+					<td>
+						Cut down on the amount of time you spent on work or other activities
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>4.b</td>
+					<td>
+						Accomplished less than you would like
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>4.c</td>
+					<td>
+						Were limited in the kind of work or other activities
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>4.d</td>
+					<td>
+						Had difficulty performing the work or other activities (for example, it took extra effort)
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+			</table>
+			<table class='table table-bordered'>
+				<tr class='active'>
+					<td colspan='5'>
+						5. During the past 4 weeks, have you had any of the following problems with your work or other regular daily activities as a result of any emotional problems (e.g. feeling depressed or anxious)?
+					</td>
+					
+				</tr>
+				<tr class='active'>
+					<td width='1%'></td>
+					<td style='padding:10px;' class='text-center' width='60%'>
+						ACTIVITIES
+					</td>
+					<td width='1%'>YES</td>
+					<td width='1%'>NO</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>5.a</td>
+					<td>
+						Cut down on the amount of time you spent on work or other activities
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>5.b</td>
+					<td>
+						Accomplished less than you would like
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>5.c</td>
+					<td>
+						Didn’t do work or other activities as carefully as usual
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+			<table class='table table-bordered'>
+				<tr>
+					<td class='active'>
+						6. During the past 4 weeks, to what extent has your physical health or emotional problems interfered with your normal social activities with family, friends, neighbours, or groups?
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Not at All &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Slightly &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Moderately &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Quite a bit &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Extremely &nbsp;&nbsp;&nbsp;
+
+					</td>
+				</tr>
+				<tr>
+					<td class='active'>
+						7. How much physical pain have you had during the past 4 weeks?
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> None &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Very mild &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Mild &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Moderate &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Severe &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Very Severe &nbsp;&nbsp;&nbsp;
+
+					</td>
+				</tr>
+				<tr>
+					<td class='active'>
+						8. During the past 4 weeks, how much did pain interfere with your normal work (including both work outside the home and housework)?
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Not at all &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> A little bit &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Moderately &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Quite a bit &nbsp;&nbsp;&nbsp;
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="0"> Extremely &nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+			</table>
+			<table class='table table-bordered'>
+				<tr class='active'>
+					<td colspan='9'>
+						9. These questions are about how you feel and how things have been with you during the past 4 weeks.
+					</td>
+					
+				</tr>
+				<tr class='active text-center'>
+					<td width='1%'></td>
+					<td style='padding:10px;' class='text-center' width='40%'>
+						ACTIVITIES
+					</td>
+					<td width='10%'>All of the Time</td>
+					<td width='10%'>Most of the Time</td>
+					<td width='10%'>A Good Bit of the Time</td>
+					<td width='10%'>Some of the Time</td>
+					<td width='10%'>A Little of the Time</td>
+					<td width='10%'>None of the Time</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class='active'>9.a</td>
+					<td>
+						Did you feel full of life?
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="6">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>9.b</td>
+					<td>
+						Have you been a very nervous person?
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="6">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>9.c</td>
+					<td>
+						Have you felt so down in the dumps that
+						nothing could cheer you up?
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="6">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>9.d</td>
+					<td>
+						Have you felt calm and peaceful?
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="6">
+				    </td>
+				    <td></td>
+				</tr>
+				
+				<tr>
+					<td class='active'>9.e</td>
+					<td>
+						Did you have a lot of energy?
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="6">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>9.f</td>
+					<td>
+						Have you felt downhearted and blue?
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="6">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>9.g</td>
+					<td>
+						Did you feel worn out?
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="6">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>9.h</td>
+					<td>
+						Have you been a happy person?
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="6">
+				    </td>
+
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'>9.i</td>
+					<td>
+						Did you feel tired?
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="6">
+				    </td>
+				    <td></td>
+				</tr>
+				<tr>
+				    <td></td>
+				</tr>
+				
+			</table>
+			<table class='table table-bordered'>
+				<tr class='active'>
+					<td colspan='9'>
+						10. During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with your social activities
+					</td>
+					
+				</tr>
+				<tr>
+					<td width='1%' nowrap>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1"> All of the time <br>
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1"> Most of the time <br>
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1"> Some of the time <br>
+				       
+					</td>
+					<td width='1%' nowrap>
+						 <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1"> A little of the time <br>
+				        <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1"> None of the time
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+			<table class='table table-bordered'>
+				<tr>
+					<td colspan='9' class='active'>
+						11. How TRUE or FALSE is each of the following statements for you?
+					</td>
+				</tr>
+				<tr class='active text-center'>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+						Definitely True
+					</td>
+					<td>
+						Mostly True
+					</td>
+					<td>
+						Don't Know
+					</td>
+					<td>
+						Mostly False
+					</td>
+					<td>
+						Definitely False
+					</td>
+				</tr>
+				<tr>
+					<td class='active'> 11.a</td>
+					<td>
+						I seem to get sick a little easier than other people
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				  
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'> 11.b</td>
+					<td>
+						I am as healthy as anybody I know
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				  
+				    <td></td>
+				</tr>
+				
+				<tr>
+					<td class='active'> 11.c</td>
+					<td>
+						I expect my health to get worse
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				  
+				    <td></td>
+				</tr>
+				<tr>
+					<td class='active'> 11.d</td>
+					<td>
+						My health is excellent
+					</td>
+					<td class='text-center'>
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="1">
+					</td>
+					<td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="2">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="3">
+				    </td>
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="4">
+				    </td> 
+				    <td class='text-center'> 
+						<input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            value="5">
+				    </td>
+				  
+				    <td></td>
+				</tr>
+				
+				
+			</table>
+		</div>
+	</div>
+<!-- </div> -->

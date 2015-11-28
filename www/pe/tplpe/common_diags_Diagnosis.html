@@ -1,57 +1,5 @@
 <div ng-controller="DiagnosisCtrl">
 
-	<table class="table table-condensed table-bordered">
-		<tr class="success">
-			<th colspan="9">
-				<span id="DGL_module_header">
-	    			Diagnosis
-	    		</span>
-			</th>
-		</tr>
-
-		<tr>
-			<td class="text-center" width="1%" nowrap>
-				ICD 10 Code:
-				<!--br>
-				<input type="text" class="form-control" ng-model="Diagnosis.ICDCode" -->
-			</td>
-
-
-			<td class="text-center" nowrap>
-				<!-- textarea class="form-control" ng-model="Diagnosis" rows="5" placeholder="Diagnosis"></textarea -->
-				<textarea id="tinymce" ui-tinymce ng-model="Diagnosis.Diagnosis" class="form-control" rows="2" style="font-size:26px"></textarea>
-				
-				<table>
-					<tr ng-repeat="diags_ROWS in clinix_Diagnosis">
-						<td>{{diags_ROWS.Diagnosis}}</td>
-						<td nowrap> 
-							&nbsp;&nbsp;
-							<!-- {{diags_ROWS.DiagnosisRID}} -->
-							&nbsp;&nbsp;
-							<a class="btn btn-large btn-danger" style="text-decoration: none"
-	            	 			ng-click="removeDiagnosis_ROW(diags_ROWS.DiagnosisRID)">
-	            	 			delete
-	            			</a>
-            	 		</td>
-					</tr>
-				</table>
-
-			</td>
-
-			<td class="text-center" width="1%" nowrap>
-				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
-					ng-click="addNew_Diagnosis(Diagnosis)">
-					SAVE
-				</a>
-
-            	<a class="btn btn-large btn-danger" style="text-decoration: none"
-            	 	ng-click="removeDiagnosis(Diagnosis)">
-            		DELETE ALL
-            	</a>
-        	</td>
-
-
-			<td width="1%">
 				<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 				  	<div class="modal-dialog modal-lg">
 
@@ -118,13 +66,73 @@
 						    	&nbsp;&nbsp;&nbsp;
 						    	ICD 10
 							</div>
+
 						</div>
 					</div>
 				</div>
-			</td>
-			<!-- BACK TO -->
+
+
+
+
+
+
+			
+
+
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan="9">
+				<span id="DGL_module_header">
+	    			Diagnosis
+	    		</span>
+			</th>
 		</tr>
 
+		<tr>
+			<td class="text-center" width="1%" nowrap>
+				ICD 10 Code:
+				<!--br>
+				<input type="text" class="form-control" ng-model="Diagnosis.ICDCode" -->
+			</td>
+
+
+			<td class="text-center" nowrap>
+				<input type='hidden' ng-model="Diagnosis.DiagnosisRID" readonly>
+				<textarea id="tinymce" ui-tinymce ng-model="Diagnosis.Diagnosis" class="form-control" rows="2" style="font-size:26px"></textarea>
+				
+				<table>
+					<tr ng-repeat="diags_ROWS in clinix_Diagnosis">
+						<td>{{diags_ROWS.Diagnosis}}</td>
+						<td nowrap> 
+							&nbsp;&nbsp;
+							<!-- {{diags_ROWS.DiagnosisRID}} -->
+							&nbsp;&nbsp;
+							<a class="btn btn-large btn-info" style="text-decoration: none"
+	            	 			ng-click="editDiagnosis_ROW(diags_ROWS.DiagnosisRID, diags_ROWS.Diagnosis)">
+	            	 			edit
+	            			</a>
+							<a class="btn btn-large btn-danger" style="text-decoration: none"
+	            	 			ng-click="removeDiagnosis_ROW(diags_ROWS.DiagnosisRID)">
+	            	 			delete
+	            			</a>
+            	 		</td>
+					</tr>
+				</table>
+
+			</td>
+
+			<td class="text-center" width="1%" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+					ng-click="addNew_Diagnosis(Diagnosis)">
+					SAVE
+				</a>
+
+            	<a class="btn btn-large btn-danger" style="text-decoration: none"
+            	 	ng-click="removeDiagnosis(Diagnosis)">
+            		DELETE ALL
+            	</a>
+        	</td>
+        </tr>
 		<tr>
 			<td></td>
 			<td class="text-center"nowrap>
@@ -132,6 +140,7 @@
 				<button type="button" class="btn btn-warning btn-inline" data-toggle="modal" data-target=".bs-example-modal-lg">
 					SEARCH ICD 10
 				</button>
+        	
         	</td>
 		</tr>
 	</table>

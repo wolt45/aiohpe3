@@ -11,6 +11,9 @@ IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
       $scope.LkUpICDCodes = icdresult;
     });
   });
+
+
+  
   // populate ICD Object - end
 
 
@@ -42,16 +45,23 @@ IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
     // db.transaction(function (tx) {
     //     tx.executeSql("delete from 'clinix_Diagnosis' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
     // });
-    
-    newrecord = {
-      ClinixRID : $scope.clinix.ClinixRID
-      ,PxRID    : $scope.clinix.PxRID
-
-
-
-      ,Diagnosis : daignosisObj.Diagnosis
+    if(daignosisObj.DiagnosisRID=="") {
+      newrecord = {
+        ClinixRID : $scope.clinix.ClinixRID
+        ,PxRID    : $scope.clinix.PxRID
+        ,Diagnosis : daignosisObj.Diagnosis
+      }
+      $ipadrbg.context.clinix_Diagnosis.add(newrecord);
     }
-    $ipadrbg.context.clinix_Diagnosis.add(newrecord);
+    else {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
+          tx.executeSql("UPDATE 'clinix_Diagnosis' SET Diagnosis = '" + daignosisObj.Diagnosis 
+            + "' WHERE DiagnosisRID = " + daignosisObj.DiagnosisRID);
+      });
+
+
+    }
     $ipadrbg.context.clinix_Diagnosis.saveChanges();
 
     //alert("Diagnosis Data Saved!");
@@ -80,7 +90,14 @@ IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
       //$ipadrbg.context.clinix_Diagnosis.saveChanges();
       $scope.LoadDiagnosis();
     }
+  } 
+
+  $scope.editDiagnosis_ROW = function (ICDRid, ICDdecription) {
+    $scope.Diagnosis.DiagnosisRID = ICDRid;
+    $scope.Diagnosis.Diagnosis = ICDdecription;
   }
+
+
 
   $scope.pickICD = function (ICDRID, ICDCode, ICDDescription) {
     var diagsData = ICDCode + " - " + ICDDescription;
@@ -96,4 +113,5 @@ IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
     // alert("Diagnosis Data Saved!");
     $scope.LoadDiagnosis();
   }
+
 });

@@ -12,6 +12,14 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, zclinix: { type: $data.EntitySet, elementType: $ipadrbg.types.zclinix }
 
 	, LAB_Results: { type: $data.EntitySet, elementType: $ipadrbg.types.LAB_Results }
+	, jdata_SF3601: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3601 }
+	, jdata_SF3602: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3602 }
+	, jdata_SF3603: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3603 }
+	, jdata_SF3604: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3604 }
+	, jdata_SF3605: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3605 }
+	, jdata_SF3606: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3606 }
+	, jdata_SF3607: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3607 }
+	, jdata_SF3608: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3608 }
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });
