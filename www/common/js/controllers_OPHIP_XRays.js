@@ -2,9 +2,9 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
   //$scope.jdata_OPHIP_XRays = [];
   $scope.PxRID = 0;
   $scope.AllPreOpHIPxrays = []; // hangers 4, 9
-  $scope.AllPreOpMediaHIPxrays = []; // hangers 4, 9
+  $scope.AllPreOpMediaHIPVid = []; // hangers 22
   $scope.AllPostOpHIPxrays = []; // hangers 4, 9, 10
-  $scope.AllPostOpMediaHIPxrays = []; // hangers 4, 9, 10
+  $scope.AllPostOpMediaHIPxrays = []; // hangers 23
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -20,9 +20,9 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
         $scope.PxRID = pxresult[0]['PxRID'];
         
         $scope.LoadPREOpHIPxraysImgs();
-        $scope.LoadPREOpMediaHIPxraysImgs();
+        $scope.LoadPREOpMediaHIPxraysVid();
         $scope.LoadPOSTOpHIPxraysImgs();
-        $scope.LoadPOSTOpMediaHIPxraysImgs();
+        $scope.LoadPOSTOpMediaHIPxraysVid();
       });
     });
   };
@@ -41,12 +41,12 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
     });
   };
 
-  $scope.LoadPREOpMediaHIPxraysImgs = function(){
+  $scope.LoadPREOpMediaHIPxraysVid = function(){
     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
       { return labs.PxRID == this.id && (labs.HangRID == 22) } , {id:$scope.PxRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
-        $scope.AllPreOpMediaHIPxrays = pxresult;
+        $scope.AllPreOpMediaHIPVid = pxresult;
         // alert("HIP PE LABS & XRAYS working");
       });
     });
@@ -63,7 +63,7 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
     });
   } 
 
-  $scope.LoadPOSTOpMediaHIPxraysImgs = function(){
+  $scope.LoadPOSTOpMediaHIPxraysVid = function(){
     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
       { return labs.PxRID == this.id && (labs.HangRID == 23) } , {id:$scope.PxRID}).toLiveArray();
     promise.then(function(pxresult) {

@@ -1,43 +1,74 @@
-<ng:include src="'tplpe/px_pe.html'"></ng:include>
+<div class="col-xs-6 col-sm-2 bs-docs-container" >
+        <ng:include src="'tplpe/today_nav_pekneesports.html'"></ng:include>
+ </div>
 
-<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
-<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
-<ng:include src="'..//common/vw_treatment.html'"></ng:include>
-<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
-<ng:include src="'..//common/vw_labs.html'"></ng:include>
-<ng:include src="'..//common/vw_medhist.html'"></ng:include>
+ <div class="col-xs-6 col-sm-10 bs-docs-container" >
+	<div scroll-bookmark="InitialInter">
+		<ng:include src="'tplpe/px_pe.html'"></ng:include>
 
+		<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
+		<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
+		<ng:include src="'..//common/vw_treatment.html'"></ng:include>
+		<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
+		<ng:include src="'..//common/vw_labs.html'"></ng:include>
+		<ng:include src="'..//common/vw_medhist.html'"></ng:include>
+	</div>
 
-	<table class="table table-condensed table-bordered">
-		<tr class="success">
-			<th colspan=9>
-				<span id="DGL_module_header">
-	    			Sports-Knee
-	    		</span>
-			</th>
-		</tr>
-	</table>
-	
-	<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>				
-	<ng:include src="'tplpe/sports_knee_systemic.html'"></ng:include>
-	<ng:include src="'tplpe/sports_knee_Extremities.html'"></ng:include>
-	<ng:include src="'tplpe/sports_knee_Sensory.html'"></ng:include>
-	<ng:include src="'tplpe/sports_knee_rangemotion.html'"></ng:include>
-	<ng:include src="'tplpe/sports_knee_vascular.html'"></ng:include>
-	<ng:include src="'tplpe/sports_knee_specialtest.html'"></ng:include>
-	<ng:include src="'tplpe/sports_knee_xray.html'"></ng:include>
-	<ng:include src="'tplpe/sports_knee_AssManagDispo.html'"></ng:include>
-
-	
-	<ng:include src="'..//common/vw_diagnosis.html'"></ng:include>
-
-	<ng:include src="'..//common/vw_diags_Management.html'"></ng:include>
-	<ng:include src="'..//common/vw_diags_SurgerySched.html'"></ng:include>
-	<ng:include src="'..//common/vw_diags_Medication.html'"></ng:include>
-	<ng:include src="'..//common/vw_diags_Disposition.html'"></ng:include>
-
-	<ng:include src="'..//common/vw_diags_Notes.html'"></ng:include>
-
-<div scroll-bookmark="XRAYBOX">
-			<ng:include src="'tplpe/sports_knee_xraysviews.html'"></ng:include>
+		<table class="table table-condensed table-bordered">
+			<tr class="success">
+				<th colspan=9>
+					<span id="DGL_module_header">
+		    			Sports-Knee
+		    		</span>
+				</th>
+			</tr>
+		</table>
+		<div scroll-bookmark="Ambustats">	
+			<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>
+		</div>			
+		
+		<div scroll-bookmark="Systemic">
+			<ng:include src="'tplpe/sports_knee_systemic.html'"></ng:include>
 		</div>
+		<div scroll-bookmark="Extremities">
+			<ng:include src="'tplpe/sports_knee_Extremities.html'"></ng:include>
+			<ng:include src="'tplpe/sports_knee_Sensory.html'"></ng:include>
+		</div>
+		<div scroll-bookmark="RangeofMotion">
+			<ng:include src="'tplpe/sports_knee_rangemotion.html'"></ng:include>
+		</div>
+		<div scroll-bookmark="Vascular">
+			<ng:include src="'tplpe/sports_knee_vascular.html'"></ng:include>
+		</div>
+		<div scroll-bookmark="specialtest">
+			<ng:include src="'tplpe/sports_knee_specialtest.html'"></ng:include>
+		</div>
+
+		
+			<ng:include src="'tplpe/sports_knee_xray.html'"></ng:include>
+
+			<ng:include src="'tplpe/sports_knee_AssManagDispo.html'"></ng:include>
+
+		<div scroll-bookmark="Diagnosis">
+			<ng:include src="'..//common/vw_diagnosis.html'"></ng:include>
+		</div>
+
+		<div scroll-bookmark="Manage">
+			<ng:include src="'..//common/vw_diags_Management.html'"></ng:include>
+		</div>
+		<div scroll-bookmark="SurgerySched">
+			<ng:include src="'..//common/vw_diags_SurgerySched.html'"></ng:include>
+		</div>
+		<div scroll-bookmark="Medication">
+			<ng:include src="'..//common/vw_diags_Medication.html'"></ng:include>
+		</div>
+		<div scroll-bookmark="Disposition">
+			<ng:include src="'..//common/vw_diags_Disposition.html'"></ng:include>
+		</div>
+		<div scroll-bookmark="Notes">
+			<ng:include src="'..//common/vw_diags_Notes.html'"></ng:include>
+		</div>
+
+	<div scroll-bookmark="XRAYBOX">
+		<ng:include src="'tplpe/sports_knee_xraysviews.html'"></ng:include>
+	</div>

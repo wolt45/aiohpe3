@@ -4,17 +4,17 @@
 
 
 <div class="col-xs-6 col-sm-10 bs-docs-container" >
+	<div scroll-bookmark="InitialInter">
+		<ng:include src="'tplpe/px_pe.html'"></ng:include>
 
-	<ng:include src="'tplpe/px_pe.html'"></ng:include>
 
-<div scroll-bookmark="InitialInter">
-	<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
-	<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
-	<ng:include src="'..//common/vw_treatment.html'"></ng:include>
-	<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
-	<ng:include src="'..//common/vw_labs.html'"></ng:include>
-	<ng:include src="'..//common/vw_medhist.html'"></ng:include>
-</div>
+		<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
+		<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
+		<ng:include src="'..//common/vw_treatment.html'"></ng:include>
+		<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
+		<ng:include src="'..//common/vw_labs.html'"></ng:include>
+		<ng:include src="'..//common/vw_medhist.html'"></ng:include>
+	</div>
 
 	<table class="table table-condensed table-bordered">
 		<tr class="success">
@@ -28,9 +28,15 @@
 
 <div scroll-bookmark="Ambustats">
 	<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>
-	<ng:include src="'tplpe/px_knee_appearance.html'"></ng:include>
-	<ng:include src="'tplpe/px_knee_alignment.html'"></ng:include>
 </div>
+<div scroll-bookmark="KneeApperance">	
+	<ng:include src="'tplpe/px_knee_appearance.html'"></ng:include>
+</div>
+
+<div scroll-bookmark="KneeAlign">
+	<ng:include src="'tplpe/px_knee_alignment.html"></ng:include>
+</div>
+
 
 <div scroll-bookmark="KneeRangeMotion">
 	<ng:include src="'tplpe/px_knee_rangeofmotion.html'"></ng:include>

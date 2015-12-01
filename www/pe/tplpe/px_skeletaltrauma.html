@@ -1,11 +1,18 @@
-<ng:include src="'tplpe/px_pe.html'"></ng:include>
+<div class="col-xs-6 col-sm-2 bs-docs-container" >
+        <ng:include src="'tplpe/today_nav_peskeltrauma.html'"></ng:include>
+ </div>
 
-<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
-<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
-<ng:include src="'..//common/vw_treatment.html'"></ng:include>
-<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
-<ng:include src="'..//common/vw_labs.html'"></ng:include>
-<ng:include src="'..//common/vw_medhist.html'"></ng:include>
+ <div class="col-xs-6 col-sm-10 bs-docs-container" >
+	 <div scroll-bookmark="InitialInter">
+		<ng:include src="'tplpe/px_pe.html'"></ng:include>
+
+		<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
+		<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
+		<ng:include src="'..//common/vw_treatment.html'"></ng:include>
+		<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
+		<ng:include src="'..//common/vw_labs.html'"></ng:include>
+		<ng:include src="'..//common/vw_medhist.html'"></ng:include>
+	</div>
 
 
 <table class="table table-condensed table-bordered">
@@ -17,25 +24,38 @@
 		</th>
 	</tr>
 </table>
+	<div scroll-bookmark="Ambustats">
+		<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="Apperance">
+		<ng:include src="'tplpe/px_skeltrauma_Apperance.html'"></ng:include>
+	</div>
+
+		<ng:include src="'tplpe/px_skeletaltrauma_xrayfindings.html'"></ng:include -->
 	
-<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>
-		
-<ng:include src="'tplpe/px_skeltrauma_Apperance.html'"></ng:include>
+	<div scroll-bookmark="Diagnosis">
+		<ng:include src="'..//common/vw_diagnosis.html'"></ng:include>
+	</div>
 
-<ng:include src="'tplpe/px_skeletaltrauma_xrayfindings.html'"></ng:include -->
+	<div scroll-bookmark="Manage">
+		<ng:include src="'..//common/vw_diags_Management.html'"></ng:include>
+	</div>
 
-
-<ng:include src="'..//common/vw_diagnosis.html'"></ng:include>
-
-<ng:include src="'..//common/vw_diags_Management.html'"></ng:include>
-<ng:include src="'..//common/vw_diags_SurgerySched.html'"></ng:include>
-<ng:include src="'..//common/vw_diags_Medication.html'"></ng:include>
-<ng:include src="'..//common/vw_diags_Disposition.html'"></ng:include>
-
-<ng:include src="'..//common/vw_diags_Notes.html'"></ng:include>
-
+	<div scroll-bookmark="SurgerySched">
+		<ng:include src="'..//common/vw_diags_SurgerySched.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="Medication">
+		<ng:include src="'..//common/vw_diags_Medication.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="Disposition">
+		<ng:include src="'..//common/vw_diags_Disposition.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="Notes">
+		<ng:include src="'..//common/vw_diags_Notes.html'"></ng:include>
+	</div>
 <!-- <ng:include src="'..//common/vw_structured_discharge_summary.html'"></ng:include> -->
 
 <div scroll-bookmark="XRAYBOX">
 	<ng:include src="'tplpe/px_skeltrauma_XRays.html'"></ng:include>
 </div>	
+</div>

@@ -1,46 +1,71 @@
-<ng:include src="'tplpe/px_pe.html'"></ng:include>
+<div class="col-xs-6 col-sm-2 bs-docs-container" >
+        <ng:include src="'tplpe/today_nav_pegenortho.html'"></ng:include>
+ </div>
+
+<div class="col-xs-6 col-sm-10 bs-docs-container" >
+	<div scroll-bookmark="InitialInter">
+		<ng:include src="'tplpe/px_pe.html'"></ng:include>
+
+		<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
+		<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
+		<ng:include src="'..//common/vw_treatment.html'"></ng:include>
+		<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
+		<ng:include src="'..//common/vw_labs.html'"></ng:include>
+		<ng:include src="'..//common/vw_medhist.html'"></ng:include>
+</div>
+
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span id="DGL_module_header">
+	    			General Orthopedic
+	    		</span>
+			</th>
+		</tr>
+	</table>
+	<div scroll-bookmark="Ambustats">
+		<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>
+		<ng:include src="'tplpe/gen_ortho_1.html'"></ng:include>
+	</div>
+
+	<div scroll-bookmark="AppXrayfindings">
+		<ng:include src="'tplpe/gen_ortho_2.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="Xrayfindings">
+		<ng:include src="'tplpe/gen_ortho_3.html'"></ng:include>
+	</div>
+	<!-- ng:include src="'tplpe/gen_ortho_4.html'"></ng:include -->
+	<div scroll-bookmark="labexam">
+		<ng:include src="'tplpe/gen_ortho_5.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="PreviousSurgery">
+		<ng:include src="'tplpe/gen_ortho_6.html'"></ng:include>
+	</div>
 
 
-<ng:include src="'..//common/vw_chiefcomp.html'"></ng:include>
-<ng:include src="'..//common/vw_ethiology.html'"></ng:include>
-<ng:include src="'..//common/vw_treatment.html'"></ng:include>
-<ng:include src="'..//common/vw_prevsurgeries.html'"></ng:include>
-<ng:include src="'..//common/vw_labs.html'"></ng:include>
-<ng:include src="'..//common/vw_medhist.html'"></ng:include>
+	<div scroll-bookmark="Diagnosis">
+		<ng:include src="'tplpe/common_diags_Diagnosis.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="Manage">
+		<ng:include src="'tplpe/common_diags_Management.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="SurgerySched">
+		<ng:include src="'tplpe/common_diags_SurgerySched.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="Medication">
+		<ng:include src="'tplpe/common_diags_Medication.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="Disposition">
+		<ng:include src="'tplpe/common_diags_Disposition.html'"></ng:include>
+	</div>
+	<div scroll-bookmark="Notes">
+		<ng:include src="'tplpe/common_diags_Notes.html'"></ng:include>
+	</div>
 
 
-<table class="table table-condensed table-bordered">
-	<tr class="success">
-		<th colspan=9>
-			<span id="DGL_module_header">
-    			General Orthopedic
-    		</span>
-		</th>
-	</tr>
-</table>
-
-<ng:include src="'tplpe/common_ambulatorystatus.html'"></ng:include>
-
-<ng:include src="'tplpe/gen_ortho_1.html'"></ng:include>
-<ng:include src="'tplpe/gen_ortho_2.html'"></ng:include>
-<ng:include src="'tplpe/gen_ortho_3.html'"></ng:include>
-<!-- ng:include src="'tplpe/gen_ortho_4.html'"></ng:include -->
-<ng:include src="'tplpe/gen_ortho_5.html'"></ng:include>
-<ng:include src="'tplpe/gen_ortho_6.html'"></ng:include>
-
-
-
-
-<ng:include src="'tplpe/common_diags_Diagnosis.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Management.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_SurgerySched.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Medication.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Disposition.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Notes.html'"></ng:include>
-
-
-<ng:include src="'..//common/vw_structured_discharge_summary.html'"></ng:include>
-
-<div scroll-bookmark="XRAYBOX">
-	<ng:include src="'tplpe/GENOR_XRays.html'"></ng:include>
-</div>	
+	<!--<ng:include src="'..//common/vw_structured_discharge_summary.html'"></ng:include>-->
+	<div scroll-bookmark="XRAYBOX">
+		<ng:include src="'tplpe/GENOR_XRays.html'"></ng:include>
+	</div>	
+</div>
+</div>
