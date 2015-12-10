@@ -67,7 +67,7 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $
         $scope.AllPreSpineVideo = pxresult;
         
         for(var i = 0; i <= $scope.AllPreSpineVideo.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://192.168.254.99/dump_labs/" + $scope.AllPreSpineVideo[i]['ImageFileName']);
+          var vidurl = $sce.trustAsResourceUrl("http://10.0.1.99/dump_labs/" + $scope.AllPreSpineVideo[i]['ImageFileName']);
           var viddate = $scope.AllPreSpineVideo[i]['RefDate'];
           var vidfile = $scope.AllPreSpineVideo[i]['ImageFileName'];
 
@@ -112,7 +112,7 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $
         $scope.AllPostSpineVid = pxresult;
        
         for(var i = 0; i <= $scope.AllPostSpineVid.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://192.168.254.99/dump_labs/" + $scope.AllPostSpineVid[i]['ImageFileName']);
+          var vidurl = $sce.trustAsResourceUrl("http://10.0.1.99/dump_labs/" + $scope.AllPostSpineVid[i]['ImageFileName']);
           var viddate = $scope.AllPostSpineVid[i]['RefDate'];
           var vidfile = $scope.AllPostSpineVid[i]['ImageFileName'];
 
