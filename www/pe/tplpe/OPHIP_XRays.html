@@ -4,14 +4,22 @@
 
     $(document).ready(function()
     {
-        $("#hideshowPre_OPHipXRays").show(); //hide
+        $("#hideshowPre_OPHipXRays").show(); //show
 
         $("#showPreOpHIPXRays").click(function()
         {
             $("#hideshowPre_OPHipXRays").toggle(200);
         });
 
-        $("#hideshowPreMedia_OPHipXRays").show(); //hide
+        $("#hideshowPrePicutres_OPHip").show(); //show
+
+        $("#showPreOpMediaHIPicutres").click(function()
+        {
+            $("#hideshowPrePicutres_OPHip").toggle(200);
+        });
+
+        
+        $("#hideshowPreMedia_OPHipXRays").show(); //show
 
         $("#showPreOpMediaHIPXRays").click(function()
         {
@@ -24,6 +32,13 @@
         $("#showPostOpHIPXRays").click(function()
         {
             $("#hideshowPost_OPHipXRays").toggle(200);
+        }); 
+
+        $("#hideshowPost_OPHip").show();
+
+        $("#showPostOpHIP").click(function()
+        {
+            $("#hideshowPost_OPHip").toggle(200);
         });
 
         $("#hideshowPostMedia_OPHipXRays").show();
@@ -70,11 +85,11 @@
                 &nbsp;
                 &nbsp;
                 &nbsp;
-                <input type="submit" id="showPreOpMediaHIPXRays" class="btn btn-danger" value="Media - PRE OP">
+               
 			</td>
 		</tr>
 
-        <tr class="info">
+        <tr>
 			<td class="text-left" colspan="9" nowrap>
             	<div id="hideshowPre_OPHipXRays">
                 	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreOpHIPxrays">
@@ -84,31 +99,168 @@
                 		<br> LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
         				<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
         				<br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-        				<br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+        				<br> <img ng-src="http://127.0.0.1/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                        <br>
 
                 	</div>
             	</div>
 			</td>
         </tr>
 
-         <tr class="active">
-            <td class="text-center" colspan="9" nowrap>
-                <div id="hideshowPreMedia_OPHipXRays">
-                     <!-- <video width='320' height='240' controls>
-                             <source ng-src="http://10.0.1.99/../dump_labs/taylor.mp4"> 
-                        </video> -->
-                 <div class='text-center' ng-repeat="lab_results in AllPreOpMediaHIPVid">
-                        <br><br>
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    POST-Operative X-Rays
+                </span>
+            </td>
+        </tr>
 
-                        <video width='320' height='240' controls>
-                             <source ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}"> 
-                        </video>
+        <tr class="active">
+            <td class="text-center" colspan="9">
+                <a class="btn btn-large btn-info" style="text-decoration: none;"
+                    scroll-to-bookmark="XRAY_FINDINGS">
+
+                    JUMP TO X-Ray Findings
+
+                </a>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <input type="submit" id="showPostOpHIPXRays" class="btn btn-danger" value="GROSS IMAGES - POST OP">
+
+
+            </td>
+        </tr>
+
+
+        <tr>
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPost_OPHipXRays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpHIPxrays">
+                        <br><br>
+                        Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
+                        <br>LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://127.0.0.1/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
+ 
+          <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative Hip Pictures
+                </span>
+            </td>
+        </tr>
+        <tr class='active text-center'>
+            <td>
+                <input type="submit" id="showPreOpMediaHIPicutres" class="btn btn-danger" value="Hip Patient Pictures">
+            </td>
+        </tr>
+         <tr>
+            <td class="text-center" colspan="9" nowrap>
+                <div id="hideshowPrePicutres_OPHip">
+                     <!-- <video width='320' height='240' controls>
+                             <source ng-src="http://127.0.0.1/../dump_labs/taylor.mp4"> 
+                        </video> -->
+                 <div class='text-center' ng-repeat="lab_results in AllPreOpHipPictures">
+                        <br>
+                        <img ng-src="http://127.0.0.1/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                        <br>
                      </div>
                 </div>
             </td>
         </tr>
 
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    POST-Operative Hip Pictures
+                </span>
+            </td>
+        </tr>
+        <tr class='active text-center'>
+            <td>
+                <input type="submit" id="showPostOpHIP" class="btn btn-danger" value="Hip Patient Pictures">
+            </td>
+        </tr>
+         <tr>
+            <td class="text-center" colspan="9" nowrap>
+                <div id="hideshowPost_OPHip">
+                     <!-- <video width='320' height='240' controls>
+                             <source ng-src="http://127.0.0.1/../dump_labs/taylor.mp4"> 
+                        </video> -->
+                 <div class='text-center' ng-repeat="lab_results in AllPostOpHipPictures">
+                        <br>
+                        <img ng-src="http://127.0.0.1/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                        <br>
+                     </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative HIP Videos
+                </span>
+            </td>
+        </tr>
+        <tr class='active text-center'>
+            <td>
+                <input type="submit" id="showPreOpMediaHIPXRays" class="btn btn-danger" value="PRE-OP Video">
+            </td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+        <tr>
+            <td class="text-center" colspan="9" nowrap>
+                <div id="hideshowPreMedia_OPHipXRays">
+                    <div class='text-center' ng-repeat="preOpVideos in PreOpVideos | orderBy : ['VideoDate']">
+                        <table>  
+                            <tr>
+                                <td class="text-center" width="1%" nowrap>
+                                    <span style="font-size:24px;">
+                                    {{preOpVideos.VideoDate | date}}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    {{preOpVideos.VideoFileName}}
+                                    <br>
+                                    <video width='320' height='240' ng-src="{{preOpVideos.VideoURL}}" controls> </video> 
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
         
+
+
+
+
+
+
+
         <tr class="active">
             <td class="text-center" colspan="9">
                 <a class="btn btn-large btn-info" style="text-decoration: none;"
@@ -120,74 +272,35 @@
             </td>
         </tr>
 
-    </table>
-		
-	<table class="table table-condensed table-bordered">
-		<tr class="warning">
-			<td width="1%" colspan="9" nowrap>
-				<span id="DGL_module_header">
-		    		POST-Operative X-Rays
-		    	</span>
-		    </td>
-		</tr>
-
-		<tr class="active">
-            <td class="text-center" colspan="9">
-                <a class="btn btn-large btn-info" style="text-decoration: none;"
-                    scroll-to-bookmark="XRAY_FINDINGS">
-
-                    JUMP TO X-Ray Findings
-
-                </a>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-            	<input type="submit" id="showPostOpHIPXRays" class="btn btn-danger" value="GROSS IMAGES - POST OP">
-
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                <input type="submit" id="showPostOpMediaHIPXRays" class="btn btn-danger" value="Media - PRE OP">
-			</td>
-		</tr>
-
-
-        <tr class="info">
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    POST-Operative Hip Videos
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class='text-center'>
+                 <input type="submit" id="showPostOpMediaHIPXRays" class="btn btn-danger" value="POST-OP Video">
+            </td>
+        </tr>
+       <tr class="active">
             <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPost_OPHipXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpHIPxrays">
-                        <br><br>
-                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
-                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
-                        <br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
-                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                <div id="hideshowPostMedia_OPHipXRays">
+                    <div class='text-center' ng-repeat="postOpVideos in PostOpVideos | orderBy : [ 'VideoDate']">
+                        <br>
+                        {{postOpVideos.VideoFileName}}
+                        <br>
+                        {{postOpVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{postOpVideos.VideoURL}}" controls> </video> 
+
+                        <br>
                     </div>
                 </div>
             </td>
         </tr>
-
-       <!--   <tr class="active">
-            <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPostMedia_OPHipXRays">
-                    <div class='text-center' ng-repeat="lab_results in AllPostOpMediaHIPxrays">
-                        <br><br>
-
-                        <video width='320' height='240' controls>
-                            <source ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}"> 
-                        </video>
-                    </div>
-                </div>
-            </td>
-        </tr> -->
 
         <tr class="active">
             <td class="text-center" colspan="9">

@@ -1,10 +1,15 @@
-IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
+IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http, $sce){
   //$scope.jdata_OPHIP_XRays = [];
   $scope.PxRID = 0;
   $scope.AllPreOpHIPxrays = []; // hangers 4, 9
+  $scope.AllPreOpHipPictures = []; // hangers 22
   $scope.AllPreOpMediaHIPVid = []; // hangers 22
+  $scope.PreOpVideos = []; 
+
   $scope.AllPostOpHIPxrays = []; // hangers 4, 9, 10
-  $scope.AllPostOpMediaHIPxrays = []; // hangers 23
+  $scope.AllPostOpHipPictures = []; // hangers 4, 9, 10
+  $scope.AllPostOpMediaHIPVid = []; // hangers 23
+  $scope.PostOpVideos = []; 
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -19,10 +24,13 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
 
         $scope.PxRID = pxresult[0]['PxRID'];
         
-        $scope.LoadPREOpHIPxraysImgs();
-        $scope.LoadPREOpMediaHIPxraysVid();
-        $scope.LoadPOSTOpHIPxraysImgs();
-        $scope.LoadPOSTOpMediaHIPxraysVid();
+        $scope.LoadPREOpHIPxrays();
+        $scope.LoadPREOpHIPImgs();
+        $scope.LoadPREOpMediaHIPVid();
+
+        $scope.LoadPOSTOpHIPxrays();
+        $scope.LoadPOSTOpHIPImgs();
+        $scope.LoadPOSTOpMediaHIPVid();
       });
     });
   };
@@ -30,31 +38,56 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
   $scope.LoadOPHIPxrays();
 
   // LABS-XRays, loaded on the first promise, load after $scope.PxRID was promised
-  $scope.LoadPREOpHIPxraysImgs = function(){
+  $scope.LoadPREOpHIPxrays = function(){
     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
-      { return labs.PxRID == this.id && (labs.HangRID == 4 || labs.HangRID == 9) } , {id:$scope.PxRID}).toLiveArray();
+      { return labs.PxRID == this.id && (labs.HangRID == 1001) } , {id:$scope.PxRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPreOpHIPxrays = pxresult;
-        // alert("HIP PE LABS & XRAYS working");
       });
     });
   };
 
-  $scope.LoadPREOpMediaHIPxraysVid = function(){
+
+  $scope.LoadPREOpHIPImgs = function(){
     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
-      { return labs.PxRID == this.id && (labs.HangRID == 22) } , {id:$scope.PxRID}).toLiveArray();
+      { return labs.PxRID == this.id && (labs.HangRID == 1010) } , {id:$scope.PxRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
-        $scope.AllPreOpMediaHIPVid = pxresult;
-        // alert("HIP PE LABS & XRAYS working");
+        $scope.AllPreOpHipPictures = pxresult;
       });
     });
   };
 
-  $scope.LoadPOSTOpHIPxraysImgs = function(){
+  $scope.LoadPREOpMediaHIPVid = function(){
+     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
+      { return labs.PxRID == this.id && (labs.HangRID == 1020) } , {id:$scope.PxRID}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function() {
+        
+        $scope.AllPreOpMediaHIPVid = pxresult;
+        //$scope.sources = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/433_Burning In The Skies Karaoke (Linkin Park).mp4");
+        
+        for(var i = 0; i < $scope.AllPreOpMediaHIPVid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/" + $scope.AllPreOpMediaHIPVid[i]['ImageFileName']);
+          var viddate = $scope.AllPreOpMediaHIPVid[i]['RefDate'];
+          var vidfile = $scope.AllPreOpMediaHIPVid[i]['ImageFileName'];
+
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+          }
+
+          $scope.PreOpVideos.push(newrecord);
+        }
+      });
+    });
+  };
+
+  $scope.LoadPOSTOpHIPxrays = function(){
     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
-      { return labs.PxRID == this.id && (labs.HangRID == 10) } , {id:$scope.PxRID}).toLiveArray();
+      { return labs.PxRID == this.id && (labs.HangRID == 1030) } , {id:$scope.PxRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPostOpHIPxrays = pxresult;
@@ -63,13 +96,36 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http){
     });
   } 
 
-  $scope.LoadPOSTOpMediaHIPxraysVid = function(){
+    $scope.LoadPOSTOpHIPImgs = function(){
     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
-      { return labs.PxRID == this.id && (labs.HangRID == 23) } , {id:$scope.PxRID}).toLiveArray();
+      { return labs.PxRID == this.id && (labs.HangRID == 1040) } , {id:$scope.PxRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
-        $scope.AllPostOpMediaHIPxrays = pxresult;
-        // alert("HIP POST PE LABS & XRAYS working");
+        $scope.AllPostOpHipPictures = pxresult;
+        // alert("HIP PE LABS & XRAYS working");
+      });
+    });
+  };
+
+  $scope.LoadPOSTOpMediaHIPVid = function(){
+    var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
+      { return labs.PxRID == this.id && (labs.HangRID == 1050) } , {id:$scope.PxRID}).toLiveArray();
+    promise.then(function(pxresult) {
+      $scope.$apply(function () {
+        $scope.AllPostOpMediaHIPVid = pxresult;
+       
+        //$scope.sources = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/433_Burning In The Skies Karaoke (Linkin Park).mp4");
+        
+        for(var i = 0; i < $scope.AllPostOpMediaHIPVid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/" + $scope.AllPostOpMediaHIPVid[i]['ImageFileName']);
+          var viddate = $scope.AllPostOpMediaHIPVid[i]['RefDate'];
+          var vidfile = $scope.AllPostOpMediaHIPVid[i]['ImageFileName'];
+
+          $scope.PostOpVideos[i]['VideoURL'] = vidurl;
+          $scope.PostOpVideos[i]['VideoDate'] = viddate;
+          $scope.PostOpVideos[i]['VideoFileName'] = vidfile;
+        }
+
       });
     });
   }

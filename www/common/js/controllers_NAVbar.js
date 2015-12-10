@@ -7,8 +7,6 @@ IOHPEApp.controller('NAVbarCtrl', function ($scope, $routeParams, $http){
 	    isFirstDisabled: false
 	};
 
-debugger;
-
 	$scope.LoadZClinix = function () {
 	    var promise = $ipadrbg.context.zclinix.filter(function (tx) { 
 	      	return tx.ClinixRID == this.id}, { id : $scope.ClinixRID}).toLiveArray();

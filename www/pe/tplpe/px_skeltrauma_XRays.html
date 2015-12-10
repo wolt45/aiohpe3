@@ -9,12 +9,40 @@
             $("#hideshowPre_OPSkelTraumaXRays").toggle(200);
         });
 
+        $("#hideshowPre_OPSkelTraumapic").show(); //hide
+
+        $("#showPreOpSkelTraumapic").click(function()
+        {
+            $("#hideshowPre_OPSkelTraumapic").toggle(200);
+        });
+
+        $("#hideshowPre_OPSkelTraumavid").show(); //hide
+
+        $("#showPreOpSkelTraumavid").click(function()
+        {
+            $("#hideshowPre_OPSkelTraumavid").toggle(200);
+        });
+
 
         $("#hideshowPost_OPSkelTraumaXRays").show();
 
         $("#showPostOpSkelTraumaXRays").click(function()
         {
             $("#hideshowPost_OPSkelTraumaXRays").toggle(200);
+        });
+
+        $("#hideshowPost_OPSkelTraumapic").show();
+
+        $("#showPostOpSkelTraumapic").click(function()
+        {
+            $("#hideshowPost_OPSkelTraumapic").toggle(200);
+        });
+
+        $("#hideshowPost_OPSkelTraumavid").show();
+
+        $("#showPostOpSkelTraumavid").click(function()
+        {
+            $("#hideshowPost_OPSkelTraumavid").toggle(200);
         });
     });
 </script> 
@@ -23,59 +51,127 @@
 	
 	<table class="table table-condensed table-bordered">
 		<tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative Skeletal Trauma X-Rays
+                </span>
+            </td>
+        </tr>
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+                <a class="btn btn-large btn-info" style="text-decoration: none;"
+                    scroll-to-bookmark="XRAYBOX_APPERANCE">
+                    JUMP TO X-Ray Findings
+                </a>
+
+                <input type="submit" id="showPreOpSkelTraumaXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPSkelTraumaXRays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumaxrays">
+                        <br>
+                        Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+
+
+
+
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative Skeletal Trauma Pictures
+                </span>
+            </td>
+        </tr>
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPreOpSkelTraumapic" class="btn btn-danger" value="Patient Pictures">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPSkelTraumapic">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumapictures">
+                        <br>
+                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                        <br>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+
+
+
+        <tr class="warning">
 			<td width="1%" colspan="9" nowrap>
 				<span id="DGL_module_header">
-		    		PRE-Operative Skeletal Trauma X-Rays
+		    		PRE-Operative Skeletal Trauma Videos
 		    	</span>
 		    </td>
 		</tr>
 
 		<tr class="active">
 			<td class="text-center" colspan="9">
-                <a class="btn btn-large btn-info" style="text-decoration: none;"
-                    scroll-to-bookmark="XRAYBOX_APPERANCE">
-                    JUMP TO X-Ray Findings
-                </a>
 
-            	<input type="submit" id="showPreOpSkelTraumaXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
+            	<input type="submit" id="showPreOpSkelTraumavid" class="btn btn-danger" value="PRE-OP Video">
 			</td>
 		</tr>
 
         <tr class="info">
 			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPSkelTraumaXRays">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumaxrays">
-                		<br><br>
-                		LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
-        				<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
-        				<br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
-        				<br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-        				<br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+            	<div id="hideshowPre_OPSkelTraumavid">
+                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumavideo">
+                		<br>
+                		<img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                        <br>
                 	</div>
             	</div>
 			</td>
         </tr>
     </table>
 		
+
+
+
+
 	<table class="table table-condensed table-bordered">
 		<tr class="warning">
-			<td width="1%" colspan="9" nowrap>
-				<span id="DGL_module_header">
-		    		POST-Operative Skeletal Trauma X-Rays
-		    	</span>
-		    </td>
-		</tr>
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    POST-Operative Skeletal Trauma X-Rays
+                </span>
+            </td>
+        </tr>
 
-		<tr class="active">
-			<td class="text-center" colspan="9">
+        <tr class="active">
+            <td class="text-center" colspan="9">
                  <a class="btn btn-large btn-info" style="text-decoration: none;"
                     scroll-to-bookmark="XRAYBOX_APPERANCE">
                     JUMP TO X-Ray Findings
                 </a>
 
-            	<input type="submit" id="showPostOpSkelTraumaXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
-			</td>
-		</tr>
+                <input type="submit" id="showPostOpSkelTraumaXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
+            </td>
+        </tr>
 
 
         <tr class="info">
@@ -83,11 +179,69 @@
                 <div id="hideshowPost_OPSkelTraumaXRays">
                     <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSkelTraumaxrays">
                         <br><br>
+                        Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
                         LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
                         <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
-                        <br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
                         <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
                         <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    POST-Operative Skeletal Trauma Picture
+                </span>
+            </td>
+        </tr>
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPostOpSkelTraumapic" class="btn btn-danger" value="Patient Picture">
+            </td>
+        </tr>
+
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPost_OPSkelTraumapic">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSkelTraumapicture">
+                        <br><img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                        <br>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+        <tr class="warning">
+			<td width="1%" colspan="9" nowrap>
+				<span id="DGL_module_header">
+		    		POST-Operative Skeletal Trauma Video
+		    	</span>
+		    </td>
+		</tr>
+
+		<tr class="active">
+			<td class="text-center" colspan="9">
+
+            	<input type="submit" id="showPostOpSkelTraumavid" class="btn btn-danger" value="POST-OP Video">
+			</td>
+		</tr>
+
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPost_OPSkelTraumavid">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSkelTraumavid">
+                        <br><img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                        <br>
                     </div>
                 </div>
             </td>

@@ -4,19 +4,47 @@
 
     $(document).ready(function()
     {
-        $("#hideshowPre_OPHipXRays").show(); //hide
+        $("#hideshowPre_OPGenOrthoXRays").show(); //hide
 
-        $("#showPreOpHIPXRays").click(function()
+        $("#showPreOpGenOrthoXRays").click(function()
         {
-            $("#hideshowPre_OPHipXRays").toggle(200);
+            $("#hideshowPre_OPGenOrthoXRays").toggle(200);
+        });
+
+        $("#hideshowPre_OPGenOrthoPicture").show(); //hide
+
+        $("#showPreOpGenOrthoPicture").click(function()
+        {
+            $("#hideshowPre_OPGenOrthoPicture").toggle(200);
+        });
+
+        $("#hideshowPre_OPGenOrthoVid").show(); //hide
+
+        $("#showPreOpGenOrthoVid").click(function()
+        {
+            $("#hideshowPre_OPGenOrthoVid").toggle(200);
         });
 
 
-        $("#hideshowPost_OPHipXRays").show();
+        $("#hideshowPost_OPGenOrthoXRays").show();
 
-        $("#showPostOpHIPXRays").click(function()
+        $("#showPostOpGenOrthoXRays").click(function()
         {
-            $("#hideshowPost_OPHipXRays").toggle(200);
+            $("#hideshowPost_OPGenOrthoXRays").toggle(200);
+        });
+
+        $("#hideshowPost_OPGenOrthopictures").show();
+
+        $("#showPostOpGenOrthopictures").click(function()
+        {
+            $("#hideshowPost_OPGenOrthopictures").toggle(200);
+        });
+
+        $("#hideshowPost_OPGenOrthovid").show();
+
+        $("#showPostOpGenOrthovid").click(function()
+        {
+            $("#hideshowPost_OPGenOrthovid").toggle(200);
         });
     });
 </script> 
@@ -25,34 +53,91 @@
 	
 	<table class="table table-condensed table-bordered">
 		<tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative X-Rays General Orthopedic
+                </span>
+            </td>
+        </tr>
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+                 <a class="btn btn-large btn-info" style="text-decoration: none;"
+                    scroll-to-bookmark="XRAY_FINDINGS">
+                    JUMP TO X-Ray Findings
+                </a>
+
+                <input type="submit" id="showPreOpGenOrthoXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPGenOrthoXRays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreGENORTHOxrays">
+                        <br><br>
+                         Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
+                        <br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative General Orthopedic Pictures
+                </span>
+            </td>
+        </tr>
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPreOpGenOrthoPicture" class="btn btn-danger" value="Patient Pictures">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPGenOrthoPicture">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreGENORTHOpicture">
+                        <br>
+                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        <br>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+        <tr class="warning">
 			<td width="1%" colspan="9" nowrap>
 				<span id="DGL_module_header">
-		    		PRE-Operative X-Rays General Orthopedic
+		    		PRE-Operative General Orthopedic Videos
 		    	</span>
 		    </td>
 		</tr>
 
 		<tr class="active">
 			<td class="text-center" colspan="9">
-                 <a class="btn btn-large btn-info" style="text-decoration: none;"
-                    scroll-to-bookmark="XRAY_FINDINGS">
-                    JUMP TO X-Ray Findings
-                </a>
 
-            	<input type="submit" id="showPreOpHIPXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
+            	<input type="submit" id="showPreOpGenOrthoVid" class="btn btn-danger" value="PRE-OP Video">
 			</td>
 		</tr>
 
         <tr class="info">
 			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPHipXRays">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreGENORTHOxrays">
-                		<br><br>
-                		LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
-        				<br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
-        				<br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
-        				<br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-        				<br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+            	<div id="hideshowPre_OPGenOrthoVid">
+                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreGENORTHOvid">
+                		<br>
+                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        <br>
                 	</div>
             	</div>
 			</td>
@@ -63,33 +148,91 @@
 		<tr class="warning">
 			<td width="1%" colspan="9" nowrap>
 				<span id="DGL_module_header">
-		    		POST-Operative X-Rays General Orthopedic
+		    		POST-Operative General Orthopedic X-Rays
 		    	</span>
 		    </td>
 		</tr>
 
 		<tr class="active">
-			<td class="text-center" colspan="9">
+            <td class="text-center" colspan="9">
                  <a class="btn btn-large btn-info" style="text-decoration: none;"
                     scroll-to-bookmark="XRAY_FINDINGS">
                     JUMP TO X-Ray Findings
                 </a>
 
-            	<input type="submit" id="showPostOpHIPXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
+                <input type="submit" id="showPostOpGenOrthoXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
+            </td>
+        </tr>
+
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPost_OPGenOrthoXRays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostGENORTHOxrays">
+                        <br><br>
+                         Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
+                        <br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    POST-Operative General Orthopedic Pictures
+                </span>
+            </td>
+        </tr>
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPostOpGenOrthopictures" class="btn btn-danger" value="Patient Picture">
+            </td>
+        </tr>
+
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPost_OPGenOrthopictures">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostGENORTHOpicture">
+                        <br>
+                          <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        <br>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    POST-Operative General Orthopedic Pictures
+                </span>
+            </td>
+        </tr>
+        <tr class="active">
+			<td class="text-center" colspan="9">
+
+            	<input type="submit" id="showPostOpGenOrthovid" class="btn btn-danger" value="Patient Picture">
 			</td>
 		</tr>
 
 
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPost_OPHipXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostGENORTHOxrays">
-                        <br><br>
-                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
-                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
-                        <br> Date: &nbsp;&nbsp;&nbsp; {{lab_results.RefDate | date}}
-                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                <div id="hideshowPost_OPGenOrthovid">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostGENORTHOvid">
+                        <br>
+                          <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        <br>
                     </div>
                 </div>
             </td>
