@@ -18,7 +18,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// Pull All Clinix
     $scope.pullAllClinix = function(){  
-    	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed?')) {
+    	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed? ' + serverIP)) {
 		    $scope.clinix = [];
 
 			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
