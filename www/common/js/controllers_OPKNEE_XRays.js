@@ -5,12 +5,12 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http, 
   $scope.AllPreOpKNEExrays = []; // hangers 5, 11 
   $scope.AllPreOpKNEEpictures = []; // hangers 5, 11 
   $scope.AllPreOpKNEEVid = []; // hangers 5, 11 
-  $scope.PreOpVideos = [{'VideoURL': '', 'VideoDate': '', 'VideoFileName': ''}]; 
+  $scope.PreOpVideos = []; 
 
   $scope.AllPostOpKNEExrays = []; // hangers 12
   $scope.AllPostOpKNEEpictures = []; // hangers 12
   $scope.AllPostOpKNEEVid = []; // hangers 12
-  $scope.PostOpVideos = [{'VideoURL': '', 'VideoDate': '', 'VideoFileName': ''}]; 
+  $scope.PostOpVideos = []; 
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -70,13 +70,17 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http, 
         $scope.AllPreOpKNEEVid = pxresult;
 
         for(var i = 0; i <= $scope.AllPreOpKNEEVid.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://{{serverIP}}/dump_labs/" + $scope.AllPreOpKNEEVid[i]['ImageFileName']);
+          var vidurl = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/" + $scope.AllPreOpKNEEVid[i]['ImageFileName']);
           var viddate = $scope.AllPreOpKNEEVid[i]['RefDate'];
           var vidfile = $scope.AllPreOpKNEEVid[i]['ImageFileName'];
 
-          $scope.PreOpVideos[i]['VideoURL'] = vidurl;
-          $scope.PreOpVideos[i]['VideoDate'] = viddate;
-          $scope.PreOpVideos[i]['VideoFileName'] = vidfile;
+           newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+          }
+
+          $scope.PreOpVideos.push(newrecord);
         }
       });
     });
@@ -112,13 +116,17 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http, 
         $scope.AllPostOpKNEEVid = pxresult;
         
         for(var i = 0; i <= $scope.AllPostOpKNEEVid.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://{{serverIP}}/dump_labs/" + $scope.AllPostOpKNEEVid[i]['ImageFileName']);
+          var vidurl = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/" + $scope.AllPostOpKNEEVid[i]['ImageFileName']);
           var viddate = $scope.AllPostOpKNEEVid[i]['RefDate'];
           var vidfile = $scope.AllPostOpKNEEVid[i]['ImageFileName'];
 
-          $scope.PreOpVideos[i]['VideoURL'] = vidurl;
-          $scope.PreOpVideos[i]['VideoDate'] = viddate;
-          $scope.PreOpVideos[i]['VideoFileName'] = vidfile;
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+          }
+
+          $scope.PostOpVideos.push(newrecord);
         }
         
       });

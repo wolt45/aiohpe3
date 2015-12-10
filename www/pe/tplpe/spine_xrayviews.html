@@ -1,6 +1,6 @@
 <script>
 
-    // 10.0.1.99
+    // 192.168.254.99
 
     $(document).ready(function()
     {
@@ -65,7 +65,7 @@
                 <input type="submit" id="showPreOpSpineXRays" class="btn btn-danger" value="GROSS PICTURES - PRE OP">
             </td>
         </tr>
-        <tr class="info">
+        <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPSpineXRays">
                     <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSpinexrays">
@@ -75,13 +75,41 @@
                         LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
                         <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
                         <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        <br> <img ng-src="http://192.168.254.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
                     </div>
                 </div>
             </td>
         </tr>
 
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    POST-Operative SPINE X-Rays
+                </span>
+            </td>
+        </tr>
 
+        <tr class="active">
+            <td class="text-center" colspan="9">
+                <input type="submit" id="showPostOpSpineXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPost_OPSpineXRays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSpinexrays">
+                        <br><br>
+                         Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
+                        <br>LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://192.168.254.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
 
 
         <tr class="warning">
@@ -103,68 +131,7 @@
                 <div id="hideshowPre_OPSpinepictures">
                     <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSpinepictures">
                         <br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
-                    </div>
-                </div>
-            </td>
-        </tr>
-
-
-        <tr class="warning">
-			<td width="1%" colspan="9" nowrap>
-				<span id="DGL_module_header">
-		    		PRE-Operative SPINE Video
-		    	</span>
-		    </td>
-		</tr>
-
-		<tr class="active">
-			<td class="text-center" colspan="9">
-            	<input type="submit" id="showPreOpSpinevideo" class="btn btn-danger" value="PRE-OP Video">
-			</td>
-		</tr>
-
-        <tr>
-			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPSpinevideo">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSpineVideo">
-                		<br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
-                	</div>
-            	</div>
-			</td>
-        </tr>
-
-
-
-    </table>
-		
-	<table class="table table-condensed table-bordered">
-		<tr class="warning">
-            <td width="1%" colspan="9" nowrap>
-                <span id="DGL_module_header">
-                    POST-Operative SPINE X-Rays
-                </span>
-            </td>
-        </tr>
-
-        <tr class="active">
-            <td class="text-center" colspan="9">
-                <input type="submit" id="showPostOpSpineXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
-            </td>
-        </tr>
-
-        <tr class="info">
-            <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPost_OPSpineXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSpinexrays">
-                        <br><br>
-                         Date: &nbsp;&nbsp;&nbsp; 
-                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
-                        <br>LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
-                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
-                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        <img ng-src="http://192.168.254.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
                     </div>
                 </div>
             </td>
@@ -189,16 +156,46 @@
                 <div id="hideshowPost_OPSpinepicture">
                     <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSpinepictures">
                         <br>
-                         <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                         <img ng-src="http://192.168.254.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
                          <br>
                     </div>
                 </div>
             </td>
         </tr>
 
-    
+        <tr class="warning">
+			<td width="1%" colspan="9" nowrap>
+				<span id="DGL_module_header">
+		    		PRE-Operative SPINE Video
+		    	</span>
+		    </td>
+		</tr>
 
-           <tr class="warning">
+		<tr class="active">
+			<td class="text-center" colspan="9">
+            	<input type="submit" id="showPreOpSpinevideo" class="btn btn-danger" value="PRE-OP Video">
+			</td>
+		</tr>
+
+        <tr>
+			<td class="text-left" colspan="9" nowrap>
+            	<div id="hideshowPre_OPSpinevideo">
+                	<div class='text-center' ng-repeat="preOpVideos in PreOpVideos | orderBy : [ 'VideoDate']">
+                        <br>
+                        {{preOpVideos.VideoFileName}}
+                        <br>
+                        {{preOpVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{preOpVideos.VideoURL}}" controls> </video> 
+
+                        <br>
+                    </div>
+            	</div>
+			</td>
+        </tr>
+           
+        <tr class="warning">
             <td width="1%" colspan="9" nowrap>
                 <span id="DGL_module_header">
                     POST-Operative SPINE Video
@@ -214,10 +211,16 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPSpineVid">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSpineVid">
+                    <div class='text-center' ng-repeat="postOpVideos in PostOpVideos | orderBy : [ 'VideoDate']">
                         <br>
-                         <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
-                         <br>
+                        {{postOpVideos.VideoFileName}}
+                        <br>
+                        {{postOpVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{postOpVideos.VideoURL}}" controls> </video> 
+
+                        <br>
                     </div>
                 </div>
             </td>

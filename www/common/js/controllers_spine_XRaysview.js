@@ -1,12 +1,15 @@
-IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http){
+IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $sce){
 
   $scope.PxRID = 0;
   $scope.AllPreSpinexrays = []; // hangers 4, 9
   $scope.AllPreSpinepictures = []; // hangers 4, 9
   $scope.AllPreSpineVideo = []; // hangers 4, 9
+  $scope.PreOpVideos = [{'VideoURL': '', 'VideoDate': '', 'VideoFileName': ''}]; 
+
   $scope.AllPostSpinexrays = []; // hangers 4, 9, 10
   $scope.AllPostSpinepictures = []; // hangers 4, 9, 10
   $scope.AllPostSpineVid = []; // hangers 4, 9, 10
+  $scope.PostOpVideos = [{'VideoURL': '', 'VideoDate': '', 'VideoFileName': ''}]; 
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -62,21 +65,22 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPreSpineVideo = pxresult;
-        // alert("HIP PE LABS & XRAYS working");
+        
+        for(var i = 0; i <= $scope.AllPreSpineVideo.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/" + $scope.AllPreSpineVideo[i]['ImageFileName']);
+          var viddate = $scope.AllPreSpineVideo[i]['RefDate'];
+          var vidfile = $scope.AllPreSpineVideo[i]['ImageFileName'];
+
+          $scope.PreOpVideos[i]['VideoURL'] = vidurl;
+          $scope.PreOpVideos[i]['VideoDate'] = viddate;
+          $scope.PreOpVideos[i]['VideoFileName'] = vidfile;
+        }
+
+
       });
     });
   };
 
-  $scope.LoadPRESpinexraysImgs = function(){
-    var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
-      { return labs.PxRID == this.id && (labs.HangRID == 1201) } , {id:$scope.PxRID}).toLiveArray();
-    promise.then(function(pxresult) {
-      $scope.$apply(function () {
-        $scope.AllPreSpinexrays = pxresult;
-        // alert("HIP PE LABS & XRAYS working");
-      });
-    });
-  };
 
   $scope.LoadPOSTOpSpinexraysImgs = function(){
     var promise = $ipadrbg.context.LAB_Results.filter(function (labs) 
@@ -106,7 +110,17 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPostSpineVid = pxresult;
-        // alert("HIP POST PE LABS & XRAYS working");
+       
+        for(var i = 0; i <= $scope.AllPostSpineVid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/" + $scope.AllPostSpineVid[i]['ImageFileName']);
+          var viddate = $scope.AllPostSpineVid[i]['RefDate'];
+          var vidfile = $scope.AllPostSpineVid[i]['ImageFileName'];
+
+          $scope.PostOpVideos[i]['VideoURL'] = vidurl;
+          $scope.PostOpVideos[i]['VideoDate'] = viddate;
+          $scope.PostOpVideos[i]['VideoFileName'] = vidfile;
+        }
+       
       });
     });
   }
