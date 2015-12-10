@@ -18,7 +18,14 @@ function DataController($rootScope, $scope, $http) {
 
 	// Pull All Clinix
     $scope.pullAllClinix = function(){  
-    	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed? ' + serverIP)) {
+    	if (confirm('Start Download ALL TRANSACTIONS from SERVER, proceed? ' + serverIP)) {
+
+	    	var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	       	db.transaction(function (tx) {
+	        	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix'");
+	           	tx.executeSql("delete from 'clinix'");
+	       	});
+
 		    $scope.clinix = [];
 
 			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
