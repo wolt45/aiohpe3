@@ -70,7 +70,7 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http, 
         $scope.AllPreOpKNEEVid = pxresult;
 
         for(var i = 0; i <= $scope.AllPreOpKNEEVid.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/" + $scope.AllPreOpKNEEVid[i]['ImageFileName']);
+          var vidurl = $sce.trustAsResourceUrl("http://{{serverIP}}/dump_labs/" + $scope.AllPreOpKNEEVid[i]['ImageFileName']);
           var viddate = $scope.AllPreOpKNEEVid[i]['RefDate'];
           var vidfile = $scope.AllPreOpKNEEVid[i]['ImageFileName'];
 
@@ -112,7 +112,7 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http, 
         $scope.AllPostOpKNEEVid = pxresult;
         
         for(var i = 0; i <= $scope.AllPostOpKNEEVid.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://127.0.0.1/dump_labs/" + $scope.AllPostOpKNEEVid[i]['ImageFileName']);
+          var vidurl = $sce.trustAsResourceUrl("http://{{serverIP}}/dump_labs/" + $scope.AllPostOpKNEEVid[i]['ImageFileName']);
           var viddate = $scope.AllPostOpKNEEVid[i]['RefDate'];
           var vidfile = $scope.AllPostOpKNEEVid[i]['ImageFileName'];
 
