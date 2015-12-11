@@ -2,7 +2,8 @@
 function DataController($rootScope, $scope, $http) {
 
 	// CLEAN TRANS
-	$scope.CleanClinix = function(){
+	// NOT CALLED ANYMORE, incorp[orated with "pullAllClinix"
+	$scope.CleanClinix_ZZZZ = function(){
 		if (confirm('ARE YOU SURE TO CLEAR ALL Transactions, proceed?')) {
 	    	// empty first iPad Table
 	        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
