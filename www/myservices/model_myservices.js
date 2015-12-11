@@ -58,15 +58,15 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	
 	, zclinix: { type: $data.EntitySet, elementType: $ipadrbg.types.zclinix }
 
- // 	, jdata_SkelTrauma_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SkelTrauma_1 }
- // 	, jdata_SkelTrauma_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SkelTrauma_2 }
+ 	, jdata_SkelTrauma_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SkelTrauma_1 }
+ 	, jdata_SkelTrauma_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SkelTrauma_2 }
 	
-	// , jdata_genotho_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_1 }
-	// , jdata_genotho_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_2 }
-	// , jdata_genotho_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_3 }
-	// , jdata_genotho_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_4 }
-	// , jdata_genotho_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_5 }
-	// , jdata_genotho_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_6 }
+	, jdata_genotho_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_1 }
+	, jdata_genotho_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_2 }
+	, jdata_genotho_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_3 }
+	, jdata_genotho_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_4 }
+	, jdata_genotho_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_5 }
+	, jdata_genotho_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_genotho_6 }
 
 	// , jdata_spine_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_1 }
 	// , jdata_spine_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_2 }
