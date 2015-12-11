@@ -102,8 +102,8 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	// , jdata_shoulder_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_8}
 	// , jdata_shoulder_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_9}
 
-	// , jdata_ICD10: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ICD10}
-	// , jdata_RVS: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_RVS}
+	, jdata_ICD10: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ICD10}
+	, jdata_RVS: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_RVS}
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });
