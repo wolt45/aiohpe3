@@ -4,12 +4,12 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $
   $scope.AllPreSpinexrays = []; // hangers 4, 9
   $scope.AllPreSpinepictures = []; // hangers 4, 9
   $scope.AllPreSpineVideo = []; // hangers 4, 9
-  $scope.PreOpVideos = []; 
+  $scope.PreOpVideos = [{'VideoURL': '', 'VideoDate': '', 'VideoFileName': ''}]; 
 
   $scope.AllPostSpinexrays = []; // hangers 4, 9, 10
   $scope.AllPostSpinepictures = []; // hangers 4, 9, 10
   $scope.AllPostSpineVid = []; // hangers 4, 9, 10
-  $scope.PostOpVideos = []; 
+  $scope.PostOpVideos = [{'VideoURL': '', 'VideoDate': '', 'VideoFileName': ''}]; 
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -20,6 +20,7 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $
       return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
     promise.then(function(pxresult) {
       $scope.$apply(function () {
+        
 
         $scope.PxRID = pxresult[0]['PxRID'];
 
@@ -65,6 +66,16 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $
       $scope.$apply(function () {
         $scope.AllPreSpineVideo = pxresult;
         
+        for(var i = 0; i <= $scope.AllPreSpineVideo.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://10.0.1.99/dump_labs/" + $scope.AllPreSpineVideo[i]['ImageFileName']);
+          var viddate = $scope.AllPreSpineVideo[i]['RefDate'];
+          var vidfile = $scope.AllPreSpineVideo[i]['ImageFileName'];
+
+          $scope.PreOpVideos[i]['VideoURL'] = vidurl;
+          $scope.PreOpVideos[i]['VideoDate'] = viddate;
+          $scope.PreOpVideos[i]['VideoFileName'] = vidfile;
+        }
+
 
       });
     });
@@ -100,6 +111,15 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $
       $scope.$apply(function () {
         $scope.AllPostSpineVid = pxresult;
        
+        for(var i = 0; i <= $scope.AllPostSpineVid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://10.0.1.99/dump_labs/" + $scope.AllPostSpineVid[i]['ImageFileName']);
+          var viddate = $scope.AllPostSpineVid[i]['RefDate'];
+          var vidfile = $scope.AllPostSpineVid[i]['ImageFileName'];
+
+          $scope.PostOpVideos[i]['VideoURL'] = vidurl;
+          $scope.PostOpVideos[i]['VideoDate'] = viddate;
+          $scope.PostOpVideos[i]['VideoFileName'] = vidfile;
+        }
        
       });
     });

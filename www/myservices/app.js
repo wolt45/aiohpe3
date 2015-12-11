@@ -2,8 +2,7 @@
 function DataController($rootScope, $scope, $http) {
 
 	// CLEAN TRANS
-	// NOT CALLED ANYMORE, incorp[orated with "pullAllClinix"
-	$scope.CleanClinix_ZZZZ = function(){
+	$scope.CleanClinix = function(){
 		if (confirm('ARE YOU SURE TO CLEAR ALL Transactions, proceed?')) {
 	    	// empty first iPad Table
 	        var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
@@ -19,49 +18,43 @@ function DataController($rootScope, $scope, $http) {
 
 	// Pull All Clinix
     $scope.pullAllClinix = function(){  
-    	if (confirm(serverIP + ' SHOLDER-2: Download ALL TRANSACTIONS from SERVER, proceed? ' )) {
-
-	    	var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
-	       	db.transaction(function (tx) {
-	        	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix'");
-	           	tx.executeSql("delete from 'clinix'");
-	       	});
-
+    	if (confirm('Download ALL TRANSACTIONS from SERVER, proceed? ' + serverIP)) {
 		    $scope.clinix = [];
 
 			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
 		    success(function(data, status, headers, config) {
 				if (data !== null ) {
+
 			      	// save to websql 
 				    for(idx in data){
 				    	if (data[idx].ClinixRID	> 0) {
-				    		var clnx = new $ipadrbg.types.clinix();
+				    		var clinix = new $ipadrbg.types.clinix();
 						
-							clnx.ClinixRID 	= data[idx].ClinixRID;
+							clinix.ClinixRID 	= data[idx].ClinixRID;
 							
-							//clnx.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
-							clnx.AppDateSet 	= data[idx].AppDateSet;
+							//clinix.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
+							clinix.AppDateSet 	= data[idx].AppDateSet;
 
-							clnx.AppDateAge  	= data[idx].AppDateAge;
+							clinix.AppDateAge  	= data[idx].AppDateAge;
 
-					    	clnx.PxRID 		= data[idx].PxRID;
-							clnx.pxname 		= data[idx].pxname;
-							clnx.pxAddress 	= data[idx].pxAddress;
-							clnx.pxstatus 	= data[idx].pxstatus;
+					    	clinix.PxRID 		= data[idx].PxRID;
+							clinix.pxname 		= data[idx].pxname;
+							clinix.pxAddress 	= data[idx].pxAddress;
+							clinix.pxstatus 	= data[idx].pxstatus;
 
-							//clnx.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
-							clnx.pxregdate 	= data[idx].pxregdate;
+							//clinix.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
+							clinix.pxregdate 	= data[idx].pxregdate;
 
-							clnx.pxFoto 		= data[idx].pxFoto;
-							clnx.TranStatus 	= data[idx].TranStatus;
-							clnx.TranStatusDisp = data[idx].TranStatusDisp;
+							clinix.pxFoto 		= data[idx].pxFoto;
+							clinix.TranStatus 	= data[idx].TranStatus;
+							clinix.TranStatusDisp = data[idx].TranStatusDisp;
 
-							clnx.HospitalRID = data[idx].HospitalRID;
-							clnx.Hospital = data[idx].Hospital;
-							clnx.PurposeOfVisit = data[idx].PurposeOfVisit;
-							clnx.Dok = data[idx].Dok;
+							clinix.HospitalRID = data[idx].HospitalRID;
+							clinix.Hospital = data[idx].Hospital;
+							clinix.PurposeOfVisit = data[idx].PurposeOfVisit;
+							clinix.Dok = data[idx].Dok;
 
-							$ipadrbg.context.clinix.add(clnx);
+							$ipadrbg.context.clinix.add(clinix);
 						}
 				    }
 				    $ipadrbg.context.clinix.saveChanges();

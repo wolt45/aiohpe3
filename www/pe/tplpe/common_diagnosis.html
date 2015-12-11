@@ -1,12 +1,26 @@
+<div class="col-xs-6 col-sm-2 bs-docs-container" >
+	<ng:include src="'tplpe/today_nav_Diagnosis.html'"></ng:include>
+</div>
+<div class="col-xs-6 col-sm-10 bs-docs-container" >	
 <ng:include src="'tplpe/px_pe.html'"></ng:include>
-
-<ng:include src="'tplpe/common_diags_Diagnosis.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Management.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_SurgerySched.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Medication.html'"></ng:include>
-
-<ng:include src="'tplpe/common_diags_Disposition.html'"></ng:include>
-<ng:include src="'tplpe/common_diags_Notes.html'"></ng:include>
-
+<div scroll-bookmark="Diag">
+	<ng:include src="'tplpe/common_diags_Diagnosis.html'"></ng:include>
+</div>
+<div scroll-bookmark="Manage">
+	<ng:include src="'tplpe/common_diags_Management.html'"></ng:include>
+</div>
+<div scroll-bookmark="SurSch">
+	<ng:include src="'tplpe/common_diags_SurgerySched.html'"></ng:include>
+</div>
+<div scroll-bookmark="Medi">
+	<ng:include src="'tplpe/common_diags_Medication.html'"></ng:include>
+</div>
+<div scroll-bookmark="Dispo">
+	<ng:include src="'tplpe/common_diags_Disposition.html'"></ng:include>
+</div>
+<div scroll-bookmark="Notes">
+	<ng:include src="'tplpe/common_diags_Notes.html'"></ng:include>
+</div>
+</div>
 <!-- move to menu bar -->
 <!--ng:include src="'tplpe/close_pe.html'"></ng:include -->

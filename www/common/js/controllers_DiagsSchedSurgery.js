@@ -91,9 +91,6 @@ IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http)
      }
   }
 
-
-
-
   $scope.editDiagnosis_ROW = function (justTis) {
     alert(justTis);
     

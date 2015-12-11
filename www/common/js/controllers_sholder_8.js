@@ -93,7 +93,7 @@ IOHPEApp.controller('shoulder_8_Ctrl', function ($scope, $routeParams, $http){
     $ipadrbg.context.jdata_shoulder_8.add(newrecord);
     $ipadrbg.context.jdata_shoulder_8.saveChanges();
 
-    alert("Sholder Data Saved!");
+    alert("Shoulder Data Saved!");
 
     $scope.Loadshoulder8();    
   }
