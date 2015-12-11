@@ -32,37 +32,36 @@ function DataController($rootScope, $scope, $http) {
 			$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/srvr_clinix_ALL.php'}).
 		    success(function(data, status, headers, config) {
 				if (data !== null ) {
-
 			      	// save to websql 
 				    for(idx in data){
 				    	if (data[idx].ClinixRID	> 0) {
-				    		var clinix = new $ipadrbg.types.clinix();
+				    		var clnx = new $ipadrbg.types.clinix();
 						
-							clinix.ClinixRID 	= data[idx].ClinixRID;
+							clnx.ClinixRID 	= data[idx].ClinixRID;
 							
-							//clinix.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
-							clinix.AppDateSet 	= data[idx].AppDateSet;
+							//clnx.AppDateSet 	= Date(Date.parse(data[idx].AppDateSet)).toString();
+							clnx.AppDateSet 	= data[idx].AppDateSet;
 
-							clinix.AppDateAge  	= data[idx].AppDateAge;
+							clnx.AppDateAge  	= data[idx].AppDateAge;
 
-					    	clinix.PxRID 		= data[idx].PxRID;
-							clinix.pxname 		= data[idx].pxname;
-							clinix.pxAddress 	= data[idx].pxAddress;
-							clinix.pxstatus 	= data[idx].pxstatus;
+					    	clnx.PxRID 		= data[idx].PxRID;
+							clnx.pxname 		= data[idx].pxname;
+							clnx.pxAddress 	= data[idx].pxAddress;
+							clnx.pxstatus 	= data[idx].pxstatus;
 
-							//clinix.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
-							clinix.pxregdate 	= data[idx].pxregdate;
+							//clnx.pxregdate 	= Date(Date.parse(data[idx].pxregdate)).toString();
+							clnx.pxregdate 	= data[idx].pxregdate;
 
-							clinix.pxFoto 		= data[idx].pxFoto;
-							clinix.TranStatus 	= data[idx].TranStatus;
-							clinix.TranStatusDisp = data[idx].TranStatusDisp;
+							clnx.pxFoto 		= data[idx].pxFoto;
+							clnx.TranStatus 	= data[idx].TranStatus;
+							clnx.TranStatusDisp = data[idx].TranStatusDisp;
 
-							clinix.HospitalRID = data[idx].HospitalRID;
-							clinix.Hospital = data[idx].Hospital;
-							clinix.PurposeOfVisit = data[idx].PurposeOfVisit;
-							clinix.Dok = data[idx].Dok;
+							clnx.HospitalRID = data[idx].HospitalRID;
+							clnx.Hospital = data[idx].Hospital;
+							clnx.PurposeOfVisit = data[idx].PurposeOfVisit;
+							clnx.Dok = data[idx].Dok;
 
-							$ipadrbg.context.clinix.add(clinix);
+							$ipadrbg.context.clinix.add(clnx);
 						}
 				    }
 				    $ipadrbg.context.clinix.saveChanges();
