@@ -73,24 +73,24 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_spine_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_3 }
 	, jdata_spine_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_spine_4 }
 
-	// , jdata_FootAnkle_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_1 }
-	// , jdata_FootAnkle_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_2 }
-	// , jdata_FootAnkle_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_3 }
-	// , jdata_FootAnkle_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_4 }
-	// , jdata_FootAnkle_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_5 }
-	// , jdata_FootAnkle_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_6 }
-	// , jdata_FootAnkle_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_7 }
-	// , jdata_FootAnkle_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_8 }
-	// , jdata_FootAnkle_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_9 }
+	, jdata_FootAnkle_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_1 }
+	, jdata_FootAnkle_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_2 }
+	, jdata_FootAnkle_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_3 }
+	, jdata_FootAnkle_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_4 }
+	, jdata_FootAnkle_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_5 }
+	, jdata_FootAnkle_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_6 }
+	, jdata_FootAnkle_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_7 }
+	, jdata_FootAnkle_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_8 }
+	, jdata_FootAnkle_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_FootAnkle_9 }
 
-	// , jdata_Knee_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_1 }
-	// , jdata_Knee_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_2 }
-	// , jdata_Knee_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_3 }
-	// , jdata_Knee_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_4 }
-	// , jdata_Knee_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_5 }
-	// , jdata_Knee_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_6 }
-	// , jdata_Knee_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_7 }
-	// , jdata_Knee_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_8 }
+	, jdata_Knee_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_1 }
+	, jdata_Knee_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_2 }
+	, jdata_Knee_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_3 }
+	, jdata_Knee_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_4 }
+	, jdata_Knee_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_5 }
+	, jdata_Knee_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_6 }
+	, jdata_Knee_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_7 }
+	, jdata_Knee_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_8 }
 
 	// , jdata_shoulder_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_1}
 	// , jdata_shoulder_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_2}
