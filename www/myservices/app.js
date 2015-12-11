@@ -19,7 +19,7 @@ function DataController($rootScope, $scope, $http) {
 
 	// Pull All Clinix
     $scope.pullAllClinix = function(){  
-    	if (confirm(serverIP + '-2: Download ALL TRANSACTIONS from SERVER, proceed? ' )) {
+    	if (confirm(serverIP + ' SHOLDER-2: Download ALL TRANSACTIONS from SERVER, proceed? ' )) {
 
 	    	var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	       	db.transaction(function (tx) {

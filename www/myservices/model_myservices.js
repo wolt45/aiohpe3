@@ -92,18 +92,18 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_Knee_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_7 }
 	, jdata_Knee_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_Knee_8 }
 
-	// , jdata_shoulder_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_1}
-	// , jdata_shoulder_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_2}
-	// , jdata_shoulder_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_3}
-	// , jdata_shoulder_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_4}
-	// , jdata_shoulder_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_5}
-	// , jdata_shoulder_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_6}
-	// , jdata_shoulder_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_7}
-	// , jdata_shoulder_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_8}
-	// , jdata_shoulder_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_9}
+	, jdata_shoulder_1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_1}
+	, jdata_shoulder_2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_2}
+	, jdata_shoulder_3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_3}
+	, jdata_shoulder_4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_4}
+	, jdata_shoulder_5: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_5}
+	, jdata_shoulder_6: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_6}
+	, jdata_shoulder_7: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_7}
+	, jdata_shoulder_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_8}
+	, jdata_shoulder_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_9}
 
-	, jdata_ICD10: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ICD10}
-	, jdata_RVS: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_RVS}
+	// , jdata_ICD10: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ICD10}
+	// , jdata_RVS: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_RVS}
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });
