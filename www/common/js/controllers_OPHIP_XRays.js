@@ -70,7 +70,7 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http, $
         //$scope.sources = $sce.trustAsResourceUrl("http://"+serverIP+"/dump_labs/433_Burning In The Skies Karaoke (Linkin Park).mp4");
         
         for(var i = 0; i < $scope.AllPreOpMediaHIPVid.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://"+serverIP+"/dump_labs/" + $scope.AllPreOpMediaHIPVid[i]['ImageFileName']);
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPreOpMediaHIPVid[i]['ImageFileName']);
           var viddate = $scope.AllPreOpMediaHIPVid[i]['RefDate'];
           var vidfile = $scope.AllPreOpMediaHIPVid[i]['ImageFileName'];
 
@@ -120,7 +120,7 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http, $
         //$scope.sources = $sce.trustAsResourceUrl("http://"+serverIP+"/dump_labs/433_Burning In The Skies Karaoke (Linkin Park).mp4");
         
         for(var i = 0; i < $scope.AllPostOpMediaHIPVid.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://"+serverIP+"/dump_labs/" + $scope.AllPostOpMediaHIPVid[i]['ImageFileName']);
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPostOpMediaHIPVid[i]['ImageFileName']);
           var viddate = $scope.AllPostOpMediaHIPVid[i]['RefDate'];
           var vidfile = $scope.AllPostOpMediaHIPVid[i]['ImageFileName'];
 

@@ -45,7 +45,8 @@ IOHPEApp.controller('DiagnosisCtrl', function ($scope, $routeParams, $http){
     // db.transaction(function (tx) {
     //     tx.executeSql("delete from 'clinix_Diagnosis' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
     // });
-    if(daignosisObj.DiagnosisRID=="") {
+
+    if(daignosisObj.DiagnosisRID== null) {
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
