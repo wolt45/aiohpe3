@@ -4,12 +4,12 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $
   $scope.AllPreSpinexrays = []; // hangers 4, 9
   $scope.AllPreSpinepictures = []; // hangers 4, 9
   $scope.AllPreSpineVideo = []; // hangers 4, 9
-  $scope.PreOpVideos = [{'VideoURL': '', 'VideoDate': '', 'VideoFileName': ''}]; 
+  $scope.PreOpSpineVideos = []; 
 
   $scope.AllPostSpinexrays = []; // hangers 4, 9, 10
   $scope.AllPostSpinepictures = []; // hangers 4, 9, 10
   $scope.AllPostSpineVid = []; // hangers 4, 9, 10
-  $scope.PostOpVideos = [{'VideoURL': '', 'VideoDate': '', 'VideoFileName': ''}]; 
+  $scope.PostOpSpineVideos = []; 
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -66,14 +66,20 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $
       $scope.$apply(function () {
         $scope.AllPreSpineVideo = pxresult;
         
-        for(var i = 0; i <= $scope.AllPreSpineVideo.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://10.0.1.99/dump_labs/" + $scope.AllPreSpineVideo[i]['ImageFileName']);
+         for(var i = 0; i <= $scope.AllPreSpineVideo.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPreSpineVideo[i]['ImageFileName']);
           var viddate = $scope.AllPreSpineVideo[i]['RefDate'];
           var vidfile = $scope.AllPreSpineVideo[i]['ImageFileName'];
+          var vidpriority = $scope.AllPreOpMediaHIPVid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
 
-          $scope.PreOpVideos[i]['VideoURL'] = vidurl;
-          $scope.PreOpVideos[i]['VideoDate'] = viddate;
-          $scope.PreOpVideos[i]['VideoFileName'] = vidfile;
+          $scope.PreOpSpineVideos.push(newrecord);
         }
 
 
@@ -112,13 +118,19 @@ IOHPEApp.controller('Spine_XRays_Ctrl', function ($scope, $routeParams, $http, $
         $scope.AllPostSpineVid = pxresult;
        
         for(var i = 0; i <= $scope.AllPostSpineVid.length; i++) {
-          var vidurl = $sce.trustAsResourceUrl("http://10.0.1.99/dump_labs/" + $scope.AllPostSpineVid[i]['ImageFileName']);
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPostSpineVid[i]['ImageFileName']);
           var viddate = $scope.AllPostSpineVid[i]['RefDate'];
           var vidfile = $scope.AllPostSpineVid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPostSpineVid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
 
-          $scope.PostOpVideos[i]['VideoURL'] = vidurl;
-          $scope.PostOpVideos[i]['VideoDate'] = viddate;
-          $scope.PostOpVideos[i]['VideoFileName'] = vidfile;
+          $scope.PostOpSpineVideos.push(newrecord);
         }
        
       });

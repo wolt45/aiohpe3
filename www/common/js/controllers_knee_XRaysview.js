@@ -1,12 +1,16 @@
-IOHPEApp.controller('Knee_XRays_Ctrl', function ($scope, $routeParams, $http){
+IOHPEApp.controller('Knee_XRays_Ctrl', function ($scope, $routeParams, $http, $sce){
 
   $scope.PxRID = 0;
   $scope.AllPreKneexrays = []; // hangers 4, 9
   $scope.AllPreKneepic = []; // hangers 4, 9
   $scope.AllPreKneevid = []; // hangers 4, 9
+  $scope.PreOpSportsKneeVideos = []; // hangers 4, 9
+
+
   $scope.AllPostKneexrays = []; // hangers 4, 9, 10
   $scope.AllPostKneepic = []; // hangers 4, 9, 10
   $scope.AllPostKneevid = []; // hangers 4, 9, 10
+  $scope.PostOpSportsKneeVideos = []; // hangers 4, 9, 10
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -24,6 +28,7 @@ IOHPEApp.controller('Knee_XRays_Ctrl', function ($scope, $routeParams, $http){
         $scope.LoadPREKneexraysImgs();
         $scope.LoadPREKneepic();
         $scope.LoadPREKneevid();
+
         $scope.LoadPOSTOpKneexraysImgs();
         $scope.LoadPOSTOpKneepic();
         $scope.LoadPOSTOpKneevid();
@@ -62,7 +67,23 @@ IOHPEApp.controller('Knee_XRays_Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPreKneevid = pxresult;
-        // alert("HIP PE LABS & XRAYS working");
+        
+          for(var i = 0; i <= $scope.AllPreKneevid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPreKneevid[i]['ImageFileName']);
+          var viddate = $scope.AllPreKneevid[i]['RefDate'];
+          var vidfile = $scope.AllPreKneevid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPreKneevid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PreOpSportsKneeVideos.push(newrecord);
+        }
+
       });
     });
   };
@@ -95,7 +116,23 @@ IOHPEApp.controller('Knee_XRays_Ctrl', function ($scope, $routeParams, $http){
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPostKneevid = pxresult;
-        // alert("HIP POST PE LABS & XRAYS working");
+        
+        for(var i = 0; i <= $scope.AllPostKneevid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPostKneevid[i]['ImageFileName']);
+          var viddate = $scope.AllPostKneevid[i]['RefDate'];
+          var vidfile = $scope.AllPostKneevid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPostKneevid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PostOpSportsKneeVideos.push(newrecord);
+        }
+
       });
     });
   }

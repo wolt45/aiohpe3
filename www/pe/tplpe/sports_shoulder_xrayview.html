@@ -75,7 +75,7 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPShoulderXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreShoulderxrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreShoulderxrays | orderBy : ['RefDate' , 'Priority']">
                         <br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
@@ -89,62 +89,8 @@
         </tr>
 
 
-        <tr class="warning">
-            <td width="1%" colspan="9" nowrap>
-                <span id="DGL_module_header">
-                    PRE-Operative Sports Shoulder Picture
-                </span>
-            </td>
-        </tr>
-        
+       
 
-        <tr class="active">
-            <td class="text-center" colspan="9">
-
-                <input type="submit" id="showPreOpShoulderPic" class="btn btn-danger" value="Patient Picture">
-            </td>
-        </tr>
-
-        <tr class="info">
-            <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPre_OPShoulderPic">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreShoulderpic">
-                        <br><img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> <br>
-                    </div>
-                </div>
-            </td>
-        </tr>
-
-
-
-        <tr class="warning">
-			<td width="1%" colspan="9" nowrap>
-				<span id="DGL_module_header">
-		    		PRE-Operative Sports Shoulder Video
-		    	</span>
-		    </td>
-		</tr>
-        
-
-		<tr class="active">
-			<td class="text-center" colspan="9">
-
-                <input type="submit" id="showPreOpShoulderVid" class="btn btn-danger" value="PRE-OP Video">
-			</td>
-		</tr>
-
-        <tr class="info">
-			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPShoulderVid">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreShouldervid">
-                		<br><img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> <br>
-                	</div>
-            	</div>
-			</td>
-        </tr>
-    </table>
-		
-	<table class="table table-condensed table-bordered">
 		<tr class="warning">
             <td width="1%" colspan="9" nowrap>
                 <span id="DGL_module_header">
@@ -168,7 +114,7 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPShoulderXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostShoulderxrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostShoulderxrays | orderBy : ['RefDate' , 'Priority']">
                         <br><br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
@@ -181,7 +127,37 @@
             </td>
         </tr>
 
+         <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative Sports Shoulder Picture
+                </span>
+            </td>
+        </tr>
+        
 
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPreOpShoulderPic" class="btn btn-danger" value="Patient Picture">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPShoulderPic">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreShoulderpic | orderBy : ['RefDate' , 'Priority']">
+                         <br><br>
+                        Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
 
 
         <tr class="warning">
@@ -203,15 +179,52 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPShoulderPic">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostShoulderpic">
-                        <br><img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
-                        <br>
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostShoulderpic | orderBy : ['RefDate' , 'Priority']">
+                         <br><br>
+                        Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
                     </div>
                 </div>
             </td>
         </tr>
 
+         <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative Sports Shoulder Video
+                </span>
+            </td>
+        </tr>
+        
 
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPreOpShoulderVid" class="btn btn-danger" value="PRE-OP Video">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPShoulderVid">
+                   <div class='text-center' ng-repeat="PreOpShoulderVideos in PreOpShoulderVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
+                        <br>
+                        {{PreOpShoulderVideos.VideoFileName}}
+                        <br>
+                        {{PreOpShoulderVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{PreOpShoulderVideos.VideoURL}}" controls> </video> 
+
+                        <br>
+                    </div>
+                </div>
+            </td>
+        </tr>
 
         <tr class="warning">
 			<td width="1%" colspan="9" nowrap>
@@ -232,8 +245,15 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPShoulderVid">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostShouldervid">
-                        <br><img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    <div class='text-center' ng-repeat="PostOpShoulderVideos in PostOpShoulderVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
+                        <br>
+                        {{PostOpShoulderVideos.VideoFileName}}
+                        <br>
+                        {{PostOpShoulderVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{PostOpShoulderVideos.VideoURL}}" controls> </video> 
+
                         <br>
                     </div>
                 </div>

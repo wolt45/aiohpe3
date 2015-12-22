@@ -1,12 +1,15 @@
-IOHPEApp.controller('FootAnkle_XRays_Ctrl', function ($scope, $routeParams, $http){
+IOHPEApp.controller('FootAnkle_XRays_Ctrl', function ($scope, $routeParams, $http, $sce){
 
   $scope.PxRID = 0;
   $scope.AllPreFootAnklexrays = []; // hangers 4, 9
   $scope.AllPreFootAnklepicture = []; // hangers 4, 9
   $scope.AllPreFootAnkleVid = []; // hangers 4, 9
+  $scope.PreOpFootAnkleVideos = []; // hangers 4, 9
+
   $scope.AllPostFootAnklexrays = []; // hangers 4, 9, 10
   $scope.AllPostFootAnklepicture = []; // hangers 4, 9, 10
   $scope.AllPostFootAnklevid = []; // hangers 4, 9, 10
+  $scope.PostOpFootAnkleVideos = []; // hangers 4, 9, 10
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -62,7 +65,23 @@ IOHPEApp.controller('FootAnkle_XRays_Ctrl', function ($scope, $routeParams, $htt
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPreFootAnkleVid = pxresult;
-        // alert("HIP PE LABS & XRAYS working");
+        
+         for(var i = 0; i <= $scope.AllPreFootAnkleVid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPreFootAnkleVid[i]['ImageFileName']);
+          var viddate = $scope.AllPreFootAnkleVid[i]['RefDate'];
+          var vidfile = $scope.AllPreFootAnkleVid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPreFootAnkleVid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PreOpFootAnkleVideos.push(newrecord);
+        }
+
       });
     });
   };
@@ -95,7 +114,24 @@ IOHPEApp.controller('FootAnkle_XRays_Ctrl', function ($scope, $routeParams, $htt
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPostFootAnklevid = pxresult;
-        // alert("HIP POST PE LABS & XRAYS working");
+       
+
+        for(var i = 0; i <= $scope.AllPostFootAnklevid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPostFootAnklevid[i]['ImageFileName']);
+          var viddate = $scope.AllPostFootAnklevid[i]['RefDate'];
+          var vidfile = $scope.AllPostFootAnklevid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPostFootAnklevid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PostOpFootAnkleVideos.push(newrecord);
+        }
+
       });
     });
   }

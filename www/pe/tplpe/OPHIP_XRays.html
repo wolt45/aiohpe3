@@ -92,7 +92,7 @@
         <tr>
 			<td class="text-left" colspan="9" nowrap>
             	<div id="hideshowPre_OPHipXRays">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreOpHIPxrays | orderBy : ['RefDate']">
+                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreOpHIPxrays | orderBy : ['RefDate', 'Priority']">
                 		<br><br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -131,16 +131,13 @@
                 &nbsp;
                 &nbsp;
                 <input type="submit" id="showPostOpHIPXRays" class="btn btn-danger" value="GROSS IMAGES - POST OP">
-
-
             </td>
         </tr>
-
 
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPHipXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpHIPxrays | orderBy : ['RefDate']">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpHIPxrays | orderBy : ['RefDate', 'Priority']">
                         <br><br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -153,25 +150,27 @@
             </td>
         </tr>
  
-          <tr class="warning">
+        <tr class="warning">
             <td width="1%" colspan="9" nowrap>
                 <span id="DGL_module_header">
                     PRE-Operative Hip Pictures
                 </span>
             </td>
         </tr>
+
         <tr class='active text-center'>
             <td>
                 <input type="submit" id="showPreOpMediaHIPicutres" class="btn btn-danger" value="Hip Patient Pictures">
             </td>
         </tr>
-         <tr>
+
+        <tr>
             <td class="text-center" colspan="9" nowrap>
                 <div id="hideshowPrePicutres_OPHip">
                      <!-- <video width='320' height='240' controls>
                              <source ng-src="http://10.0.1.99/../dump_labs/taylor.mp4"> 
                         </video> -->
-                 <div class='text-center' ng-repeat="lab_results in AllPreOpHipPictures">
+                    <div class='text-center' ng-repeat="lab_results in AllPreOpHipPictures | orderBy : ['RefDate', 'Priority']">
                         <br><br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -181,7 +180,7 @@
                         <br> 
                         <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
                         <br>
-                     </div>
+                    </div>
                 </div>
             </td>
         </tr>
@@ -193,18 +192,20 @@
                 </span>
             </td>
         </tr>
+
         <tr class='active text-center'>
             <td>
                 <input type="submit" id="showPostOpHIP" class="btn btn-danger" value="Hip Patient Pictures">
             </td>
         </tr>
-         <tr>
+
+        <tr>
             <td class="text-center" colspan="9" nowrap>
                 <div id="hideshowPost_OPHip">
                      <!-- <video width='320' height='240' controls>
                              <source ng-src="http://10.0.1.99/../dump_labs/taylor.mp4"> 
                         </video> -->
-                 <div class='text-center' ng-repeat="lab_results in AllPostOpHipPictures">
+                    <div class='text-center' ng-repeat="lab_results in AllPostOpHipPictures | orderBy : ['RefDate', 'Priority']">
                         <br><br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -214,7 +215,7 @@
                         <br> 
                         <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
                         <br>
-                     </div>
+                    </div>
                 </div>
             </td>
         </tr>
@@ -226,6 +227,7 @@
                 </span>
             </td>
         </tr>
+        
         <tr class='active text-center'>
             <td>
                 <input type="submit" id="showPreOpMediaHIPXRays" class="btn btn-danger" value="PRE-OP Video">
@@ -235,7 +237,7 @@
         <tr>
             <td class="text-center" colspan="9" nowrap>
                 <div id="hideshowPreMedia_OPHipXRays">
-                    <div class='text-center' ng-repeat="preOpVideos in PreOpVideos | orderBy : ['VideoDate']">
+                    <div class='text-center' ng-repeat="preOpVideos in PreOpVideos | orderBy : ['VideoDate', 'VideoPriority']">
                         <table>  
                             <tr>
                                 <td class="text-center" width="1%" nowrap>
@@ -282,7 +284,7 @@
        <tr class="active">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPostMedia_OPHipXRays">
-                    <div class='text-center' ng-repeat="postOpVideos in PostOpVideos | orderBy : [ 'VideoDate']">
+                    <div class='text-center' ng-repeat="postOpVideos in PostOpVideos | orderBy : ['VideoDate', 'VideoPriority']">
                         <br>
                         {{postOpVideos.VideoFileName}}
                         <br>

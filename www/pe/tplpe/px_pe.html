@@ -1,72 +1,71 @@
 <ng:include src="'..//common/px_head.html'"></ng:include>
 
 <div class="btn-group">
-  <a href="#/interview/{{clinix.ClinixRID}}" class="btn btn-primary btn-large" data-toggle="dropdown">
+  <a href="#/interview/{{clinix.ClinixRID}}" class="btn btn-primary btn-lg" data-toggle="dropdown">
     INITIAL EVALUATION
   </a> 
 </div>
 
 <div class="btn-group">
-  <a class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
+  <a class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown">
     Physical Exam
     <span class="caret"></span>
   </a>
 
   <ul class="dropdown-menu">
-    <li>
-      <a href="#/peHIP/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/peHIP/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         HIP PE 
       </a>
     </li>
 
-    <li>
-      <a href="#/peKNEE/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/peKNEE/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         KNEE PE 
       </a>
     </li>
 
-    <li>
-      <a href="#/peSPINE/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/peSPINE/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         SPINE
       </a>
     </li>
 
     <li class="divider"></li>
-    <li>
-      <a href="#/peGenOrtho/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/peGenOrtho/{{clinix.ClinixRID}}"  style="color:white;" tabindex="-1">
         GENERAL ORTHOPEDIC 
       </a>
     </li>
 
-    <li>
-      <a href="#/peSkelitalTrauma/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/peSkelitalTrauma/{{clinix.ClinixRID}}"  style="color:white;" tabindex="-1">
         SKELETAL TRAUMA
       </a>
     </li>
  
     <li class="divider"></li>
     
-    <li class="dropdown-header"><b>SPORTS</b></li>
-    <li>
-      <a href="#/peSPORTS_FootAnkle/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
-        FOOT and ANKLE
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/peSPORTS_FootAnkle/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+        SPORTS FOOT and ANKLE
       </a>
     </li>
-    <li>
-      <a href="#/peSPORTS_Knee/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
-        KNEE Sports
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/peSPORTS_Knee/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+        SPORTS KNEE
       </a>
     </li>
-    <li>
-      <a href="#/peSPORTS_Shoulder/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
-        SHOULDER
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/peSPORTS_Shoulder/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+       SPORTS SHOULDER
       </a>
     </li>
     
     <!--li class="divider"></li -->
 
     <!--li>
-        <a href="#/oby-gyne/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+        <a href="#/oby-gyne/{{clinix.ClinixRID}}" class="btn-lg" tabindex="-1">
           OB-Gyne
         </a>
     </li -->
@@ -76,19 +75,19 @@
 
 
 <div class="btn-group">
-  <a class="btn btn-warning btn-large" href="#/diagnosis/{{clinix.ClinixRID}}"> 
+  <a class="btn btn-warning btn-lg btn btn-warning" href="#/diagnosis/{{clinix.ClinixRID}}"> 
     Diagnosis 
   </a> 
 </div>
 
 <div class="btn-group">
-  <a class="btn btn-success btn-large" href="#/billing/{{clinix.ClinixRID}}"> 
+  <a class="btn btn-success btn-lg" href="#/billing/{{clinix.ClinixRID}}"> 
     Billing 
   </a> 
 </div>
 
 <div class="btn-group">
-	<a class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
+	<a class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown">
   	Orders amd Reports
 	</a>
 
@@ -102,48 +101,48 @@
 
     <li class="divider"></li>
 
- 		<li>
-      <a href="#/preopHIP/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+ 		<li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/preopHIP/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         (HIP) PRE-Operative Order 
       </a>
     </li>
 
-  	<li>
-      <a tabindex="-1" href="#/opHIP/{{clinix.ClinixRID}}">
+  	<li class="btn-lg btn btn-warning btn-block" style="color:white;" tabindex="-1">
+      <a href="#/opHIP/{{clinix.ClinixRID}}" style="color:white;">
         (HIP) Operative Report
       </a>
     </li>
 
-  	<li>
-      <a class="btn-large" tabindex="-1" href="#/postopHIP/{{clinix.ClinixRID}}">
+  	<li class="btn-lg btn btn-warning btn-block" >
+      <a tabindex="-1" href="#/postopHIP/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         (HIP) POST-Operative Order
       </a>
     </li>
 
     <li class="divider">KNEE</li>
 
-    <li>
-      <a href="#/preopKNEE/{{clinix.ClinixRID}}" class="btn-large" tabindex="-1">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/preopKNEE/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         (KNEE) PRE-Operative Order 
       </a>
     </li>
 
-    <li>
-      <a tabindex="-1" href="#/opKNEE/{{clinix.ClinixRID}}">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/opKNEE/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         (KNEE) Operative Report
       </a>
     </li>
 
-    <li>
-      <a class="btn-large" tabindex="-1" href="#/postopKNEE/{{clinix.ClinixRID}}">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a tabindex="-1" href="#/postopKNEE/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         (KNEE) POST-Operative Order
       </a>
     </li>
 
   	<li class="divider"></li>
 
-  	<li>
-      <a tabindex="-1" href="#/structuredDischarge/{{clinix.ClinixRID}}">
+  	<li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/structuredDischarge/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         Structured Discharge Summary
       </a>
     </li>
@@ -151,13 +150,13 @@
 </div>
 
 <!--div class="btn-group"> 
-  <a href="#/history/{{clinix.ClinixRID}}" class="btn btn-info btn-large"> 
+  <a href="#/history/{{clinix.ClinixRID}}" class="btn btn-info btn-lg"> 
     HISTORY 
   </a> 
 </div-->
 
 <div class="btn-group">
-  <a class="btn btn-primary btn-large" href="#/"> 
+  <a class="btn btn-primary btn-lg" href="#/"> 
     TODAY's PE List 
   </a> 
 </div>

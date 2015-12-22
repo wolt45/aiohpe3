@@ -1,12 +1,15 @@
-IOHPEApp.controller('Shoulder_XRays_Ctrl', function ($scope, $routeParams, $http){
+IOHPEApp.controller('Shoulder_XRays_Ctrl', function ($scope, $routeParams, $http, $sce){
 
   $scope.PxRID = 0;
   $scope.AllPreShoulderxrays = []; // hangers 4, 9
   $scope.AllPreShoulderpic = []; // hangers 4, 9
   $scope.AllPreShouldervid = []; // hangers 4, 9
+  $scope.PreOpShoulderVideos = []; 
+
   $scope.AllPostShoulderxrays = []; // hangers 4, 9, 10
   $scope.AllPostShoulderpic = []; // hangers 4, 9, 10
   $scope.AllPostShouldervid = []; // hangers 4, 9, 10
+  $scope.PostOpShoulderVideos = []; 
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -62,7 +65,23 @@ IOHPEApp.controller('Shoulder_XRays_Ctrl', function ($scope, $routeParams, $http
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPreShoulderVid = pxresult;
-        // alert("HIP PE LABS & XRAYS working");
+       
+       for(var i = 0; i <= $scope.AllPreShoulderVid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPreShoulderVid[i]['ImageFileName']);
+          var viddate = $scope.AllPreShoulderVid[i]['RefDate'];
+          var vidfile = $scope.AllPreShoulderVid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPreShoulderVid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PreOpShoulderVideos.push(newrecord);
+        }
+
       });
     });
   };
@@ -95,7 +114,23 @@ IOHPEApp.controller('Shoulder_XRays_Ctrl', function ($scope, $routeParams, $http
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPostShoulderVid = pxresult;
-        // alert("HIP POST PE LABS & XRAYS working");
+       
+         for(var i = 0; i <= $scope.AllPostShoulderVid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPostShoulderVid[i]['ImageFileName']);
+          var viddate = $scope.AllPostShoulderVid[i]['RefDate'];
+          var vidfile = $scope.AllPostShoulderVid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPostShoulderVid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PostOpShoulderVideos.push(newrecord);
+        }
+
       });
     });
   }

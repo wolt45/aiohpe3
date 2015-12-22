@@ -73,11 +73,13 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http, $
           var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPreOpMediaHIPVid[i]['ImageFileName']);
           var viddate = $scope.AllPreOpMediaHIPVid[i]['RefDate'];
           var vidfile = $scope.AllPreOpMediaHIPVid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPreOpMediaHIPVid[i]['Priority'];
 
           newrecord = {
             VideoURL : vidurl
             ,VideoDate : viddate
             ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
           }
           $scope.PreOpVideos.push(newrecord);
         }
@@ -123,11 +125,13 @@ IOHPEApp.controller('OPHIP_XRays_Ctrl', function ($scope, $routeParams, $http, $
           var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPostOpMediaHIPVid[i]['ImageFileName']);
           var viddate = $scope.AllPostOpMediaHIPVid[i]['RefDate'];
           var vidfile = $scope.AllPostOpMediaHIPVid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPostOpMediaHIPVid[i]['Priority'];
 
           newrecord = {
             VideoURL : vidurl
             ,VideoDate : viddate
             ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
           }
           $scope.PostOpVideos.push(newrecord);
         }

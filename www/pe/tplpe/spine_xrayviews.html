@@ -68,7 +68,7 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPSpineXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSpinexrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSpinexrays | orderBy : ['RefDate' , 'Priority']">
                         <br><br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -98,7 +98,7 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPSpineXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSpinexrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSpinexrays | orderBy : ['RefDate' , 'Priority']">
                         <br><br>
                          Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -129,9 +129,14 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPSpinepictures">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSpinepictures">
-                        <br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSpinepictures | orderBy : ['RefDate' , 'Priority']">
+                        <br><br>
+                         Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
+                        <br>LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
                     </div>
                 </div>
             </td>
@@ -154,10 +159,14 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPSpinepicture">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSpinepictures">
-                        <br>
-                         <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
-                         <br>
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSpinepictures | orderBy : ['RefDate' , 'Priority']">
+                        <br><br>
+                         Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
+                        <br>LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
                     </div>
                 </div>
             </td>
@@ -180,7 +189,7 @@
         <tr>
 			<td class="text-left" colspan="9" nowrap>
             	<div id="hideshowPre_OPSpinevideo">
-                	<div class='text-center' ng-repeat="preOpVideos in PreOpVideos | orderBy : [ 'VideoDate']">
+                	<div class='text-center' ng-repeat="preOpVideos in PreOpSpineVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
                         <br>
                         {{preOpVideos.VideoFileName}}
                         <br>
@@ -211,7 +220,7 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPSpineVid">
-                    <div class='text-center' ng-repeat="postOpVideos in PostOpVideos | orderBy : [ 'VideoDate']">
+                    <div class='text-center' ng-repeat="postOpVideos in PostOpSpineVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
                         <br>
                         {{postOpVideos.VideoFileName}}
                         <br>

@@ -5,13 +5,12 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http, 
   $scope.AllPreOpKNEExrays = []; // hangers 5, 11 
   $scope.AllPreOpKNEEpictures = []; // hangers 5, 11 
   $scope.AllPreOpKNEEVid = []; // hangers 5, 11 
-  $scope.PreOpKneeXray = []; 
   $scope.PreOpKneeVideos = []; 
+  
 
   $scope.AllPostOpKNEExrays = []; // hangers 12
   $scope.AllPostOpKNEEpictures = []; // hangers 12
   $scope.AllPostOpKNEEVid = []; // hangers 12
-  $scope.PostOpKneeXray = []; 
   $scope.PostOpKneeVideos = []; 
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
@@ -75,14 +74,16 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http, 
           var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPreOpKNEEVid[i]['ImageFileName']);
           var viddate = $scope.AllPreOpKNEEVid[i]['RefDate'];
           var vidfile = $scope.AllPreOpKNEEVid[i]['ImageFileName'];
+           var vidpriority = $scope.AllPreOpKNEEVid[i]['Priority'];
 
            newrecord = {
             VideoURL : vidurl
             ,VideoDate : viddate
             ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
           }
 
-          $scope.PreOpVideos.push(newrecord);
+          $scope.PreOpKneeVideos.push(newrecord);
         }
       });
     });
@@ -121,11 +122,13 @@ IOHPEApp.controller('OPKNEE_XRays_Ctrl', function ($scope, $routeParams, $http, 
           var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPostOpKNEEVid[i]['ImageFileName']);
           var viddate = $scope.AllPostOpKNEEVid[i]['RefDate'];
           var vidfile = $scope.AllPostOpKNEEVid[i]['ImageFileName'];
-
+          var vidpriority = $scope.AllPostOpKNEEVid[i]['Priority'];
+          
           newrecord = {
             VideoURL : vidurl
             ,VideoDate : viddate
             ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
           }
 
           $scope.PostOpKneeVideos.push(newrecord);

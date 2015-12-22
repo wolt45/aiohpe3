@@ -1,17 +1,17 @@
 IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_DiagSchedSurgery = [];
-  $scope.ClinixRID = $routeParams.p_clinixrid
+  $scope.ClinixRID = $routeParams.p_clinixrid;
 
 
 
-  $scope.LkUpRVSCodes= [];
-  var promise = $ipadrbg.context.jdata_RVS.filter(function (rvsx) { 
-    return rvsx.lkup_RVSRID > 0}).order('rvs_description').toLiveArray();
-    promise.then(function(rvsresult) {
-      $scope.$apply( function () {
-      $scope.LkUpRVSCodes = rvsresult;
-    });
-  });
+   $scope.LkUpRVSCodes= [];
+   var promise = $ipadrbg.context.jdata_RVS.filter(function (rvsx) { 
+     return rvsx.lkup_RVSRID > 0}).order('rvs_description').toLiveArray();
+     promise.then(function(rvsresult) {
+       $scope.$apply( function () {
+       $scope.LkUpRVSCodes = rvsresult;
+     });
+   });
 
 
   $scope.LoadDiagsSchedSurg = function(){
@@ -80,24 +80,27 @@ IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http)
   }
 
 
-    $scope.removeRVS_ROW = function (justTis) {
+  $scope.removeRVS_ROW = function (justTis) {
     if (confirm(justTis + ': Are you sure to Delete this Surgery Type data? ')) {
-       var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
-       db.transaction(function (tx) {
+      var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+      db.transaction(function (tx) {
            tx.executeSql("delete from 'clinix_DiagSchedSurgery' WHERE DiagsSchedSurgRID = " + justTis);
-       });
-       //$ipadrbg.context.clinix_Diagnosis.saveChanges();
-       $scope.LoadDiagsSchedSurg();
-     }
+      });
+      // $ipadrbg.context.clinix_Diagnosis.saveChanges();
+      $scope.LoadDiagsSchedSurg();
+    }
   }
 
-  $scope.editDiagnosis_ROW = function (justTis) {
-    alert(justTis);
-    
-  }
+  // $scope.editDiagnosis_ROW = function (justTis) {
+  //    alert(justTis);
+  // }
 
   $scope.pickRVS = function (RVSRID, RVSCode, RVSDescription, RVSrvu) {
     var diagsData = RVSCode + " - " + RVSDescription + " - " + RVSrvu;
-    $scope.schedSurgeGrp.SurgeryType = diagsData;
+     
+    var mSurgeryType = $scope.schedSurgeGrp.SurgeryType;
+    var xSurgeryType = mSurgeryType + "\n" + diagsData;
+     
+    $scope.schedSurgeGrp.SurgeryType = xSurgeryType;
   }
 });

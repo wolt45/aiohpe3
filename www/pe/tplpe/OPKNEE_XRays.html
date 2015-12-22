@@ -82,7 +82,7 @@
         <tr>
 			<td class="text-left" colspan="9" nowrap>
             	<div id="hideshowPre_OPKneeXRays">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreOpKNEExrays | orderBy : ['RefDate']">
+                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreOpKNEExrays | orderBy : ['RefDate' , 'Priority']">
                 		<br><br>
                          Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -125,7 +125,7 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPKneeXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpKNEExrays | orderBy : ['RefDate']" >
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpKNEExrays | orderBy : ['RefDate' , 'Priority']" >
                         <br>
                          Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -158,7 +158,7 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPKneepicture">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreOpKNEEpictures">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreOpKNEEpictures | orderBy : ['RefDate' , 'Priority']">
                         <br>
                          Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -190,7 +190,7 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPKneepictures">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpKNEEpictures">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostOpKNEEpictures | orderBy : ['RefDate' , 'Priority']">
                         <br>
                          Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -222,7 +222,7 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPKneeVid">
-                    <div class='text-center' ng-repeat="preOpKneeVideos in PreOpKneeVideos | orderBy : [ 'VideoDate']">
+                    <div class='text-center' ng-repeat="preOpKneeVideos in PreOpKneeVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
                         <table>  
                             <tr>
                                 <td class="text-center" width="1%" nowrap>
@@ -260,7 +260,7 @@
         <tr>
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPKneeVid">
-                    <div class='text-center' ng-repeat="postOpKneeVideos in PostOpKneeVideos | orderBy : ['VideoDate']">
+                    <div class='text-center' ng-repeat="postOpKneeVideos in PostOpKneeVideos | orderBy : ['VideoDate', 'VideoPriority']">
                        <table>  
                             <tr>
                                 <td class="text-center" width="1%" nowrap>

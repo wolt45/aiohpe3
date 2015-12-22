@@ -1,12 +1,15 @@
-IOHPEApp.controller('GENORTHO_XRays_Ctrl', function ($scope, $routeParams, $http){
+IOHPEApp.controller('GENORTHO_XRays_Ctrl', function ($scope, $routeParams, $http, $sce){
 
   $scope.PxRID = 0;
   $scope.AllPreGENORTHOxrays = []; // hangers 4, 9
   $scope.AllPreGENORTHOpicture = []; // hangers 4, 9
   $scope.AllPreGENORTHOvid = []; // hangers 4, 9
+  $scope.PreOpGenVideos = [];
+
   $scope.AllPostGENORTHOxrays = []; // hangers 4, 9, 10
   $scope.AllPostGENORTHOpicture = []; // hangers 4, 9, 10
   $scope.AllPostGENORTHOvid = []; // hangers 4, 9, 10
+  $scope.PostOpGenVideos = []; 
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -63,7 +66,23 @@ IOHPEApp.controller('GENORTHO_XRays_Ctrl', function ($scope, $routeParams, $http
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPreGENORTHOvid = pxresult;
-        // alert("HIP PE LABS & XRAYS working");
+        
+        for(var i = 0; i <= $scope.AllPreGENORTHOvid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPreGENORTHOvid[i]['ImageFileName']);
+          var viddate = $scope.AllPreGENORTHOvid[i]['RefDate'];
+          var vidfile = $scope.AllPreGENORTHOvid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPreGENORTHOvid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PreOpGenVideos.push(newrecord);
+        }
+
       });
     });
   };
@@ -96,7 +115,23 @@ IOHPEApp.controller('GENORTHO_XRays_Ctrl', function ($scope, $routeParams, $http
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPostGENORTHOvid = pxresult;
-        // alert("HIP POST PE LABS & XRAYS working");
+        
+        for(var i = 0; i <= $scope.AllPostGENORTHOvid.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPostGENORTHOvid[i]['ImageFileName']);
+          var viddate = $scope.AllPostGENORTHOvid[i]['RefDate'];
+          var vidfile = $scope.AllPostGENORTHOvid[i]['ImageFileName'];
+          var vidpriority = $scope.AllPostGENORTHOvid[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PostOpGenVideos.push(newrecord);
+        }
+
       });
     });
   }

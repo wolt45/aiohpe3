@@ -55,7 +55,7 @@
 		<tr class="warning">
             <td width="1%" colspan="9" nowrap>
                 <span id="DGL_module_header">
-                    PRE-Operative Sports Shoulder X-Rays
+                    PRE-Operative X-Rays Sports Knee
                 </span>
             </td>
         </tr>
@@ -75,7 +75,7 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPKneeXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreKneexrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreKneexrays | orderBy : ['RefDate' , 'Priority']">
                         <br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
@@ -88,68 +88,10 @@
             </td>
         </tr>
 
-        <tr class="warning">
-            <td width="1%" colspan="9" nowrap>
-                <span id="DGL_module_header">
-                    PRE-Operative Sports Shoulder Picture 
-                </span>
-            </td>
-        </tr>
-        
-
-        <tr class="active">
-            <td class="text-center" colspan="9">
-
-                <input type="submit" id="showPreOpKneepic" class="btn btn-danger" value="Patient Picture">
-            </td>
-        </tr>
-
-        <tr class="info">
-            <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPre_OPKneepic">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreKneepic">
-                        <br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
-                        <br>
-                    </div>
-                </div>
-            </td>
-        </tr>
-
-        <tr class="warning">
-			<td width="1%" colspan="9" nowrap>
-				<span id="DGL_module_header">
-		    		PRE-Operative Sports Shoulder Video 
-		    	</span>
-		    </td>
-		</tr>
-        
-
-		<tr class="active">
-			<td class="text-center" colspan="9">
-
-                <input type="submit" id="showPreOpKneevid" class="btn btn-danger" value="PRE-OP Video">
-			</td>
-		</tr>
-
-        <tr class="info">
-			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPKneevid">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreKneevid">
-                		<br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
-                        <br>
-                	</div>
-            	</div>
-			</td>
-        </tr>
-    </table>
-		
-	<table class="table table-condensed table-bordered">
 		<tr class="warning">
             <td width="1%" colspan="9" nowrap>
                 <span id="DGL_module_header">
-                    POST-Operative X-Rays Sports Shoulder
+                    POST-Operative X-Rays Sports Knee
                 </span>
             </td>
         </tr>
@@ -169,7 +111,7 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPKneeXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostKneexrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostKneexrays | orderBy : ['RefDate' , 'Priority']">
                         <br><br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
@@ -182,12 +124,42 @@
             </td>
         </tr>
 
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative Sports Knee Picture 
+                </span>
+            </td>
+        </tr>
+        
 
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPreOpKneepic" class="btn btn-danger" value="Patient Picture">
+            </td>
+        </tr>
+
+         <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPKneepic">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreKneepic | orderBy : ['RefDate' , 'Priority']">
+                        <br><br>
+                        Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
 
         <tr class="warning">
             <td width="1%" colspan="9" nowrap>
                 <span id="DGL_module_header">
-                    POST-Operative Sports Shoulder Picture
+                    POST-Operative Sports Knee Picture
                 </span>
             </td>
         </tr>
@@ -203,17 +175,62 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPKneepic">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostKneepic">
-                        <br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> <br>
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostKneepic | orderBy : ['RefDate' , 'Priority']">
+                        <br><br>
+                        Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
                     </div>
                 </div>
             </td>
         </tr>
+
+        
+       
+
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative Sports Knee Video 
+                </span>
+            </td>
+        </tr>
+        
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPreOpKneevid" class="btn btn-danger" value="PRE-OP Video">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPKneevid">
+                     <div id="hideshowPre_OPShoulderVid">
+                   <div class='text-center' ng-repeat="PreOpSportsKneeVideos in PreOpSportsKneeVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
+                        <br>
+                        {{PreOpSportsKneeVideos.VideoFileName}}
+                        <br>
+                        {{PreOpSportsKneeVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{PreOpSportsKneeVideos.VideoURL}}" controls> </video> 
+
+                        <br>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        
         <tr class="warning">
 			<td width="1%" colspan="9" nowrap>
 				<span id="DGL_module_header">
-		    		POST-Operative Sports Shoulder Video
+		    		POST-Operative Sports Knee Video
 		    	</span>
 		    </td>
 		</tr>
@@ -229,9 +246,16 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPKneevid">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostKneevid">
+                    <div class='text-center' ng-repeat="PostOpSportsKneeVideos in PostOpSportsKneeVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
                         <br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> <br>
+                        {{PostOpSportsKneeVideos.VideoFileName}}
+                        <br>
+                        {{PostOpSportsKneeVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{PostOpSportsKneeVideos.VideoURL}}" controls> </video> 
+
+                        <br>
                     </div>
                 </div>
             </td>

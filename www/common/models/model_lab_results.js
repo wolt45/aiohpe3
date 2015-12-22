@@ -23,6 +23,7 @@ $data.Entity.extend("$ipadrbg.types.LAB_Results", {
 		
 	, Final: { type: "string"}	
 	, remarks: { type: "string"}		
+	, Priority: { type: "string"}		
 	, Deleted: { type: "string"}		
 	, SynchStatus: { type: "string"}
 });

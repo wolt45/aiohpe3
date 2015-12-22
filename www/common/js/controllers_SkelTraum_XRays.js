@@ -1,12 +1,15 @@
-IOHPEApp.controller('SkelTrauma_XRays_Ctrl', function ($scope, $routeParams, $http){
+IOHPEApp.controller('SkelTrauma_XRays_Ctrl', function ($scope, $routeParams, $http, $sce){
 
   $scope.PxRID = 0;
   $scope.AllPreSkelTraumaxrays = []; // hangers 4, 9
   $scope.AllPreSkelTraumapictures = []; // hangers 4, 9
   $scope.AllPreSkelTraumavideo = []; // hangers 4, 9
+  $scope.PreOpSkelTraumaVideos = [];
+  
   $scope.AllPostSkelTraumaxrays = []; // hangers 4, 9, 10
   $scope.AllPostSkelTraumapicture = []; // hangers 4, 9, 10
   $scope.AllPostSkelTraumavid = []; // hangers 4, 9, 10
+  $scope.PostOpSkelTraumaVideos = [];
 
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
@@ -61,7 +64,23 @@ IOHPEApp.controller('SkelTrauma_XRays_Ctrl', function ($scope, $routeParams, $ht
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPreSkelTraumavideo = pxresult;
-        // alert("HIP PE LABS & XRAYS working");
+       
+        for(var i = 0; i <= $scope.AllPreSkelTraumavideo.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPreSkelTraumavideo[i]['ImageFileName']);
+          var viddate = $scope.AllPreSkelTraumavideo[i]['RefDate'];
+          var vidfile = $scope.AllPreSkelTraumavideo[i]['ImageFileName'];
+          var vidpriority = $scope.AllPreSkelTraumavideo[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PreOpSkelTraumaVideos.push(newrecord);
+        }
+
       });
     });
   };
@@ -94,7 +113,23 @@ IOHPEApp.controller('SkelTrauma_XRays_Ctrl', function ($scope, $routeParams, $ht
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.AllPostSkelTraumavid = pxresult;
-        // alert("HIP POST PE LABS & XRAYS working");
+        
+        for(var i = 0; i <= $scope.AllPostSkelTraumavidx.length; i++) {
+          var vidurl = $sce.trustAsResourceUrl("http://"+ serverIP +"/dump_labs/" + $scope.AllPostSkelTraumavidx[i]['ImageFileName']);
+          var viddate = $scope.AllPostSkelTraumavidx[i]['RefDate'];
+          var vidfile = $scope.AllPostSkelTraumavidx[i]['ImageFileName'];
+          var vidpriority = $scope.AllPostSkelTraumavidx[i]['Priority'];
+          
+          newrecord = {
+            VideoURL : vidurl
+            ,VideoDate : viddate
+            ,VideoFileName : vidfile
+            ,VideoPriority : vidpriority
+          }
+
+          $scope.PostOpSkelTraumaVideos.push(newrecord);
+        }
+
       });
     });
   }

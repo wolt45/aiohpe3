@@ -55,7 +55,7 @@
 		<tr class="warning">
             <td width="1%" colspan="9" nowrap>
                 <span id="DGL_module_header">
-                    PRE-Operative X-Rays General Orthopedic
+                    PRE-Operative General Orthopedic X-Rays
                 </span>
             </td>
         </tr>
@@ -74,7 +74,7 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPGenOrthoXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreGENORTHOxrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreGENORTHOxrays | orderBy : ['RefDate' , 'Priority']">
                         <br><br>
                          Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -87,6 +87,45 @@
                 </div>
             </td>
         </tr>
+
+
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    POST-Operative General Orthopedic X-Rays
+                </span>
+            </td>
+        </tr>
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+                 <a class="btn btn-large btn-info" style="text-decoration: none;"
+                    scroll-to-bookmark="XRAY_FINDINGS">
+                    JUMP TO X-Ray Findings
+                </a>
+
+                <input type="submit" id="showPostOpGenOrthoXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
+            </td>
+        </tr>
+
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPost_OPGenOrthoXRays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostGENORTHOxrays | orderBy : ['RefDate' , 'Priority']">
+                        <br><br>
+                         Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
+                        <br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
+
 
         <tr class="warning">
             <td width="1%" colspan="9" nowrap>
@@ -106,69 +145,7 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPGenOrthoPicture">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreGENORTHOpicture">
-                        <br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
-                        <br>
-                    </div>
-                </div>
-            </td>
-        </tr>
-
-
-        <tr class="warning">
-			<td width="1%" colspan="9" nowrap>
-				<span id="DGL_module_header">
-		    		PRE-Operative General Orthopedic Videos
-		    	</span>
-		    </td>
-		</tr>
-
-		<tr class="active">
-			<td class="text-center" colspan="9">
-
-            	<input type="submit" id="showPreOpGenOrthoVid" class="btn btn-danger" value="PRE-OP Video">
-			</td>
-		</tr>
-
-        <tr class="info">
-			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPGenOrthoVid">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreGENORTHOvid">
-                		<br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
-                        <br>
-                	</div>
-            	</div>
-			</td>
-        </tr>
-    </table>
-		
-	<table class="table table-condensed table-bordered">
-		<tr class="warning">
-			<td width="1%" colspan="9" nowrap>
-				<span id="DGL_module_header">
-		    		POST-Operative General Orthopedic X-Rays
-		    	</span>
-		    </td>
-		</tr>
-
-		<tr class="active">
-            <td class="text-center" colspan="9">
-                 <a class="btn btn-large btn-info" style="text-decoration: none;"
-                    scroll-to-bookmark="XRAY_FINDINGS">
-                    JUMP TO X-Ray Findings
-                </a>
-
-                <input type="submit" id="showPostOpGenOrthoXRays" class="btn btn-danger" value="GROSS PICTURES - POST OP">
-            </td>
-        </tr>
-
-
-        <tr class="info">
-            <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPost_OPGenOrthoXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostGENORTHOxrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreGENORTHOpicture | orderBy : ['RefDate' , 'Priority']">
                         <br><br>
                          Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
@@ -176,12 +153,12 @@
                         LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
                         <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
                         <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
-                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                        <br>
                     </div>
                 </div>
             </td>
         </tr>
-
 
         <tr class="warning">
             <td width="1%" colspan="9" nowrap>
@@ -201,9 +178,51 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPGenOrthopictures">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostGENORTHOpicture">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostGENORTHOpicture | orderBy : ['RefDate' , 'Priority']">
+                        <br><br>
+                         Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span>
                         <br>
-                          <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                        <br>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+		
+	<table class="table table-condensed table-bordered">
+		
+         <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative General Orthopedic Videos
+                </span>
+            </td>
+        </tr>
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPreOpGenOrthoVid" class="btn btn-danger" value="PRE-OP Video">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPGenOrthoVid">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="preOpGenVideos in PreOpGenVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
+                        <br>
+                        {{preOpGenVideos.VideoFileName}}
+                        <br>
+                        {{preOpGenVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{preOpGenVideos.VideoURL}}" controls> </video> 
+
                         <br>
                     </div>
                 </div>
@@ -214,14 +233,14 @@
         <tr class="warning">
             <td width="1%" colspan="9" nowrap>
                 <span id="DGL_module_header">
-                    POST-Operative General Orthopedic Pictures
+                    POST-Operative General Orthopedic Video
                 </span>
             </td>
         </tr>
         <tr class="active">
 			<td class="text-center" colspan="9">
 
-            	<input type="submit" id="showPostOpGenOrthovid" class="btn btn-danger" value="Patient Picture">
+            	<input type="submit" id="showPostOpGenOrthovid" class="btn btn-danger" value="POST-OP Video">
 			</td>
 		</tr>
 
@@ -229,9 +248,15 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPGenOrthovid">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostGENORTHOvid">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="postOpGenVideos in PostOpGenVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
                         <br>
-                          <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                        {{postOpGenVideos.VideoFileName}}
+                        <br>
+                        {{postOpGenVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{postOpGenVideos.VideoURL}}" controls> </video> 
+
                         <br>
                     </div>
                 </div>

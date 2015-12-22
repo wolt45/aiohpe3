@@ -72,7 +72,7 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPre_OPSkelTraumaXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumaxrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumaxrays | orderBy : ['RefDate' , 'Priority']">
                         <br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
@@ -85,76 +85,7 @@
             </td>
         </tr>
 
-
-
-
-
-
         <tr class="warning">
-            <td width="1%" colspan="9" nowrap>
-                <span id="DGL_module_header">
-                    PRE-Operative Skeletal Trauma Pictures
-                </span>
-            </td>
-        </tr>
-
-        <tr class="active">
-            <td class="text-center" colspan="9">
-
-                <input type="submit" id="showPreOpSkelTraumapic" class="btn btn-danger" value="Patient Pictures">
-            </td>
-        </tr>
-
-        <tr class="info">
-            <td class="text-left" colspan="9" nowrap>
-                <div id="hideshowPre_OPSkelTraumapic">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumapictures">
-                        <br>
-                        <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
-                        <br>
-                    </div>
-                </div>
-            </td>
-        </tr>
-
-
-
-
-
-        <tr class="warning">
-			<td width="1%" colspan="9" nowrap>
-				<span id="DGL_module_header">
-		    		PRE-Operative Skeletal Trauma Videos
-		    	</span>
-		    </td>
-		</tr>
-
-		<tr class="active">
-			<td class="text-center" colspan="9">
-
-            	<input type="submit" id="showPreOpSkelTraumavid" class="btn btn-danger" value="PRE-OP Video">
-			</td>
-		</tr>
-
-        <tr class="info">
-			<td class="text-left" colspan="9" nowrap>
-            	<div id="hideshowPre_OPSkelTraumavid">
-                	<div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumavideo">
-                		<br>
-                		<img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
-                        <br>
-                	</div>
-            	</div>
-			</td>
-        </tr>
-    </table>
-		
-
-
-
-
-	<table class="table table-condensed table-bordered">
-		<tr class="warning">
             <td width="1%" colspan="9" nowrap>
                 <span id="DGL_module_header">
                     POST-Operative Skeletal Trauma X-Rays
@@ -177,7 +108,7 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPSkelTraumaXRays">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSkelTraumaxrays">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSkelTraumaxrays | orderBy : ['RefDate' , 'Priority']">
                         <br><br>
                         Date: &nbsp;&nbsp;&nbsp; 
                         <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
@@ -191,6 +122,38 @@
         </tr>
 
 
+
+
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative Skeletal Trauma Pictures
+                </span>
+            </td>
+        </tr>
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPreOpSkelTraumapic" class="btn btn-danger" value="Patient Pictures">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPSkelTraumapic">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPreSkelTraumapictures | orderBy : ['RefDate' , 'Priority']">
+                        <br>
+                        Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
 
         <tr class="warning">
             <td width="1%" colspan="9" nowrap>
@@ -211,13 +174,64 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPSkelTraumapic">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSkelTraumapicture">
-                        <br><img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSkelTraumapicture | orderBy : ['RefDate' , 'Priority']">
+                       <br>
+                        Date: &nbsp;&nbsp;&nbsp; 
+                        <span style='font-size:24px;'>{{lab_results.RefDate | date}}</span><br>
+                        LAB Type: &nbsp;&nbsp;&nbsp; {{lab_results.LCatRID}}
+                        <br> File Name: &nbsp;&nbsp;&nbsp; {{lab_results.ImageFileName}}
+                        <br> Result: &nbsp;&nbsp;&nbsp; {{lab_results.Result}}
+                        <br> <img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded"> 
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+
+    </table>
+		
+
+
+
+
+	<table class="table table-condensed table-bordered">
+		
+        <tr class="warning">
+            <td width="1%" colspan="9" nowrap>
+                <span id="DGL_module_header">
+                    PRE-Operative Skeletal Trauma Videos
+                </span>
+            </td>
+        </tr>
+
+        <tr class="active">
+            <td class="text-center" colspan="9">
+
+                <input type="submit" id="showPreOpSkelTraumavid" class="btn btn-danger" value="PRE-OP Video">
+            </td>
+        </tr>
+
+        <tr class="info">
+            <td class="text-left" colspan="9" nowrap>
+                <div id="hideshowPre_OPSkelTraumavid">
+                    <div class='text-center' ng-repeat="preOpSkelTraumaVideos in PreOpSkelTraumaVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
+                        <br>
+                        {{preOpSkelTraumaVideos.VideoFileName}}
+                        <br>
+                        {{preOpSkelTraumaVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{preOpSkelTraumaVideos.VideoURL}}" controls> </video> 
+
                         <br>
                     </div>
                 </div>
             </td>
         </tr>
+
+
+        
 
 
         <tr class="warning">
@@ -239,8 +253,15 @@
         <tr class="info">
             <td class="text-left" colspan="9" nowrap>
                 <div id="hideshowPost_OPSkelTraumavid">
-                    <div style="padding: 0 20px 0 20px" ng-repeat="lab_results in AllPostSkelTraumavid">
-                        <br><img ng-src="http://10.0.1.99/{{lab_results.ImageFolder}}/{{lab_results.ImageFileName}}" width="70%" class="img-rounded">
+                    <div class='text-center' ng-repeat="postOpSkelTraumaVideos in PostOpSkelTraumaVideos | orderBy : [ 'VideoDate', 'VideoPriority']">
+                        <br>
+                        {{postOpSkelTraumaVideos.VideoFileName}}
+                        <br>
+                        {{postOpSkelTraumaVideos.VideoDate | date}}
+                        <br>
+
+                        <video width='320' height='240' ng-src="{{postOpSkelTraumaVideos.VideoURL}}" controls> </video> 
+
                         <br>
                     </div>
                 </div>
