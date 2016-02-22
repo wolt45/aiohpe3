@@ -53,8 +53,7 @@
 		      							
 										<tr ng-repeat="RVS_Item in LkUpRVSCodes | filter : searchFilterRVS | orderBy : ['rvs_description'] ">
 											<td>
-												<a class="btn btn-info" ng-click="pickRVS(RVS_Item.lkup_RVSRID, RVS_Item.rvs_code, RVS_Item.rvs_description,RVS_Item.rvs_unit)" 
-													style="text-decoration:none; display:block;color:black">  
+												<a class="btn btn-info" ng-click="pickRVS(RVS_Item.lkup_RVSRID, RVS_Item.rvs_code, RVS_Item.rvs_description,RVS_Item.rvs_unit)" style="text-decoration:none; display:block;color:black">  
 													{{RVS_Item.lkup_RVSRID}}
 												</a>   
 											</td>

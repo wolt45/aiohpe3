@@ -79,7 +79,25 @@
     Diagnosis 
   </a> 
 </div>
+<div class="btn-group">
+  <a class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown">
+   Physical Therapy 
+    <span class="caret"></span>
+  </a>
 
+  <ul class="dropdown-menu">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/PhyThera/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+        Initial Interview
+      </a>
+    </li>
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/PhyThera2/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+       PT Notes
+      </a>
+    </li>
+  </ul>
+  </div>
 <div class="btn-group">
   <a class="btn btn-success btn-lg" href="#/billing/{{clinix.ClinixRID}}"> 
     Billing 
@@ -88,7 +106,7 @@
 
 <div class="btn-group">
 	<a class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown">
-  	Orders amd Reports
+  	Orders and Reports
 	</a>
 
 	<ul class="dropdown-menu">

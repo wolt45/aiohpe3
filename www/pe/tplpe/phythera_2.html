@@ -1,0 +1,98 @@
+<div scroll-bookmark="PainAssessment">
+	<div ng-controller="PT2_Ctrl">
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<th colspan=9>
+					<span id="DGL_module_header">
+						Pain Assessment
+					</span>
+				</th>
+			</tr>
+			<tr class='active'>
+				<td class='form-inline' colspan='4' width='1%' nowrap>
+					Visual Analog Scale = <input type='text' ng-model="PT2.VisualAnalog" class='form-control'> /10
+				</td>
+			</tr>
+			<tr>
+				<td class='form-inline active' width='1%' nowrap>
+					Pain Characteristics
+				</td>
+				<td class='form-inline' width='1%' nowrap>
+					<input type="radio" ng-model="PT2.PainChar" value="Sharp"> Sharp
+			        <br>
+			        <input type="radio" ng-model="PT2.PainChar" value="Dull/Aching"> Dull/Aching
+			    </td>
+			    <td class='form-inline' width='1%' nowrap>
+			        <input type="radio" ng-model="PT2.PainChar" value="Radiating"> Radiating
+			        <br>
+			        <input type="radio" ng-model="PT2.PainChar" value="Burning"> Burning
+					
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class='active'></td>
+				<td colspan='3' class='form-inline'>
+					Others: <input type='text' ng-model="PT2.PainChar" class='form-control'>
+				</td>
+			</tr>
+			<tr>
+				<td class='form-inline active' width='1%' nowrap>
+					Medication
+				</td>
+				<td colspan='2' width='1%' nowrap>
+					<input type="text" class="form-control" ng-model="PT2.Medication" >
+				</td>
+			</tr>
+		</table>
+		<table class="table table-condensed table-bordered">
+			<tr>
+				<td class='form-inline active' width='1%' nowrap>
+					What INCREASES/DECREASES Pain:
+				</td>
+				<td width='20%' nowrap>
+					<input type="text" class="form-control" ng-model="PT2.WhatDece" >
+				</td>
+				<td></td>
+			</tr>
+		</table>
+		<table class="table table-condensed table-bordered">
+			<tr>
+				<td class='form-inline active' width='1%' nowrap>
+					Pain Frequency
+				</td>
+				<td class='form-inline' width='1%' nowrap>
+					<input type="radio" ng-model="PT2.PainFreq" value="Occasional"> Occasional
+			        <br>
+			        <input type="radio" ng-model="PT2.PainFreq" value="Daily"> Daily
+			        <br>
+			        <input type="radio" ng-model="PT2.PainFreq" value="Constantly"> Constantly
+			    </td>
+			    <td class='form-inline' width='1%' nowrap>
+			        <input type="radio" ng-model="PT2.PainFreq" value="Night"> Night
+			        <br>
+			        <input type="radio" ng-model="PT2.PainFreq" value="With Movement / Activity"> With Movement / Activity
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class='active'>Is pain?: </td>
+				<td colspan='2'>
+					<input type="radio" ng-model="PT2.IsPain" value="Acute (within last 60 days)"> Acute (within last 60 days)
+					<br>
+					<input type="radio" ng-model="PT2.IsPain" value="Sub-Acute (within last 60 days)"> Sub-Acute (within last 60 days)
+					<br>
+					<input type="radio" ng-model="PT2.IsPain" value="Chronic"> Chronic
+				</td>
+			</tr>
+			<tr>
+				<td colspan="9" class="text-center active">
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000" ng-click="addNew_PT2(PT2)">
+						SAVE
+					</a>
+					<a class='btn btn-danger' style="text-decoration: none; color: #000" ng-click="removePT2(PT2)">DELETE</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

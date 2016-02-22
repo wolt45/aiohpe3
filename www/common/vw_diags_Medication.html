@@ -10,21 +10,20 @@
 			</tr>
 			
 			<tr  class="info">
-				<th width="25%" class="text-center" style="color:#888">Medicine</th> 
-				<th width="25%" class="text-center" style="color:#888">Brand</th> 
-				<th width="1%" class="text-center" style="color:#888" nowrap>Qty/Volume</th> 
-				<th width="25%" class="text-center" style="color:#888">Dosage</th> 
-				<th width="25%" class="text-center" style="color:#888">Duration</th> 
-				<th width="1%" class="text-center" style="color:#888"></th> 
-				<th class="text-center" style="color:#888"></th> 
+				<th width="25%" class="text-center">Medicine</th> 
+				<th width="25%" class="text-center">Brand</th> 
+				<th width="1%" class="text-center" nowrap>Qty/Volume</th> 
+				<th width="25%" class="text-center">Dosage</th> 
+				<th width="25%" class="text-center">Duration</th> 
+				<th width="1%" class="text-center"></th> 
 			</tr>
 
 			<tr class="active" ng-repeat="xMed in clinix_DiagsMedication">
-	        	<td class="text-center" style="color:black" nowrap>{{xMed.GenericName}}</td>
-	        	<td class="text-center" style="color:black" nowrap>{{xMed.Brand}}</td>
-	            <td class="text-center" style="color:black">{{xMed.Qty}}</td>
-	            <td class="text-center" style="color:black">{{xMed.Dose}}</td>
-	            <td class="text-center" style="color:black">{{xMed.Duration}}</td>
+	        	<td class="text-center" nowrap>{{xMed.GenericName}}</td>
+	        	<td class="text-center" nowrap>{{xMed.Brand}}</td>
+	            <td class="text-center">{{xMed.Qty}}</td>
+	            <td class="text-center">{{xMed.Dose}}</td>
+	            <td class="text-center">{{xMed.Duration}}</td>
 	            <td>
 	            	<a class="btn btn-large btn-danger" style="text-decoration: none" 
 	            		ng-click="removeDiagnosis(xMed)">

@@ -4571,4 +4571,401 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
+
+
+	$scope.pullphysicalTheraphy = function() {
+    	if (confirm(serverIP + ': Pull all Physical Theraphy Data, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PTHist'");
+            	tx.executeSql("delete from 'jdata_PTHist'");
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PT1'");
+            	tx.executeSql("delete from 'jdata_PT1'");
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PT2'");
+            	tx.executeSql("delete from 'jdata_PT2'");
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PT3'");
+            	tx.executeSql("delete from 'jdata_PT3'");
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PT4'");
+            	tx.executeSql("delete from 'jdata_PT4'");
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PTNotes1'");
+            	tx.executeSql("delete from 'jdata_PTNotes1'");
+
+         
+	        }); 
+
+	        $scope.pull_physctheraHist(function(){
+	        	$scope.pull_physcthera1(function(){
+	        		$scope.pull_physcthera2(function(){
+	        			$scope.pull_physcthera3(function(){
+	        				$scope.pull_physcthera4(function(){
+	        					$scope.pull_physctheraNotes(function(){
+	        						$ipadrbg.context.saveChanges();
+    							});
+    						});
+    					});
+    				});
+    			});
+    		});
+ 			// not used, see diagnosis sur schedule
+ 			// $scope.pull_StrucSchedSurgery();
+
+			alert("Importing ORDERS, Discharge Summary and REPORTS from Server was Successful!");
+    	}
+	}
+
+	$scope.pull_physctheraHist= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_physctheraHist.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PTHist = new $ipadrbg.types.jdata_PTHist();
+			    	
+					jdata_PTHist.PTRID = data[idx].PTRID;
+					jdata_PTHist.ClinixRID = data[idx].ClinixRID;
+					jdata_PTHist.PxRID = data[idx].PxRID;
+					jdata_PTHist.PTHistory = data[idx].PTHistory;
+						
+					$ipadrbg.context.jdata_PTHist.add(jdata_PTHist);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pull_physcthera1= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_physcthera1.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PT1 = new $ipadrbg.types.jdata_PT1();
+
+			    	jdata_PT1.PTRID = data[idx].PTRID;
+					jdata_PT1.ClinixRID = data[idx].ClinixRID;
+					jdata_PT1.PxRID = data[idx].PxRID;
+
+					jdata_PT1.ShoulderFlexLeft= data[idx].ShoulderFlexLeft;
+			        jdata_PT1.ShoulderFlexRight= data[idx].ShoulderFlexRight;
+			        jdata_PT1.ShoulderFlexStrLeft= data[idx].ShoulderFlexStrLeft;
+			        jdata_PT1.ShoulderFlexStrRight= data[idx].ShoulderFlexStrRight;
+
+			        jdata_PT1.ShoulderExtenLeft= data[idx].ShoulderExtenLeft;
+			        jdata_PT1.ShoulderExtenRight= data[idx].ShoulderExtenRight;
+			        jdata_PT1.ShoulderExtenStrLeft= data[idx].ShoulderExtenStrLeft;
+			        jdata_PT1.ShoulderExtenStrRight= data[idx].ShoulderExtenStrRight;
+
+			        jdata_PT1.ShoulderABDADDLeft= data[idx].ShoulderABDADDLeft;
+			        jdata_PT1.ShoulderABDADDRight= data[idx].ShoulderABDADDRight;
+			        jdata_PT1.ShoulderABDADDStrLeft= data[idx].ShoulderABDADDStrLeft;
+			        jdata_PT1.ShoulderABDADDStrRight= data[idx].ShoulderABDADDStrRight;
+
+			        jdata_PT1.ShoulderIRLeft= data[idx].ShoulderIRLeft;
+			        jdata_PT1.ShoulderIRRight= data[idx].ShoulderIRRight;
+			        jdata_PT1.ShoulderIRStrLeft= data[idx].ShoulderIRStrLeft;
+			        jdata_PT1.ShoulderIRStrRight= data[idx].ShoulderIRStrRight;
+
+			        jdata_PT1.ShoulderERLeft= data[idx].ShoulderERLeft;
+			        jdata_PT1.ShoulderERRight= data[idx].ShoulderERRight;
+			        jdata_PT1.ShoulderERStrLeft= data[idx].ShoulderERStrLeft;
+			        jdata_PT1.ShoulderERStrRight= data[idx].ShoulderERStrRight;
+
+			        jdata_PT1.ElbowFlexionLeft= data[idx].ElbowFlexionLeft;
+			        jdata_PT1.ElbowFlexionRight= data[idx].ElbowFlexionRight;
+			        jdata_PT1.ElbowFlexionStrLeft= data[idx].ElbowFlexionStrLeft;
+			        jdata_PT1.ElbowFlexionStrRight= data[idx].ElbowFlexionStrRight;
+
+			        jdata_PT1.ElbowExtensionLeft= data[idx].ElbowExtensionLeft;
+			        jdata_PT1.ElbowExtensionRight= data[idx].ElbowExtensionRight;
+			        jdata_PT1.ElbowExtensionStrLeft= data[idx].ElbowExtensionStrLeft;
+			        jdata_PT1.ElbowExtensionStrRight= data[idx].ElbowExtensionStrRight;
+
+			        jdata_PT1.ForearmLeft= data[idx].ForearmLeft;
+			        jdata_PT1.ForearmRight= data[idx].ForearmRight;
+			        jdata_PT1.ForearmStrLeft= data[idx].ForearmStrLeft;
+			        jdata_PT1.ForearmStrRight= data[idx].ForearmStrRight;
+
+			        jdata_PT1.SupinationLeft= data[idx].SupinationLeft;
+			        jdata_PT1.SupinationRight= data[idx].SupinationRight;
+			        jdata_PT1.SupinationStrLeft= data[idx].SupinationStrLeft;
+			        jdata_PT1.SupinationStrRight= data[idx].SupinationStrRight;
+
+			        jdata_PT1.WristFlexionLeft= data[idx].WristFlexionLeft;
+			        jdata_PT1.WristFlexionRight= data[idx].WristFlexionRight;
+			        jdata_PT1.WristFlexionStrLeft= data[idx].WristFlexionStrLeft;
+			        jdata_PT1.WristFlexionStrRight= data[idx].WristFlexionStrRight;
+
+			        jdata_PT1.WristExtensionLeft= data[idx].WristExtensionLeft;
+			        jdata_PT1.WristExtensionRight= data[idx].WristExtensionRight;
+			        jdata_PT1.WristExtensionStrLeft= data[idx].WristExtensionStrLeft;
+			        jdata_PT1.WristExtensionStrRight= data[idx].WristExtensionStrRight;
+
+			        jdata_PT1.HipFlexionLeft= data[idx].HipFlexionLeft;
+			        jdata_PT1.HipFlexionRight= data[idx].HipFlexionRight;
+			        jdata_PT1.HipFlexionStrRight= data[idx].HipFlexionStrRight;
+			        jdata_PT1.HipFlexionStrLeft= data[idx].HipFlexionStrLeft;
+
+			        jdata_PT1.HipExtensionLeft= data[idx].HipExtensionLeft;
+			        jdata_PT1.HipExtensionRight= data[idx].HipExtensionRight;
+			        jdata_PT1.HipExtensionStrLeft= data[idx].HipExtensionStrLeft;
+			        jdata_PT1.HipExtensionStrRight= data[idx].HipExtensionStrRight;
+
+			        jdata_PT1.HipABDADDLeft= data[idx].HipABDADDLeft;
+			        jdata_PT1.HipABDADDRight= data[idx].HipABDADDRight;
+			        jdata_PT1.HipABDADDStrLeft= data[idx].HipABDADDStrLeft;
+			        jdata_PT1.HipABDADDStrRight= data[idx].HipABDADDStrRight;
+
+			        jdata_PT1.HipIRERLeft= data[idx].HipIRERLeft;
+			        jdata_PT1.HipIRERRight= data[idx].HipIRERRight;
+			        jdata_PT1.HipIRERStrLeft= data[idx].HipIRERStrLeft;
+			        jdata_PT1.HipIRERStrRight= data[idx].HipIRERStrRight;
+
+			        jdata_PT1.KneeFlexionLeft= data[idx].KneeFlexionLeft;
+			        jdata_PT1.KneeFlexionRight= data[idx].KneeFlexionRight;
+			        jdata_PT1.KneeFlexionStrLeft= data[idx].KneeFlexionStrLeft;
+			        jdata_PT1.KneeFlexionStrRight= data[idx].KneeFlexionStrRight;
+
+			        jdata_PT1.KneeExtensionLeft= data[idx].KneeExtensionLeft;
+			        jdata_PT1.KneeExtensionRight= data[idx].KneeExtensionRight;
+			        jdata_PT1.KneeExtensionStrLeft= data[idx].KneeExtensionStrLeft;
+			        jdata_PT1.KneeExtensionStrRight= data[idx].KneeExtensionStrRight;
+			    
+			        jdata_PT1.AnkleDorsiflexionLeft= data[idx].AnkleDorsiflexionLeft;
+			        jdata_PT1.AnkleDorsiflexionRight= data[idx].AnkleDorsiflexionRight;
+			        jdata_PT1.AnkleDorsiflexionStrLeft= data[idx].AnkleDorsiflexionStrLeft;
+			        jdata_PT1.AnkleDorsiflexionStrRight= data[idx].AnkleDorsiflexionStrRight;
+
+			        jdata_PT1.PlantarflexionLeft= data[idx].PlantarflexionLeft;
+			        jdata_PT1.PlantarflexionRight= data[idx].PlantarflexionRight;
+			        jdata_PT1.PlantarflexionStrLeft= data[idx].PlantarflexionStrLeft;
+			        jdata_PT1.PlantarflexionStrRight= data[idx].PlantarflexionStrRight;
+
+			        jdata_PT1.InversionLeft= data[idx].InversionLeft;
+			        jdata_PT1.InversionRight= data[idx].InversionRight;
+			        jdata_PT1.InversionStrLeft= data[idx].InversionStrLeft;
+			        jdata_PT1.InversionStrRight= data[idx].InversionStrRight;
+
+			        jdata_PT1.NeckFlexionLeft= data[idx].NeckFlexionLeft;
+			        jdata_PT1.NeckFlexionRight= data[idx].NeckFlexionRight;
+			        jdata_PT1.NeckFlexionStrLeft= data[idx].NeckFlexionStrLeft;
+			        jdata_PT1.NeckFlexionStrRight= data[idx].NeckFlexionStrRight;
+
+			        jdata_PT1.NeckExtensionLeft= data[idx].NeckExtensionLeft;
+			        jdata_PT1.NeckExtensionRight= data[idx].NeckExtensionRight;
+			        jdata_PT1.NeckExtensionStrLeft= data[idx].NeckExtensionStrLeft;
+			        jdata_PT1.NeckExtensionStrRight= data[idx].NeckExtensionStrRight;
+
+			        jdata_PT1.TrunkFlexionLeft= data[idx].TrunkFlexionLeft;
+			        jdata_PT1.TrunkFlexionRight= data[idx].TrunkFlexionRight;
+			        jdata_PT1.TrunkFlexionStrLeft= data[idx].TrunkFlexionStrLeft;
+			        jdata_PT1.TrunkFlexionStrRight= data[idx].TrunkFlexionStrRight;
+
+			        jdata_PT1.TrunkExtensionLeft= data[idx].TrunkExtensionLeft;
+			        jdata_PT1.TrunkExtensionRight= data[idx].TrunkExtensionRight;
+			        jdata_PT1.TrunkExtensionStrLeft= data[idx].TrunkExtensionStrLeft;
+			        jdata_PT1.TrunkExtensionStrRight= data[idx].TrunkExtensionStrRight;
+
+			        jdata_PT1.FingerflexionRight= data[idx].FingerflexionRight;
+			        jdata_PT1.FingerflexionLeft= data[idx].FingerflexionLeft;
+			        jdata_PT1.FingerflexionStrLeft= data[idx].FingerflexionStrLeft;
+			        jdata_PT1.FingerflexionStrRight= data[idx].FingerflexionStrRight;
+
+			        jdata_PT1.FingerextensionLeft= data[idx].FingerextensionLeft;
+			        jdata_PT1.FingerextensionRight= data[idx].FingerextensionRight;
+			        jdata_PT1.FingerextensionStrLeft= data[idx].FingerextensionStrLeft;
+			        jdata_PT1.FingerextensionStrRight= data[idx].FingerextensionStrRight;
+
+			        jdata_PT1.FingerAbductionLeft= data[idx].FingerAbductionLeft;
+			        jdata_PT1.FingerAbductionRight= data[idx].FingerAbductionRight;
+			        jdata_PT1.FingerAbductionStrLeft= data[idx].FingerAbductionStrLeft;
+			        jdata_PT1.FingerAbductionStrRight= data[idx].FingerAbductionStrRight;
+
+			        jdata_PT1.FingeradductionLeft= data[idx].FingeradductionLeft;
+			        jdata_PT1.FingeradductionRight= data[idx].FingeradductionRight;
+			        jdata_PT1.FingeradductionStrLeft= data[idx].FingeradductionStrLeft;
+			        jdata_PT1.FingeradductionStrRight= data[idx].FingeradductionStrRight;
+
+			        jdata_PT1.ThumbflexionLeft= data[idx].ThumbflexionLeft;
+			        jdata_PT1.ThumbflexionRight= data[idx].ThumbflexionRight;
+			        jdata_PT1.ThumbflexionStrLeft= data[idx].ThumbflexionStrLeft;
+			        jdata_PT1.ThumbflexionStrRight= data[idx].ThumbflexionStrRight;
+
+			        jdata_PT1.ThumbextensionLeft= data[idx].ThumbextensionLeft;
+			        jdata_PT1.ThumbextensionRight= data[idx].ThumbextensionRight;
+			        jdata_PT1.ThumbextensionStrLeft= data[idx].ThumbextensionStrLeft;
+			        jdata_PT1.ThumbextensionStrRight= data[idx].ThumbextensionStrRight;
+
+			        jdata_PT1.ThumbadductionLeft= data[idx].ThumbadductionLeft;
+			        jdata_PT1.ThumbadductionRight= data[idx].ThumbadductionRight;
+			        jdata_PT1.ThumbadductionStrLeft= data[idx].ThumbadductionStrLeft;
+			        jdata_PT1.ThumbadductionStrRight= data[idx].ThumbadductionStrRight;
+
+			        jdata_PT1.ThumbabductionLeft= data[idx].ThumbabductionLeft;
+			        jdata_PT1.ThumbabductionRight= data[idx].ThumbabductionRight;
+			        jdata_PT1.ThumbabductionStrLeft= data[idx].ThumbabductionStrLeft;
+			        jdata_PT1.ThumbabductionStrRight= data[idx].ThumbabductionStrRight;
+			    
+			        jdata_PT1.ToeflexionLeft= data[idx].ToeflexionLeft;
+			        jdata_PT1.ToeflexionRight= data[idx].ToeflexionRight;
+			        jdata_PT1.ToeflexionStrLeft= data[idx].ToeflexionStrLeft;
+			        jdata_PT1.ToeflexionStrRight= data[idx].ToeflexionStrRight;
+			    
+			        jdata_PT1.ToeextensionLeft= data[idx].ToeextensionLeft;
+			        jdata_PT1.ToeextensionRight= data[idx].ToeextensionRight;
+			        jdata_PT1.ToeextensionStrLeft= data[idx].ToeextensionStrLeft;
+			        jdata_PT1.ToeextensionStrRight= data[idx].ToeextensionStrRight;
+						
+					$ipadrbg.context.jdata_PT1.add(jdata_PT1);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pull_physcthera2= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_physcthera2.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PT2 = new $ipadrbg.types.jdata_PT2();
+			    	
+					jdata_PT2.PTRID = data[idx].PTRID;
+					jdata_PT2.ClinixRID = data[idx].ClinixRID;
+					jdata_PT2.PxRID = data[idx].PxRID;
+					jdata_PT2.VisualAnalog = data[idx].VisualAnalog;
+					jdata_PT2.PainChar = data[idx].PainChar;
+					jdata_PT2.WhatDece = data[idx].WhatDece;
+					jdata_PT2.Medication = data[idx].Medication;
+					jdata_PT2.PainFreq = data[idx].PainFreq;
+					jdata_PT2.IsPain = data[idx].IsPain;
+						
+					$ipadrbg.context.jdata_PT2.add(jdata_PT2);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pull_physcthera3= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_physcthera3.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PT3 = new $ipadrbg.types.jdata_PT3();
+			    	
+					jdata_PT3.PTRID = data[idx].PTRID;
+					jdata_PT3.ClinixRID = data[idx].ClinixRID;
+					jdata_PT3.PxRID = data[idx].PxRID;
+					jdata_PT3.CutaneousIntact = data[idx].CutaneousIntact;
+			        jdata_PT3.CutaneousImpaired = data[idx].CutaneousImpaired;                                                  
+			        jdata_PT3.CutaneousComments = data[idx].CutaneousComments;                                                    
+			        jdata_PT3.ProprioceptionIntact = data[idx].ProprioceptionIntact;                                                    
+			        jdata_PT3.ProprioceptionImpaired = data[idx].ProprioceptionImpaired;                                                  
+			        jdata_PT3.ProprioceptionComments = data[idx].ProprioceptionComments;  
+						
+					$ipadrbg.context.jdata_PT3.add(jdata_PT3);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pull_physcthera4= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_physcthera4.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PT4 = new $ipadrbg.types.jdata_PT4();
+			    	
+					jdata_PT4.PTRID = data[idx].PTRID;
+					jdata_PT4.ClinixRID = data[idx].ClinixRID;
+					jdata_PT4.PxRID = data[idx].PxRID;
+						
+					jdata_PT4.LandMark = data[idx].LandMark;
+        			jdata_PT4.RightMeasurement = data[idx].RightMeasurement;                                                  
+        			jdata_PT4.LeftMeasurement = data[idx].LeftMeasurement;                                                    
+        			jdata_PT4.Difference = data[idx].Difference;   
+
+					$ipadrbg.context.jdata_PT4.add(jdata_PT4);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+	$scope.pull_physctheraNotes= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_physctheraNotes.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PTNotes1 = new $ipadrbg.types.jdata_PTNotes1();
+			    	
+					jdata_PTNotes1.PTRID = data[idx].PTRID;
+					jdata_PTNotes1.ClinixRID = data[idx].ClinixRID;
+					jdata_PTNotes1.PxRID = data[idx].PxRID;
+						
+					jdata_PTNotes1.DateEntered = data[idx].DateEntered;
+        			jdata_PTNotes1.PTNotes = data[idx].PTNotes;                                                  
+        			jdata_PTNotes1.ROM = data[idx].ROM;                                                    
+        			jdata_PTNotes1.MMT = data[idx].MMT;
+        			jdata_PTNotes1.PAIN = data[idx].PAIN;
+        			jdata_PTNotes1.SENSORY = data[idx].SENSORY;
+        			jdata_PTNotes1.PROBLEMLIST = data[idx].PROBLEMLIST;
+        			jdata_PTNotes1.STG = data[idx].STG;
+        			jdata_PTNotes1.LTG = data[idx].LTG;
+        			jdata_PTNotes1.PLAN = data[idx].PLAN;
+
+					$ipadrbg.context.jdata_PTNotes1.add(jdata_PTNotes1);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+	
 }

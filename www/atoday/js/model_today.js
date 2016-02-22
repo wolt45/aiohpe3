@@ -12,6 +12,7 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, zclinix: { type: $data.EntitySet, elementType: $ipadrbg.types.zclinix }
 
 	, LAB_Results: { type: $data.EntitySet, elementType: $ipadrbg.types.LAB_Results }
+	
 	, jdata_SF3601: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3601 }
 	, jdata_SF3602: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3602 }
 	, jdata_SF3603: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_SF3603 }
