@@ -24,7 +24,7 @@
 	<tr ng-repeat="px_Item in clinix | filter : searchFilter | orderBy : [ 'TranStatus', 'AppDateSet', 'ClinixRID' ] ">
 		<td>
 			<a href="#/{{px_Item.ClinixRID}}" style="text-decoration:none; display:block">  
-				<img ng-src="http://10.0.1.99/dump_px/{{px_Item.pxFoto}}" width="75" style="padding: 0 0 0 0" class="img-circle">  
+				<img ng-src="http://192.168.10.99/dump_px/{{px_Item.pxFoto}}" width="75" style="padding: 0 0 0 0" class="img-circle">  
 			</a>   
 		</td>
 		<td class="text-center" nowrap>{{px_Item.ClinixRID}} <br> {{px_Item.AppDateSet | date}} </td>
