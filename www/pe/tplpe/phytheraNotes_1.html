@@ -1,0 +1,239 @@
+
+<div ng-controller="PTNotes1_Ctrl">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	
+
+	<table class="table table-condensed table-bordered">
+		<tr class="success">
+			<th colspan=9>
+				<span id="DGL_module_header">
+					PT Notes
+				</span>
+			</th>
+		</tr>
+		<tr>
+			
+			<td class='form-inline' width='1%'>
+				<input type="hidden" ng-model="PTNotes1.PTRID" class='form-control'>
+				<input type="date" ng-model="PTNotes1.DateEntered" class='form-control'>
+			</td>
+			<td colspan='2'>
+				<textarea class='form-control' rows='4' ng-model="PTNotes1.PTNotes"></textarea>
+			</td>
+		</tr>
+		
+		</table>		
+		<table class="table table-condensed table-bordered">
+		<tr class="Warning">
+			<th colspan=9>
+				<span id="DGL_module_header">
+					Objective
+				</span>
+			</th>
+		</tr>
+		<tr>
+			<td class='active' width='1%'>ROM</td>
+			<td>
+				<textarea class='form-control' rows='2' ng-model="PTNotes1.ROM"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class='active' width='1%'>MMT</td>
+			<td>
+				<textarea class='form-control' rows='2' ng-model="PTNotes1.MMT"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class='active' width='1%'>PAIN</td>
+			<td>
+				<textarea class='form-control' rows='2' ng-model="PTNotes1.PAIN"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class='active' width='1%'>SENSORY</td>
+			<td>
+				<textarea class='form-control' rows='2' ng-model="PTNotes1.SENSORY"></textarea>
+			</td>
+		</tr>
+		
+	</table>
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<th colspan=9>
+				<span id="DGL_module_header">
+					Assessment
+				</span>
+			</th>
+		</tr>
+		<tr>
+			
+			<td class='active text-center' style='padding:30px;' width='1%' nowrap>
+				PROBLEM LIST
+			</td>
+			<td colspan='2'> 
+				 <textarea rows='2' class='form-control' ng-model="PTNotes1.PROBLEMLIST"></textarea>
+			</td>
+		</tr>
+		<tr>
+			
+			<td class='active text-center' style='padding:30px;' width='1%'>
+				STG
+			</td>
+			<td colspan='2' width='20%'> 
+				 <textarea rows='2' class='form-control' ng-model="PTNotes1.STG"></textarea>
+
+			</td>
+		</tr>
+		<tr>
+			
+			<td class='active text-center' style='padding:30px;' width='1%'>
+				LTG
+			</td>
+			<td colspan='2' width='60%'> 
+				 <textarea rows='2' class='form-control' ng-model="PTNotes1.LTG"></textarea>
+			</td>
+			<Td></td>
+		</tr>
+	</table>
+
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<th colspan=9>
+				<span id="DGL_module_header">
+					Plan
+				</span>
+			</th>
+		</tr>
+		<tr>
+			<td colspan='2'>
+				<textarea class='form-control' ng-model="PTNotes1.PLAN"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-center">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+	        	<a class="btn btn-large btn-info" ng-click="addNew_PTNotes1(PTNotes1)" style="text-decoration: none;">SAVE</a>
+	        </td>
+		</tr>
+	</table>
+
+
+		</div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<div ng-repeat="PTNotesDes in jdata_PTNotes1">
+		<table class="table table-condensed table-bordered">
+			<tr class="success">
+				<th colspan=9>
+					<span id="DGL_module_header">
+						{{PTNotesDes.DateEntered | date: 'mediumDate' | orderBy : DateEntered}} PT Notes Date
+					</span>
+					<a class="btn btn-large btn-danger" style="text-decoration: none"
+    	 			ng-click="removePTNotes1(PTNotesDes.PTRID)">DELETE</a>
+				</th>
+			</tr>
+			<tr>
+				
+				
+				<td>
+					{{PTNotesDes.PTNotes}}
+				</td>
+			</tr>
+			
+			</table>
+				<table class="table table-condensed table-bordered">
+				<tr class="Warning">
+					<th colspan=9>
+						<span id="DGL_module_header">
+							Objective
+						</span>
+					</th>
+				</tr>
+				<tr>
+					<td class='active' width='1%'>ROM</td>
+					<td>
+						{{PTNotesDes.ROM}}
+					</td>
+				</tr>
+				<tr>
+					<td class='active' width='1%'>MMT</td>
+					<td>
+						{{PTNotesDes.MMT}}
+					</td>
+				</tr>
+				<tr>
+					<td class='active' width='1%'>PAIN</td>
+					<td>
+						{{PTNotesDes.PAIN}}
+					</td>
+				</tr>
+				<tr>
+					<td class='active' width='1%'>SENSORY</td>
+					<td>
+						{{PTNotesDes.SENSORY}}
+					</td>
+				</tr>
+				
+			</table>
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<th colspan=9>
+					<span id="DGL_module_header">
+						Assessment
+					</span>
+				</th>
+			</tr>
+			<tr>
+				
+				<td class='active text-center' style='padding:30px;' width='1%' nowrap>
+					PROBLEM LIST
+				</td>
+				<td colspan='2'> 
+					 {{PTNotesDes.SENSORY}}
+				</td>
+			</tr>
+			<tr>
+				
+				<td class='active text-center' style='padding:30px;' width='1%'>
+					STG
+				</td>
+				<td colspan='2' width='20%'> 
+					{{PTNotesDes.STG}}
+
+				</td>
+			</tr>
+			<tr>
+				
+				<td class='active text-center' style='padding:30px;' width='1%'>
+					LTG
+				</td>
+				<td colspan='2' width='60%'> 
+					 {{PTNotesDes.LTG}}
+				</td>
+				<Td></td>
+			</tr>
+		</table>
+
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<th colspan=9>
+					<span id="DGL_module_header">
+						Plan
+					</span>
+				</th>
+			</tr>
+			<tr>
+				<td colspan='2'>
+					{{PTNotesDes.PLAN}}
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,67 @@
+<div scroll-bookmark="SensorySystemsAssessment">
+	<div ng-controller="PT3_Ctrl">
+		<table class="table table-condensed table-bordered">
+			<tr class="warning">
+				<th colspan=9>
+					<span id="DGL_module_header">
+						Sensory Systems Assessment
+					</span>
+				</th>
+			</tr>
+			<tr class='active'>
+				<td class='form-inline' width='1%' nowrap>
+					Other Sensory Assessment
+				</td>
+				<td class='form-inline' width='1%' nowrap>
+					Intact
+				</td>
+				<td class='form-inline' width='1%' nowrap>
+					Impaired
+				</td>
+				<td class='form-inline' width='20%' nowrap>
+					Additional Comments
+				</td>
+			</tr>
+			<tr>
+				<td class='active' width='1%' nowrap>
+					Sensation-Cutaneous
+				</td>
+				<td class='text-center'>
+					<input type="checkbox" ng-model="PT3.CutaneousIntact" 
+					ng-true-value="Intact" ng-false-value="">
+				</td>
+				<td class='text-center'>
+					<input type="checkbox" ng-model="PT3.CutaneousImpaired" ng-true-value="Impaired" ng-false-value="" >
+				</td>
+				<td>
+					<textarea ng-model="PT3.CutaneousComments" class='form-control'>
+					</textarea>
+				</td>
+
+			</tr>
+			<tr>
+				<td class='active' width='1%' nowrap>
+					Sensation-Proprioception
+				</td>
+				<td class='text-center'>
+					<input type="checkbox" ng-model="PT3.ProprioceptionIntact"  ng-true-value="Intact" ng-false-value="">
+				</td>
+				<td class='text-center'>
+					<input type="checkbox" ng-model="PT3.ProprioceptionImpaired"  ng-true-value="Impaired" ng-false-value="">
+				</td>
+				<td>
+					<textarea ng-model="PT3.ProprioceptionComments" class='form-control'>
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="9" class="text-center active">
+					<a class="btn btn-large btn-info" style="text-decoration: none; color: #000" ng-click="addNew_PT3(PT3)">
+						SAVE
+					</a>
+					<a class='btn btn-danger' style="text-decoration: none; color: #000" ng-click="removePT3(PT3)">DELETE</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

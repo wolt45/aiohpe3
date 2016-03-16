@@ -1,0 +1,68 @@
+<div ng-controller="ORpreOp_Ctrl">	
+	<table class="table table-bordered">
+		<tr>
+			<td class="warning" id="DGL_module_header" colspan='4'>
+				Pre-Operative Flow Report
+			</td>
+		</tr>					
+		<tr>
+			<td colspan='2'>
+				<input type="radio" ng-model="ORpre.SelectAge" value="Adult" > Adult
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORpre.SelectAge" value="Pedia" > 
+				Pedia &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORpre.SelectAge" value="Neonatal" > 
+				Neonatal
+
+			</td>
+			
+		</tr>
+		<tr>
+			<td width='1%' nowrap>
+				NPO instruction given prior to admission
+
+			</td><td>
+				<input type="radio" ng-model="ORpre.NPOIns" value="1" > Yes
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORpre.NPOIns" value="0" > 
+				No &nbsp;&nbsp;&nbsp;&nbsp;
+
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				Last food/ Drink time:
+
+			</td>
+			<td>
+				<input type="date" class="form-control" ng-model="ORpre.FoodDrinkTime" size='3'> 
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				History of anesthesia complications
+
+			</td>
+			<td>
+				<input type="text" class="form-control" ng-model="ORpre.HistoryAnesComp"> 
+			</td>
+			
+		</tr>
+
+		
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORpreOp(ORpre)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORpreOp(ORpre)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

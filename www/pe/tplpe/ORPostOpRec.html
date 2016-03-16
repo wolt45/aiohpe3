@@ -1,0 +1,130 @@
+<div ng-controller="ORPostOpRec_Ctrl">	
+	<table class="table table-bordered">					
+		<tr>
+			<td class="warning" colspan="9" id="DGL_module_header">
+				Post-operative/Recovery
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Time
+			</td>
+			<td>
+				<input type="time" class="form-control" ng-model="ORPostOpRec.PostOpTime" > 
+			</td>
+			<td width='1%' class="active" nowrap>
+				Accomplished By
+			</td>
+			<td >
+				<input type="text" class="form-control" ng-model="ORPostOpRec.AccompBy" > 
+			</td>
+			<td colspan="4">
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Pre-op BP
+			</td>
+			<td>
+				<input type="text" class="form-control" ng-model="ORPostOpRec.PreOpBP" > 
+			</td>
+			<td width='1%' class="active" nowrap>
+				P
+			</td>
+			<td>
+				<input type="text" class="form-control" ng-model="ORPostOpRec.P" > 
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Temp
+			</td>
+			<td>
+				<input type="text" class="form-control" ng-model="ORPostOpRec.Temp" > 
+			</td>
+			<td width='1%' class="active" nowrap>
+				Sp02
+			</td>
+			<td>
+				<input type="text" class="form-control" ng-model="ORPostOpRec.Sp02" > 
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Via
+			</td>
+			<td width='1%' nowrap>
+				<input type="radio" ng-model="ORPostOpRec.Via" value="Gourney">
+				Gourney
+				<br>
+				<input type="radio" ng-model="ORPostOpRec.Via" value="Bed">
+				Bed
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				From
+			</td>
+			<td>
+				<input type="radio" ng-model="ORPostOpRec.From" value="O.R">
+				O.R
+				<br>
+				<input type="radio" ng-model="ORPostOpRec.From" value="X-Ray">
+				X-Ray
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Anesthesia
+			</td>
+			<td>
+				<input type="radio" ng-model="ORPostOpRec.Anesthesia" value="General">
+				General
+				<br>
+				<input type="radio" ng-model="ORPostOpRec.Anesthesia" value="Local">
+				Local
+				<br>
+				<input type="radio" ng-model="ORPostOpRec.Anesthesia" value="Epidural">
+				Epidural
+			</td>
+			<td nowrap>
+				<input type="radio" ng-model="ORPostOpRec.Anesthesia" value="Peripheral Nerve Block">
+				Peripheral Nerve Block
+				<br>
+				<input type="radio" ng-model="ORPostOpRec.Anesthesia" value="Spinal">
+				Spinal
+				<br>
+				<input type="radio" ng-model="ORPostOpRec.Anesthesia" value="IV Block">
+				IV Block
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				O2 @ 
+			</td>
+			<td colspan="2">
+				<input type="text" class='form-control' ng-model="ORPostOpRec.O2">
+				<br> <input type="radio" ng-model="ORPostOpRec.O2MaskCan" value="Mask">
+				Mask
+				
+				<input type="radio" ng-model="ORPostOpRec.O2MaskCan" value="Cannula">
+				Cannula
+			</td>
+		</tr>
+
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORPostOpRec(ORPostOpRec)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORPostOpRec(ORPostOpRec)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

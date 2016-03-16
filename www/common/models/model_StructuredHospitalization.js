@@ -4,7 +4,9 @@ $data.Entity.extend("$ipadrbg.types.clinix_StructuredHospitalization", {
 	, PxRID: { type: "string"}
 
 	, DateAdmitted: { type: "string"}
+	, TimeAdmitted: { type: "string"}
 	, DateDischarged: { type: "string"}
+	, TimeDischarged: { type: "string"}
 	, HospitalCourse: { type: "string"}
 	, WoundAppearance: { type: "string"}
 	, SynchStatus: { type: "int" }

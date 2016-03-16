@@ -26,15 +26,18 @@
 					<input type="text" class="form-control" ng-model="surgery.Surgeon">
 				</td>
 		
-				<td nowrap> Assistant/s </td>
-				<td class="active">
-					<input type="text" class="form-control" ng-model="surgery.Assistant">
-				</td>
+				<td width="1%"> Time </td>
+				<td class="active"> {{ surgery.SurgeryTime}} </td>
 			</tr>
 
 			<tr>
 				<td nowrap> Internist/Cardio </td>
 				<td class="active"> <input type="text" class="form-control" ng-model="surgery.Cardio"> </td>
+
+				<td nowrap> Assistant/s </td>
+				<td class="active">
+					<input type="text" class="form-control" ng-model="surgery.Assistant">
+				</td>
 			</tr>
 
 			<tr>			
@@ -56,6 +59,10 @@
 				<td> Hospital </td>
 				<td class="active">
 					<input type="text" class="form-control" ng-model="surgery.Hospital" READONLY>
+				</td>
+				<td> OR Nurse </td>
+				<td class="active">
+					<input type="text" class="form-control" ng-model="surgery.OrNurse">
 				</td>
 			</tr>
 

@@ -53,8 +53,7 @@
 		      							
 										<tr ng-repeat="RVS_Item in LkUpRVSCodes | filter : searchFilterRVS | orderBy : ['rvs_description'] ">
 											<td>
-												<a class="btn btn-info" ng-click="pickRVS(RVS_Item.lkup_RVSRID, RVS_Item.rvs_code, RVS_Item.rvs_description,RVS_Item.rvs_unit)" 
-													style="text-decoration:none; display:block;color:black">  
+												<a class="btn btn-info" ng-click="pickRVS(RVS_Item.lkup_RVSRID, RVS_Item.rvs_code, RVS_Item.rvs_description,RVS_Item.rvs_unit)" style="text-decoration:none; display:block;color:black">  
 													{{RVS_Item.lkup_RVSRID}}
 												</a>   
 											</td>
@@ -115,7 +114,10 @@
 					{{schedSurgeGrp.SurgeryDate | date}}
 					<input type="date" class="form-control" ng-model="schedSurgeGrp.SurgeryDate">
 				</td>
-				<td></td>
+				<td width='1%'>Time</td>
+				<td class='form-inline'>
+					{{schedSurgeGrp.SurgeryTime | date:'h:mma'}}
+					<input type="time" class="form-control" ng-model="schedSurgeGrp.SurgeryTime"></td>
 			</tr>
 
 			<!-- tr>

@@ -1,0 +1,102 @@
+<div ng-controller="ORSocHab_Ctrl">	
+	<table class="table table-bordered">					
+		<tr>
+			<td class="warning" colspan="6" id="DGL_module_header">
+				Social Habits
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' nowrap>
+				Has patient used:
+
+			</td>
+			<td nowrap>
+				<input type="radio" ng-model="ORsocialHabits.PatientUsed" value="Alcohol" > Alcohol
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORsocialHabits.PatientUsed" value="Tobacco" > 
+				Tobacco &nbsp;&nbsp;&nbsp;&nbsp;
+
+			</td>
+			
+		</tr>
+		<tr>
+			<td nowrap>
+				Transportation arranged with:
+			</td>
+			<td  width='10%'>
+				 <input type="text" class="form-control" ng-model="ORsocialHabits.Transportation">
+			</td>
+			<td>
+				<input type="radio" ng-model="ORsocialHabits.TransSel" value="Family" > 
+				Family &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORsocialHabits.TransSel" value="Friends" > 
+				Friends &nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+			
+		</tr>
+	</table>
+	<table class="table table-bordered">
+		<tr>
+			<td class='active' width='10%'nowrap>
+				Name
+			</td>
+			<td>
+				<input type="text" class="form-control" ng-model="ORsocialHabits.NameRef">
+			</td>
+			<td class='active' nowrap width='1%'>
+				Phone Number
+			</td>
+			<td width='20%'>
+				<input type="text" class="form-control" ng-model="ORsocialHabits.PhoneRef">
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Allergies
+			</td>
+			<td nowrap width='20%'>
+				<input type="radio" ng-model="ORsocialHabits.Allergies" value="Yes" > 
+				Yes &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORsocialHabits.Allergies" value="No" > 
+				No &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORsocialHabits.Allergies" value="None" > 
+				None 
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+			</td>
+			<td nowrap class="active text-right">
+				Medication Allergies
+			</td>
+			<td colspan='2'>
+				<input type="text" class="form-control" ng-model="ORsocialHabits.MedicationAll">
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+
+			</td>
+			<td nowrap class="active text-right">
+				Food Allergies
+			</td>
+			<td colspan='2'>
+				<input type="text" class="form-control" ng-model="ORsocialHabits.FoodAll">
+			</td>
+		</tr>
+	
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORSocHab(ORsocialHabits)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORSocHab(ORsocialHabits)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

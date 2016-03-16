@@ -1,0 +1,351 @@
+<div ng-controller="ORPass_Ctrl">	
+	<table class="table table-bordered">					
+		<tr>
+			<td class="warning" colspan="12" id="DGL_module_header">
+				PASS - Procedure Anesthesia Scoring System
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+				
+			</td>
+			<td class="active text-center">
+				Q15
+			</td>
+			<td class="active text-center">
+				Q15
+			</td>
+			<td class="active text-center">
+				Q15
+			</td>
+			<td class="active text-center">
+				Q15
+			</td>
+			<td class="active text-center">
+				Q30
+			</td>
+			<td class="active text-center">
+				Q30
+			</td>
+			<td class="active text-center" nowrap>
+				Q1&#176;
+			</td>
+			<td class="active text-center" nowrap>
+				Q1&#176;
+			</td>
+			<td class="active text-center" nowrap>
+				Q1&#176;
+			</td>
+			<td class="active text-center" nowrap>
+				Q1&#176;
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				1. Consciousness
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ15a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ15b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ15c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ15d" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ30a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ30b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ1a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ1b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ1c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ConQ1d" > 
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				2. Activity
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ15a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ15b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ15c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ15d" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ30a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ30b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ1a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ1b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ1c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ActQ1d" > 
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				3. Respiration
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ15a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ15b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ15c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ15d" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ30a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ30b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ1a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ1b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ1c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.ResQ1d" > 
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				4. 02 Saturation
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ15a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ15b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ15c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ15d" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ30a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ30b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ1a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ1b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ1c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.SatQ1d" > 
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				5. Pain
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ15a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ15b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ15c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ15d" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ30a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ30b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ1a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ1b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ1c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.PaiQ1d" > 
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				6. Emetic
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ15a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ15b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ15c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ15d" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ30a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ30b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ1a" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ1b" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ1c" > 
+			</td>
+			<td class="text-center">
+				<input type="text" class="form-control" ng-model="ORPass.EmeQ1d" > 
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Total
+			</td>
+			<td class="text-center">
+				
+			</td>
+			<td class="text-center">
+				
+			</td>
+			<td class="text-center">
+				
+			</td>
+			<td class="text-center">
+				
+			</td>
+			<td class="text-center">
+				
+			</td>
+			<td class="text-center">
+				
+			</td>
+			<td class="text-center">
+				
+			</td>
+			<td class="text-center">
+				
+			</td>
+			<td class="text-center">
+				
+			</td>
+			<td class="text-center">
+				
+			</td>
+		</tr>
+	</table>
+	<table class="table table-bordered">
+		<tr class="active">
+			<td nowrap>
+				Pain Scales
+			</td>
+			<td>
+				Time
+			</td>
+			<td>
+				Medication
+			</td>
+			<td>
+				Relieved
+			</td>
+			<td>
+				Not Relieved
+			</td>
+		</tr>
+		<tr>
+			<td nowrap>
+				<input type="radio" ng-model="ORPass.PainScale" value="0-3 (None)"> 0-3 (None)
+				<br>
+				<input type="radio" ng-model="ORPass.PainScale" value="3-7 (Mild or Moderate)"> 3-7 (Mild or Moderate)
+				<br>
+				<input type="radio" ng-model="ORPass.PainScale" value="7-10 (Severe)"> 7-10 (Severe)
+			</td>
+			<td>
+				<input type="time" ng-model="ORPass.TimeScale" class="form-control">
+			</td>
+			<td>
+				<input type="text" ng-model="ORPass.MedicationScale" class="form-control">
+			</td>
+			<td>
+				<input type="text" ng-model="ORPass.RelievedScale" class="form-control">
+			</td>
+			<td>
+				<input type="text" ng-model="ORPass.NotRelScale" class="form-control">
+			</td>
+		</tr>
+		<tr>
+			<td class="success" colspan="10">
+				NURSE NOTES 
+			</td>
+		</tr>
+		<tr>
+			<td colspan="10">
+				<textarea ng-model="ORPass.NurseNotes" class="form-control"></textarea>
+			</td>
+		</tr>
+		<tr>	
+			<td class="text-center" colspan="12" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORPass(ORPass)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORPass(ORPass)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

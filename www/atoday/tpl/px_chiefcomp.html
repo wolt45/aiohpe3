@@ -3,11 +3,26 @@
     $(document).ready(function()
     {
         $("#hideshowChiefComp").show(); //hide
+        $("#hideshowSpine").hide(); //hide
 
         $("#showlabsChiefComp").click(function()
         {
             $("#hideshowChiefComp").toggle(200);
         });
+
+        
+	        $('input[type=radio][name=selectionbonechange]').change(function() {
+		        if (this.value == 'SPINE') {
+
+		             $("#hideshowSpine").show(200);
+		        }
+		        else  {
+		            $("#hideshowSpine").hide(200);
+		        }
+		    });
+
+	    
+       
     });
 </script> 
 
@@ -89,17 +104,17 @@
 
 					<td width="1%" nowrap>Affected: <br>
 					    <label class="checkbox-inline">
-				            <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            <input type="radio" name="selectionbone" ng-model="CHIEFCformData.MyBoneLRB" 
 				            value="Left"> Left
 				        </label>
 				        <br>
 					    <label class="checkbox-inline">
-				            <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            <input type="radio" name="selectionbone" ng-model="CHIEFCformData.MyBoneLRB" 
 				            value="Right"> Right
 				        </label>
 				        <br>
 					    <label class="checkbox-inline">
-				            <input type="radio" ng-model="CHIEFCformData.MyBoneLRB" 
+				            <input type="radio" name="selectionbone" ng-model="CHIEFCformData.MyBoneLRB" 
 				            value="Both"> Both
 				        </label>
 				        <br>
@@ -107,31 +122,30 @@
 
 					<td width="1%" nowrap>Concern: <br>
 						<label class="checkbox-inline">
-				            <input type="radio" ng-model="CHIEFCformData.MyBone" 
-				            value="HIP"> HIP
+				            <input type="radio" name="selectionbonechange" ng-model="CHIEFCformData.MyBone" 
+				             value="HIP"> HIP
 				        </label>
 				        <br>
 						<label class="checkbox-inline">
-				            <input type="radio" ng-model="CHIEFCformData.MyBone" 
-				            value="KNEE"> KNEE
+				            <input type="radio" ng-model="CHIEFCformData.MyBone" name="selectionbonechange" value="KNEE"> KNEE
 				        </label>
 
 				        <br>
 				        <label class="checkbox-inline">
 				            <input type="radio" ng-model="CHIEFCformData.MyBone" 
-				            value="SPINE"> SPINE
+				            name="selectionbonechange" value="SPINE"> SPINE
 				        </label>
 
 				        <br>
 				        <label class="checkbox-inline">
 				            <input type="radio" ng-model="CHIEFCformData.MyBone" 
-				            value="GENERAL ORTHOPEDIC"> GENERAL ORTHOPEDIC
+				            name="selectionbonechange" value="GENERAL ORTHOPEDIC"> GENERAL ORTHOPEDIC
 				        </label>
 
 				        <br>
 				        <label class="checkbox-inline">
 				            <input type="radio" ng-model="CHIEFCformData.MyBone" 
-				            value="SKELETAL TRAUMA"> SKELETAL TRAUMA
+				            name="selectionbonechange" value="SKELETAL TRAUMA"> SKELETAL TRAUMA
 				        </label>
 
 				        <br>

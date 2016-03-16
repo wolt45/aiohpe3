@@ -1,0 +1,110 @@
+<div ng-controller="ORBladder_Ctrl">	
+	<table class="table table-bordered">					
+		<tr>
+			<td class="warning" colspan="6" id="DGL_module_header">
+				Bladder Catheter
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+			
+				<input type="checkbox" ng-model="ORBladder.FoleyBall" ng-true-value="Foley/Ballon Size" ng-false-value=""> Foley/Ballon Size
+				
+			</td>
+			
+			<td>
+
+			</td>
+		</tr>
+	</table>
+	<table class="table table-bordered">
+		<tr>
+			<td class="warning" colspan="6" id="DGL_module_header">
+				Drains - Closure
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Closed Wound
+			</td>
+			
+			<td>
+				<input type="radio" ng-model="ORBladder.CloseWound" value="Staples" > 
+				Staples
+				<input type="radio" ng-model="ORBladder.CloseWound" value="Suture" > 
+				Suture 
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Packing Type
+			</td>
+			
+			<td width='1%' nowrap>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Dressing" > 
+				Dressing
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Telfa" > 
+				Telfa 
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="4x4" > 
+				4x4 
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="2x2" > 
+				2x2 
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Drain Sponge" > 
+				Drain Sponge
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Tape" > 
+				Tape
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Cover all" > 
+				Cover all
+			</td>
+			<td width='1%' nowrap>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Kerlix" > 
+				Kerlix
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Xerofoam" > 
+				Xerofoam 
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="ABD" > 
+				ABD 
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Tegaderm" > 
+				Tegaderm 
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Eye Shield" > 
+				Eye Shield
+				<br>
+				<input type="radio" ng-model="ORBladder.PackingType" value="Band Aid" > 
+				Band Aid
+				
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Ace wrap/cast/splint by
+			</td>
+			
+			<td colspan='2'>
+				<input type="text" ng-model="ORBladder.AceWrap" class="form-control">
+			</td>
+			<td></td>
+		</tr>
+
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORBladder(ORBladder)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORBladder(ORBladder)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

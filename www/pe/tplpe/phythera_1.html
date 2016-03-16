@@ -1,0 +1,763 @@
+<div scroll-bookmark="RangeOfMotion">
+<div ng-controller="PT1_Ctrl">
+	<table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<th colspan=9>
+				<span id="DGL_module_header">
+					Strength and Range of Motion
+				</span>
+			</th>
+		</tr>
+		<tr class='active'>
+			<td class='text center' rowspan='2' width='1%' nowrap>
+					KEY 
+				<br>Strength: 0/5 - 5/5
+				<br>ROM: Degrees
+			</td>
+			
+			<td class='text-center' width='16%' colspan='2'>
+				ROM
+			</td>
+			<td width='10%'></td>
+			<td class='text-center' width='16%' colspan='2'>
+				STRENGTH
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class='text-center active' width='10%'>Normal</td>
+			<td class='text-center active' width='10%'>L</td>
+			<td class='text-center active' width='10%'>R</td>
+			<td></td>
+			<td class='text-center active' width='10%'>L</td>
+			<td class='text-center active' width='10%'>R</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Shoulder Flexion
+			</td>
+			<td class='text-center'>
+				0-180
+			</td>
+			
+				
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderFlexLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderFlexRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderFlexStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderFlexStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Shoulder Extension
+			</td>
+			<td class='text-center'>
+				0-40
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderExtenLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderExtenRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderExtenStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderExtenStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Shoulder ABD/ADD
+			</td>
+			<td class='text-center'>
+				0-180
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderABDADDLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderABDADDRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderABDADDStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderABDADDStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Shoulder IR
+			</td>
+			<td class='text-center'>
+				0-80 
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderIRLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderIRRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderIRStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderIRStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Shoulder ER
+			</td>
+			<td class='text-center'>
+				0-90
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderERLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderERRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderERStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ShoulderERStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' >
+				Elbow Flexion
+			</td>
+			<td class='text-center' style='padding:40px;'rowspan="2">
+				0-150
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ElbowFlexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ElbowFlexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ElbowFlexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ElbowFlexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Elbow Extension
+			</td>
+			
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ElbowExtensionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ElbowExtensionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ElbowExtensionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ElbowExtensionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Forearm Pronation
+			</td>
+			<td class='text-center'>
+				0-80
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ForearmLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ForearmRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ForearmStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ForearmStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Forearm Supination
+			</td>
+			<td class='text-center'>
+				0-80
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.SupinationLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.SupinationRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.SupinationStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.SupinationStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Wrist Flexion
+			</td>
+			<td class='text-center'>
+				0-60
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.WristFlexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.WristFlexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.WristFlexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.WristFlexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Wrist Extension
+			</td>
+			<td class='text-center'>
+				0-60
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.WristExtensionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.WristExtensionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.WristExtensionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.WristExtensionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Hip Flexion
+			</td>
+			<td class='text-center'>
+				0-100
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipFlexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipFlexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipFlexionStrRight">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipFlexionStrLeft">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Hip Extension
+			</td>
+			<td class='text-center'>
+				0-30
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipExtensionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipExtensionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipExtensionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipExtensionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Hip ABD/ADD
+			</td>
+			<td>
+				0-40 ABD<br>
+				0-20 ADD
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipABDADDLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipABDADDRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipABDADDStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipABDADDStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Hip IR/ER
+			</td>
+			<td>
+				0-40 IR <br>
+				0-50 ER
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipIRERLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipIRERRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipIRERStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.HipIRERStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Knee Flexion
+			</td>
+			<td class='text-center' style='padding:25px;' rowspan='2'>
+				0-150
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.KneeFlexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.KneeFlexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.KneeFlexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.KneeFlexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Knee Extension
+			</td>
+			
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.KneeExtensionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.KneeExtensionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.KneeExtensionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.KneeExtensionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Ankle Dorsiflexion
+			</td>
+			<td class='text-center'>
+				0-20
+
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.AnkleDorsiflexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.AnkleDorsiflexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.AnkleDorsiflexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.AnkleDorsiflexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Ankle Plantarflexion
+			</td>
+			<td class='text-center'>
+				0-40
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.PlantarflexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.PlantarflexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.PlantarflexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.PlantarflexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Ankle Inversion/Eversion
+			</td>
+			<td>
+				0-30 IN <br>
+				0-20 EV
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.InversionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.InversionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.InversionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.InversionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Neck Flexion
+			</td>
+			<td class='text-center'>
+				0-50
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.NeckFlexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.NeckFlexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.NeckFlexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.NeckFlexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Neck Extension
+			</td>
+			<td class='text-center'>
+				0-60
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.NeckExtensionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.NeckExtensionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.NeckExtensionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.NeckExtensionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Trunk Flexion
+			</td>
+			<td class='text-center'>
+				0-90
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.TrunkFlexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.TrunkFlexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.TrunkFlexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.TrunkFlexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active'>
+				Trunk Extension
+			</td>
+			<td class='text-center'>
+				0-25
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.TrunkExtensionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.TrunkExtensionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.TrunkExtensionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.TrunkExtensionStrRight">
+			</td>
+		</tr>
+		<!-- <tr>
+			<td class='active' nowrap>
+				Finger flexion
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerflexionNormal">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerflexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerflexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerflexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerflexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Finger extension
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerextensionNormal">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerextensionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerextensionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerextensionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerextensionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Finger Abduction
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerAbductionNormal">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerAbductionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerAbductionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerAbductionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingerAbductionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Finger adduction
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingeradductionNormal">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingeradductionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingeradductionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingeradductionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.FingeradductionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Thumb flexion
+			</td>
+			<td class='text-center'>
+				0-60
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbflexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbflexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbflexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbflexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Thumb extension
+			</td>
+			<td class='text-center'>
+				0-20
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbextensionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbextensionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbextensionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbextensionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Thumb adduction
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbadductionNormal">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbadductionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbadductionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbadductionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbadductionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Thumb abduction
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbabductionNormal">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbabductionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbabductionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbabductionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ThumbabductionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Toe flexion
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeflexionNormal">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeflexionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeflexionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeflexionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeflexionStrRight">
+			</td>
+		</tr>
+		<tr>
+			<td class='active' nowrap>
+				Toe extension
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeextensionNormal">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeextensionLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeextensionRight">
+			</td>
+			<td></td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeextensionStrLeft">
+			</td>
+			<td class='text-center'>
+				<input type="text" class='form-control' ng-model="PT1.ToeextensionStrRight">
+			</td>
+		</tr> -->
+		
+		<tr>
+			<td colspan="9" class="text-center active">
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000" ng-click="addNew_PT1(PT1)">
+					SAVE
+				</a>
+				<a class='btn btn-danger' style="text-decoration: none; color: #000" ng-click="removePT1(PT1)">DELETE</a>
+			</td>
+		</tr>
+	</table>
+	</div>
+</div>

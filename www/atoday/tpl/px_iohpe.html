@@ -1,3 +1,5 @@
+
+
 	<ng:include src="'..//common/px_head.html'"></ng:include>
 
 <!-- form class="form-horizontal" role="form" name="IOHPEform" ng-submit="submitTheForm()" -->
@@ -7,7 +9,10 @@
 	<!-- ng:include src="'tpl/px_spineIntl.html'"></ng:include>  -->
 	
 	<ng:include src="'tpl/px_etiology.html'"></ng:include>
-	<ng:include src="'tpl/px_sf36.html'"></ng:include>
+	<div id="hideshowSpine">
+		<ng:include src="'tpl/px_sf36.html'"></ng:include>
+		<ng:include src="'tpl/px_Oswestry.html'"></ng:include>
+	</div>
 
 	<ng:include src="'tpl/px_treatment.html'"></ng:include>
 	<ng:include src="'tpl/px_prevsurgeries.html'"></ng:include>

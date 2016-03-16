@@ -19,11 +19,11 @@
 		<tr>	
 			<td width='1%'>
 				<div class="form-group">
-					<input type="radio" name="sf3601" ng-model="sf3601.Health" value="1"> Excellent &nbsp;&nbsp;&nbsp;
-		            <input type="radio" name="sf3601" ng-model="sf3601.Health" value="2"> Very Good &nbsp;&nbsp;&nbsp;
-		            <input type="radio" name="sf3601" ng-model="sf3601.Health" value="3"> Good &nbsp;&nbsp;&nbsp;
-		            <input type="radio" name="sf3601" ng-model="sf3601.Health" value="4"> Fair &nbsp;&nbsp;&nbsp;
-		            <input type="radio" name="sf3601" ng-model="sf3601.Health" value="5"> Poor
+					<input type="radio" ng-model="sf361.Health" value="1"> Excellent &nbsp;&nbsp;&nbsp;
+		            <input type="radio" ng-model="sf361.Health" value="2"> Very Good &nbsp;&nbsp;&nbsp;
+		            <input type="radio" ng-model="sf361.Health" value="3"> Good &nbsp;&nbsp;&nbsp;
+		            <input type="radio" ng-model="sf361.Health" value="4"> Fair &nbsp;&nbsp;&nbsp;
+		            <input type="radio" ng-model="sf361.Health" value="5"> Poor
 			    </div>
 			</td>
 		</tr>
@@ -42,15 +42,15 @@
 				<tr>
 					<td width='1%'>
 						<div class="form-group">
-        					<input type="radio" name="sf3602" ng-model="sf3601.Health2" 
+        					<input type="radio" ng-model="sf361.Health2" 
 				            value="1"> Much better now than one year ago <br>
-				            <input type="radio" name="sf3602" ng-model="sf3601.Health2" 
+				            <input type="radio" ng-model="sf361.Health2" 
 				            value="2"> Somewhat better now than one year ago <br>
-				            <input type="radio" name="sf3602" ng-model="sf3601.Health2" 
+				            <input type="radio" ng-model="sf361.Health2" 
 				            value="3"> About the same <br>
-				            <input type="radio" name="sf3602" ng-model="sf3601.Health2" 
+				            <input type="radio" ng-model="sf361.Health2" 
 				            value="4"> Somewhat worse now than one year ago <br>
-				            <input type="radio" name="sf3602" ng-model="sf3601.Health2" 
+				            <input type="radio" ng-model="sf361.Health2" 
 				            value="5"> Much worse than one year ago
 					    </div>
 					</td>
@@ -59,9 +59,9 @@
 
 		<tr>
 			<td colspan='3' class='text-center'>
-				<a class="btn btn-large btn-info" ng-click="addNewsf3601(sf3601)" style="text-decoration: none; color: #000">SAVE</a>
+				<a class="btn btn-large btn-info" ng-click="addNewsf3601(sf361)" style="text-decoration: none; color: #000">SAVE</a>
 
-				<a class="btn btn-large btn-danger" ng-click="removesf361(sf3601)" style="text-decoration: none; color: #000">DELETE</a>
+				<a class="btn btn-large btn-danger" ng-click="removesf361(sf361)" style="text-decoration: none; color: #000">DELETE</a>
 			</td>
 		</tr>
 

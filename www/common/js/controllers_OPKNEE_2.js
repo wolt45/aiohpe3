@@ -13,12 +13,14 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
             ,PxRID    : $scope.clinix.PxRID
             ,SurgeryType : pxresult[0]['SurgeryType']
             ,SurgeryDate : pxresult[0]['SurgeryDate']
+            ,SurgeryTime : pxresult[0]['SurgeryTime']
             ,Surgeon     : pxresult[0]['Surgeon']
             ,Assistant   : pxresult[0]['Assistant']
             ,Cardio      : pxresult[0]['Cardio']
             ,Anesthesio  : pxresult[0]['Anesthesio']
             ,AnesthesiaType: pxresult[0]['AnesthesiaType']
             ,Hospital    : pxresult[0]['Hospital']
+            ,OrNurse    : pxresult[0]['OrNurse']
             ,Others      : pxresult[0]['Others']
         };
       });
@@ -36,12 +38,14 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
 
         pxresult[0].SurgeryType     = daignosisObj.SurgeryType;
         pxresult[0].SurgeryDate     = daignosisObj.SurgeryDate;
+        pxresult[0].SurgeryTime     = daignosisObj.SurgeryTime;
         pxresult[0].Surgeon         = daignosisObj.Surgeon;
         pxresult[0].Assistant       = daignosisObj.Assistant;
         pxresult[0].Cardio          = daignosisObj.Cardio;
         pxresult[0].Anesthesio      = daignosisObj.Anesthesio;
         pxresult[0].AnesthesiaType  = daignosisObj.AnesthesiaType;
         pxresult[0].Hospital        = daignosisObj.Hospital;
+        pxresult[0].OrNurse        = daignosisObj.OrNurse;
         pxresult[0].Others          = daignosisObj.Others;
 
         $ipadrbg.context.clinix_DiagSchedSurgery.saveChanges();
@@ -60,12 +64,14 @@ IOHPEApp.controller('OPKNEE_2Ctrl', function ($scope, $routeParams, $http){
 
       ,SurgeryType : daignosisObj.SurgeryType
       ,SurgeryDate : daignosisObj.SurgeryDate
+      ,SurgeryTime : daignosisObj.SurgeryTime
       ,Surgeon     : daignosisObj.Surgeon
       ,Assistant   : daignosisObj.Assistant
       ,Cardio      : daignosisObj.Cardio
       ,Anesthesio  : daignosisObj.Anesthesio
       ,AnesthesiaType: daignosisObj.AnesthesiaType    
       ,Hospital    : daignosisObj.Hospital
+      ,OrNurse    : daignosisObj.OrNurse
       ,Others      : daignosisObj.Others
     }
     $ipadrbg.context.clinix_DiagSchedSurgery.add(newrecord);

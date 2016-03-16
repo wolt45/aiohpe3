@@ -14,7 +14,9 @@ IOHPEApp.controller('StructuredHospitalizationCtrl', function ($scope, $routePar
             ClinixRID : $scope.clinix.ClinixRID
             ,PxRID    : $scope.clinix.PxRID
             ,DateAdmitted : pxresult[0]['DateAdmitted']
+            ,TimeAdmitted : pxresult[0]['TimeAdmitted']
             ,DateDischarged : pxresult[0]['DateDischarged']
+            ,TimeDischarged : pxresult[0]['TimeDischarged']
             ,HospitalCourse : pxresult[0]['HospitalCourse']
             ,WoundAppearance : pxresult[0]['WoundAppearance']
         };
@@ -36,7 +38,9 @@ IOHPEApp.controller('StructuredHospitalizationCtrl', function ($scope, $routePar
       ,PxRID    : $scope.clinix.PxRID
 
       , DateAdmitted    : formArrObj.DateAdmitted
+      , TimeAdmitted    : formArrObj.TimeAdmitted
       , DateDischarged  : formArrObj.DateDischarged
+      , TimeDischarged  : formArrObj.TimeDischarged
       , HospitalCourse  : formArrObj.HospitalCourse
       , WoundAppearance : formArrObj.WoundAppearance
       , SynchStatus     : 111

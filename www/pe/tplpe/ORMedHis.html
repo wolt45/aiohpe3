@@ -1,0 +1,44 @@
+<div ng-controller="ORMedHist_Ctrl">	
+	<table class="table table-bordered">					
+		
+		<tr>
+			<td width='1%' nowrap>
+				IV Started site:
+
+			</td><td>
+				<input type="radio" ng-model="ORmedhist.IVStarted" value="RA" > RA
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORmedhist.IVStarted" value="LA" > 
+				LA &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORmedhist.IVStarted" value="Gauge" > 
+				Gauge &nbsp;&nbsp;&nbsp;&nbsp;
+
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				Solution Used:
+			</td>
+			<td class="form-inline">
+				<input type="text" class="form-control" ng-model="ORmedhist.SolutionUsed" size='9'> 
+			</td>
+			
+		</tr>
+		
+
+		
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORmedHist(ORmedhist)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORmedHist(ORmedhist)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

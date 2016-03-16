@@ -1,0 +1,128 @@
+<div ng-controller="ORIntraOp_Ctrl">	
+	<table class="table table-bordered">					
+		<tr>
+			<td class="warning" colspan="6" id="DGL_module_header">
+				Intra-Operative Notes
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Mental Status
+			</td>
+			<td nowrap width='20%'>
+				<input type="radio" ng-model="ORIntraOp.MentStats" value="Alert & Oriented" > Alert & Oriented
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORIntraOp.MentStats" value="Confused" > 
+				Confused 
+			</td>
+			<td nowrap class="form-inline">
+				Others <input type="text" class="form-control" ng-model="ORIntraOp.MentStats" >
+			</td>
+			<td>
+
+			</td>
+		</tr>
+		<tr>
+			<td nowrap class="active">
+				Equipment
+			</td>
+		
+			<td>
+				<input type="radio" ng-model="ORIntraOp.Equipment" value="C-Arm" > 
+				C-Arm &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORIntraOp.Equipment" value="Tourniquet" > 
+				Tourniquet &nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+			
+		</tr>
+		<tr>
+			<td class="active" nowrap>
+			</td>
+			<td class="form-inline">
+				Type: Site1 <input type="text" class="form-control" ng-model="ORIntraOp.Site1" >
+			</tD>
+			<td class="form-inline">
+				Setting <input type="text" class="form-control" ng-model="ORIntraOp.Site1Set" >
+			</td>
+		</tr>
+		<tr>
+			<td class="active" nowrap>
+			</td>
+			<td class="form-inline">
+				Type: Site2 <input type="text" class="form-control" ng-model="ORIntraOp.Site2" >
+			</tD>
+			<td class="form-inline">
+				Setting <input type="text" class="form-control" ng-model="ORIntraOp.Site2Set" >
+			</td>
+		</tr>
+		<tr>
+			<td class="active" nowrap>
+			</td>
+			<td class="form-inline text-right active">
+				Anti-Embolic Device
+			</tD>
+			<td class="form-inline">
+				<input type="radio" ng-model="ORIntraOp.AntiEm" value="Thigh High" > Thigh High
+				<input type="radio" ng-model="ORIntraOp.AntiEm" value="Knee High" > Knee High
+			</td>
+		</tr>
+	</table>
+	<table class="table table-bordered">
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Nurse
+			</td>
+			<td width='1%' class="active">
+				Scrub
+				
+			</tD>
+			<td class="form-inline">
+				<input type="text" class="form-control" ng-model="ORIntraOp.NurseScrub" >
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="active" nowrap>
+			</td>
+			<td width='1%' class="active">
+				Circulating
+			</tD>
+			<td class="form-inline">
+				<input type="text" class="form-control" ng-model="ORIntraOp.NurseCircu" >
+			</td>
+		</tr>
+		<tr>
+			<td class="active" nowrap>
+				Position
+			</td>
+			<td nowrap>
+				<input type="radio" ng-model="ORIntraOp.Position" value="Supine" > Supine 
+				<br>
+				<input type="radio" ng-model="ORIntraOp.Position" value="Prone" > Prone 
+				<br>
+				<input type="radio" ng-model="ORIntraOp.Position" value="Lithotomy" > Lithotomy
+			</tD>
+			<td nowrap>
+				<input type="radio" ng-model="ORIntraOp.Position" value="Right Lateral" > Right Lateral 
+				<br>
+				<input type="radio" ng-model="ORIntraOp.Position" value="Left Lateral" > Left Lateral 
+				<br>
+				<input type="radio" ng-model="ORIntraOp.Position" value="Semi-fowlers" > Semi-fowlers
+			</td>
+		</tr>
+	
+	
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORIntraOp(ORIntraOp)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORIntraOp(ORIntraOp)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

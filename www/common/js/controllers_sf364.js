@@ -9,7 +9,7 @@ IOHPEApp.controller('sf3604Ctrl', function ($scope, $routeParams, $http){
         $scope.jdata_SF3604 = pxresult;
       });
 
-        $scope.sf363 = {
+        $scope.sf364 = {
         ClinixRID  : $scope.clinix.ClinixRID
         ,PxRID     : $scope.clinix.PxRID
 

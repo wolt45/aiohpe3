@@ -1,0 +1,74 @@
+<div ng-controller="ORSocHab2_Ctrl">	
+	<table class="table table-bordered">					
+		<tr class="warning">
+			<td id="DGL_module_header" colspan="5">
+				Medication List
+			</td>
+		</tr>
+		<tr class="active">
+			<td class="text-center">
+				NAME
+			</td>
+			<td class="text-center">
+				DOSE
+			</td>
+			<td class="text-center">
+				ROUTE 
+			</td>
+			<td class="text-center">
+				FREQUENCY 
+			</td>
+			<td>
+			</td>
+			
+		</tr>
+		<tr>
+			<td nowrap>
+				 <input type="text" class="form-control" ng-model="ORSocHab2.Name">
+			</td>
+			<td>
+				 <input type="text" class="form-control" ng-model="ORSocHab2.Dose">
+			</td>
+			<td>
+				 <input type="text" class="form-control" ng-model="ORSocHab2.Route">
+			</td>
+			<td>
+				 <input type="text" class="form-control" ng-model="ORSocHab2.Frequency">
+			</td>
+			
+		</tr>
+	
+		<tr ng-repeat="ORSocHab2_ROWS in jdata_ORSocHab2">
+			<td>{{ORSocHab2_ROWS.Name}}</td>
+			<td>{{ORSocHab2_ROWS.Dose}}</td>
+			<td>{{ORSocHab2_ROWS.Route}}</td>
+			<td>{{ORSocHab2_ROWS.Frequency}}</td>
+			<td nowrap> 
+				&nbsp;&nbsp;
+				<!-- {{ORSocHab2_ROWS.DiagnosisRID}} -->
+				&nbsp;&nbsp;
+				<a class="btn btn-large btn-info" style="text-decoration: none"
+    	 			ng-click="editORSocHab2_ROW(ORSocHab2_ROWS.ORRID, ORSocHab2_ROWS.Name,ORSocHab2_ROWS.Dose,ORSocHab2_ROWS.Route,ORSocHab2_ROWS.Frequency)">
+    	 			edit
+    			</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+    	 			ng-click="removeORSocHab2_ROW(ORSocHab2_ROWS.ORRID)">
+    	 			delete
+    			</a>
+	 		</td>
+		</tr>
+		
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORSocHab2(ORSocHab2)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORSocHab2(ORSocHab2)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

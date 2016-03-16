@@ -1,0 +1,64 @@
+<div ng-controller="ORSkinPrep_Ctrl">	
+	<table class="table table-bordered">					
+		<tr>
+			<td class="warning" colspan="6" id="DGL_module_header">
+				Skin Preperation
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Site
+			</td>
+			<td nowrap class="form-inline">
+				<input type="text" class="form-control" ng-model="ORSkinPrep.SiteDef" >
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORSkinPrep.Site" value="Scrub" > Scrub
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORSkinPrep.Site" value="Paint" > 
+				Paint 
+			</td>
+			
+			<td>
+
+			</td>
+		</tr>
+		<tr>
+			<td nowrap class="active">
+				Nurse Scrub
+			</td>
+		
+			<td class="form-inline">
+				Time Started &nbsp;&nbsp;&nbsp;<input type="time" ng-model="ORSkinPrep.NurstimeStart" class="form-control" > 
+				&nbsp;&nbsp;&nbsp;
+				Time Ended &nbsp;&nbsp;&nbsp;<input type="time" ng-model="ORSkinPrep.NurstimeEnd" class="form-control" > 
+			</td>
+			
+		</tr>
+		<tr>
+			<td class="active" nowrap>
+				Count off done by
+			</td>
+			<td class="form-inline">
+				<input type="text" class="form-control" ng-model="ORSkinPrep.CountOff" >
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORSkinPrep.CountOffCor" value="Correct" > Correct
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" ng-model="ORSkinPrep.CountOffCor" value="Not Correct" > 
+				Not Correct 
+			</td>
+		</tr>
+	
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORSkinPrep(ORSkinPrep)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORSkinPrep(ORSkinPrep)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

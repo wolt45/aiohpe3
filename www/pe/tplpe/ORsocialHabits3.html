@@ -1,0 +1,25 @@
+<div ng-controller="ORSocHab3_Ctrl">	
+	<table class="table table-bordered">
+		<tr>
+			<td colspan="3" class="success" id="DGL_module_header">NURSE NOTES</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+
+				<textarea ng-model="ORSocHabNot3.NurseNotes" class="form-control"></textarea>
+			</td>
+		</tr>
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORSocHab3(ORSocHabNot3)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORSocHab3(ORSocHabNot3)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>

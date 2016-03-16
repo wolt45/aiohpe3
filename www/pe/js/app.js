@@ -32,6 +32,8 @@ IOHPEApp.config(function($routeProvider) {
     when('/oby-gyne/:p_clinixrid', { templateUrl: 'tplpe/ob-gyne.html', controller: 'PXDetailCtrl' }).
 
     when('/diagnosis/:p_clinixrid', { templateUrl: 'tplpe/common_diagnosis.html', controller: 'PXDetailCtrl' }).
+    when('/PhyThera/:p_clinixrid', { templateUrl: 'tplpe/phythera.html', controller: 'PXDetailCtrl' }).
+    when('/PhyThera2/:p_clinixrid', { templateUrl: 'tplpe/phytheraPT.html', controller: 'PXDetailCtrl' }).
     
     when('/billing/:p_clinixrid', { templateUrl: 'tplpe/close_PEcharges.html', controller: 'PXDetailCtrl' }).
 
@@ -44,6 +46,10 @@ IOHPEApp.config(function($routeProvider) {
     when('/postopKNEE/:p_clinixrid', { templateUrl: 'tplpe/POSTOpKNEEreplc.html', controller: 'PXDetailCtrl' }).
 
     when('/structuredDischarge/:p_clinixrid', { templateUrl: 'tplpe/structured_discharge_summary.html', controller: 'PXDetailCtrl' }).
+    
+    when('/ORoomPreOp/:p_clinixrid', { templateUrl: 'tplpe/OR-PreOp.html', controller: 'PXDetailCtrl' }).
+    when('/ORoomIntraOp/:p_clinixrid', { templateUrl: 'tplpe/OR-IntraOp.html', controller: 'PXDetailCtrl' }).
+    when('/ORoomPostOp/:p_clinixrid', { templateUrl: 'tplpe/OR-PostOp.html', controller: 'PXDetailCtrl' }).
 
     otherwise({ redirectTo: '/' });
 });

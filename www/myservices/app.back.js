@@ -2182,4 +2182,139 @@ $scope.pushSportsAnkleFoot = function(){
         });
     });
   };
+
+  $scope.pushPhysicalTheraphy = function(){
+    if (confirm('PROCEED With Sycnh Process?')) {
+
+      $scope.pushphysctheraHist();
+      $scope.pushphyscthera1();
+      $scope.pushphyscthera2();
+      $scope.pushphyscthera3();
+      $scope.pushphyscthera4();
+      $scope.pushphysctheraNotes();
+
+      alert("EXPORT to Server Successful!");
+    }
+  }
+
+  $scope.pushphysctheraHist = function(){
+    $scope.jdata_PTHist= [];
+    var promise = $ipadrbg.context.jdata_PTHist.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_PTHist = pxresult;
+        });
+        $scope.jdata_PTHist_JSON = JSON.stringify($scope.jdata_PTHist);
+        $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_jdata_PTHist.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_PTHist_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushphyscthera1 = function(){
+    $scope.jdata_PT1= [];
+    var promise = $ipadrbg.context.jdata_PT1.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_PT1 = pxresult;
+        });
+        $scope.jdata_PT1_JSON = JSON.stringify($scope.jdata_PT1);
+        $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_jdata_PT1.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_PT1_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushphyscthera2 = function(){
+    $scope.jdata_PT2= [];
+    var promise = $ipadrbg.context.jdata_PT2.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_PT2 = pxresult;
+        });
+        $scope.jdata_PT2_JSON = JSON.stringify($scope.jdata_PT2);
+        $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_jdata_PT2.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_PT2_JSON
+            , cache : false
+        });
+    });
+  };
+
+  $scope.pushphyscthera3 = function(){
+    $scope.jdata_PT3= [];
+    var promise = $ipadrbg.context.jdata_PT3.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_PT3 = pxresult;
+        });
+        $scope.jdata_PT3_JSON = JSON.stringify($scope.jdata_PT3);
+        $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_jdata_PT3.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_PT3_JSON
+            , cache : false
+        });
+    });
+  };
+  $scope.pushphyscthera4 = function(){
+    $scope.jdata_PT4= [];
+    var promise = $ipadrbg.context.jdata_PT4.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_PT4 = pxresult;
+        });
+        $scope.jdata_PT4_JSON = JSON.stringify($scope.jdata_PT4);
+        $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_jdata_PT4.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_PT4_JSON
+            , cache : false
+        });
+    });
+  };
+  $scope.pushphysctheraNotes = function(){
+    $scope.jdata_PTNotes1= [];
+    var promise = $ipadrbg.context.jdata_PTNotes1.filter(function (px) { 
+      return px.ClinixRID > 0}).toLiveArray();
+
+    promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_PTNotes1 = pxresult;
+        });
+        $scope.jdata_PTNotes1_JSON = JSON.stringify($scope.jdata_PTNotes1);
+        $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_jdata_PTNotes.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.jdata_PTNotes1_JSON
+            , cache : false
+        });
+    });
+  };
+
+
+
 }

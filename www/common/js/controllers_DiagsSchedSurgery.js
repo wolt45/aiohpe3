@@ -1,8 +1,7 @@
 IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http){
   $scope.clinix_DiagSchedSurgery = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
-
-
+  $scope.schedSurgeGrp = [];
 
    $scope.LkUpRVSCodes= [];
    var promise = $ipadrbg.context.jdata_RVS.filter(function (rvsx) { 
@@ -26,6 +25,7 @@ IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http)
 
           ,SurgeryType    : pxresult[0]['SurgeryType']
           ,SurgeryDate    : pxresult[0]['SurgeryDate']
+          ,SurgeryTime    : pxresult[0]['SurgeryTime']
           ,Surgeon        : pxresult[0]['Surgeon']
           ,Assistant      : pxresult[0]['Assistant']
           ,Cardio         : pxresult[0]['Cardio']
@@ -53,6 +53,7 @@ IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http)
 
       ,SurgeryType    : daignosisObj.SurgeryType
       ,SurgeryDate    : daignosisObj.SurgeryDate
+      ,SurgeryTime    : daignosisObj.SurgeryTime
       ,Surgeon        : daignosisObj.Surgeon
       ,Assistant      : daignosisObj.Assistant
       ,Cardio         : daignosisObj.Cardio
@@ -97,9 +98,15 @@ IOHPEApp.controller('DiagsSchedSurgCtrl', function ($scope, $routeParams, $http)
 
   $scope.pickRVS = function (RVSRID, RVSCode, RVSDescription, RVSrvu) {
     var diagsData = RVSCode + " - " + RVSDescription + " - " + RVSrvu;
-     
     var mSurgeryType = $scope.schedSurgeGrp.SurgeryType;
-    var xSurgeryType = mSurgeryType + "\n" + diagsData;
+    var xSurgeryType = "";
+
+    if (mSurgeryType == "" || mSurgeryType == null) {
+      xSurgeryType = diagsData;
+    }  
+    else {
+      xSurgeryType = mSurgeryType + "\n" + diagsData;
+    }
      
     $scope.schedSurgeGrp.SurgeryType = xSurgeryType;
   }

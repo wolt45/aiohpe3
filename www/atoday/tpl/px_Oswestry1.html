@@ -1,0 +1,314 @@
+<div ng-controller="ODICtrl">
+
+    <table class="table table-condensed table-bordered">
+		<tr class="warning">
+			<th colspan=9>
+				<span id="DGL_module_header">
+	    			Oswestry Disability Index 
+	    		</span>
+			</th>
+		</tr>
+	
+		<tr class="active">
+
+			<td width="1%" nowrap colspan='3'>GI have “Chronic Pain” or pain that has bothered me for 3 months or more:
+			</td>
+		</tr>
+
+		<tr>	
+			<td width='1%'>
+				<div class="form-group">
+					<input type="radio" ng-model="ODImod.Chronic" value="1"> Yes &nbsp;&nbsp;&nbsp;
+		            <input type="radio" ng-model="ODImod.Chronic" value="2"> No &nbsp;&nbsp;&nbsp;
+			    </div>
+			</td>
+		</tr>
+			
+		<tr>
+			<td colspan="6" class="text-center">
+				
+			</td>
+		</tr>
+		<tr class="active">
+
+					<td width="1%" nowrap colspan='3'>
+						Check one of the following:
+					</td>
+				</tr>
+				<tr>
+					<td width='1%' nowrap>
+						<div class="form-group">
+        					<input type="radio" 
+				            ng-model="ODImod.SurgeryDay" value="Prior to Surgery"> Prior to Surgery <br>
+				            <input type="radio" ng-model="ODImod.SurgeryDay" value="After Surgery 3 Months"
+				            > After Surgery 3 Months <br>
+				            <input type="radio" ng-model="ODImod.SurgeryDay" value="After Surgery 1 year"
+				            > After Surgery 1 year <br>
+
+					    </div>
+					</td>
+					<td width='1%' nowrap>
+						<div class="form-group">
+        					<input type="radio" ng-model="ODImod.SurgeryDay" value="After Surgery 6 weeks"
+				            > After Surgery 6 weeks <br>
+				            <input type="radio" ng-model="ODImod.SurgeryDay" value="After Surgery 6 Months"
+				            > After Surgery 6 Months <br>
+				            <input type="radio" ng-model="ODImod.SurgeryDay" value="After Surgery 2 years"
+				            > After Surgery 2 years <br>
+
+					    </div>
+					</td>
+
+				</tr>
+				<tr>
+					<Td class="active" colspan="3">
+						<b>Please answer each section below by checking the One Choice that applies the most to you at this time.</b> <br>(You may feel that more than one of the statement relates to you at this time, but it is very important that you <br><b>Please check only one choice</b> that best describes your problem at this time.</td>
+				</tr>
+				<tR>
+					<td>Section 1: Pain Intensity</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.PainIntensity" value="0"> 
+				       	I can tolerate the pain I have without having to use pain killers. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.PainIntensity" value="1"> 
+				       	The pain is bad but I manage without taking pain killers. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.PainIntensity" value="2"> 
+				       	Pain killers give complete relief from pain . <b>[2 points]</b>
+				     	<br>
+				        <input type="radio" ng-model="ODImod.PainIntensity" value="3"> 
+				       	Pain killers give moderate relief from pain. <b>[3 points ]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.PainIntensity" value="4"> 
+				       	Pain killers give very little relief from pain. <b>[4 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.PainIntensity" value="5"> 
+				       	Pain killers have no effect on the pain and I do not use them. <b>[5 points]</b>
+				    </td>
+				</tr>
+				<tR>
+					<td>Section 2: Personal Care</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.PersonalCare" value="0"> 
+				       	I can look after myself normally without causing extra pain. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.PersonalCare" value="1"> 
+				       	I can look after myself normally but it causes extra pain. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.PersonalCare" value="2"> 
+				       	It is painful to look after myself and I am slow and careful. <b>[2 points]</b>
+				     	<br>
+				        <input type="radio" ng-model="ODImod.PersonalCare" value="3"> 
+				       	I need some help but manage most of my personal care. <b>[3 points ]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.PersonalCare" value="4"> 
+				       	I need help every day in most aspects of self care. <b>[4 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.PersonalCare" value="5"> 
+				       	I do not get dressed wash with difficulty and stay in bed. <b>[5 points]</b>
+				    </td>
+				</tr>
+				<tr>
+					<td>Section 3: Lifting</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.Lifting" value="0"> 
+				       	I can lift heavy weights without extra pain. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Lifting" value="1"> 
+				       	I can lift heavy weights but it gives extra pain. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Lifting" value="2"> 
+				       	Pain prevents me from lifting heavy weights off the floor but I can manage <br>if they are conveniently positioned for example on a table. <b>[2 points]</b>
+				     	<br>
+				        <input type="radio" ng-model="ODImod.Lifting" value="3"> 
+				       	Pain prevents me from lifting heavy weights but I can manage light to  <br>medium weightsif they are conveniently positioned. <b>[3 points ]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Lifting" value="4"> 
+				       	I can lift only very light weights. <b>[4 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Lifting" value="5"> 
+				       	I cannot lift or carry anything at all. <b>[5 points]</b>
+				    </td>
+				</tr>
+				<tr>
+					<td>Section 4: Walking</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.Walking" value="0"> 
+				       	Pain does not prevent me walking any distance. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Walking" value="1"> 
+				       	Pain prevents me walking more than 1 mile. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Walking" value="2"> 
+				       	Pain prevents me walking more than 0.5 miles. <b>[2 points]</b>
+				     	<br>
+				        <input type="radio" ng-model="ODImod.Walking" value="3"> 
+				       	Pain prevents me walking more than 0.25 miles. <b>[3 points ]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Walking" value="4"> 
+				       	I can only walk using a stick or crutches. <b>[4 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Walking" value="5"> 
+				       	I am in bed most of the time and have to crawl to the toilet. <b>[5 points]</b>
+				    </td>
+				</tr>
+				<tr>
+					<td>Section 5: Sitting</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.Sitting" value="0"> 
+				       	I can sit in any chair as long as I like. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Sitting" value="1"> 
+				       	I can only sit in my favorite chair as long as I like. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Sitting" value="2"> 
+				       	Pain prevents me sitting more than 1 hour. <b>[2 points]</b>
+				     	<br>
+				        <input type="radio" ng-model="ODImod.Sitting" value="3"> 
+				       	Pain prevents me from sitting more than 0.5 hours. <b>[3 points ]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Sitting" value="4"> 
+				       	Pain prevents me from sitting more than 10 minutes. <b>[4 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Sitting" value="5"> 
+				       	Pain prevents me from sitting at all. <b>[5 points]</b>
+				    </td>
+				</tr>
+				<tr>
+					<td>Section 6: Standing</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.Standing" value="0"> 
+				       	I can stand as long as I want without extra pain. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Standing" value="1"> 
+				       	I can stand as long as I want but it gives me extra pain. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Standing" value="2"> 
+				       	Pain prevents me from standing for more than 1 hour. <b>[2 points]</b>
+				     	<br>
+				        <input type="radio" ng-model="ODImod.Standing" value="3"> 
+				       	Pain prevents me from standing for more than 30 minutes. <b>[3 points ]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Standing" value="4"> 
+				       	Pain prevents me from standing for more than 10 minutes. <b>[4 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Standing" value="5"> 
+				       	Pain prevents me from standing at all. <b>[5 points]</b>
+				    </td>
+				</tr>
+				<tr>
+					<td>Section 7: Sleeping</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.Sleeping" value="0"> 
+				       	Pain does not prevent me from sleeping well. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Sleeping" value="1"> 
+				       	I can sleep well only by using tablets. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Sleeping" value="2"> 
+				       	Even when I take tablets I have less than 6 hours sleep. <b>[2 points]</b>
+				       	<br>
+				       	<input type="radio" ng-model="ODImod.Sleeping" value="3"> 
+				       	Even when I take tablets I have less than 4 hours sleep. <b>[3 points]</b>
+				       	<br>
+				       	<input type="radio" ng-model="ODImod.Sleeping" value="4"> 
+				       	Even when I take tablets I have less than 2 hours of sleep. <b>[4 points]</b>
+						<br>
+				       	<input type="radio" ng-model="ODImod.Sleeping" value="5"> 
+				       	Pain prevents me from sleeping at all. <b>[5 points]</b>
+				    </td>
+				</tr>
+				<tr>
+					<td>Section 8: Sex Life</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.SexLife" value="0"> 
+				       	My sex life is normal and causes no extra pain. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.SexLife" value="1"> 
+				       	My sex life is normal but causes some extra pain. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.SexLife" value="2"> 
+				       	My sex life is nearly normal but is very painful. <b>[2 points]</b>
+				       	<br>
+				       	<input type="radio" ng-model="ODImod.SexLife" value="3"> 
+				       	My sex life is severely restricted by pain. <b>[3 points]</b>
+				       	<br>
+				       	<input type="radio" ng-model="ODImod.SexLife" value="4"> 
+				       	My sex life is nearly absent because of pain. <b>[4 points]</b>
+						<br>
+				       	<input type="radio" ng-model="ODImod.SexLife" value="5"> 
+				       	Pain prevents any sex life at all. <b>[5 points]</b>
+				    </td>
+				</tr>
+				<tr>
+					<td>Section 9: Social Life</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.SocialLife" value="0"> 
+				       	My social life is normal and gives me no extra pain. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.SocialLife" value="1"> 
+				       	My social life is normal but increases the degree of pain. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.SocialLife" value="2"> 
+				       	Pain has no significant effect on my social life apart from limiting <br>energetic interests such as dancing. <b>[2 points]</b>
+				       	<br>
+				       	<input type="radio" ng-model="ODImod.SocialLife" value="3"> 
+				       	Pain has restricted my social life and I do not go out as often. <b>[3 points]</b>
+				       	<br>
+				       	<input type="radio" ng-model="ODImod.SocialLife" value="4"> 
+				       	Pain has restricted my social life to my home. <b>[4 points]</b>
+						<br>
+				       	<input type="radio" ng-model="ODImod.SocialLife" value="5"> 
+				       	I have no social life because of pain. <b>[5 points]</b>
+				    </td>
+				</tr>
+				<tr>
+					<td>Section 10: Traveling</td>
+					<td nowrap>
+						<input type="radio" ng-model="ODImod.Traveling" value="0"> 
+				       	I can travel anywhere without extra pain. <b>[0 points]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Traveling" value="1"> 
+				       	I can travel anywhere but it gives me extra pain. <b>[1 point]</b>
+				        <br>
+				        <input type="radio" ng-model="ODImod.Traveling" value="2"> 
+				       	Pain is bad but I manage journeys over 2 hours. <b>[2 points]</b>
+				       	<br>
+				       	<input type="radio" ng-model="ODImod.Traveling" value="3"> 
+				       	Pain restricts me to journeys of less than 1 hour. <b>[3 points]</b>
+				       	<br>
+				       	<input type="radio" ng-model="ODImod.Traveling" value="4"> 
+				       	Pain restricts me to short necessary journeys under 30 minutes. <b>[4 points]</b>
+						<br>
+				       	<input type="radio" ng-model="ODImod.Traveling" value="5"> 
+				       	Pain prevents me from traveling except to the doctor or hospital. <b>[5 points]</b>
+				    </td>
+				</tr>
+			</table>
+			<table class="table table-bordered">
+				<tr>
+					<td class="active" width='1%' nowrap>
+						Oswerstry Total
+					</td>
+					<td width="1%" nowrap>
+						{{myVariable= parseInt(ODImod.PainIntensity) + parseInt(ODImod.PersonalCare) + parseInt(ODImod.Lifting) + parseInt(ODImod.Walking) + parseInt(ODImod.Sitting) + parseInt(ODImod.Standing) + parseInt(ODImod.Sleeping) + parseInt(ODImod.SexLife) + parseInt(ODImod.SocialLife) + parseInt(ODImod.Traveling)}}
+					</td>
+					<td width='1%' class="active" nowrap>
+						Disability
+					</td>
+					<td>
+						{{disability = parseInt(myVariable) / 50 * 100}}%
+					</td>
+				</tr>
+
+		<tr>
+			<td colspan='9' class='text-center'>
+				<a class="btn btn-large btn-info" ng-click="addNewODI(ODImod)" style="text-decoration: none; color: #000">SAVE</a>
+
+				<a class="btn btn-large btn-danger" ng-click="removeODI(ODImod)" style="text-decoration: none; color: #000">DELETE</a>
+			</td>
+		</tr>
+
+	</table>
+
+</div>

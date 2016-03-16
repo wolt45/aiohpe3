@@ -1,0 +1,120 @@
+<div ng-controller="ORPotenProb_Ctrl">	
+	<table class="table table-bordered">					
+		<tr>
+			<td class="warning" colspan="6" id="DGL_module_header">
+				Potential Problems
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' nowrap>
+				<input type="radio" ng-model="ORPotenProb.PotentProb" value="Potential injury related to" > Potential injury related to
+				<br>
+				<input type="radio" ng-model="ORPotenProb.PotentProb" value="Equipment" > Equipment
+				<br>
+				<input type="radio" ng-model="ORPotenProb.PotentProb" value="Positioning" > Positioning
+			</td>
+			<td colspan='2'>
+			
+				<input type="radio" ng-model="ORPotenProb.PotentProb" value="Potential skin impairment related to patient position" > Potential skin impairment related to patient position
+				<br>
+				<input type="radio" ng-model="ORPotenProb.PotentProb" value="Foley/Ballon Size" > Potential for post-operative infection related to breaks in aseptic technique
+				
+				
+			</td>
+			
+			<td>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+				Transportation
+			</td>
+			<td colspan='2'>
+				<input type="text" ng-model="ORPotenProb.Transport" class="form-control">
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Transportation mode to recovery
+			</td>
+			
+			<td>
+				<input type="radio" ng-model="ORPotenProb.TransReco" value="Bed" > 
+				Bed
+				<br>
+				<input type="radio" ng-model="ORPotenProb.TransReco" value="Crib" > 
+				Crib
+				<br> 
+				<input type="radio" ng-model="ORPotenProb.TransReco" value="Gourney" > 
+				Gourney
+			</td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Support Devices
+			</td>
+			
+			<td width='1%' nowrap>
+				<input type="radio" ng-model="ORPotenProb.SupportDev" value="Oxygen" > 
+				Oxygen
+				<br>
+				<input type="radio" ng-model="ORPotenProb.SupportDev" value="Ambu bag" > 
+				Ambu bag 
+				<br>
+				<input type="radio" ng-model="ORPotenProb.SupportDev" value="Monitor V/S" > 
+				Monitor V/S
+				
+			</td>
+			
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Mental Status
+			</td>
+			
+			<td nowrap>
+				<input type="radio" ng-model="ORPotenProb.MentalStats" value="Unresponsive" > 
+				Unresponsive
+				<br>
+				<input type="radio" ng-model="ORPotenProb.MentalStats" value="Awake" > 
+				Awake
+				
+			</td>
+			<td nowarp class="form-inline">
+				<input type="radio" ng-model="ORPotenProb.MentalStats" value="Confused" > 
+				Responsive to verbal command
+				<br>
+				Others &nbsp;<input type="text" ng-model="ORPotenProb.MentalStatsOth" class="form-control">
+			</td>
+			
+		</tr>
+		</table>
+		<table class="table table-bordered">
+
+		<tr>
+			<td width='1%' class="success" id="DGL_module_header" nowrap>
+				Intra-operative Notes
+			</td>
+		</tr>
+		<tr>
+			<td nowrap colspan='2'>
+				<textarea class="form-control" ng-model="ORPotenProb.IntraOp"></textarea> 
+			</td>
+		
+		</tr>
+
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ORPotProb(ORPotenProb)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeORPotProb(ORPotenProb)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>	

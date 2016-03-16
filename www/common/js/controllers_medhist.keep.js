@@ -42,6 +42,42 @@ IOHPEApp.controller('MedHistCtrl', function ($scope, $routeParams, $http){
       ,Trauma                   : grpMedHist.Trauma
       ,CNSYes                   : grpMedHist.CNSYes
       ,CNS                      : grpMedHist.CNS
+
+      ,ArthYes                  : grpMedHist.ArthYes
+      ,Arth                     : grpMedHist.Arth
+      ,AsthYes                  : grpMedHist.AsthYes
+      ,Asth                     : grpMedHist.Asth
+      ,CancerYes                : grpMedHist.CancerYes
+      ,Cancer                   : grpMedHist.Cancer
+      ,COPDYes                  : grpMedHist.COPDYes
+      ,COPD                     : grpMedHist.COPD
+      ,HeartDiseaseYes          : grpMedHist.HeartDiseaseYes
+      ,HeartDisease             : grpMedHist.HeartDisease
+      ,LiveDiseYes              : grpMedHist.LiveDiseYes
+      ,LiveDise                 : grpMedHist.LiveDise
+      ,MIYes                    : grpMedHist.MIYes
+      ,MI                       : grpMedHist.MI
+      ,PrevSurgYes              : grpMedHist.PrevSurgYes
+      ,PrevSurg                 : grpMedHist.PrevSurg
+      ,DigestYes                : grpMedHist.DigestYes
+      ,Digest                   : grpMedHist.Digest
+      ,EliProbYes               : grpMedHist.EliProbYes
+      ,EliProb                  : grpMedHist.EliProb
+      ,EmoPsyYes                : grpMedHist.EmoPsyYes
+      ,EmoPsy                   : grpMedHist.EmoPsy
+      ,FaintingYes              : grpMedHist.FaintingYes
+      ,Fainting                 : grpMedHist.Fainting
+      ,RenalDiseaseYes          : grpMedHist.RenalDiseaseYes
+      ,RenalDisease             : grpMedHist.RenalDisease
+      ,RheumaticDisYes          : grpMedHist.RheumaticDisYes
+      ,RheumaticDis             : grpMedHist.RheumaticDis
+      ,SeizuresYes              : grpMedHist.SeizuresYes
+      ,Seizures                 : grpMedHist.Seizures
+      ,StrokeYes                : grpMedHist.StrokeYes
+      ,Stroke                   : grpMedHist.Stroke
+      ,ThyroidDiseYes           : grpMedHist.ThyroidDiseYes
+      ,ThyroidDise              : grpMedHist.ThyroidDise
+
       ,Others                   : grpMedHist.Others
     }
 

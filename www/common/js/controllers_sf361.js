@@ -9,14 +9,14 @@ IOHPEApp.controller('sf3601Ctrl', function ($scope, $routeParams, $http){
         $scope.jdata_SF3601 = pxresult;
       });
 
-        $scope.sf361 = {
-        ClinixRID  : $scope.clinix.ClinixRID
-        ,PxRID     : $scope.clinix.PxRID
+    $scope.sf361 = {
+    ClinixRID  : $scope.clinix.ClinixRID
+    ,PxRID     : $scope.clinix.PxRID
 
-        ,Health : pxresult[0]['Health']
-        ,Health2 : pxresult[0]['Health2']
-      
-      }
+    ,Health : pxresult[0]['Health']
+    ,Health2 : pxresult[0]['Health2']
+  
+  }
 
     });
   }; 

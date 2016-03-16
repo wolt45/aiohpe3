@@ -79,7 +79,25 @@
     Diagnosis 
   </a> 
 </div>
+<div class="btn-group">
+  <a class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown">
+   Physical Therapy 
+    <span class="caret"></span>
+  </a>
 
+  <ul class="dropdown-menu">
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/PhyThera/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+        Initial Interview
+      </a>
+    </li>
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/PhyThera2/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+       PT Notes
+      </a>
+    </li>
+  </ul>
+  </div>
 <div class="btn-group">
   <a class="btn btn-success btn-lg" href="#/billing/{{clinix.ClinixRID}}"> 
     Billing 
@@ -88,7 +106,7 @@
 
 <div class="btn-group">
 	<a class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown">
-  	Orders amd Reports
+  	Orders and Reports
 	</a>
 
 	<ul class="dropdown-menu">
@@ -102,6 +120,23 @@
     <li class="divider"></li>
 
  		<li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/ORoomPreOp/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+        (OR) PRE-Operative Report
+      </a>
+    </li>
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/ORoomIntraOp/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+        (OR) INTRA-Operative Report
+      </a>
+    </li>
+    <li class="btn-lg btn btn-warning btn-block" >
+      <a href="#/ORoomPostOp/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
+        (OR) POST-Operative Report
+      </a>
+    </li>
+    <li class="divider"></li>
+
+    <li class="btn-lg btn btn-warning btn-block" >
       <a href="#/preopHIP/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">
         (HIP) PRE-Operative Order 
       </a>
@@ -119,7 +154,7 @@
       </a>
     </li>
 
-    <li class="divider">KNEE</li>
+    <li class="divider"></li>
 
     <li class="btn-lg btn btn-warning btn-block" >
       <a href="#/preopKNEE/{{clinix.ClinixRID}}" style="color:white;" tabindex="-1">

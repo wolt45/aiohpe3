@@ -13,9 +13,9 @@ IOHPEApp.controller('sf3606Ctrl', function ($scope, $routeParams, $http){
         ClinixRID  : $scope.clinix.ClinixRID
         ,PxRID     : $scope.clinix.PxRID
 
-        ,sf10a : pxresult[0]['sf10a']
+        ,sf9a : pxresult[0]['sf9a']
         ,sf9b : pxresult[0]['sf9b']
-        ,sf9d : pxresult[0]['sf9c']
+        ,sf9c : pxresult[0]['sf9c']
         ,sf9d : pxresult[0]['sf9d']
         ,sf9e : pxresult[0]['sf9e']
         ,sf9f : pxresult[0]['sf9f']

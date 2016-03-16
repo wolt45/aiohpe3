@@ -27,19 +27,25 @@
 			<tr>
 				<td>Surgeon</td>
 				<td class="active">
-					{{ surgery.SurgeryType }}
+					{{ surgery.Surgeon }}
 				</td>
 		
-				<td nowrap>Assistant/s</td>
+				<td width="1%"> Time </td>
 				<td class="active">
-					{{ surgery.Assistant }}
+					{{surgery.SurgeryTime}}
 				</td>
+				<td></td>
+				
 			</tr>
 
 			<tr>
 				<td nowrap>Internist or Cardiologist</td>
 				<td class="active">
 					{{ surgery.Cardio }}
+				</td>
+				<td nowrap>Assistant/s</td>
+				<td class="active">
+					{{ surgery.Assistant }}
 				</td>
 			</tr>
 
@@ -53,6 +59,8 @@
 			<tr>
 				<td>Hospital</td>
 				<td class="active"> {{ surgery.Hospital }} </td>
+				<td>OR Nurse</td>
+				<td class="active"> {{ surgery.OrNurse }} </td>
 
 				<!-- td nowrap>Other Info</td>
 				<td class="active"> {{ surgery.Others }}</td -->

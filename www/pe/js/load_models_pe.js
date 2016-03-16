@@ -105,6 +105,27 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	
 	, jdata_ICD10: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ICD10}
 	, jdata_RVS: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_RVS}
+	
+	, jdata_PTHist: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PTHist}
+	, jdata_PT1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT1}
+	, jdata_PT2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT2}
+	, jdata_PT3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT3}
+	, jdata_PT4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT4}
+
+	, jdata_PTNotes1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PTNotes1}
+	
+	, jdata_ORpreOp: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORpreOp}
+	, jdata_ORMedHist: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORMedHist}
+	, jdata_ORSocHab: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORSocHab}
+	, jdata_ORSocHab2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORSocHab2}
+	, jdata_ORSocHab3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORSocHab3}
+	, jdata_ORIntraOp: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORIntraOp}
+	, jdata_ORSkinPrep: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORSkinPrep}
+	, jdata_ORBladder: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORBladder}
+	, jdata_ORPotProb: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPotProb}
+	, jdata_ORpostOpRec: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORpostOpRec}
+	, jdata_ORPass: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPass}
+
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });

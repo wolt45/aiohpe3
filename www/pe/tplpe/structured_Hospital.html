@@ -19,6 +19,12 @@
 					<input type="Date" class="form-control" 
 						ng-model="hospitalize.DateAdmitted" 
 						value="{{ hospitalize.DateAdmitted | date : 'MM/dd/yyyy' }}">
+					<br>
+						{{ hospitalize.TimeAdmitted | date : 'MM/dd/yyyy' }}
+					<br>
+					<input type="Time" class="form-control" 
+						ng-model="hospitalize.TimeAdmitted" 
+						value="{{ hospitalize.TimeAdmitted}}">
 				</td>
 				<td width="1%" nowrap>Date Discharged</td>
 				<td class="active" width="1%">
@@ -27,6 +33,12 @@
 					<input type="Date" class="form-control" 
 						ng-model="hospitalize.DateDischarged"
 						value="{{ hospitalize.DateDischarged | date : 'MM/dd/yyyy' }}">
+					<br>
+						{{ hospitalize.TimeDischarged | date : 'MM/dd/yyyy' }}
+					<br>
+					<input type="time" class="form-control" 
+						ng-model="hospitalize.TimeDischarged"
+						value="{{ hospitalize.TimeDischarged}}">
 				</td>
 				<td></td>
 			</tr>
