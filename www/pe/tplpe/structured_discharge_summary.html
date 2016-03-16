@@ -4,21 +4,20 @@
 	
 
 <div class="col-xs-6 col-sm-10 bs-docs-container" >
+<ng:include src="'tplpe/px_pe.html'"></ng:include>
+
+<table class="table table-condensed table-bordered">
+	<tr class="success">
+		<th colspan=9>
+			<span id="DGL_module_header">
+    			Structured Discharge Summary
+    		</span>
+		</th>
+	</tr>
+</table>
 	<div scroll-bookmark="diag">
-		<ng:include src="'tplpe/px_pe.html'"></ng:include>
-	</div>
-	<table class="table table-condensed table-bordered">
-		<tr class="success">
-			<th colspan=9>
-				<span id="DGL_module_header">
-	    			Structured Discharge Summary
-	    		</span>
-			</th>
-		</tr>
-	</table>
-	
 		<ng:include src="'tplpe/structured_Diagnosis.html'"></ng:include>
-	
+	</div>
 	<div scroll-bookmark="surgery">
 		<ng:include src="'tplpe/structured_SurgerySched.html'"></ng:include>
 	</div>

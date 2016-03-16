@@ -36,14 +36,15 @@
 			</tr>
 					
 			<tr class="info" ng-repeat="dispo in clinix_StructuredDisposition">
-	        	<td style="color:black" nowrap>{{dispo.Disposition}}</td>
-	        	<td style="color:black" nowrap>{{dispo.DispoValue}}</td>
+	        	<td style="color:black" nowrap>{{dispo.Dispo}}</td>
+	        	<td style="color:black" nowrap>{{dispo.DispoDetail}}</td>
 	            <td>
 	            	<a class="btn btn-large btn-danger"
 	            	ng-click="removeItem(dispo)" style="text-decoration: none">
 	            		DELETE
 	            	</a>
 	        	</td>
+	        	<th> </th>
 	        </tr>
 		</table>
 	</div>

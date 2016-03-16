@@ -97,12 +97,7 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_shoulder_8: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_8}
 	, jdata_shoulder_9: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_shoulder_9}
 
-	, jdata_PTHist: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PTHist}
-	, jdata_PT1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT1}
-	, jdata_PT2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT2}
-	, jdata_PT3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT3}
-	, jdata_PT4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT4}
-	, jdata_PTNotes1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PTNotes1}
+	// ICD10 is not a synch back process, it's a service based data	
 
 });
 

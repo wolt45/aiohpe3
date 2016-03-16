@@ -32,8 +32,6 @@ IOHPEApp.config(function($routeProvider) {
     when('/oby-gyne/:p_clinixrid', { templateUrl: 'tplpe/ob-gyne.html', controller: 'PXDetailCtrl' }).
 
     when('/diagnosis/:p_clinixrid', { templateUrl: 'tplpe/common_diagnosis.html', controller: 'PXDetailCtrl' }).
-    when('/PhyThera/:p_clinixrid', { templateUrl: 'tplpe/phythera.html', controller: 'PXDetailCtrl' }).
-    when('/PhyThera2/:p_clinixrid', { templateUrl: 'tplpe/phytheraPT.html', controller: 'PXDetailCtrl' }).
     
     when('/billing/:p_clinixrid', { templateUrl: 'tplpe/close_PEcharges.html', controller: 'PXDetailCtrl' }).
 

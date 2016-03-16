@@ -22,22 +22,20 @@ IOHPEApp.controller('StructuredDispositionCtrl', function ($scope, $routeParams,
     promise.then(function(pxresult) {
       $scope.$apply(function () {
         $scope.clinix_StructuredDisposition = pxresult;
-
-        
       });
     });
   };
 
   $scope.LoadStrucDispo();
 
-  $scope.addNew = function (formArrObj) {
+  $scope.addNew = function ( formArrObj) {
     if (formArrObj.Disposition) {
       newrecord = {
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Disposition        : 'Disposition'
-        ,DispoValue  : formArrObj.Disposition
+        ,Dispo        : 'Disposition'
+        ,DispoDetail  : formArrObj.Disposition
       }
       $ipadrbg.context.clinix_StructuredDisposition.add(newrecord);
     }
@@ -46,8 +44,8 @@ IOHPEApp.controller('StructuredDispositionCtrl', function ($scope, $routeParams,
         ClinixRID : $scope.clinix.ClinixRID
         ,PxRID    : $scope.clinix.PxRID
 
-        ,Disposition        : 'Ambulatory Aid'
-        ,DispoValue  : formArrObj.Ambulatory
+        ,Dispo        : 'Ambulatory Aid'
+        ,DispoDetail  : formArrObj.Ambulatory
       }
       $ipadrbg.context.clinix_StructuredDisposition.add(newrecord);
     }
