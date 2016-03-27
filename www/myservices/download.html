@@ -124,6 +124,35 @@
 <script src="..//common/models/model_PTHistory.js"></script>
 <script src="..//common/models/model_PTNotes1.js"></script>
 
+<script src="..//common/models/model_ORBladder.js"></script>
+<script src="..//common/models/model_ORIntraOp.js"></script>
+<script src="..//common/models/model_ORMedHist.js"></script>
+<script src="..//common/models/model_ORPass.js"></script>
+<script src="..//common/models/model_ORPostOpRec.js"></script>
+<script src="..//common/models/model_ORPotentProb.js"></script>
+<script src="..//common/models/model_ORpreOp.js"></script>
+<script src="..//common/models/model_ORSkinPrep.js"></script>
+<script src="..//common/models/model_ORSocialHabits.js"></script>
+<script src="..//common/models/model_ORSocialHabits2.js"></script>
+<script src="..//common/models/model_ORSocialHabits3.js"></script>
+
+<script src="..//common/models/model_dsig.js"></script>
+<script src="..//common/models/model_ORPreOpdsig.js"></script>
+<script src="..//common/models/model_ORIntraOpdsig.js"></script>
+<script src="..//common/models/model_ORPostOpdsig.js"></script>
+
+<script src="..//common/models/model_ITFdsig.js"></script>
+<script src="..//common/models/model_PreOpHipdsig.js"></script>
+<script src="..//common/models/model_OpHipdsig.js"></script>
+<script src="..//common/models/model_PostHipdsig.js"></script>
+
+<script src="..//common/models/model_PreOpKneedsig.js"></script>
+<script src="..//common/models/model_OpKneedsig.js"></script>
+<script src="..//common/models/model_PostOpKneedsig.js"></script>
+
+<script src="..//common/models/model_StrucDiscdsig.js"></script>
+<script src="..//common/models/model_ClosePEdsig.js"></script>
+
 <script src="model_myservices.js"></script>
 
 <script src="app.js"></script>
@@ -162,8 +191,26 @@
         <tr>
           <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
           <td>
-            <button class="btn-info btn-block btn-lg text-center" ng-click="puller_PEResults()">
-              DOWNLOAD <br> PE (HIP & KNEE), Diagsnosis  
+            <button class="btn-info btn-block btn-lg text-center" ng-click="puller_PEDiagnosis()">
+              DOWNLOAD <br> PE Diagsnosis  
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
+          <td>
+            <button class="btn-info btn-block btn-lg text-center" ng-click="puller_PEKnee()">
+              DOWNLOAD <br> Knee PE
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="1%"><span class="glyphicon glyphicon-th btn-lg"></span></td>
+          <td>
+            <button class="btn-info btn-block btn-lg text-center" ng-click="puller_PEHip()">
+              DOWNLOAD <br> Hip PE
             </button>
           </td>
         </tr>
@@ -229,6 +276,14 @@
             </button>
           </td>
         </tr>
+         <tr>
+          <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
+          <td>
+            <button class="btn-warning btn-block btn-lg text-center" ng-click="pullphysicalTheraphy()">
+              DOWNLOAD Latest <br> Physical Theraphy
+            </button>
+          </td>
+        </tr>
 
         
 
@@ -251,15 +306,7 @@
             </td>
         </tr>  -->
 
-        <tr>
-            <td width="1%"><span class="glyphicon glyphicon-cog btn-lg"></span></td>
-            <td>
-                <button class="btn-danger btn-block btn-lg text-center" ng-click="pullAllClinix()">
-                  Pull ALL Appointments<br>From Server
-                </button>
-
-            </td>
-        </tr> 
+       
         
         <tr>
             <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
@@ -314,14 +361,48 @@
               </button>
             </td>
         </tr>
+       
         <tr>
           <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
           <td>
-            <button class="btn-warning btn-block btn-lg text-center" ng-click="pullphysicalTheraphy()">
-              DOWNLOAD Latest <br> Physical Theraphy
+            <button class="btn-success btn-block btn-lg text-center" ng-click="">
+              DOWNLOAD <br> OR Reports
             </button>
           </td>
         </tr>
+        
+        <tr>
+          <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
+          <td>
+            <button class="btn-success btn-block btn-lg text-center" ng-click="pullPersonelDsig()">
+              DOWNLOAD <br> Personel Signatures
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="1%"><span class="glyphicon glyphicon-refresh btn-lg"></span></td>
+          <td>
+            <button class="btn-success btn-block btn-lg text-center" ng-click="pullClosePEDsig()">
+              DOWNLOAD <br> Narrative Report Signatures
+            </button>
+          </td>
+        </tr>
+
+
+    
+         <tr>
+            <td width="1%">
+              <span class="glyphicon glyphicon-cog btn-lg"></span>
+            </td>
+            <td>
+                <button class="btn-danger btn-block btn-lg text-center" ng-click="pullAllClinix()">
+                  Pull ALL Appointments<br>From Server
+                </button>
+
+            </td>
+        </tr> 
+        
 
       </table>
     </div>

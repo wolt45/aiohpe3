@@ -111,6 +111,35 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_PT3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT3}
 	, jdata_PT4: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PT4}
 	, jdata_PTNotes1: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PTNotes1}
+
+	, jdata_ORpreOp: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORpreOp}
+	, jdata_ORMedHist: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORMedHist}
+	, jdata_ORSocHab: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORSocHab}
+	, jdata_ORSocHab2: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORSocHab2}
+	, jdata_ORSocHab3: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORSocHab3}
+	, jdata_ORIntraOp: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORIntraOp}
+	, jdata_ORSkinPrep: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORSkinPrep}
+	, jdata_ORBladder: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORBladder}
+	, jdata_ORPotProb: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPotProb}
+	, jdata_ORpostOpRec: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORpostOpRec}
+	, jdata_ORPass: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPass}
+	
+	, jdata_dsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_dsig}
+	, jdata_ORPreOpdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPreOpdsig}
+	, jdata_ORIntraOpdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORIntraOpdsig}
+	, jdata_ORPostOpdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPostOpdsig}
+
+	, jdata_ITFdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ITFdsig}
+	, jdata_PreOpHipdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PreOpHipdsig}
+	, jdata_OpHipdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OpHipdsig}
+	, jdata_PostHipdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PostHipdsig}
+	
+	, jdata_PreOpKneedsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PreOpKneedsig}
+	, jdata_OpKneedsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OpKneedsig}
+	, jdata_PostOpKneedsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PostOpKneedsig}
+
+	, jdata_StrucDiscdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_StrucDiscdsig}
+	, jdata_ClosePEdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ClosePEdsig}
 });
 
 $ipadrbg.context = new $ipadrbg.types.ngpxContext({ name: "webSql", databaseName: "ipadrbg" });

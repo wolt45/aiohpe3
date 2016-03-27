@@ -50,6 +50,8 @@ IOHPEApp.config(function($routeProvider) {
     when('/ORoomPreOp/:p_clinixrid', { templateUrl: 'tplpe/OR-PreOp.html', controller: 'PXDetailCtrl' }).
     when('/ORoomIntraOp/:p_clinixrid', { templateUrl: 'tplpe/OR-IntraOp.html', controller: 'PXDetailCtrl' }).
     when('/ORoomPostOp/:p_clinixrid', { templateUrl: 'tplpe/OR-PostOp.html', controller: 'PXDetailCtrl' }).
+    
+    when('/Interfacility/:p_clinixrid', { templateUrl: 'tplpe/ITFacilityForm.html', controller: 'PXDetailCtrl' }).
 
     otherwise({ redirectTo: '/' });
 });

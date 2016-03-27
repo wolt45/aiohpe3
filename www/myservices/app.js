@@ -715,35 +715,12 @@ function DataController($rootScope, $scope, $http) {
 	//
 	//
 	// PULL PHYSICAL EXAM RESULTS
-  	$scope.puller_PEResults = function() {
+  	$scope.puller_PEDiagnosis = function() {
     	if (confirm(serverIP + ': Download PE Results, DIAGNOSIS, proceed? ')) {
     		
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
-	            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_AmbuStatus'");
-	            tx.executeSql("delete from 'clinix_AmbuStatus'");
-
-	            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipMotionRange'");
-            	tx.executeSql("delete from 'clinix_HipMotionRange'");
-
-            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipStanding'");
-            	tx.executeSql("delete from 'clinix_HipStanding'");
-
-            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipXRays'");
-            	tx.executeSql("delete from 'clinix_HipXRays'");
-
-
-            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeAlignment'");
-            	tx.executeSql("delete from 'clinix_KneeAlignment'");
-
-             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeAppearance'");
-            	tx.executeSql("delete from 'clinix_KneeAppearance'");
-
-              	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeMotionRange'");
-            	tx.executeSql("delete from 'clinix_KneeMotionRange'");
-
-            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeXRays'");
-            	tx.executeSql("delete from 'clinix_KneeXRays'");
+	            
 
 
             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_Diagnosis'");
@@ -768,41 +745,115 @@ function DataController($rootScope, $scope, $http) {
             	tx.executeSql("delete from 'clinix_PEcharges'");
 	        });
 
+
+			$scope.pullDIAGS(function(){
+				$scope.pullDIAGS_mgmt(function(){
+					//$scope.pullDIAGS_ScheduleForSurgery(function(){
+						$scope.pullDIAGS_Medication(function(){
+							$scope.pullDIAGS_Disposition(function(){
+    							$scope.pullDIAGS_Notes(function(){
+    								$scope.pullDIAGS_Charges(function(){
+
+										$ipadrbg.context.saveChanges();
+
+									});
+								});
+							});
+						});
+					//});
+				});
+			});
+    									
+    		// *************************
+    		// retain for reference only
+    		// $scope.pullambustatus()
+    		// .after($scope.pullHipMotionRange)
+    		// .after($scope.pullHipStanding)
+    		// .after
+    		// *************************
+
+      		alert("Importing PE Results, DIAGNOSIS from Server was Successful!");
+    	}
+  	}
+
+  	$scope.puller_PEKnee= function() {
+    	if (confirm(serverIP + ': Download PE Results, DIAGNOSIS, proceed? ')) {
+    		
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeAlignment'");
+            	tx.executeSql("delete from 'clinix_KneeAlignment'");
+
+             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeAppearance'");
+            	tx.executeSql("delete from 'clinix_KneeAppearance'");
+
+              	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeMotionRange'");
+            	tx.executeSql("delete from 'clinix_KneeMotionRange'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_KneeXRays'");
+            	tx.executeSql("delete from 'clinix_KneeXRays'");
+
+	        });
+    		
+
+			$scope.pullKneeAlignment(function(){
+				$scope.pullKneeApperance(function(){
+					$scope.pullKneeMotionRange(function(){
+						$scope.pullKneeXray(function(){
+
+    						$ipadrbg.context.saveChanges();
+
+						});
+					});
+				});
+			});
+    												
+
+    		// *************************
+    		// retain for reference only
+    		// $scope.pullambustatus()
+    		// .after($scope.pullHipMotionRange)
+    		// .after($scope.pullHipStanding)
+    		// .after
+    		// *************************
+
+      		alert("Importing PE Results, DIAGNOSIS from Server was Successful!");
+    	}
+  	}
+  	
+
+  	$scope.puller_PEHip = function() {
+    	if (confirm(serverIP + ': Download PE Results, DIAGNOSIS, proceed? ')) {
+    		
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_AmbuStatus'");
+	            tx.executeSql("delete from 'clinix_AmbuStatus'");
+
+	            tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipMotionRange'");
+            	tx.executeSql("delete from 'clinix_HipMotionRange'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipStanding'");
+            	tx.executeSql("delete from 'clinix_HipStanding'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_HipXRays'");
+            	tx.executeSql("delete from 'clinix_HipXRays'");
+
+	        });
+
     		$scope.pullambustatus(function(){
     			$scope.pullHipMotionRange(function(){
     				$scope.pullHipStanding(function(){
     					$scope.pullHipXray(function(){
 
-    						$scope.pullKneeAlignment(function(){
-	    						$scope.pullKneeApperance(function(){
-		    						$scope.pullKneeMotionRange(function(){
-		    							$scope.pullKneeXray(function(){
+    						$ipadrbg.context.saveChanges();
 
-			    							$scope.pullDIAGS(function(){
-				    							$scope.pullDIAGS_mgmt(function(){
-					    							$scope.pullDIAGS_ScheduleForSurgery(function(){
-						    							$scope.pullDIAGS_Medication(function(){
-							    							$scope.pullDIAGS_Disposition(function(){
-								    							$scope.pullDIAGS_Notes(function(){
-								    								$scope.pullDIAGS_Charges(function(){
-
-    																	$ipadrbg.context.saveChanges();
-
-    																});
-    															});
-    														});
-    													});
-    												});
-    											});
-    										});
-    									});
-    								});
-    							});
-    						});
-    					});
-    				});
-    			});
-    		});
+						});
+					});
+				});
+			});
+    												
 
     		// *************************
     		// retain for reference only
@@ -4967,5 +5018,589 @@ function DataController($rootScope, $scope, $http) {
 	      	// or server returns response with an error status.
 	    });
 	}
+
+
+
+
+
+
+	$scope.pullPersonelDsig = function() {
+    	if (confirm(serverIP + ': Download Personel Signitures, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	
+	        	//http://stackoverflow.com/questions/31328301/sqlerror-19-unique-constraint-failed
+
+	           	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_dsig'");
+            	tx.executeSql("delete from 'jdata_dsig'");
+            	// tx.executeSql("DROP TABLE IF EXISTS jdata_dsig");
+            	// tx.executeSql("CREATE TABLE IF NOT EXISTS jdata_dsig (user TEXT PRIMARY KEY) ")
+	        });
+
+	        $scope.pullDsigData(function(){
+	        							
+				$ipadrbg.context.saveChanges();
+    			
+    		});
+
+			alert("Importing Personel Signitures from Server was Successful!");
+    	}
+	}
+
+
+
+	$scope.pullClosePEDsig= function() {
+    	if (confirm(serverIP + ': Download Narrative Report Signitures, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	
+	        	//http://stackoverflow.com/questions/31328301/sqlerror-19-unique-constraint-failed
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ClosePEdsig'");
+            	tx.executeSql("delete from 'jdata_ClosePEdsig'");
+            	
+	        });
+
+	        
+			$scope.pullClosingPEdsig(function(){
+				$ipadrbg.context.saveChanges();
+			});
+    													
+
+			alert("Importing Narrative Report Signitures from Server was Successful!");
+    	}
+	}
+
+
+
+
+	$scope.pullDsigZzzz = function() {
+    	if (confirm(serverIP + ': Pull all DSIG Data, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	
+	        	//http://stackoverflow.com/questions/31328301/sqlerror-19-unique-constraint-failed
+
+	           	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_dsig'");
+            	tx.executeSql("delete from 'jdata_dsig'");
+            	tx.executeSql("DROP TABLE IF EXISTS jdata_dsig");
+            	// tx.executeSql("CREATE TABLE IF NOT EXISTS jdata_dsig (user TEXT PRIMARY KEY) ")
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ORPreOpdsig'");
+            	tx.executeSql("delete from 'jdata_ORPreOpdsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ORIntraOpdsig'");
+            	tx.executeSql("delete from 'jdata_ORIntraOpdsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ORPostOpdsig'");
+            	tx.executeSql("delete from 'jdata_ORPostOpdsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ITFdsig'");
+            	tx.executeSql("delete from 'jdata_ITFdsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PreOpHipdsig'");
+            	tx.executeSql("delete from 'jdata_PreOpHipdsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PostHipdsig'");
+            	tx.executeSql("delete from 'jdata_PostHipdsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_OpHipdsig'");
+            	tx.executeSql("delete from 'jdata_OpHipdsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_OpKneedsig'");
+            	tx.executeSql("delete from 'jdata_OpKneedsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PostKneedsig'");
+            	tx.executeSql("delete from 'jdata_PostKneedsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PreOpKneedsig'");
+            	tx.executeSql("delete from 'jdata_PreOpKneedsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ClosePEdsig'");
+            	tx.executeSql("delete from 'jdata_ClosePEdsig'");
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_StrucDiscdsig'");
+            	tx.executeSql("delete from 'jdata_StrucDiscdsig'");
+	        });
+
+	        $scope.pullDsigData(function(){
+	        	$scope.pullPreDsigData(function(){
+	        		$scope.pullIntraDsigData(function(){
+	        			$scope.pullPostDsigData(function(){
+	        				 $scope.pullITFdsig(function(){
+	        					$scope.pullPreOPHipdsig(function(){
+	        						$scope.pullPostOPHipdsig(function(){
+	        							$scope.pullOPHipdsig(function(){
+	        								$scope.pullOPKneedsig(function(){
+	        									$scope.pullPostKneedsig(function(){
+	        										$scope.pullPreKneedsig(function(){
+	        											$scope.pullClosingPEdsig(function(){
+	        												$scope.pullStrucdsig(function(){
+	        							
+																$ipadrbg.context.saveChanges();
+    									
+    														});
+    													});
+    												});
+    											});
+    										});
+    									});
+    								});
+    							});
+    						});
+    					});
+    				});
+    			});
+    		});
+
+			alert("Importing ORDERS, Discharge Summary and REPORTS from Server was Successful!");
+    	}
+	}
+
+	$scope.pullDsigData= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Dsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_dsig = new $ipadrbg.types.jdata_dsig();
+			    	
+					jdata_dsig.dsigRID = data[idx].dsigRID;
+					jdata_dsig.ClinixRID = data[idx].ClinixRID;
+					jdata_dsig.PxRID = data[idx].PxRID;
+						
+					jdata_dsig.PIN = data[idx].PIN;
+        			jdata_dsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_dsig.b64a = data[idx].b64a;                                                    
+        			jdata_dsig.b64b = data[idx].b64b;
+        			jdata_dsig.b64c = data[idx].b64c;
+        			jdata_dsig.Deleted = data[idx].Deleted;
+        			jdata_dsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_dsig.add(jdata_dsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullPreDsigData= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ORpreDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_ORPreOpdsig = new $ipadrbg.types.jdata_ORPreOpdsig();
+			    	
+					jdata_ORPreOpdsig.dsigRID = data[idx].dsigRID;
+					jdata_ORPreOpdsig.ClinixRID = data[idx].ClinixRID;
+					jdata_ORPreOpdsig.PxRID = data[idx].PxRID;
+						
+					jdata_ORPreOpdsig.PIN = data[idx].PIN;
+        			jdata_ORPreOpdsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_ORPreOpdsig.b64a = data[idx].b64a;                                                    
+        			jdata_ORPreOpdsig.b64b = data[idx].b64b;
+        			jdata_ORPreOpdsig.b64c = data[idx].b64c;
+        			jdata_ORPreOpdsig.Deleted = data[idx].Deleted;
+        			jdata_ORPreOpdsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_ORPreOpdsig.add(jdata_ORPreOpdsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullIntraDsigData= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ORpreDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_ORIntraOpdsig = new $ipadrbg.types.jdata_ORIntraOpdsig();
+			    	
+					jdata_ORIntraOpdsig.dsigRID = data[idx].dsigRID;
+					jdata_ORIntraOpdsig.ClinixRID = data[idx].ClinixRID;
+					jdata_ORIntraOpdsig.PxRID = data[idx].PxRID;
+						
+					jdata_ORIntraOpdsig.PIN = data[idx].PIN;
+        			jdata_ORIntraOpdsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_ORIntraOpdsig.b64a = data[idx].b64a;                                                    
+        			jdata_ORIntraOpdsig.b64b = data[idx].b64b;
+        			jdata_ORIntraOpdsig.b64c = data[idx].b64c;
+        			jdata_ORIntraOpdsig.Deleted = data[idx].Deleted;
+        			jdata_ORIntraOpdsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_ORIntraOpdsig.add(jdata_ORIntraOpdsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullPostDsigData= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ORpreDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_ORPostOpdsig = new $ipadrbg.types.jdata_ORPostOpdsig();
+			    	
+					jdata_ORPostOpdsig.dsigRID = data[idx].dsigRID;
+					jdata_ORPostOpdsig.ClinixRID = data[idx].ClinixRID;
+					jdata_ORPostOpdsig.PxRID = data[idx].PxRID;
+						
+					jdata_ORPostOpdsig.PIN = data[idx].PIN;
+        			jdata_ORPostOpdsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_ORPostOpdsig.b64a = data[idx].b64a;                                                    
+        			jdata_ORPostOpdsig.b64b = data[idx].b64b;
+        			jdata_ORPostOpdsig.b64c = data[idx].b64c;
+        			jdata_ORPostOpdsig.Deleted = data[idx].Deleted;
+        			jdata_ORPostOpdsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_ORPostOpdsig.add(jdata_ORPostOpdsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullITFdsig= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ITFDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_ITFdsig = new $ipadrbg.types.jdata_ITFdsig();
+			    	
+					jdata_ITFdsig.dsigRID = data[idx].dsigRID;
+					jdata_ITFdsig.ClinixRID = data[idx].ClinixRID;
+					jdata_ITFdsig.PxRID = data[idx].PxRID;
+						
+					jdata_ITFdsig.PIN = data[idx].PIN;
+        			jdata_ITFdsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_ITFdsig.b64a = data[idx].b64a;                                                    
+        			jdata_ITFdsig.b64b = data[idx].b64b;
+        			jdata_ITFdsig.b64c = data[idx].b64c;
+        			jdata_ITFdsig.Deleted = data[idx].Deleted;
+        			jdata_ITFdsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_ITFdsig.add(jdata_ITFdsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullPreOPHipdsig= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_PreOpHipDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PreOpHipdsig = new $ipadrbg.types.jdata_PreOpHipdsig();
+			    	
+					jdata_PreOpHipdsig.dsigRID = data[idx].dsigRID;
+					jdata_PreOpHipdsig.ClinixRID = data[idx].ClinixRID;
+					jdata_PreOpHipdsig.PxRID = data[idx].PxRID;
+						
+					jdata_PreOpHipdsig.PIN = data[idx].PIN;
+        			jdata_PreOpHipdsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_PreOpHipdsig.b64a = data[idx].b64a;                                                    
+        			jdata_PreOpHipdsig.b64b = data[idx].b64b;
+        			jdata_PreOpHipdsig.b64c = data[idx].b64c;
+        			jdata_PreOpHipdsig.Deleted = data[idx].Deleted;
+        			jdata_PreOpHipdsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_PreOpHipdsig.add(jdata_PreOpHipdsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullPostOPHipdsig= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_PostHipDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PostHipdsig = new $ipadrbg.types.jdata_PostHipdsig();
+			    	
+					jdata_PostHipdsig.dsigRID = data[idx].dsigRID;
+					jdata_PostHipdsig.ClinixRID = data[idx].ClinixRID;
+					jdata_PostHipdsig.PxRID = data[idx].PxRID;
+						
+					jdata_PostHipdsig.PIN = data[idx].PIN;
+        			jdata_PostHipdsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_PostHipdsig.b64a = data[idx].b64a;                                                    
+        			jdata_PostHipdsig.b64b = data[idx].b64b;
+        			jdata_PostHipdsig.b64c = data[idx].b64c;
+        			jdata_PostHipdsig.Deleted = data[idx].Deleted;
+        			jdata_PostHipdsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_PostHipdsig.add(jdata_PostHipdsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullOPHipdsig= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_OpHipDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_OpHipdsig = new $ipadrbg.types.jdata_OpHipdsig();
+			    	
+					jdata_OpHipdsig.dsigRID = data[idx].dsigRID;
+					jdata_OpHipdsig.ClinixRID = data[idx].ClinixRID;
+					jdata_OpHipdsig.PxRID = data[idx].PxRID;
+						
+					jdata_OpHipdsig.PIN = data[idx].PIN;
+        			jdata_OpHipdsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_OpHipdsig.b64a = data[idx].b64a;                                                    
+        			jdata_OpHipdsig.b64b = data[idx].b64b;
+        			jdata_OpHipdsig.b64c = data[idx].b64c;
+        			jdata_OpHipdsig.Deleted = data[idx].Deleted;
+        			jdata_OpHipdsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_OpHipdsig.add(jdata_OpHipdsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullOPKneedsig= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_OpKneeDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_OpKneedsig = new $ipadrbg.types.jdata_OpKneedsig();
+			    	
+					jdata_OpKneedsig.dsigRID = data[idx].dsigRID;
+					jdata_OpKneedsig.ClinixRID = data[idx].ClinixRID;
+					jdata_OpKneedsig.PxRID = data[idx].PxRID;
+						
+					jdata_OpKneedsig.PIN = data[idx].PIN;
+        			jdata_OpKneedsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_OpKneedsig.b64a = data[idx].b64a;                                                    
+        			jdata_OpKneedsig.b64b = data[idx].b64b;
+        			jdata_OpKneedsig.b64c = data[idx].b64c;
+        			jdata_OpKneedsig.Deleted = data[idx].Deleted;
+        			jdata_OpKneedsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_OpKneedsig.add(jdata_OpKneedsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+	$scope.pullPostKneedsig= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_PostKneeDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PostOpKneedsig = new $ipadrbg.types.jdata_PostOpKneedsig();
+			    	
+					// jdata_PostOpKneedsig.dsigRID = data[idx].dsigRID;
+					jdata_PostOpKneedsig.ClinixRID = data[idx].ClinixRID;
+					jdata_PostOpKneedsig.PxRID = data[idx].PxRID;
+						
+					jdata_PostOpKneedsig.PIN = data[idx].PIN;
+        			jdata_PostOpKneedsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_PostOpKneedsig.b64a = data[idx].b64a;                                                    
+        			jdata_PostOpKneedsig.b64b = data[idx].b64b;
+        			jdata_PostOpKneedsig.b64c = data[idx].b64c;
+        			jdata_PostOpKneedsig.Deleted = data[idx].Deleted;
+        			jdata_PostOpKneedsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_PostOpKneedsig.add(jdata_PostOpKneedsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullPreKneedsig= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_PreKneeDsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_PreOpKneedsig = new $ipadrbg.types.jdata_PreOpKneedsig();
+			    	
+					jdata_PreOpKneedsig.dsigRID = data[idx].dsigRID;
+					jdata_PreOpKneedsig.ClinixRID = data[idx].ClinixRID;
+					jdata_PreOpKneedsig.PxRID = data[idx].PxRID;
+						
+					jdata_PreOpKneedsig.PIN = data[idx].PIN;
+        			jdata_PreOpKneedsig.MonthlyIncome = data[idx].MonthlyIncome;                                                  
+        			jdata_PreOpKneedsig.b64a = data[idx].b64a;                                                    
+        			jdata_PreOpKneedsig.b64b = data[idx].b64b;
+        			jdata_PreOpKneedsig.b64c = data[idx].b64c;
+        			jdata_PreOpKneedsig.Deleted = data[idx].Deleted;
+        			jdata_PreOpKneedsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_PreOpKneedsig.add(jdata_PreOpKneedsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullClosingPEdsig= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_ClosingPEdsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_ClosePEdsig = new $ipadrbg.types.jdata_ClosePEdsig();
+			    	
+					jdata_ClosePEdsig.dsigRID = data[idx].dsigRID;
+					jdata_ClosePEdsig.ClinixRID = data[idx].ClinixRID;
+					jdata_ClosePEdsig.PxRID = data[idx].PxRID;
+						
+					jdata_ClosePEdsig.NursePIN = data[idx].NursePIN;
+        			jdata_ClosePEdsig.DoctorPIN = data[idx].DoctorPIN;                                                  
+        			jdata_ClosePEdsig.b64a = data[idx].b64a;                                                    
+        			jdata_ClosePEdsig.b64b = data[idx].b64b;
+        			jdata_ClosePEdsig.b64c = data[idx].b64c;
+        			jdata_ClosePEdsig.Deleted = data[idx].Deleted;
+        			jdata_ClosePEdsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_ClosePEdsig.add(jdata_ClosePEdsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	$scope.pullStrucdsig= function(callback){
+		$http({method: 'GET', url: 'http://' + serverIP + '/RBGsrvr_todayset/pull_Strucdsig.php'}).success ( function ( data, status, headers, config ) {
+			if (data !== null ) {
+		      	// save to websql
+			    for(idx in data){
+			    	var jdata_StrucDiscdsig = new $ipadrbg.types.jdata_StrucDiscdsig();
+			    	
+					jdata_StrucDiscdsig.dsigRID = data[idx].dsigRID;
+					jdata_StrucDiscdsig.ClinixRID = data[idx].ClinixRID;
+					jdata_StrucDiscdsig.PxRID = data[idx].PxRID;
+						
+					jdata_StrucDiscdsig.NursePIN = data[idx].PIN;
+        			jdata_StrucDiscdsig.MonthlyIncome = data[idx].MonthlyIncome;                                                 
+        			jdata_StrucDiscdsig.b64a = data[idx].b64a;                                                    
+        			jdata_StrucDiscdsig.b64b = data[idx].b64b;
+        			jdata_StrucDiscdsig.b64c = data[idx].b64c;
+        			jdata_StrucDiscdsig.Deleted = data[idx].Deleted;
+        			jdata_StrucDiscdsig.SynchStatus = data[idx].SynchStatus;
+
+					$ipadrbg.context.jdata_StrucDiscdsig.add(jdata_StrucDiscdsig);
+				}
+			}
+
+
+			callback();
+			// else
+			// 	alert("Nothing to Import from Server!");
+	    }).
+	    error(function(data, status, headers, config) {
+	      	// called asynchronously if an error occurs
+	      	// or server returns response with an error status.
+	    });
+	}
+
+	
 	
 }

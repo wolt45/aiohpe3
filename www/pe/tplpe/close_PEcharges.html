@@ -118,9 +118,30 @@
 		        	<td></td>
 				</tr>	
 
-				<tr><td class="active" colspan="9">&nbsp;</td></tr>	
-				<tr><td class="active" colspan="9">&nbsp;</td></tr>	
+				<tr>
+			<td class="warning" colspan="12" id="DGL_module_header">
+				Signiture
+			</td>
+		</tr>
+		<tr>
+			<td class="text-center form-inline" colspan="2" nowrap>
+				Nurse PIN
+				<input type="password" ng-model="PEdsigNurse.NursePIN" value="0" class="form-control">
+				
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000" ng-click="ClosePEdsigNurse(PEdsigNurse)" > SAVE</a><br>
+			</td>
 
+
+			<td class="text-center form-inline" colspan="4" nowrap>
+				Doctor PIN
+				<input type="password" ng-model="PEdsigDoc.DoctorPIN" value="0" class="form-control">
+				
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000" ng-click="ClosePEdsigDoc(PEdsigDoc)" > SAVE</a><br>
+			</td>
+
+			
+		</tr>
+				
 				<tr class="info">
 					<!-- th class="text-center" style="color: #000" nowrap>Appt: 
 						{{clinix.ClinixRID}} <br> {{clinix.AppDateSet | date}} <br>
@@ -132,9 +153,9 @@
 						<br>
 						{{clinix.pxname}}
 					</th -->
-
-					<td class="text-center" colspan="19">
-		            	<a class="btn btn-large btn-danger" ng-click="ClosePE(clinix)" style="text-decoration: none">
+		
+					<td class="text-center form-inline" colspan="19">
+		            	<a class="btn btn-large btn-danger" ng-click="ClosePE(clinix, PEdsigNurse, PEdsigDoc)" style="text-decoration: none">
 		            		CLOSE PE
 		            	</a>
 
@@ -149,4 +170,6 @@
 
   	</div>
 
+	<ng:include src="'tplpe/ClosePEDsig.html'"></ng:include>
+	
 </div>

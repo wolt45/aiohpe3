@@ -125,6 +125,25 @@ $data.EntityContext.extend("$ipadrbg.types.ngpxContext", {
 	, jdata_ORPotProb: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPotProb}
 	, jdata_ORpostOpRec: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORpostOpRec}
 	, jdata_ORPass: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPass}
+	, jdata_ITF: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ITF}
+	
+	, jdata_dsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_dsig}
+	, jdata_ORPreOpdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPreOpdsig}
+	, jdata_ORIntraOpdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORIntraOpdsig}
+	, jdata_ORPostOpdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ORPostOpdsig}
+	
+	, jdata_ITFdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ITFdsig}
+	, jdata_PreOpHipdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PreOpHipdsig}
+	, jdata_OpHipdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OpHipdsig}
+	, jdata_PostHipdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PostHipdsig}
+	
+	, jdata_PreOpKneedsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PreOpKneedsig}
+	, jdata_OpKneedsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_OpKneedsig}
+	, jdata_PostOpKneedsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_PostOpKneedsig}
+
+	, jdata_StrucDiscdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_StrucDiscdsig}
+	, jdata_ClosePEdsig: { type: $data.EntitySet, elementType: $ipadrbg.types.jdata_ClosePEdsig}
+	
 
 });
 

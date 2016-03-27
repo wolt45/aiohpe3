@@ -121,6 +121,35 @@
     <script src="..//common/models/model_PT4.js"></script>
     <script src="..//common/models/model_PTHistory.js"></script>
     <script src="..//common/models/model_PTNotes1.js"></script>
+
+    <script src="..//common/models/model_ORBladder.js"></script>
+    <script src="..//common/models/model_ORIntraOp.js"></script>
+    <script src="..//common/models/model_ORMedHist.js"></script>
+    <script src="..//common/models/model_ORPass.js"></script>
+    <script src="..//common/models/model_ORPostOpRec.js"></script>
+    <script src="..//common/models/model_ORPotentProb.js"></script>
+    <script src="..//common/models/model_ORpreOp.js"></script>
+    <script src="..//common/models/model_ORSkinPrep.js"></script>
+    <script src="..//common/models/model_ORSocialHabits.js"></script>
+    <script src="..//common/models/model_ORSocialHabits2.js"></script>
+    <script src="..//common/models/model_ORSocialHabits3.js"></script>
+
+    <script src="..//common/models/model_ORPreOpdsig.js"></script>
+    <script src="..//common/models/model_ORIntraOpdsig.js"></script>
+    <script src="..//common/models/model_ORPostOpdsig.js"></script>
+
+    <script src="..//common/models/model_ITFdsig.js"></script>
+    <script src="..//common/models/model_PreOpHipdsig.js"></script>
+    <script src="..//common/models/model_OpHipdsig.js"></script>
+    <script src="..//common/models/model_PostHipdsig.js"></script>
+
+    <script src="..//common/models/model_PreOpKneedsig.js"></script>
+    <script src="..//common/models/model_OpKneedsig.js"></script>
+    <script src="..//common/models/model_PostOpKneedsig.js"></script>
+
+    <script src="..//common/models/model_StrucDiscdsig.js"></script>
+    <script src="..//common/models/model_ClosePEdsig.js"></script>
+
     
     <!--  TOP Models Loader -->
     <script src="model_myservices_back.js"></script>
@@ -194,14 +223,13 @@
                     </a>
                 </td>
             </tr>
-
-
             <tr>
                 <td><span class="glyphicon glyphicon-hand-down btn-lg"></span></td>
                 <td>
-                    <a class="btn btn-warning btn-block btn-lg text-center" style="text-decoration : none" 
-                        ng-click="pushHIPops()">
-                        Synch H I P REPORTS / ORDERS 
+                    <a class="btn btn-info btn-block btn-lg text-center" 
+                            style="text-decoration : none" 
+                            ng-click="pushORData()">
+                        Synch OR Data
                     </a>
                 </td>
 
@@ -217,8 +245,8 @@
                 <td><span class="glyphicon glyphicon-hand-down btn-lg"></span></td>
                 <td>
                     <a class="btn btn-warning btn-block btn-lg text-center" style="text-decoration : none" 
-                        ng-click="pushKNEEops()">
-                        Synch K N E E REPORTS / ORDERS 
+                        ng-click="pushHIPops()">
+                        Synch H I P REPORTS / ORDERS 
                     </a>
                 </td>
 
@@ -234,8 +262,8 @@
                 <td><span class="glyphicon glyphicon-hand-down btn-lg"></span></td>
                 <td>
                     <a class="btn btn-warning btn-block btn-lg text-center" style="text-decoration : none" 
-                    ng-click="pushStructuredDS()">
-                        Synch Structured Discharge
+                        ng-click="pushKNEEops()">
+                        Synch K N E E REPORTS / ORDERS 
                     </a>
                 </td>
 
@@ -245,6 +273,23 @@
                         Synch SPORTS KNEE  
                     </a>
                 </td>
+            </tr>
+
+            <tr>
+                <td><span class="glyphicon glyphicon-hand-down btn-lg"></span></td>
+                <td>
+                    <a class="btn btn-warning btn-block btn-lg text-center" style="text-decoration : none" 
+                    ng-click="pushStructuredDS()">
+                        Synch Structured Discharge
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning btn-block btn-lg text-center" style="text-decoration : none" 
+                    ng-click="pushSignitures()">
+                        Synch Signitures
+                    </a>
+                </td>
+                
             </tr>
             <tr>
                 <td><span class="glyphicon glyphicon-hand-down btn-lg"></span></td>
@@ -256,9 +301,10 @@
                 </td>
 
                 <td>
-                  
+                    
                 </td>
             </tr>
+
         </table>
 
         <div id="view" ng-view>

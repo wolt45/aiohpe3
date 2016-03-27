@@ -20,7 +20,7 @@ IOHPEApp.controller('ORPostOpRec_Ctrl', function ($scope, $routeParams, $http){
     ,Temp : pxresult[0]['Temp']
     ,Sp02 : pxresult[0]['Sp02']
     ,Via : pxresult[0]['Via']
-    ,From : pxresult[0]['From']
+    ,FromStr : pxresult[0]['FromStr']
     ,Anesthesia : pxresult[0]['Anesthesia']
     ,O2MaskCan : pxresult[0]['O2MaskCan']
   
@@ -49,7 +49,7 @@ IOHPEApp.controller('ORPostOpRec_Ctrl', function ($scope, $routeParams, $http){
       ,Temp : frmORPostOpRec.Temp
       ,Sp02 : frmORPostOpRec.Sp02
       ,Via : frmORPostOpRec.Via
-      ,From : frmORPostOpRec.From
+      ,FromStr : frmORPostOpRec.FromStr
       ,Anesthesia : frmORPostOpRec.Anesthesia
       ,O2MaskCan : frmORPostOpRec.O2MaskCan
 

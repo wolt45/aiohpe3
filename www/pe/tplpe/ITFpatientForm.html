@@ -1,0 +1,135 @@
+	<div ng-controller="ITF_Ctrl">
+	<table class="table table-bordered">					
+		
+		<tr>
+			<td width='1%' colspan="4" nowrap>
+			
+				<input type="radio" ng-model="ITF.Hospital" ng-true-value="Foley/Ballon Size" value="Cadiz District Hospital"> Cadiz District Hospital
+				<br>
+				<input type="radio" ng-model="ITF.Hospital" ng-true-value="Foley/Ballon Size" value="Theresita L. Jalandoni Provincial Memorial Hospital"> Theresita L. Jalandoni Provincial Memorial Hospital
+				<br>
+				<input type="radio" ng-model="ITF.Hospital" ng-true-value="Foley/Ballon Size" value="Corazon Locsin Montelibano Memorial Regional Hospital"> Corazon Locsin Montelibano Memorial Regional Hospital
+				
+			</td>
+		</tr>
+		<tr>
+			<td class="active form-inline"  nowrap width="1%">
+				Private Hospital 
+			</td>
+			<td colspan="3">
+				<input type="text" class="form-control" ng-model="ITF.RefHosp">
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td width='1%' class="active" nowrap>
+				Recieving Physician
+			</td>
+			<td>
+				<input type="text" ng-model="ITF.RecPhy" class="form-control">
+			</td>
+			<td nowrap class="active" >
+				Contact Time
+			</td>
+			<td>
+				<input type="time" class="form-control" ng-model="ITF.TimeRef">
+			</td>
+			<td></td>
+		</tr>
+	</table>
+	<table class="table table-bordered">
+		<tr>
+			<td class="active"> Brief History</td>
+			<td>
+				<textarea class="form-control" ng-model="ITF.BrifHist">
+				</textarea>
+			</td>
+		</tr>
+	</table>
+	<table class="table table-bordered">
+		<tr>
+			<td class="success" colspan="9" id="DGL_module_header"> Physical Examination</td>
+		</tr>
+		<tr>
+			<td width="1%" class="active">BP:</td>
+			<td><input type="text" ng-model="ITF.BP" class="form-control"></td>
+		
+			<td width="1%" class="active">CR:</td>
+			<td><input type="text" ng-model="ITF.CR" class="form-control"></td>
+		
+			<td width="1%" class="active">RR:</td>
+			<td><input type="text" ng-model="ITF.RR" class="form-control"></td>
+		</tr>
+		<tr>
+			<td width="1%" class="active">T:</td>
+			<td><input type="text" class="form-control" ng-model="ITF.T"></td>
+		
+			<td width="1%" class="active" nowrap>O2 sat:</td>
+			<td><input type="text" ng-model="ITF.O2sat" class="form-control"></td>
+		</tr>
+		</table>
+		<table class="table table-bordered">
+		<tr>
+			<td width="1%" class="active" nowrap>Width</td>
+			<td width="20%"><input type="text" ng-model="ITF.Width" class="form-control"></td>
+			<td width="1%" class="active" nowrap>Height</td>
+			<td width="20%"><input type="text" ng-model="ITF.Height"  class="form-control"></td>
+			<td></td>
+		</tr>
+	</table>
+	<table class="table table-bordered" >
+		<tr>
+			<td class="active" width="1%" nowrap>
+				Laboraory procedure/s done
+			</td>
+			<td colspan="2">
+				<textarea ng-model="ITF.Lab" class="form-control"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+				Medications given
+			</td>
+			<td colspan="2">
+				<textarea ng-model="ITF.MedGiven" class="form-control"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+				Diagnosis
+			</td>
+			<td colspan="2">
+				<textarea ng-model="ITF.Diagnosis" class="form-control"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+				Reason of Transfer
+			</td>
+			<td colspan="2">
+				<textarea ng-model="ITF.MedTansfer" class="form-control"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="active">
+				Referring Physician
+			</td>
+			<td width="40%">
+				<input type="text" ng-model="ITF.RefPhy" class="form-control">
+			</td>
+			<td></td>
+		</tr>
+		<tr>	
+			<td class="text-center" colspan="9" nowrap>
+				<a class="btn btn-large btn-info" style="text-decoration: none; color: #000"
+				 	ng-click="addNew_ITF(ITF)">
+				 	SAVE
+				</a>
+				<a class="btn btn-large btn-danger" style="text-decoration: none"
+            		ng-click="removeITF(ITF)">
+            		DELETE
+            	</a>
+			</td>
+		</tr>
+	</table>
+</div>

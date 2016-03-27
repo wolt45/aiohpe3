@@ -11,7 +11,7 @@
 		<tr class="success">
 			<th colspan=9>
 				<span id="DGL_module_header">
-	    			Operating Room
+	    			OR Post-Operative Form
 	    		</span>
 			</th>
 		</tr>
@@ -19,7 +19,11 @@
 	
 		<ng:include src="'tplpe/ORPostOpRec.html'"></ng:include>
 	<div scroll-bookmark="Pass">
-	<ng:include src="'tplpe/ORPass.html'"></ng:include>
+		<ng:include src="'tplpe/ORPass.html'"></ng:include>
+	</div>
+
+	<div scroll-bookmark="ornurse">
+		<ng:include src="'tplpe/ORPostOpDsig.html'"></ng:include>
 	</div>
 	
 </div>

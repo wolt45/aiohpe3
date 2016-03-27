@@ -10,7 +10,7 @@ $data.Entity.extend("$ipadrbg.types.jdata_ORpostOpRec", {
 	, Temp: { type: "string"}
 	, Sp02: { type: "string"}
 	, Via: { type: "string"}
-	, From: { type: "string"}
+	, FromStr: { type: "string"}
 	, Anesthesia: { type: "string"}
 	, O2MaskCan: { type: "string"}
 			

@@ -132,159 +132,166 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   // if slows Doctor interaction, move to PUSH button Main Menu
   /////////////////////////////////////////////////////////////
 
-  $scope.ClosePE = function (clinix) {
-    if (confirm('Are you sure to Close this Appoinment => : ' + $scope.ClinixRID + ' ?')) {
-      
-      clinix.TranStatus = 30; // instead of 2-UNPAID, 30-CLOSED PE = UNPAID
-      clinix.TranStatusDisp = "UNPAID";
-      $ipadrbg.context.clinix.attach(clinix);
-      
-      clinix.pxAddress = null;
-      $ipadrbg.context.clinix.saveChanges();
+  $scope.ClosePE = function (clinix, PEdsigNurse) {
+    if(angular.isUndefined(PEdsigNurse) || angular.isUndefined(PEdsigDoc))
+    { 
+      alert('Please Enter Signiture PIN');
+    }else
+    {
 
-      //TranStatus changed, reconsutruct JSON, preparation for Synch
-      $scope.clinix_JSON = JSON.stringify(clinix);
-      $scope.clinix_JSON = "[" + $scope.clinix_JSON + "]";
+      if (confirm('Are you sure to Close this Appoinment => : ' + $scope.ClinixRID + ' ?')) {
+        
+        clinix.TranStatus = 30; // instead of 2-UNPAID, 30-CLOSED PE = UNPAID
+        clinix.TranStatusDisp = "UNPAID";
+        $ipadrbg.context.clinix.attach(clinix);
+        
+        clinix.pxAddress = null;
+        $ipadrbg.context.clinix.saveChanges();
 
-      //Push Ambulatory Status, this Clinix PE only
-      $scope.clinix_AmbuStatus = [];
-      var promise = $ipadrbg.context.clinix_AmbuStatus.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_AmbuStatus = pxresult;
+        //TranStatus changed, reconsutruct JSON, preparation for Synch
+        $scope.clinix_JSON = JSON.stringify(clinix);
+        $scope.clinix_JSON = "[" + $scope.clinix_JSON + "]";
+
+        //Push Ambulatory Status, this Clinix PE only
+        $scope.clinix_AmbuStatus = [];
+        var promise = $ipadrbg.context.clinix_AmbuStatus.filter(function (px) { 
+          return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+        promise.then(function(pxresult) {
+          $scope.$apply(function () {
+            $scope.clinix_AmbuStatus = pxresult;
+          });
+          $scope.clinix_AmbuStatus_JSON = JSON.stringify($scope.clinix_AmbuStatus);
+          $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_AmbuStatus.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+            , contentType : 'application/json'
+            , data : $scope.clinix_AmbuStatus_JSON
+            , cache : false
+          });
         });
-        $scope.clinix_AmbuStatus_JSON = JSON.stringify($scope.clinix_AmbuStatus);
-        $http({
-          method: 'POST'
-          , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_AmbuStatus.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_AmbuStatus_JSON
-          , cache : false
+
+
+        // Push Diagnosis, this Clinix.PE onlye   11.99
+        $scope.clinix_Diagnosis = [];
+        var promise = $ipadrbg.context.clinix_Diagnosis.filter(function (px) { 
+          return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+
+        promise.then(function(pxresult) {
+          $scope.$apply(function () {
+            $scope.clinix_Diagnosis = pxresult;
+          });
+          $scope.clinix_Diagnosis_JSON = JSON.stringify($scope.clinix_Diagnosis);
+          $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_Diagnosis.php' //?clinixJsonIzed=' + $scope.clinix_Diagnosis_JSON
+            , contentType : 'application/json'
+            , data : $scope.clinix_Diagnosis_JSON
+            , cache : false
+          });
         });
-      });
 
 
-      // Push Diagnosis, this Clinix.PE onlye   11.99
-      $scope.clinix_Diagnosis = [];
-      var promise = $ipadrbg.context.clinix_Diagnosis.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_Diagnosis = pxresult;
+        // PUSH DiagsManagement
+        $scope.clinix_DiagsManagement = [];
+        var promise = $ipadrbg.context.clinix_DiagsManagement.filter(function (px) { 
+          return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+        promise.then(function(pxresult) {
+          $scope.$apply(function () {
+            $scope.clinix_DiagsManagement = pxresult;
+          });
+          $scope.clinix_DiagsManagement_JSON = JSON.stringify($scope.clinix_DiagsManagement);
+          $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsManagement.php' // ?clinixJsonIzed=' + $scope.clinix_DiagsManagement_JSON
+            , contentType : 'application/json'
+            , data : $scope.clinix_DiagsManagement_JSON
+            , cache : false
+          });
         });
-        $scope.clinix_Diagnosis_JSON = JSON.stringify($scope.clinix_Diagnosis);
-        $http({
-          method: 'POST'
-          , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_Diagnosis.php' //?clinixJsonIzed=' + $scope.clinix_Diagnosis_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_Diagnosis_JSON
-          , cache : false
+
+
+        // PUSH DiagsMedication = [];
+        $scope.clinix_DiagsMedication = [];
+        var promise = $ipadrbg.context.clinix_DiagsMedication.filter(function (px) { 
+          return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+        promise.then(function(pxresult) {
+          $scope.$apply(function () {
+            $scope.clinix_DiagsMedication = pxresult;
+          });
+          $scope.clinix_DiagsMedication_JSON = JSON.stringify($scope.clinix_DiagsMedication);
+          $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsMedication.php' //?clinixJsonIzed=' + $scope.clinix_DiagsMedication_JSON
+            , contentType : 'application/json'
+            , data : $scope.clinix_DiagsMedication_JSON
+            , cache : false
+          });
         });
-      });
 
 
-      // PUSH DiagsManagement
-      $scope.clinix_DiagsManagement = [];
-      var promise = $ipadrbg.context.clinix_DiagsManagement.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagsManagement = pxresult;
+        // PUSH DiagSchedSurgery = [];
+        $scope.clinix_DiagSchedSurgery = [];
+        var promise = $ipadrbg.context.clinix_DiagSchedSurgery.filter(function (px) { 
+          return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+        promise.then(function(pxresult) {
+          $scope.$apply(function () {
+            $scope.clinix_DiagSchedSurgery = pxresult;
+          });
+          $scope.clinix_DiagSchedSurgery_JSON = JSON.stringify($scope.clinix_DiagSchedSurgery);
+          $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsSchedSurgery.php' //?clinixJsonIzed=' + $scope.clinix_DiagSchedSurgery_JSON
+            , contentType : 'application/json'
+            , data : $scope.clinix_DiagSchedSurgery_JSON
+            , cache : false
+          });
         });
-        $scope.clinix_DiagsManagement_JSON = JSON.stringify($scope.clinix_DiagsManagement);
-        $http({
-          method: 'POST'
-          , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsManagement.php' // ?clinixJsonIzed=' + $scope.clinix_DiagsManagement_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagsManagement_JSON
-          , cache : false
+
+
+        // PUSH DiagsDisposition = [];
+        $scope.clinix_DiagsDisposition = [];
+        var promise = $ipadrbg.context.clinix_DiagsDisposition.filter(function (px) { 
+          return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+        promise.then(function(pxresult) {
+          $scope.$apply(function () {
+            $scope.clinix_DiagsDisposition = pxresult;
+          });
+          $scope.clinix_DiagsDisposition_JSON = JSON.stringify($scope.clinix_DiagsDisposition);
+          $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsDisposition.php' //?clinixJsonIzed=' + $scope.clinix_DiagsDisposition_JSON
+            , contentType : 'application/json'
+            , data : $scope.clinix_DiagsDisposition_JSON
+            , cache : false
+          });
         });
-      });
 
 
-      // PUSH DiagsMedication = [];
-      $scope.clinix_DiagsMedication = [];
-      var promise = $ipadrbg.context.clinix_DiagsMedication.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagsMedication = pxresult;
+        // PUSH Diags NOTES  
+        $scope.clinix_DiagsNotes = [];
+        var promise = $ipadrbg.context.clinix_DiagsNotes.filter(function (px) { 
+          return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
+        promise.then(function(pxresult) {
+          $scope.$apply(function () {
+            $scope.clinix_DiagsNotes = pxresult;
+          });
+          $scope.clinix_DiagsNotes_JSON = JSON.stringify($scope.clinix_DiagsNotes);
+          $http({
+            method: 'POST'
+            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsNotes.php' //?clinixJsonIzed=' + $scope.clinix_DiagsNotes_JSON
+            , contentType : 'application/json'
+            , data : $scope.clinix_DiagsNotes_JSON
+            , cache : false
+          });
         });
-        $scope.clinix_DiagsMedication_JSON = JSON.stringify($scope.clinix_DiagsMedication);
-        $http({
-          method: 'POST'
-          , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsMedication.php' //?clinixJsonIzed=' + $scope.clinix_DiagsMedication_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagsMedication_JSON
-          , cache : false
-        });
-      });
 
+        // PUSH BACK - FLOOR
 
-      // PUSH DiagSchedSurgery = [];
-      $scope.clinix_DiagSchedSurgery = [];
-      var promise = $ipadrbg.context.clinix_DiagSchedSurgery.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagSchedSurgery = pxresult;
-        });
-        $scope.clinix_DiagSchedSurgery_JSON = JSON.stringify($scope.clinix_DiagSchedSurgery);
-        $http({
-          method: 'POST'
-          , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsSchedSurgery.php' //?clinixJsonIzed=' + $scope.clinix_DiagSchedSurgery_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagSchedSurgery_JSON
-          , cache : false
-        });
-      });
+        //notify server
+        $scope.notifyServer();
 
-
-      // PUSH DiagsDisposition = [];
-      $scope.clinix_DiagsDisposition = [];
-      var promise = $ipadrbg.context.clinix_DiagsDisposition.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagsDisposition = pxresult;
-        });
-        $scope.clinix_DiagsDisposition_JSON = JSON.stringify($scope.clinix_DiagsDisposition);
-        $http({
-          method: 'POST'
-          , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsDisposition.php' //?clinixJsonIzed=' + $scope.clinix_DiagsDisposition_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagsDisposition_JSON
-          , cache : false
-        });
-      });
-
-
-      // PUSH Diags NOTES  
-      $scope.clinix_DiagsNotes = [];
-      var promise = $ipadrbg.context.clinix_DiagsNotes.filter(function (px) { 
-        return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
-      promise.then(function(pxresult) {
-        $scope.$apply(function () {
-          $scope.clinix_DiagsNotes = pxresult;
-        });
-        $scope.clinix_DiagsNotes_JSON = JSON.stringify($scope.clinix_DiagsNotes);
-        $http({
-          method: 'POST'
-          , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_DiagsNotes.php' //?clinixJsonIzed=' + $scope.clinix_DiagsNotes_JSON
-          , contentType : 'application/json'
-          , data : $scope.clinix_DiagsNotes_JSON
-          , cache : false
-        });
-      });
-
-      // PUSH BACK - FLOOR
-
-      //notify server
-      $scope.notifyServer();
-
-      //alert("Appoinment # " + $scope.ClinixRID + " Successfully Closed!");
+        //alert("Appoinment # " + $scope.ClinixRID + " Successfully Closed!");
+      }
     }
   }
 
@@ -292,7 +299,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   $scope.CancelPE = function (clinix) {
     if (confirm('Are you sure to CANCEL this Appoinment: ' + $scope.ClinixRID + ' ?')) {
       $ipadrbg.context.clinix.attach(clinix);
-      clinix.TranStatus = 98;
+      clinix.TranStatus = -1;
       //clinix.TranStatus = 10; // temporaily, testing routine
       $ipadrbg.context.clinix.saveChanges();
 
@@ -345,6 +352,103 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
     });
 
     alert("Appoinment # " + $scope.ClinixRID + " SERVER was Notified!");
+  };
+  
+
+
+
+  // Digital Signature Area
+
+
+
+  $scope.ClosePEdsigNurse = function(formPin) {
+
+
+    if(angular.isUndefined(formPin))
+    {
+      alert('Please Enter Signature PIN.');
+    } 
+    else 
+    {
+      var promise = $ipadrbg.context.jdata_dsig.filter(function (pin) {
+      return pin.PIN == this.id},{id: formPin.NursePIN}).toLiveArray();
+      promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_ClosePEdsig = pxresult;
+
+            if(angular.isDefined(pxresult[0]['PIN']))
+            {
+                var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+                db.transaction(function (tx) {
+                tx.executeSql("update from 'jdata_ClosePEdsig' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND PxRID = " +$scope.clinix.PxRID);
+                });
+
+                newrecord = {
+                ClinixRID : $scope.clinix.ClinixRID
+                ,PxRID    : $scope.clinix.PxRID
+
+                ,NursePIN : pxresult[0]['PIN']
+                }
+              $ipadrbg.context.jdata_ClosePEdsig.add(newrecord);
+              $ipadrbg.context.jdata_ClosePEdsig.saveChanges();
+
+            alert("Nurse Digitaly signed Successfully!");
+            }else
+            {
+              alert('Error');
+            }
+          });
+        }, function()
+        {
+            alert("PIN not Found");
+        });         
+    }
   }
+
+  $scope.ClosePEdsigDoc = function(formPin) {
+
+    if(angular.isUndefined(formPin))
+    {
+      alert('Please Enter Signature PIN.');
+    } 
+    else 
+    {
+      var promise = $ipadrbg.context.jdata_dsig.filter(function (pin) {
+      return pin.PIN == this.id},{id: formPin.DoctorPIN}).toLiveArray();
+      promise.then(function(pxresult) {
+        $scope.$apply(function () {
+          $scope.jdata_ClosePEdsig = pxresult;
+
+          if(angular.isDefined(pxresult[0]['PIN']))
+          {
+              var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+              db.transaction(function (tx) {
+              tx.executeSql("update from 'jdata_ClosePEdsig' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND PxRID = " +$scope.clinix.PxRID);
+              });
+
+              newrecord = {
+              ClinixRID : $scope.clinix.ClinixRID
+              ,PxRID    : $scope.clinix.PxRID
+
+              ,DoctorPIN : pxresult[0]['PIN']
+              }
+            $ipadrbg.context.jdata_ClosePEdsig.add(newrecord);
+            $ipadrbg.context.jdata_ClosePEdsig.saveChanges();
+
+            alert("Doctor Digitaly signed Successfully!");
+          }else
+          {
+            alert('Error');
+          }
+          });
+        }, function()
+        {
+            alert("PIN not Found");
+        });         
+    }
+  }
+
+
+
 
 });

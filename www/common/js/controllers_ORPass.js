@@ -1,6 +1,7 @@
 IOHPEApp.controller('ORPass_Ctrl', function ($scope, $routeParams, $http){
   $scope.jdata_ORPass = [];
   $scope.ClinixRID = $routeParams.p_clinixrid;
+  $scope.parseInt = parseInt;
 
   $scope.LoadORPass = function(){
     var promise = $ipadrbg.context.jdata_ORPass.filter(function (px) { return px.ClinixRID == this.id},{id:$scope.ClinixRID}).toLiveArray();
@@ -86,7 +87,6 @@ IOHPEApp.controller('ORPass_Ctrl', function ($scope, $routeParams, $http){
     , NotRelScale: pxresult[0]['NotRelScale']
     
     , NurseNotes: pxresult[0]['NurseNotes']
-    , NurseName: pxresult[0]['NurseName']
   
   }
 
@@ -180,7 +180,6 @@ IOHPEApp.controller('ORPass_Ctrl', function ($scope, $routeParams, $http){
     , NotRelScale: frmORPass.NotRelScale
     
     , NurseNotes: frmORPass.NurseNotes
-    , NurseName: frmORPass.NurseName
 
     }
     $ipadrbg.context.jdata_ORPass.add(newrecord);

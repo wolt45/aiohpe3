@@ -76,7 +76,6 @@ $data.Entity.extend("$ipadrbg.types.jdata_ORPass", {
 	, NotRelScale: { type: "string"}
 	
 	, NurseNotes: { type: "string"}
-	, NurseName: { type: "string"}
 			
 	, SynchStatus: { type: "string"}
 });
