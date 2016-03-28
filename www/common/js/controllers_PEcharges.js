@@ -364,12 +364,12 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   $scope.ClosePEdsigNurse = function(formPin) {
 
 
-    if(angular.isUndefined(formPin))
-    {
-      alert('Please Enter Signature PIN.');
-    } 
-    else 
-    {
+    // if(angular.isUndefined(formPin))
+    // {
+    //   alert('Please Enter Signature PIN.');
+    // } 
+    // else 
+    // {
       var promise = $ipadrbg.context.jdata_dsig.filter(function (pin) {
       return pin.PIN == this.id},{id: formPin.NursePIN}).toLiveArray();
       promise.then(function(pxresult) {
@@ -402,17 +402,17 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         {
             alert("PIN not Found");
         });         
-    }
+    // }
   }
 
   $scope.ClosePEdsigDoc = function(formPin) {
 
-    if(angular.isUndefined(formPin))
-    {
-      alert('Please Enter Signature PIN.');
-    } 
-    else 
-    {
+    // if(angular.isUndefined(formPin))
+    // {
+    //   alert('Please Enter Signature PIN.');
+    // } 
+    // else 
+    // {
       var promise = $ipadrbg.context.jdata_dsig.filter(function (pin) {
       return pin.PIN == this.id},{id: formPin.DoctorPIN}).toLiveArray();
       promise.then(function(pxresult) {
@@ -445,7 +445,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         {
             alert("PIN not Found");
         });         
-    }
+    // }
   }
 
 
