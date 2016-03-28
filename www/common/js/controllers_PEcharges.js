@@ -133,11 +133,11 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   /////////////////////////////////////////////////////////////
 
   $scope.ClosePE = function (clinix, PEdsigNurse) {
-    if(angular.isUndefined(PEdsigNurse) || angular.isUndefined(PEdsigDoc))
-    { 
-      alert('Please Enter Signiture PIN');
-    }else
-    {
+    // if(angular.isUndefined(PEdsigNurse) || angular.isUndefined(PEdsigDoc))
+    // { 
+    //   alert('Please Enter Signiture PIN');
+    // }else
+    // {
 
       if (confirm('Are you sure to Close this Appoinment => : ' + $scope.ClinixRID + ' ?')) {
         
@@ -292,7 +292,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
 
         //alert("Appoinment # " + $scope.ClinixRID + " Successfully Closed!");
       }
-    }
+    // }
   }
 
   // cancel PE button 
