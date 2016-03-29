@@ -3,7 +3,7 @@ IOHPEApp.controller('ClosePEdsig_Ctrl', function ($scope, $routeParams, $http){
   $scope.ClinixRID = $routeParams.p_clinixrid;
 
 
-   $scope.ClosePEdsigNurseZZz = function(formPin) 
+   $scope.ClosePEdsigNurse = function(formPin) 
   {
     // alert($scope.ORpin.PIN);
     if(formPin.NursePIN == 0 || formPin.NursePIN < 0 || formPin.NursePIN === null)
@@ -51,11 +51,11 @@ IOHPEApp.controller('ClosePEdsig_Ctrl', function ($scope, $routeParams, $http){
   $scope.ClosePEdsigDoctor= function(formPin) 
   {
     // alert($scope.ORpin.PIN);
-    // if(formPin.DoctorPIN == 0 || formPin.DoctorPIN < 0 || formPin.DoctorPIN === null)
-    // {
-    //   alert('Please Enter Signature PIN.');
-    // }else
-    // {
+    if(formPin.DoctorPIN == 0 || formPin.DoctorPIN < 0 || formPin.DoctorPIN === null)
+    {
+      alert('Please Enter Signature PIN.');
+    }else
+    {
       var promise = $ipadrbg.context.jdata_dsig.filter(function (pin) {
       return pin.PIN == this.id },{id: formPin.DoctorPIN}).toLiveArray();
       promise.then(function(pxresult) {
@@ -88,7 +88,7 @@ IOHPEApp.controller('ClosePEdsig_Ctrl', function ($scope, $routeParams, $http){
         alert("PIN is not found.");
         //https://docs.angularjs.org/api/ng/service/$http
       });
-    // }
+    }
   }
 
 

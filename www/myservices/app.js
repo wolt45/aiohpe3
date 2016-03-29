@@ -1,4 +1,4 @@
-// 127.0.0. 1    10.0.1. 99
+// 192.168.10.99
 function DataController($rootScope, $scope, $http) {
 
 	// CLEAN TRANS
@@ -714,14 +714,12 @@ function DataController($rootScope, $scope, $http) {
 	//
 	//
 	//
-	// PULL PHYSICAL EXAM RESULTS
+	// PULL DIAGNOSIS RESULTS
   	$scope.puller_PEDiagnosis = function() {
-    	if (confirm(serverIP + ': Download PE Results, DIAGNOSIS, proceed? ')) {
+    	if (confirm(serverIP + ': Download DIAGNOSIS Data, proceed? ')) {
     		
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
-	            
-
 
             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_Diagnosis'");
             	tx.executeSql("delete from 'clinix_Diagnosis'");
@@ -741,26 +739,23 @@ function DataController($rootScope, $scope, $http) {
             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_DiagsNotes'");
             	tx.executeSql("delete from 'clinix_DiagsNotes'");
 
-            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_PEcharges'");
-            	tx.executeSql("delete from 'clinix_PEcharges'");
+            	// NOT HERE tx.executeSql("update sqlite_sequence set seq = 0 where name ='clinix_PEcharges'");
+            	// NOT HERE tx.executeSql("delete from 'clinix_PEcharges'");
 	        });
-
 
 			$scope.pullDIAGS(function(){
 				$scope.pullDIAGS_mgmt(function(){
-					//$scope.pullDIAGS_ScheduleForSurgery(function(){
+					$scope.pullDIAGS_ScheduleForSurgery(function(){
 						$scope.pullDIAGS_Medication(function(){
 							$scope.pullDIAGS_Disposition(function(){
     							$scope.pullDIAGS_Notes(function(){
-    								$scope.pullDIAGS_Charges(function(){
-
+    								//Not here??? $scope.pullDIAGS_Charges(function(){
 										$ipadrbg.context.saveChanges();
-
-									});
+									//});
 								});
 							});
 						});
-					//});
+					});
 				});
 			});
     									
@@ -771,13 +766,12 @@ function DataController($rootScope, $scope, $http) {
     		// .after($scope.pullHipStanding)
     		// .after
     		// *************************
-
-      		alert("Importing PE Results, DIAGNOSIS from Server was Successful!");
+      		alert("Downloading DIAGNOSIS Data from Server was Successful!");
     	}
   	}
 
   	$scope.puller_PEKnee= function() {
-    	if (confirm(serverIP + ': Download PE Results, DIAGNOSIS, proceed? ')) {
+    	if (confirm(serverIP + ': Download KNEE PE Results, proceed? ')) {
     		
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
@@ -818,13 +812,13 @@ function DataController($rootScope, $scope, $http) {
     		// .after
     		// *************************
 
-      		alert("Importing PE Results, DIAGNOSIS from Server was Successful!");
+      		alert("Importing KNEE PE Results from Server was Successful!");
     	}
   	}
   	
 
   	$scope.puller_PEHip = function() {
-    	if (confirm(serverIP + ': Download PE Results, DIAGNOSIS, proceed? ')) {
+    	if (confirm(serverIP + ': Download HIP PE Results, proceed? ')) {
     		
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
@@ -863,10 +857,9 @@ function DataController($rootScope, $scope, $http) {
     		// .after
     		// *************************
 
-      		alert("Importing PE Results, DIAGNOSIS from Server was Successful!");
+      		alert("Importing HIP PE Results, from Server was Successful!");
     	}
   	}
-
 
 
 	// PULL REPORTS and ORDERS
@@ -5076,18 +5069,13 @@ function DataController($rootScope, $scope, $http) {
 
 
 
-	$scope.pullDsigZzzz = function() {
-    	if (confirm(serverIP + ': Pull all DSIG Data, proceed? ')) {
+	$scope.pullORDsig = function() {
+    	if (confirm(serverIP + ': Pull all OR signature, proceed? ')) {
 
     		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
 	        db.transaction(function (tx) {
 	           	
 	        	//http://stackoverflow.com/questions/31328301/sqlerror-19-unique-constraint-failed
-
-	           	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_dsig'");
-            	tx.executeSql("delete from 'jdata_dsig'");
-            	tx.executeSql("DROP TABLE IF EXISTS jdata_dsig");
-            	// tx.executeSql("CREATE TABLE IF NOT EXISTS jdata_dsig (user TEXT PRIMARY KEY) ")
 
             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ORPreOpdsig'");
             	tx.executeSql("delete from 'jdata_ORPreOpdsig'");
@@ -5098,8 +5086,74 @@ function DataController($rootScope, $scope, $http) {
             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ORPostOpdsig'");
             	tx.executeSql("delete from 'jdata_ORPostOpdsig'");
 
+	        });
+
+	        	$scope.pullPreDsigData(function(){
+	        		$scope.pullIntraDsigData(function(){
+	        			$scope.pullPostDsigData(function(){
+	        							
+							$ipadrbg.context.saveChanges();
+    									
+						});
+					});
+				});
+    											
+
+			alert("Importing OR signature from Server was Successful!");
+    	}
+	}
+
+	$scope.pullITFDsig = function() {
+    	if (confirm(serverIP + ': Pull all ITF Signature, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	
+	        	//http://stackoverflow.com/questions/31328301/sqlerror-19-unique-constraint-failed
+
             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ITFdsig'");
             	tx.executeSql("delete from 'jdata_ITFdsig'");
+
+	        });
+
+	        	$scope.pullITFdsig(function(){
+					$ipadrbg.context.saveChanges();
+				});
+    											
+
+			alert("Importing ITF signitures from Server was Successful!");
+    	}
+	}
+
+	$scope.pullStrucDsig = function() {
+    	if (confirm(serverIP + ': Pull all Structure Discharge Signature, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	
+	        	//http://stackoverflow.com/questions/31328301/sqlerror-19-unique-constraint-failed
+
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_StrucDiscdsig'");
+            	tx.executeSql("delete from 'jdata_StrucDiscdsig'");
+
+	        });
+
+	        	$scope.pullStrucdsig(function(){
+					$ipadrbg.context.saveChanges();
+				});
+    											
+
+			alert("Importing Structure Discharge Signature from Server was Successful!");
+    	}
+	}
+
+	$scope.pullHipDsig = function() {
+    	if (confirm(serverIP + ': Pull all Hip Operative Form Signatures, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	
+	        	//http://stackoverflow.com/questions/31328301/sqlerror-19-unique-constraint-failed
 
             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PreOpHipdsig'");
             	tx.executeSql("delete from 'jdata_PreOpHipdsig'");
@@ -5110,53 +5164,50 @@ function DataController($rootScope, $scope, $http) {
             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_OpHipdsig'");
             	tx.executeSql("delete from 'jdata_OpHipdsig'");
 
+	        });
+
+	        	$scope.pullPreOPHipdsig(function(){
+					$scope.pullPostOPHipdsig(function(){
+						$scope.pullOPHipdsig(function(){
+							$ipadrbg.context.saveChanges();
+						});
+					});
+				});
+    											
+
+			alert("Importing Hip Operative Form Signatures from Server was Successful!");
+    	}
+	}
+
+	$scope.pullKneeDsig = function() {
+    	if (confirm(serverIP + ': Pull Knee Operative Form Signatures, proceed? ')) {
+
+    		var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
+	        db.transaction(function (tx) {
+	           	
+	        	//http://stackoverflow.com/questions/31328301/sqlerror-19-unique-constraint-faile
+	        	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PreOpKneedsig'");
+            	tx.executeSql("delete from 'jdata_PreOpKneedsig'");
+
             	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_OpKneedsig'");
             	tx.executeSql("delete from 'jdata_OpKneedsig'");
 
-            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PostKneedsig'");
-            	tx.executeSql("delete from 'jdata_PostKneedsig'");
+            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PostOpKneedsig'");
+            	tx.executeSql("delete from 'jdata_PostOpKneedsig'");
 
-            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_PreOpKneedsig'");
-            	tx.executeSql("delete from 'jdata_PreOpKneedsig'");
-
-            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_ClosePEdsig'");
-            	tx.executeSql("delete from 'jdata_ClosePEdsig'");
-
-            	tx.executeSql("update sqlite_sequence set seq = 0 where name ='jdata_StrucDiscdsig'");
-            	tx.executeSql("delete from 'jdata_StrucDiscdsig'");
 	        });
 
-	        $scope.pullDsigData(function(){
-	        	$scope.pullPreDsigData(function(){
-	        		$scope.pullIntraDsigData(function(){
-	        			$scope.pullPostDsigData(function(){
-	        				 $scope.pullITFdsig(function(){
-	        					$scope.pullPreOPHipdsig(function(){
-	        						$scope.pullPostOPHipdsig(function(){
-	        							$scope.pullOPHipdsig(function(){
-	        								$scope.pullOPKneedsig(function(){
-	        									$scope.pullPostKneedsig(function(){
-	        										$scope.pullPreKneedsig(function(){
-	        											$scope.pullClosingPEdsig(function(){
-	        												$scope.pullStrucdsig(function(){
+	  	       $scope.pullPreKneedsig(function(){
+					$scope.pullOPKneedsig(function(){
+						$scope.pullPostKneedsig(function(){
 	        							
-																$ipadrbg.context.saveChanges();
+						$ipadrbg.context.saveChanges();
     									
-    														});
-    													});
-    												});
-    											});
-    										});
-    									});
-    								});
-    							});
-    						});
-    					});
-    				});
-    			});
-    		});
+						});
+					});
+				});
 
-			alert("Importing ORDERS, Discharge Summary and REPORTS from Server was Successful!");
+			alert("Importing Knee Operative Form Signatures from Server was Successful!");
     	}
 	}
 
@@ -5472,7 +5523,7 @@ function DataController($rootScope, $scope, $http) {
 			    for(idx in data){
 			    	var jdata_PostOpKneedsig = new $ipadrbg.types.jdata_PostOpKneedsig();
 			    	
-					// jdata_PostOpKneedsig.dsigRID = data[idx].dsigRID;
+					jdata_PostOpKneedsig.dsigRID = data[idx].dsigRID;
 					jdata_PostOpKneedsig.ClinixRID = data[idx].ClinixRID;
 					jdata_PostOpKneedsig.PxRID = data[idx].PxRID;
 						

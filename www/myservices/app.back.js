@@ -2596,6 +2596,7 @@ $scope.pushSportsAnkleFoot = function(){
         });
     });
   };
+
   $scope.pushORIntraOp = function(){
     $scope.jdata_ORIntraOpdsig= [];
     var promise = $ipadrbg.context.jdata_ORIntraOpdsig.filter(function (px) { 
@@ -2615,6 +2616,7 @@ $scope.pushSportsAnkleFoot = function(){
         });
     });
   };
+
   $scope.pushORPostOp = function(){
     $scope.jdata_ORPostOpdsig= [];
     var promise = $ipadrbg.context.jdata_ORPostOpdsig.filter(function (px) { 
@@ -2654,6 +2656,7 @@ $scope.pushSportsAnkleFoot = function(){
         });
     });
   };
+
   $scope.pushStrucDiscdsig = function(){
     $scope.jdata_StrucDiscdsig= [];
     var promise = $ipadrbg.context.jdata_StrucDiscdsig.filter(function (px) { 
@@ -2693,6 +2696,7 @@ $scope.pushSportsAnkleFoot = function(){
         });
     });
   };
+
   $scope.pushOPHip = function(){
     $scope.jdata_OpHipdsig= [];
     var promise = $ipadrbg.context.jdata_OpHipdsig.filter(function (px) { 
@@ -2752,6 +2756,7 @@ $scope.pushSportsAnkleFoot = function(){
         });
     });
   };
+
   $scope.pushOPKnee = function(){
     $scope.jdata_OpKneedsig= [];
     var promise = $ipadrbg.context.jdata_OpKneedsig.filter(function (px) { 
@@ -2798,17 +2803,18 @@ $scope.pushSportsAnkleFoot = function(){
       return px.ClinixRID > 0}).toLiveArray();
 
     promise.then(function(pxresult) {
-        $scope.$apply(function () {
+      $scope.$apply(function () {
           $scope.jdata_ClosePEdsig = pxresult;
-        });
-        $scope.jdata_ClosePEdsig_JSON = JSON.stringify($scope.jdata_ClosePEdsig);
-        $http({
-            method: 'POST'
-            , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_ClosePE_dsig.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
-            , contentType : 'application/json'
-            , data : $scope.jdata_ClosePEdsig_JSON
-            , cache : false
-        });
+      });
+        
+      $scope.jdata_ClosePEdsig_JSON = JSON.stringify($scope.jdata_ClosePEdsig);
+      $http({
+        method: 'POST'
+        , url : 'http://' + serverIP + '/RBGsrvr_todayset/srvr_back_ClosePE_dsig.php' //?clinixJsonIzed=' + $scope.clinix_AmbuStatus_JSON
+        , contentType : 'application/json'
+        , data : $scope.jdata_ClosePEdsig_JSON
+        , cache : false
+      });
     });
   };
 

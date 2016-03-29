@@ -132,12 +132,13 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   // if slows Doctor interaction, move to PUSH button Main Menu
   /////////////////////////////////////////////////////////////
 
-  $scope.ClosePE = function (clinix, PEdsigNurse) {
-    // if(angular.isUndefined(PEdsigNurse) || angular.isUndefined(PEdsigDoc))
-    // { 
-    //   alert('Please Enter Signiture PIN');
-    // }else
-    // {
+  $scope.ClosePE = function (clinix, PEdsigNurse, PEdsigDoc) {
+   // if(angular.isUndefined(PEdsigNurse) || angular.isUndefined(PEdsigDoc))
+   if(angular.isUndefined(PEdsigDoc))
+    { 
+      alert('Please Enter Signiture PIN');
+    }else
+    {
 
       if (confirm('Are you sure to Close this Appoinment => : ' + $scope.ClinixRID + ' ?')) {
         
@@ -292,7 +293,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
 
         //alert("Appoinment # " + $scope.ClinixRID + " Successfully Closed!");
       }
-    // }
+    }
   }
 
   // cancel PE button 
@@ -364,12 +365,12 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
   $scope.ClosePEdsigNurse = function(formPin) {
 
 
-    // if(angular.isUndefined(formPin))
-    // {
-    //   alert('Please Enter Signature PIN.');
-    // } 
-    // else 
-    // {
+    if(angular.isUndefined(formPin))
+    {
+      alert('Please Enter Signature PIN.');
+    } 
+    else 
+    {
       var promise = $ipadrbg.context.jdata_dsig.filter(function (pin) {
       return pin.PIN == this.id},{id: formPin.NursePIN}).toLiveArray();
       promise.then(function(pxresult) {
@@ -380,7 +381,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
             {
                 var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
                 db.transaction(function (tx) {
-                tx.executeSql("update from 'jdata_ClosePEdsig' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND PxRID = " +$scope.clinix.PxRID);
+                tx.executeSql("delete from 'jdata_ClosePEdsig' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
                 });
 
                 newrecord = {
@@ -402,17 +403,17 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         {
             alert("PIN not Found");
         });         
-    // }
+    }
   }
 
   $scope.ClosePEdsigDoc = function(formPin) {
 
-    // if(angular.isUndefined(formPin))
-    // {
-    //   alert('Please Enter Signature PIN.');
-    // } 
-    // else 
-    // {
+    if(angular.isUndefined(formPin))
+    {
+      alert('Please Enter Signature PIN.');
+    } 
+    else 
+    {
       var promise = $ipadrbg.context.jdata_dsig.filter(function (pin) {
       return pin.PIN == this.id},{id: formPin.DoctorPIN}).toLiveArray();
       promise.then(function(pxresult) {
@@ -423,7 +424,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
           {
               var db = window.openDatabase("ipadrbg", "", "iPadMR", 200000);
               db.transaction(function (tx) {
-              tx.executeSql("update from 'jdata_ClosePEdsig' WHERE ClinixRID = " + $scope.clinix.ClinixRID + " AND PxRID = " +$scope.clinix.PxRID);
+              tx.executeSql("delete from 'jdata_ClosePEdsig' WHERE ClinixRID = " + $scope.clinix.ClinixRID);
               });
 
               newrecord = {
@@ -445,7 +446,7 @@ IOHPEApp.controller('PEchargesCtrl', function ($scope, $routeParams, $http){
         {
             alert("PIN not Found");
         });         
-    // }
+    }
   }
 
 
